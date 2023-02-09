@@ -1,7 +1,7 @@
 package awslex
 
 
-// Settings required for a slot type based on a grammar that you provide.
+// Settings requried for a slot type based on a grammar that you provide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

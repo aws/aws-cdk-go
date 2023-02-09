@@ -25,6 +25,8 @@ package awsamplifyuibuilder
 //   	},
 //
 //   	// the properties below are optional
+//   	appId: jsii.String("appId"),
+//   	environmentName: jsii.String("environmentName"),
 //   	overrides: []interface{}{
 //   		&themeValuesProperty{
 //   			key: jsii.String("key"),
@@ -46,6 +48,10 @@ type CfnThemeProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of key-value pairs that defines the properties of the theme.
 	Values interface{} `field:"required" json:"values" yaml:"values"`
+	// `AWS::AmplifyUIBuilder::Theme.AppId`.
+	AppId *string `field:"optional" json:"appId" yaml:"appId"`
+	// `AWS::AmplifyUIBuilder::Theme.EnvironmentName`.
+	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// Describes the properties that can be overriden to customize a theme.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.

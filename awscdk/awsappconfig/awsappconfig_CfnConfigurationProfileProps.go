@@ -34,9 +34,13 @@ package awsappconfig
 type CfnConfigurationProfileProps struct {
 	// The application ID.
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
-	// A URI to locate the configuration.
+	// A URI to locate the configuration. You can specify the following:.
 	//
-	// You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store and for feature flags, specify `hosted` . For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>` . Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`
+	// - For the AWS AppConfig hosted configuration store and for feature flags, specify `hosted` .
+	// - For an AWS Systems Manager Parameter Store parameter, specify either the parameter name in the format `ssm-parameter://<parameter name>` or the ARN.
+	// - For an AWS Secrets Manager secret, specify the URI in the following format: `secrets-manager` ://<secret name>.
+	// - For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>` . Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`
+	// - For an SSM document, specify either the document name in the format `ssm-document://<document name>` or the Amazon Resource Name (ARN).
 	LocationUri *string `field:"required" json:"locationUri" yaml:"locationUri"`
 	// A name for the configuration profile.
 	Name *string `field:"required" json:"name" yaml:"name"`

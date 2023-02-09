@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies the Amazon CloudWatch Logs destination log group for conversation text logs.
+// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package awslex
 //   }
 //
 type CfnBot_TextLogDestinationProperty struct {
-	// Specifies the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
+	// Defines the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
 	CloudWatch interface{} `field:"required" json:"cloudWatch" yaml:"cloudWatch"`
 }
 

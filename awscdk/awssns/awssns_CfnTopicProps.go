@@ -33,6 +33,7 @@ import (
 //   		},
 //   	},
 //   	topicName: jsii.String("topicName"),
+//   	tracingConfig: jsii.String("tracingConfig"),
 //   }
 //
 type CfnTopicProps struct {
@@ -79,5 +80,7 @@ type CfnTopicProps struct {
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName *string `field:"optional" json:"topicName" yaml:"topicName"`
+	// `AWS::SNS::Topic.TracingConfig`.
+	TracingConfig *string `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`
 }
 

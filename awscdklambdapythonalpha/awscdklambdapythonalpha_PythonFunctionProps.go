@@ -188,6 +188,9 @@ type PythonFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// Sets the runtime management configuration for a function's version.
+	// Experimental.
+	RuntimeManagementMode awslambda.RuntimeManagementMode `field:"optional" json:"runtimeManagementMode" yaml:"runtimeManagementMode"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.

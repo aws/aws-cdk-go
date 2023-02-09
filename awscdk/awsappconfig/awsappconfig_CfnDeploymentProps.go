@@ -17,6 +17,7 @@ package awsappconfig
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	kmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	tags: []tagsProperty{
 //   		&tagsProperty{
 //   			key: jsii.String("key"),
@@ -38,6 +39,8 @@ type CfnDeploymentProps struct {
 	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`
 	// A description of the deployment.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// `AWS::AppConfig::Deployment.KmsKeyIdentifier`.
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// Metadata to assign to the deployment.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.

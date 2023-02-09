@@ -13,14 +13,23 @@ import (
 // add the end of an existing CodePipeline, which should be very rare.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var codePipeline pipeline
 //
-//   var artifact artifact
 //
-//   codePipelineFileSet := awscdk.Pipelines.codePipelineFileSet.fromArtifact(artifact)
+//   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))
+//
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+//   	codePipeline: codePipeline,
+//   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+//   		input: pipelines.codePipelineFileSet.fromArtifact(sourceArtifact),
+//   		commands: []*string{
+//   			jsii.String("npm ci"),
+//   			jsii.String("npm run build"),
+//   			jsii.String("npx cdk synth"),
+//   		},
+//   	}),
+//   })
 //
 type CodePipelineFileSet interface {
 	FileSet

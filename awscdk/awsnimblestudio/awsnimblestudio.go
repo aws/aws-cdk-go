@@ -63,6 +63,10 @@ func init() {
 		reflect.TypeOf((*CfnLaunchProfile_StreamConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile.StreamConfigurationSessionBackupProperty",
+		reflect.TypeOf((*CfnLaunchProfile_StreamConfigurationSessionBackupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile.StreamConfigurationSessionStorageProperty",
 		reflect.TypeOf((*CfnLaunchProfile_StreamConfigurationSessionStorageProperty)(nil)).Elem(),
 	)

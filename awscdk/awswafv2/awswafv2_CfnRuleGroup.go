@@ -487,7 +487,7 @@ import (
 //   				allow: allow,
 //   				block: block,
 //   				captcha: captcha,
-//   				challenge: &challengeProperty{
+//   				challenge: &challengeActionProperty{
 //   					customRequestHandling: &customRequestHandlingProperty{
 //   						insertHeaders: []interface{}{
 //   							&customHTTPHeaderProperty{

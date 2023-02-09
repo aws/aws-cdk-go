@@ -179,6 +179,14 @@ func validateCfnCRL_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCRL) validateSetCrlDataParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCRL) validateSetEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -196,6 +204,14 @@ func (j *jsiiProxy_CfnCRL) validateSetEnabledParameters(val interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCRL) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnCRLParameters(scope constructs.Construct, id *string, props *CfnCRLProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -205,6 +221,9 @@ func validateNewCfnCRLParameters(scope constructs.Construct, id *string, props *
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

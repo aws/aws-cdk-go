@@ -8,26 +8,17 @@ import (
 // Properties for Ec2Environment.
 //
 // Example:
-//   import codecommit "github.com/aws/aws-cdk-go/awscdk"
-//
-//   // create a new Cloud9 environment and clone the two repositories
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   var vpc vpc
 //
 //
-//   // create a codecommit repository to clone into the cloud9 environment
-//   repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &repositoryProps{
-//   	repositoryName: jsii.String("new-repo"),
-//   })
-//
-//   // import an existing codecommit repository to clone into the cloud9 environment
-//   repoExisting := codecommit.repository.fromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
+//   user := iam.NewUser(this, jsii.String("user"))
+//   user.addManagedPolicy(iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("AWSCloud9Administrator")))
 //   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
 //   	vpc: vpc,
-//   	clonedRepositories: []cloneRepository{
-//   		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
-//   		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
-//   	},
 //   	imageId: cloud9.imageId_AMAZON_LINUX_2,
+//
+//   	owner: cloud9.owner.user(user),
 //   })
 //
 // Experimental.
@@ -55,6 +46,11 @@ type Ec2EnvironmentProps struct {
 	// The type of instance to connect to the environment.
 	// Experimental.
 	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// Owner of the environment.
+	//
+	// The owner has full control of the environment and can invite additional members.
+	// Experimental.
+	Owner Owner `field:"optional" json:"owner" yaml:"owner"`
 	// The subnetSelection of the VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`

@@ -81,4 +81,14 @@ func init() {
 			"UBUNTU_18_04": ImageId_UBUNTU_18_04,
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-cloud9-alpha.Owner",
+		reflect.TypeOf((*Owner)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ownerArn", GoGetter: "OwnerArn"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Owner{}
+		},
+	)
 }

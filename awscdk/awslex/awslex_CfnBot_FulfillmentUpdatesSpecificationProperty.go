@@ -142,7 +142,7 @@ package awslex
 type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
 	//
-	// If the active field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
+	// If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
 	Active interface{} `field:"required" json:"active" yaml:"active"`
 	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 	StartResponse interface{} `field:"optional" json:"startResponse" yaml:"startResponse"`

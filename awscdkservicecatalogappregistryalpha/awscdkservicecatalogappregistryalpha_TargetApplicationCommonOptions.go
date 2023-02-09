@@ -140,7 +140,7 @@ type TargetApplicationCommonOptions struct {
 	//
 	// The id of a stack is also the identifier that you use to
 	// refer to it in the [AWS CDK Toolkit](https://docs.aws.amazon.com/cdk/v2/guide/cli.html).
-	// Experimental.
+	// Deprecated: - Use `stackName` instead to control the name of the stack.
 	StackId *string `field:"optional" json:"stackId" yaml:"stackId"`
 }
 

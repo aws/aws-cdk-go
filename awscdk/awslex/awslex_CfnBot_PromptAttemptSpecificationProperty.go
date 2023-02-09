@@ -1,6 +1,8 @@
 package awslex
 
 
+// Specifies the settings on a prompt attempt.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,13 +37,13 @@ package awslex
 //   }
 //
 type CfnBot_PromptAttemptSpecificationProperty struct {
-	// `CfnBot.PromptAttemptSpecificationProperty.AllowedInputTypes`.
+	// Indicates the allowed input types of the prompt attempt.
 	AllowedInputTypes interface{} `field:"required" json:"allowedInputTypes" yaml:"allowedInputTypes"`
-	// `CfnBot.PromptAttemptSpecificationProperty.AllowInterrupt`.
+	// Indicates whether the user can interrupt a speech prompt attempt from the bot.
 	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
-	// `CfnBot.PromptAttemptSpecificationProperty.AudioAndDTMFInputSpecification`.
+	// Specifies the settings on audio and DTMF input.
 	AudioAndDtmfInputSpecification interface{} `field:"optional" json:"audioAndDtmfInputSpecification" yaml:"audioAndDtmfInputSpecification"`
-	// `CfnBot.PromptAttemptSpecificationProperty.TextInputSpecification`.
+	// Specifies the settings on text input.
 	TextInputSpecification interface{} `field:"optional" json:"textInputSpecification" yaml:"textInputSpecification"`
 }
 

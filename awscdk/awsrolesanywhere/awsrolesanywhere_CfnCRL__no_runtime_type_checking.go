@@ -80,7 +80,15 @@ func validateCfnCRL_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCRL) validateSetCrlDataParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCRL) validateSetEnabledParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCRL) validateSetNameParameters(val *string) error {
 	return nil
 }
 

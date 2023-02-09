@@ -37,7 +37,7 @@ type ServicePrincipal interface {
 	PrincipalAccount() *string
 	// AWS service (i.e. sqs.amazonaws.com).
 	Service() *string
-	// Add the princpial to the AssumeRolePolicyDocument.
+	// Add the principal to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.

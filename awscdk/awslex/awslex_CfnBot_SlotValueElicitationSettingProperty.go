@@ -1,7 +1,7 @@
 package awslex
 
 
-// Settings that you can use for eliciting a slot value.
+// Specifies the elicitation setting details for constituent sub slots of a composite slot.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1838,9 +1838,9 @@ type CfnBot_SlotValueElicitationSettingProperty struct {
 	PromptSpecification interface{} `field:"optional" json:"promptSpecification" yaml:"promptSpecification"`
 	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
 	//
-	// This is optional. In most cases Amazon Lex is capable of understanding user utterances.
+	// This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 	SampleUtterances interface{} `field:"optional" json:"sampleUtterances" yaml:"sampleUtterances"`
-	// `CfnBot.SlotValueElicitationSettingProperty.SlotCaptureSetting`.
+	// Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
 	SlotCaptureSetting interface{} `field:"optional" json:"slotCaptureSetting" yaml:"slotCaptureSetting"`
 	// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
 	WaitAndContinueSpecification interface{} `field:"optional" json:"waitAndContinueSpecification" yaml:"waitAndContinueSpecification"`

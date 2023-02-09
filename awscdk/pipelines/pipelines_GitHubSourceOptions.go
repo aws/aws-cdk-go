@@ -15,6 +15,8 @@ import (
 //   })
 //
 type GitHubSourceOptions struct {
+	// The action name used for this source in the CodePipeline.
+	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// A GitHub OAuth token to use for authentication.
 	//
 	// It is recommended to use a Secrets Manager `Secret` to obtain the token:

@@ -12,12 +12,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnIPAMProps := &cfnIPAMProps{
+//   	defaultResourceDiscoveryAssociationId: jsii.String("defaultResourceDiscoveryAssociationId"),
+//   	defaultResourceDiscoveryId: jsii.String("defaultResourceDiscoveryId"),
 //   	description: jsii.String("description"),
 //   	operatingRegions: []interface{}{
 //   		&ipamOperatingRegionProperty{
 //   			regionName: jsii.String("regionName"),
 //   		},
 //   	},
+//   	resourceDiscoveryAssociationCount: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -27,6 +30,10 @@ import (
 //   }
 //
 type CfnIPAMProps struct {
+	// `AWS::EC2::IPAM.DefaultResourceDiscoveryAssociationId`.
+	DefaultResourceDiscoveryAssociationId *string `field:"optional" json:"defaultResourceDiscoveryAssociationId" yaml:"defaultResourceDiscoveryAssociationId"`
+	// `AWS::EC2::IPAM.DefaultResourceDiscoveryId`.
+	DefaultResourceDiscoveryId *string `field:"optional" json:"defaultResourceDiscoveryId" yaml:"defaultResourceDiscoveryId"`
 	// The description for the IPAM.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The operating Regions for an IPAM.
@@ -35,6 +42,8 @@ type CfnIPAMProps struct {
 	//
 	// For more information about operating Regions, see [Create an IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	OperatingRegions interface{} `field:"optional" json:"operatingRegions" yaml:"operatingRegions"`
+	// `AWS::EC2::IPAM.ResourceDiscoveryAssociationCount`.
+	ResourceDiscoveryAssociationCount *float64 `field:"optional" json:"resourceDiscoveryAssociationCount" yaml:"resourceDiscoveryAssociationCount"`
 	// The key/value combination of a tag assigned to the resource.
 	//
 	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.

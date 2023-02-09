@@ -34,7 +34,6 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
-//   	targetRole: jsii.String("targetRole"),
 //   	vpcSecurityGroupIds: []*string{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
@@ -51,6 +50,7 @@ type CfnDBProxyEndpoint interface {
 	//
 	// Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
 	AttrIsDefault() awscdk.IResolvable
+	AttrTargetRole() *string
 	// The VPC ID of the DB proxy endpoint.
 	AttrVpcId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -92,11 +92,6 @@ type CfnDBProxyEndpoint interface {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags() *[]*CfnDBProxyEndpoint_TagFormatProperty
 	SetTags(val *[]*CfnDBProxyEndpoint_TagFormatProperty)
-	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	//
-	// Valid Values: `READ_WRITE | READ_ONLY`.
-	TargetRole() *string
-	SetTargetRole(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -283,6 +278,16 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) AttrIsDefault() awscdk.IResolvable {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBProxyEndpoint) AttrTargetRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrTargetRole",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBProxyEndpoint) AttrVpcId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -403,16 +408,6 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) Tags() *[]*CfnDBProxyEndpoint_TagFormatPr
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyEndpoint) TargetRole() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"targetRole",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDBProxyEndpoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -512,14 +507,6 @@ func (j *jsiiProxy_CfnDBProxyEndpoint)SetTags(val *[]*CfnDBProxyEndpoint_TagForm
 	_jsii_.Set(
 		j,
 		"tags",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDBProxyEndpoint)SetTargetRole(val *string) {
-	_jsii_.Set(
-		j,
-		"targetRole",
 		val,
 	)
 }

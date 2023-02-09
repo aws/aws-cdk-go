@@ -14,9 +14,17 @@ package awsconnect
 //   }
 //
 type CfnSecurityKeyProps struct {
-	// `AWS::Connect::SecurityKey.InstanceId`.
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`.
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
-	// The key of the security key.
+	// A valid security key in PEM format.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `1024`.
 	Key *string `field:"required" json:"key" yaml:"key"`
 }
 

@@ -32,7 +32,7 @@ type CfnTagAssociation_TableResourceProperty struct {
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The name of the table.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// A wildcard object representing every table under a database.
+	// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
 	//
 	// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
 	TableWildcard interface{} `field:"optional" json:"tableWildcard" yaml:"tableWildcard"`

@@ -98,6 +98,7 @@ package awsamplifyuibuilder
 //   	},
 //
 //   	// the properties below are optional
+//   	appId: jsii.String("appId"),
 //   	children: []interface{}{
 //   		&componentChildProperty{
 //   			componentType: jsii.String("componentType"),
@@ -530,6 +531,7 @@ package awsamplifyuibuilder
 //   			},
 //   		},
 //   	},
+//   	environmentName: jsii.String("environmentName"),
 //   	events: map[string]interface{}{
 //   		"eventsKey": &ComponentEventProperty{
 //   			"action": jsii.String("action"),
@@ -910,12 +912,16 @@ type CfnComponentProps struct {
 	//
 	// A variant is a unique style configuration of a main component.
 	Variants interface{} `field:"required" json:"variants" yaml:"variants"`
+	// `AWS::AmplifyUIBuilder::Component.AppId`.
+	AppId *string `field:"optional" json:"appId" yaml:"appId"`
 	// A list of the component's `ComponentChild` instances.
 	Children interface{} `field:"optional" json:"children" yaml:"children"`
 	// The data binding configuration for the component's properties.
 	//
 	// Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties interface{} `field:"optional" json:"collectionProperties" yaml:"collectionProperties"`
+	// `AWS::AmplifyUIBuilder::Component.EnvironmentName`.
+	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// Describes the events that can be raised on the component.
 	//
 	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.

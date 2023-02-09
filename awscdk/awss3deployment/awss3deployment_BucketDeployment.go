@@ -35,7 +35,9 @@ type BucketDeployment interface {
 	// bucket deployment has happened before the next operation is started, pass the other construct
 	// a reference to `deployment.deployedBucket`.
 	//
-	// Doing this replaces calling `otherResource.node.addDependency(deployment)`.
+	// Note that this only returns an immutable reference to the destination bucket.
+	// If sequenced access to the original destination bucket is required, you may add a dependency
+	// on the bucket deployment instead: `otherResource.node.addDependency(deployment)`
 	DeployedBucket() awss3.IBucket
 	// The tree node.
 	Node() constructs.Node

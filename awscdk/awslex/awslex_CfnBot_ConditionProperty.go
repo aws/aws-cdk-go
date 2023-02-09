@@ -1,6 +1,8 @@
 package awslex
 
 
+// Provides an expression that evaluates to true or false.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awslex
 //   }
 //
 type CfnBot_ConditionProperty struct {
-	// `CfnBot.ConditionProperty.ExpressionString`.
+	// The expression string that is evaluated.
 	ExpressionString *string `field:"required" json:"expressionString" yaml:"expressionString"`
 }
 

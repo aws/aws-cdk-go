@@ -29,6 +29,10 @@ package awsnimblestudio
 //   		automaticTerminationMode: jsii.String("automaticTerminationMode"),
 //   		maxSessionLengthInMinutes: jsii.Number(123),
 //   		maxStoppedSessionLengthInMinutes: jsii.Number(123),
+//   		sessionBackup: &streamConfigurationSessionBackupProperty{
+//   			maxBackupsToRetain: jsii.Number(123),
+//   			mode: jsii.String("mode"),
+//   		},
 //   		sessionPersistenceMode: jsii.String("sessionPersistenceMode"),
 //   		sessionStorage: &streamConfigurationSessionStorageProperty{
 //   			mode: []*string{

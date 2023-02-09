@@ -14,7 +14,6 @@ package awsrds
 //   	description: jsii.String("description"),
 //   	iamAuth: jsii.String("iamAuth"),
 //   	secretArn: jsii.String("secretArn"),
-//   	userName: jsii.String("userName"),
 //   }
 //
 type CfnDBProxy_AuthFormatProperty struct {
@@ -36,7 +35,5 @@ type CfnDBProxy_AuthFormatProperty struct {
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
-	// The name of the database user to which the proxy connects.
-	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 

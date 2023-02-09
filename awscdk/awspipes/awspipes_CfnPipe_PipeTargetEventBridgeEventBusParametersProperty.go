@@ -24,8 +24,6 @@ type CfnPipe_PipeTargetEventBridgeEventBusParametersProperty struct {
 	// The URL subdomain of the endpoint.
 	//
 	// For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is `abcde.veo` .
-	//
-	// > When using Java, you must include `auth-crt` on the class path.
 	EndpointId *string `field:"optional" json:"endpointId" yaml:"endpointId"`
 	// AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns.
 	//

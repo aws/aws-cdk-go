@@ -31,7 +31,7 @@ type CfnAssessment_DelegationProperty struct {
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The identifier for the control set that's associated with the delegation.
 	ControlSetId *string `field:"optional" json:"controlSetId" yaml:"controlSetId"`
-	// The IAM user or role that created the delegation.
+	// The user or role that created the delegation.
 	//
 	// *Minimum* : `1`
 	//

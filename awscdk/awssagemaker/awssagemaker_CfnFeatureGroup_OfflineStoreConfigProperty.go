@@ -37,9 +37,7 @@ type CfnFeatureGroup_OfflineStoreConfigProperty struct {
 	DataCatalogConfig interface{} `field:"optional" json:"dataCatalogConfig" yaml:"dataCatalogConfig"`
 	// Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` .
 	DisableGlueTableCreation interface{} `field:"optional" json:"disableGlueTableCreation" yaml:"disableGlueTableCreation"`
-	// Format for the offline store table.
-	//
-	// Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
+	// `CfnFeatureGroup.OfflineStoreConfigProperty.TableFormat`.
 	TableFormat *string `field:"optional" json:"tableFormat" yaml:"tableFormat"`
 }
 

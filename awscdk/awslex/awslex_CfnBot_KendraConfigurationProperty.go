@@ -21,7 +21,7 @@ type CfnBot_KendraConfigurationProperty struct {
 	KendraIndex *string `field:"required" json:"kendraIndex" yaml:"kendraIndex"`
 	// A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query.
 	//
-	// The filter is in the format defined by Amazon Kendra.
+	// The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
 	QueryFilterString *string `field:"optional" json:"queryFilterString" yaml:"queryFilterString"`
 	// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
 	QueryFilterStringEnabled interface{} `field:"optional" json:"queryFilterStringEnabled" yaml:"queryFilterStringEnabled"`

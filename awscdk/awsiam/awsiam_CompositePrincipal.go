@@ -55,7 +55,7 @@ type CompositePrincipal interface {
 	// Composite principals cannot have
 	// conditions.
 	AddPrincipals(principals ...IPrincipal) CompositePrincipal
-	// Add the princpial to the AssumeRolePolicyDocument.
+	// Add the principal to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.

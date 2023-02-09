@@ -1180,3 +1180,30 @@ lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
 ```
+
+## Runtime updates
+
+Lambda runtime management controls help reduce the risk of impact to your workloads in the rare event of a runtime version incompatibility.
+For more information, see [Runtime management controls](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-controls)
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+NewFunction(stack, jsii.String("Lambda"), map[string]interface{}{
+	"runtimeManagementMode": RuntimeManagementMode_AUTO,
+	"runtime": lambda.Runtime_NODEJS_18_X(),
+	"handler": jsii.String("index.handler"),
+	"code": lambda.Code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+})
+```
+
+If you want to set the "Manual" setting, using the ARN of the runtime version as the argument.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+NewFunction(stack, jsii.String("Lambda"), map[string]interface{}{
+	"runtimeManagementMode": RuntimeManagementMode_manual(jsii.String("runtimeVersion-arn")),
+	"runtime": lambda.Runtime_NODEJS_18_X(),
+	"handler": jsii.String("index.handler"),
+	"code": lambda.Code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+})
+```

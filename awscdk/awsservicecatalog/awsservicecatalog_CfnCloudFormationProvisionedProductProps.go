@@ -77,9 +77,7 @@ type CfnCloudFormationProvisionedProductProps struct {
 	//
 	// > You must specify either the ID or the name of the product, but not both.
 	ProductId *string `field:"optional" json:"productId" yaml:"productId"`
-	// A user-friendly name for the provisioned product.
-	//
-	// This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+	// The name of the Service Catalog product.
 	//
 	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
 	//

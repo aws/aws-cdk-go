@@ -12,10 +12,15 @@ package awsnetworkfirewall
 //
 //   subnetMappingProperty := &subnetMappingProperty{
 //   	subnetId: jsii.String("subnetId"),
+//
+//   	// the properties below are optional
+//   	ipAddressType: jsii.String("ipAddressType"),
 //   }
 //
 type CfnFirewall_SubnetMappingProperty struct {
 	// The unique identifier for the subnet.
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
+	// `CfnFirewall.SubnetMappingProperty.IPAddressType`.
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 }
 

@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies settings that enable advanced audio recognition for slot values.
+// Provides settings that enable advanced recognition settings for slot values.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,7 +13,7 @@ package awslex
 //   }
 //
 type CfnBot_AdvancedRecognitionSettingProperty struct {
-	// Specifies that Amazon Lex should use slot values as a custom vocabulary when recognizing user utterances.
+	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
 	AudioRecognitionStrategy *string `field:"optional" json:"audioRecognitionStrategy" yaml:"audioRecognitionStrategy"`
 }
 

@@ -35,18 +35,24 @@ package awscloudtrail
 type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// A field in a CloudTrail event record on which to filter events to be logged.
 	//
-	// For event data stores for AWS Config configuration items, the field is used only for selecting configuration items as filtering is not supported.
+	// For event data stores for AWS Config configuration items, Audit Manager evidence, or non- AWS events, the field is used only for selecting events as filtering is not supported.
 	//
 	// For CloudTrail event records, supported fields include `readOnly` , `eventCategory` , `eventSource` (for management events), `eventName` , `resources.type` , and `resources.ARN` .
 	//
-	// For AWS Config configuration item records, the only supported field is `eventCategory` .
+	// For event data stores for AWS Config configuration items, Audit Manager evidence, or non- AWS events, the only supported field is `eventCategory` .
 	//
 	// - *`readOnly`* - Optional. Can be set to `Equals` a value of `true` or `false` . If you do not add this field, CloudTrail logs both `read` and `write` events. A value of `true` logs only `read` events. A value of `false` logs only `write` events.
 	// - *`eventSource`* - For filtering management events only. This can be set only to `NotEquals` `kms.amazonaws.com` .
 	// - *`eventName`* - Can use any operator. You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as `PutBucket` or `GetSnapshotBlock` . You can have multiple values for this ﬁeld, separated by commas.
-	// - *`eventCategory`* - This is required and must be set to `Equals` . For CloudTrail event records, the value must be `Management` or `Data` . For AWS Config configuration item records, the value must be `ConfigurationItem` .
+	// - *`eventCategory`* - This is required and must be set to `Equals` .
+	//
+	// - For CloudTrail event records, the value must be `Management` or `Data` .
+	// - For AWS Config configuration items, the value must be `ConfigurationItem` .
+	// - For Audit Manager evidence, the value must be `Evidence` .
+	// - For non- AWS events, the value must be `ActivityAuditLog` .
 	// - *`resources.type`* - This ﬁeld is required for CloudTrail data events. `resources.type` can only use the `Equals` operator, and the value can be one of the following:
 	//
+	// - `AWS::CloudTrail::Channel`
 	// - `AWS::S3::Object`
 	// - `AWS::Lambda::Function`
 	// - `AWS::DynamoDB::Table`
@@ -81,6 +87,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When resources.type equals `AWS::DynamoDB::Table` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name>`
+	//
+	// When resources.type equals `AWS::CloudTrail::Channel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID>`
 	//
 	// When `resources.type` equals `AWS::S3Outposts::Object` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

@@ -1,6 +1,8 @@
 package awslex
 
 
+// Specifies the audio input specifications.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awslex
 //   }
 //
 type CfnBot_AudioSpecificationProperty struct {
-	// `CfnBot.AudioSpecificationProperty.EndTimeoutMs`.
+	// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
 	EndTimeoutMs *float64 `field:"required" json:"endTimeoutMs" yaml:"endTimeoutMs"`
-	// `CfnBot.AudioSpecificationProperty.MaxLengthMs`.
+	// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
 	MaxLengthMs *float64 `field:"required" json:"maxLengthMs" yaml:"maxLengthMs"`
 }
 

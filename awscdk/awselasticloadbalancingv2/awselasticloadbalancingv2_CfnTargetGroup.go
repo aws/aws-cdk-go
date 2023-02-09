@@ -13,8 +13,6 @@ import (
 //
 // Specifies a target group for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
-// If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.
-//
 // Before you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.
 //
 // Example:
@@ -68,8 +66,9 @@ import (
 type CfnTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
+	// The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target group.
 	AttrLoadBalancerArns() *[]*string
+	// The Amazon Resource Name (ARN) of the target group.
 	AttrTargetGroupArn() *string
 	// The full name of the target group.
 	//
@@ -122,7 +121,7 @@ type CfnTargetGroup interface {
 	SetHealthCheckTimeoutSeconds(val *float64)
 	// The number of consecutive health check successes required before considering a target healthy.
 	//
-	// The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 3. If the target type is `lambda` , the default is 5.
+	// The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 5. If the target type is `lambda` , the default is 5.
 	HealthyThresholdCount() *float64
 	SetHealthyThresholdCount(val *float64)
 	// The type of IP address used for this target group.
@@ -196,7 +195,7 @@ type CfnTargetGroup interface {
 	SetTargetType(val *string)
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//
-	// The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 3. If the target type is `lambda` , the default is 5.
+	// The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 2. If the target type is `lambda` , the default is 5.
 	UnhealthyThresholdCount() *float64
 	SetUnhealthyThresholdCount(val *float64)
 	// Deprecated.

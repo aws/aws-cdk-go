@@ -56,6 +56,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaigns.CfnCampaign.AnswerMachineDetectionConfigProperty",
+		reflect.TypeOf((*CfnCampaign_AnswerMachineDetectionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaigns.CfnCampaign.DialerConfigProperty",
 		reflect.TypeOf((*CfnCampaign_DialerConfigProperty)(nil)).Elem(),
 	)

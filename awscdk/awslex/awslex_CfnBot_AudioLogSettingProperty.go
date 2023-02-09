@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies settings for logging the audio of conversations between Amazon Lex and a user.
+// Settings for logging audio of conversations between Amazon Lex and a user.
 //
 // You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 //
@@ -26,7 +26,7 @@ package awslex
 type CfnBot_AudioLogSettingProperty struct {
 	// Specifies the location of the audio log files collected when conversation logging is enabled for a bot.
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
-	// Specifies whether audio logging is enabled for the bot.
+	// Determines whether audio logging in enabled for the bot.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

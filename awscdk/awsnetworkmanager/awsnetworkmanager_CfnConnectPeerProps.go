@@ -12,15 +12,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnConnectPeerProps := &cfnConnectPeerProps{
-//   	bgpOptions: &bgpOptionsProperty{
-//   		peerAsn: jsii.Number(123),
-//   	},
 //   	connectAttachmentId: jsii.String("connectAttachmentId"),
-//   	coreNetworkAddress: jsii.String("coreNetworkAddress"),
 //   	insideCidrBlocks: []*string{
 //   		jsii.String("insideCidrBlocks"),
 //   	},
 //   	peerAddress: jsii.String("peerAddress"),
+//
+//   	// the properties below are optional
+//   	bgpOptions: &bgpOptionsProperty{
+//   		peerAsn: jsii.Number(123),
+//   	},
+//   	coreNetworkAddress: jsii.String("coreNetworkAddress"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -30,16 +32,16 @@ import (
 //   }
 //
 type CfnConnectPeerProps struct {
+	// The ID of the attachment to connect.
+	ConnectAttachmentId *string `field:"required" json:"connectAttachmentId" yaml:"connectAttachmentId"`
+	// The inside IP addresses used for a Connect peer configuration.
+	InsideCidrBlocks *[]*string `field:"required" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
+	// The IP address of the Connect peer.
+	PeerAddress *string `field:"required" json:"peerAddress" yaml:"peerAddress"`
 	// `AWS::NetworkManager::ConnectPeer.BgpOptions`.
 	BgpOptions interface{} `field:"optional" json:"bgpOptions" yaml:"bgpOptions"`
-	// The ID of the attachment to connect.
-	ConnectAttachmentId *string `field:"optional" json:"connectAttachmentId" yaml:"connectAttachmentId"`
 	// The IP address of a core network.
 	CoreNetworkAddress *string `field:"optional" json:"coreNetworkAddress" yaml:"coreNetworkAddress"`
-	// The inside IP addresses used for a Connect peer configuration.
-	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
-	// The IP address of the Connect peer.
-	PeerAddress *string `field:"optional" json:"peerAddress" yaml:"peerAddress"`
 	// The list of key-value tags associated with the Connect peer.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

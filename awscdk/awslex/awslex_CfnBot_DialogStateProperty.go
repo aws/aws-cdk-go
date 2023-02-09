@@ -1,6 +1,8 @@
 package awslex
 
 
+// The current state of the conversation with the user.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,11 +46,13 @@ package awslex
 //   }
 //
 type CfnBot_DialogStateProperty struct {
-	// `CfnBot.DialogStateProperty.DialogAction`.
+	// Defines the action that the bot executes at runtime when the conversation reaches this step.
 	DialogAction interface{} `field:"optional" json:"dialogAction" yaml:"dialogAction"`
-	// `CfnBot.DialogStateProperty.Intent`.
+	// Override settings to configure the intent state.
 	Intent interface{} `field:"optional" json:"intent" yaml:"intent"`
-	// `CfnBot.DialogStateProperty.SessionAttributes`.
+	// Map of key/value pairs representing session-specific context information.
+	//
+	// It contains application information passed between Amazon Lex and a client application.
 	SessionAttributes interface{} `field:"optional" json:"sessionAttributes" yaml:"sessionAttributes"`
 }
 

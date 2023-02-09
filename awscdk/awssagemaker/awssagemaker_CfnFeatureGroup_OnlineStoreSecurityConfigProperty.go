@@ -29,7 +29,7 @@ type CfnFeatureGroup_OnlineStoreSecurityConfigProperty struct {
 	// - `"kms:ListGrants"`
 	// - `"kms:RevokeGrant"`
 	//
-	// The caller (either IAM user or IAM role) to all DataPlane operations ( `PutRecord` , `GetRecord` , `DeleteRecord` ) must have the following permissions to the `KmsKeyId` :
+	// The caller (either user or IAM role) to all DataPlane operations ( `PutRecord` , `GetRecord` , `DeleteRecord` ) must have the following permissions to the `KmsKeyId` :
 	//
 	// - `"kms:Decrypt"`.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

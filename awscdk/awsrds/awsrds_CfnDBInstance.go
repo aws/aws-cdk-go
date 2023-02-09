@@ -357,7 +357,7 @@ type CfnDBInstance interface {
 	SetDbClusterIdentifier(val *string)
 	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
 	//
-	// For more information on Multi-AZ DB clusters, see [Multi-AZ deployments with two readable standby DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
+	// For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
 	//
 	// Constraints:
 	//

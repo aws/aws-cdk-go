@@ -39,7 +39,6 @@ import (
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	serverName: jsii.String("serverName"),
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -138,10 +137,6 @@ type CfnServerProps struct {
 	//
 	// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// The name of the server.
-	//
-	// The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-	ServerName *string `field:"optional" json:"serverName" yaml:"serverName"`
 	// The IDs of subnets in which to launch the server EC2 instance.
 	//
 	// Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.

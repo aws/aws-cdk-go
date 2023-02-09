@@ -6497,7 +6497,7 @@ package awslex
 //   }
 //
 type CfnBotProps struct {
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
+	// `AWS::Lex::Bot.DataPrivacy`.
 	DataPrivacy interface{} `field:"required" json:"dataPrivacy" yaml:"dataPrivacy"`
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	//
@@ -6505,7 +6505,7 @@ type CfnBotProps struct {
 	//
 	// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 	IdleSessionTtlInSeconds *float64 `field:"required" json:"idleSessionTtlInSeconds" yaml:"idleSessionTtlInSeconds"`
-	// The name of the field to filter the list of bots.
+	// The name of the bot locale.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

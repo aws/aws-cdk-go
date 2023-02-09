@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies settings that manage logging that saves audio, text, and metadata for the conversations with your users.
+// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,11 +37,9 @@ package awslex
 //   }
 //
 type CfnBot_ConversationLogSettingsProperty struct {
-	// Specifies the Amazon S3 settings for logging audio to an S3 bucket.
+	// The Amazon S3 settings for logging audio to an S3 bucket.
 	AudioLogSettings interface{} `field:"optional" json:"audioLogSettings" yaml:"audioLogSettings"`
-	// Specifies settings to enable text conversation logs.
-	//
-	// You specify the Amazon CloudWatch Logs log group and whether logs should be stored for an alias.
+	// The Amazon CloudWatch Logs settings for logging text and metadata.
 	TextLogSettings interface{} `field:"optional" json:"textLogSettings" yaml:"textLogSettings"`
 }
 

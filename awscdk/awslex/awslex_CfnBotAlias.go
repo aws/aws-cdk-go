@@ -94,9 +94,7 @@ type CfnBotAlias interface {
 	//
 	// When the status is Available the alias is ready for use with your bot.
 	AttrBotAliasStatus() *string
-	// Maps configuration information to a specific locale.
-	//
-	// You can use this parameter to specify a specific Lambda function to run different functions in different locales.
+	// `AWS::Lex::BotAlias.BotAliasLocaleSettings`.
 	BotAliasLocaleSettings() interface{}
 	SetBotAliasLocaleSettings(val interface{})
 	// The name of the bot alias.

@@ -23,6 +23,8 @@ type IApplicationLoadBalancer interface {
 	Listeners() *[]ApplicationListener
 	// The ARN of this load balancer.
 	LoadBalancerArn() *string
+	// All metrics available for this load balancer.
+	Metrics() IApplicationLoadBalancerMetrics
 	// The VPC this load balancer has been created in (if available).
 	//
 	// If this interface is the result of an import call to fromApplicationLoadBalancerAttributes,
@@ -88,6 +90,16 @@ func (j *jsiiProxy_IApplicationLoadBalancer) LoadBalancerArn() *string {
 	_jsii_.Get(
 		j,
 		"loadBalancerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplicationLoadBalancer) Metrics() IApplicationLoadBalancerMetrics {
+	var returns IApplicationLoadBalancerMetrics
+	_jsii_.Get(
+		j,
+		"metrics",
 		&returns,
 	)
 	return returns

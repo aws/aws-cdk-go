@@ -3,7 +3,7 @@ package awslex
 
 // Each slot type can have a set of values.
 //
-// The `SlotTypeValue` represents a value that the slot type can take.
+// Each `SlotTypeValue` represents a value that the slot type can take.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -77,9 +77,7 @@ type CfnBot_StillWaitingResponseSpecificationProperty struct {
 	//
 	// Minimum of 1 second, maximum of 5 minutes.
 	FrequencyInSeconds *float64 `field:"required" json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
-	// A collection of responses that Amazon Lex can send to the user.
-	//
-	// Amazon Lex chooses the actual response to send at runtime.
+	// One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
 	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
 	// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
 	TimeoutInSeconds *float64 `field:"required" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`

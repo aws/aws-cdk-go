@@ -719,3 +719,39 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	},
 })
 ```
+
+## Object Lock Configuration
+
+[Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html)
+can be configured to enable a write-once-read-many model for an S3 bucket. Object Lock must be
+configured when a bucket is created; if a bucket is created without Object Lock, it cannot be
+enabled later via the CDK.
+
+Object Lock can be enabled on an S3 bucket by specifying:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
+	objectLockEnabled: jsii.Boolean(true),
+})
+```
+
+Usually, it is desired to not just enable Object Lock for a bucket but to also configure a
+[retention mode](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-modes)
+and a [retention period](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-periods).
+These can be specified by providing `objectLockDefaultRetention`:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+// Configure for governance mode with a duration of 7 years
+// Configure for governance mode with a duration of 7 years
+s3.NewBucket(this, jsii.String("Bucket1"), &bucketProps{
+	objectLockDefaultRetention: s3.objectLockRetention.governance(cdk.duration.days(jsii.Number(7 * 365))),
+})
+
+// Configure for compliance mode with a duration of 1 year
+// Configure for compliance mode with a duration of 1 year
+s3.NewBucket(this, jsii.String("Bucket2"), &bucketProps{
+	objectLockDefaultRetention: s3.*objectLockRetention.compliance(cdk.*duration.days(jsii.Number(365))),
+})
+```

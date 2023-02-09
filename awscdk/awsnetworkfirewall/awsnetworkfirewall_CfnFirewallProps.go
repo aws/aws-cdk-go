@@ -17,6 +17,9 @@ import (
 //   	subnetMappings: []interface{}{
 //   		&subnetMappingProperty{
 //   			subnetId: jsii.String("subnetId"),
+//
+//   			// the properties below are optional
+//   			ipAddressType: jsii.String("ipAddressType"),
 //   		},
 //   	},
 //   	vpcId: jsii.String("vpcId"),

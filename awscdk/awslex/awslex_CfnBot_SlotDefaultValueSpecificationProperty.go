@@ -1,7 +1,7 @@
 package awslex
 
 
-// Defines a list of values that Amazon Lex should use as the default value for a slot.
+// The default value to use when a user doesn't provide a value for a slot.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

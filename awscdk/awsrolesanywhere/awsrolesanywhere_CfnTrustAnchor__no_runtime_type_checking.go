@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTrustAnchor) validateSetEnabledParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) validateSetNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrustAnchor) validateSetSourceParameters(val interface{}) error {
 	return nil
 }

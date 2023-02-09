@@ -1,6 +1,8 @@
 package awslex
 
 
+// Specifies next steps to run after the dialog code hook finishes.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -912,23 +914,23 @@ package awslex
 //   }
 //
 type CfnBot_PostDialogCodeHookInvocationSpecificationProperty struct {
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.FailureConditional`.
+	// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureConditional interface{} `field:"optional" json:"failureConditional" yaml:"failureConditional"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.FailureNextStep`.
+	// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureNextStep interface{} `field:"optional" json:"failureNextStep" yaml:"failureNextStep"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.FailureResponse`.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
 	FailureResponse interface{} `field:"optional" json:"failureResponse" yaml:"failureResponse"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.SuccessConditional`.
+	// A list of conditional branches to evaluate after the dialog code hook finishes successfully.
 	SuccessConditional interface{} `field:"optional" json:"successConditional" yaml:"successConditional"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.SuccessNextStep`.
+	// Specifics the next step the bot runs after the dialog code hook finishes successfully.
 	SuccessNextStep interface{} `field:"optional" json:"successNextStep" yaml:"successNextStep"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.SuccessResponse`.
+	// Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
 	SuccessResponse interface{} `field:"optional" json:"successResponse" yaml:"successResponse"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.TimeoutConditional`.
+	// A list of conditional branches to evaluate if the code hook times out.
 	TimeoutConditional interface{} `field:"optional" json:"timeoutConditional" yaml:"timeoutConditional"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.TimeoutNextStep`.
+	// Specifies the next step that the bot runs when the code hook times out.
 	TimeoutNextStep interface{} `field:"optional" json:"timeoutNextStep" yaml:"timeoutNextStep"`
-	// `CfnBot.PostDialogCodeHookInvocationSpecificationProperty.TimeoutResponse`.
+	// Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
 	TimeoutResponse interface{} `field:"optional" json:"timeoutResponse" yaml:"timeoutResponse"`
 }
 

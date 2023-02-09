@@ -1,7 +1,7 @@
 package awslex
 
 
-// Provides information for updating the user on the progress of fulfilling an intent.
+// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,9 +74,9 @@ package awslex
 type CfnBot_FulfillmentUpdateResponseSpecificationProperty struct {
 	// The frequency that a message is sent to the user.
 	//
-	// When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda function returns before the first period ends, an update message is not played to the user.
+	// When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
 	FrequencyInSeconds *float64 `field:"required" json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
-	// One to 5 message groups that contain update messages.
+	// 1 - 5 message groups that contain update messages.
 	//
 	// Amazon Lex chooses one of the messages to play to the user.
 	MessageGroups interface{} `field:"required" json:"messageGroups" yaml:"messageGroups"`

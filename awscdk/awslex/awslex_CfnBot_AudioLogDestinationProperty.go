@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies the location of audio log files collected when conversation logging is enabled for a bot.
+// The location of audio log files collected when conversation logging is enabled for a bot.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

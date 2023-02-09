@@ -1,6 +1,8 @@
 package awslex
 
 
+// Specifies the audio and DTMF input specification.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,11 +25,13 @@ package awslex
 //   }
 //
 type CfnBot_AudioAndDTMFInputSpecificationProperty struct {
-	// `CfnBot.AudioAndDTMFInputSpecificationProperty.StartTimeoutMs`.
+	// Time for which a bot waits before assuming that the customer isn't going to speak or press a key.
+	//
+	// This timeout is shared between Audio and DTMF inputs.
 	StartTimeoutMs *float64 `field:"required" json:"startTimeoutMs" yaml:"startTimeoutMs"`
-	// `CfnBot.AudioAndDTMFInputSpecificationProperty.AudioSpecification`.
+	// Specifies the settings on audio input.
 	AudioSpecification interface{} `field:"optional" json:"audioSpecification" yaml:"audioSpecification"`
-	// `CfnBot.AudioAndDTMFInputSpecificationProperty.DTMFSpecification`.
+	// Specifies the settings on DTMF input.
 	DtmfSpecification interface{} `field:"optional" json:"dtmfSpecification" yaml:"dtmfSpecification"`
 }
 

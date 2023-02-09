@@ -1,6 +1,8 @@
 package awslex
 
 
+// Maps a slot name to the [SlotValueOverride](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_SlotValueOverride.html) object.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,9 +24,9 @@ package awslex
 //   }
 //
 type CfnBot_SlotValueOverrideMapProperty struct {
-	// `CfnBot.SlotValueOverrideMapProperty.SlotName`.
+	// The name of the slot.
 	SlotName *string `field:"optional" json:"slotName" yaml:"slotName"`
-	// `CfnBot.SlotValueOverrideMapProperty.SlotValueOverride`.
+	// The SlotValueOverride object to which the slot name will be mapped.
 	SlotValueOverride interface{} `field:"optional" json:"slotValueOverride" yaml:"slotValueOverride"`
 }
 

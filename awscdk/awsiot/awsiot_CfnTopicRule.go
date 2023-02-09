@@ -31,6 +31,9 @@ import (
 //   				cloudwatchLogs: &cloudwatchLogsActionProperty{
 //   					logGroupName: jsii.String("logGroupName"),
 //   					roleArn: jsii.String("roleArn"),
+//
+//   					// the properties below are optional
+//   					batchMode: jsii.Boolean(false),
 //   				},
 //   				cloudwatchMetric: &cloudwatchMetricActionProperty{
 //   					metricName: jsii.String("metricName"),
@@ -263,6 +266,9 @@ import (
 //   			cloudwatchLogs: &cloudwatchLogsActionProperty{
 //   				logGroupName: jsii.String("logGroupName"),
 //   				roleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				batchMode: jsii.Boolean(false),
 //   			},
 //   			cloudwatchMetric: &cloudwatchMetricActionProperty{
 //   				metricName: jsii.String("metricName"),

@@ -51,6 +51,9 @@ type TableProps struct {
 	// The sort style of the table.
 	// Experimental.
 	SortStyle TableSortStyle `field:"optional" json:"sortStyle" yaml:"sortStyle"`
+	// A comment to attach to the table.
+	// Experimental.
+	TableComment *string `field:"optional" json:"tableComment" yaml:"tableComment"`
 	// The name of the table.
 	// Experimental.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`

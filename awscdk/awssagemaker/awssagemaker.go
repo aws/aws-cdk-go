@@ -1113,6 +1113,142 @@ func init() {
 		reflect.TypeOf((*CfnModelBiasJobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard",
+		reflect.TypeOf((*CfnModelCard)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedByDomainId", GoGetter: "AttrCreatedByDomainId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedByUserProfileArn", GoGetter: "AttrCreatedByUserProfileArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedByUserProfileName", GoGetter: "AttrCreatedByUserProfileName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedByDomainId", GoGetter: "AttrLastModifiedByDomainId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedByUserProfileArn", GoGetter: "AttrLastModifiedByUserProfileArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedByUserProfileName", GoGetter: "AttrLastModifiedByUserProfileName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedTime", GoGetter: "AttrLastModifiedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrModelCardArn", GoGetter: "AttrModelCardArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrModelCardProcessingStatus", GoGetter: "AttrModelCardProcessingStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrModelCardVersion", GoGetter: "AttrModelCardVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "content", GoGetter: "Content"},
+			_jsii_.MemberProperty{JsiiProperty: "createdBy", GoGetter: "CreatedBy"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "lastModifiedBy", GoGetter: "LastModifiedBy"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "modelCardName", GoGetter: "ModelCardName"},
+			_jsii_.MemberProperty{JsiiProperty: "modelCardStatus", GoGetter: "ModelCardStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "securityConfig", GoGetter: "SecurityConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnModelCard{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.AdditionalInformationProperty",
+		reflect.TypeOf((*CfnModelCard_AdditionalInformationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.BusinessDetailsProperty",
+		reflect.TypeOf((*CfnModelCard_BusinessDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ContentProperty",
+		reflect.TypeOf((*CfnModelCard_ContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.EvaluationDetailProperty",
+		reflect.TypeOf((*CfnModelCard_EvaluationDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.FunctionProperty",
+		reflect.TypeOf((*CfnModelCard_FunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.InferenceEnvironmentProperty",
+		reflect.TypeOf((*CfnModelCard_InferenceEnvironmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.IntendedUsesProperty",
+		reflect.TypeOf((*CfnModelCard_IntendedUsesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.MetricDataItemsProperty",
+		reflect.TypeOf((*CfnModelCard_MetricDataItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.MetricGroupProperty",
+		reflect.TypeOf((*CfnModelCard_MetricGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ModelOverviewProperty",
+		reflect.TypeOf((*CfnModelCard_ModelOverviewProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ObjectiveFunctionProperty",
+		reflect.TypeOf((*CfnModelCard_ObjectiveFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.SecurityConfigProperty",
+		reflect.TypeOf((*CfnModelCard_SecurityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.TrainingDetailsProperty",
+		reflect.TypeOf((*CfnModelCard_TrainingDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.TrainingEnvironmentProperty",
+		reflect.TypeOf((*CfnModelCard_TrainingEnvironmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.TrainingHyperParameterProperty",
+		reflect.TypeOf((*CfnModelCard_TrainingHyperParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.TrainingJobDetailsProperty",
+		reflect.TypeOf((*CfnModelCard_TrainingJobDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.TrainingMetricProperty",
+		reflect.TypeOf((*CfnModelCard_TrainingMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.UserContextProperty",
+		reflect.TypeOf((*CfnModelCard_UserContextProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCardProps",
+		reflect.TypeOf((*CfnModelCardProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{

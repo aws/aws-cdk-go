@@ -108,3 +108,41 @@ cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
 	imageId: cloud9.imageId_AMAZON_LINUX_2,
 })
 ```
+
+## Specifying Owners
+
+Every Cloud9 Environment has an **owner**. An owner has full control over the environment, and can invite additional members to the environment for collaboration purposes. For more information, see [Working with shared environments in AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/share-environment.html)).
+
+By default, the owner will be the identity that creates the Environment, which is most likely your CloudFormation Execution Role when the Environment is created using CloudFormation. Provider a value for the `owner` property to assign a different owner, either a specific IAM User or the AWS Account Root User.
+
+`Owner` is a user that owns a Cloud9 environment . `Owner` has their own access permissions, resources. And we can specify an `Owner`in an Ec2 environment which could be of two types, 1. AccountRoot and 2. Iam User. It allows AWS to determine who has permissions to manage the environment, either an IAM user or the account root user (but using the account root user is not recommended, see [environment sharing best practices](https://docs.aws.amazon.com/cloud9/latest/user-guide/share-environment.html#share-environment-best-practices)).
+
+To specify the AWS Account Root User as the environment owner, use `Owner.accountRoot()`
+
+```go
+var vpc vpc
+
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
+	vpc: vpc,
+	imageId: cloud9.imageId_AMAZON_LINUX_2,
+
+	owner: cloud9.owner.accountRoot(jsii.String("111111111")),
+})
+```
+
+To specify a specific IAM User as the environment owner, use `Owner.user()`. The user should have the `AWSCloud9Administrator` managed policy
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var vpc vpc
+
+
+user := iam.NewUser(this, jsii.String("user"))
+user.addManagedPolicy(iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("AWSCloud9Administrator")))
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
+	vpc: vpc,
+	imageId: cloud9.imageId_AMAZON_LINUX_2,
+
+	owner: cloud9.owner.user(user),
+})
+```

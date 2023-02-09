@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies whether an intent uses the dialog code hook during conversations with a user.
+// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,7 +13,7 @@ package awslex
 //   }
 //
 type CfnBot_DialogCodeHookSettingProperty struct {
-	// Indicates whether an intent uses the dialog code hook during a conversation with a user.
+	// Enables the dialog code hook so that it processes user requests.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

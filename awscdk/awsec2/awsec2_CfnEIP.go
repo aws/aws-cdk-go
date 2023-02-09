@@ -108,6 +108,8 @@ type CfnEIP interface {
 	// > Updates to the `Tags` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	Tags() awscdk.TagManager
 	// The Elastic IP address you are accepting for transfer.
+	//
+	// You can only accept one transferred address. For more information on Elastic IP address transfers, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon Virtual Private Cloud User Guide* .
 	TransferAddress() *string
 	SetTransferAddress(val *string)
 	// Deprecated.

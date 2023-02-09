@@ -40,7 +40,7 @@ type CfnBot_MessageProperty struct {
 	ImageResponseCard interface{} `field:"optional" json:"imageResponseCard" yaml:"imageResponseCard"`
 	// A message in plain text format.
 	PlainTextMessage interface{} `field:"optional" json:"plainTextMessage" yaml:"plainTextMessage"`
-	// A message in Speech Synthesis Markup Language (SSML) format.
+	// A message in Speech Synthesis Markup Language (SSML).
 	SsmlMessage interface{} `field:"optional" json:"ssmlMessage" yaml:"ssmlMessage"`
 }
 

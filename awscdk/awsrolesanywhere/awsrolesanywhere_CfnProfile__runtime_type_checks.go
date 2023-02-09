@@ -196,6 +196,14 @@ func (j *jsiiProxy_CfnProfile) validateSetEnabledParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnProfile) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnProfile) validateSetRequireInstancePropertiesParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -213,6 +221,14 @@ func (j *jsiiProxy_CfnProfile) validateSetRequireInstancePropertiesParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnProfile) validateSetRoleArnsParameters(val *[]*string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnProfileParameters(scope constructs.Construct, id *string, props *CfnProfileProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -222,6 +238,9 @@ func validateNewCfnProfileParameters(scope constructs.Construct, id *string, pro
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

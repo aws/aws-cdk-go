@@ -48,7 +48,7 @@ type PrincipalWithConditions interface {
 	// Values from the conditions parameter will overwrite existing values with the same operator
 	// and key.
 	AddConditions(conditions *map[string]interface{})
-	// Add the princpial to the AssumeRolePolicyDocument.
+	// Add the principal to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.

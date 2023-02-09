@@ -64,7 +64,7 @@ type CfnUser interface {
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
 	AttrServerId() *string
-	// A unique string that identifies a user account associated with a server.
+	// A unique string that identifies a Transfer Family user account associated with a server.
 	//
 	// An example `UserName` is `transfer-user-1` .
 	AttrUserName() *string

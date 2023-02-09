@@ -34,6 +34,7 @@ import (
 //   			cidr: jsii.String("cidr"),
 //   		},
 //   	},
+//   	publicIpSource: jsii.String("publicIpSource"),
 //   	publiclyAdvertisable: jsii.Boolean(false),
 //   	sourceIpamPoolId: jsii.String("sourceIpamPoolId"),
 //   	tags: []*cfnTag{
@@ -83,6 +84,10 @@ type CfnIPAMPoolProps struct {
 	Locale *string `field:"optional" json:"locale" yaml:"locale"`
 	// Information about the CIDRs provisioned to an IPAM pool.
 	ProvisionedCidrs interface{} `field:"optional" json:"provisionedCidrs" yaml:"provisionedCidrs"`
+	// The IP address source for pools in the public scope.
+	//
+	// Only used for provisioning IP address CIDRs to pools in the public scope. Default is `BYOIP` . For more information, see [Create IPv6 pools](https://docs.aws.amazon.com//vpc/latest/ipam/intro-create-ipv6-pools.html) in the *Amazon VPC IPAM User Guide* . By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see [Quotas for your IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/quotas-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	PublicIpSource *string `field:"optional" json:"publicIpSource" yaml:"publicIpSource"`
 	// Determines if a pool is publicly advertisable.
 	//
 	// This option is not available for pools with AddressFamily set to `ipv4` .

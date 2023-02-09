@@ -18,6 +18,7 @@ package awsamplifyuibuilder
 //   		defaultCountryCode: jsii.String("defaultCountryCode"),
 //   		defaultValue: jsii.String("defaultValue"),
 //   		descriptiveText: jsii.String("descriptiveText"),
+//   		isArray: jsii.Boolean(false),
 //   		maxValue: jsii.Number(123),
 //   		minValue: jsii.Number(123),
 //   		name: jsii.String("name"),

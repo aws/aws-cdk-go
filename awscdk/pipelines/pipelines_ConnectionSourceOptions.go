@@ -48,6 +48,8 @@ type ConnectionSourceOptions struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
+	// The action name used for this source in the CodePipeline.
+	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
 	// This provides access to repository history, and retains symlinks (symlinks would otherwise be

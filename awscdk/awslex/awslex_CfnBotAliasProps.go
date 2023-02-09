@@ -74,9 +74,7 @@ type CfnBotAliasProps struct {
 	BotAliasName *string `field:"required" json:"botAliasName" yaml:"botAliasName"`
 	// The unique identifier of the bot.
 	BotId *string `field:"required" json:"botId" yaml:"botId"`
-	// Maps configuration information to a specific locale.
-	//
-	// You can use this parameter to specify a specific Lambda function to run different functions in different locales.
+	// `AWS::Lex::BotAlias.BotAliasLocaleSettings`.
 	BotAliasLocaleSettings interface{} `field:"optional" json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
 	// An array of key-value pairs to apply to this resource.
 	//

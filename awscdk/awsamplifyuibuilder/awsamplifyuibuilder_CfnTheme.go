@@ -35,6 +35,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	appId: jsii.String("appId"),
+//   	environmentName: jsii.String("environmentName"),
 //   	overrides: []interface{}{
 //   		&themeValuesProperty{
 //   			key: jsii.String("key"),
@@ -54,16 +56,11 @@ import (
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The unique ID for the Amplify app associated with the theme.
-	AttrAppId() *string
-	// The time that the theme was created.
-	AttrCreatedAt() *string
-	// The name of the backend environment that is a part of the Amplify app.
-	AttrEnvironmentName() *string
+	// `AWS::AmplifyUIBuilder::Theme.AppId`.
+	AppId() *string
+	SetAppId(val *string)
 	// The ID for the theme.
 	AttrId() *string
-	// The time that the theme was modified.
-	AttrModifiedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -73,6 +70,9 @@ type CfnTheme interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::AmplifyUIBuilder::Theme.EnvironmentName`.
+	EnvironmentName() *string
+	SetEnvironmentName(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -251,31 +251,11 @@ type jsiiProxy_CfnTheme struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnTheme) AttrAppId() *string {
+func (j *jsiiProxy_CfnTheme) AppId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrAppId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTheme) AttrCreatedAt() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrCreatedAt",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTheme) AttrEnvironmentName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrEnvironmentName",
+		"appId",
 		&returns,
 	)
 	return returns
@@ -286,16 +266,6 @@ func (j *jsiiProxy_CfnTheme) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTheme) AttrModifiedAt() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrModifiedAt",
 		&returns,
 	)
 	return returns
@@ -336,6 +306,16 @@ func (j *jsiiProxy_CfnTheme) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) EnvironmentName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentName",
 		&returns,
 	)
 	return returns
@@ -468,6 +448,22 @@ func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTheme)SetAppId(val *string) {
+	_jsii_.Set(
+		j,
+		"appId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTheme)SetEnvironmentName(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentName",
+		val,
 	)
 }
 

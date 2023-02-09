@@ -1,6 +1,8 @@
 package awslex
 
 
+// A set of actions that Amazon Lex should run if none of the other conditions are met.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -107,9 +109,9 @@ package awslex
 //   }
 //
 type CfnBot_DefaultConditionalBranchProperty struct {
-	// `CfnBot.DefaultConditionalBranchProperty.NextStep`.
+	// The next step in the conversation.
 	NextStep interface{} `field:"optional" json:"nextStep" yaml:"nextStep"`
-	// `CfnBot.DefaultConditionalBranchProperty.Response`.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
 	Response interface{} `field:"optional" json:"response" yaml:"response"`
 }
 

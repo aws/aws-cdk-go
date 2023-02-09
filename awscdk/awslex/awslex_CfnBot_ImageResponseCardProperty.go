@@ -33,7 +33,7 @@ type CfnBot_ImageResponseCardProperty struct {
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// A list of buttons that should be displayed on the response card.
 	//
-	// The arrangement of the buttons is determined by the platform that displays the buttons.
+	// The arrangement of the buttons is determined by the platform that displays the button.
 	Buttons interface{} `field:"optional" json:"buttons" yaml:"buttons"`
 	// The URL of an image to display on the response card.
 	//

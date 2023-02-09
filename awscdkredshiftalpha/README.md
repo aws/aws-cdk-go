@@ -44,13 +44,12 @@ Depending on your use case, you can make the cluster publicly accessible with th
 Amazon Redshift logs information about connections and user activities in your database. These logs help you to monitor the database for security and troubleshooting purposes, a process called database auditing. To send these logs to an S3 bucket, specify the `loggingProperties` when creating a new cluster.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 
 
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-bucket := s3.bucket.fromBucketName(stack, jsii.String("bucket"), jsii.String("logging-bucket"))
+bucket := s3.bucket.fromBucketName(this, jsii.String("bucket"), jsii.String("logging-bucket"))
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
 	masterUser: &login{
@@ -58,7 +57,7 @@ cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &cluste
 	},
 	vpc: vpc,
 	loggingProperties: &loggingProperties{
-		loggingBucket: loggingBucket,
+		loggingBucket: bucket,
 		loggingKeyPrefix: jsii.String("prefix"),
 	},
 })
@@ -221,6 +220,27 @@ awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
 })
 ```
 
+Tables can also be configured with a comment:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
+	tableColumns: []column{
+		&column{
+			name: jsii.String("col1"),
+			dataType: jsii.String("varchar(4)"),
+		},
+		&column{
+			name: jsii.String("col2"),
+			dataType: jsii.String("float"),
+		},
+	},
+	cluster: cluster,
+	databaseName: jsii.String("databaseName"),
+	comment: jsii.String("This is a comment"),
+})
+```
+
 ### Granting Privileges
 
 You can give a user privileges to perform certain actions on a table by using the
@@ -352,10 +372,12 @@ cluster.addRotationMultiUser(jsii.String("MultiUserRotation"), &rotationMultiUse
 You can add a parameter to a parameter group with`ClusterParameterGroup.addParameter()`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-params := NewClusterParameterGroup(stack, jsii.String("Params"), map[string]interface{}{
-	"description": jsii.String("desc"),
-	"parameters": map[string]*string{
+import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
+
+
+params := awscdkredshiftalpha.NewClusterParameterGroup(this, jsii.String("Params"), &clusterParameterGroupProps{
+	description: jsii.String("desc"),
+	parameters: map[string]*string{
 		"require_ssl": jsii.String("true"),
 	},
 })
@@ -366,14 +388,15 @@ params.addParameter(jsii.String("enable_user_activity_logging"), jsii.String("tr
 Additionally, you can add a parameter to the cluster's associated parameter group with `Cluster.addToParameterGroup()`. If the cluster does not have an associated parameter group, a new parameter group is created.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc ec2.Vpc
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+var vpc vpc
 
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 	masterUser: &login{
 		masterUsername: jsii.String("admin"),
-		masterPassword: cdk.secretValue_UnsafePlainText(jsii.String("tooshort")),
+		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
 	},
 	vpc: vpc,
 })
@@ -386,14 +409,15 @@ cluster.addToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.St
 If you configure your cluster to be publicly accessible, you can optionally select an *elastic IP address* to use for the external IP address. An elastic IP address is a static IP address that is associated with your AWS account. You can use an elastic IP address to connect to your cluster from outside the VPC. An elastic IP address gives you the ability to change your underlying configuration without affecting the IP address that clients use to connect to your cluster. This approach can be helpful for situations such as recovery after a failure.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc ec2.Vpc
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+var vpc vpc
 
 
-awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &clusterProps{
+awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
 	masterUser: &login{
 		masterUsername: jsii.String("admin"),
-		masterPassword: cdk.secretValue_UnsafePlainText(jsii.String("tooshort")),
+		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
 	},
 	vpc: vpc,
 	publiclyAccessible: jsii.Boolean(true),
@@ -404,10 +428,11 @@ awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &clusterProps{
 If the Cluster is in a VPC and you want to connect to it using the private IP address from within the cluster, it is important to enable *DNS resolution* and *DNS hostnames* in the VPC config. If these parameters would not be set, connections from within the VPC would connect to the elastic IP address and not the private IP address.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-vpc := ec2.NewVpc(this, jsii.String("VPC"), map[string]*bool{
-	"enableDnsSupport": jsii.Boolean(true),
-	"enableDnsHostnames": jsii.Boolean(true),
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+
+vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
+	enableDnsSupport: jsii.Boolean(true),
+	enableDnsHostnames: jsii.Boolean(true),
 })
 ```
 
@@ -426,14 +451,15 @@ In some cases, you might want to associate the cluster with an elastic IP addres
 When you use Amazon Redshift enhanced VPC routing, Amazon Redshift forces all COPY and UNLOAD traffic between your cluster and your data repositories through your virtual private cloud (VPC) based on the Amazon VPC service. By using enhanced VPC routing, you can use standard VPC features, such as VPC security groups, network access control lists (ACLs), VPC endpoints, VPC endpoint policies, internet gateways, and Domain Name System (DNS) servers, as described in the Amazon VPC User Guide. You use these features to tightly manage the flow of data between your Amazon Redshift cluster and other resources. When you use enhanced VPC routing to route traffic through your VPC, you can also use VPC flow logs to monitor COPY and UNLOAD traffic.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc ec2.Vpc
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+var vpc vpc
 
 
-awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &clusterProps{
+awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
 	masterUser: &login{
 		masterUsername: jsii.String("admin"),
-		masterPassword: cdk.secretValue_UnsafePlainText(jsii.String("tooshort")),
+		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
 	},
 	vpc: vpc,
 	enhancedVpcRouting: jsii.Boolean(true),

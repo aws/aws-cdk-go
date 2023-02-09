@@ -21,6 +21,10 @@ package awsnimblestudio
 //   	automaticTerminationMode: jsii.String("automaticTerminationMode"),
 //   	maxSessionLengthInMinutes: jsii.Number(123),
 //   	maxStoppedSessionLengthInMinutes: jsii.Number(123),
+//   	sessionBackup: &streamConfigurationSessionBackupProperty{
+//   		maxBackupsToRetain: jsii.Number(123),
+//   		mode: jsii.String("mode"),
+//   	},
 //   	sessionPersistenceMode: jsii.String("sessionPersistenceMode"),
 //   	sessionStorage: &streamConfigurationSessionStorageProperty{
 //   		mode: []*string{
@@ -68,6 +72,8 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	//
 	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 	MaxStoppedSessionLengthInMinutes *float64 `field:"optional" json:"maxStoppedSessionLengthInMinutes" yaml:"maxStoppedSessionLengthInMinutes"`
+	// `CfnLaunchProfile.StreamConfigurationProperty.SessionBackup`.
+	SessionBackup interface{} `field:"optional" json:"sessionBackup" yaml:"sessionBackup"`
 	// Determine if a streaming session created from this launch profile can configure persistent storage.
 	//
 	// This means that `volumeConfiguration` and `automaticTerminationMode` are configured.

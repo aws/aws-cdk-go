@@ -14,9 +14,15 @@ package awsconnect
 //   }
 //
 type CfnApprovedOriginProps struct {
-	// `AWS::Connect::ApprovedOrigin.InstanceId`.
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`.
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
-	// `AWS::Connect::ApprovedOrigin.Origin`.
+	// Domain name to be added to the allow-list of the instance.
+	//
+	// *Maximum* : `267`.
 	Origin *string `field:"required" json:"origin" yaml:"origin"`
 }
 

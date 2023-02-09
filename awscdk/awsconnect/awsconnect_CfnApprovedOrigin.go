@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Connect::ApprovedOrigin`.
 //
+// The approved origin for the instance.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,7 +35,11 @@ type CfnApprovedOrigin interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::ApprovedOrigin.InstanceId`.
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -48,7 +54,9 @@ type CfnApprovedOrigin interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Connect::ApprovedOrigin.Origin`.
+	// Domain name to be added to the allow-list of the instance.
+	//
+	// *Maximum* : `267`.
 	Origin() *string
 	SetOrigin(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

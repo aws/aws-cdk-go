@@ -13,8 +13,10 @@ import (
 //
 //   cfnCRLProps := &cfnCRLProps{
 //   	crlData: jsii.String("crlData"),
-//   	enabled: jsii.Boolean(false),
 //   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	enabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -25,13 +27,13 @@ import (
 //   }
 //
 type CfnCRLProps struct {
-	// x509 v3 Certificate Revocation List to revoke auth for corresponding certificates presented in CreateSession operations.
-	CrlData *string `field:"optional" json:"crlData" yaml:"crlData"`
-	// The enabled status of the resource.
+	// The revocation record for a certificate, following the x509 v3 standard.
+	CrlData *string `field:"required" json:"crlData" yaml:"crlData"`
+	// The name of the certificate revocation list (CRL).
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// Indicates whether the certificate revocation list (CRL) is enabled.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// The customer specified name of the resource.
-	Name *string `field:"optional" json:"name" yaml:"name"`
-	// A list of Tags.
+	// A list of tags to attach to the CRL.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn *string `field:"optional" json:"trustAnchorArn" yaml:"trustAnchorArn"`

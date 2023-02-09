@@ -25,7 +25,7 @@ package awslex
 type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 	// Determines whether the locale is enabled for the bot.
 	//
-	// If the value is false, the locale isn't available for use.
+	// If the value is `false` , the locale isn't available for use.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Specifies the Lambda function that should be used in the locale.
 	CodeHookSpecification interface{} `field:"optional" json:"codeHookSpecification" yaml:"codeHookSpecification"`

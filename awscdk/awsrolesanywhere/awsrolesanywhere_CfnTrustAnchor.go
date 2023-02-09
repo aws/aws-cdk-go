@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::TrustAnchor`.
 //
-// Creates a TrustAnchor.
+// The state of the trust anchor after a read or write operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnTrustAnchor := awscdk.Aws_rolesanywhere.NewCfnTrustAnchor(this, jsii.String("MyCfnTrustAnchor"), &cfnTrustAnchorProps{
-//   	enabled: jsii.Boolean(false),
 //   	name: jsii.String("name"),
 //   	source: &sourceProperty{
 //   		sourceData: &sourceDataProperty{
@@ -28,6 +27,9 @@ import (
 //   		},
 //   		sourceType: jsii.String("sourceType"),
 //   	},
+//
+//   	// the properties below are optional
+//   	enabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -41,6 +43,7 @@ type CfnTrustAnchor interface {
 	awscdk.IInspectable
 	// The ARN of the trust anchor.
 	AttrTrustAnchorArn() *string
+	// The unique primary identifier of the TrustAnchor.
 	AttrTrustAnchorId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -431,6 +434,9 @@ func (j *jsiiProxy_CfnTrustAnchor)SetEnabled(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTrustAnchor)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",

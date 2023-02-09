@@ -36,7 +36,7 @@ package awslambda
 type CfnUrlProps struct {
 	// The type of authentication that your function URL uses.
 	//
-	// Set to `AWS_IAM` if you want to restrict access to authenticated IAM users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	// Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
 	AuthType *string `field:"required" json:"authType" yaml:"authType"`
 	// The name of the Lambda function.
 	//

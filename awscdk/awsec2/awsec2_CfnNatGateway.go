@@ -81,7 +81,9 @@ type CfnNatGateway interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::EC2::NatGateway.MaxDrainDurationSeconds`.
+	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress.
+	//
+	// Default value is 350 seconds.
 	MaxDrainDurationSeconds() *float64
 	SetMaxDrainDurationSeconds(val *float64)
 	// The tree node.
@@ -96,13 +98,23 @@ type CfnNatGateway interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::EC2::NatGateway.SecondaryAllocationIds`.
+	// Secondary EIP allocation IDs.
+	//
+	// For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide* .
 	SecondaryAllocationIds() *[]*string
 	SetSecondaryAllocationIds(val *[]*string)
-	// `AWS::EC2::NatGateway.SecondaryPrivateIpAddressCount`.
+	// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.
+	//
+	// For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide* .
+	//
+	// > `SecondaryPrivateIpAddressCount` and `SecondaryPrivateIpAddresses` cannot be set at the same time.
 	SecondaryPrivateIpAddressCount() *float64
 	SetSecondaryPrivateIpAddressCount(val *float64)
-	// `AWS::EC2::NatGateway.SecondaryPrivateIpAddresses`.
+	// Secondary private IPv4 addresses.
+	//
+	// For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide* .
+	//
+	// > `SecondaryPrivateIpAddressCount` and `SecondaryPrivateIpAddresses` cannot be set at the same time.
 	SecondaryPrivateIpAddresses() *[]*string
 	SetSecondaryPrivateIpAddresses(val *[]*string)
 	// The stack in which this element is defined.

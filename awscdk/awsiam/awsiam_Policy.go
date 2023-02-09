@@ -41,6 +41,7 @@ import (
 //
 type Policy interface {
 	awscdk.Resource
+	IGrantable
 	IPolicy
 	// The policy document.
 	Document() PolicyDocument
@@ -53,6 +54,8 @@ type Policy interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The principal to grant permissions to.
+	GrantPrincipal() IPrincipal
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -106,6 +109,7 @@ type Policy interface {
 // The jsii proxy struct for Policy
 type jsiiProxy_Policy struct {
 	internal.Type__awscdkResource
+	jsiiProxy_IGrantable
 	jsiiProxy_IPolicy
 }
 
@@ -124,6 +128,16 @@ func (j *jsiiProxy_Policy) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Policy) GrantPrincipal() IPrincipal {
+	var returns IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
 		&returns,
 	)
 	return returns

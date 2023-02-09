@@ -16,7 +16,7 @@ package awslex
 type CfnBot_ButtonProperty struct {
 	// The text that appears on the button.
 	//
-	// Use this to tell the user the value that is returned when they choose this button.
+	// Use this to tell the user what value is returned when they choose this button.
 	Text *string `field:"required" json:"text" yaml:"text"`
 	// The value returned to Amazon Lex when the user chooses this button.
 	//

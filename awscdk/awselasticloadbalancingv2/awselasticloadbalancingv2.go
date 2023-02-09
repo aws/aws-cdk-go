@@ -163,6 +163,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricRejectedConnectionCount", GoMethod: "MetricRejectedConnectionCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricRequestCount", GoMethod: "MetricRequestCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricRuleEvaluations", GoMethod: "MetricRuleEvaluations"},
+			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTargetConnectionErrorCount", GoMethod: "MetricTargetConnectionErrorCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTargetResponseTime", GoMethod: "MetricTargetResponseTime"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTargetTLSNegotiationErrorCount", GoMethod: "MetricTargetTLSNegotiationErrorCount"},
@@ -833,6 +834,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
+			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
@@ -842,6 +844,38 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoadBalancerV2)
 			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerMetrics",
+		reflect.TypeOf((*IApplicationLoadBalancerMetrics)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "activeConnectionCount", GoMethod: "ActiveConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "clientTlsNegotiationErrorCount", GoMethod: "ClientTlsNegotiationErrorCount"},
+			_jsii_.MemberMethod{JsiiMethod: "consumedLCUs", GoMethod: "ConsumedLCUs"},
+			_jsii_.MemberMethod{JsiiMethod: "custom", GoMethod: "Custom"},
+			_jsii_.MemberMethod{JsiiMethod: "elbAuthError", GoMethod: "ElbAuthError"},
+			_jsii_.MemberMethod{JsiiMethod: "elbAuthFailure", GoMethod: "ElbAuthFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "elbAuthLatency", GoMethod: "ElbAuthLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "elbAuthSuccess", GoMethod: "ElbAuthSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "httpCodeElb", GoMethod: "HttpCodeElb"},
+			_jsii_.MemberMethod{JsiiMethod: "httpCodeTarget", GoMethod: "HttpCodeTarget"},
+			_jsii_.MemberMethod{JsiiMethod: "httpFixedResponseCount", GoMethod: "HttpFixedResponseCount"},
+			_jsii_.MemberMethod{JsiiMethod: "httpRedirectCount", GoMethod: "HttpRedirectCount"},
+			_jsii_.MemberMethod{JsiiMethod: "httpRedirectUrlLimitExceededCount", GoMethod: "HttpRedirectUrlLimitExceededCount"},
+			_jsii_.MemberMethod{JsiiMethod: "ipv6ProcessedBytes", GoMethod: "Ipv6ProcessedBytes"},
+			_jsii_.MemberMethod{JsiiMethod: "ipv6RequestCount", GoMethod: "Ipv6RequestCount"},
+			_jsii_.MemberMethod{JsiiMethod: "newConnectionCount", GoMethod: "NewConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "processedBytes", GoMethod: "ProcessedBytes"},
+			_jsii_.MemberMethod{JsiiMethod: "rejectedConnectionCount", GoMethod: "RejectedConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "requestCount", GoMethod: "RequestCount"},
+			_jsii_.MemberMethod{JsiiMethod: "ruleEvaluations", GoMethod: "RuleEvaluations"},
+			_jsii_.MemberMethod{JsiiMethod: "targetConnectionErrorCount", GoMethod: "TargetConnectionErrorCount"},
+			_jsii_.MemberMethod{JsiiMethod: "targetResponseTime", GoMethod: "TargetResponseTime"},
+			_jsii_.MemberMethod{JsiiMethod: "targetTLSNegotiationErrorCount", GoMethod: "TargetTLSNegotiationErrorCount"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IApplicationLoadBalancerMetrics{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -952,6 +986,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
+			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
@@ -961,6 +996,23 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoadBalancerV2)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IVpcEndpointServiceLoadBalancer)
 			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancerMetrics",
+		reflect.TypeOf((*INetworkLoadBalancerMetrics)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "activeFlowCount", GoMethod: "ActiveFlowCount"},
+			_jsii_.MemberMethod{JsiiMethod: "consumedLCUs", GoMethod: "ConsumedLCUs"},
+			_jsii_.MemberMethod{JsiiMethod: "custom", GoMethod: "Custom"},
+			_jsii_.MemberMethod{JsiiMethod: "newFlowCount", GoMethod: "NewFlowCount"},
+			_jsii_.MemberMethod{JsiiMethod: "processedBytes", GoMethod: "ProcessedBytes"},
+			_jsii_.MemberMethod{JsiiMethod: "tcpClientResetCount", GoMethod: "TcpClientResetCount"},
+			_jsii_.MemberMethod{JsiiMethod: "tcpElbResetCount", GoMethod: "TcpElbResetCount"},
+			_jsii_.MemberMethod{JsiiMethod: "tcpTargetResetCount", GoMethod: "TcpTargetResetCount"},
+		},
+		func() interface{} {
+			return &jsiiProxy_INetworkLoadBalancerMetrics{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1133,6 +1185,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedLCUs", GoMethod: "MetricConsumedLCUs"},
 			_jsii_.MemberMethod{JsiiMethod: "metricNewFlowCount", GoMethod: "MetricNewFlowCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricProcessedBytes", GoMethod: "MetricProcessedBytes"},
+			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTcpClientResetCount", GoMethod: "MetricTcpClientResetCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTcpElbResetCount", GoMethod: "MetricTcpElbResetCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTcpTargetResetCount", GoMethod: "MetricTcpTargetResetCount"},

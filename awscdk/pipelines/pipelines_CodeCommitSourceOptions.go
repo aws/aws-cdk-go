@@ -17,12 +17,15 @@ import (
 //   var role role
 //
 //   codeCommitSourceOptions := &codeCommitSourceOptions{
+//   	actionName: jsii.String("actionName"),
 //   	codeBuildCloneOutput: jsii.Boolean(false),
 //   	eventRole: role,
 //   	trigger: awscdk.Aws_codepipeline_actions.codeCommitTrigger_NONE,
 //   }
 //
 type CodeCommitSourceOptions struct {
+	// The action name used for this source in the CodePipeline.
+	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
 	// This provides access to repository history, and retains symlinks (symlinks would otherwise be

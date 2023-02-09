@@ -17,6 +17,8 @@ type INetworkLoadBalancer interface {
 	//
 	// Returns: The newly created listener.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
+	// All metrics available for this load balancer.
+	Metrics() INetworkLoadBalancerMetrics
 	// The VPC this load balancer has been created in (if available).
 	Vpc() awsec2.IVpc
 }
@@ -52,6 +54,16 @@ func (i *jsiiProxy_INetworkLoadBalancer) ApplyRemovalPolicy(policy awscdk.Remova
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_INetworkLoadBalancer) Metrics() INetworkLoadBalancerMetrics {
+	var returns INetworkLoadBalancerMetrics
+	_jsii_.Get(
+		j,
+		"metrics",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_INetworkLoadBalancer) Vpc() awsec2.IVpc {

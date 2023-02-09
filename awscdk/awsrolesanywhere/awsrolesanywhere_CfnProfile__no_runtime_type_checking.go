@@ -84,7 +84,15 @@ func (j *jsiiProxy_CfnProfile) validateSetEnabledParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnProfile) validateSetNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProfile) validateSetRequireInstancePropertiesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnProfile) validateSetRoleArnsParameters(val *[]*string) error {
 	return nil
 }
 

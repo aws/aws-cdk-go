@@ -312,8 +312,10 @@ type CfnCluster interface {
 	//
 	// Constraints:
 	//
-	// - Must be 1 - 128 alphanumeric characters. The user name can't be `PUBLIC` .
-	// - First character must be a letter.
+	// - Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be `PUBLIC` .
+	// - Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.
+	// - The first character must be a letter.
+	// - Must not contain a colon (:) or a slash (/).
 	// - Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
@@ -420,7 +422,7 @@ type CfnCluster interface {
 	SetSnapshotCopyRetentionPeriod(val *float64)
 	// The name of the snapshot from which to create the new cluster.
 	//
-	// This parameter isn't case sensitive. You can specify this parameter or `snapshotArn` , but not both.
+	// This parameter isn't case sensitive. You must specify this parameter or `snapshotArn` , but not both.
 	//
 	// Example: `my-snapshot-id`.
 	SnapshotIdentifier() *string

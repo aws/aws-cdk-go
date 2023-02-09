@@ -179,6 +179,22 @@ func validateCfnSiteToSiteVpnAttachment_IsConstructParameters(x interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetCoreNetworkIdParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetVpnConnectionArnParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnSiteToSiteVpnAttachmentParameters(scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -188,6 +204,9 @@ func validateNewCfnSiteToSiteVpnAttachmentParameters(scope constructs.Construct,
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

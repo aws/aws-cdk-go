@@ -13,18 +13,17 @@ import (
 // A cluster parameter group.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import redshift_alpha "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
+//   import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 //
-//   clusterParameterGroup := redshift_alpha.NewClusterParameterGroup(this, jsii.String("MyClusterParameterGroup"), &clusterParameterGroupProps{
+//
+//   params := awscdkredshiftalpha.NewClusterParameterGroup(this, jsii.String("Params"), &clusterParameterGroupProps{
+//   	description: jsii.String("desc"),
 //   	parameters: map[string]*string{
-//   		"parametersKey": jsii.String("parameters"),
+//   		"require_ssl": jsii.String("true"),
 //   	},
-//
-//   	// the properties below are optional
-//   	description: jsii.String("description"),
 //   })
+//
+//   params.addParameter(jsii.String("enable_user_activity_logging"), jsii.String("true"))
 //
 // Experimental.
 type ClusterParameterGroup interface {

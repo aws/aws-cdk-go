@@ -17,11 +17,11 @@ package awslex
 //   }
 //
 type CfnBot_S3BucketLogDestinationProperty struct {
-	// Specifies the Amazon S3 prefix to assign to audio log files.
+	// The S3 prefix to assign to audio log files.
 	LogPrefix *string `field:"required" json:"logPrefix" yaml:"logPrefix"`
-	// Specifies the Amazon Resource Name (ARN) of the Amazon S3 bucket where audio files are stored.
+	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
 	S3BucketArn *string `field:"required" json:"s3BucketArn" yaml:"s3BucketArn"`
-	// Specifies the Amazon Resource Name (ARN) of an AWS Key Management Service key for encrypting audio log files stored in an Amazon S3 bucket.
+	// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an Amazon S3 bucket.
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 

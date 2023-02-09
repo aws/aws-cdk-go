@@ -84,6 +84,18 @@ func (j *jsiiProxy_CfnConnectPeer) validateSetBgpOptionsParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnectPeer) validateSetConnectAttachmentIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnConnectPeer) validateSetInsideCidrBlocksParameters(val *[]*string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnConnectPeer) validateSetPeerAddressParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnConnectPeerParameters(scope constructs.Construct, id *string, props *CfnConnectPeerProps) error {
 	return nil
 }

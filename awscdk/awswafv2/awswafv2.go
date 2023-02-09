@@ -257,16 +257,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.AllowProperty",
-		reflect.TypeOf((*CfnRuleGroup_AllowProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.AllowActionProperty",
+		reflect.TypeOf((*CfnRuleGroup_AllowActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.AndStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_AndStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.BlockProperty",
-		reflect.TypeOf((*CfnRuleGroup_BlockProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.BlockActionProperty",
+		reflect.TypeOf((*CfnRuleGroup_BlockActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.BodyProperty",
@@ -277,20 +277,20 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_ByteMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CaptchaActionProperty",
+		reflect.TypeOf((*CfnRuleGroup_CaptchaActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CaptchaConfigProperty",
 		reflect.TypeOf((*CfnRuleGroup_CaptchaConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CaptchaProperty",
-		reflect.TypeOf((*CfnRuleGroup_CaptchaProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ChallengeActionProperty",
+		reflect.TypeOf((*CfnRuleGroup_ChallengeActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ChallengeConfigProperty",
 		reflect.TypeOf((*CfnRuleGroup_ChallengeConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ChallengeProperty",
-		reflect.TypeOf((*CfnRuleGroup_ChallengeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CookieMatchPatternProperty",
@@ -301,8 +301,8 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_CookiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CountProperty",
-		reflect.TypeOf((*CfnRuleGroup_CountProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CountActionProperty",
+		reflect.TypeOf((*CfnRuleGroup_CountActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CustomHTTPHeaderProperty",

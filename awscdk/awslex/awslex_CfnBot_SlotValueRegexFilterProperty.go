@@ -21,11 +21,11 @@ type CfnBot_SlotValueRegexFilterProperty struct {
 	// - 0-9
 	// - Unicode characters ("\ u<Unicode>")
 	//
-	// Represent Unicode characters with four digits, for example "]u0041" or "\ u005A".
+	// Represent Unicode characters with four digits, for example "\ u0041" or "\ u005A".
 	//
 	// The following regular expression operators are not supported:
 	//
-	// - Infinite repeaters: *, +, or {x,} with no upper bound
+	// - Infinite repeaters: *, +, or {x,} with no upper bound.
 	// - Wild card (.)
 	Pattern *string `field:"required" json:"pattern" yaml:"pattern"`
 }

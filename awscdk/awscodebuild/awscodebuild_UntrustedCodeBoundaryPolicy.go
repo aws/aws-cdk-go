@@ -46,6 +46,8 @@ type UntrustedCodeBoundaryPolicy interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The principal to grant permissions to.
+	GrantPrincipal() awsiam.IPrincipal
 	// Returns the ARN of this managed policy.
 	ManagedPolicyArn() *string
 	// The name of this policy.
@@ -130,6 +132,16 @@ func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) Env() *awscdk.ResourceEnvironmen
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
 		&returns,
 	)
 	return returns

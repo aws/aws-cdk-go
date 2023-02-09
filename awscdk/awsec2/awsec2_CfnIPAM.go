@@ -19,12 +19,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnIPAM := awscdk.Aws_ec2.NewCfnIPAM(this, jsii.String("MyCfnIPAM"), &cfnIPAMProps{
+//   	defaultResourceDiscoveryAssociationId: jsii.String("defaultResourceDiscoveryAssociationId"),
+//   	defaultResourceDiscoveryId: jsii.String("defaultResourceDiscoveryId"),
 //   	description: jsii.String("description"),
 //   	operatingRegions: []interface{}{
 //   		&ipamOperatingRegionProperty{
 //   			regionName: jsii.String("regionName"),
 //   		},
 //   	},
+//   	resourceDiscoveryAssociationCount: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -57,6 +60,12 @@ type CfnIPAM interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::EC2::IPAM.DefaultResourceDiscoveryAssociationId`.
+	DefaultResourceDiscoveryAssociationId() *string
+	SetDefaultResourceDiscoveryAssociationId(val *string)
+	// `AWS::EC2::IPAM.DefaultResourceDiscoveryId`.
+	DefaultResourceDiscoveryId() *string
+	SetDefaultResourceDiscoveryId(val *string)
 	// The description for the IPAM.
 	Description() *string
 	SetDescription(val *string)
@@ -84,6 +93,9 @@ type CfnIPAM interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::EC2::IPAM.ResourceDiscoveryAssociationCount`.
+	ResourceDiscoveryAssociationCount() *float64
+	SetResourceDiscoveryAssociationCount(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -328,6 +340,26 @@ func (j *jsiiProxy_CfnIPAM) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAM) DefaultResourceDiscoveryAssociationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"defaultResourceDiscoveryAssociationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAM) DefaultResourceDiscoveryId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"defaultResourceDiscoveryId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAM) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -373,6 +405,16 @@ func (j *jsiiProxy_CfnIPAM) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAM) ResourceDiscoveryAssociationCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"resourceDiscoveryAssociationCount",
 		&returns,
 	)
 	return returns
@@ -448,6 +490,22 @@ func NewCfnIPAM_Override(c CfnIPAM, scope constructs.Construct, id *string, prop
 	)
 }
 
+func (j *jsiiProxy_CfnIPAM)SetDefaultResourceDiscoveryAssociationId(val *string) {
+	_jsii_.Set(
+		j,
+		"defaultResourceDiscoveryAssociationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAM)SetDefaultResourceDiscoveryId(val *string) {
+	_jsii_.Set(
+		j,
+		"defaultResourceDiscoveryId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnIPAM)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -463,6 +521,14 @@ func (j *jsiiProxy_CfnIPAM)SetOperatingRegions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"operatingRegions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAM)SetResourceDiscoveryAssociationCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"resourceDiscoveryAssociationCount",
 		val,
 	)
 }

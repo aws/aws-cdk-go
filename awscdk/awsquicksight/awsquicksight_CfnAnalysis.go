@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::QuickSight::Analysis`.
 //
-// Creates an analysis in Amazon QuickSight.
+// Creates an analysis in Amazon QuickSight. Analyses can be created either from a template or from an `AnalysisDefinition` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -161,6 +161,8 @@ type CfnAnalysis interface {
 	// A source entity to use for the analysis that you're creating.
 	//
 	// This metadata structure contains details that describe a source template and one or more datasets.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
 	// The stack in which this element is defined.

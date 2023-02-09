@@ -1,6 +1,8 @@
 package awslex
 
 
+// Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,9 @@ package awslex
 //   }
 //
 type CfnBot_ElicitationCodeHookInvocationSettingProperty struct {
-	// `CfnBot.ElicitationCodeHookInvocationSettingProperty.EnableCodeHookInvocation`.
+	// Indicates whether a Lambda function should be invoked for the dialog.
 	EnableCodeHookInvocation interface{} `field:"required" json:"enableCodeHookInvocation" yaml:"enableCodeHookInvocation"`
-	// `CfnBot.ElicitationCodeHookInvocationSettingProperty.InvocationLabel`.
+	// A label that indicates the dialog step from which the dialog code hook is happening.
 	InvocationLabel *string `field:"optional" json:"invocationLabel" yaml:"invocationLabel"`
 }
 

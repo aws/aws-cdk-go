@@ -14,6 +14,7 @@ package awsamplifyuibuilder
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	excluded: jsii.Boolean(false),
 //   	level: jsii.Number(123),
 //   	orientation: jsii.String("orientation"),
 //   	position: &fieldPositionProperty{
@@ -29,6 +30,8 @@ type CfnForm_SectionalElementProperty struct {
 	//
 	// Valid values are `Heading` , `Text` , and `Divider` .
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// `CfnForm.SectionalElementProperty.Excluded`.
+	Excluded interface{} `field:"optional" json:"excluded" yaml:"excluded"`
 	// Specifies the size of the font for a `Heading` sectional element.
 	//
 	// Valid values are `1 | 2 | 3 | 4 | 5 | 6` .

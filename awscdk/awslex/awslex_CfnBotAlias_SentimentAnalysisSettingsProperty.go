@@ -1,6 +1,8 @@
 package awslex
 
 
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awslex
 //   }
 //
 type CfnBotAlias_SentimentAnalysisSettingsProperty struct {
-	// `CfnBotAlias.SentimentAnalysisSettingsProperty.DetectSentiment`.
+	// Sets whether Amazon Lex uses Amazon Comprehend to detect the sentiment of user utterances.
 	DetectSentiment interface{} `field:"required" json:"detectSentiment" yaml:"detectSentiment"`
 }
 

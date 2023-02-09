@@ -41,6 +41,7 @@ import (
 //   var queue queue
 //   var role role
 //   var runtime runtime
+//   var runtimeManagementMode runtimeManagementMode
 //   var securityGroup securityGroup
 //   var size size
 //   var subnet subnet
@@ -110,6 +111,7 @@ import (
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   	role: role,
+//   	runtimeManagementMode: runtimeManagementMode,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
@@ -258,6 +260,8 @@ type SingletonFunctionProps struct {
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// Sets the runtime management configuration for a function's version.
+	RuntimeManagementMode RuntimeManagementMode `field:"optional" json:"runtimeManagementMode" yaml:"runtimeManagementMode"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.

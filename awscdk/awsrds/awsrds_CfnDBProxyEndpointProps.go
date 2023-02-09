@@ -22,7 +22,6 @@ package awsrds
 //   			value: jsii.String("value"),
 //   		},
 //   	},
-//   	targetRole: jsii.String("targetRole"),
 //   	vpcSecurityGroupIds: []*string{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
@@ -39,10 +38,6 @@ type CfnDBProxyEndpointProps struct {
 	VpcSubnetIds *[]*string `field:"required" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags *[]*CfnDBProxyEndpoint_TagFormatProperty `field:"optional" json:"tags" yaml:"tags"`
-	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	//
-	// Valid Values: `READ_WRITE | READ_ONLY`.
-	TargetRole *string `field:"optional" json:"targetRole" yaml:"targetRole"`
 	// The VPC security group IDs for the DB proxy endpoint that you create.
 	//
 	// You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.

@@ -113,7 +113,7 @@ type CfnDataSource interface {
 	// As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
 	ElasticsearchConfig() interface{}
 	SetElasticsearchConfig(val interface{})
-	// `AWS::AppSync::DataSource.EventBridgeConfig`.
+	// An EventBridge configuration that contains a valid ARN of an event bus.
 	EventBridgeConfig() interface{}
 	SetEventBridgeConfig(val interface{})
 	// Endpoints for an HTTP data source.
@@ -154,7 +154,7 @@ type CfnDataSource interface {
 	//
 	// The system assumes this role when accessing the data source.
 	//
-	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , or `AMAZON_OPENSEARCH_SERVICE` .
+	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , `AMAZON_EVENTBRIDGE` , or `AMAZON_OPENSEARCH_SERVICE` .
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -166,6 +166,7 @@ type CfnDataSource interface {
 	// - *AWS_LAMBDA* : The data source is an AWS Lambda function.
 	// - *AMAZON_DYNAMODB* : The data source is an Amazon DynamoDB table.
 	// - *AMAZON_ELASTICSEARCH* : The data source is an Amazon OpenSearch Service domain.
+	// - *AMAZON_EVENTBRIDGE* : The data source is an Amazon EventBridge event bus.
 	// - *AMAZON_OPENSEARCH_SERVICE* : The data source is an Amazon OpenSearch Service domain.
 	// - *NONE* : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
 	// - *HTTP* : The data source is an HTTP endpoint.

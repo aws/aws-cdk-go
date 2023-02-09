@@ -13,6 +13,8 @@ import (
 //
 // Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
 //
+// For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
+//
 // To retrieve a secret in a CloudFormation template, use a *dynamic reference* . For more information, see [Retrieve a secret in an AWS CloudFormation resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html) .
 //
 // A common scenario is to first create a secret with `GenerateSecretString` , which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. Follow these steps, as shown in the examples below:
@@ -82,7 +84,7 @@ type CfnSecret interface {
 	SetDescription(val *string)
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
 	//
-	// To include a specific string in the secret, use `SecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret.
+	// To include a specific string in the secret, use `SecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret. When you make a change to this property, a new secret version is created.
 	//
 	// We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 	GenerateSecretString() interface{}
@@ -127,7 +129,7 @@ type CfnSecret interface {
 	SetReplicaRegions(val interface{})
 	// The text to encrypt and store in the secret.
 	//
-	// We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use `GenerateSecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret.
+	// We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use `GenerateSecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret. When you make a change to this property, a new secret version is created.
 	SecretString() *string
 	SetSecretString(val *string)
 	// The stack in which this element is defined.

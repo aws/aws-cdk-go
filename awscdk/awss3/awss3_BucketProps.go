@@ -94,6 +94,20 @@ type BucketProps struct {
 	Metrics *[]*BucketMetrics `field:"optional" json:"metrics" yaml:"metrics"`
 	// The role to be used by the notifications handler.
 	NotificationsHandlerRole awsiam.IRole `field:"optional" json:"notificationsHandlerRole" yaml:"notificationsHandlerRole"`
+	// The default retention mode and rules for S3 Object Lock.
+	//
+	// Default retention can be configured after a bucket is created if the bucket already
+	// has object lock enabled. Enabling object lock for existing buckets is not supported.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-bucket-config-enable
+	//
+	ObjectLockDefaultRetention ObjectLockRetention `field:"optional" json:"objectLockDefaultRetention" yaml:"objectLockDefaultRetention"`
+	// Enable object lock on the bucket.
+	//
+	// Enabling object lock for existing buckets is not supported. Object lock must be
+	// enabled when the bucket is created.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-bucket-config-enable
+	//
+	ObjectLockEnabled *bool `field:"optional" json:"objectLockEnabled" yaml:"objectLockEnabled"`
 	// The objectOwnership of the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html
 	//

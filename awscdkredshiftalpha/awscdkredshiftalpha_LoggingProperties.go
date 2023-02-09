@@ -8,13 +8,12 @@ import (
 // Logging bucket and S3 prefix combination.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-//   bucket := s3.bucket.fromBucketName(stack, jsii.String("bucket"), jsii.String("logging-bucket"))
+//   bucket := s3.bucket.fromBucketName(this, jsii.String("bucket"), jsii.String("logging-bucket"))
 //
 //   cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
 //   	masterUser: &login{
@@ -22,7 +21,7 @@ import (
 //   	},
 //   	vpc: vpc,
 //   	loggingProperties: &loggingProperties{
-//   		loggingBucket: loggingBucket,
+//   		loggingBucket: bucket,
 //   		loggingKeyPrefix: jsii.String("prefix"),
 //   	},
 //   })

@@ -11,7 +11,9 @@ import (
 
 // A CloudFormation `AWS::Connect::SecurityKey`.
 //
-// Configuration information of the security key.
+// The security key for the instance.
+//
+// > Only two security keys are allowed per Amazon Connect instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +28,7 @@ import (
 type CfnSecurityKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -36,10 +39,18 @@ type CfnSecurityKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::SecurityKey.InstanceId`.
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`.
 	InstanceId() *string
 	SetInstanceId(val *string)
-	// The key of the security key.
+	// A valid security key in PEM format.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `1024`.
 	Key() *string
 	SetKey(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies settings to enable conversation logs.
+// Defines settings to enable text conversation logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,7 @@ package awslex
 type CfnBot_TextLogSettingProperty struct {
 	// Specifies the Amazon CloudWatch Logs destination log group for conversation text logs.
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
-	// Specifies whether conversation logs should be stored for an alias.
+	// Determines whether conversation logs should be stored for an alias.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

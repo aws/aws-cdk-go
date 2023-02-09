@@ -3,7 +3,7 @@ package awslex
 
 // Specifies settings that are unique to a locale.
 //
-// For example, you can use a different Lambda function for each locale.
+// For example, you can use different Lambda function depending on the bot's locale.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,11 +23,11 @@ package awslex
 //   }
 //
 type CfnBot_BotAliasLocaleSettingsProperty struct {
-	// Specifies whether the locale is enabled for the bot.
+	// Determines whether the locale is enabled for the bot.
 	//
-	// If the value is false, the locale isn't available for use.
+	// If the value is `false` , the locale isn't available for use.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// Specifies the Lambda function to use in this locale.
+	// Specifies the Lambda function that should be used in the locale.
 	CodeHookSpecification interface{} `field:"optional" json:"codeHookSpecification" yaml:"codeHookSpecification"`
 }
 

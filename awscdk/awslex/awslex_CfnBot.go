@@ -15,7 +15,7 @@ import (
 //
 // Specifies an Amazon Lex conversational bot.
 //
-// You must configure an intent based on the AMAZON.FallbackIntent built-in intent. If you don't add one, creating the bot will fail.
+// You must configure an intent based on the `AMAZON.FallbackIntent` built-in intent. If you don't add one, creating the bot will fail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -6542,7 +6542,7 @@ type CfnBot interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
+	// `AWS::Lex::Bot.DataPrivacy`.
 	DataPrivacy() interface{}
 	SetDataPrivacy(val interface{})
 	// The description of the version.
@@ -6565,7 +6565,7 @@ type CfnBot interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the field to filter the list of bots.
+	// The name of the bot locale.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

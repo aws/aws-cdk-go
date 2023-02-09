@@ -67,7 +67,7 @@ type CfnBot_SlotTypeProperty struct {
 	//
 	// When you define a parent slot type, the new slot type has the configuration of the parent lot type.
 	//
-	// Only AMAZON.AlphaNumeric is supported.
+	// Only `AMAZON.AlphaNumeric` is supported.
 	ParentSlotTypeSignature *string `field:"optional" json:"parentSlotTypeSignature" yaml:"parentSlotTypeSignature"`
 	// A list of SlotTypeValue objects that defines the values that the slot type can take.
 	//
@@ -77,10 +77,10 @@ type CfnBot_SlotTypeProperty struct {
 	//
 	// The field can be set to one of the following values:
 	//
-	// - OriginalValue - Returns the value entered by the user, if the user value is similar to a slot value.
-	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+	// - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+	// - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
-	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
+	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ValueSelectionSetting interface{} `field:"optional" json:"valueSelectionSetting" yaml:"valueSelectionSetting"`
 }
 

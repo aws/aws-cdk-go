@@ -24,6 +24,7 @@ package awsamplifyuibuilder
 //   				"defaultCountryCode": jsii.String("defaultCountryCode"),
 //   				"defaultValue": jsii.String("defaultValue"),
 //   				"descriptiveText": jsii.String("descriptiveText"),
+//   				"isArray": jsii.Boolean(false),
 //   				"maxValue": jsii.Number(123),
 //   				"minValue": jsii.Number(123),
 //   				"name": jsii.String("name"),
@@ -77,6 +78,7 @@ package awsamplifyuibuilder
 //   			"type": jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			"excluded": jsii.Boolean(false),
 //   			"level": jsii.Number(123),
 //   			"orientation": jsii.String("orientation"),
 //   			"position": &FieldPositionProperty{

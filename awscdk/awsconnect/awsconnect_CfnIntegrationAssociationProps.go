@@ -15,13 +15,21 @@ package awsconnect
 //   }
 //
 type CfnIntegrationAssociationProps struct {
-	// The identifier of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	//
-	// You can find the instanceId in the ARN of the instance.
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`.
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
-	// The Amazon Resource Name (ARN) for the AppIntegration.
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`.
 	IntegrationArn *string `field:"required" json:"integrationArn" yaml:"integrationArn"`
-	// The integration type.
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`.
 	IntegrationType *string `field:"required" json:"integrationType" yaml:"integrationType"`
 }
 

@@ -16,14 +16,15 @@ import (
 // Create a Redshift cluster a given number of nodes.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var vpc ec2.Vpc
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
 //
 //
 //   cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	masterUser: &login{
 //   		masterUsername: jsii.String("admin"),
-//   		masterPassword: cdk.secretValue_UnsafePlainText(jsii.String("tooshort")),
+//   		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
 //   	},
 //   	vpc: vpc,
 //   })

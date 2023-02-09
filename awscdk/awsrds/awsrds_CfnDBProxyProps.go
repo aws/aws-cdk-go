@@ -16,7 +16,6 @@ package awsrds
 //   			description: jsii.String("description"),
 //   			iamAuth: jsii.String("iamAuth"),
 //   			secretArn: jsii.String("secretArn"),
-//   			userName: jsii.String("userName"),
 //   		},
 //   	},
 //   	dbProxyName: jsii.String("dbProxyName"),

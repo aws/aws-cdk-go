@@ -19,15 +19,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnConnectPeer := awscdk.Aws_networkmanager.NewCfnConnectPeer(this, jsii.String("MyCfnConnectPeer"), &cfnConnectPeerProps{
-//   	bgpOptions: &bgpOptionsProperty{
-//   		peerAsn: jsii.Number(123),
-//   	},
 //   	connectAttachmentId: jsii.String("connectAttachmentId"),
-//   	coreNetworkAddress: jsii.String("coreNetworkAddress"),
 //   	insideCidrBlocks: []*string{
 //   		jsii.String("insideCidrBlocks"),
 //   	},
 //   	peerAddress: jsii.String("peerAddress"),
+//
+//   	// the properties below are optional
+//   	bgpOptions: &bgpOptionsProperty{
+//   		peerAsn: jsii.Number(123),
+//   	},
+//   	coreNetworkAddress: jsii.String("coreNetworkAddress"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -551,6 +553,9 @@ func (j *jsiiProxy_CfnConnectPeer)SetBgpOptions(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnConnectPeer)SetConnectAttachmentId(val *string) {
+	if err := j.validateSetConnectAttachmentIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectAttachmentId",
@@ -567,6 +572,9 @@ func (j *jsiiProxy_CfnConnectPeer)SetCoreNetworkAddress(val *string) {
 }
 
 func (j *jsiiProxy_CfnConnectPeer)SetInsideCidrBlocks(val *[]*string) {
+	if err := j.validateSetInsideCidrBlocksParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"insideCidrBlocks",
@@ -575,6 +583,9 @@ func (j *jsiiProxy_CfnConnectPeer)SetInsideCidrBlocks(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnConnectPeer)SetPeerAddress(val *string) {
+	if err := j.validateSetPeerAddressParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"peerAddress",

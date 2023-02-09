@@ -1,4 +1,4 @@
-# Amazon OpenSearch Service (legacy Elasticsearch) Construct Library
+# Amazon OpenSearch Service Construct Library
 
 > Instead of this module, we recommend using the [@aws-cdk/aws-opensearchservice](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-opensearchservice-readme.html) module. See [Amazon OpenSearch Service FAQs](https://aws.amazon.com/opensearch-service/faqs/#Name_change) for details. See [Migrating to OpenSearch](#migrating-to-opensearch) for migration instructions.
 

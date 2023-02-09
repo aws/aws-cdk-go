@@ -47,6 +47,7 @@ import (
 //   var queue queue
 //   var role role
 //   var runtime runtime
+//   var runtimeManagementMode runtimeManagementMode
 //   var securityGroup securityGroup
 //   var size size
 //   var subnet subnet
@@ -116,6 +117,7 @@ import (
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   	role: role,
+//   	runtimeManagementMode: runtimeManagementMode,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},

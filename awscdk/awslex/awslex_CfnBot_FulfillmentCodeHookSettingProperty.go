@@ -1050,13 +1050,15 @@ package awslex
 //   }
 //
 type CfnBot_FulfillmentCodeHookSettingProperty struct {
-	// Indicates whether a Lambda function should be invoked for fulfill a specific intent.
+	// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions.
 	//
 	// Fulfillment updates can be used only with streaming conversations.
 	FulfillmentUpdatesSpecification interface{} `field:"optional" json:"fulfillmentUpdatesSpecification" yaml:"fulfillmentUpdatesSpecification"`
-	// `CfnBot.FulfillmentCodeHookSettingProperty.IsActive`.
+	// Determines whether the fulfillment code hook is used.
+	//
+	// When `active` is false, the code hook doesn't run.
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes.
 	//

@@ -13,6 +13,9 @@ package awsconnectcampaigns
 //   	connectQueueArn: jsii.String("connectQueueArn"),
 //
 //   	// the properties below are optional
+//   	answerMachineDetectionConfig: &answerMachineDetectionConfigProperty{
+//   		enableAnswerMachineDetection: jsii.Boolean(false),
+//   	},
 //   	connectSourcePhoneNumber: jsii.String("connectSourcePhoneNumber"),
 //   }
 //
@@ -21,6 +24,8 @@ type CfnCampaign_OutboundCallConfigProperty struct {
 	ConnectContactFlowArn *string `field:"required" json:"connectContactFlowArn" yaml:"connectContactFlowArn"`
 	// The Amazon Resource Name (ARN) of the queue.
 	ConnectQueueArn *string `field:"required" json:"connectQueueArn" yaml:"connectQueueArn"`
+	// `CfnCampaign.OutboundCallConfigProperty.AnswerMachineDetectionConfig`.
+	AnswerMachineDetectionConfig interface{} `field:"optional" json:"answerMachineDetectionConfig" yaml:"answerMachineDetectionConfig"`
 	// The phone number associated with the outbound call.
 	//
 	// This is the caller ID that is displayed to customers when an agent calls them.

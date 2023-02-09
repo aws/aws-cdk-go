@@ -108,6 +108,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	appId: jsii.String("appId"),
 //   	children: []interface{}{
 //   		&componentChildProperty{
 //   			componentType: jsii.String("componentType"),
@@ -540,6 +541,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	environmentName: jsii.String("environmentName"),
 //   	events: map[string]interface{}{
 //   		"eventsKey": &ComponentEventProperty{
 //   			"action": jsii.String("action"),
@@ -900,10 +902,9 @@ import (
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The unique ID for the Amplify app.
-	AttrAppId() *string
-	// The name of the backend environment that is a part of the Amplify app.
-	AttrEnvironmentName() *string
+	// `AWS::AmplifyUIBuilder::Component.AppId`.
+	AppId() *string
+	SetAppId(val *string)
 	// The unique ID of the component.
 	AttrId() *string
 	// The information to connect a component's properties to data at runtime.
@@ -933,6 +934,9 @@ type CfnComponent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::AmplifyUIBuilder::Component.EnvironmentName`.
+	EnvironmentName() *string
+	SetEnvironmentName(val *string)
 	// Describes the events that can be raised on the component.
 	//
 	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
@@ -1131,21 +1135,11 @@ type jsiiProxy_CfnComponent struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnComponent) AttrAppId() *string {
+func (j *jsiiProxy_CfnComponent) AppId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrAppId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnComponent) AttrEnvironmentName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrEnvironmentName",
+		"appId",
 		&returns,
 	)
 	return returns
@@ -1236,6 +1230,16 @@ func (j *jsiiProxy_CfnComponent) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) EnvironmentName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentName",
 		&returns,
 	)
 	return returns
@@ -1411,6 +1415,14 @@ func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *st
 	)
 }
 
+func (j *jsiiProxy_CfnComponent)SetAppId(val *string) {
+	_jsii_.Set(
+		j,
+		"appId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnComponent)SetBindingProperties(val interface{}) {
 	if err := j.validateSetBindingPropertiesParameters(val); err != nil {
 		panic(err)
@@ -1451,6 +1463,14 @@ func (j *jsiiProxy_CfnComponent)SetComponentType(val *string) {
 	_jsii_.Set(
 		j,
 		"componentType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComponent)SetEnvironmentName(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentName",
 		val,
 	)
 }

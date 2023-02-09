@@ -42,6 +42,7 @@ import (
 //   		},
 //   	},
 //   	topicName: jsii.String("topicName"),
+//   	tracingConfig: jsii.String("tracingConfig"),
 //   })
 //
 type CfnTopic interface {
@@ -132,6 +133,9 @@ type CfnTopic interface {
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName() *string
 	SetTopicName(val *string)
+	// `AWS::SNS::Topic.TracingConfig`.
+	TracingConfig() *string
+	SetTracingConfig(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -468,6 +472,16 @@ func (j *jsiiProxy_CfnTopic) TopicName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) TracingConfig() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tracingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -590,6 +604,14 @@ func (j *jsiiProxy_CfnTopic)SetTopicName(val *string) {
 	_jsii_.Set(
 		j,
 		"topicName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetTracingConfig(val *string) {
+	_jsii_.Set(
+		j,
+		"tracingConfig",
 		val,
 	)
 }

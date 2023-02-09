@@ -1843,7 +1843,7 @@ package awslex
 //   }
 //
 type CfnBot_SlotProperty struct {
-	// The name of the slot.
+	// The name given to the slot.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The name of the slot type that this slot is based on.
 	//
@@ -1853,14 +1853,14 @@ type CfnBot_SlotProperty struct {
 	//
 	// The field can be set to one of the following values:
 	//
-	// - OriginalValue - Returns the value entered by the user, if the user value is similar to a slot value.
-	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+	// - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+	// - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
-	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
+	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ValueElicitationSetting interface{} `field:"required" json:"valueElicitationSetting" yaml:"valueElicitationSetting"`
-	// A description of the slot type.
+	// The description of the slot.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Determines whether the slot can return multiple values to the application.
+	// Indicates whether a slot can return multiple values.
 	MultipleValuesSetting interface{} `field:"optional" json:"multipleValuesSetting" yaml:"multipleValuesSetting"`
 	// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs.
 	//

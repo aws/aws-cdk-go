@@ -20,13 +20,15 @@ import (
 //
 //   cfnSiteToSiteVpnAttachment := awscdk.Aws_networkmanager.NewCfnSiteToSiteVpnAttachment(this, jsii.String("MyCfnSiteToSiteVpnAttachment"), &cfnSiteToSiteVpnAttachmentProps{
 //   	coreNetworkId: jsii.String("coreNetworkId"),
+//   	vpnConnectionArn: jsii.String("vpnConnectionArn"),
+//
+//   	// the properties below are optional
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
 //   		},
 //   	},
-//   	vpnConnectionArn: jsii.String("vpnConnectionArn"),
 //   })
 //
 type CfnSiteToSiteVpnAttachment interface {
@@ -546,6 +548,9 @@ func NewCfnSiteToSiteVpnAttachment_Override(c CfnSiteToSiteVpnAttachment, scope 
 }
 
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetCoreNetworkId(val *string) {
+	if err := j.validateSetCoreNetworkIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"coreNetworkId",
@@ -554,6 +559,9 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetCoreNetworkId(val *string) {
 }
 
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetVpnConnectionArn(val *string) {
+	if err := j.validateSetVpnConnectionArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"vpnConnectionArn",

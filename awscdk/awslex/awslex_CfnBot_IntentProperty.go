@@ -6363,7 +6363,7 @@ type CfnBot_IntentProperty struct {
 	//
 	// You can invoke this function to complete the bot's transaction with the user.
 	FulfillmentCodeHook interface{} `field:"optional" json:"fulfillmentCodeHook" yaml:"fulfillmentCodeHook"`
-	// `CfnBot.IntentProperty.InitialResponseSetting`.
+	// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 	InitialResponseSetting interface{} `field:"optional" json:"initialResponseSetting" yaml:"initialResponseSetting"`
 	// A list of contexts that must be active for this intent to be considered by Amazon Lex .
 	InputContexts interface{} `field:"optional" json:"inputContexts" yaml:"inputContexts"`
@@ -6373,7 +6373,7 @@ type CfnBot_IntentProperty struct {
 	//
 	// If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
 	IntentConfirmationSetting interface{} `field:"optional" json:"intentConfirmationSetting" yaml:"intentConfirmationSetting"`
-	// Configuration information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke.
+	// Provides configuration information for the AMAZON.KendraSearchIntent intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 	KendraConfiguration interface{} `field:"optional" json:"kendraConfiguration" yaml:"kendraConfiguration"`
 	// A list of contexts that the intent activates when it is fulfilled.
 	OutputContexts interface{} `field:"optional" json:"outputContexts" yaml:"outputContexts"`

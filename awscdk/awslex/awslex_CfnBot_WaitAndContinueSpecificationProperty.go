@@ -206,7 +206,7 @@ type CfnBot_WaitAndContinueSpecificationProperty struct {
 	WaitingResponse interface{} `field:"required" json:"waitingResponse" yaml:"waitingResponse"`
 	// Specifies whether the bot will wait for a user to respond.
 	//
-	// When this field is false, wait and continue responses for a slot aren't used and the bot expects an appropriate response within the configured timeout. If the IsActive field isn't specified, the default is true.
+	// When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 	StillWaitingResponse interface{} `field:"optional" json:"stillWaitingResponse" yaml:"stillWaitingResponse"`

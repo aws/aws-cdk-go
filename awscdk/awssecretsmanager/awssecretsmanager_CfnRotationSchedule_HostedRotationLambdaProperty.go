@@ -5,6 +5,8 @@ package awssecretsmanager
 //
 // You must specify `Transform: AWS::SecretsManager-2020-07-23` at the beginning of the CloudFormation template.
 //
+// For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -76,7 +76,7 @@ type CfnBot_FulfillmentStartResponseSpecificationProperty struct {
 	//
 	// If the Lambda function returns before the delay is over, the start message isn't played.
 	DelayInSeconds *float64 `field:"required" json:"delayInSeconds" yaml:"delayInSeconds"`
-	// One to 5 message groups that contain start messages.
+	// 1 - 5 message groups that contain start messages.
 	//
 	// Amazon Lex chooses one of the messages to play to the user.
 	MessageGroups interface{} `field:"required" json:"messageGroups" yaml:"messageGroups"`

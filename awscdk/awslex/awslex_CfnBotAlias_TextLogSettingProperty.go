@@ -1,7 +1,7 @@
 package awslex
 
 
-// Defines settings to enable conversation logs.
+// Defines settings to enable text conversation logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

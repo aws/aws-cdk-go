@@ -1006,6 +1006,25 @@ func init() {
 		reflect.TypeOf((*NotificationKeyFilter)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_s3.ObjectLockMode",
+		reflect.TypeOf((*ObjectLockMode)(nil)).Elem(),
+		map[string]interface{}{
+			"GOVERNANCE": ObjectLockMode_GOVERNANCE,
+			"COMPLIANCE": ObjectLockMode_COMPLIANCE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_s3.ObjectLockRetention",
+		reflect.TypeOf((*ObjectLockRetention)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "duration", GoGetter: "Duration"},
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ObjectLockRetention{}
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_s3.ObjectOwnership",
 		reflect.TypeOf((*ObjectOwnership)(nil)).Elem(),
 		map[string]interface{}{

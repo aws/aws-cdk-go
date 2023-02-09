@@ -39,6 +39,7 @@ import (
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	kmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	tags: []tagsProperty{
 //   		&tagsProperty{
 //   			key: jsii.String("key"),
@@ -77,6 +78,9 @@ type CfnDeployment interface {
 	// The environment ID.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
+	// `AWS::AppConfig::Deployment.KmsKeyIdentifier`.
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -349,6 +353,16 @@ func (j *jsiiProxy_CfnDeployment) EnvironmentId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeployment) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeployment) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -508,6 +522,14 @@ func (j *jsiiProxy_CfnDeployment)SetEnvironmentId(val *string) {
 	_jsii_.Set(
 		j,
 		"environmentId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeployment)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

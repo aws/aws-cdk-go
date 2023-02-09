@@ -20,7 +20,7 @@ package awsredshift
 //   }
 //
 type CfnEndpointAuthorizationProps struct {
-	// The A AWS account ID of either the cluster owner (grantor) or grantee.
+	// The AWS account ID of either the cluster owner (grantor) or grantee.
 	//
 	// If `Grantee` parameter is true, then the `Account` value is of the grantor.
 	Account *string `field:"required" json:"account" yaml:"account"`

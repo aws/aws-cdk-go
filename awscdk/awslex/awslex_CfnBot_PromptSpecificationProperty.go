@@ -104,15 +104,15 @@ package awslex
 type CfnBot_PromptSpecificationProperty struct {
 	// The maximum number of times the bot tries to elicit a response from the user using this prompt.
 	MaxRetries *float64 `field:"required" json:"maxRetries" yaml:"maxRetries"`
-	// A collection of responses that Amazon Lex can send to the user.
+	// A collection of messages that Amazon Lex can send to the user.
 	//
-	// Amazon Lex chooses the actual response to send at runtime.
+	// Amazon Lex chooses the actual message to send at runtime.
 	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
 	// Indicates whether the user can interrupt a speech prompt from the bot.
 	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
-	// `CfnBot.PromptSpecificationProperty.MessageSelectionStrategy`.
+	// Indicates how a message is selected from a message group among retries.
 	MessageSelectionStrategy *string `field:"optional" json:"messageSelectionStrategy" yaml:"messageSelectionStrategy"`
-	// `CfnBot.PromptSpecificationProperty.PromptAttemptsSpecification`.
+	// Specifies the advanced settings on each attempt of the prompt.
 	PromptAttemptsSpecification interface{} `field:"optional" json:"promptAttemptsSpecification" yaml:"promptAttemptsSpecification"`
 }
 

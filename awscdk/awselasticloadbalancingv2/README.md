@@ -654,3 +654,16 @@ listener := elbv2.networkListener.fromLookup(this, jsii.String("ALBListener"), &
 	listenerPort: jsii.Number(12345),
 })
 ```
+
+## Metrics
+
+You may create metrics for each Load Balancer through the `metrics` attribute:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var alb iApplicationLoadBalancer
+
+
+albMetrics := alb.metrics
+metricConnectionCount := albMetrics.activeConnectionCount()
+```

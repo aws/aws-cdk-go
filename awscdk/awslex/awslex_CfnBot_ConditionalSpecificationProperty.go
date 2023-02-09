@@ -1,6 +1,10 @@
 package awslex
 
 
+// Provides a list of conditional branches.
+//
+// Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -215,11 +219,17 @@ package awslex
 //   }
 //
 type CfnBot_ConditionalSpecificationProperty struct {
-	// `CfnBot.ConditionalSpecificationProperty.ConditionalBranches`.
+	// A list of conditional branches.
+	//
+	// A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
 	ConditionalBranches interface{} `field:"required" json:"conditionalBranches" yaml:"conditionalBranches"`
-	// `CfnBot.ConditionalSpecificationProperty.DefaultBranch`.
+	// The conditional branch that should be followed when the conditions for other branches are not satisfied.
+	//
+	// A conditional branch is made up of a condition, a response and a next step.
 	DefaultBranch interface{} `field:"required" json:"defaultBranch" yaml:"defaultBranch"`
-	// `CfnBot.ConditionalSpecificationProperty.IsActive`.
+	// Determines whether a conditional branch is active.
+	//
+	// When `IsActive` is false, the conditions are not evaluated.
 	IsActive interface{} `field:"required" json:"isActive" yaml:"isActive"`
 }
 

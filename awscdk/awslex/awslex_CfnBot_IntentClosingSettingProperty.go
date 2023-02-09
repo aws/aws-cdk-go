@@ -317,13 +317,15 @@ package awslex
 type CfnBot_IntentClosingSettingProperty struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
 	ClosingResponse interface{} `field:"optional" json:"closingResponse" yaml:"closingResponse"`
-	// `CfnBot.IntentClosingSettingProperty.Conditional`.
+	// A list of conditional branches associated with the intent's closing response.
+	//
+	// These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
 	Conditional interface{} `field:"optional" json:"conditional" yaml:"conditional"`
 	// Specifies whether an intent's closing response is used.
 	//
-	// When this field is false, the closing response isn't sent to the user and no closing input from the user is used. If the IsActive field isn't specified, the default is true.
+	// When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
-	// `CfnBot.IntentClosingSettingProperty.NextStep`.
+	// Specifies the next step that the bot executes after playing the intent's closing response.
 	NextStep interface{} `field:"optional" json:"nextStep" yaml:"nextStep"`
 }
 

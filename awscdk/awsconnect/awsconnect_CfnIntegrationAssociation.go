@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Connect::IntegrationAssociation`.
 //
-// Creates an AWS resource association with an Amazon Connect instance.
+// Specifies the association of an AWS resource such as Lex bot (both v1 and v2) and Lambda function with an Amazon Connect instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,7 @@ import (
 type CfnIntegrationAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Identifier of the association with an Amazon Connect instance.
 	AttrIntegrationAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -37,15 +38,23 @@ type CfnIntegrationAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The identifier of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	//
-	// You can find the instanceId in the ARN of the instance.
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`.
 	InstanceId() *string
 	SetInstanceId(val *string)
-	// The Amazon Resource Name (ARN) for the AppIntegration.
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`.
 	IntegrationArn() *string
 	SetIntegrationArn(val *string)
-	// The integration type.
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`.
 	IntegrationType() *string
 	SetIntegrationType(val *string)
 	// The logical ID for this CloudFormation stack element.

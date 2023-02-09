@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies a list of message groups that Amazon Lex uses to respond to user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -75,7 +75,7 @@ type CfnBot_ResponseSpecificationProperty struct {
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
 	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
-	// Indicates whether the user can interrupt a speech response from Amazon Lex .
+	// Indicates whether the user can interrupt a speech response from Amazon Lex.
 	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 

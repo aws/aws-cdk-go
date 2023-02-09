@@ -1735,6 +1735,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.RuntimeManagementMode",
+		reflect.TypeOf((*RuntimeManagementMode)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+			_jsii_.MemberProperty{JsiiProperty: "runtimeManagementConfig", GoGetter: "RuntimeManagementConfig"},
+		},
+		func() interface{} {
+			return &jsiiProxy_RuntimeManagementMode{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.S3Code",
 		reflect.TypeOf((*S3Code)(nil)).Elem(),
 		[]_jsii_.Member{

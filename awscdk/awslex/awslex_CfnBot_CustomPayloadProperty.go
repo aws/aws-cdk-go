@@ -3,7 +3,7 @@ package awslex
 
 // A custom response string that Amazon Lex sends to your application.
 //
-// You define the content and structure of the string.
+// You define the content and structure the string.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

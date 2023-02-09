@@ -1,6 +1,8 @@
 package awslex
 
 
+// Specifies the allowed input types.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awslex
 //   }
 //
 type CfnBot_AllowedInputTypesProperty struct {
-	// `CfnBot.AllowedInputTypesProperty.AllowAudioInput`.
+	// Indicates whether audio input is allowed.
 	AllowAudioInput interface{} `field:"required" json:"allowAudioInput" yaml:"allowAudioInput"`
-	// `CfnBot.AllowedInputTypesProperty.AllowDTMFInput`.
+	// Indicates whether DTMF input is allowed.
 	AllowDtmfInput interface{} `field:"required" json:"allowDtmfInput" yaml:"allowDtmfInput"`
 }
 

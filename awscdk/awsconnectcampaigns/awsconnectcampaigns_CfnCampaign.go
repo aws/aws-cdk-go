@@ -34,6 +34,9 @@ import (
 //   		connectQueueArn: jsii.String("connectQueueArn"),
 //
 //   		// the properties below are optional
+//   		answerMachineDetectionConfig: &answerMachineDetectionConfigProperty{
+//   			enableAnswerMachineDetection: jsii.Boolean(false),
+//   		},
 //   		connectSourcePhoneNumber: jsii.String("connectSourcePhoneNumber"),
 //   	},
 //

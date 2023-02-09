@@ -46,7 +46,6 @@ import (
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	serverName: jsii.String("serverName"),
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -72,8 +71,7 @@ type CfnServer interface {
 	//
 	// Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
 	AttrEndpoint() *string
-	// The ID of the server.
-	AttrId() *string
+	AttrServerName() *string
 	// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
 	BackupId() *string
 	SetBackupId(val *string)
@@ -194,11 +192,6 @@ type CfnServer interface {
 	// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// The name of the server.
-	//
-	// The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-	ServerName() *string
-	SetServerName(val *string)
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	//
 	// Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
@@ -401,11 +394,11 @@ func (j *jsiiProxy_CfnServer) AttrEndpoint() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServer) AttrId() *string {
+func (j *jsiiProxy_CfnServer) AttrServerName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrServerName",
 		&returns,
 	)
 	return returns
@@ -636,16 +629,6 @@ func (j *jsiiProxy_CfnServer) SecurityGroupIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"securityGroupIds",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServer) ServerName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"serverName",
 		&returns,
 	)
 	return returns
@@ -888,14 +871,6 @@ func (j *jsiiProxy_CfnServer)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnServer)SetServerName(val *string) {
-	_jsii_.Set(
-		j,
-		"serverName",
 		val,
 	)
 }

@@ -41,19 +41,26 @@ type BucketAttributes struct {
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The regional domain name of the specified bucket.
 	BucketRegionalDomainName *string `field:"optional" json:"bucketRegionalDomainName" yaml:"bucketRegionalDomainName"`
-	// The format of the website URL of the bucket.
+	// Force the format of the website URL of the bucket.
 	//
 	// This should be true for
 	// regions launched since 2014.
+	// Deprecated: The correct website url format can be inferred automatically from the bucket `region`.
+	// Always provide the bucket region if the `bucketWebsiteUrl` will be used.
+	// Alternatively provide the full `bucketWebsiteUrl` manually.
 	BucketWebsiteNewUrlFormat *bool `field:"optional" json:"bucketWebsiteNewUrlFormat" yaml:"bucketWebsiteNewUrlFormat"`
 	// The website URL of the bucket (if static web hosting is enabled).
 	BucketWebsiteUrl *string `field:"optional" json:"bucketWebsiteUrl" yaml:"bucketWebsiteUrl"`
+	// KMS encryption key associated with this bucket.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// If this bucket has been configured for static website hosting.
 	IsWebsite *bool `field:"optional" json:"isWebsite" yaml:"isWebsite"`
 	// The role to be used by the notifications handler.
 	NotificationsHandlerRole awsiam.IRole `field:"optional" json:"notificationsHandlerRole" yaml:"notificationsHandlerRole"`
 	// The region this existing bucket is in.
+	//
+	// Features that require the region (e.g. `bucketWebsiteUrl`) won't fully work
+	// if the region cannot be correctly inferred.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

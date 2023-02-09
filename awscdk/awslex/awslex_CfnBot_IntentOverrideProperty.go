@@ -1,6 +1,8 @@
 package awslex
 
 
+// Override settings to configure the intent state.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,9 +29,13 @@ package awslex
 //   }
 //
 type CfnBot_IntentOverrideProperty struct {
-	// `CfnBot.IntentOverrideProperty.Name`.
+	// The name of the intent.
+	//
+	// Only required when you're switching intents.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnBot.IntentOverrideProperty.Slots`.
+	// A map of all of the slot value overrides for the intent.
+	//
+	// The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
 	Slots interface{} `field:"optional" json:"slots" yaml:"slots"`
 }
 

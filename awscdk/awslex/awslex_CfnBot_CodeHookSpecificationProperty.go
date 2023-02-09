@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies information about code hooks that Amazon Lex calls during a conversation.
+// Contains information about code hooks that Amazon Lex calls during a conversation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

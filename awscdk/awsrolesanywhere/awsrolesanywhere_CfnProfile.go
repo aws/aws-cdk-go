@@ -11,7 +11,9 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::Profile`.
 //
-// Creates a Profile.
+// Creates a *profile* , a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.
+//
+// *Required permissions:* `rolesanywhere:CreateProfile` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,16 +21,18 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnProfile := awscdk.Aws_rolesanywhere.NewCfnProfile(this, jsii.String("MyCfnProfile"), &cfnProfileProps{
+//   	name: jsii.String("name"),
+//   	roleArns: []*string{
+//   		jsii.String("roleArns"),
+//   	},
+//
+//   	// the properties below are optional
 //   	durationSeconds: jsii.Number(123),
 //   	enabled: jsii.Boolean(false),
 //   	managedPolicyArns: []*string{
 //   		jsii.String("managedPolicyArns"),
 //   	},
-//   	name: jsii.String("name"),
 //   	requireInstanceProperties: jsii.Boolean(false),
-//   	roleArns: []*string{
-//   		jsii.String("roleArns"),
-//   	},
 //   	sessionPolicy: jsii.String("sessionPolicy"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -41,6 +45,7 @@ import (
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the profile.
 	AttrProfileArn() *string
 	// The unique primary identifier of the Profile.
 	AttrProfileId() *string
@@ -53,10 +58,10 @@ type CfnProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The number of seconds vended session credentials will be valid for.
+	// Sets the maximum number of seconds that vended temporary credentials through [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html) will be valid for, between 900 and 3600.
 	DurationSeconds() *float64
 	SetDurationSeconds(val *float64)
-	// The enabled status of the resource.
+	// Indicates whether the profile is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -69,12 +74,10 @@ type CfnProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A list of managed policy ARNs.
-	//
-	// Managed policies identified by this list will be applied to the vended session credentials.
+	// A list of managed policy ARNs that apply to the vended session credentials.
 	ManagedPolicyArns() *[]*string
 	SetManagedPolicyArns(val *[]*string)
-	// The customer specified name of the resource.
+	// The name of the profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,20 +87,22 @@ type CfnProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies whether instance properties are required in CreateSession requests with this profile.
+	// Specifies whether instance properties are required in temporary credential requests with this profile.
 	RequireInstanceProperties() interface{}
 	SetRequireInstanceProperties(val interface{})
-	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+	// A list of IAM role ARNs.
+	//
+	// During `CreateSession` , if a matching role ARN is provided, the properties in this profile will be applied to the intersection session policy.
 	RoleArns() *[]*string
 	SetRoleArns(val *[]*string)
-	// A session policy that will applied to the trust boundary of the vended session credentials.
+	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy() *string
 	SetSessionPolicy(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of Tags.
+	// A list of tags to attach to the profile.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -503,6 +508,9 @@ func (j *jsiiProxy_CfnProfile)SetManagedPolicyArns(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnProfile)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -522,6 +530,9 @@ func (j *jsiiProxy_CfnProfile)SetRequireInstanceProperties(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnProfile)SetRoleArns(val *[]*string) {
+	if err := j.validateSetRoleArnsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArns",

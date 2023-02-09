@@ -38,6 +38,7 @@ import (
 //
 type ManagedPolicy interface {
 	awscdk.Resource
+	IGrantable
 	IManagedPolicy
 	// The description of this policy.
 	Description() *string
@@ -52,6 +53,8 @@ type ManagedPolicy interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The principal to grant permissions to.
+	GrantPrincipal() IPrincipal
 	// Returns the ARN of this managed policy.
 	ManagedPolicyArn() *string
 	// The name of this policy.
@@ -109,6 +112,7 @@ type ManagedPolicy interface {
 // The jsii proxy struct for ManagedPolicy
 type jsiiProxy_ManagedPolicy struct {
 	internal.Type__awscdkResource
+	jsiiProxy_IGrantable
 	jsiiProxy_IManagedPolicy
 }
 
@@ -137,6 +141,16 @@ func (j *jsiiProxy_ManagedPolicy) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ManagedPolicy) GrantPrincipal() IPrincipal {
+	var returns IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
 		&returns,
 	)
 	return returns

@@ -34,7 +34,7 @@ type SessionTagsPrincipal interface {
 	// Can be a Token - in that case,
 	// it's assumed to be AWS::AccountId.
 	PrincipalAccount() *string
-	// Add the princpial to the AssumeRolePolicyDocument.
+	// Add the principal to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.

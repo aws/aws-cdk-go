@@ -95,6 +95,8 @@ type CfnAnalysisProps struct {
 	// A source entity to use for the analysis that you're creating.
 	//
 	// This metadata structure contains details that describe a source template and one or more datasets.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity interface{} `field:"required" json:"sourceEntity" yaml:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Errors`.
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`

@@ -16,6 +16,7 @@ package awsamplifyuibuilder
 //   	defaultCountryCode: jsii.String("defaultCountryCode"),
 //   	defaultValue: jsii.String("defaultValue"),
 //   	descriptiveText: jsii.String("descriptiveText"),
+//   	isArray: jsii.Boolean(false),
 //   	maxValue: jsii.Number(123),
 //   	minValue: jsii.Number(123),
 //   	name: jsii.String("name"),
@@ -51,6 +52,8 @@ type CfnForm_FieldInputConfigProperty struct {
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The text to display to describe the field.
 	DescriptiveText *string `field:"optional" json:"descriptiveText" yaml:"descriptiveText"`
+	// `CfnForm.FieldInputConfigProperty.IsArray`.
+	IsArray interface{} `field:"optional" json:"isArray" yaml:"isArray"`
 	// The maximum value to display for the field.
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`
 	// The minimum value to display for the field.

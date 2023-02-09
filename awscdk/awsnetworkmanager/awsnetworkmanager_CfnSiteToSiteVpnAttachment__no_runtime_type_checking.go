@@ -80,6 +80,14 @@ func validateCfnSiteToSiteVpnAttachment_IsConstructParameters(x interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetCoreNetworkIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetVpnConnectionArnParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnSiteToSiteVpnAttachmentParameters(scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) error {
 	return nil
 }

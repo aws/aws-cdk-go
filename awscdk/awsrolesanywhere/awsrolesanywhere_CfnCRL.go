@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::CRL`.
 //
-// Creates a Crl.
+// The state of the certificate revocation list (CRL) after a read or write operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,8 +20,10 @@ import (
 //
 //   cfnCRL := awscdk.Aws_rolesanywhere.NewCfnCRL(this, jsii.String("MyCfnCRL"), &cfnCRLProps{
 //   	crlData: jsii.String("crlData"),
-//   	enabled: jsii.Boolean(false),
 //   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	enabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -45,10 +47,10 @@ type CfnCRL interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// x509 v3 Certificate Revocation List to revoke auth for corresponding certificates presented in CreateSession operations.
+	// The revocation record for a certificate, following the x509 v3 standard.
 	CrlData() *string
 	SetCrlData(val *string)
-	// The enabled status of the resource.
+	// Indicates whether the certificate revocation list (CRL) is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -61,7 +63,7 @@ type CfnCRL interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The customer specified name of the resource.
+	// The name of the certificate revocation list (CRL).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -75,7 +77,7 @@ type CfnCRL interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of Tags.
+	// A list of tags to attach to the CRL.
 	Tags() awscdk.TagManager
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn() *string
@@ -417,6 +419,9 @@ func NewCfnCRL_Override(c CfnCRL, scope constructs.Construct, id *string, props 
 }
 
 func (j *jsiiProxy_CfnCRL)SetCrlData(val *string) {
+	if err := j.validateSetCrlDataParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"crlData",
@@ -436,6 +441,9 @@ func (j *jsiiProxy_CfnCRL)SetEnabled(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnCRL)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
