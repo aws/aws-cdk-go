@@ -1,6 +1,10 @@
 package awswafv2
 
 
+// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
+//
+// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,7 +22,9 @@ package awswafv2
 //   }
 //
 type CfnRuleGroup_AllowActionProperty struct {
-	// `CfnRuleGroup.AllowActionProperty.CustomRequestHandling`.
+	// Defines custom handling for the web request.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	CustomRequestHandling interface{} `field:"optional" json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 

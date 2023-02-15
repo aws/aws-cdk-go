@@ -113,7 +113,7 @@ type CfnEndpointAccess interface {
 	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
-	// The security groups associated with the endpoint.
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroups`.
 	VpcSecurityGroups() interface{}
 	SetVpcSecurityGroups(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

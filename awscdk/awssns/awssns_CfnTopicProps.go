@@ -64,7 +64,9 @@ type CfnTopicProps struct {
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html) .
 	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
-	// `AWS::SNS::Topic.SignatureVersion`.
+	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	//
+	// By default, `SignatureVersion` is set to `1` .
 	SignatureVersion *string `field:"optional" json:"signatureVersion" yaml:"signatureVersion"`
 	// The Amazon SNS subscriptions (endpoints) for this topic.
 	Subscription interface{} `field:"optional" json:"subscription" yaml:"subscription"`
@@ -80,7 +82,9 @@ type CfnTopicProps struct {
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName *string `field:"optional" json:"topicName" yaml:"topicName"`
-	// `AWS::SNS::Topic.TracingConfig`.
+	// Tracing mode of an Amazon SNS topic.
+	//
+	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
 	TracingConfig *string `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`
 }
 

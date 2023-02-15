@@ -621,6 +621,11 @@ type CfnDBInstance interface {
 	// - `aurora` (for MySQL 5.6-compatible Aurora)
 	// - `aurora-mysql` (for MySQL 5.7-compatible Aurora)
 	// - `aurora-postgresql`
+	// - `custom-oracle-ee`
+	// - `custom-oracle-ee-cdb`
+	// - `custom-sqlserver-ee`
+	// - `custom-sqlserver-se`
+	// - `custom-sqlserver-web`
 	// - `mariadb`
 	// - `mysql`
 	// - `oracle-ee`
@@ -845,8 +850,6 @@ type CfnDBInstance interface {
 	// Specifies whether the database instance is a Multi-AZ DB instance deployment.
 	//
 	// You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to true.
-	//
-	// Currently, you can't use AWS CloudFormation to create a Multi-AZ DB cluster deployment.
 	//
 	// For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide* .
 	//

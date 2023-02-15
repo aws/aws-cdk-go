@@ -30,9 +30,9 @@ import (
 //   }
 //
 type CfnIPAMProps struct {
-	// `AWS::EC2::IPAM.DefaultResourceDiscoveryAssociationId`.
+	// The IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId *string `field:"optional" json:"defaultResourceDiscoveryAssociationId" yaml:"defaultResourceDiscoveryAssociationId"`
-	// `AWS::EC2::IPAM.DefaultResourceDiscoveryId`.
+	// The IPAM's default resource discovery ID.
 	DefaultResourceDiscoveryId *string `field:"optional" json:"defaultResourceDiscoveryId" yaml:"defaultResourceDiscoveryId"`
 	// The description for the IPAM.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -42,7 +42,7 @@ type CfnIPAMProps struct {
 	//
 	// For more information about operating Regions, see [Create an IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	OperatingRegions interface{} `field:"optional" json:"operatingRegions" yaml:"operatingRegions"`
-	// `AWS::EC2::IPAM.ResourceDiscoveryAssociationCount`.
+	// The IPAM's resource discovery association count.
 	ResourceDiscoveryAssociationCount *float64 `field:"optional" json:"resourceDiscoveryAssociationCount" yaml:"resourceDiscoveryAssociationCount"`
 	// The key/value combination of a tag assigned to the resource.
 	//

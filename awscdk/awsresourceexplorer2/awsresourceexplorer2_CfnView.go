@@ -13,8 +13,6 @@ import (
 //
 // Creates a view that users can query by using the [Search](https://docs.aws.amazon.com/resource-explorer/latest/APIReference/API_Search.html) operation. Results from queries that you make using this view include only resources that match the view's `Filters` .
 //
-// > To successfully create a view, you must have `resource-explorer-2:TagResource` permission, even if you don't specify tags to be added to the view.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

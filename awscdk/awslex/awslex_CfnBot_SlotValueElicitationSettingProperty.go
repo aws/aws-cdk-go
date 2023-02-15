@@ -1,7 +1,7 @@
 package awslex
 
 
-// Specifies the elicitation setting details for constituent sub slots of a composite slot.
+// Specifies the elicitation setting details eliciting a slot.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -172,6 +172,8 @@ type CfnSegmentProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the segment is associated with.
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The name of the segment.
+	//
+	// > A segment must have a name otherwise it will not appear in the Amazon Pinpoint console.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that define the dimensions for the segment.
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`

@@ -19,8 +19,6 @@ import (
 //
 // If this is the first AWS Region in which you've created an index for Resource Explorer, this operation also creates a service-linked role in your AWS account that allows Resource Explorer to search for your resources and populate the index.
 //
-// > To successfully create an index, you must have `resource-explorer-2:TagResource` permission, even if you don't specify tags to be added to the index.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

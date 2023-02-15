@@ -128,6 +128,8 @@ type CfnDBParameterGroup interface {
 	// Experimental.
 	Stack() awscdk.Stack
 	// An optional array of key-value pairs to apply to this DB parameter group.
+	//
+	// > Currently, this is the only property that supports drift detection.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//

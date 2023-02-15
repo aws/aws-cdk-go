@@ -5,9 +5,9 @@ package awscloudfront
 //
 // After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
 //
-// For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket so that viewers (users) can access the content in the bucket only through CloudFront.
+// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
 //
-// For more information about using a CloudFront origin access control, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
+// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,8 +28,6 @@ type CfnOriginAccessControl_OriginAccessControlConfigProperty struct {
 	// A name to identify the origin access control.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of origin that this origin access control is for.
-	//
-	// The only valid value is `s3` .
 	OriginAccessControlOriginType *string `field:"required" json:"originAccessControlOriginType" yaml:"originAccessControlOriginType"`
 	// Specifies which requests CloudFront signs (adds authentication information to).
 	//

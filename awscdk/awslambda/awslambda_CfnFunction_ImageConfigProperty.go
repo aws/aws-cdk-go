@@ -22,10 +22,16 @@ package awslambda
 //
 type CfnFunction_ImageConfigProperty struct {
 	// Specifies parameters that you want to pass in with ENTRYPOINT.
+	//
+	// You can specify a maximum of 1,500 parameters in the list.
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// Specifies the entry point to their application, which is typically the location of the runtime executable.
+	//
+	// You can specify a maximum of 1,500 string entries in the list.
 	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
 	// Specifies the working directory.
+	//
+	// The length of the directory string cannot exceed 1,000 characters.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 

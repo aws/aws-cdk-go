@@ -151,6 +151,8 @@ type CfnFunctionProps struct {
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
+	//
+	// The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy) .
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
 	// Sets the runtime management configuration for a function's version.
 	//

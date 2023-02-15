@@ -14,7 +14,7 @@ package awslex
 //   }
 //
 type CfnBot_SlotPriorityProperty struct {
-	// The priority that a slot should be elicited.
+	// The priority that Amazon Lex should apply to the slot.
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The name of the slot.
 	SlotName *string `field:"required" json:"slotName" yaml:"slotName"`

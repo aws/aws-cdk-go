@@ -68,6 +68,8 @@ type CfnDBParameterGroupProps struct {
 	// > AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// An optional array of key-value pairs to apply to this DB parameter group.
+	//
+	// > Currently, this is the only property that supports drift detection.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

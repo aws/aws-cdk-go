@@ -223,6 +223,8 @@ type CfnFunction interface {
 	Role() *string
 	SetRole(val *string)
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
+	//
+	// The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy) .
 	Runtime() *string
 	SetRuntime(val *string)
 	// Sets the runtime management configuration for a function's version.

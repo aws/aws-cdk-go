@@ -902,7 +902,7 @@ import (
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::AmplifyUIBuilder::Component.AppId`.
+	// The unique ID of the Amplify app associated with the component.
 	AppId() *string
 	SetAppId(val *string)
 	// The unique ID of the component.
@@ -937,7 +937,7 @@ type CfnComponent interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::AmplifyUIBuilder::Component.EnvironmentName`.
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
 	// Describes the events that can be raised on the component.

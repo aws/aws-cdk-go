@@ -204,7 +204,14 @@ type CfnModelCard interface {
 	// Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content() interface{}
 	SetContent(val interface{})
-	// `AWS::SageMaker::ModelCard.CreatedBy`.
+	// Information about the user who created or modified one or more of the following:.
+	//
+	// - Experiment
+	// - Trial
+	// - Trial component
+	// - Lineage group
+	// - Project
+	// - Model Card.
 	CreatedBy() interface{}
 	SetCreatedBy(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

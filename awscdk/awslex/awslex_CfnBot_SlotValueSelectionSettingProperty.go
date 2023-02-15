@@ -31,6 +31,8 @@ type CfnBot_SlotValueSelectionSettingProperty struct {
 	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ResolutionStrategy *string `field:"required" json:"resolutionStrategy" yaml:"resolutionStrategy"`
 	// Provides settings that enable advanced recognition settings for slot values.
+	//
+	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 	AdvancedRecognitionSetting interface{} `field:"optional" json:"advancedRecognitionSetting" yaml:"advancedRecognitionSetting"`
 	// A regular expression used to validate the value of a slot.
 	RegexFilter interface{} `field:"optional" json:"regexFilter" yaml:"regexFilter"`

@@ -104,7 +104,9 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters. > When you update the `desiredvCpus` setting, the value must be between the `minvCpus` and `maxvCpus` values.
+	// >
+	// > Additionally, the updated `desiredvCpus` value must be greater than or equal to the current `desiredvCpus` value. For more information, see `error-desired-vcpus-update` in the *AWS Batch User Guide* .
 	DesiredvCpus *float64 `field:"optional" json:"desiredvCpus" yaml:"desiredvCpus"`
 	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment.
 	//

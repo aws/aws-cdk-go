@@ -6373,7 +6373,7 @@ type CfnBot_IntentProperty struct {
 	//
 	// If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
 	IntentConfirmationSetting interface{} `field:"optional" json:"intentConfirmationSetting" yaml:"intentConfirmationSetting"`
-	// Provides configuration information for the AMAZON.KendraSearchIntent intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
+	// Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 	KendraConfiguration interface{} `field:"optional" json:"kendraConfiguration" yaml:"kendraConfiguration"`
 	// A list of contexts that the intent activates when it is fulfilled.
 	OutputContexts interface{} `field:"optional" json:"outputContexts" yaml:"outputContexts"`

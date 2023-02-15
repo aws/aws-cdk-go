@@ -182,7 +182,14 @@ type CfnModelCardProps struct {
 	// - `Approved` : The model card is approved.
 	// - `Archived` : The model card is archived. No more updates should be made to the model card, but it can still be exported.
 	ModelCardStatus *string `field:"required" json:"modelCardStatus" yaml:"modelCardStatus"`
-	// `AWS::SageMaker::ModelCard.CreatedBy`.
+	// Information about the user who created or modified one or more of the following:.
+	//
+	// - Experiment
+	// - Trial
+	// - Trial component
+	// - Lineage group
+	// - Project
+	// - Model Card.
 	CreatedBy interface{} `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// `AWS::SageMaker::ModelCard.LastModifiedBy`.
 	LastModifiedBy interface{} `field:"optional" json:"lastModifiedBy" yaml:"lastModifiedBy"`

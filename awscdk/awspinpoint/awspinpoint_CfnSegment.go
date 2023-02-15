@@ -215,6 +215,8 @@ type CfnSegment interface {
 	// Experimental.
 	LogicalId() *string
 	// The name of the segment.
+	//
+	// > A segment must have a name otherwise it will not appear in the Amazon Pinpoint console.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.

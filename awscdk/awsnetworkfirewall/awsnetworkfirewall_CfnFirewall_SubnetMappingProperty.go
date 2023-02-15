@@ -20,7 +20,9 @@ package awsnetworkfirewall
 type CfnFirewall_SubnetMappingProperty struct {
 	// The unique identifier for the subnet.
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
-	// `CfnFirewall.SubnetMappingProperty.IPAddressType`.
+	// The subnet's IP address type.
+	//
+	// You can't change the IP address type after you create the subnet.
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 }
 

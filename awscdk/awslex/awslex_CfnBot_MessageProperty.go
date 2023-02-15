@@ -1,7 +1,7 @@
 package awslex
 
 
-// The object that provides message text and it's type.
+// The object that provides message text and its type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

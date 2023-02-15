@@ -119,7 +119,7 @@ type CfnDataSource_SalesforceConfigurationProperty struct {
 	// - consumerKey - The application public key generated when you created your Salesforce application.
 	// - consumerSecret - The application private key generated when you created your Salesforce application.
 	// - password - The password associated with the user logging in to the Salesforce instance.
-	// - securityToken - The token associated with the user account logging in to the Salesforce instance.
+	// - securityToken - The token associated with the user logging in to the Salesforce instance.
 	// - username - The user name of the user logging in to the Salesforce instance.
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 	// The instance URL for the Salesforce site that you want to index.

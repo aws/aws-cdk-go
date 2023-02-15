@@ -61,6 +61,8 @@ type CfnSecret_GenerateSecretStringProperty struct {
 	// If you don't include this switch, the password contains at least one of every character type.
 	RequireEachIncludedType interface{} `field:"optional" json:"requireEachIncludedType" yaml:"requireEachIncludedType"`
 	// A template that the generated string must match.
+	//
+	// When you make a change to this property, a new secret version is created.
 	SecretStringTemplate *string `field:"optional" json:"secretStringTemplate" yaml:"secretStringTemplate"`
 }
 

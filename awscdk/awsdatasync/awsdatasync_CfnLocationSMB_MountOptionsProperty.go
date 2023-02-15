@@ -19,11 +19,15 @@ type CfnLocationSMB_MountOptionsProperty struct {
 	//
 	// These are the following options for configuring the SMB version:
 	//
-	// - `AUTOMATIC` (default): DataSync and the SMB file server negotiate a protocol version that they mutually support. (DataSync supports SMB versions 2.1.0 and later.)
+	// - `AUTOMATIC` (default): DataSync and the SMB file server negotiate a protocol version that they mutually support. (DataSync supports SMB versions 1.0 and later.)
 	//
 	// This is the recommended option. If you instead choose a specific version that your file server doesn't support, you may get an `Operation Not Supported` error.
 	// - `SMB3` : Restricts the protocol negotiation to only SMB version 3.0.2.
-	// - `SMB2` : Restricts the protocol negotiation to only SMB version 2.1.0.
+	// - `SMB2` : Restricts the protocol negotiation to only SMB version 2.1.
+	// - `SMB2_0` : Restricts the protocol negotiation to only SMB version 2.0.
+	// - `SMB1` : Restricts the protocol negotiation to only SMB version 1.0.
+	//
+	// > The `SMB1` option isn't available when [creating an Amazon FSx for NetApp ONTAP location](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html) .
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

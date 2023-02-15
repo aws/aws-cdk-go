@@ -116,7 +116,9 @@ type CfnTopic interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::SNS::Topic.SignatureVersion`.
+	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	//
+	// By default, `SignatureVersion` is set to `1` .
 	SignatureVersion() *string
 	SetSignatureVersion(val *string)
 	// The stack in which this element is defined.
@@ -140,7 +142,9 @@ type CfnTopic interface {
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName() *string
 	SetTopicName(val *string)
-	// `AWS::SNS::Topic.TracingConfig`.
+	// Tracing mode of an Amazon SNS topic.
+	//
+	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
 	TracingConfig() *string
 	SetTracingConfig(val *string)
 	// Return properties modified after initiation.

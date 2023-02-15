@@ -183,44 +183,27 @@ type CfnRuleProps struct {
 	//
 	// Targets are the resources that are invoked when a rule is triggered.
 	//
+	// The maximum number of entries per request is 10.
+	//
 	// > Each rule can have up to five (5) targets associated with it at one time.
 	//
-	// You can configure the following as targets for Events:
+	// For a list of services you can configure as targets for events, see [EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) in the *Amazon EventBridge User Guide* .
 	//
-	// - [API destination](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
-	// - [API Gateway](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html)
-	// - Batch job queue
-	// - CloudWatch group
-	// - CodeBuild project
-	// - CodePipeline
-	// - EC2 `CreateSnapshot` API call
-	// - EC2 Image Builder
-	// - EC2 `RebootInstances` API call
-	// - EC2 `StopInstances` API call
-	// - EC2 `TerminateInstances` API call
-	// - ECS task
-	// - [Event bus in a different account or Region](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html)
-	// - [Event bus in the same account and Region](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html)
-	// - Firehose delivery stream
-	// - Glue workflow
-	// - [Incident Manager response plan](https://docs.aws.amazon.com//incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge)
-	// - Inspector assessment template
-	// - Kinesis stream
-	// - Lambda function
-	// - Redshift cluster
-	// - SageMaker Pipeline
-	// - SNS topic
-	// - SQS queue
-	// - Step Functions state machine
-	// - Systems Manager Automation
-	// - Systems Manager OpsItem
-	// - Systems Manager Run Command
+	// Creating rules with built-in targets is supported only in the AWS Management Console . The built-in targets are:
 	//
-	// Creating rules with built-in targets is supported only in the AWS Management Console . The built-in targets are `EC2 CreateSnapshot API call` , `EC2 RebootInstances API call` , `EC2 StopInstances API call` , and `EC2 TerminateInstances API call` .
+	// - `Amazon EBS CreateSnapshot API call`
+	// - `Amazon EC2 RebootInstances API call`
+	// - `Amazon EC2 StopInstances API call`
+	// - `Amazon EC2 TerminateInstances API call`
 	//
 	// For some target types, `PutTargets` provides target-specific parameters. If the target is a Kinesis data stream, you can optionally specify which shard the event goes to by using the `KinesisParameters` argument. To invoke a command on multiple EC2 instances with one rule, you can use the `RunCommandParameters` field.
 	//
-	// To be able to make API calls against the resources that you own, Amazon EventBridge needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis Data Streams, AWS Step Functions state machines and API Gateway APIs, EventBridge relies on IAM roles that you specify in the `RoleARN` argument in `PutTargets` . For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html) in the *Amazon EventBridge User Guide* .
+	// To be able to make API calls against the resources that you own, Amazon EventBridge needs the appropriate permissions:
+	//
+	// - For AWS Lambda and Amazon SNS resources, EventBridge relies on resource-based policies.
+	// - For EC2 instances, Kinesis Data Streams, AWS Step Functions state machines and API Gateway APIs, EventBridge relies on IAM roles that you specify in the `RoleARN` argument in `PutTargets` .
+	//
+	// For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html) in the *Amazon EventBridge User Guide* .
 	//
 	// If another AWS account is in the same region and has granted you permission (using `PutPermission` ), you can send events to that account. Set that account's event bus as a target of the rules in your account. To send the matched events to the other account, specify that account's event bus as the `Arn` value when you run `PutTargets` . If your account sends events to another account, your account is charged for each sent event. Each event sent to another account is charged as a custom event. The account receiving the event is not charged. For more information, see [Amazon EventBridge Pricing](https://docs.aws.amazon.com/eventbridge/pricing/) .
 	//

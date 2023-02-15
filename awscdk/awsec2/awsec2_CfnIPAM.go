@@ -63,10 +63,10 @@ type CfnIPAM interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::EC2::IPAM.DefaultResourceDiscoveryAssociationId`.
+	// The IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId() *string
 	SetDefaultResourceDiscoveryAssociationId(val *string)
-	// `AWS::EC2::IPAM.DefaultResourceDiscoveryId`.
+	// The IPAM's default resource discovery ID.
 	DefaultResourceDiscoveryId() *string
 	SetDefaultResourceDiscoveryId(val *string)
 	// The description for the IPAM.
@@ -99,7 +99,7 @@ type CfnIPAM interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::EC2::IPAM.ResourceDiscoveryAssociationCount`.
+	// The IPAM's resource discovery association count.
 	ResourceDiscoveryAssociationCount() *float64
 	SetResourceDiscoveryAssociationCount(val *float64)
 	// The stack in which this element is defined.
