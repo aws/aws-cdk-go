@@ -8,16 +8,14 @@ package awsstepfunctionstasks
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   scalingTriggerProperty := &scalingTriggerProperty{
 //   	cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
 //   		comparisonOperator: awscdk.Aws_stepfunctions_tasks.emrCreateCluster.cloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   		metricName: jsii.String("metricName"),
-//   		period: duration,
+//   		period: cdk.duration.minutes(jsii.Number(30)),
 //
 //   		// the properties below are optional
 //   		dimensions: []metricDimensionProperty{
@@ -36,13 +34,11 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingTrigger.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
 	//
 	// When the defined alarm conditions are met along with other trigger parameters,
 	// scaling activity begins.
-	// Experimental.
 	CloudWatchAlarmDefinition *EmrCreateCluster_CloudWatchAlarmDefinitionProperty `field:"required" json:"cloudWatchAlarmDefinition" yaml:"cloudWatchAlarmDefinition"`
 }
 

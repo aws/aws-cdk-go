@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameSessionQueue) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameSessionQueue) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameSessionQueue) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGameSessionQueue) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameSessionQueue) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGameSessionQueue) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameSessionQueue) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGameSessionQueue) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnGameSessionQueue) validateSetPriorityConfigurationParamete
 	return nil
 }
 
-func validateNewCfnGameSessionQueueParameters(scope awscdk.Construct, id *string, props *CfnGameSessionQueueProps) error {
+func validateNewCfnGameSessionQueueParameters(scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) error {
 	return nil
 }
 

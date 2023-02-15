@@ -1,11 +1,11 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Base class for the model side of context providers.
@@ -15,7 +15,6 @@ import (
 // more context variables (output).
 //
 // ContextProvider needs access to a Construct to hook into the context mechanism.
-// Experimental.
 type ContextProvider interface {
 }
 
@@ -25,7 +24,6 @@ type jsiiProxy_ContextProvider struct {
 }
 
 // Returns: the context key or undefined if a key cannot be rendered (due to tokens used in any of the props).
-// Experimental.
 func ContextProvider_GetKey(scope constructs.Construct, options *GetContextKeyOptions) *GetContextKeyResult {
 	_init_.Initialize()
 
@@ -35,7 +33,7 @@ func ContextProvider_GetKey(scope constructs.Construct, options *GetContextKeyOp
 	var returns *GetContextKeyResult
 
 	_jsii_.StaticInvoke(
-		"monocdk.ContextProvider",
+		"aws-cdk-lib.ContextProvider",
 		"getKey",
 		[]interface{}{scope, options},
 		&returns,
@@ -44,7 +42,6 @@ func ContextProvider_GetKey(scope constructs.Construct, options *GetContextKeyOp
 	return returns
 }
 
-// Experimental.
 func ContextProvider_GetValue(scope constructs.Construct, options *GetContextValueOptions) *GetContextValueResult {
 	_init_.Initialize()
 
@@ -54,7 +51,7 @@ func ContextProvider_GetValue(scope constructs.Construct, options *GetContextVal
 	var returns *GetContextValueResult
 
 	_jsii_.StaticInvoke(
-		"monocdk.ContextProvider",
+		"aws-cdk-lib.ContextProvider",
 		"getValue",
 		[]interface{}{scope, options},
 		&returns,

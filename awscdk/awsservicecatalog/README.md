@@ -13,6 +13,7 @@ enables organizations to create and manage catalogs of products for their end us
 
   * [Creating a product from a local asset](#creating-a-product-from-local-asset)
   * [Creating a product from a stack](#creating-a-product-from-a-stack)
+  * [Using Assets in your Product Stack](#using-aseets-in-your-product-stack)
   * [Creating a Product from a stack with a history of previous versions](#creating-a-product-from-a-stack-with-a-history-of-all-previous-versions)
   * [Adding a product to a portfolio](#adding-a-product-to-a-portfolio)
 * [TagOptions](#tag-options)
@@ -181,6 +182,118 @@ product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"),
 })
 ```
 
+### Using Assets in your Product Stack
+
+You can reference assets in a Product Stack. For example, we can add a handler to a Lambda function or a S3 Asset directly from a local asset file.
+In this case, you must provide a S3 Bucket with a bucketName to store your assets.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+type lambdaProduct struct {
+	productStack
+}
+
+func newLambdaProduct(scope construct, id *string) *lambdaProduct {
+	this := &lambdaProduct{}
+	servicecatalog.NewProductStack_Override(this, scope, id)
+
+	lambda.NewFunction(this, jsii.String("LambdaProduct"), &functionProps{
+		runtime: lambda.runtime_PYTHON_3_9(),
+		code: lambda.code.fromAsset(jsii.String("./assets")),
+		handler: jsii.String("index.handler"),
+	})
+	return this
+}
+
+userDefinedBucket := awscdk.NewBucket(this, jsii.String("UserDefinedBucket"), &bucketProps{
+	bucketName: jsii.String("user-defined-bucket-for-product-stack-assets"),
+})
+
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
+	productName: jsii.String("My Product"),
+	owner: jsii.String("Product Owner"),
+	productVersions: []cloudFormationProductVersion{
+		&cloudFormationProductVersion{
+			productVersionName: jsii.String("v1"),
+			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), map[string]bucket{
+				"assetBucket": userDefinedBucket,
+			})),
+		},
+	},
+})
+```
+
+When a product containing an asset is shared with a spoke account, the corresponding asset bucket
+will automatically grant read permissions to the spoke account.
+Note, it is not recommended using a referenced bucket as permissions cannot be added from CDK.
+In this case, it will be your responsibility to grant read permissions for the asset bucket to
+the spoke account.
+If you want to provide your own bucket policy or scope down your bucket policy further to only allow
+reads from a specific launch role, refer to the following example policy:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+iam.NewPolicyStatement(map[string]interface{}{
+	"actions": []*string{
+		jsii.String("s3:GetObject*"),
+		jsii.String("s3:GetBucket*"),
+		jsii.String("s3:List*"),
+	},
+	"effect": iam.Effect_ALLOW,
+	"resources": []interface{}{
+		bucket.bucketArn,
+		bucket.arnForObjects(jsii.String("*")),
+	},
+	"principals": []interface{}{
+		iam.NewArnPrincipal(cdk.Stack_of(this).formatArn(map[string]interface{}{
+			"service": jsii.String("iam"),
+			"region": jsii.String(""),
+			"sharedAccount": sharedAccount,
+			"resource": jsii.String("role"),
+			"resourceName": launchRoleName,
+		})),
+	},
+	"conditions": map[string]map[string][]*string{
+		"ForAnyValue:StringEquals": map[string][]*string{
+			"aws:CalledVia": []*string{
+				jsii.String("cloudformation.amazonaws.com"),
+			},
+		},
+		"Bool": map[string]*bool{
+			"aws:ViaAWSService": jsii.Boolean(true),
+		},
+	},
+})
+```
+
+Furthermore, in order for a spoke account to provision a product with an asset, the role launching
+the product needs permissions to read from the asset bucket.
+We recommend you utilize a launch role with permissions to read from the asset bucket.
+For example your launch role would need to include at least the following policy:
+
+```json
+{
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Please refer to [Set launch role](#set-launch-role) for additional details about launch roles.
+See [Launch Constraint](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-launch.html) documentation
+to understand the permissions that launch roles need.
+
 ### Creating a Product from a stack with a history of previous versions
 
 The default behavior of Service Catalog is to overwrite each product version upon deployment.
@@ -196,6 +309,7 @@ The `locked` boolean which when set to true will prevent your `currentVersionNam
 from being overwritten when there is an existing snapshot for that version.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
@@ -204,7 +318,7 @@ type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -222,6 +336,7 @@ productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("
 We can deploy the current version `v1` by using `productStackHistory.currentVersion()`
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
@@ -230,7 +345,7 @@ type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -263,6 +378,7 @@ make changes to the `ProductStack` and update the `currentVersionName` to `v2`.
 We still want our `v1` version to still be deployed, so we reference it by calling `productStackHistory.versionFromSnapshot('v1')`.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
@@ -271,7 +387,7 @@ type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 

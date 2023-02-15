@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnStreamProcessor) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnStreamProcessor) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStreamProcessor) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnStreamProcessor) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamProcessor) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStreamProcessor) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamProcessor) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStreamProcessor) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnStreamProcessor) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamProcessor) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStreamProcessor) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -116,7 +120,7 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetS3DestinationParameters(val in
 	return nil
 }
 
-func validateNewCfnStreamProcessorParameters(scope awscdk.Construct, id *string, props *CfnStreamProcessorProps) error {
+func validateNewCfnStreamProcessorParameters(scope constructs.Construct, id *string, props *CfnStreamProcessorProps) error {
 	return nil
 }
 

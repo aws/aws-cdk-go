@@ -1,7 +1,7 @@
 package awscodebuild
 
 
-// Optional arguments to {@link IBuildImage.binder} - currently empty.
+// Optional arguments to `IBuildImage.binder` - currently empty.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -11,7 +11,6 @@ package awscodebuild
 //   buildImageBindOptions := &buildImageBindOptions{
 //   }
 //
-// Experimental.
 type BuildImageBindOptions struct {
 }
 

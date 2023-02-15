@@ -1,89 +1,68 @@
 package awselasticloadbalancingv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Define an Application Target Group.
 //
 // Example:
-//   var vpc vpc
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var alb applicationLoadBalancer
 //
-//   // Target group with duration-based stickiness with load-balancer generated cookie
-//   tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &applicationTargetGroupProps{
-//   	targetType: elbv2.targetType_INSTANCE,
+//   listener := alb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
-//   	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
-//   	vpc: vpc,
+//   })
+//   targetGroup := listener.addTargets(jsii.String("Fleet"), &addApplicationTargetsProps{
+//   	port: jsii.Number(80),
 //   })
 //
-//   // Target group with application-based stickiness
-//   tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &applicationTargetGroupProps{
-//   	targetType: elbv2.*targetType_INSTANCE,
-//   	port: jsii.Number(80),
-//   	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
-//   	stickinessCookieName: jsii.String("MyDeliciousCookie"),
-//   	vpc: vpc,
+//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &serverDeploymentGroupProps{
+//   	loadBalancer: codedeploy.loadBalancer.application(targetGroup),
 //   })
 //
-// Experimental.
 type ApplicationTargetGroup interface {
 	TargetGroupBase
 	IApplicationTargetGroup
 	// Default port configured for members of this target group.
-	// Experimental.
 	DefaultPort() *float64
 	// Full name of first load balancer.
-	// Experimental.
 	FirstLoadBalancerFullName() *string
-	// Experimental.
 	HealthCheck() *HealthCheck
-	// Experimental.
 	SetHealthCheck(val *HealthCheck)
 	// A token representing a list of ARNs of the load balancers that route traffic to this target group.
-	// Experimental.
 	LoadBalancerArns() *string
 	// List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
-	// Experimental.
-	LoadBalancerAttached() awscdk.IDependable
+	LoadBalancerAttached() constructs.IDependable
 	// Configurable dependable with all resources that lead to load balancer attachment.
-	// Experimental.
-	LoadBalancerAttachedDependencies() awscdk.ConcreteDependable
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	LoadBalancerAttachedDependencies() constructs.DependencyGroup
+	// All metrics available for this target group.
+	Metrics() IApplicationTargetGroupMetrics
+	// The tree node.
+	Node() constructs.Node
 	// The ARN of the target group.
-	// Experimental.
 	TargetGroupArn() *string
 	// The full name of the target group.
-	// Experimental.
 	TargetGroupFullName() *string
 	// ARNs of load balancers load balancing to this TargetGroup.
-	// Experimental.
 	TargetGroupLoadBalancerArns() *[]*string
 	// The name of the target group.
-	// Experimental.
 	TargetGroupName() *string
 	// The types of the directly registered members of this target group.
-	// Experimental.
 	TargetType() TargetType
-	// Experimental.
 	SetTargetType(val TargetType)
 	// Register the given load balancing target as part of this group.
-	// Experimental.
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
 	// Add a load balancing target to this target group.
-	// Experimental.
 	AddTarget(targets ...IApplicationLoadBalancerTarget)
 	// Set/replace the target group's health check.
-	// Experimental.
 	ConfigureHealthCheck(healthCheck *HealthCheck)
 	// Enable sticky routing via a cookie to members of this target group.
 	//
@@ -91,7 +70,6 @@ type ApplicationTargetGroup interface {
 	// otherwise it defaults to duration-based stickiness attributes (`lb_cookie`).
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
-	// Experimental.
 	EnableCookieStickiness(duration awscdk.Duration, cookieName *string)
 	// Return the given named metric for this Application Load Balancer Target Group.
 	//
@@ -99,107 +77,57 @@ type ApplicationTargetGroup interface {
 	// load balancer load balancing to it. If you have multiple load balancers load
 	// sending traffic to the same target group, you will have to override the dimensions
 	// on this metric.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of healthy hosts in the target group.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.healthyHostCount`` instead
 	MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in this target group.
 	//
 	// This does not include any response codes generated by the load balancer.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.httpCodeTarget`` instead
 	MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of IPv6 requests received by the target group.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.ipv6RequestCount`` instead
 	MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of requests processed over IPv4 and IPv6.
 	//
 	// This count includes only the requests with a response generated by a target of the load balancer.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.requestCount`` instead
 	MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of requests received by each target in a target group.
 	//
 	// The only valid statistic is Sum. Note that this represents the average not the sum.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.ipv6RequestCount`` instead
 	MetricRequestCountPerTarget(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of connections that were not successfully established between the load balancer and target.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.targetConnectionErrorCount`` instead
 	MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.targetResponseTime`` instead
 	MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of TLS connections initiated by the load balancer that did not establish a session with the target.
 	//
 	// Possible causes include a mismatch of ciphers or protocols.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.tlsNegotiationErrorCount`` instead
 	MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of unhealthy hosts in the target group.
-	// Experimental.
+	// Deprecated: Use ``ApplicationTargetGroup.metrics.unhealthyHostCount`` instead
 	MetricUnhealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Register a connectable as a member of this target group.
 	//
 	// Don't call this directly. It will be called by load balancing targets.
-	// Experimental.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
 	// Register a listener that is load balancing to this target group.
 	//
 	// Don't call this directly. It will be called by listeners.
-	// Experimental.
 	RegisterListener(listener IApplicationListener, associatingConstruct constructs.IConstruct)
 	// Set a non-standard attribute on the target group.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
 	//
-	// Experimental.
 	SetAttribute(key *string, value *string)
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
+	ValidateTargetGroup() *[]*string
 }
 
 // The jsii proxy struct for ApplicationTargetGroup
@@ -248,8 +176,8 @@ func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerArns() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttached() awscdk.IDependable {
-	var returns awscdk.IDependable
+func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttached() constructs.IDependable {
+	var returns constructs.IDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttached",
@@ -258,8 +186,8 @@ func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttached() awscdk.IDepend
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttachedDependencies() awscdk.ConcreteDependable {
-	var returns awscdk.ConcreteDependable
+func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttachedDependencies() constructs.DependencyGroup {
+	var returns constructs.DependencyGroup
 	_jsii_.Get(
 		j,
 		"loadBalancerAttachedDependencies",
@@ -268,8 +196,18 @@ func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttachedDependencies() aw
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationTargetGroup) Metrics() IApplicationTargetGroupMetrics {
+	var returns IApplicationTargetGroupMetrics
+	_jsii_.Get(
+		j,
+		"metrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationTargetGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -329,7 +267,6 @@ func (j *jsiiProxy_ApplicationTargetGroup) TargetType() TargetType {
 }
 
 
-// Experimental.
 func NewApplicationTargetGroup(scope constructs.Construct, id *string, props *ApplicationTargetGroupProps) ApplicationTargetGroup {
 	_init_.Initialize()
 
@@ -339,7 +276,7 @@ func NewApplicationTargetGroup(scope constructs.Construct, id *string, props *Ap
 	j := jsiiProxy_ApplicationTargetGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -347,12 +284,11 @@ func NewApplicationTargetGroup(scope constructs.Construct, id *string, props *Ap
 	return &j
 }
 
-// Experimental.
 func NewApplicationTargetGroup_Override(a ApplicationTargetGroup, scope constructs.Construct, id *string, props *ApplicationTargetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -378,7 +314,6 @@ func (j *jsiiProxy_ApplicationTargetGroup)SetTargetType(val TargetType) {
 }
 
 // Import an existing target group.
-// Experimental.
 func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) IApplicationTargetGroup {
 	_init_.Initialize()
 
@@ -388,7 +323,7 @@ func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct
 	var returns IApplicationTargetGroup
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		"fromTargetGroupAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -397,28 +332,23 @@ func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct
 	return returns
 }
 
-// Import an existing target group.
-// Deprecated: Use `fromTargetGroupAttributes` instead.
-func ApplicationTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) IApplicationTargetGroup {
-	_init_.Initialize()
-
-	if err := validateApplicationTargetGroup_ImportParameters(scope, id, props); err != nil {
-		panic(err)
-	}
-	var returns IApplicationTargetGroup
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
-		"import",
-		[]interface{}{scope, id, props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func ApplicationTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -428,7 +358,7 @@ func ApplicationTargetGroup_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -643,46 +573,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricUnhealthyHostCount(props *awscl
 	return returns
 }
 
-func (a *jsiiProxy_ApplicationTargetGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_ApplicationTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := a.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_ApplicationTargetGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_ApplicationTargetGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (a *jsiiProxy_ApplicationTargetGroup) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
 	if err := a.validateRegisterConnectableParameters(connectable); err != nil {
 		panic(err)
@@ -716,17 +606,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) SetAttribute(key *string, value *stri
 	)
 }
 
-func (a *jsiiProxy_ApplicationTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
-	if err := a.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_ApplicationTargetGroup) ToString() *string {
 	var returns *string
 
@@ -740,12 +619,12 @@ func (a *jsiiProxy_ApplicationTargetGroup) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_ApplicationTargetGroup) Validate() *[]*string {
+func (a *jsiiProxy_ApplicationTargetGroup) ValidateTargetGroup() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validate",
+		"validateTargetGroup",
 		nil, // no parameters
 		&returns,
 	)

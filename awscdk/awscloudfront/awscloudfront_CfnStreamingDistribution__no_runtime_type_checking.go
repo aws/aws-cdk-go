@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnStreamingDistribution) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnStreamingDistribution) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStreamingDistribution) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnStreamingDistribution) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamingDistribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStreamingDistribution) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamingDistribution) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStreamingDistribution) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnStreamingDistribution) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamingDistribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStreamingDistribution) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnStreamingDistribution) validateSetStreamingDistributionCon
 	return nil
 }
 
-func validateNewCfnStreamingDistributionParameters(scope awscdk.Construct, id *string, props *CfnStreamingDistributionProps) error {
+func validateNewCfnStreamingDistributionParameters(scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) error {
 	return nil
 }
 

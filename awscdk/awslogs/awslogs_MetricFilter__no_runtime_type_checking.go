@@ -20,19 +20,15 @@ func (m *jsiiProxy_MetricFilter) validateMetricParameters(props *awscloudwatch.M
 	return nil
 }
 
-func (m *jsiiProxy_MetricFilter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (m *jsiiProxy_MetricFilter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateMetricFilter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateMetricFilter_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateMetricFilter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateMetricFilter_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

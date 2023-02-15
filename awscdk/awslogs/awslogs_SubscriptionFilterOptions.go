@@ -16,15 +16,12 @@ package awslogs
 //   	filterPattern: filterPattern,
 //   }
 //
-// Experimental.
 type SubscriptionFilterOptions struct {
 	// The destination to send the filtered events to.
 	//
 	// For example, a Kinesis stream or a Lambda function.
-	// Experimental.
 	Destination ILogSubscriptionDestination `field:"required" json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
-	// Experimental.
 	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 }
 

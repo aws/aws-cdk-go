@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateAddDeletionOverr
 	return nil
 }
 
+func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateInspectParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateRenderProperties
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateSetIpamResourceD
 	return nil
 }
 
-func validateNewCfnIPAMResourceDiscoveryAssociationParameters(scope awscdk.Construct, id *string, props *CfnIPAMResourceDiscoveryAssociationProps) error {
+func validateNewCfnIPAMResourceDiscoveryAssociationParameters(scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryAssociationProps) error {
 	return nil
 }
 

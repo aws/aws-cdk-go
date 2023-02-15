@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateAddDeletionOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateRenderPropertiesParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnPolicyPrincipalAttachment) validateSetPrincipalParameters(
 	return nil
 }
 
-func validateNewCfnPolicyPrincipalAttachmentParameters(scope awscdk.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) error {
+func validateNewCfnPolicyPrincipalAttachmentParameters(scope constructs.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) error {
 	return nil
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnGameServerGroup) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameServerGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameServerGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnGameServerGroup) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameServerGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGameServerGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameServerGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGameServerGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnGameServerGroup) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameServerGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGameServerGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetRoleArnParameters(val *string)
 	return nil
 }
 
-func validateNewCfnGameServerGroupParameters(scope awscdk.Construct, id *string, props *CfnGameServerGroupProps) error {
+func validateNewCfnGameServerGroupParameters(scope constructs.Construct, id *string, props *CfnGameServerGroupProps) error {
 	return nil
 }
 

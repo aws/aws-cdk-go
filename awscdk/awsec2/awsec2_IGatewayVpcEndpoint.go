@@ -2,7 +2,6 @@ package awsec2
 
 
 // A gateway VPC endpoint.
-// Experimental.
 type IGatewayVpcEndpoint interface {
 	IVpcEndpoint
 }

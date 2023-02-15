@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) validateSetNetworkInterfaceIdP
 	return nil
 }
 
-func validateNewCfnNetworkInterfaceAttachmentParameters(scope awscdk.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) error {
+func validateNewCfnNetworkInterfaceAttachmentParameters(scope constructs.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) error {
 	return nil
 }
 

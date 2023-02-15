@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnStackUserAssociation) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnStackUserAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStackUserAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnStackUserAssociation) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackUserAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStackUserAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackUserAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStackUserAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnStackUserAssociation) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackUserAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStackUserAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnStackUserAssociation) validateSetUserNameParameters(val *s
 	return nil
 }
 
-func validateNewCfnStackUserAssociationParameters(scope awscdk.Construct, id *string, props *CfnStackUserAssociationProps) error {
+func validateNewCfnStackUserAssociationParameters(scope constructs.Construct, id *string, props *CfnStackUserAssociationProps) error {
 	return nil
 }
 

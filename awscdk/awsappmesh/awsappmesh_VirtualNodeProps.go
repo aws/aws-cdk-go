@@ -4,6 +4,7 @@ package awsappmesh
 // The properties used when creating a new VirtualNode.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
 //
@@ -39,28 +40,20 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("gateway"),
 //   })
 //
-// Experimental.
 type VirtualNodeProps struct {
 	// Access Logging Configuration for the virtual node.
-	// Experimental.
 	AccessLog AccessLog `field:"optional" json:"accessLog" yaml:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
-	// Experimental.
 	BackendDefaults *BackendDefaults `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// Virtual Services that this is node expected to send outbound traffic to.
-	// Experimental.
 	Backends *[]Backend `field:"optional" json:"backends" yaml:"backends"`
 	// Initial listener for the virtual node.
-	// Experimental.
 	Listeners *[]VirtualNodeListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// Defines how upstream clients will discover this VirtualNode.
-	// Experimental.
 	ServiceDiscovery ServiceDiscovery `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 	// The name of the VirtualNode.
-	// Experimental.
 	VirtualNodeName *string `field:"optional" json:"virtualNodeName" yaml:"virtualNodeName"`
 	// The Mesh which the VirtualNode belongs to.
-	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 }
 

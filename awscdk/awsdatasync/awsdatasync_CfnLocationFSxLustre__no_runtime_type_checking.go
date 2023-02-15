@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLocationFSxLustre) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationFSxLustre) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationFSxLustre) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLocationFSxLustre) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxLustre) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocationFSxLustre) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxLustre) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocationFSxLustre) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLocationFSxLustre) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxLustre) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocationFSxLustre) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnLocationFSxLustre) validateSetSecurityGroupArnsParameters(
 	return nil
 }
 
-func validateNewCfnLocationFSxLustreParameters(scope awscdk.Construct, id *string, props *CfnLocationFSxLustreProps) error {
+func validateNewCfnLocationFSxLustreParameters(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) error {
 	return nil
 }
 

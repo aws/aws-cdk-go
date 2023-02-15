@@ -30,8 +30,14 @@ package cloudassemblyschema
 //   				"dockerBuildArgs": map[string]*string{
 //   					"dockerBuildArgsKey": jsii.String("dockerBuildArgs"),
 //   				},
+//   				"dockerBuildSecrets": map[string]*string{
+//   					"dockerBuildSecretsKey": jsii.String("dockerBuildSecrets"),
+//   				},
 //   				"dockerBuildTarget": jsii.String("dockerBuildTarget"),
 //   				"dockerFile": jsii.String("dockerFile"),
+//   				"dockerOutputs": []*string{
+//   					jsii.String("dockerOutputs"),
+//   				},
 //   				"executable": []*string{
 //   					jsii.String("executable"),
 //   				},
@@ -64,16 +70,12 @@ package cloudassemblyschema
 //   	},
 //   }
 //
-// Experimental.
 type AssetManifest struct {
 	// Version of the manifest.
-	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// The Docker image assets in this manifest.
-	// Experimental.
 	DockerImages *map[string]*DockerImageAsset `field:"optional" json:"dockerImages" yaml:"dockerImages"`
 	// The file assets in this manifest.
-	// Experimental.
 	Files *map[string]*FileAsset `field:"optional" json:"files" yaml:"files"`
 }
 

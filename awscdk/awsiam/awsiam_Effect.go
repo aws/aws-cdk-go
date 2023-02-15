@@ -28,21 +28,18 @@ package awsiam
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html
 //
-// Experimental.
 type Effect string
 
 const (
 	// Allows access to a resource in an IAM policy statement.
 	//
 	// By default, access to resources are denied.
-	// Experimental.
 	Effect_ALLOW Effect = "ALLOW"
 	// Explicitly deny access to a resource.
 	//
 	// By default, all requests are denied implicitly.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
 	//
-	// Experimental.
 	Effect_DENY Effect = "DENY"
 )
 

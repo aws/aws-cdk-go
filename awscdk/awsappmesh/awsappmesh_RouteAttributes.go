@@ -15,13 +15,10 @@ package awsappmesh
 //   	virtualRouter: virtualRouter,
 //   }
 //
-// Experimental.
 type RouteAttributes struct {
 	// The name of the Route.
-	// Experimental.
 	RouteName *string `field:"required" json:"routeName" yaml:"routeName"`
 	// The VirtualRouter the Route belongs to.
-	// Experimental.
 	VirtualRouter IVirtualRouter `field:"required" json:"virtualRouter" yaml:"virtualRouter"`
 }
 

@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Describes a proposed segment change.

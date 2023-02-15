@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnNotificationChannel) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnNotificationChannel) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNotificationChannel) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnNotificationChannel) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotificationChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnNotificationChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotificationChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNotificationChannel) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnNotificationChannel) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotificationChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnNotificationChannel) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnNotificationChannel) validateSetSnsTopicArnParameters(val 
 	return nil
 }
 
-func validateNewCfnNotificationChannelParameters(scope awscdk.Construct, id *string, props *CfnNotificationChannelProps) error {
+func validateNewCfnNotificationChannelParameters(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) error {
 	return nil
 }
 

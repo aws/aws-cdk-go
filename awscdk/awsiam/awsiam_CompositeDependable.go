@@ -1,11 +1,11 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Composite dependable.
@@ -17,25 +17,23 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var dependable iDependable
 //
 //   compositeDependable := awscdk.Aws_iam.NewCompositeDependable(dependable)
 //
-// Experimental.
 type CompositeDependable interface {
-	awscdk.IDependable
+	constructs.IDependable
 }
 
 // The jsii proxy struct for CompositeDependable
 type jsiiProxy_CompositeDependable struct {
-	internal.Type__awscdkIDependable
+	internal.Type__constructsIDependable
 }
 
-// Experimental.
-func NewCompositeDependable(dependables ...awscdk.IDependable) CompositeDependable {
+func NewCompositeDependable(dependables ...constructs.IDependable) CompositeDependable {
 	_init_.Initialize()
 
 	args := []interface{}{}
@@ -46,7 +44,7 @@ func NewCompositeDependable(dependables ...awscdk.IDependable) CompositeDependab
 	j := jsiiProxy_CompositeDependable{}
 
 	_jsii_.Create(
-		"monocdk.aws_iam.CompositeDependable",
+		"aws-cdk-lib.aws_iam.CompositeDependable",
 		args,
 		&j,
 	)
@@ -54,8 +52,7 @@ func NewCompositeDependable(dependables ...awscdk.IDependable) CompositeDependab
 	return &j
 }
 
-// Experimental.
-func NewCompositeDependable_Override(c CompositeDependable, dependables ...awscdk.IDependable) {
+func NewCompositeDependable_Override(c CompositeDependable, dependables ...constructs.IDependable) {
 	_init_.Initialize()
 
 	args := []interface{}{}
@@ -64,7 +61,7 @@ func NewCompositeDependable_Override(c CompositeDependable, dependables ...awscd
 	}
 
 	_jsii_.Create(
-		"monocdk.aws_iam.CompositeDependable",
+		"aws-cdk-lib.aws_iam.CompositeDependable",
 		args,
 		c,
 	)

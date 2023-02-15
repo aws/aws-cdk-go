@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for PostgreSQL instance engines.
 //
-// Used in {@link DatabaseInstanceEngine.postgres}.
+// Used in `DatabaseInstanceEngine.postgres`.
 //
 // Example:
 //   var vpc vpc
@@ -31,10 +31,8 @@ package awsrds
 //   	}),
 //   })
 //
-// Experimental.
 type PostgresInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version PostgresEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnBatchScramSecret) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBatchScramSecret) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnBatchScramSecret) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBatchScramSecret) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnBatchScramSecret) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnBatchScramSecret) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnBatchScramSecret) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBatchScramSecret) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnBatchScramSecret) validateSetClusterArnParameters(val *str
 	return nil
 }
 
-func validateNewCfnBatchScramSecretParameters(scope awscdk.Construct, id *string, props *CfnBatchScramSecretProps) error {
+func validateNewCfnBatchScramSecretParameters(scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) error {
 	return nil
 }
 

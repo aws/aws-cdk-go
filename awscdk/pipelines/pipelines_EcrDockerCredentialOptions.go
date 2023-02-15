@@ -1,7 +1,7 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Options for defining access for a Docker Credential composed of ECR repos.
@@ -21,13 +21,10 @@ import (
 //   	},
 //   }
 //
-// Experimental.
 type EcrDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
-	// Experimental.
 	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// Defines which stages of the pipeline should be granted access to these credentials.
-	// Experimental.
 	Usages *[]DockerCredentialUsage `field:"optional" json:"usages" yaml:"usages"`
 }
 

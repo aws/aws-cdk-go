@@ -5,7 +5,7 @@ package awscodepipelineactions
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 func validateStackInstances_FromArtifactPathParameters(artifactPath awscodepipeline.ArtifactPath, regions *[]*string) error {

@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,8 +18,8 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import constructs "github.com/aws/constructs-go/constructs"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var construct construct
 //
@@ -27,23 +27,17 @@ import (
 //   	resource: construct,
 //   })
 //
-// Experimental.
 type UnknownPrincipal interface {
 	IPrincipal
 	// When this Principal is used in an AssumeRole policy, the action to use.
-	// Experimental.
 	AssumeRoleAction() *string
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() IPrincipal
 	// Return the policy fragment that identifies this principal in a Policy.
-	// Experimental.
 	PolicyFragment() PrincipalPolicyFragment
 	// Add to the policy of this principal.
-	// Experimental.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	// Experimental.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 }
 
@@ -83,7 +77,6 @@ func (j *jsiiProxy_UnknownPrincipal) PolicyFragment() PrincipalPolicyFragment {
 }
 
 
-// Experimental.
 func NewUnknownPrincipal(props *UnknownPrincipalProps) UnknownPrincipal {
 	_init_.Initialize()
 
@@ -93,7 +86,7 @@ func NewUnknownPrincipal(props *UnknownPrincipalProps) UnknownPrincipal {
 	j := jsiiProxy_UnknownPrincipal{}
 
 	_jsii_.Create(
-		"monocdk.aws_iam.UnknownPrincipal",
+		"aws-cdk-lib.aws_iam.UnknownPrincipal",
 		[]interface{}{props},
 		&j,
 	)
@@ -101,12 +94,11 @@ func NewUnknownPrincipal(props *UnknownPrincipalProps) UnknownPrincipal {
 	return &j
 }
 
-// Experimental.
 func NewUnknownPrincipal_Override(u UnknownPrincipal, props *UnknownPrincipalProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iam.UnknownPrincipal",
+		"aws-cdk-lib.aws_iam.UnknownPrincipal",
 		[]interface{}{props},
 		u,
 	)

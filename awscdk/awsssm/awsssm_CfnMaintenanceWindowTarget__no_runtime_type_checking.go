@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateAddDeletionOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateRenderPropertiesParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) validateSetWindowIdParameters(val
 	return nil
 }
 
-func validateNewCfnMaintenanceWindowTargetParameters(scope awscdk.Construct, id *string, props *CfnMaintenanceWindowTargetProps) error {
+func validateNewCfnMaintenanceWindowTargetParameters(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTargetProps) error {
 	return nil
 }
 

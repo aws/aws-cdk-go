@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_InstanceRequireImdsv2Aspect) validateVisitParameters(node awscdk.IConstruct) error {
+func (i *jsiiProxy_InstanceRequireImdsv2Aspect) validateVisitParameters(node constructs.IConstruct) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}
@@ -18,7 +18,7 @@ func (i *jsiiProxy_InstanceRequireImdsv2Aspect) validateVisitParameters(node aws
 	return nil
 }
 
-func (i *jsiiProxy_InstanceRequireImdsv2Aspect) validateWarnParameters(node awscdk.IConstruct, message *string) error {
+func (i *jsiiProxy_InstanceRequireImdsv2Aspect) validateWarnParameters(node constructs.IConstruct, message *string) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}

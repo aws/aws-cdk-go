@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -10,7 +10,7 @@ import (
 // Example:
 //   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &graphqlApiProps{
 //   	name: jsii.String("demo"),
-//   	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
 //   	authorizationConfig: &authorizationConfig{
 //   		defaultAuthorization: &authorizationMode{
 //   			authorizationType: appsync.authorizationType_IAM,
@@ -29,7 +29,9 @@ import (
 //   demoDS := api.addDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
 //
 //   // Resolver for the Query "getDemos" that scans the DynamoDb table and returns the entire list.
-//   demoDS.createResolver(&baseResolverProps{
+//   // Resolver Mapping Template Reference:
+//   // https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html
+//   demoDS.createResolver(jsii.String("QueryGetDemosResolver"), &baseResolverProps{
 //   	typeName: jsii.String("Query"),
 //   	fieldName: jsii.String("getDemos"),
 //   	requestMappingTemplate: appsync.mappingTemplate.dynamoDbScanTable(),
@@ -37,23 +39,27 @@ import (
 //   })
 //
 //   // Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
-//   demoDS.createResolver(&baseResolverProps{
+//   demoDS.createResolver(jsii.String("MutationAddDemoResolver"), &baseResolverProps{
 //   	typeName: jsii.String("Mutation"),
 //   	fieldName: jsii.String("addDemo"),
 //   	requestMappingTemplate: appsync.*mappingTemplate.dynamoDbPutItem(appsync.primaryKey.partition(jsii.String("id")).auto(), appsync.values.projecting(jsii.String("input"))),
 //   	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultItem(),
 //   })
 //
-// Experimental.
+//   //To enable DynamoDB read consistency with the `MappingTemplate`:
+//   demoDS.createResolver(jsii.String("QueryGetDemosConsistentResolver"), &baseResolverProps{
+//   	typeName: jsii.String("Query"),
+//   	fieldName: jsii.String("getDemosConsistent"),
+//   	requestMappingTemplate: appsync.*mappingTemplate.dynamoDbScanTable(jsii.Boolean(true)),
+//   	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultList(),
+//   })
+//
 type AttributeValues interface {
 	// Allows assigning a value to the specified attribute.
-	// Experimental.
 	Attribute(attr *string) AttributeValuesStep
 	// Renders the attribute value assingments to a VTL string.
-	// Experimental.
 	RenderTemplate() *string
 	// Renders the variables required for `renderTemplate`.
-	// Experimental.
 	RenderVariables() *string
 }
 
@@ -62,7 +68,6 @@ type jsiiProxy_AttributeValues struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAttributeValues(container *string, assignments *[]Assign) AttributeValues {
 	_init_.Initialize()
 
@@ -72,7 +77,7 @@ func NewAttributeValues(container *string, assignments *[]Assign) AttributeValue
 	j := jsiiProxy_AttributeValues{}
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.AttributeValues",
+		"aws-cdk-lib.aws_appsync.AttributeValues",
 		[]interface{}{container, assignments},
 		&j,
 	)
@@ -80,12 +85,11 @@ func NewAttributeValues(container *string, assignments *[]Assign) AttributeValue
 	return &j
 }
 
-// Experimental.
 func NewAttributeValues_Override(a AttributeValues, container *string, assignments *[]Assign) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.AttributeValues",
+		"aws-cdk-lib.aws_appsync.AttributeValues",
 		[]interface{}{container, assignments},
 		a,
 	)

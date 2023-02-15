@@ -165,7 +165,7 @@ listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
 		}),
 	},
 	action: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
-		contentType: elbv2.contentType_TEXT_PLAIN,
+		contentType: jsii.String("text/plain"),
 		messageBody: jsii.String("OK"),
 	}),
 })
@@ -214,6 +214,34 @@ If you do not provide any options for this method, it redirects HTTP port 80 to 
 
 By default all ingress traffic will be allowed on the source port. If you want to be more selective with your
 ingress rules then set `open: false` and use the listener's `connections` object to selectively grant access to the listener.
+
+### Load Balancer attributes
+
+You can modify attributes of Application Load Balancers:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+	vpc: vpc,
+	internetFacing: jsii.Boolean(true),
+
+	// Whether HTTP/2 is enabled
+	http2Enabled: jsii.Boolean(false),
+
+	// The idle timeout value, in seconds
+	idleTimeout: cdk.duration_Seconds(jsii.Number(1000)),
+
+	// Whether HTTP headers with header fields thatare not valid
+	// are removed by the load balancer (true), or routed to targets
+	dropInvalidHeaderFields: jsii.Boolean(true),
+
+	// How the load balancer handles requests that might
+	// pose a security risk to your application
+	desyncMitigationMode: elbv2.desyncMitigationMode_DEFENSIVE,
+})
+```
+
+For more information, see [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
 
 ## Defining a Network Load Balancer
 
@@ -625,4 +653,59 @@ listener := elbv2.networkListener.fromLookup(this, jsii.String("ALBListener"), &
 	listenerProtocol: elbv2.protocol_TCP,
 	listenerPort: jsii.Number(12345),
 })
+```
+
+## Metrics
+
+You may create metrics for Load Balancers and Target Groups through the `metrics` attribute:
+
+**Load Balancer:**
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var alb iApplicationLoadBalancer
+
+
+albMetrics := alb.metrics
+metricConnectionCount := albMetrics.activeConnectionCount()
+```
+
+**Target Group:**
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var targetGroup iApplicationTargetGroup
+
+
+targetGroupMetrics := targetGroup.metrics
+metricHealthyHostCount := targetGroupMetrics.healthyHostCount()
+```
+
+Metrics are also available to imported resources:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var stack stack
+
+
+targetGroup := elbv2.applicationTargetGroup.fromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &targetGroupAttributes{
+	targetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
+	loadBalancerArns: *fn_*ImportValue(jsii.String("LoadBalancerArn")),
+})
+
+targetGroupMetrics := targetGroup.metrics
+```
+
+Notice that TargetGroups must be imported by supplying the Load Balancer too, otherwise accessing the `metrics` will
+throw an error:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var stack stack
+
+targetGroup := elbv2.applicationTargetGroup.fromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &targetGroupAttributes{
+	targetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
+})
+
+targetGroupMetrics := targetGroup.metrics
 ```

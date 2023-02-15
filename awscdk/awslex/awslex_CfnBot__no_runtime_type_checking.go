@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnBot) validateAddDeletionOverrideParameters(path *string) e
 	return nil
 }
 
+func (c *jsiiProxy_CfnBot) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBot) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnBot) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnBot) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBot) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnBot) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnBot) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnBot) validateRenderPropertiesParameters(props *map[string]
 	return nil
 }
 
-func (c *jsiiProxy_CfnBot) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBot) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -116,7 +120,7 @@ func (j *jsiiProxy_CfnBot) validateSetTestBotAliasTagsParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnBotParameters(scope awscdk.Construct, id *string, props *CfnBotProps) error {
+func validateNewCfnBotParameters(scope constructs.Construct, id *string, props *CfnBotProps) error {
 	return nil
 }
 

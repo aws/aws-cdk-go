@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnClientVpnAuthorizationRule) validateSetTargetNetworkCidrPa
 	return nil
 }
 
-func validateNewCfnClientVpnAuthorizationRuleParameters(scope awscdk.Construct, id *string, props *CfnClientVpnAuthorizationRuleProps) error {
+func validateNewCfnClientVpnAuthorizationRuleParameters(scope constructs.Construct, id *string, props *CfnClientVpnAuthorizationRuleProps) error {
 	return nil
 }
 

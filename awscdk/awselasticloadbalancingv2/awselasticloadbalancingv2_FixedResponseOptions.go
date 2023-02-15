@@ -15,20 +15,17 @@ package awselasticloadbalancingv2
 //   		}),
 //   	},
 //   	action: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
-//   		contentType: elbv2.contentType_TEXT_PLAIN,
+//   		contentType: jsii.String("text/plain"),
 //   		messageBody: jsii.String("OK"),
 //   	}),
 //   })
 //
-// Experimental.
 type FixedResponseOptions struct {
 	// Content Type of the response.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
-	// Experimental.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The response body.
-	// Experimental.
 	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 

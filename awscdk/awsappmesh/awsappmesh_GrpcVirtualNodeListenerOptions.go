@@ -1,9 +1,10 @@
 package awsappmesh
 
 
-// Represent the GRPC Node Listener prorperty.
+// Represent the GRPC Node Listener property.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
@@ -53,25 +54,18 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("gateway2"),
 //   })
 //
-// Experimental.
 type GrpcVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *GrpcConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Experimental.
 	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for GRPC protocol.
-	// Experimental.
 	Timeout *GrpcTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

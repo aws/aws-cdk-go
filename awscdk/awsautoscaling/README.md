@@ -307,6 +307,36 @@ autoScalingGroup.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &basicS
 })
 ```
 
+### Block Devices
+
+This type specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+
+#### GP3 Volumes
+
+You can only specify the `throughput` on GP3 volumes.
+
+```go
+var vpc vpc
+var instanceType instanceType
+var machineImage iMachineImage
+
+
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+	vpc: vpc,
+	instanceType: instanceType,
+	machineImage: machineImage,
+	blockDevices: []blockDevice{
+		&blockDevice{
+			deviceName: jsii.String("gp3-volume"),
+			volume: autoscaling.blockDeviceVolume.ebs(jsii.Number(15), &ebsDeviceOptions{
+				volumeType: autoscaling.ebsDeviceVolumeType_GP3,
+				throughput: jsii.Number(125),
+			}),
+		},
+	},
+})
+```
+
 ## Configuring Instances using CloudFormation Init
 
 It is possible to use the CloudFormation Init mechanism to configure the
@@ -525,6 +555,27 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps
 })
 ```
 
+## Configuring Capacity Rebalancing
+
+Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the Amazon EC2 Auto Scaling User Guide.
+
+```go
+var vpc vpc
+var instanceType instanceType
+var machineImage iMachineImage
+
+
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+	vpc: vpc,
+	instanceType: instanceType,
+	machineImage: machineImage,
+
+	// ...
+
+	capacityRebalance: jsii.Boolean(true),
+})
+```
+
 ## Configuring Instance Metadata Service (IMDS)
 
 ### Toggling IMDSv1
@@ -581,6 +632,35 @@ var autoScalingGroup autoScalingGroup
 autoScalingGroup.addWarmPool(&warmPoolOptions{
 	minSize: jsii.Number(1),
 	reuseOnScaleIn: jsii.Boolean(true),
+})
+```
+
+### Default Instance Warming
+
+You can use the default instance warmup feature to improve the Amazon CloudWatch metrics used for dynamic scaling.
+When default instance warmup is not enabled, each instance starts contributing usage data to the aggregated metrics
+as soon as the instance reaches the InService state. However, if you enable default instance warmup, this lets
+your instances finish warming up before they contribute the usage data.
+
+To optimize the performance of scaling policies that scale continuously, such as target tracking and step scaling
+policies, we strongly recommend that you enable the default instance warmup, even if its value is set to 0 seconds.
+
+To set up Default Instance Warming for an autoscaling group, simply pass it in as a prop
+
+```go
+var vpc vpc
+var instanceType instanceType
+var machineImage iMachineImage
+
+
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+	vpc: vpc,
+	instanceType: instanceType,
+	machineImage: machineImage,
+
+	// ...
+
+	defaultInstanceWarmup: awscdk.Duration.seconds(jsii.Number(5)),
 })
 ```
 

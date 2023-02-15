@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOrganizationConfigRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationManagedRule
 	return nil
 }
 
-func validateNewCfnOrganizationConfigRuleParameters(scope awscdk.Construct, id *string, props *CfnOrganizationConfigRuleProps) error {
+func validateNewCfnOrganizationConfigRuleParameters(scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) error {
 	return nil
 }
 

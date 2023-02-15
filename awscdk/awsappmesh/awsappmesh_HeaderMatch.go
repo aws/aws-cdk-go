@@ -1,15 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Used to generate header matching methods.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -36,11 +37,9 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type HeaderMatch interface {
 	// Returns the header match configuration.
-	// Experimental.
-	Bind(scope awscdk.Construct) *HeaderMatchConfig
+	Bind(scope constructs.Construct) *HeaderMatchConfig
 }
 
 // The jsii proxy struct for HeaderMatch
@@ -48,19 +47,17 @@ type jsiiProxy_HeaderMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewHeaderMatch_Override(h HeaderMatch) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		nil, // no parameters
 		h,
 	)
 }
 
 // The value of the header with the given name in the request must not end with the specified characters.
-// Experimental.
 func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -70,7 +67,7 @@ func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderM
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueDoesNotEndWith",
 		[]interface{}{headerName, suffix},
 		&returns,
@@ -80,7 +77,6 @@ func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderM
 }
 
 // The value of the header with the given name in the request must not include the specified characters.
-// Experimental.
 func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -90,7 +86,7 @@ func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) Heade
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueDoesNotMatchRegex",
 		[]interface{}{headerName, regex},
 		&returns,
@@ -100,7 +96,6 @@ func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) Heade
 }
 
 // The value of the header with the given name in the request must not start with the specified characters.
-// Experimental.
 func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -110,7 +105,7 @@ func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) Heade
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueDoesNotStartWith",
 		[]interface{}{headerName, prefix},
 		&returns,
@@ -120,7 +115,6 @@ func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) Heade
 }
 
 // The value of the header with the given name in the request must end with the specified characters.
-// Experimental.
 func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -130,7 +124,7 @@ func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueEndsWith",
 		[]interface{}{headerName, suffix},
 		&returns,
@@ -140,7 +134,6 @@ func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 }
 
 // The value of the header with the given name in the request must match the specified value exactly.
-// Experimental.
 func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -150,7 +143,7 @@ func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueIs",
 		[]interface{}{headerName, headerValue},
 		&returns,
@@ -160,7 +153,6 @@ func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 }
 
 // The value of the header with the given name in the request must not match the specified value exactly.
-// Experimental.
 func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -170,7 +162,7 @@ func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueIsNot",
 		[]interface{}{headerName, headerValue},
 		&returns,
@@ -180,7 +172,6 @@ func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch
 }
 
 // The value of the header with the given name in the request must include the specified characters.
-// Experimental.
 func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -190,7 +181,7 @@ func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatc
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueMatchesRegex",
 		[]interface{}{headerName, regex},
 		&returns,
@@ -200,7 +191,6 @@ func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatc
 }
 
 // The value of the header with the given name in the request must be in a range of values.
-// Experimental.
 func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float64) HeaderMatch {
 	_init_.Initialize()
 
@@ -210,7 +200,7 @@ func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float6
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valuesIsInRange",
 		[]interface{}{headerName, start, end},
 		&returns,
@@ -220,7 +210,6 @@ func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float6
 }
 
 // The value of the header with the given name in the request must not be in a range of values.
-// Experimental.
 func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *float64) HeaderMatch {
 	_init_.Initialize()
 
@@ -230,7 +219,7 @@ func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *flo
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valuesIsNotInRange",
 		[]interface{}{headerName, start, end},
 		&returns,
@@ -240,7 +229,6 @@ func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *flo
 }
 
 // The value of the header with the given name in the request must start with the specified characters.
-// Experimental.
 func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -250,7 +238,7 @@ func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HeaderMatch",
+		"aws-cdk-lib.aws_appmesh.HeaderMatch",
 		"valueStartsWith",
 		[]interface{}{headerName, prefix},
 		&returns,
@@ -259,7 +247,7 @@ func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch
 	return returns
 }
 
-func (h *jsiiProxy_HeaderMatch) Bind(scope awscdk.Construct) *HeaderMatchConfig {
+func (h *jsiiProxy_HeaderMatch) Bind(scope constructs.Construct) *HeaderMatchConfig {
 	if err := h.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

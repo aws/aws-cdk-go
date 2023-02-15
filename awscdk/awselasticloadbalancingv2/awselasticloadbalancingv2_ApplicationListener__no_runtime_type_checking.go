@@ -8,19 +8,7 @@ func (a *jsiiProxy_ApplicationListener) validateAddActionParameters(id *string, 
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationListener) validateAddCertificateArnsParameters(id *string, arns *[]*string) error {
-	return nil
-}
-
 func (a *jsiiProxy_ApplicationListener) validateAddCertificatesParameters(id *string, certificates *[]IListenerCertificate) error {
-	return nil
-}
-
-func (a *jsiiProxy_ApplicationListener) validateAddFixedResponseParameters(id *string, props *AddFixedResponseProps) error {
-	return nil
-}
-
-func (a *jsiiProxy_ApplicationListener) validateAddRedirectResponseParameters(id *string, props *AddRedirectResponseProps) error {
 	return nil
 }
 
@@ -44,15 +32,7 @@ func (a *jsiiProxy_ApplicationListener) validateGetResourceNameAttributeParamete
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationListener) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (a *jsiiProxy_ApplicationListener) validateRegisterConnectableParameters(connectable awsec2.IConnectable, portRange awsec2.Port) error {
-	return nil
-}
-
-func (a *jsiiProxy_ApplicationListener) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -68,7 +48,11 @@ func validateApplicationListener_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateApplicationListener_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateApplicationListener_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateApplicationListener_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

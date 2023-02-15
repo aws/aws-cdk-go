@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,13 +16,10 @@ import (
 //
 //   sortKeyStep := awscdk.Aws_appsync.NewSortKeyStep(assign, jsii.String("skey"))
 //
-// Experimental.
 type SortKeyStep interface {
 	// Assign an auto-generated value to the sort key.
-	// Experimental.
 	Auto() PrimaryKey
 	// Assign an auto-generated value to the sort key.
-	// Experimental.
 	Is(val *string) PrimaryKey
 }
 
@@ -31,7 +28,6 @@ type jsiiProxy_SortKeyStep struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewSortKeyStep(pkey Assign, skey *string) SortKeyStep {
 	_init_.Initialize()
 
@@ -41,7 +37,7 @@ func NewSortKeyStep(pkey Assign, skey *string) SortKeyStep {
 	j := jsiiProxy_SortKeyStep{}
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.SortKeyStep",
+		"aws-cdk-lib.aws_appsync.SortKeyStep",
 		[]interface{}{pkey, skey},
 		&j,
 	)
@@ -49,12 +45,11 @@ func NewSortKeyStep(pkey Assign, skey *string) SortKeyStep {
 	return &j
 }
 
-// Experimental.
 func NewSortKeyStep_Override(s SortKeyStep, pkey Assign, skey *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.SortKeyStep",
+		"aws-cdk-lib.aws_appsync.SortKeyStep",
 		[]interface{}{pkey, skey},
 		s,
 	)

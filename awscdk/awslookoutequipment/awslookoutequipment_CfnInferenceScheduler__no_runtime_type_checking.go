@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInferenceScheduler) validateAddDeletionOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnInferenceScheduler) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInferenceScheduler) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnInferenceScheduler) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceScheduler) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInferenceScheduler) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceScheduler) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnInferenceScheduler) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceScheduler) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInferenceScheduler) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnInferenceScheduler) validateSetRoleArnParameters(val *stri
 	return nil
 }
 
-func validateNewCfnInferenceSchedulerParameters(scope awscdk.Construct, id *string, props *CfnInferenceSchedulerProps) error {
+func validateNewCfnInferenceSchedulerParameters(scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) error {
 	return nil
 }
 

@@ -36,7 +36,7 @@ func (i *jsiiProxy_IGraphqlApi) validateAddSchemaDependencyParameters(construct 
 	return nil
 }
 
-func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(props *ExtendedResolverProps) error {
+func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(id *string, props *ExtendedResolverProps) error {
 	return nil
 }
 

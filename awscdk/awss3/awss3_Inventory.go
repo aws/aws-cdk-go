@@ -33,31 +33,22 @@ package awss3
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html
 //
-// Experimental.
 type Inventory struct {
 	// The destination of the inventory.
-	// Experimental.
 	Destination *InventoryDestination `field:"required" json:"destination" yaml:"destination"`
 	// Whether the inventory is enabled or disabled.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The format of the inventory.
-	// Experimental.
 	Format InventoryFormat `field:"optional" json:"format" yaml:"format"`
 	// Frequency at which the inventory should be generated.
-	// Experimental.
 	Frequency InventoryFrequency `field:"optional" json:"frequency" yaml:"frequency"`
 	// If the inventory should contain all the object versions or only the current one.
-	// Experimental.
 	IncludeObjectVersions InventoryObjectVersion `field:"optional" json:"includeObjectVersions" yaml:"includeObjectVersions"`
 	// The inventory configuration ID.
-	// Experimental.
 	InventoryId *string `field:"optional" json:"inventoryId" yaml:"inventoryId"`
 	// The inventory will only include objects that meet the prefix filter criteria.
-	// Experimental.
 	ObjectsPrefix *string `field:"optional" json:"objectsPrefix" yaml:"objectsPrefix"`
 	// A list of optional fields to be included in the inventory result.
-	// Experimental.
 	OptionalFields *[]*string `field:"optional" json:"optionalFields" yaml:"optionalFields"`
 }
 
