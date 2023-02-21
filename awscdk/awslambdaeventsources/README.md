@@ -21,7 +21,7 @@ var fn function
 
 queue := sqs.NewQueue(this, jsii.String("MyQueue"))
 eventSource := awscdk.NewSqsEventSource(queue)
-fn.addEventSource(eventSource)
+fn.AddEventSource(eventSource)
 
 eventSourceId := eventSource.eventSourceMappingId
 ```
@@ -57,17 +57,17 @@ import "github.com/aws/aws-cdk-go/awscdk"
 var fn function
 
 
-queue := sqs.NewQueue(this, jsii.String("MyQueue"), &queueProps{
-	visibilityTimeout: awscdk.Duration.seconds(jsii.Number(30)),
+queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
+	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
 	 // default,
-	receiveMessageWaitTime: awscdk.Duration.seconds(jsii.Number(20)),
+	ReceiveMessageWaitTime: awscdk.Duration_*Seconds(jsii.Number(20)),
 })
 
-fn.addEventSource(awscdk.NewSqsEventSource(queue, &sqsEventSourceProps{
-	batchSize: jsii.Number(10),
+fn.AddEventSource(awscdk.NewSqsEventSource(queue, &SqsEventSourceProps{
+	BatchSize: jsii.Number(10),
 	 // default
-	maxBatchingWindow: awscdk.Duration.minutes(jsii.Number(5)),
-	reportBatchItemFailures: jsii.Boolean(true),
+	MaxBatchingWindow: awscdk.Duration_Minutes(jsii.Number(5)),
+	ReportBatchItemFailures: jsii.Boolean(true),
 }))
 ```
 
@@ -83,21 +83,21 @@ configure the event source mapping, identifying the bucket events that you want
 Amazon S3 to publish and which Lambda function to invoke.
 
 ```go
-import s3 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 var fn function
 
 
 bucket := s3.NewBucket(this, jsii.String("mybucket"))
 
-fn.addEventSource(awscdk.NewS3EventSource(bucket, &s3EventSourceProps{
-	events: []eventType{
+fn.AddEventSource(awscdk.NewS3EventSource(bucket, &S3EventSourceProps{
+	Events: []eventType{
 		s3.*eventType_OBJECT_CREATED,
 		s3.*eventType_OBJECT_REMOVED,
 	},
-	filters: []notificationKeyFilter{
+	Filters: []notificationKeyFilter{
 		&notificationKeyFilter{
-			prefix: jsii.String("subdir/"),
+			Prefix: jsii.String("subdir/"),
 		},
 	},
 }))
@@ -130,10 +130,10 @@ var topic topic
 var fn function
 
 deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-fn.addEventSource(awscdk.NewSnsEventSource(topic, &snsEventSourceProps{
-	filterPolicy: map[string]interface{}{
+fn.AddEventSource(awscdk.NewSnsEventSource(topic, &SnsEventSourceProps{
+	FilterPolicy: map[string]interface{}{
 	},
-	deadLetterQueue: deadLetterQueue,
+	DeadLetterQueue: deadLetterQueue,
 }))
 ```
 
@@ -175,12 +175,12 @@ var fn function
 
 
 deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-fn.addEventSource(awscdk.NewDynamoEventSource(table, &dynamoEventSourceProps{
-	startingPosition: lambda.startingPosition_TRIM_HORIZON,
-	batchSize: jsii.Number(5),
-	bisectBatchOnError: jsii.Boolean(true),
-	onFailure: awscdk.NewSqsDlq(deadLetterQueue),
-	retryAttempts: jsii.Number(10),
+fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	BatchSize: jsii.Number(5),
+	BisectBatchOnError: jsii.Boolean(true),
+	OnFailure: awscdk.NewSqsDlq(deadLetterQueue),
+	RetryAttempts: jsii.Number(10),
 }))
 ```
 
@@ -216,10 +216,10 @@ var myFunction function
 
 
 stream := kinesis.NewStream(this, jsii.String("MyStream"))
-myFunction.addEventSource(awscdk.NewKinesisEventSource(stream, &kinesisEventSourceProps{
-	batchSize: jsii.Number(100),
+myFunction.AddEventSource(awscdk.NewKinesisEventSource(stream, &KinesisEventSourceProps{
+	BatchSize: jsii.Number(100),
 	 // default
-	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
 }))
 ```
 
@@ -245,16 +245,16 @@ topic := "some-cool-topic"
 
 // The secret that allows access to your MSK cluster
 // You still have to make sure that it is associated with your cluster as described in the documentation
-secret := awscdk.NewSecret(this, jsii.String("Secret"), &secretProps{
-	secretName: jsii.String("AmazonMSK_KafkaSecret"),
+secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
+	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
 })
-myFunction.addEventSource(awscdk.NewManagedKafkaEventSource(&managedKafkaEventSourceProps{
-	clusterArn: jsii.String(clusterArn),
-	topic: topic,
-	secret: secret,
-	batchSize: jsii.Number(100),
+myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+	ClusterArn: jsii.String(ClusterArn),
+	Topic: topic,
+	Secret: secret,
+	BatchSize: jsii.Number(100),
 	 // default
-	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
 }))
 ```
 
@@ -285,15 +285,15 @@ topic := "some-cool-topic"
 
 // (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
 var consumerGroupId string
-myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
-	bootstrapServers: bootstrapServers,
-	topic: topic,
-	consumerGroupId: consumerGroupId,
-	secret: secret,
-	batchSize: jsii.Number(100),
+myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
+	BootstrapServers: bootstrapServers,
+	Topic: topic,
+	ConsumerGroupId: consumerGroupId,
+	Secret: secret,
+	BatchSize: jsii.Number(100),
 	 // default
-	startingPosition: lambda.startingPosition_TRIM_HORIZON,
-	encryption: encryption,
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	Encryption: encryption,
 }))
 ```
 

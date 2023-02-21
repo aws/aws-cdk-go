@@ -11,8 +11,8 @@ The currently implemented actions are: EC2 Actions, SNS Actions, SSM OpsCenter A
 var alarm alarm
 
 // Attach a reboot when alarm triggers
-alarm.addAlarmAction(
-actions.NewEc2Action(actions.ec2InstanceAction_REBOOT))
+alarm.AddAlarmAction(
+actions.NewEc2Action(actions.Ec2InstanceAction_REBOOT))
 ```
 
 ## SSM OpsCenter Action Example
@@ -21,8 +21,8 @@ actions.NewEc2Action(actions.ec2InstanceAction_REBOOT))
 var alarm alarm
 
 // Create an OpsItem with specific severity and category when alarm triggers
-alarm.addAlarmAction(
-actions.NewSsmAction(actions.opsItemSeverity_CRITICAL, actions.opsItemCategory_PERFORMANCE))
+alarm.AddAlarmAction(
+actions.NewSsmAction(actions.OpsItemSeverity_CRITICAL, actions.OpsItemCategory_PERFORMANCE))
 ```
 
 ## SSM Incident Manager Action Example
@@ -31,7 +31,7 @@ actions.NewSsmAction(actions.opsItemSeverity_CRITICAL, actions.opsItemCategory_P
 var alarm alarm
 
 // Create an Incident Manager incident based on a specific response plan
-alarm.addAlarmAction(
+alarm.AddAlarmAction(
 actions.NewSsmIncidentAction(jsii.String("ResponsePlanName")))
 ```
 

@@ -33,18 +33,18 @@ The code snippet below creates an Action that creates the timer with duration in
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 
 var input iInput
 
-state := iotevents.NewState(&stateProps{
-	stateName: jsii.String("MyState"),
-	onEnter: []event{
+state := iotevents.NewState(&StateProps{
+	StateName: jsii.String("MyState"),
+	OnEnter: []event{
 		&event{
-			eventName: jsii.String("test-event"),
-			condition: iotevents.expression.currentInput(input),
-			actions: []iAction{
+			EventName: jsii.String("test-event"),
+			Condition: iotevents.Expression_CurrentInput(input),
+			Actions: []iAction{
 				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
 					"duration": cdk.Duration_seconds(jsii.Number(60)),
 				}),
@@ -118,19 +118,19 @@ The code snippet below creates an Action that set variable to detector instance
 when it is triggered.
 
 ```go
-import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 
 var input iInput
 
-state := iotevents.NewState(&stateProps{
-	stateName: jsii.String("MyState"),
-	onEnter: []event{
+state := iotevents.NewState(&StateProps{
+	StateName: jsii.String("MyState"),
+	OnEnter: []event{
 		&event{
-			eventName: jsii.String("test-event"),
-			condition: iotevents.expression.currentInput(input),
-			actions: []iAction{
-				actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature"))),
+			EventName: jsii.String("test-event"),
+			Condition: iotevents.Expression_CurrentInput(input),
+			Actions: []iAction{
+				actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.Expression_InputAttribute(input, jsii.String("payload.temperature"))),
 			},
 		},
 	},
@@ -143,20 +143,20 @@ The code snippet below creates an Action that invoke a Lambda function
 when it is triggered.
 
 ```go
-import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 var input iInput
 var func iFunction
 
-state := iotevents.NewState(&stateProps{
-	stateName: jsii.String("MyState"),
-	onEnter: []event{
+state := iotevents.NewState(&StateProps{
+	StateName: jsii.String("MyState"),
+	OnEnter: []event{
 		&event{
-			eventName: jsii.String("test-event"),
-			condition: iotevents.expression.currentInput(input),
-			actions: []iAction{
+			EventName: jsii.String("test-event"),
+			Condition: iotevents.Expression_CurrentInput(input),
+			Actions: []iAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},

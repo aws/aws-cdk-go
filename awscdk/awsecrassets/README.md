@@ -12,8 +12,8 @@ and/or your app's CI/CD pipeline, and can be naturally referenced in your CDK ap
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
 })
 ```
 
@@ -55,13 +55,13 @@ enabled, see https://docs.docker.com/build/buildkit/.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
-	buildArgs: map[string]*string{
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	BuildArgs: map[string]*string{
 		"HTTP_PROXY": jsii.String("http://10.20.30.2:1234"),
 	},
-	invalidation: &dockerImageAssetInvalidationOptions{
-		buildArgs: jsii.Boolean(false),
+	Invalidation: &DockerImageAssetInvalidationOptions{
+		BuildArgs: jsii.Boolean(false),
 	},
 })
 ```
@@ -73,9 +73,9 @@ the `target` property:
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
-	target: jsii.String("a-target"),
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	Target: jsii.String("a-target"),
 })
 ```
 
@@ -86,9 +86,9 @@ the `networkMode` property:
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
-	networkMode: awscdk.NetworkMode_HOST(),
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	NetworkMode: awscdk.NetworkMode_HOST(),
 })
 ```
 
@@ -99,9 +99,9 @@ the `platform` property:
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
-	platform: awscdk.Platform_LINUX_ARM64(),
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	Platform: awscdk.Platform_LINUX_ARM64(),
 })
 ```
 
@@ -112,9 +112,9 @@ the `outputs` property:
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
-	outputs: []*string{
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	Outputs: []*string{
 		jsii.String("type=local,dest=out"),
 	},
 })
@@ -129,8 +129,8 @@ naturally referenced in your CDK app.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-asset := awscdk.NewTarballImageAsset(this, jsii.String("MyBuildImage"), &tarballImageAssetProps{
-	tarballFile: jsii.String("local-image.tar"),
+asset := awscdk.NewTarballImageAsset(this, jsii.String("MyBuildImage"), &TarballImageAssetProps{
+	TarballFile: jsii.String("local-image.tar"),
 })
 ```
 

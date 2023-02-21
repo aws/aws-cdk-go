@@ -41,14 +41,14 @@ var vpc vpc
 
 
 // default is managed
-awsManagedEnvironment := batch.NewComputeEnvironment(this, jsii.String("AWS-Managed-Compute-Env"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		vpc: vpc,
+awsManagedEnvironment := batch.NewComputeEnvironment(this, jsii.String("AWS-Managed-Compute-Env"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		Vpc: *Vpc,
 	},
 })
 
-customerManagedEnvironment := batch.NewComputeEnvironment(this, jsii.String("Customer-Managed-Compute-Env"), &computeEnvironmentProps{
-	managed: jsii.Boolean(false),
+customerManagedEnvironment := batch.NewComputeEnvironment(this, jsii.String("Customer-Managed-Compute-Env"), &ComputeEnvironmentProps{
+	Managed: jsii.Boolean(false),
 })
 ```
 
@@ -59,12 +59,12 @@ It is possible to have AWS Batch submit spotfleet requests for obtaining compute
 ```go
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
 
-spotEnvironment := batch.NewComputeEnvironment(this, jsii.String("MySpotEnvironment"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		type: batch.computeResourceType_SPOT,
-		bidPercentage: jsii.Number(75),
+spotEnvironment := batch.NewComputeEnvironment(this, jsii.String("MySpotEnvironment"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		Type: batch.ComputeResourceType_SPOT,
+		BidPercentage: jsii.Number(75),
 		 // Bids for resources at 75% of the on-demand price
-		vpc: vpc,
+		Vpc: *Vpc,
 	},
 })
 ```
@@ -83,7 +83,7 @@ var fileSystem fileSystem
 var computeEnvironment computeEnvironment
 
 
-fileSystem.connections.allowDefaultPortFrom(computeEnvironment)
+fileSystem.Connections.AllowDefaultPortFrom(computeEnvironment)
 ```
 
 ### Fargate Compute Environment
@@ -93,10 +93,10 @@ It is possible to have AWS Batch submit jobs to be run on Fargate compute resour
 ```go
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
 
-fargateSpotEnvironment := batch.NewComputeEnvironment(this, jsii.String("MyFargateEnvironment"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		type: batch.computeResourceType_FARGATE_SPOT,
-		vpc: vpc,
+fargateSpotEnvironment := batch.NewComputeEnvironment(this, jsii.String("MyFargateEnvironment"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		Type: batch.ComputeResourceType_FARGATE_SPOT,
+		Vpc: *Vpc,
 	},
 })
 ```
@@ -132,16 +132,16 @@ The alternative would be to use the `BEST_FIT_PROGRESSIVE` strategy in order for
 Simply define your Launch Template:
 
 ```go
-myLaunchTemplate := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
-	launchTemplateName: jsii.String("extra-storage-template"),
-	launchTemplateData: &launchTemplateDataProperty{
-		blockDeviceMappings: []interface{}{
-			&blockDeviceMappingProperty{
-				deviceName: jsii.String("/dev/xvdcz"),
-				ebs: &ebsProperty{
-					encrypted: jsii.Boolean(true),
-					volumeSize: jsii.Number(100),
-					volumeType: jsii.String("gp2"),
+myLaunchTemplate := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
+	LaunchTemplateName: jsii.String("extra-storage-template"),
+	LaunchTemplateData: &LaunchTemplateDataProperty{
+		BlockDeviceMappings: []interface{}{
+			&BlockDeviceMappingProperty{
+				DeviceName: jsii.String("/dev/xvdcz"),
+				Ebs: &EbsProperty{
+					Encrypted: jsii.Boolean(true),
+					VolumeSize: jsii.Number(100),
+					VolumeType: jsii.String("gp2"),
 				},
 			},
 		},
@@ -156,14 +156,14 @@ var vpc vpc
 var myLaunchTemplate cfnLaunchTemplate
 
 
-myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		launchTemplate: &launchTemplateSpecification{
-			launchTemplateName: string(myLaunchTemplate.launchTemplateName),
+myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		LaunchTemplate: &LaunchTemplateSpecification{
+			LaunchTemplateName: string(myLaunchTemplate.LaunchTemplateName),
 		},
-		vpc: vpc,
+		Vpc: *Vpc,
 	},
-	computeEnvironmentName: jsii.String("MyStorageCapableComputeEnvironment"),
+	ComputeEnvironmentName: jsii.String("MyStorageCapableComputeEnvironment"),
 })
 ```
 
@@ -174,14 +174,14 @@ var vpc vpc
 var myLaunchTemplate cfnLaunchTemplate
 
 
-myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		launchTemplate: &launchTemplateSpecification{
-			launchTemplateId: string(myLaunchTemplate.ref),
+myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		LaunchTemplate: &LaunchTemplateSpecification{
+			LaunchTemplateId: string(myLaunchTemplate.ref),
 		},
-		vpc: vpc,
+		Vpc: *Vpc,
 	},
-	computeEnvironmentName: jsii.String("MyStorageCapableComputeEnvironment"),
+	ComputeEnvironmentName: jsii.String("MyStorageCapableComputeEnvironment"),
 })
 ```
 
@@ -195,33 +195,33 @@ For example:
 var vpc vpc
 
 
-efaSecurityGroup := ec2.NewSecurityGroup(this, jsii.String("EFASecurityGroup"), &securityGroupProps{
-	vpc: vpc,
+efaSecurityGroup := ec2.NewSecurityGroup(this, jsii.String("EFASecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
 })
 
-launchTemplateEFA := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
-	launchTemplateName: jsii.String("LaunchTemplateName"),
-	launchTemplateData: &launchTemplateDataProperty{
-		networkInterfaces: []interface{}{
-			&networkInterfaceProperty{
-				deviceIndex: jsii.Number(0),
-				subnetId: vpc.privateSubnets[jsii.Number(0)].subnetId,
-				interfaceType: jsii.String("efa"),
-				groups: []*string{
-					efaSecurityGroup.securityGroupId,
+launchTemplateEFA := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
+	LaunchTemplateName: jsii.String("LaunchTemplateName"),
+	LaunchTemplateData: &LaunchTemplateDataProperty{
+		NetworkInterfaces: []interface{}{
+			&NetworkInterfaceProperty{
+				DeviceIndex: jsii.Number(0),
+				SubnetId: vpc.PrivateSubnets[jsii.Number(0)].SubnetId,
+				InterfaceType: jsii.String("efa"),
+				Groups: []*string{
+					efaSecurityGroup.SecurityGroupId,
 				},
 			},
 		},
 	},
 })
 
-computeEnvironmentEFA := batch.NewComputeEnvironment(this, jsii.String("EFAComputeEnv"), &computeEnvironmentProps{
-	managed: jsii.Boolean(true),
-	computeResources: &computeResources{
-		vpc: vpc,
-		launchTemplate: &launchTemplateSpecification{
-			launchTemplateName: string(launchTemplateEFA.launchTemplateName),
-			useNetworkInterfaceSecurityGroups: jsii.Boolean(true),
+computeEnvironmentEFA := batch.NewComputeEnvironment(this, jsii.String("EFAComputeEnv"), &ComputeEnvironmentProps{
+	Managed: jsii.Boolean(true),
+	ComputeResources: &ComputeResources{
+		Vpc: *Vpc,
+		LaunchTemplate: &LaunchTemplateSpecification{
+			LaunchTemplateName: string(launchTemplateEFA.LaunchTemplateName),
+			UseNetworkInterfaceSecurityGroups: jsii.Boolean(true),
 		},
 	},
 })
@@ -234,7 +234,7 @@ To import an existing batch compute environment, call `ComputeEnvironment.fromCo
 Below is an example:
 
 ```go
-computeEnv := batch.computeEnvironment.fromComputeEnvironmentArn(this, jsii.String("imported-compute-env"), jsii.String("arn:aws:batch:us-east-1:555555555555:compute-environment/My-Compute-Env"))
+computeEnv := batch.ComputeEnvironment_FromComputeEnvironmentArn(this, jsii.String("imported-compute-env"), jsii.String("arn:aws:batch:us-east-1:555555555555:compute-environment/My-Compute-Env"))
 ```
 
 ### Change the baseline AMI of the compute resources
@@ -246,12 +246,12 @@ ECS Optimized Amazon Linux 2 example:
 ```go
 var vpc vpc
 
-myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
-			generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
+myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		Image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
+			generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
 		}),
-		vpc: vpc,
+		Vpc: *Vpc,
 	},
 })
 ```
@@ -261,12 +261,12 @@ Custom based AMI example:
 ```go
 var vpc vpc
 
-myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
-	computeResources: &computeResources{
-		image: ec2.machineImage.genericLinux(map[string]*string{
+myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &ComputeEnvironmentProps{
+	ComputeResources: &ComputeResources{
+		Image: ec2.MachineImage_GenericLinux(map[string]*string{
 			"[aws-region]": jsii.String("[ami-ID]"),
 		}),
-		vpc: vpc,
+		Vpc: *Vpc,
 	},
 })
 ```
@@ -278,13 +278,13 @@ Jobs are always submitted to a specific queue. This means that you have to creat
 ```go
 var computeEnvironment computeEnvironment
 
-jobQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &jobQueueProps{
-	computeEnvironments: []jobQueueComputeEnvironment{
+jobQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+	ComputeEnvironments: []jobQueueComputeEnvironment{
 		&jobQueueComputeEnvironment{
 			// Defines a collection of compute resources to handle assigned batch jobs
-			computeEnvironment: computeEnvironment,
+			ComputeEnvironment: *ComputeEnvironment,
 			// Order determines the allocation order for jobs (i.e. Lower means higher preference for job assignment)
-			order: jsii.Number(1),
+			Order: jsii.Number(1),
 		},
 	},
 })
@@ -297,24 +297,24 @@ Sometimes you might have jobs that are more important than others, and when subm
 ```go
 var sharedComputeEnvs computeEnvironment
 
-highPrioQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &jobQueueProps{
-	computeEnvironments: []jobQueueComputeEnvironment{
+highPrioQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+	ComputeEnvironments: []jobQueueComputeEnvironment{
 		&jobQueueComputeEnvironment{
-			computeEnvironment: sharedComputeEnvs,
-			order: jsii.Number(1),
+			ComputeEnvironment: sharedComputeEnvs,
+			Order: jsii.Number(1),
 		},
 	},
-	priority: jsii.Number(2),
+	Priority: jsii.Number(2),
 })
 
-lowPrioQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &jobQueueProps{
-	computeEnvironments: []*jobQueueComputeEnvironment{
+lowPrioQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+	ComputeEnvironments: []*jobQueueComputeEnvironment{
 		&jobQueueComputeEnvironment{
-			computeEnvironment: sharedComputeEnvs,
-			order: jsii.Number(1),
+			ComputeEnvironment: sharedComputeEnvs,
+			Order: jsii.Number(1),
 		},
 	},
-	priority: jsii.Number(1),
+	Priority: jsii.Number(1),
 })
 ```
 
@@ -327,7 +327,7 @@ To import an existing batch job queue, call `JobQueue.fromJobQueueArn()`.
 Below is an example:
 
 ```go
-jobQueue := batch.jobQueue.fromJobQueueArn(this, jsii.String("imported-job-queue"), jsii.String("arn:aws:batch:us-east-1:555555555555:job-queue/High-Prio-Queue"))
+jobQueue := batch.JobQueue_FromJobQueueArn(this, jsii.String("imported-job-queue"), jsii.String("arn:aws:batch:us-east-1:555555555555:job-queue/High-Prio-Queue"))
 ```
 
 ## Job Definition
@@ -338,11 +338,11 @@ A Batch Job definition helps AWS Batch understand important details about how to
 import ecr "github.com/aws/aws-cdk-go/awscdk"
 
 
-repo := ecr.repository.fromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
+repo := ecr.Repository_FromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
 
-batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefinitionProps{
-	container: &jobDefinitionContainer{
-		image: ecs.NewEcrImage(repo, jsii.String("latest")),
+batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &JobDefinitionProps{
+	Container: &JobDefinitionContainer{
+		Image: ecs.NewEcrImage(repo, jsii.String("latest")),
 	},
 })
 ```
@@ -352,10 +352,10 @@ batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefiniti
 Below is an example of how you can create a Batch Job Definition from a local Docker application.
 
 ```go
-batch.NewJobDefinition(this, jsii.String("batch-job-def-from-local"), &jobDefinitionProps{
-	container: &jobDefinitionContainer{
+batch.NewJobDefinition(this, jsii.String("batch-job-def-from-local"), &JobDefinitionProps{
+	Container: &JobDefinitionContainer{
 		// todo-list is a directory containing a Dockerfile to build the application
-		image: ecs.containerImage.fromAsset(jsii.String("../todo-list")),
+		Image: ecs.ContainerImage_FromAsset(jsii.String("../todo-list")),
 	},
 })
 ```
@@ -368,16 +368,16 @@ You can provide custom log driver and its configuration for the container.
 import ssm "github.com/aws/aws-cdk-go/awscdk"
 
 
-batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
-	container: &jobDefinitionContainer{
-		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
-		logConfiguration: &logConfiguration{
-			logDriver: batch.logDriver_AWSLOGS,
-			options: map[string]*string{
+batch.NewJobDefinition(this, jsii.String("job-def"), &JobDefinitionProps{
+	Container: &JobDefinitionContainer{
+		Image: ecs.EcrImage_FromRegistry(jsii.String("docker/whalesay")),
+		LogConfiguration: &LogConfiguration{
+			LogDriver: batch.LogDriver_AWSLOGS,
+			Options: map[string]*string{
 				"awslogs-region": jsii.String("us-east-1"),
 			},
-			secretOptions: []exposedSecret{
-				batch.*exposedSecret.fromParametersStore(jsii.String("xyz"), ssm.stringParameter.fromStringParameterName(this, jsii.String("parameter"), jsii.String("xyz"))),
+			SecretOptions: []exposedSecret{
+				batch.*exposedSecret_FromParametersStore(jsii.String("xyz"), ssm.StringParameter_FromStringParameterName(this, jsii.String("parameter"), jsii.String("xyz"))),
 			},
 		},
 	},
@@ -391,11 +391,11 @@ You can set the environment variables from secrets manager.
 ```go
 dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
 
-batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
-	container: &jobDefinitionContainer{
-		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
-		secrets: map[string]secret{
-			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &JobDefinitionProps{
+	Container: &JobDefinitionContainer{
+		Image: ecs.EcrImage_FromRegistry(jsii.String("docker/whalesay")),
+		Secrets: map[string]secret{
+			"PASSWORD": ecs.*secret_fromSecretsManager(dbSecret, jsii.String("password")),
 		},
 	},
 })
@@ -412,7 +412,7 @@ To import an existing batch job definition from its ARN, call `JobDefinition.fro
 Below is an example:
 
 ```go
-job := batch.jobDefinition.fromJobDefinitionArn(this, jsii.String("imported-job-definition"), jsii.String("arn:aws:batch:us-east-1:555555555555:job-definition/my-job-definition"))
+job := batch.JobDefinition_FromJobDefinitionArn(this, jsii.String("imported-job-definition"), jsii.String("arn:aws:batch:us-east-1:555555555555:job-definition/my-job-definition"))
 ```
 
 #### From Name
@@ -424,8 +424,8 @@ Below is an example:
 
 ```go
 // Without revision
-job1 := batch.jobDefinition.fromJobDefinitionName(this, jsii.String("imported-job-definition"), jsii.String("my-job-definition"))
+job1 := batch.JobDefinition_FromJobDefinitionName(this, jsii.String("imported-job-definition"), jsii.String("my-job-definition"))
 
 // With revision
-job2 := batch.jobDefinition.fromJobDefinitionName(this, jsii.String("imported-job-definition"), jsii.String("my-job-definition:3"))
+job2 := batch.JobDefinition_FromJobDefinitionName(this, jsii.String("imported-job-definition"), jsii.String("my-job-definition:3"))
 ```

@@ -33,10 +33,10 @@ to use for the search.
 To create a place index, define a `PlaceIndex`:
 
 ```go
-location.NewPlaceIndex(this, jsii.String("PlaceIndex"), &placeIndexProps{
-	placeIndexName: jsii.String("MyPlaceIndex"),
+location.NewPlaceIndex(this, jsii.String("PlaceIndex"), &PlaceIndexProps{
+	PlaceIndexName: jsii.String("MyPlaceIndex"),
 	 // optional, defaults to a generated name
-	dataSource: location.dataSource_HERE,
+	DataSource: location.DataSource_HERE,
 })
 ```
 

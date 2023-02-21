@@ -80,27 +80,27 @@ booksDefaultIntegration := awscdkapigatewayv2integrationsalpha.NewHttpLambdaInte
 
 httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
-httpApi.addRoutes(&addRoutesOptions{
-	path: jsii.String("/books"),
-	methods: []httpMethod{
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/books"),
+	Methods: []httpMethod{
 		apigwv2.*httpMethod_GET,
 	},
-	integration: getBooksIntegration,
+	Integration: getBooksIntegration,
 })
-httpApi.addRoutes(&addRoutesOptions{
-	path: jsii.String("/books"),
-	methods: []*httpMethod{
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/books"),
+	Methods: []*httpMethod{
 		apigwv2.*httpMethod_ANY,
 	},
-	integration: booksDefaultIntegration,
+	Integration: booksDefaultIntegration,
 })
 ```
 
 The URL to the endpoint can be retrieved via the `apiEndpoint` attribute. By default this URL is enabled for clients. Use `disableExecuteApiEndpoint` to disable it.
 
 ```go
-httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &httpApiProps{
-	disableExecuteApiEndpoint: jsii.Boolean(true),
+httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &HttpApiProps{
+	DisableExecuteApiEndpoint: jsii.Boolean(true),
 })
 ```
 
@@ -111,8 +111,8 @@ matched when a client reaches a route that is not explicitly defined.
 import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 
-apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("DefaultIntegration"), jsii.String("https://example.com")),
+apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("DefaultIntegration"), jsii.String("https://example.com")),
 })
 ```
 
@@ -130,21 +130,21 @@ API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.
 The `corsPreflight` option lets you specify a CORS configuration for an API.
 
 ```go
-apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &httpApiProps{
-	corsPreflight: &corsPreflightOptions{
-		allowHeaders: []*string{
+apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &HttpApiProps{
+	CorsPreflight: &CorsPreflightOptions{
+		AllowHeaders: []*string{
 			jsii.String("Authorization"),
 		},
-		allowMethods: []corsHttpMethod{
+		AllowMethods: []corsHttpMethod{
 			apigwv2.*corsHttpMethod_GET,
 			apigwv2.*corsHttpMethod_HEAD,
 			apigwv2.*corsHttpMethod_OPTIONS,
 			apigwv2.*corsHttpMethod_POST,
 		},
-		allowOrigins: []*string{
+		AllowOrigins: []*string{
 			jsii.String("*"),
 		},
-		maxAge: awscdk.Duration.days(jsii.Number(10)),
+		MaxAge: awscdk.Duration_Days(jsii.Number(10)),
 	},
 })
 ```
@@ -162,9 +162,9 @@ Use `HttpStage` to create a Stage resource for HTTP APIs. The following code set
 var api httpApi
 
 
-apigwv2.NewHttpStage(this, jsii.String("Stage"), &httpStageProps{
-	httpApi: api,
-	stageName: jsii.String("beta"),
+apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+	HttpApi: api,
+	StageName: jsii.String("beta"),
 })
 ```
 
@@ -190,16 +190,16 @@ var handler function
 certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
 domainName := "example.com"
 
-dn := apigwv2.NewDomainName(this, jsii.String("DN"), &domainNameProps{
-	domainName: domainName,
-	certificate: acm.certificate.fromCertificateArn(this, jsii.String("cert"), certArn),
+dn := apigwv2.NewDomainName(this, jsii.String("DN"), &DomainNameProps{
+	DomainName: domainName,
+	Certificate: acm.Certificate_FromCertificateArn(this, jsii.String("cert"), certArn),
 })
-api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 	// https://${dn.domainName}/foo goes to prodApi $default stage
-	defaultDomainMapping: &domainMappingOptions{
-		domainName: dn,
-		mappingKey: jsii.String("foo"),
+	DefaultDomainMapping: &DomainMappingOptions{
+		DomainName: dn,
+		MappingKey: jsii.String("foo"),
 	},
 })
 ```
@@ -215,13 +215,13 @@ var api httpApi
 var dn domainName
 
 
-api.addStage(jsii.String("beta"), &httpStageOptions{
-	stageName: jsii.String("beta"),
-	autoDeploy: jsii.Boolean(true),
+api.AddStage(jsii.String("beta"), &HttpStageOptions{
+	StageName: jsii.String("beta"),
+	AutoDeploy: jsii.Boolean(true),
 	// https://${dn.domainName}/bar goes to the beta stage
-	domainMapping: &domainMappingOptions{
-		domainName: dn,
-		mappingKey: jsii.String("bar"),
+	DomainMapping: &DomainMappingOptions{
+		DomainName: dn,
+		MappingKey: jsii.String("bar"),
 	},
 })
 ```
@@ -235,12 +235,12 @@ var handler function
 var dn domainName
 
 
-apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 	// https://${dn.domainName}/demo goes to apiDemo $default stage
-	defaultDomainMapping: &domainMappingOptions{
-		domainName: dn,
-		mappingKey: jsii.String("demo"),
+	DefaultDomainMapping: &DomainMappingOptions{
+		DomainName: dn,
+		MappingKey: jsii.String("demo"),
 	},
 })
 ```
@@ -260,7 +260,7 @@ You can retrieve the full domain URL with mapping key using the `domainUrl` prop
 ```go
 var apiDemo httpApi
 
-demoDomainUrl := apiDemo.defaultStage.domainUrl
+demoDomainUrl := apiDemo.DefaultStage.DomainUrl
 ```
 
 ### Mutual TLS (mTLS)
@@ -276,13 +276,13 @@ var bucket bucket
 certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
 domainName := "example.com"
 
-apigwv2.NewDomainName(this, jsii.String("DomainName"), &domainNameProps{
-	domainName: jsii.String(domainName),
-	certificate: acm.certificate.fromCertificateArn(this, jsii.String("cert"), certArn),
-	mtls: &mTLSConfig{
-		bucket: bucket,
-		key: jsii.String("someca.pem"),
-		version: jsii.String("version"),
+apigwv2.NewDomainName(this, jsii.String("DomainName"), &DomainNameProps{
+	DomainName: jsii.String(DomainName),
+	Certificate: acm.Certificate_FromCertificateArn(this, jsii.String("cert"), certArn),
+	Mtls: &MTLSConfig{
+		Bucket: *Bucket,
+		Key: jsii.String("someca.pem"),
+		Version: jsii.String("version"),
 	},
 })
 ```
@@ -313,8 +313,8 @@ the `metric` methods from the `Stage` construct.
 
 ```go
 api := apigwv2.NewHttpApi(this, jsii.String("my-api"))
-stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &httpStageProps{
-	httpApi: api,
+stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+	HttpApi: api,
 })
 clientErrorMetric := stage.metricClientError()
 ```
@@ -330,8 +330,8 @@ import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
 
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
-vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &vpcLinkProps{
-	vpc: vpc,
+vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &VpcLinkProps{
+	Vpc: Vpc,
 })
 ```
 
@@ -342,9 +342,9 @@ import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc
 
-awesomeLink := apigwv2.vpcLink.fromVpcLinkAttributes(this, jsii.String("awesome-vpc-link"), &vpcLinkAttributes{
-	vpcLinkId: jsii.String("us-east-1_oiuR12Abd"),
-	vpc: vpc,
+awesomeLink := apigwv2.VpcLink_FromVpcLinkAttributes(this, jsii.String("awesome-vpc-link"), &VpcLinkAttributes{
+	VpcLinkId: jsii.String("us-east-1_oiuR12Abd"),
+	Vpc: Vpc,
 })
 ```
 
@@ -382,22 +382,22 @@ var disconnectHandler function
 var defaultHandler function
 
 
-webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &webSocketApiProps{
-	connectRouteOptions: &webSocketRouteOptions{
-		integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("ConnectIntegration"), connectHandler),
+webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
+	ConnectRouteOptions: &WebSocketRouteOptions{
+		Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("ConnectIntegration"), connectHandler),
 	},
-	disconnectRouteOptions: &webSocketRouteOptions{
-		integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("DisconnectIntegration"), disconnectHandler),
+	DisconnectRouteOptions: &WebSocketRouteOptions{
+		Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("DisconnectIntegration"), disconnectHandler),
 	},
-	defaultRouteOptions: &webSocketRouteOptions{
-		integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("DefaultIntegration"), defaultHandler),
+	DefaultRouteOptions: &WebSocketRouteOptions{
+		Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("DefaultIntegration"), defaultHandler),
 	},
 })
 
-apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
-	webSocketApi: webSocketApi,
-	stageName: jsii.String("dev"),
-	autoDeploy: jsii.Boolean(true),
+apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+	WebSocketApi: WebSocketApi,
+	StageName: jsii.String("dev"),
+	AutoDeploy: jsii.Boolean(true),
 })
 ```
 
@@ -420,16 +420,30 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 var messageHandler function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
-webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+})
+```
+
+To add a route that can return a result:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
+
+var messageHandler function
+
+webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
+webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+	ReturnResponse: jsii.Boolean(true),
 })
 ```
 
 To import an existing WebSocketApi:
 
 ```go
-webSocketApi := apigwv2.webSocketApi.fromWebSocketApiAttributes(this, jsii.String("mywsapi"), &webSocketApiAttributes{
-	webSocketId: jsii.String("api-1234"),
+webSocketApi := apigwv2.WebSocketApi_FromWebSocketApiAttributes(this, jsii.String("mywsapi"), &WebSocketApiAttributes{
+	WebSocketId: jsii.String("api-1234"),
 })
 ```
 
@@ -443,14 +457,14 @@ var fn function
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
-stage := apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
-	webSocketApi: webSocketApi,
-	stageName: jsii.String("dev"),
+stage := apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+	WebSocketApi: WebSocketApi,
+	StageName: jsii.String("dev"),
 })
 // per stage permission
-stage.grantManagementApiAccess(fn)
+stage.GrantManagementApiAccess(fn)
 // for all the stages permission
-webSocketApi.grantManageConnections(fn)
+webSocketApi.GrantManageConnections(fn)
 ```
 
 ### Managing access to WebSocket APIs
@@ -466,7 +480,7 @@ Websocket APIs also support usage of API Keys. An API Key is a key that is used 
 To require an API Key when accessing the Websocket API:
 
 ```go
-webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &webSocketApiProps{
-	apiKeySelectionExpression: apigwv2.webSocketApiKeySelectionExpression_HEADER_X_API_KEY(),
+webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
+	ApiKeySelectionExpression: apigwv2.WebSocketApiKeySelectionExpression_HEADER_X_API_KEY(),
 })
 ```

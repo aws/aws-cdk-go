@@ -61,10 +61,10 @@ type databaseStack struct {
 func newDatabaseStack(scope construct, id *string) *databaseStack {
 	this := &databaseStack{}
 	newStack_Override(this, scope, id)
-	this.table = dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
-		partitionKey: &attribute{
-			name: jsii.String("id"),
-			type: dynamodb.attributeType_STRING,
+	this.table = dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+		PartitionKey: &Attribute{
+			Name: jsii.String("id"),
+			Type: dynamodb.AttributeType_STRING,
 		},
 	})
 	return this
@@ -95,14 +95,14 @@ func newMyPipelineStack(scope construct, id *string, props stackProps) *myPipeli
 	this := &myPipelineStack{}
 	newStack_Override(this, scope, id, props)
 
-	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-		synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+		Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
 			// Use a connection created using the AWS console to authenticate to GitHub
 			// Other sources are available.
-			input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-				connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+			Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+				ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 			}),
-			commands: []*string{
+			Commands: []*string{
 				jsii.String("npm ci"),
 				jsii.String("npm run build"),
 				jsii.String("npx cdk synth"),
@@ -113,10 +113,10 @@ func newMyPipelineStack(scope construct, id *string, props stackProps) *myPipeli
 	// 'MyApplication' is defined below. Call `addStage` as many times as
 	// necessary with any account and region (may be different from the
 	// pipeline's).
-	pipeline.addStage(NewMyApplication(this, jsii.String("Prod"), &stageProps{
-		env: &environment{
-			account: jsii.String("123456789012"),
-			region: jsii.String("eu-west-1"),
+	pipeline.AddStage(NewMyApplication(this, jsii.String("Prod"), &stageProps{
+		Env: &Environment{
+			Account: jsii.String("123456789012"),
+			Region: jsii.String("eu-west-1"),
 		},
 	}))
 	return this
@@ -148,9 +148,9 @@ func newMyApplication(scope construct, id *string, props stageProps) *myApplicat
 // In your main file
 // In your main file
 NewMyPipelineStack(this, jsii.String("PipelineStack"), &stackProps{
-	env: &environment{
-		account: jsii.String("123456789012"),
-		region: jsii.String("eu-west-1"),
+	Env: &Environment{
+		Account: jsii.String("123456789012"),
+		Region: jsii.String("eu-west-1"),
 	},
 })
 ```
@@ -202,13 +202,13 @@ off temporarily, by passing `selfMutation: false` property, example:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 // Modern API
-modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	selfMutation: jsii.Boolean(false),
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	SelfMutation: jsii.Boolean(false),
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -249,10 +249,10 @@ typical NPM-based project, the synth will look like this:
 var source iFileSetProducer
 // the repository source
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -271,16 +271,16 @@ CDK project lives in a subdirectory, be sure to adjust the
 var source iFileSetProducer
 // the repository source
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: []*string{
 			jsii.String("cd mysubdir"),
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
 		},
-		primaryOutputDirectory: jsii.String("mysubdir/cdk.out"),
+		PrimaryOutputDirectory: jsii.String("mysubdir/cdk.out"),
 	}),
 })
 ```
@@ -305,10 +305,10 @@ For Yarn, the install commands are different:
 var source iFileSetProducer
 // the repository source
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: []*string{
 			jsii.String("yarn install --frozen-lockfile"),
 			jsii.String("yarn build"),
 			jsii.String("npx cdk synth"),
@@ -325,10 +325,10 @@ there is no `package.json` to automatically install it for you):
 var source iFileSetProducer
 // the repository source
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: []*string{
 			jsii.String("pip install -r requirements.txt"),
 			jsii.String("npm install -g aws-cdk"),
 			jsii.String("cdk synth"),
@@ -347,10 +347,10 @@ as you run `cdk synth`:
 var source iFileSetProducer
 // the repository source
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: []*string{
 			jsii.String("npm install -g aws-cdk"),
 			jsii.String("cdk synth"),
 		},
@@ -381,10 +381,10 @@ To avoid this, put your build instructions in a separate script, for example
 var source iFileSetProducer
 
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: []*string{
 			jsii.String("./build.sh"),
 		},
 	}),
@@ -409,8 +409,8 @@ provider, and then use the connection ARN in your pipeline definition:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-pipelines.codePipelineSource.connection(jsii.String("org/repo"), jsii.String("branch"), &connectionSourceOptions{
-	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+pipelines.CodePipelineSource_Connection(jsii.String("org/repo"), jsii.String("branch"), &ConnectionSourceOptions{
+	ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 })
 ```
 
@@ -424,9 +424,9 @@ scopes.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-pipelines.codePipelineSource.gitHub(jsii.String("org/repo"), jsii.String("branch"), &gitHubSourceOptions{
+pipelines.CodePipelineSource_GitHub(jsii.String("org/repo"), jsii.String("branch"), &GitHubSourceOptions{
 	// This is optional
-	authentication: cdk.secretValue.secretsManager(jsii.String("my-token")),
+	Authentication: cdk.SecretValue_SecretsManager(jsii.String("my-token")),
 })
 ```
 
@@ -438,8 +438,8 @@ to reference it:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-repository := codecommit.repository.fromRepositoryName(this, jsii.String("Repository"), jsii.String("my-repository"))
-pipelines.codePipelineSource.codeCommit(repository, jsii.String("main"))
+repository := codecommit.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-repository"))
+pipelines.CodePipelineSource_CodeCommit(repository, jsii.String("main"))
 ```
 
 ##### S3
@@ -449,8 +449,8 @@ triggered every time the file in S3 is changed:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-bucket := s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket"))
-pipelines.codePipelineSource.s3(bucket, jsii.String("my/source.zip"))
+bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket"))
+pipelines.CodePipelineSource_S3(bucket, jsii.String("my/source.zip"))
 ```
 
 ##### ECR
@@ -461,7 +461,7 @@ triggered every time an image is pushed to ECR:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 repository := ecr.NewRepository(this, jsii.String("Repository"))
-pipelines.codePipelineSource.ecr(repository)
+pipelines.CodePipelineSource_Ecr(repository)
 ```
 
 #### Additional inputs
@@ -473,23 +473,23 @@ also other `ShellStep`:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-prebuild := pipelines.NewShellStep(jsii.String("Prebuild"), &shellStepProps{
-	input: pipelines.codePipelineSource.gitHub(jsii.String("myorg/repo1"), jsii.String("main")),
-	primaryOutputDirectory: jsii.String("./build"),
-	commands: []*string{
+prebuild := pipelines.NewShellStep(jsii.String("Prebuild"), &ShellStepProps{
+	Input: pipelines.CodePipelineSource_GitHub(jsii.String("myorg/repo1"), jsii.String("main")),
+	PrimaryOutputDirectory: jsii.String("./build"),
+	Commands: []*string{
 		jsii.String("./build.sh"),
 	},
 })
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.*codePipelineSource.gitHub(jsii.String("myorg/repo2"), jsii.String("main")),
-		additionalInputs: map[string]iFileSetProducer{
-			"subdir": pipelines.*codePipelineSource.gitHub(jsii.String("myorg/repo3"), jsii.String("main")),
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_*GitHub(jsii.String("myorg/repo2"), jsii.String("main")),
+		AdditionalInputs: map[string]iFileSetProducer{
+			"subdir": pipelines.CodePipelineSource_*GitHub(jsii.String("myorg/repo3"), jsii.String("main")),
 			"../siblingdir": prebuild,
 		},
 
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("./build.sh"),
 		},
 	}),
@@ -508,10 +508,10 @@ var pipeline codePipeline
 
 // Do this as many times as necessary with any account and region
 // Account and region may different from the pipeline's.
-pipeline.addStage(NewMyApplicationStage(this, jsii.String("Prod"), &stageProps{
-	env: &environment{
-		account: jsii.String("123456789012"),
-		region: jsii.String("eu-west-1"),
+pipeline.AddStage(NewMyApplicationStage(this, jsii.String("Prod"), &stageProps{
+	Env: &Environment{
+		Account: jsii.String("123456789012"),
+		Region: jsii.String("eu-west-1"),
 	},
 }))
 ```
@@ -541,15 +541,15 @@ application to `eu-west-1` and `eu-central-1` in parallel:
 // Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 
-europeWave := pipeline.addWave(jsii.String("Europe"))
-europeWave.addStage(NewMyApplicationStage(this, jsii.String("Ireland"), &stageProps{
-	env: &environment{
-		region: jsii.String("eu-west-1"),
+europeWave := pipeline.AddWave(jsii.String("Europe"))
+europeWave.AddStage(NewMyApplicationStage(this, jsii.String("Ireland"), &stageProps{
+	Env: &Environment{
+		Region: jsii.String("eu-west-1"),
 	},
 }))
-europeWave.addStage(NewMyApplicationStage(this, jsii.String("Germany"), &stageProps{
-	env: &environment{
-		region: jsii.String("eu-central-1"),
+europeWave.AddStage(NewMyApplicationStage(this, jsii.String("Germany"), &stageProps{
+	Env: &Environment{
+		Region: jsii.String("eu-central-1"),
 	},
 }))
 ```
@@ -572,16 +572,16 @@ Example:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 	// Encrypt artifacts, required for cross-account deployments
-	crossAccountKeys: jsii.Boolean(true),
-	enableKeyRotation: jsii.Boolean(true),
+	CrossAccountKeys: jsii.Boolean(true),
+	EnableKeyRotation: jsii.Boolean(true),
 	 // optional
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -612,11 +612,11 @@ func newPipelineStack(scope construct, id *string, props stackProps) *pipelineSt
 	this := &pipelineStack{}
 	newStack_Override(this, scope, id, props)
 
-	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-		synth: synth,
+	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+		Synth: Synth,
 
 		// Disable change set creation and make deployments in pipeline as single step
-		useChangeSets: jsii.Boolean(false),
+		UseChangeSets: jsii.Boolean(false),
 	})
 	return this
 }
@@ -641,17 +641,17 @@ var pipeline codePipeline
 preprod := NewMyApplicationStage(this, jsii.String("PreProd"))
 prod := NewMyApplicationStage(this, jsii.String("Prod"))
 
-pipeline.addStage(preprod, &addStageOpts{
-	post: []step{
-		pipelines.NewShellStep(jsii.String("Validate Endpoint"), &shellStepProps{
-			commands: []*string{
+pipeline.AddStage(preprod, &AddStageOpts{
+	Post: []step{
+		pipelines.NewShellStep(jsii.String("Validate Endpoint"), &ShellStepProps{
+			Commands: []*string{
 				jsii.String("curl -Ssf https://my.webservice.com/"),
 			},
 		}),
 	},
 })
-pipeline.addStage(prod, &addStageOpts{
-	pre: []*step{
+pipeline.AddStage(prod, &AddStageOpts{
+	Pre: []*step{
 		pipelines.NewManualApprovalStep(jsii.String("PromoteToProd")),
 	},
 })
@@ -677,25 +677,25 @@ func newMyStacksStage(scope construct, id *string, props stageProps) *myStacksSt
 }
 prod := NewMyStacksStage(this, jsii.String("Prod"))
 
-pipeline.addStage(prod, &addStageOpts{
-	stackSteps: []stackSteps{
+pipeline.AddStage(prod, &AddStageOpts{
+	StackSteps: []stackSteps{
 		&stackSteps{
-			stack: prod.stack1,
-			pre: []step{
+			Stack: prod.stack1,
+			Pre: []step{
 				pipelines.NewManualApprovalStep(jsii.String("Pre-Stack Check")),
 			},
 			 // Executed before stack is prepared
-			changeSet: []*step{
+			ChangeSet: []*step{
 				pipelines.NewManualApprovalStep(jsii.String("ChangeSet Approval")),
 			},
 			 // Executed after stack is prepared but before the stack is deployed
-			post: []*step{
+			Post: []*step{
 				pipelines.NewManualApprovalStep(jsii.String("Post-Deploy Check")),
 			},
 		},
 		&stackSteps{
-			stack: prod.stack2,
-			post: []*step{
+			Stack: prod.stack2,
+			Post: []*step{
 				pipelines.NewManualApprovalStep(jsii.String("Post-Deploy Check")),
 			},
 		},
@@ -710,7 +710,7 @@ to if you wish to specify an order. To add a dependency, call `step.addStepDepen
 // Example automatically generated from non-compiling source. May contain errors.
 firstStep := pipelines.NewManualApprovalStep(jsii.String("A"))
 secondStep := pipelines.NewManualApprovalStep(jsii.String("B"))
-secondStep.addStepDependency(firstStep)
+secondStep.AddStepDependency(firstStep)
 ```
 
 For convenience, `Step.sequence()` will take an array of steps and dependencies between adjacent steps,
@@ -719,7 +719,7 @@ so that the whole list executes in order:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 // Step A will depend on step B and step B will depend on step C
-orderedSteps := pipelines.step.sequence([]step{
+orderedSteps := pipelines.Step_Sequence([]step{
 	pipelines.NewManualApprovalStep(jsii.String("A")),
 	pipelines.NewManualApprovalStep(jsii.String("B")),
 	pipelines.NewManualApprovalStep(jsii.String("C")),
@@ -746,21 +746,21 @@ type myOutputStage struct {
 func newMyOutputStage(scope construct, id *string, props stageProps) *myOutputStage {
 	this := &myOutputStage{}
 	newStage_Override(this, scope, id, props)
-	this.loadBalancerAddress = awscdk.NewCfnOutput(this, jsii.String("Output"), &cfnOutputProps{
-		value: jsii.String("value"),
+	this.loadBalancerAddress = awscdk.NewCfnOutput(this, jsii.String("Output"), &CfnOutputProps{
+		Value: jsii.String("value"),
 	})
 	return this
 }
 
 lbApp := NewMyOutputStage(this, jsii.String("MyApp"))
-pipeline.addStage(lbApp, &addStageOpts{
-	post: []step{
-		pipelines.NewShellStep(jsii.String("HitEndpoint"), &shellStepProps{
-			envFromCfnOutputs: map[string]*cfnOutput{
+pipeline.AddStage(lbApp, &AddStageOpts{
+	Post: []step{
+		pipelines.NewShellStep(jsii.String("HitEndpoint"), &ShellStepProps{
+			EnvFromCfnOutputs: map[string]*cfnOutput{
 				// Make the load balancer address available as $URL inside the commands
 				"URL": lbApp.loadBalancerAddress,
 			},
-			commands: []*string{
+			Commands: []*string{
 				jsii.String("curl -Ssf $URL"),
 			},
 		}),
@@ -785,16 +785,16 @@ step and runs tests from there:
 var synth shellStep
 
 stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: synth,
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: Synth,
 })
 
-pipeline.addStage(stage, &addStageOpts{
-	post: []step{
-		pipelines.NewShellStep(jsii.String("Approve"), &shellStepProps{
+pipeline.AddStage(stage, &AddStageOpts{
+	Post: []step{
+		pipelines.NewShellStep(jsii.String("Approve"), &ShellStepProps{
 			// Use the contents of the 'integ' directory from the synth step as the input
-			input: synth.addOutputDirectory(jsii.String("integ")),
-			commands: []*string{
+			Input: synth.AddOutputDirectory(jsii.String("integ")),
+			Commands: []*string{
 				jsii.String("cd integ && ./run.sh"),
 			},
 		}),
@@ -815,46 +815,46 @@ of properties that allow you to customize various aspects of the projects:
 var vpc vpc
 var mySecurityGroup securityGroup
 
-pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
+pipelines.NewCodeBuildStep(jsii.String("Synth"), &CodeBuildStepProps{
 	// ...standard ShellStep props...
-	commands: []*string{
+	Commands: []*string{
 	},
-	env: map[string]interface{}{
+	Env: map[string]interface{}{
 	},
 
 	// If you are using a CodeBuildStep explicitly, set the 'cdk.out' directory
 	// to be the synth step's output.
-	primaryOutputDirectory: jsii.String("cdk.out"),
+	PrimaryOutputDirectory: jsii.String("cdk.out"),
 
 	// Control the name of the project
-	projectName: jsii.String("MyProject"),
+	ProjectName: jsii.String("MyProject"),
 
 	// Control parts of the BuildSpec other than the regular 'build' and 'install' commands
-	partialBuildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+	PartialBuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 	}),
 
 	// Control the build environment
-	buildEnvironment: &buildEnvironment{
-		computeType: codebuild.computeType_LARGE,
+	BuildEnvironment: &BuildEnvironment{
+		ComputeType: codebuild.ComputeType_LARGE,
 	},
-	timeout: awscdk.Duration.minutes(jsii.Number(90)),
+	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
 
 	// Control Elastic Network Interface creation
-	vpc: vpc,
-	subnetSelection: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+	Vpc: vpc,
+	SubnetSelection: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
-	securityGroups: []iSecurityGroup{
+	SecurityGroups: []iSecurityGroup{
 		mySecurityGroup,
 	},
 
 	// Control caching
-	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
+	Cache: codebuild.Cache_Bucket(s3.NewBucket(this, jsii.String("Cache"))),
 
 	// Additional policy statements for the execution role
-	rolePolicyStatements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
+	RolePolicyStatements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
 		}),
 	},
 })
@@ -869,13 +869,13 @@ or just for the synth, asset publishing, and self-mutation projects by passing `
 var vpc vpc
 var mySecurityGroup securityGroup
 
-pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 	// Standard CodePipeline properties
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -883,38 +883,38 @@ pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 	}),
 
 	// Defaults for all CodeBuild projects
-	codeBuildDefaults: &codeBuildOptions{
+	CodeBuildDefaults: &CodeBuildOptions{
 		// Prepend commands and configuration to all projects
-		partialBuildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+		PartialBuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 			"version": jsii.String("0.2"),
 		}),
 
 		// Control the build environment
-		buildEnvironment: &buildEnvironment{
-			computeType: codebuild.computeType_LARGE,
+		BuildEnvironment: &BuildEnvironment{
+			ComputeType: codebuild.ComputeType_LARGE,
 		},
 
 		// Control Elastic Network Interface creation
-		vpc: vpc,
-		subnetSelection: &subnetSelection{
-			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+		Vpc: vpc,
+		SubnetSelection: &SubnetSelection{
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
-		securityGroups: []iSecurityGroup{
+		SecurityGroups: []iSecurityGroup{
 			mySecurityGroup,
 		},
 
 		// Additional policy statements for the execution role
-		rolePolicy: []policyStatement{
-			iam.NewPolicyStatement(&policyStatementProps{
+		RolePolicy: []policyStatement{
+			iam.NewPolicyStatement(&PolicyStatementProps{
 			}),
 		},
 	},
 
-	synthCodeBuildDefaults: &codeBuildOptions{
+	SynthCodeBuildDefaults: &CodeBuildOptions{
 	},
-	assetPublishingCodeBuildDefaults: &codeBuildOptions{
+	AssetPublishingCodeBuildDefaults: &CodeBuildOptions{
 	},
-	selfMutationCodeBuildDefaults: &codeBuildOptions{
+	SelfMutationCodeBuildDefaults: &CodeBuildOptions{
 	},
 })
 ```
@@ -940,7 +940,7 @@ func newMyJenkinsStep(provider jenkinsProvider, input fileSet) *myJenkinsStep {
 	// This is necessary if your step accepts parameters, like environment variables,
 	// that may contain outputs from other steps. It doesn't matter what the
 	// structure is, as long as it contains the values that may contain outputs.
-	this.discoverReferencedOutputs(map[string]map[string]interface{}{
+	this.DiscoverReferencedOutputs(map[string]map[string]interface{}{
 		"env": map[string]interface{}{
 		},
 	})
@@ -951,24 +951,24 @@ func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOpti
 
 	// This is where you control what type of Action gets added to the
 	// CodePipeline
-	*stage.addAction(cpactions.NewJenkinsAction(&jenkinsActionProps{
+	*stage.AddAction(cpactions.NewJenkinsAction(&JenkinsActionProps{
 		// Copy 'actionName' and 'runOrder' from the options
-		actionName: options.actionName,
-		runOrder: options.runOrder,
+		ActionName: options.ActionName,
+		RunOrder: options.RunOrder,
 
 		// Jenkins-specific configuration
-		type: cpactions.jenkinsActionType_TEST,
-		jenkinsProvider: this.provider,
-		projectName: jsii.String("MyJenkinsProject"),
+		Type: cpactions.JenkinsActionType_TEST,
+		JenkinsProvider: this.provider,
+		ProjectName: jsii.String("MyJenkinsProject"),
 
 		// Translate the FileSet into a codepipeline.Artifact
-		inputs: []artifact{
-			options.artifacts.toCodePipeline(this.input),
+		Inputs: []artifact{
+			options.Artifacts.ToCodePipeline(this.input),
 		},
 	}))
 
 	return &codePipelineActionFactoryResult{
-		runOrdersConsumed: jsii.Number(1),
+		RunOrdersConsumed: jsii.Number(1),
 	}
 }
 ```
@@ -988,17 +988,17 @@ func newMyLambdaStep( ) *myLambdaStep {
 	return this
 }{
 	newStack_Override(this, jsii.String("MyLambdaStep"))
-	this.stackOutputReference = pipelines.stackOutputReference.fromCfnOutput(stackOutput)
+	this.stackOutputReference = pipelines.stackOutputReference_FromCfnOutput(stackOutput)
 }produceAction(stage, codepipeline.iStage, options, pipelines.produceActionOptions)pipelines.codePipelineActionFactoryResult{
 
-	stage.addAction(cpactions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-		actionName: options.actionName,
-		runOrder: options.runOrder,
+	stage.addAction(cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+		ActionName: options.actionName,
+		RunOrder: options.runOrder,
 		// Map the reference to the variable name the CDK has generated for you.
-		userParameters: map[string]interface{}{
+		UserParameters: map[string]interface{}{
 			"stackOutput": options.stackOutputsMap.toCodePipeline(this.stackOutputReference),
 		},
-		lambda: this.function,
+		Lambda: this.function,
 	}))
 
 	return map[string]*f64{
@@ -1030,11 +1030,11 @@ var codePipeline pipeline
 
 sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	codePipeline: codePipeline,
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineFileSet.fromArtifact(sourceArtifact),
-		commands: []*string{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	CodePipeline: codePipeline,
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineFileSet_FromArtifact(sourceArtifact),
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -1053,9 +1053,9 @@ var codePipeline pipeline
 
 buildArtifact := codepipeline.NewArtifact(jsii.String("MyBuildArtifact"))
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	codePipeline: codePipeline,
-	synth: pipelines.codePipelineFileSet.fromArtifact(buildArtifact),
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	CodePipeline: codePipeline,
+	Synth: pipelines.CodePipelineFileSet_FromArtifact(buildArtifact),
 })
 ```
 
@@ -1093,12 +1093,12 @@ you need to pass `dockerEnabledForSelfMutation: true` to the pipeline. For examp
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -1106,20 +1106,20 @@ pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipeli
 	}),
 
 	// Turn this on because the pipeline uses Docker image assets
-	dockerEnabledForSelfMutation: jsii.Boolean(true),
+	DockerEnabledForSelfMutation: jsii.Boolean(true),
 })
 
-pipeline.addWave(jsii.String("MyWave"), &waveOptions{
-	post: []step{
-		pipelines.NewCodeBuildStep(jsii.String("RunApproval"), &codeBuildStepProps{
-			commands: []*string{
+pipeline.AddWave(jsii.String("MyWave"), &WaveOptions{
+	Post: []step{
+		pipelines.NewCodeBuildStep(jsii.String("RunApproval"), &CodeBuildStepProps{
+			Commands: []*string{
 				jsii.String("command-from-image"),
 			},
-			buildEnvironment: &buildEnvironment{
+			BuildEnvironment: &BuildEnvironment{
 				// The user of a Docker image asset in the pipeline requires turning on
 				// 'dockerEnabledForSelfMutation'.
-				buildImage: codebuild.linuxBuildImage.fromAsset(this, jsii.String("Image"), &dockerImageAssetProps{
-					directory: jsii.String("./docker-image"),
+				BuildImage: codebuild.LinuxBuildImage_FromAsset(this, jsii.String("Image"), &DockerImageAssetProps{
+					Directory: jsii.String("./docker-image"),
 				}),
 			},
 		}),
@@ -1139,12 +1139,12 @@ if you add a construct like `@aws-cdk/aws-lambda-nodejs`), you need to pass
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -1152,7 +1152,7 @@ pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipeli
 	}),
 
 	// Turn this on because the application uses bundled file assets
-	dockerEnabledForSynth: jsii.Boolean(true),
+	DockerEnabledForSynth: jsii.Boolean(true),
 })
 ```
 
@@ -1169,25 +1169,25 @@ different environment (e.g., ECR repo) or to avoid throttling (e.g., DockerHub).
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-dockerHubSecret := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
-customRegSecret := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("CRSecret"), jsii.String("arn:aws:..."))
-repo1 := ecr.repository.fromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo1"))
-repo2 := ecr.repository.fromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo2"))
+dockerHubSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
+customRegSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("CRSecret"), jsii.String("arn:aws:..."))
+repo1 := ecr.Repository_FromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo1"))
+repo2 := ecr.Repository_FromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo2"))
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	dockerCredentials: []dockerCredential{
-		pipelines.*dockerCredential.dockerHub(dockerHubSecret),
-		pipelines.*dockerCredential.customRegistry(jsii.String("dockerregistry.example.com"), customRegSecret),
-		pipelines.*dockerCredential.ecr([]iRepository{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	DockerCredentials: []dockerCredential{
+		pipelines.*dockerCredential_DockerHub(dockerHubSecret),
+		pipelines.*dockerCredential_CustomRegistry(jsii.String("dockerregistry.example.com"), customRegSecret),
+		pipelines.*dockerCredential_Ecr([]iRepository{
 			repo1,
 			repo2,
 		}),
 	},
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
@@ -1210,10 +1210,10 @@ the **Synth**, **Self-Update**, and **Asset Publishing** actions within the
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-dockerHubSecret := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
+dockerHubSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
 // Only the image asset publishing actions will be granted read access to the secret.
-creds := pipelines.dockerCredential.dockerHub(dockerHubSecret, &externalDockerCredentialOptions{
-	usages: []dockerCredentialUsage{
+creds := pipelines.DockerCredential_DockerHub(dockerHubSecret, &ExternalDockerCredentialOptions{
+	Usages: []dockerCredentialUsage{
 		pipelines.*dockerCredentialUsage_ASSET_PUBLISHING,
 	},
 })
@@ -1394,27 +1394,27 @@ lookup roles. As an example, doing so would look like this:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	synth: pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
-		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewCodeBuildStep(jsii.String("Synth"), &CodeBuildStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 		}),
-		commands: []*string{
+		Commands: []*string{
 			jsii.String("..."),
 			jsii.String("npm ci"),
 			jsii.String("npm run build"),
 			jsii.String("npx cdk synth"),
 			jsii.String("..."),
 		},
-		rolePolicyStatements: []policyStatement{
-			iam.NewPolicyStatement(&policyStatementProps{
-				actions: []*string{
+		RolePolicyStatements: []policyStatement{
+			iam.NewPolicyStatement(&PolicyStatementProps{
+				Actions: []*string{
 					jsii.String("sts:AssumeRole"),
 				},
-				resources: []*string{
+				Resources: []*string{
 					jsii.String("*"),
 				},
-				conditions: map[string]interface{}{
+				Conditions: map[string]interface{}{
 					"StringEquals": map[string]*string{
 						"iam:ResourceTag/aws-cdk:bootstrap-role": jsii.String("lookup"),
 					},
@@ -1481,10 +1481,10 @@ You can insert the security check by using a `ConfirmPermissionsBroadening` step
 var pipeline codePipeline
 
 stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
-pipeline.addStage(stage, &addStageOpts{
-	pre: []step{
-		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &permissionsBroadeningCheckProps{
-			stage: stage,
+pipeline.AddStage(stage, &AddStageOpts{
+	Pre: []step{
+		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{
+			Stage: *Stage,
 		}),
 	},
 })
@@ -1499,14 +1499,14 @@ as the `notificationTopic` property:
 var pipeline codePipeline
 
 topic := sns.NewTopic(this, jsii.String("SecurityChangesTopic"))
-topic.addSubscription(subscriptions.NewEmailSubscription(jsii.String("test@email.com")))
+topic.AddSubscription(subscriptions.NewEmailSubscription(jsii.String("test@email.com")))
 
 stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
-pipeline.addStage(stage, &addStageOpts{
-	pre: []step{
-		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &permissionsBroadeningCheckProps{
-			stage: stage,
-			notificationTopic: topic,
+pipeline.AddStage(stage, &AddStageOpts{
+	Pre: []step{
+		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{
+			Stage: *Stage,
+			NotificationTopic: topic,
 		}),
 	},
 })
@@ -1626,11 +1626,11 @@ sourceArtifact := codepipeline.NewArtifact()
 cloudAssemblyArtifact := codepipeline.NewArtifact()
 pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipelineProps{
 	cloudAssemblyArtifact: cloudAssemblyArtifact,
-	synthAction: pipelines.simpleSynthAction.standardNpmSynth(&standardNpmSynthOptions{
+	synthAction: pipelines.simpleSynthAction_StandardNpmSynth(&standardNpmSynthOptions{
 		sourceArtifact: sourceArtifact,
 		cloudAssemblyArtifact: cloudAssemblyArtifact,
-		environment: &buildEnvironment{
-			privileged: jsii.Boolean(true),
+		environment: &BuildEnvironment{
+			Privileged: jsii.Boolean(true),
 		},
 	}),
 })
@@ -1741,10 +1741,10 @@ $ env CDK_NEW_BOOTSTRAP=1 npx cdk bootstrap \
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.Newstack(this, jsii.String("MyStack"), &stackProps{
+awscdk.Newstack(this, jsii.String("MyStack"), &StackProps{
 	// Update this qualifier to match the one used above.
-	synthesizer: cdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
-		qualifier: jsii.String("randchars1234"),
+	Synthesizer: cdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
+		Qualifier: jsii.String("randchars1234"),
 	}),
 })
 ```
@@ -1821,17 +1821,17 @@ var synthCommands []*string // Commands to synthesize your app
 var installCommands []*string
 // Commands to install your toolchain
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 	// Standard CodePipeline properties...
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: synthCommands,
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: synthCommands,
 	}),
 
 	// Configure CodeBuild to use a drop-in Docker replacement.
-	codeBuildDefaults: &codeBuildOptions{
-		buildEnvironment: &buildEnvironment{
-			partialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
+	CodeBuildDefaults: &CodeBuildOptions{
+		BuildEnvironment: &BuildEnvironment{
+			PartialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
 				"phases": map[string]map[string][]*string{
 					"install": map[string][]*string{
 						// Add the shell commands to install your drop-in Docker
@@ -1840,7 +1840,7 @@ pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipeli
 					},
 				},
 			}),
-			environmentVariables: map[string]buildEnvironmentVariable{
+			EnvironmentVariables: map[string]buildEnvironmentVariable{
 				// Instruct the AWS CDK to use `drop-in-replacement` instead of
 				// `docker` when building / publishing docker images.
 				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
@@ -1864,20 +1864,20 @@ var source iFileSetProducer // the repository source
 var synthCommands []*string
 // Commands to synthesize your app
 
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 	// Standard CodePipeline properties...
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: synthCommands,
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: source,
+		Commands: synthCommands,
 	}),
 
 	// Configure CodeBuild to use a drop-in Docker replacement.
-	codeBuildDefaults: &codeBuildOptions{
-		buildEnvironment: &buildEnvironment{
+	CodeBuildDefaults: &CodeBuildOptions{
+		BuildEnvironment: &BuildEnvironment{
 			// Provide a custom build image containing your toolchain and the
 			// pre-installed replacement for the `docker` command.
-			buildImage: codebuild.linuxBuildImage.fromDockerRegistry(jsii.String("your-docker-registry")),
-			environmentVariables: map[string]buildEnvironmentVariable{
+			BuildImage: codebuild.LinuxBuildImage_FromDockerRegistry(jsii.String("your-docker-registry")),
+			EnvironmentVariables: map[string]buildEnvironmentVariable{
 				// If you haven't provided an `ENV` in your Dockerfile that overrides
 				// `CDK_DOCKER`, then you must provide the name of the command that
 				// the AWS CDK should run instead of `docker` here.

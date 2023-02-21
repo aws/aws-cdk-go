@@ -38,8 +38,8 @@ used as a destination. More supported destinations are covered [below](#destinat
 
 ```go
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		destinations.NewS3Bucket(bucket),
 	},
 })
@@ -70,9 +70,9 @@ property when constructing a delivery stream:
 var destination iDestination
 
 sourceStream := kinesis.NewStream(this, jsii.String("Source Stream"))
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	sourceStream: sourceStream,
-	destinations: []*iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	SourceStream: sourceStream,
+	Destinations: []*iDestination{
 		destination,
 	},
 })
@@ -111,8 +111,8 @@ var bucket bucket
 
 s3Destination := destinations.NewS3Bucket(bucket)
 
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		s3Destination,
 	},
 })
@@ -125,9 +125,9 @@ writing them to S3.
 ```go
 var bucket bucket
 
-s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	dataOutputPrefix: jsii.String("myFirehose/DeliveredYear=!{timestamp:yyyy}/anyMonth/rand=!{firehose:random-string}"),
-	errorOutputPrefix: jsii.String("myFirehoseFailures/!{firehose:error-output-type}/!{timestamp:yyyy}/anyMonth/!{timestamp:dd}"),
+s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	DataOutputPrefix: jsii.String("myFirehose/DeliveredYear=!{timestamp:yyyy}/anyMonth/rand=!{firehose:random-string}"),
+	ErrorOutputPrefix: jsii.String("myFirehoseFailures/!{firehose:error-output-type}/!{timestamp:yyyy}/anyMonth/!{timestamp:dd}"),
 })
 ```
 
@@ -161,23 +161,23 @@ var key key
 
 // SSE with an AWS-owned CMK
 // SSE with an AWS-owned CMK
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream AWS Owned"), &deliveryStreamProps{
-	encryption: firehose.streamEncryption_AWS_OWNED,
-	destinations: []*iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream AWS Owned"), &DeliveryStreamProps{
+	Encryption: firehose.StreamEncryption_AWS_OWNED,
+	Destinations: []*iDestination{
 		destination,
 	},
 })
 // SSE with an customer-managed CMK that is created automatically by the CDK
 // SSE with an customer-managed CMK that is created automatically by the CDK
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Implicit Customer Managed"), &deliveryStreamProps{
-	encryption: firehose.*streamEncryption_CUSTOMER_MANAGED,
-	destinations: []*iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Implicit Customer Managed"), &DeliveryStreamProps{
+	Encryption: firehose.StreamEncryption_CUSTOMER_MANAGED,
+	Destinations: []*iDestination{
 		destination,
 	},
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Explicit Customer Managed"), &deliveryStreamProps{
-	encryptionKey: key,
-	destinations: []*iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Explicit Customer Managed"), &DeliveryStreamProps{
+	EncryptionKey: key,
+	Destinations: []*iDestination{
 		destination,
 	},
 })
@@ -208,11 +208,11 @@ var destination iDestination
 
 
 logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))
-destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	logGroup: logGroup,
+destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	LogGroup: logGroup,
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []*iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []*iDestination{
 		destination,
 	},
 })
@@ -223,11 +223,11 @@ Logging can also be disabled:
 ```go
 var bucket bucket
 
-destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	logging: jsii.Boolean(false),
+destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	Logging: jsii.Boolean(false),
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		destination,
 	},
 })
@@ -254,14 +254,14 @@ metric configurations for any metric provided by Kinesis Data Firehose; the conf
 are pre-populated with the correct dimensions for the delivery stream.
 
 ```go
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 var deliveryStream deliveryStream
 
 
 // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
-incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&mathExpressionProps{
-	expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
-	usingMetrics: map[string]iMetric{
+incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
+	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
+	UsingMetrics: map[string]iMetric{
 		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
 			"statistic": cloudwatch.Statistic_SUM,
 		}),
@@ -269,10 +269,10 @@ incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&mathExpressionProps
 	},
 })
 
-cloudwatch.NewAlarm(this, jsii.String("Alarm"), &alarmProps{
-	metric: incomingBytesPercentOfLimit,
-	threshold: jsii.Number(0.9),
-	evaluationPeriods: jsii.Number(3),
+cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+	Metric: incomingBytesPercentOfLimit,
+	Threshold: jsii.Number(0.9),
+	EvaluationPeriods: jsii.Number(3),
 })
 ```
 
@@ -291,11 +291,11 @@ delivered to S3 without compression.
 // Compress data delivered to S3 using Snappy
 var bucket bucket
 
-s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	compression: destinations.compression_SNAPPY(),
+s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	Compression: destinations.Compression_SNAPPY(),
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		s3Destination,
 	},
 })
@@ -314,12 +314,12 @@ buffer size is 5 MiB and the buffer interval is 5 minutes.
 // Increase the buffer interval and size to 10 minutes and 8 MiB, respectively
 var bucket bucket
 
-destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	bufferingInterval: awscdk.Duration.minutes(jsii.Number(10)),
-	bufferingSize: awscdk.Size.mebibytes(jsii.Number(8)),
+destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	BufferingInterval: awscdk.Duration_Minutes(jsii.Number(10)),
+	BufferingSize: awscdk.Size_Mebibytes(jsii.Number(8)),
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		destination,
 	},
 })
@@ -341,11 +341,11 @@ Using Server-Side Encryption with AWS KMS–Managed Keys (SSE-KMS)](https://docs
 var bucket bucket
 var key key
 
-destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	encryptionKey: key,
+destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	EncryptionKey: key,
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		destination,
 	},
 })
@@ -367,32 +367,32 @@ var bucket bucket
 // Explicitly provide an S3 bucket to which all source records will be backed up.
 var backupBucket bucket
 
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &deliveryStreamProps{
-	destinations: []iDestination{
-		destinations.NewS3Bucket(bucket, &s3BucketProps{
-			s3Backup: &destinationS3BackupProps{
-				mode: destinations.backupMode_ALL,
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &DeliveryStreamProps{
+	Destinations: []iDestination{
+		destinations.NewS3Bucket(bucket, &S3BucketProps{
+			S3Backup: &DestinationS3BackupProps{
+				Mode: destinations.BackupMode_ALL,
 			},
 		}),
 	},
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Bucket"), &deliveryStreamProps{
-	destinations: []*iDestination{
-		destinations.NewS3Bucket(bucket, &s3BucketProps{
-			s3Backup: &destinationS3BackupProps{
-				bucket: backupBucket,
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Bucket"), &DeliveryStreamProps{
+	Destinations: []*iDestination{
+		destinations.NewS3Bucket(bucket, &S3BucketProps{
+			S3Backup: &DestinationS3BackupProps{
+				Bucket: backupBucket,
 			},
 		}),
 	},
 })
 // Explicitly provide an S3 prefix under which all source records will be backed up.
 // Explicitly provide an S3 prefix under which all source records will be backed up.
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Prefix"), &deliveryStreamProps{
-	destinations: []*iDestination{
-		destinations.NewS3Bucket(bucket, &s3BucketProps{
-			s3Backup: &destinationS3BackupProps{
-				mode: destinations.*backupMode_ALL,
-				dataOutputPrefix: jsii.String("mybackup"),
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Prefix"), &DeliveryStreamProps{
+	Destinations: []*iDestination{
+		destinations.NewS3Bucket(bucket, &S3BucketProps{
+			S3Backup: &DestinationS3BackupProps{
+				Mode: destinations.BackupMode_ALL,
+				DataOutputPrefix: jsii.String("mybackup"),
 			},
 		}),
 	},
@@ -433,21 +433,21 @@ times by default, but can be configured using `retries` in the processor configu
 var bucket bucket
 // Provide a Lambda function that will transform records before delivery, with custom
 // buffering and retry configuration
-lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
+lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
 })
-lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &dataProcessorProps{
-	bufferInterval: awscdk.Duration.minutes(jsii.Number(5)),
-	bufferSize: awscdk.Size.mebibytes(jsii.Number(5)),
-	retries: jsii.Number(5),
+lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &DataProcessorProps{
+	BufferInterval: awscdk.Duration_Minutes(jsii.Number(5)),
+	BufferSize: awscdk.Size_Mebibytes(jsii.Number(5)),
+	Retries: jsii.Number(5),
 })
-s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	processor: lambdaProcessor,
+s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	Processor: lambdaProcessor,
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		s3Destination,
 	},
 })
@@ -455,77 +455,77 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStream
 
 ```go
 import path "github.com/aws-samples/dummy/path"
-import firehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
-import kms "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+import "github.com/aws/aws-cdk-go/awscdk"
 import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"
 import logs "github.com/aws/aws-cdk-go/awscdk"
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
 
 app := cdk.NewApp()
 
 stack := cdk.NewStack(app, jsii.String("aws-cdk-firehose-delivery-stream-s3-all-properties"))
 
-bucket := s3.NewBucket(stack, jsii.String("Bucket"), &bucketProps{
-	removalPolicy: cdk.removalPolicy_DESTROY,
-	autoDeleteObjects: jsii.Boolean(true),
+bucket := s3.NewBucket(stack, jsii.String("Bucket"), &BucketProps{
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	AutoDeleteObjects: jsii.Boolean(true),
 })
 
-backupBucket := s3.NewBucket(stack, jsii.String("BackupBucket"), &bucketProps{
-	removalPolicy: cdk.*removalPolicy_DESTROY,
-	autoDeleteObjects: jsii.Boolean(true),
+backupBucket := s3.NewBucket(stack, jsii.String("BackupBucket"), &BucketProps{
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	AutoDeleteObjects: jsii.Boolean(true),
 })
-logGroup := logs.NewLogGroup(stack, jsii.String("LogGroup"), &logGroupProps{
-	removalPolicy: cdk.*removalPolicy_DESTROY,
-})
-
-dataProcessorFunction := lambdanodejs.NewNodejsFunction(stack, jsii.String("DataProcessorFunction"), &nodejsFunctionProps{
-	entry: path.join(__dirname, jsii.String("lambda-data-processor.js")),
-	timeout: cdk.duration.minutes(jsii.Number(1)),
+logGroup := logs.NewLogGroup(stack, jsii.String("LogGroup"), &LogGroupProps{
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 })
 
-processor := firehose.NewLambdaFunctionProcessor(dataProcessorFunction, &dataProcessorProps{
-	bufferInterval: cdk.*duration.seconds(jsii.Number(60)),
-	bufferSize: cdk.size.mebibytes(jsii.Number(1)),
-	retries: jsii.Number(1),
+dataProcessorFunction := lambdanodejs.NewNodejsFunction(stack, jsii.String("DataProcessorFunction"), &NodejsFunctionProps{
+	Entry: path.join(__dirname, jsii.String("lambda-data-processor.js")),
+	Timeout: cdk.Duration_Minutes(jsii.Number(1)),
 })
 
-key := kms.NewKey(stack, jsii.String("Key"), &keyProps{
-	removalPolicy: cdk.*removalPolicy_DESTROY,
+processor := firehose.NewLambdaFunctionProcessor(dataProcessorFunction, &DataProcessorProps{
+	BufferInterval: cdk.Duration_Seconds(jsii.Number(60)),
+	BufferSize: cdk.Size_Mebibytes(jsii.Number(1)),
+	Retries: jsii.Number(1),
 })
 
-backupKey := kms.NewKey(stack, jsii.String("BackupKey"), &keyProps{
-	removalPolicy: cdk.*removalPolicy_DESTROY,
+key := kms.NewKey(stack, jsii.String("Key"), &KeyProps{
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 })
 
-firehose.NewDeliveryStream(stack, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
-		destinations.NewS3Bucket(bucket, &s3BucketProps{
-			logging: jsii.Boolean(true),
-			logGroup: logGroup,
-			processor: processor,
-			compression: destinations.compression_GZIP(),
-			dataOutputPrefix: jsii.String("regularPrefix"),
-			errorOutputPrefix: jsii.String("errorPrefix"),
-			bufferingInterval: cdk.*duration.seconds(jsii.Number(60)),
-			bufferingSize: cdk.*size.mebibytes(jsii.Number(1)),
-			encryptionKey: key,
-			s3Backup: &destinationS3BackupProps{
-				mode: destinations.backupMode_ALL,
-				bucket: backupBucket,
-				compression: destinations.*compression_ZIP(),
-				dataOutputPrefix: jsii.String("backupPrefix"),
-				errorOutputPrefix: jsii.String("backupErrorPrefix"),
-				bufferingInterval: cdk.*duration.seconds(jsii.Number(60)),
-				bufferingSize: cdk.*size.mebibytes(jsii.Number(1)),
-				encryptionKey: backupKey,
+backupKey := kms.NewKey(stack, jsii.String("BackupKey"), &KeyProps{
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+})
+
+firehose.NewDeliveryStream(stack, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
+		destinations.NewS3Bucket(bucket, &S3BucketProps{
+			Logging: jsii.Boolean(true),
+			LogGroup: logGroup,
+			Processor: processor,
+			Compression: destinations.Compression_GZIP(),
+			DataOutputPrefix: jsii.String("regularPrefix"),
+			ErrorOutputPrefix: jsii.String("errorPrefix"),
+			BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
+			BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
+			EncryptionKey: key,
+			S3Backup: &DestinationS3BackupProps{
+				Mode: destinations.BackupMode_ALL,
+				Bucket: backupBucket,
+				Compression: destinations.Compression_ZIP(),
+				DataOutputPrefix: jsii.String("backupPrefix"),
+				ErrorOutputPrefix: jsii.String("backupErrorPrefix"),
+				BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
+				BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
+				EncryptionKey: backupKey,
 			},
 		}),
 	},
 })
 
-app.synth()
+app.Synth()
 ```
 
 See: [Data Transformation](https://docs.aws.amazon.com/firehose/latest/dev/data-transformation.html)
@@ -553,20 +553,20 @@ var bucket bucket
 // These can be used for other purposes and granted access to different resources.
 // They must include the Kinesis Data Firehose service principal in their trust policies.
 // Two separate roles are shown below, but the same role can be used for both purposes.
-deliveryStreamRole := iam.NewRole(this, jsii.String("Delivery Stream Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+deliveryStreamRole := iam.NewRole(this, jsii.String("Delivery Stream Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
 })
-destinationRole := iam.NewRole(this, jsii.String("Destination Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+destinationRole := iam.NewRole(this, jsii.String("Destination Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
 })
-destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
-	role: destinationRole,
+destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	Role: destinationRole,
 })
-firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
-	destinations: []iDestination{
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
 		destination,
 	},
-	role: deliveryStreamRole,
+	Role: deliveryStreamRole,
 })
 ```
 
@@ -589,8 +589,8 @@ can be granted permissions to a delivery stream by calling:
 ```go
 // Give the role permissions to write data to the delivery stream
 var deliveryStream deliveryStream
-lambdaRole := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 deliveryStream.grantPutRecords(lambdaRole)
 ```
@@ -612,12 +612,12 @@ permissions. In this case, use the delivery stream as an `IGrantable`, as follow
 
 ```go
 var deliveryStream deliveryStream
-fn := lambda.NewFunction(this, jsii.String("Function"), &functionProps{
-	code: lambda.code.fromInline(jsii.String("exports.handler = (event) => {}")),
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
+fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => {}")),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
 })
-fn.grantInvoke(deliveryStream)
+fn.GrantInvoke(deliveryStream)
 ```
 
 ## Multiple destinations

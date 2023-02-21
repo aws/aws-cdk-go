@@ -24,11 +24,11 @@ import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
 
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
-	vpc: vpc,
+	Vpc: Vpc,
 })
 ```
 
@@ -49,16 +49,16 @@ import s3 "github.com/aws/aws-cdk-go/awscdk"
 
 
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-bucket := s3.bucket.fromBucketName(this, jsii.String("bucket"), jsii.String("logging-bucket"))
+bucket := s3.Bucket_FromBucketName(this, jsii.String("bucket"), jsii.String("logging-bucket"))
 
-cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
-	vpc: vpc,
-	loggingProperties: &loggingProperties{
-		loggingBucket: bucket,
-		loggingKeyPrefix: jsii.String("prefix"),
+	Vpc: Vpc,
+	LoggingProperties: &LoggingProperties{
+		LoggingBucket: bucket,
+		LoggingKeyPrefix: jsii.String("prefix"),
 	},
 })
 ```
@@ -69,13 +69,13 @@ To control who can access the cluster, use the `.connections` attribute. Redshif
 a default port, so you don't need to specify the port:
 
 ```go
-cluster.connections.allowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
+cluster.Connections.AllowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
 ```
 
 The endpoint to access your database cluster will be available as the `.clusterEndpoint` attribute:
 
 ```go
-cluster.clusterEndpoint.socketAddress
+cluster.ClusterEndpoint.SocketAddress
 ```
 
 ## Database Resources
@@ -109,9 +109,9 @@ and make a query to the Redshift cluster to create a new database user with the
 credentials.
 
 ```go
-awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
 ```
 
@@ -124,10 +124,10 @@ import kms "github.com/aws/aws-cdk-go/awscdk"
 
 
 encryptionKey := kms.NewKey(this, jsii.String("Key"))
-awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-	encryptionKey: encryptionKey,
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	EncryptionKey: encryptionKey,
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
 ```
 
@@ -138,10 +138,10 @@ identifiers](https://docs.aws.amazon.com/redshift/latest/dg/r_names.html) in the
 Redshift Database Developer Guide*.
 
 ```go
-awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-	username: jsii.String("myuser"),
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	Username: jsii.String("myuser"),
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
 ```
 
@@ -161,62 +161,62 @@ construct. This will make a query to the Redshift cluster to create a new databa
 with the supplied schema.
 
 ```go
-awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
-	tableColumns: []column{
+awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
 		},
 	},
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
 ```
 
 The table can be configured to have distStyle attribute and a distKey column:
 
 ```go
-awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
-	tableColumns: []column{
+awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
-			distKey: jsii.Boolean(true),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
+			DistKey: jsii.Boolean(true),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
 		},
 	},
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
-	distStyle: awscdkredshiftalpha.TableDistStyle_KEY,
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
+	DistStyle: awscdkredshiftalpha.TableDistStyle_KEY,
 })
 ```
 
 The table can also be configured to have sortStyle attribute and sortKey columns:
 
 ```go
-awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
-	tableColumns: []column{
+awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
-			sortKey: jsii.Boolean(true),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
+			SortKey: jsii.Boolean(true),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
-			sortKey: jsii.Boolean(true),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
+			SortKey: jsii.Boolean(true),
 		},
 	},
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
-	sortStyle: awscdkredshiftalpha.TableSortStyle_COMPOUND,
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
+	SortStyle: awscdkredshiftalpha.TableSortStyle_COMPOUND,
 })
 ```
 
@@ -224,20 +224,20 @@ Tables can also be configured with a comment:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
-	tableColumns: []column{
+awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
 		},
 	},
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
-	comment: jsii.String("This is a comment"),
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
+	Comment: jsii.String("This is a comment"),
 })
 ```
 
@@ -247,23 +247,23 @@ You can give a user privileges to perform certain actions on a table by using th
 `Table.grant()` method.
 
 ```go
-user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
-table := awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
-	tableColumns: []column{
+table := awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
 		},
 	},
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
 
 table.grant(user, awscdkredshiftalpha.TableAction_DROP, awscdkredshiftalpha.TableAction_SELECT)
@@ -280,24 +280,24 @@ databaseName := "databaseName"
 username := "myuser"
 tableName := "mytable"
 
-user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-	username: username,
-	cluster: cluster,
-	databaseName: databaseName,
+user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	Username: username,
+	Cluster: cluster,
+	DatabaseName: databaseName,
 })
-table := awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &tableProps{
-	tableColumns: []column{
+table := awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
 		},
 	},
-	cluster: cluster,
-	databaseName: databaseName,
+	Cluster: cluster,
+	DatabaseName: databaseName,
 })
 table.grant(user, awscdkredshiftalpha.TableAction_INSERT)
 ```
@@ -310,28 +310,28 @@ databaseName := "databaseName"
 username := "myuser"
 tableName := "mytable"
 
-user := awscdkredshiftalpha.User.fromUserAttributes(this, jsii.String("User"), &userAttributes{
-	username: username,
-	password: awscdk.SecretValue.unsafePlainText(jsii.String("NOT_FOR_PRODUCTION")),
-	cluster: cluster,
-	databaseName: databaseName,
+user := awscdkredshiftalpha.User_FromUserAttributes(this, jsii.String("User"), &UserAttributes{
+	Username: username,
+	Password: awscdk.SecretValue_UnsafePlainText(jsii.String("NOT_FOR_PRODUCTION")),
+	Cluster: cluster,
+	DatabaseName: databaseName,
 })
-table := awscdkredshiftalpha.Table.fromTableAttributes(this, jsii.String("Table"), &tableAttributes{
-	tableName: tableName,
-	tableColumns: []column{
+table := awscdkredshiftalpha.Table_FromTableAttributes(this, jsii.String("Table"), &TableAttributes{
+	TableName: tableName,
+	TableColumns: []column{
 		&column{
-			name: jsii.String("col1"),
-			dataType: jsii.String("varchar(4)"),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
 		},
 		&column{
-			name: jsii.String("col2"),
-			dataType: jsii.String("float"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
 		},
 	},
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
-table.grant(user, awscdkredshiftalpha.TableAction_INSERT)
+table.Grant(user, awscdkredshiftalpha.TableAction_INSERT)
 ```
 
 Both applications attempt to grant the user the appropriate privilege on the table by
@@ -352,18 +352,18 @@ application, as such privileges are de-duplicated before any SQL query is submit
 When the master password is generated and stored in AWS Secrets Manager, it can be rotated automatically:
 
 ```go
-cluster.addRotationSingleUser()
+cluster.AddRotationSingleUser()
 ```
 
 The multi user rotation scheme is also available:
 
 ```go
-user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-	cluster: cluster,
-	databaseName: jsii.String("databaseName"),
+user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
 })
-cluster.addRotationMultiUser(jsii.String("MultiUserRotation"), &rotationMultiUserOptions{
-	secret: user.secret,
+cluster.AddRotationMultiUser(jsii.String("MultiUserRotation"), &RotationMultiUserOptions{
+	Secret: user.Secret,
 })
 ```
 
@@ -375,14 +375,14 @@ You can add a parameter to a parameter group with`ClusterParameterGroup.addParam
 import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 
 
-params := awscdkredshiftalpha.NewClusterParameterGroup(this, jsii.String("Params"), &clusterParameterGroupProps{
-	description: jsii.String("desc"),
-	parameters: map[string]*string{
+params := awscdkredshiftalpha.NewClusterParameterGroup(this, jsii.String("Params"), &ClusterParameterGroupProps{
+	Description: jsii.String("desc"),
+	Parameters: map[string]*string{
 		"require_ssl": jsii.String("true"),
 	},
 })
 
-params.addParameter(jsii.String("enable_user_activity_logging"), jsii.String("true"))
+params.AddParameter(jsii.String("enable_user_activity_logging"), jsii.String("true"))
 ```
 
 Additionally, you can add a parameter to the cluster's associated parameter group with `Cluster.addToParameterGroup()`. If the cluster does not have an associated parameter group, a new parameter group is created.
@@ -393,15 +393,36 @@ import cdk "github.com/aws/aws-cdk-go/awscdk"
 var vpc vpc
 
 
-cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
-		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+		MasterPassword: cdk.SecretValue_UnsafePlainText(jsii.String("tooshort")),
 	},
-	vpc: vpc,
+	Vpc: Vpc,
 })
 
-cluster.addToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.String("true"))
+cluster.AddToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.String("true"))
+```
+
+## Rebooting for Parameter Updates
+
+In most cases, existing clusters [must be manually rebooted](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) to apply parameter changes. You can automate parameter related reboots by setting the cluster's `rebootForParameterChanges` property to `true` , or by using `Cluster.enableRebootForParameterChanges()`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var vpc ec2.Vpc
+
+
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+		MasterPassword: cdk.secretValue_UnsafePlainText(jsii.String("tooshort")),
+	},
+	Vpc: Vpc,
+})
+
+cluster.AddToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.String("true"))
+cluster.EnableRebootForParameterChanges()
 ```
 
 ## Elastic IP
@@ -414,14 +435,14 @@ import cdk "github.com/aws/aws-cdk-go/awscdk"
 var vpc vpc
 
 
-awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
-		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
+awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+		MasterPassword: cdk.SecretValue_UnsafePlainText(jsii.String("tooshort")),
 	},
-	vpc: vpc,
-	publiclyAccessible: jsii.Boolean(true),
-	elasticIp: jsii.String("10.123.123.255"),
+	Vpc: Vpc,
+	PubliclyAccessible: jsii.Boolean(true),
+	ElasticIp: jsii.String("10.123.123.255"),
 })
 ```
 
@@ -430,9 +451,9 @@ If the Cluster is in a VPC and you want to connect to it using the private IP ad
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
-	enableDnsSupport: jsii.Boolean(true),
-	enableDnsHostnames: jsii.Boolean(true),
+vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+	EnableDnsSupport: jsii.Boolean(true),
+	EnableDnsHostnames: jsii.Boolean(true),
 })
 ```
 
@@ -456,13 +477,13 @@ import cdk "github.com/aws/aws-cdk-go/awscdk"
 var vpc vpc
 
 
-awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
-		masterPassword: cdk.secretValue.unsafePlainText(jsii.String("tooshort")),
+awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+		MasterPassword: cdk.SecretValue_UnsafePlainText(jsii.String("tooshort")),
 	},
-	vpc: vpc,
-	enhancedVpcRouting: jsii.Boolean(true),
+	Vpc: Vpc,
+	EnhancedVpcRouting: jsii.Boolean(true),
 })
 ```
 
@@ -483,15 +504,15 @@ defaultRole := iam.NewRole(this, jsii.String("DefaultRole"), map[string]interfac
 	"assumedBy": iam.NewServicePrincipal(jsii.String("redshift.amazonaws.com")),
 })
 
-awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
+awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
-	vpc: vpc,
-	roles: []iRole{
+	Vpc: Vpc,
+	Roles: []iRole{
 		defaultRole,
 	},
-	defaultRole: defaultRole,
+	DefaultRole: defaultRole,
 })
 ```
 
@@ -506,17 +527,17 @@ defaultRole := iam.NewRole(this, jsii.String("DefaultRole"), map[string]interfac
 	"assumedBy": iam.NewServicePrincipal(jsii.String("redshift.amazonaws.com")),
 })
 
-redshiftCluster := awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
+redshiftCluster := awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
-	vpc: vpc,
-	roles: []iRole{
+	Vpc: Vpc,
+	Roles: []iRole{
 		defaultRole,
 	},
 })
 
-redshiftCluster.addDefaultIamRole(defaultRole)
+redshiftCluster.AddDefaultIamRole(defaultRole)
 ```
 
 ## IAM roles
@@ -531,12 +552,12 @@ var vpc ec2.Vpc
 role := iam.NewRole(this, jsii.String("Role"), map[string]interface{}{
 	"assumedBy": iam.NewServicePrincipal(jsii.String("redshift.amazonaws.com")),
 })
-cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
-	vpc: vpc,
-	roles: []iRole{
+	Vpc: Vpc,
+	Roles: []iRole{
 		role,
 	},
 })
@@ -552,11 +573,11 @@ var vpc ec2.Vpc
 role := iam.NewRole(this, jsii.String("Role"), map[string]interface{}{
 	"assumedBy": iam.NewServicePrincipal(jsii.String("redshift.amazonaws.com")),
 })
-cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
-	masterUser: &login{
-		masterUsername: jsii.String("admin"),
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
-	vpc: vpc,
+	Vpc: Vpc,
 })
-cluster.addIamRole(role)
+cluster.AddIamRole(role)
 ```

@@ -23,14 +23,14 @@ import codestar "github.com/aws/aws-cdk-go/awscdkcodestaralpha"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 
 
-codestar.NewGitHubRepository(this, jsii.String("GitHubRepo"), &gitHubRepositoryProps{
-	owner: jsii.String("aws"),
-	repositoryName: jsii.String("aws-cdk"),
-	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token"), &secretsManagerSecretOptions{
-		jsonField: jsii.String("token"),
+codestar.NewGitHubRepository(this, jsii.String("GitHubRepo"), &GitHubRepositoryProps{
+	Owner: jsii.String("aws"),
+	RepositoryName: jsii.String("aws-cdk"),
+	AccessToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token"), &SecretsManagerSecretOptions{
+		JsonField: jsii.String("token"),
 	}),
-	contentsBucket: s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name")),
-	contentsKey: jsii.String("import.zip"),
+	ContentsBucket: s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name")),
+	ContentsKey: jsii.String("import.zip"),
 })
 ```
 

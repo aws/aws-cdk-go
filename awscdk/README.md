@@ -123,8 +123,8 @@ a stack with a synthesizer, pass it as one of its properties:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 NewMyStack(app, jsii.String("MyStack"), &stackProps{
-	synthesizer: awscdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
-		fileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
+	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
+		FileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
 	}),
 })
 ```
@@ -194,7 +194,7 @@ prod := map[string]*string{
 }
 
 stack1 := NewStackThatProvidesABucket(app, jsii.String("Stack1"), &stackProps{
-	env: prod,
+	Env: prod,
 })
 
 // stack2 will take a property { bucket: IBucket }
@@ -225,30 +225,30 @@ an ACM certificate in `us-east-1`.
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
-	env: &environment{
-		region: jsii.String("us-east-1"),
+	Env: &Environment{
+		Region: jsii.String("us-east-1"),
 	},
-	crossRegionReferences: jsii.Boolean(true),
+	CrossRegionReferences: jsii.Boolean(true),
 })
-cert := acm.NewCertificate(stack1, jsii.String("Cert"), &certificateProps{
-	domainName: jsii.String("*.example.com"),
-	validation: acm.certificateValidation.fromDns(route53.publicHostedZone.fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
+	DomainName: jsii.String("*.example.com"),
+	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 })
 
 stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
-	env: &environment{
-		region: jsii.String("us-east-2"),
+	Env: &Environment{
+		Region: jsii.String("us-east-2"),
 	},
-	crossRegionReferences: jsii.Boolean(true),
+	CrossRegionReferences: jsii.Boolean(true),
 })
-cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("example.com")),
+cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("example.com")),
 	},
-	domainNames: []*string{
+	DomainNames: []*string{
 		jsii.String("dev.example.com"),
 	},
-	certificate: cert,
+	Certificate: cert,
 })
 ```
 
@@ -310,19 +310,19 @@ methods on it:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.Duration.seconds(jsii.Number(300)) // 5 minutes
-awscdk.Duration.minutes(jsii.Number(5)) // 5 minutes
-awscdk.Duration.hours(jsii.Number(1)) // 1 hour
-awscdk.Duration.days(jsii.Number(7)) // 7 days
-awscdk.Duration.parse(jsii.String("PT5M"))
+awscdk.Duration_Seconds(jsii.Number(300)) // 5 minutes
+awscdk.Duration_Minutes(jsii.Number(5)) // 5 minutes
+awscdk.Duration_Hours(jsii.Number(1)) // 1 hour
+awscdk.Duration_Days(jsii.Number(7)) // 7 days
+awscdk.Duration_Parse(jsii.String("PT5M"))
 ```
 
 Durations can be added or subtracted together:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.Duration.minutes(jsii.Number(1)).plus(awscdk.Duration.seconds(jsii.Number(60))) // 2 minutes
-awscdk.Duration.minutes(jsii.Number(5)).minus(awscdk.Duration.seconds(jsii.Number(10)))
+awscdk.Duration_Minutes(jsii.Number(1)).Plus(awscdk.Duration_Seconds(jsii.Number(60))) // 2 minutes
+awscdk.Duration_Minutes(jsii.Number(5)).Minus(awscdk.Duration_Seconds(jsii.Number(10)))
 ```
 
 ## Size (Digital Information Quantity)
@@ -334,11 +334,11 @@ An instance of `Size` is initialized through one of its static factory methods:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.Size.kibibytes(jsii.Number(200)) // 200 KiB
-awscdk.Size.mebibytes(jsii.Number(5)) // 5 MiB
-awscdk.Size.gibibytes(jsii.Number(40)) // 40 GiB
-awscdk.Size.tebibytes(jsii.Number(200)) // 200 TiB
-awscdk.Size.pebibytes(jsii.Number(3))
+awscdk.Size_Kibibytes(jsii.Number(200)) // 200 KiB
+awscdk.Size_Mebibytes(jsii.Number(5)) // 5 MiB
+awscdk.Size_Gibibytes(jsii.Number(40)) // 40 GiB
+awscdk.Size_Tebibytes(jsii.Number(200)) // 200 TiB
+awscdk.Size_Pebibytes(jsii.Number(3))
 ```
 
 Instances of `Size` created with one of the units can be converted into others.
@@ -347,9 +347,9 @@ a whole number. This can be overridden by unsetting `integral` property.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.Size.mebibytes(jsii.Number(2)).toKibibytes() // yields 2048
-awscdk.Size.kibibytes(jsii.Number(2050)).toMebibytes(&sizeConversionOptions{
-	rounding: awscdk.SizeRoundingBehavior_FLOOR,
+awscdk.Size_Mebibytes(jsii.Number(2)).ToKibibytes() // yields 2048
+awscdk.Size_Kibibytes(jsii.Number(2050)).ToMebibytes(&SizeConversionOptions{
+	Rounding: awscdk.SizeRoundingBehavior_FLOOR,
 })
 ```
 
@@ -363,12 +363,12 @@ The best practice is to store secrets in AWS Secrets Manager and reference them 
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-secret := awscdk.SecretValue.secretsManager(jsii.String("secretId"), &secretsManagerSecretOptions{
-	jsonField: jsii.String("password"),
+secret := awscdk.SecretValue_SecretsManager(jsii.String("secretId"), &SecretsManagerSecretOptions{
+	JsonField: jsii.String("password"),
 	 // optional: key of a JSON field to retrieve (defaults to all content),
-	versionId: jsii.String("id"),
+	VersionId: jsii.String("id"),
 	 // optional: id of the version (default AWSCURRENT)
-	versionStage: jsii.String("stage"),
+	VersionStage: jsii.String("stage"),
 })
 ```
 
@@ -412,11 +412,11 @@ var stack stack
 
 
 // Builds "arn:<PARTITION>:lambda:<REGION>:<ACCOUNT>:function:MyFunction"
-stack.formatArn(&arnComponents{
-	service: jsii.String("lambda"),
-	resource: jsii.String("function"),
-	sep: jsii.String(":"),
-	resourceName: jsii.String("MyFunction"),
+stack.FormatArn(&ArnComponents{
+	Service: jsii.String("lambda"),
+	Resource: jsii.String("function"),
+	Sep: jsii.String(":"),
+	ResourceName: jsii.String("MyFunction"),
 })
 ```
 
@@ -431,8 +431,8 @@ var stack stack
 
 
 // Extracts the function name out of an AWS Lambda Function ARN
-arnComponents := stack.parseArn(arn, jsii.String(":"))
-functionName := arnComponents.resourceName
+arnComponents := stack.ParseArn(arn, jsii.String(":"))
+functionName := arnComponents.ResourceName
 ```
 
 Note that depending on the service, the resource separator can be either
@@ -471,11 +471,11 @@ constructs, `constructB` and `constructC`:
 // Example automatically generated from non-compiling source. May contain errors.
 // Declare the dependable object
 bAndC := constructs.NewDependencyGroup()
-bAndC.add(constructB)
-bAndC.add(constructC)
+bAndC.Add(constructB)
+bAndC.Add(constructC)
 
 // Take the dependency
-constructA.node.addDependency(bAndC)
+constructA.Node.AddDependency(bAndC)
 ```
 
 ### Stack Dependencies
@@ -522,12 +522,12 @@ this:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.NewCustomResource(this, jsii.String("MyMagicalResource"), &customResourceProps{
-	resourceType: jsii.String("Custom::MyCustomResource"),
+awscdk.NewCustomResource(this, jsii.String("MyMagicalResource"), &CustomResourceProps{
+	ResourceType: jsii.String("Custom::MyCustomResource"),
 	 // must start with 'Custom::'
 
 	// the resource properties
-	properties: map[string]interface{}{
+	Properties: map[string]interface{}{
 		"Property1": jsii.String("foo"),
 		"Property2": jsii.String("bar"),
 	},
@@ -535,7 +535,7 @@ awscdk.NewCustomResource(this, jsii.String("MyMagicalResource"), &customResource
 	// the ARN of the provider (SNS/Lambda) which handles
 	// CREATE, UPDATE or DELETE events for this resource type
 	// see next section for details
-	serviceToken: jsii.String("ARN"),
+	ServiceToken: jsii.String("ARN"),
 })
 ```
 
@@ -578,9 +578,9 @@ examples ensures that only a single SNS topic is defined:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 func getOrCreate(scope *construct) topic {
-	stack := awscdk.stack.of(*scope)
+	stack := awscdk.stack_Of(*scope)
 	uniqueid := "GloballyUniqueIdForSingleton" // For example, a UUID from `uuidgen`
-	existing := stack.node.tryFindChild(uniqueid)
+	existing := stack.Node.TryFindChild(uniqueid)
 	if existing {
 		return existing.(topic)
 	}
@@ -607,8 +607,8 @@ Set `serviceToken` to `topic.topicArn`  in order to use this provider:
 // Example automatically generated from non-compiling source. May contain errors.
 topic := sns.NewTopic(this, jsii.String("MyProvider"))
 
-awscdk.NewCustomResource(this, jsii.String("MyResource"), &customResourceProps{
-	serviceToken: topic.topicArn,
+awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
+	ServiceToken: topic.TopicArn,
 })
 ```
 
@@ -628,8 +628,8 @@ Set `serviceToken` to `lambda.functionArn` to use this provider:
 // Example automatically generated from non-compiling source. May contain errors.
 fn := lambda.NewFunction(this, jsii.String("MyProvider"), functionProps)
 
-awscdk.NewCustomResource(this, jsii.String("MyResource"), &customResourceProps{
-	serviceToken: fn.functionArn,
+awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
+	ServiceToken: fn.FunctionArn,
 })
 ```
 
@@ -651,15 +651,15 @@ stack-unique identifier and returns the service token:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-serviceToken := awscdk.CustomResourceProvider.getOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &customResourceProviderProps{
-	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
-	description: jsii.String("Lambda function created by the custom resource provider"),
+serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
+	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+	Description: jsii.String("Lambda function created by the custom resource provider"),
 })
 
-awscdk.NewCustomResource(this, jsii.String("MyResource"), &customResourceProps{
-	resourceType: jsii.String("Custom::MyCustomResourceType"),
-	serviceToken: serviceToken,
+awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
+	ResourceType: jsii.String("Custom::MyCustomResourceType"),
+	ServiceToken: serviceToken,
 })
 ```
 
@@ -744,21 +744,21 @@ func NewSum(scope Construct, id *string, props sumProps) *Sum {
 	newConstruct_Override(this, scope, id)
 
 	resourceType := "Custom::Sum"
-	serviceToken := awscdkcore.CustomResourceProvider.getOrCreate(this, resourceType, &customResourceProviderProps{
-		codeDirectory: fmt.Sprintf("%v/sum-handler", __dirname),
-		runtime: *awscdkcore.CustomResourceProviderRuntime_NODEJS_14_X,
+	serviceToken := awscdkcore.CustomResourceProvider_GetOrCreate(this, resourceType, &CustomResourceProviderProps{
+		CodeDirectory: fmt.Sprintf("%v/sum-handler", __dirname),
+		Runtime: *awscdkcore.CustomResourceProviderRuntime_NODEJS_14_X,
 	})
 
-	resource := awscdkcore.NewCustomResource(this, jsii.String("Resource"), &customResourceProps{
-		resourceType: resourceType,
-		serviceToken: serviceToken,
-		properties: map[string]interface{}{
+	resource := awscdkcore.NewCustomResource(this, jsii.String("Resource"), &CustomResourceProps{
+		ResourceType: resourceType,
+		ServiceToken: serviceToken,
+		Properties: map[string]interface{}{
 			"lhs": props.lhs,
 			"rhs": props.rhs,
 		},
 	})
 
-	this.result = awscdkcore.Token.asNumber(resource.getAtt(jsii.String("Result")))
+	this.result = awscdkcore.Token_AsNumber(resource.GetAtt(jsii.String("Result")))
 	return this
 }
 ```
@@ -771,8 +771,8 @@ sum := NewSum(this, jsii.String("MySum"), &sumProps{
 	lhs: jsii.Number(40),
 	rhs: jsii.Number(2),
 })
-awscdk.NewCfnOutput(this, jsii.String("Result"), &cfnOutputProps{
-	value: awscdk.Token.asString(sum.result),
+awscdk.NewCfnOutput(this, jsii.String("Result"), &CfnOutputProps{
+	Value: awscdk.Token_AsString(sum.result),
 })
 ```
 
@@ -781,12 +781,12 @@ built-in singleton method:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-provider := awscdk.CustomResourceProvider.getOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &customResourceProviderProps{
-	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
+	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
 })
 
-roleArn := provider.roleArn
+roleArn := provider.RoleArn
 ```
 
 This role ARN can then be used in resource-based IAM policies.
@@ -795,11 +795,11 @@ To add IAM policy statements to this role, use `addToRolePolicy()`:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-provider := awscdk.CustomResourceProvider.getOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &customResourceProviderProps{
-	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
+	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
 })
-provider.addToRolePolicy(map[string]*string{
+provider.AddToRolePolicy(map[string]*string{
 	"Effect": jsii.String("Allow"),
 	"Action": jsii.String("s3:GetObject"),
 	"Resource": jsii.String("*"),
@@ -824,13 +824,13 @@ Set `serviceToken` to `provider.serviceToken` to use this type of provider:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-provider := customresources.NewProvider(this, jsii.String("MyProvider"), &providerProps{
-	onEventHandler: onEventHandler,
-	isCompleteHandler: isCompleteHandler,
+provider := customresources.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
+	OnEventHandler: OnEventHandler,
+	IsCompleteHandler: IsCompleteHandler,
 })
 
-awscdk.NewCustomResource(this, jsii.String("MyResource"), &customResourceProps{
-	serviceToken: provider.serviceToken,
+awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
+	ServiceToken: provider.ServiceToken,
 })
 ```
 
@@ -849,11 +849,11 @@ the `CfnOutput` class:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.NewCfnOutput(this, jsii.String("OutputName"), &cfnOutputProps{
-	value: myBucket.bucketName,
-	description: jsii.String("The name of an S3 bucket"),
+awscdk.NewCfnOutput(this, jsii.String("OutputName"), &CfnOutputProps{
+	Value: myBucket.BucketName,
+	Description: jsii.String("The name of an S3 bucket"),
 	 // Optional
-	exportName: jsii.String("TheAwesomeBucket"),
+	ExportName: jsii.String("TheAwesomeBucket"),
 })
 ```
 
@@ -870,9 +870,9 @@ Template parameters can be added to a stack by using the `CfnParameter` class:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.NewCfnParameter(this, jsii.String("MyParameter"), &cfnParameterProps{
-	type: jsii.String("Number"),
-	default: jsii.Number(1337),
+awscdk.NewCfnParameter(this, jsii.String("MyParameter"), &CfnParameterProps{
+	Type: jsii.String("Number"),
+	Default: jsii.Number(1337),
 })
 ```
 
@@ -883,7 +883,7 @@ for those):
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-param := awscdk.NewCfnParameter(this, jsii.String("ParameterName"), &cfnParameterProps{
+param := awscdk.NewCfnParameter(this, jsii.String("ParameterName"), &CfnParameterProps{
 })
 
 // If the parameter is a String
@@ -909,10 +909,10 @@ stack, which is essential in cases where resources are shared cross-stack:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 // "this" is the current construct
-stack := awscdk.stack.of(this)
+stack := awscdk.stack_Of(this)
 
-stack.account // Returns the AWS::AccountId for this stack (or the literal value if known)
-stack.region // Returns the AWS::Region for this stack (or the literal value if known)
+stack.Account // Returns the AWS::AccountId for this stack (or the literal value if known)
+stack.Region // Returns the AWS::Region for this stack (or the literal value if known)
 stack.partition
 ```
 
@@ -924,15 +924,15 @@ accessing those through the `cfnOptions` property:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &cfnBucketProps{
+rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
 })
 // -or-
-rawBucketAlt := myBucket.node.defaultChild.(cfnBucket)
+rawBucketAlt := myBucket.Node.defaultChild.(cfnBucket)
 
 // then
-rawBucket.cfnOptions.condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &cfnConditionProps{
+rawBucket.CfnOptions.Condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &CfnConditionProps{
 })
-rawBucket.cfnOptions.metadata = map[string]interface{}{
+rawBucket.CfnOptions.Metadata = map[string]interface{}{
 	"metadataKey": jsii.String("MetadataValue"),
 }
 ```
@@ -945,7 +945,7 @@ Resource dependencies (the `DependsOn` attribute) is modified using the
 resourceA := awscdk.NewCfnResource(this, jsii.String("ResourceA"), resourceProps)
 resourceB := awscdk.NewCfnResource(this, jsii.String("ResourceB"), resourceProps)
 
-resourceB.addDependency(resourceA)
+resourceB.AddDependency(resourceA)
 ```
 
 #### CreationPolicy
@@ -1003,17 +1003,17 @@ var myArray interface{}
 
 
 // To use Fn::Base64
-awscdk.Fn.base64(jsii.String("SGVsbG8gQ0RLIQo="))
+awscdk.Fn_Base64(jsii.String("SGVsbG8gQ0RLIQo="))
 
 // To compose condition expressions:
 environmentParameter := awscdk.NewCfnParameter(this, jsii.String("Environment"))
-awscdk.Fn.conditionAnd(awscdk.Fn.conditionEquals(jsii.String("Production"), environmentParameter), awscdk.Fn.conditionNot(awscdk.Fn.conditionEquals(jsii.String("us-east-1"), awscdk.Aws_REGION())))
+awscdk.Fn_ConditionAnd(awscdk.Fn_ConditionEquals(jsii.String("Production"), environmentParameter), awscdk.Fn_ConditionNot(awscdk.Fn_ConditionEquals(jsii.String("us-east-1"), awscdk.Aws_REGION())))
 
 // To use Fn::ToJsonString
-awscdk.Fn.toJsonString(myObjectOrArray)
+awscdk.Fn_ToJsonString(myObjectOrArray)
 
 // To use Fn::Length
-awscdk.Fn.len(awscdk.Fn.split(jsii.String(","), myArray))
+awscdk.Fn_Len(awscdk.Fn_Split(jsii.String(","), myArray))
 ```
 
 When working with deploy-time values (those for which `Token.isUnresolved`
@@ -1025,18 +1025,18 @@ CloudFormation conditions by means of the `CfnCondition` class:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 environmentParameter := awscdk.NewCfnParameter(this, jsii.String("Environment"))
-isProd := awscdk.NewCfnCondition(this, jsii.String("IsProduction"), &cfnConditionProps{
-	expression: awscdk.Fn.conditionEquals(jsii.String("Production"), environmentParameter),
+isProd := awscdk.NewCfnCondition(this, jsii.String("IsProduction"), &CfnConditionProps{
+	Expression: awscdk.Fn_ConditionEquals(jsii.String("Production"), environmentParameter),
 })
 
 // Configuration value that is a different string based on IsProduction
-stage := awscdk.Fn.conditionIf(isProd.logicalId, jsii.String("Beta"), jsii.String("Prod")).toString()
+stage := awscdk.Fn_ConditionIf(isProd.LogicalId, jsii.String("Beta"), jsii.String("Prod")).ToString()
 
 // Make Bucket creation condition to IsProduction by accessing
 // and overriding the CloudFormation resource
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-cfnBucket := myBucket.node.defaultChild.(cfnBucket)
-cfnBucket.cfnOptions.condition = isProd
+cfnBucket := myBucket.Node.defaultChild.(cfnBucket)
+cfnBucket.CfnOptions.Condition = isProd
 ```
 
 ### Mappings
@@ -1046,8 +1046,8 @@ CloudFormation [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/U
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &cfnMappingProps{
-	mapping: map[string]map[string]interface{}{
+regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &CfnMappingProps{
+	Mapping: map[string]map[string]interface{}{
 		"us-east-1": map[string]interface{}{
 			"regionName": jsii.String("US East (N. Virginia)"),
 		},
@@ -1057,7 +1057,7 @@ regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &cfnMappin
 	},
 })
 
-regionTable.findInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
+regionTable.FindInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
 ```
 
 This will yield the following template:
@@ -1082,8 +1082,8 @@ call to `findInMap` will be able to resolve the value during synthesis and simpl
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &cfnMappingProps{
-	mapping: map[string]map[string]interface{}{
+regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &CfnMappingProps{
+	Mapping: map[string]map[string]interface{}{
 		"us-east-1": map[string]interface{}{
 			"regionName": jsii.String("US East (N. Virginia)"),
 		},
@@ -1091,10 +1091,10 @@ regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &cfnMappin
 			"regionName": jsii.String("US East (Ohio)"),
 		},
 	},
-	lazy: jsii.Boolean(true),
+	Lazy: jsii.Boolean(true),
 })
 
-regionTable.findInMap(jsii.String("us-east-2"), jsii.String("regionName"))
+regionTable.FindInMap(jsii.String("us-east-2"), jsii.String("regionName"))
 ```
 
 On the other hand, the following code will produce the "Mappings" section shown above,
@@ -1106,7 +1106,7 @@ since the top-level key is an unresolved token. The call to `findInMap` will ret
 var regionTable cfnMapping
 
 
-regionTable.findInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
+regionTable.FindInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
 ```
 
 ### Dynamic References
@@ -1130,11 +1130,11 @@ configured using the `stack.templateOptions` property:
 // Example automatically generated from non-compiling source. May contain errors.
 stack := awscdk.Newstack(app, jsii.String("StackName"))
 
-stack.templateOptions.description = "This will appear in the AWS console"
-stack.templateOptions.transforms = []*string{
+stack.TemplateOptions.Description = "This will appear in the AWS console"
+stack.TemplateOptions.Transforms = []*string{
 	"AWS::Serverless-2016-10-31",
 }
-stack.templateOptions.metadata = map[string]interface{}{
+stack.TemplateOptions.Metadata = map[string]interface{}{
 	"metadataKey": jsii.String("MetadataValue"),
 }
 ```
@@ -1147,8 +1147,8 @@ The `CfnResource` class allows emitting arbitrary entries in the
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCfnResource(this, jsii.String("ResourceId"), &cfnResourceProps{
-	type: jsii.String("AWS::S3::Bucket"),
-	properties: map[string]interface{}{
+	Type: jsii.String("AWS::S3::Bucket"),
+	Properties: map[string]interface{}{
 		"BucketName": jsii.String("bucket-name"),
 	},
 })
@@ -1192,7 +1192,7 @@ on a stack by setting the `terminationProtection` prop to `true`.
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
-	terminationProtection: jsii.Boolean(true),
+	TerminationProtection: jsii.Boolean(true),
 })
 ```
 
@@ -1205,7 +1205,7 @@ You can add a description of the stack in the same way as `StackProps`.
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
-	description: jsii.String("This is a description."),
+	Description: jsii.String("This is a description."),
 })
 ```
 
@@ -1226,18 +1226,18 @@ principals that are tagged with a specific tag.
 // Example automatically generated from non-compiling source. May contain errors.
 tagParam := awscdk.NewCfnParameter(this, jsii.String("TagName"))
 
-stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &cfnJsonProps{
-	value: map[string]*bool{
+stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &CfnJsonProps{
+	Value: map[string]*bool{
 		fmt.Sprintf("aws:PrincipalTag/%v", tagParam.valueAsString): jsii.Boolean(true),
 	},
 })
 
-principal := iam.NewAccountRootPrincipal().withConditions(map[string]interface{}{
+principal := iam.NewAccountRootPrincipal().WithConditions(map[string]interface{}{
 	"StringEquals": stringEquals,
 })
 
-iam.NewRole(this, jsii.String("MyRole"), &roleProps{
-	assumedBy: principal,
+iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: principal,
 })
 ```
 
@@ -1277,8 +1277,8 @@ top take precedence over those below).
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.NewApp(&appProps{
-	context: map[string]interface{}{
+awscdk.NewApp(&AppProps{
+	Context: map[string]interface{}{
 		"@aws-cdk/core:newStyleStackSynthesis": jsii.Boolean(true),
 	},
 })
@@ -1287,13 +1287,13 @@ awscdk.NewApp(&appProps{
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 app := awscdk.NewApp()
-app.node.setContext(jsii.String("@aws-cdk/core:newStyleStackSynthesis"), jsii.Boolean(true))
+app.Node.SetContext(jsii.String("@aws-cdk/core:newStyleStackSynthesis"), jsii.Boolean(true))
 ```
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-awscdk.NewApp(&appProps{
-	postCliContext: map[string]interface{}{
+awscdk.NewApp(&AppProps{
+	PostCliContext: map[string]interface{}{
 		"@aws-cdk/core:newStyleStackSynthesis": jsii.Boolean(true),
 	},
 })
@@ -1342,8 +1342,8 @@ be to apply a permissions boundary at the `Stage` level.
 var app app
 
 
-prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &stageProps{
-	permissionsBoundary: permissionsBoundary_FromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary")),
+prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
+	PermissionsBoundary: permissionsBoundary_FromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary")),
 })
 ```
 

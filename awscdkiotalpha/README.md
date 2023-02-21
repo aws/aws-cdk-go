@@ -23,19 +23,22 @@ Create a topic rule that give your devices the ability to interact with AWS serv
 You can create a topic rule with an action that invoke the Lambda action as following:
 
 ```go
-func := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromInline(jsii.String("\n    exports.handler = (event) => {\n      console.log(\"It is test for lambda action of AWS IoT Rule.\", event);\n    };")),
+func := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	    exports.handler = (event) => {
+	      console.log("It is test for lambda action of AWS IoT Rule.", event);
+	    };`)),
 })
 
-iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-	topicRuleName: jsii.String("MyTopicRule"),
+iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+	TopicRuleName: jsii.String("MyTopicRule"),
 	 // optional
-	description: jsii.String("invokes the lambda function"),
+	Description: jsii.String("invokes the lambda function"),
 	 // optional
-	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
-	actions: []iAction{
+	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+	Actions: []iAction{
 		actions.NewLambdaFunctionAction(func),
 	},
 })
@@ -47,10 +50,10 @@ Or, you can add an action after constructing the `TopicRule` instance as followi
 var func function
 
 
-topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
 })
-topicRule.addAction(actions.NewLambdaFunctionAction(func))
+topicRule.AddAction(actions.NewLambdaFunctionAction(func))
 ```
 
 You can also supply `errorAction` as following,
@@ -62,18 +65,18 @@ import logs "github.com/aws/aws-cdk-go/awscdk"
 
 logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 
-iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
-	errorAction: actions.NewCloudWatchLogsAction(logGroup),
+iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+	ErrorAction: actions.NewCloudWatchLogsAction(logGroup),
 })
 ```
 
 If you wanna make the topic rule disable, add property `enabled: false` as following:
 
 ```go
-iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
-	enabled: jsii.Boolean(false),
+iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+	Enabled: jsii.Boolean(false),
 })
 ```
 

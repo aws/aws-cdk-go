@@ -23,14 +23,14 @@ To use this module, you will need to have Docker installed.
 Define a `PythonFunction`:
 
 ```go
-python.NewPythonFunction(this, jsii.String("MyFunction"), &pythonFunctionProps{
-	entry: jsii.String("/path/to/my/function"),
+python.NewPythonFunction(this, jsii.String("MyFunction"), &PythonFunctionProps{
+	Entry: jsii.String("/path/to/my/function"),
 	 // required
-	runtime: awscdk.Runtime_PYTHON_3_8(),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
 	 // required
-	index: jsii.String("my_index.py"),
+	Index: jsii.String("my_index.py"),
 	 // optional, defaults to 'index.py'
-	handler: jsii.String("my_exported_func"),
+	Handler: jsii.String("my_exported_func"),
 })
 ```
 
@@ -45,20 +45,20 @@ layer.
 Define a `PythonLayerVersion`:
 
 ```go
-python.NewPythonLayerVersion(this, jsii.String("MyLayer"), &pythonLayerVersionProps{
-	entry: jsii.String("/path/to/my/layer"),
+python.NewPythonLayerVersion(this, jsii.String("MyLayer"), &PythonLayerVersionProps{
+	Entry: jsii.String("/path/to/my/layer"),
 })
 ```
 
 A layer can also be used as a part of a `PythonFunction`:
 
 ```go
-python.NewPythonFunction(this, jsii.String("MyFunction"), &pythonFunctionProps{
-	entry: jsii.String("/path/to/my/function"),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	layers: []iLayerVersion{
-		python.NewPythonLayerVersion(this, jsii.String("MyLayer"), &pythonLayerVersionProps{
-			entry: jsii.String("/path/to/my/layer"),
+python.NewPythonFunction(this, jsii.String("MyFunction"), &PythonFunctionProps{
+	Entry: jsii.String("/path/to/my/function"),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Layers: []iLayerVersion{
+		python.NewPythonLayerVersion(this, jsii.String("MyLayer"), &PythonLayerVersionProps{
+			Entry: jsii.String("/path/to/my/layer"),
 		}),
 	},
 })
@@ -110,6 +110,23 @@ Packaging is executed using the `Packaging` class, which:
 ├── poetry.lock # your poetry lock file has to be present at the entry path
 ```
 
+**Excluding source files**
+
+You can exclude files from being copied using the optional bundling string array parameter `assetExcludes`
+
+```go
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String("/path/to/poetry-function"),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		// translates to `rsync --exclude='.venv'`
+		AssetExcludes: []*string{
+			jsii.String(".venv"),
+		},
+	},
+})
+```
+
 ## Custom Bundling
 
 Custom bundling can be performed by passing in additional build arguments that point to index URLs to private repos, or by using an entirely custom Docker images for bundling dependencies. The build args currently supported are:
@@ -122,13 +139,13 @@ Additional build args for bundling that refer to PyPI indexes can be specified a
 
 ```go
 entry := "/path/to/function"
-image := awscdk.DockerImage.fromBuild(entry)
+image := awscdk.DockerImage_FromBuild(entry)
 
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		buildArgs: map[string]*string{
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		BuildArgs: map[string]*string{
 			"PIP_INDEX_URL": jsii.String("https://your.index.url/simple/"),
 			"PIP_EXTRA_INDEX_URL": jsii.String("https://your.extra-index.url/simple/"),
 		},
@@ -140,13 +157,13 @@ If using a custom Docker image for bundling, the dependencies are installed with
 
 ```go
 entry := "/path/to/function"
-image := awscdk.DockerImage.fromBuild(entry)
+image := awscdk.DockerImage_FromBuild(entry)
 
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		image: image,
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		Image: *Image,
 	},
 })
 ```
@@ -156,20 +173,20 @@ You can set additional Docker options to configure the build environment:
 ```go
 entry := "/path/to/function"
 
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		network: jsii.String("host"),
-		securityOpt: jsii.String("no-new-privileges"),
-		user: jsii.String("user:group"),
-		volumesFrom: []*string{
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		Network: jsii.String("host"),
+		SecurityOpt: jsii.String("no-new-privileges"),
+		User: jsii.String("user:group"),
+		VolumesFrom: []*string{
 			jsii.String("777f7dc92da7"),
 		},
-		volumes: []dockerVolume{
+		Volumes: []dockerVolume{
 			&dockerVolume{
-				hostPath: jsii.String("/host-path"),
-				containerPath: jsii.String("/container-path"),
+				HostPath: jsii.String("/host-path"),
+				ContainerPath: jsii.String("/container-path"),
 			},
 		},
 	},
@@ -185,7 +202,7 @@ import "github.com/aws-samples/dummy/child_process"
 
 
 entry := "/path/to/function"
-image := awscdk.DockerImage.fromBuild(entry)
+image := awscdk.DockerImage_FromBuild(entry)
 
 domain := "my-domain"
 domainOwner := "111122223333"
@@ -195,11 +212,11 @@ codeArtifactAuthToken := child_process.ExecSync(fmt.Sprintf("aws codeartifact ge
 
 indexUrl := fmt.Sprintf("https://aws:%v@%v-%v.d.codeartifact.%v.amazonaws.com/pypi/%v/simple/", codeArtifactAuthToken, domain, domainOwner, region, repoName)
 
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		environment: map[string]*string{
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		Environment: map[string]*string{
 			"PIP_INDEX_URL": indexUrl,
 		},
 	},
@@ -215,7 +232,7 @@ import "github.com/aws-samples/dummy/child_process"
 
 
 entry := "/path/to/function"
-image := awscdk.DockerImage.fromBuild(entry)
+image := awscdk.DockerImage_FromBuild(entry)
 
 domain := "my-domain"
 domainOwner := "111122223333"
@@ -225,11 +242,11 @@ codeArtifactAuthToken := child_process.ExecSync(fmt.Sprintf("aws codeartifact ge
 
 indexUrl := fmt.Sprintf("https://aws:%v@%v-%v.d.codeartifact.%v.amazonaws.com/pypi/%v/simple/", codeArtifactAuthToken, domain, domainOwner, region, repoName)
 
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		buildArgs: map[string]*string{
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		BuildArgs: map[string]*string{
 			"PIP_INDEX_URL": indexUrl,
 		},
 	},
@@ -242,11 +259,11 @@ It is  possible to run additional commands by specifying the `commandHooks` prop
 
 ```go
 entry := "/path/to/function"
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		commandHooks: map[string]interface{}{
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		CommandHooks: map[string]interface{}{
 			// run tests
 			(MethodDeclaration beforeBundling(inputDir: string): string[] {
 			        return ['pytest'];
@@ -295,11 +312,11 @@ In situtations where this does not work, like Docker-in-Docker setups or when us
 ```go
 entry := "/path/to/function"
 
-python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
-	entry: jsii.String(entry),
-	runtime: awscdk.Runtime_PYTHON_3_8(),
-	bundling: &bundlingOptions{
-		bundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
+python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
+	Entry: jsii.String(Entry),
+	Runtime: awscdk.Runtime_PYTHON_3_8(),
+	Bundling: &BundlingOptions{
+		BundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
 	},
 })
 ```

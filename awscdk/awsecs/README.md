@@ -16,27 +16,27 @@ var vpc vpc
 
 
 // Create an ECS cluster
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
 })
 
 // Add capacity to it
-cluster.addCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &addCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-	desiredCapacity: jsii.Number(3),
+cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+	DesiredCapacity: jsii.Number(3),
 })
 
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
 
-taskDefinition.addContainer(jsii.String("DefaultContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(512),
+taskDefinition.AddContainer(jsii.String("DefaultContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(512),
 })
 
 // Instantiate an Amazon ECS Service
-ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
+ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
 })
 ```
 
@@ -83,8 +83,8 @@ The following code creates a cluster that can run AWS Fargate tasks:
 var vpc vpc
 
 
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
 })
 ```
 
@@ -94,7 +94,7 @@ import an Amazon ECS service either EC2 or Fargate.
 ```go
 clusterArn := "arn:aws:ecs:us-east-1:012345678910:cluster/clusterName"
 
-cluster := ecs.cluster.fromClusterArn(this, jsii.String("Cluster"), clusterArn)
+cluster := ecs.Cluster_FromClusterArn(this, jsii.String("Cluster"), clusterArn)
 ```
 
 To use tasks with Amazon EC2 launch-type, you have to add capacity to
@@ -111,30 +111,30 @@ The following example creates an Amazon ECS cluster and adds capacity to it:
 var vpc vpc
 
 
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
 })
 
 // Either add default capacity
-cluster.addCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &addCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-	desiredCapacity: jsii.Number(3),
+cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+	DesiredCapacity: jsii.Number(3),
 })
 
 // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-	machineImage: ecs.ecsOptimizedImage.amazonLinux(),
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(),
 	// Or use Amazon ECS-Optimized Amazon Linux 2 AMI
 	// machineImage: EcsOptimizedImage.amazonLinux2(),
-	desiredCapacity: jsii.Number(3),
+	DesiredCapacity: jsii.Number(3),
 })
 
-capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
-	autoScalingGroup: autoScalingGroup,
+capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
+	AutoScalingGroup: AutoScalingGroup,
 })
-cluster.addAsgCapacityProvider(capacityProvider)
+cluster.AddAsgCapacityProvider(capacityProvider)
 ```
 
 If you omit the property `vpc`, the construct will create a new VPC with two AZs.
@@ -153,12 +153,12 @@ context management commands](https://docs.aws.amazon.com/cdk/latest/guide/contex
 ```go
 var vpc vpc
 
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	machineImage: ecs.ecsOptimizedImage.amazonLinux(&ecsOptimizedImageOptions{
-		cachedInContext: jsii.Boolean(true),
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(&EcsOptimizedImageOptions{
+		CachedInContext: jsii.Boolean(true),
 	}),
-	vpc: vpc,
-	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+	Vpc: Vpc,
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
 })
 ```
 
@@ -167,32 +167,32 @@ To use `LaunchTemplate` with `AsgCapacityProvider`, make sure to specify the `us
 ```go
 var vpc vpc
 
-launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
-	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
-	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
-	userData: ec2.userData.forLinux(),
+launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &LaunchTemplateProps{
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
+	UserData: ec2.UserData_ForLinux(),
 })
 
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	mixedInstancesPolicy: &mixedInstancesPolicy{
-		instancesDistribution: &instancesDistribution{
-			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	MixedInstancesPolicy: &MixedInstancesPolicy{
+		InstancesDistribution: &InstancesDistribution{
+			OnDemandPercentageAboveBaseCapacity: jsii.Number(50),
 		},
-		launchTemplate: launchTemplate,
+		LaunchTemplate: launchTemplate,
 	},
 })
 
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
 })
 
-capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
-	autoScalingGroup: autoScalingGroup,
-	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
+capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
+	AutoScalingGroup: AutoScalingGroup,
+	MachineImageType: ecs.MachineImageType_AMAZON_LINUX_2,
 })
 
-cluster.addAsgCapacityProvider(capacityProvider)
+cluster.AddAsgCapacityProvider(capacityProvider)
 ```
 
 ### Bottlerocket
@@ -208,10 +208,10 @@ The following example adds Bottlerocket capacity to the cluster:
 var cluster cluster
 
 
-cluster.addCapacity(jsii.String("bottlerocket-asg"), &addCapacityOptions{
-	minCapacity: jsii.Number(2),
-	instanceType: ec2.NewInstanceType(jsii.String("c5.large")),
-	machineImage: ecs.NewBottleRocketImage(),
+cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
+	MinCapacity: jsii.Number(2),
+	InstanceType: ec2.NewInstanceType(jsii.String("c5.large")),
+	MachineImage: ecs.NewBottleRocketImage(),
 })
 ```
 
@@ -226,10 +226,10 @@ Graviton Processors.
 var cluster cluster
 
 
-cluster.addCapacity(jsii.String("graviton-cluster"), &addCapacityOptions{
-	minCapacity: jsii.Number(2),
-	instanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
-	machineImage: ecs.ecsOptimizedImage.amazonLinux2(ecs.amiHardwareType_ARM),
+cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
+	MinCapacity: jsii.Number(2),
+	InstanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(ecs.AmiHardwareType_ARM),
 })
 ```
 
@@ -239,10 +239,10 @@ Bottlerocket is also supported:
 var cluster cluster
 
 
-cluster.addCapacity(jsii.String("graviton-cluster"), &addCapacityOptions{
-	minCapacity: jsii.Number(2),
-	instanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
-	machineImageType: ecs.machineImageType_BOTTLEROCKET,
+cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
+	MinCapacity: jsii.Number(2),
+	InstanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
+	MachineImageType: ecs.MachineImageType_BOTTLEROCKET,
 })
 ```
 
@@ -255,14 +255,14 @@ var cluster cluster
 
 
 // Add an AutoScalingGroup with spot instances to the existing cluster
-cluster.addCapacity(jsii.String("AsgSpot"), &addCapacityOptions{
-	maxCapacity: jsii.Number(2),
-	minCapacity: jsii.Number(2),
-	desiredCapacity: jsii.Number(2),
-	instanceType: ec2.NewInstanceType(jsii.String("c5.xlarge")),
-	spotPrice: jsii.String("0.0735"),
+cluster.AddCapacity(jsii.String("AsgSpot"), &AddCapacityOptions{
+	MaxCapacity: jsii.Number(2),
+	MinCapacity: jsii.Number(2),
+	DesiredCapacity: jsii.Number(2),
+	InstanceType: ec2.NewInstanceType(jsii.String("c5.xlarge")),
+	SpotPrice: jsii.String("0.0735"),
 	// Enable the Automated Spot Draining support for Amazon ECS
-	spotInstanceDraining: jsii.Boolean(true),
+	SpotInstanceDraining: jsii.Boolean(true),
 })
 ```
 
@@ -279,10 +279,10 @@ var cluster cluster
 var key key
 
 // Then, use that key to encrypt the lifecycle-event SNS Topic.
-cluster.addCapacity(jsii.String("ASGEncryptedSNS"), &addCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-	desiredCapacity: jsii.Number(3),
-	topicEncryptionKey: key,
+cluster.AddCapacity(jsii.String("ASGEncryptedSNS"), &AddCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+	DesiredCapacity: jsii.Number(3),
+	TopicEncryptionKey: key,
 })
 ```
 
@@ -302,9 +302,9 @@ provide simplified APIs that only contain properties relevant for each specific 
 For a `FargateTaskDefinition`, specify the task size (`memoryLimitMiB` and `cpu`):
 
 ```go
-fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
-	memoryLimitMiB: jsii.Number(512),
-	cpu: jsii.Number(256),
+fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	MemoryLimitMiB: jsii.Number(512),
+	Cpu: jsii.Number(256),
 })
 ```
 
@@ -312,37 +312,37 @@ On Fargate Platform Version 1.4.0 or later, you may specify up to 200GiB of
 [ephemeral storage](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-storage.html#fargate-task-storage-pv14):
 
 ```go
-fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
-	memoryLimitMiB: jsii.Number(512),
-	cpu: jsii.Number(256),
-	ephemeralStorageGiB: jsii.Number(100),
+fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	MemoryLimitMiB: jsii.Number(512),
+	Cpu: jsii.Number(256),
+	EphemeralStorageGiB: jsii.Number(100),
 })
 ```
 
 To add containers to a task definition, call `addContainer()`:
 
 ```go
-fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
-	memoryLimitMiB: jsii.Number(512),
-	cpu: jsii.Number(256),
+fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	MemoryLimitMiB: jsii.Number(512),
+	Cpu: jsii.Number(256),
 })
-container := fargateTaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+container := fargateTaskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
 	// Use an image from DockerHub
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 })
 ```
 
 For an `Ec2TaskDefinition`:
 
 ```go
-ec2TaskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"), &ec2TaskDefinitionProps{
-	networkMode: ecs.networkMode_BRIDGE,
+ec2TaskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"), &Ec2TaskDefinitionProps{
+	NetworkMode: ecs.NetworkMode_BRIDGE,
 })
 
-container := ec2TaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+container := ec2TaskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
 	// Use an image from DockerHub
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(1024),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
 })
 ```
 
@@ -351,10 +351,10 @@ For an `ExternalTaskDefinition`:
 ```go
 externalTaskDefinition := ecs.NewExternalTaskDefinition(this, jsii.String("TaskDef"))
 
-container := externalTaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+container := externalTaskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
 	// Use an image from DockerHub
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(1024),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
 })
 ```
 
@@ -366,12 +366,12 @@ To add a port mapping when adding a container to the task definition, specify th
 var taskDefinition taskDefinition
 
 
-taskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(1024),
-	portMappings: []portMapping{
+taskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
+	PortMappings: []portMapping{
 		&portMapping{
-			containerPort: jsii.Number(3000),
+			ContainerPort: jsii.Number(3000),
 		},
 	},
 })
@@ -383,17 +383,17 @@ To add port mappings directly to a container definition, call `addPortMappings()
 var container containerDefinition
 
 
-container.addPortMappings(&portMapping{
-	containerPort: jsii.Number(3000),
+container.AddPortMappings(&PortMapping{
+	ContainerPort: jsii.Number(3000),
 })
 ```
 
 To add data volumes to a task definition, call `addVolume()`:
 
 ```go
-fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
-	memoryLimitMiB: jsii.Number(512),
-	cpu: jsii.Number(256),
+fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	MemoryLimitMiB: jsii.Number(512),
+	Cpu: jsii.Number(256),
 })
 volume := map[string]interface{}{
 	// Use an Elastic FileSystem
@@ -403,7 +403,7 @@ volume := map[string]interface{}{
 	},
 }
 
-container := fargateTaskDefinition.addVolume(volume)
+container := fargateTaskDefinition.AddVolume(volume)
 ```
 
 > Note: ECS Anywhere doesn't support volume attachments in the task definition.
@@ -416,11 +416,11 @@ tasks you intend to run: Amazon EC2, AWS Fargate, or both.
 The following example uses both:
 
 ```go
-taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &taskDefinitionProps{
-	memoryMiB: jsii.String("512"),
-	cpu: jsii.String("256"),
-	networkMode: ecs.networkMode_AWS_VPC,
-	compatibility: ecs.compatibility_EC2_AND_FARGATE,
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
+	MemoryMiB: jsii.String("512"),
+	Cpu: jsii.String("256"),
+	NetworkMode: ecs.NetworkMode_AWS_VPC,
+	Compatibility: ecs.Compatibility_EC2_AND_FARGATE,
 })
 ```
 
@@ -429,14 +429,14 @@ To grant a principal permission to run your `TaskDefinition`, you can use the `T
 ```go
 var role iGrantable
 
-taskDef := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &taskDefinitionProps{
-	cpu: jsii.String("512"),
-	memoryMiB: jsii.String("512"),
-	compatibility: ecs.compatibility_EC2_AND_FARGATE,
+taskDef := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
+	Cpu: jsii.String("512"),
+	MemoryMiB: jsii.String("512"),
+	Compatibility: ecs.Compatibility_EC2_AND_FARGATE,
 })
 
 // Gives role required permissions to run taskDef
-taskDef.grantRun(role)
+taskDef.GrantRun(role)
 ```
 
 ### Images
@@ -468,32 +468,32 @@ var taskDefinition taskDefinition
 var s3Bucket bucket
 
 
-newContainer := taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(1024),
-	environment: map[string]*string{
+newContainer := taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
+	Environment: map[string]*string{
 		 // clear text, not for sensitive data
 		"STAGE": jsii.String("prod"),
 	},
-	environmentFiles: []environmentFile{
-		ecs.*environmentFile.fromAsset(jsii.String("./demo-env-file.env")),
-		ecs.*environmentFile.fromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
+	EnvironmentFiles: []environmentFile{
+		ecs.*environmentFile_FromAsset(jsii.String("./demo-env-file.env")),
+		ecs.*environmentFile_FromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
 	},
-	secrets: map[string]secret{
+	Secrets: map[string]secret{
 		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
-		"SECRET": ecs.*secret.fromSecretsManager(secret),
-		"DB_PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+		"SECRET": ecs.*secret_fromSecretsManager(secret),
+		"DB_PASSWORD": ecs.*secret_fromSecretsManager(dbSecret, jsii.String("password")),
 		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
-		"API_KEY": ecs.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+		"API_KEY": ecs.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 			"versionId": jsii.String("12345"),
 		}, jsii.String("apiKey")),
 		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
-		"PARAMETER": ecs.*secret.fromSsmParameter(parameter),
+		"PARAMETER": ecs.*secret_fromSsmParameter(parameter),
 	},
 })
-newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
-newContainer.addSecret(jsii.String("API_KEY"), ecs.secret.fromSecretsManager(secret))
-newContainer.addSecret(jsii.String("DB_PASSWORD"), ecs.secret.fromSecretsManager(secret, jsii.String("password")))
+newContainer.AddEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+newContainer.AddSecret(jsii.String("API_KEY"), ecs.secret_FromSecretsManager(secret))
+newContainer.AddSecret(jsii.String("DB_PASSWORD"), ecs.secret_FromSecretsManager(secret, jsii.String("password")))
 ```
 
 The task execution role is automatically granted read permissions on the secrets/parameters. Support for environment
@@ -508,14 +508,14 @@ To apply additional linux-specific options related to init process and memory ma
 var taskDefinition taskDefinition
 
 
-taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(1024),
-	linuxParameters: ecs.NewLinuxParameters(this, jsii.String("LinuxParameters"), &linuxParametersProps{
-		initProcessEnabled: jsii.Boolean(true),
-		sharedMemorySize: jsii.Number(1024),
-		maxSwap: awscdk.Size.mebibytes(jsii.Number(5000)),
-		swappiness: jsii.Number(90),
+taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
+	LinuxParameters: ecs.NewLinuxParameters(this, jsii.String("LinuxParameters"), &LinuxParametersProps{
+		InitProcessEnabled: jsii.Boolean(true),
+		SharedMemorySize: jsii.Number(1024),
+		MaxSwap: awscdk.Size_Mebibytes(jsii.Number(5000)),
+		Swappiness: jsii.Number(90),
 	}),
 })
 ```
@@ -528,13 +528,13 @@ To set system controls (kernel parameters) on the container, use the `systemCont
 var taskDefinition taskDefinition
 
 
-taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryLimitMiB: jsii.Number(1024),
-	systemControls: []systemControl{
+taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
+	SystemControls: []systemControl{
 		&systemControl{
-			namespace: jsii.String("net.ipv6.conf.all.default.disable_ipv6"),
-			value: jsii.String("1"),
+			Namespace: jsii.String("net.ipv6.conf.all.default.disable_ipv6"),
+			Value: jsii.String("1"),
 		},
 	},
 })
@@ -546,25 +546,25 @@ AWS Fargate supports Amazon ECS Windows containers. For more details, please see
 
 ```go
 // Create a Task Definition for the Windows container to start
-taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
-	runtimePlatform: &runtimePlatform{
-		operatingSystemFamily: ecs.operatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
-		cpuArchitecture: ecs.cpuArchitecture_X86_64(),
+taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	RuntimePlatform: &RuntimePlatform{
+		OperatingSystemFamily: ecs.OperatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
+		CpuArchitecture: ecs.CpuArchitecture_X86_64(),
 	},
-	cpu: jsii.Number(1024),
-	memoryLimitMiB: jsii.Number(2048),
+	Cpu: jsii.Number(1024),
+	MemoryLimitMiB: jsii.Number(2048),
 })
 
-taskDefinition.addContainer(jsii.String("windowsservercore"), &containerDefinitionOptions{
-	logging: ecs.logDriver.awsLogs(&awsLogDriverProps{
-		streamPrefix: jsii.String("win-iis-on-fargate"),
+taskDefinition.AddContainer(jsii.String("windowsservercore"), &ContainerDefinitionOptions{
+	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
+		StreamPrefix: jsii.String("win-iis-on-fargate"),
 	}),
-	portMappings: []portMapping{
+	PortMappings: []portMapping{
 		&portMapping{
-			containerPort: jsii.Number(80),
+			ContainerPort: jsii.Number(80),
 		},
 	},
-	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
 })
 ```
 
@@ -574,25 +574,25 @@ AWS Graviton2 supports AWS Fargate. For more details, please see this [blog post
 
 ```go
 // Create a Task Definition for running container on Graviton Runtime.
-taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
-	runtimePlatform: &runtimePlatform{
-		operatingSystemFamily: ecs.operatingSystemFamily_LINUX(),
-		cpuArchitecture: ecs.cpuArchitecture_ARM64(),
+taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	RuntimePlatform: &RuntimePlatform{
+		OperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+		CpuArchitecture: ecs.CpuArchitecture_ARM64(),
 	},
-	cpu: jsii.Number(1024),
-	memoryLimitMiB: jsii.Number(2048),
+	Cpu: jsii.Number(1024),
+	MemoryLimitMiB: jsii.Number(2048),
 })
 
-taskDefinition.addContainer(jsii.String("webarm64"), &containerDefinitionOptions{
-	logging: ecs.logDriver.awsLogs(&awsLogDriverProps{
-		streamPrefix: jsii.String("graviton2-on-fargate"),
+taskDefinition.AddContainer(jsii.String("webarm64"), &ContainerDefinitionOptions{
+	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
+		StreamPrefix: jsii.String("graviton2-on-fargate"),
 	}),
-	portMappings: []portMapping{
+	PortMappings: []portMapping{
 		&portMapping{
-			containerPort: jsii.Number(80),
+			ContainerPort: jsii.Number(80),
 		},
 	},
-	image: ecs.containerImage.fromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest-arm64v8")),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest-arm64v8")),
 })
 ```
 
@@ -608,10 +608,10 @@ var cluster cluster
 var taskDefinition taskDefinition
 
 
-service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	desiredCount: jsii.Number(5),
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DesiredCount: jsii.Number(5),
 })
 ```
 
@@ -622,10 +622,10 @@ var cluster cluster
 var taskDefinition taskDefinition
 
 
-service := ecs.NewExternalService(this, jsii.String("Service"), &externalServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	desiredCount: jsii.Number(5),
+service := ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DesiredCount: jsii.Number(5),
 })
 ```
 
@@ -643,11 +643,11 @@ for more details.
 var cluster cluster
 var taskDefinition taskDefinition
 
-service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	circuitBreaker: &deploymentCircuitBreaker{
-		rollback: jsii.Boolean(true),
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	CircuitBreaker: &DeploymentCircuitBreaker{
+		Rollback: jsii.Boolean(true),
 	},
 })
 ```
@@ -663,30 +663,30 @@ var vpc vpc
 var cluster cluster
 var taskDefinition taskDefinition
 
-service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
 })
 
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 })
-listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-targetGroup1 := listener.addTargets(jsii.String("ECS1"), &addApplicationTargetsProps{
-	port: jsii.Number(80),
-	targets: []iApplicationLoadBalancerTarget{
+targetGroup1 := listener.AddTargets(jsii.String("ECS1"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
+	Targets: []iApplicationLoadBalancerTarget{
 		service,
 	},
 })
-targetGroup2 := listener.addTargets(jsii.String("ECS2"), &addApplicationTargetsProps{
-	port: jsii.Number(80),
-	targets: []*iApplicationLoadBalancerTarget{
-		service.loadBalancerTarget(&loadBalancerTargetOptions{
-			containerName: jsii.String("MyContainer"),
-			containerPort: jsii.Number(8080),
+targetGroup2 := listener.AddTargets(jsii.String("ECS2"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
+	Targets: []*iApplicationLoadBalancerTarget{
+		service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+			ContainerName: jsii.String("MyContainer"),
+			ContainerPort: jsii.Number(8080),
 		}),
 	},
 })
@@ -703,24 +703,24 @@ var cluster cluster
 var taskDefinition taskDefinition
 var vpc vpc
 
-service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
 })
 
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 })
-listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-service.registerLoadBalancerTargets(&ecsTarget{
-	containerName: jsii.String("web"),
-	containerPort: jsii.Number(80),
-	newTargetGroupId: jsii.String("ECS"),
-	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
-		protocol: elbv2.applicationProtocol_HTTPS,
+service.RegisterLoadBalancerTargets(&EcsTarget{
+	ContainerName: jsii.String("web"),
+	ContainerPort: jsii.Number(80),
+	NewTargetGroupId: jsii.String("ECS"),
+	Listener: ecs.ListenerConfig_ApplicationListener(listener, &AddApplicationTargetsProps{
+		Protocol: elbv2.ApplicationProtocol_HTTPS,
 	}),
 })
 ```
@@ -749,18 +749,18 @@ var cluster cluster
 var taskDefinition taskDefinition
 var vpc vpc
 
-service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
+service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
 })
 
-lb := elb.NewLoadBalancer(this, jsii.String("LB"), &loadBalancerProps{
-	vpc: vpc,
+lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
+	Vpc: Vpc,
 })
-lb.addListener(&loadBalancerListener{
-	externalPort: jsii.Number(80),
+lb.AddListener(&LoadBalancerListener{
+	ExternalPort: jsii.Number(80),
 })
-lb.addTarget(service)
+lb.AddTarget(service)
 ```
 
 Similarly, if you want to have more control over load balancer targeting:
@@ -770,20 +770,20 @@ var cluster cluster
 var taskDefinition taskDefinition
 var vpc vpc
 
-service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
+service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
 })
 
-lb := elb.NewLoadBalancer(this, jsii.String("LB"), &loadBalancerProps{
-	vpc: vpc,
+lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
+	Vpc: Vpc,
 })
-lb.addListener(&loadBalancerListener{
-	externalPort: jsii.Number(80),
+lb.AddListener(&LoadBalancerListener{
+	ExternalPort: jsii.Number(80),
 })
-lb.addTarget(service.loadBalancerTarget(&loadBalancerTargetOptions{
-	containerName: jsii.String("MyContainer"),
-	containerPort: jsii.Number(80),
+lb.AddTarget(service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+	ContainerName: jsii.String("MyContainer"),
+	ContainerPort: jsii.Number(80),
 }))
 ```
 
@@ -832,16 +832,16 @@ configured by calling `autoScaleTaskCount()`:
 var target applicationTargetGroup
 var service baseService
 
-scaling := service.autoScaleTaskCount(&enableScalingProps{
-	maxCapacity: jsii.Number(10),
+scaling := service.AutoScaleTaskCount(&EnableScalingProps{
+	MaxCapacity: jsii.Number(10),
 })
-scaling.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
-	targetUtilizationPercent: jsii.Number(50),
+scaling.ScaleOnCpuUtilization(jsii.String("CpuScaling"), &CpuUtilizationScalingProps{
+	TargetUtilizationPercent: jsii.Number(50),
 })
 
-scaling.scaleOnRequestCount(jsii.String("RequestScaling"), &requestCountScalingProps{
-	requestsPerTarget: jsii.Number(10000),
-	targetGroup: target,
+scaling.ScaleOnRequestCount(jsii.String("RequestScaling"), &RequestCountScalingProps{
+	RequestsPerTarget: jsii.Number(10000),
+	TargetGroup: target,
 })
 ```
 
@@ -858,32 +858,32 @@ var cluster cluster
 
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromAsset(path.resolve(__dirname, jsii.String(".."), jsii.String("eventhandler-image"))),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.NewAwsLogDriver(&awsLogDriverProps{
-		streamPrefix: jsii.String("EventDemo"),
-		mode: ecs.awsLogDriverMode_NON_BLOCKING,
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromAsset(path.resolve(__dirname, jsii.String(".."), jsii.String("eventhandler-image"))),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.NewAwsLogDriver(&AwsLogDriverProps{
+		StreamPrefix: jsii.String("EventDemo"),
+		Mode: ecs.AwsLogDriverMode_NON_BLOCKING,
 	}),
 })
 
 // An Rule that describes the event trigger (in this case a scheduled run)
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.expression(jsii.String("rate(1 min)")),
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Expression(jsii.String("rate(1 min)")),
 })
 
 // Pass an environment variable to the container 'TheContainer' in the task
-rule.addTarget(targets.NewEcsTask(&ecsTaskProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	taskCount: jsii.Number(1),
-	containerOverrides: []containerOverride{
+rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	TaskCount: jsii.Number(1),
+	ContainerOverrides: []containerOverride{
 		&containerOverride{
-			containerName: jsii.String("TheContainer"),
-			environment: []taskEnvironmentVariable{
+			ContainerName: jsii.String("TheContainer"),
+			Environment: []taskEnvironmentVariable{
 				&taskEnvironmentVariable{
-					name: jsii.String("I_WAS_TRIGGERED"),
-					value: jsii.String("From CloudWatch Events"),
+					Name: jsii.String("I_WAS_TRIGGERED"),
+					Value: jsii.String("From CloudWatch Events"),
 				},
 			},
 		},
@@ -910,11 +910,11 @@ Currently Supported Log Drivers:
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.awsLogs(&awsLogDriverProps{
-		streamPrefix: jsii.String("EventDemo"),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
+		StreamPrefix: jsii.String("EventDemo"),
 	}),
 })
 ```
@@ -924,10 +924,10 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.fluentd(),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Fluentd(),
 })
 ```
 
@@ -936,11 +936,11 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.gelf(&gelfLogDriverProps{
-		address: jsii.String("my-gelf-address"),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Gelf(&GelfLogDriverProps{
+		Address: jsii.String("my-gelf-address"),
 	}),
 })
 ```
@@ -950,10 +950,10 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.journald(),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Journald(),
 })
 ```
 
@@ -962,10 +962,10 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.jsonFile(),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_JsonFile(),
 })
 ```
 
@@ -977,12 +977,12 @@ var secret secret
 
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.splunk(&splunkLogDriverProps{
-		secretToken: secret,
-		url: jsii.String("my-splunk-url"),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Splunk(&SplunkLogDriverProps{
+		SecretToken: secret,
+		Url: jsii.String("my-splunk-url"),
 	}),
 })
 ```
@@ -992,10 +992,10 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.syslog(),
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Syslog(),
 })
 ```
 
@@ -1004,11 +1004,11 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.firelens(&fireLensLogDriverProps{
-		options: map[string]*string{
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Firelens(&FireLensLogDriverProps{
+		Options: map[string]*string{
 			"Name": jsii.String("firehose"),
 			"region": jsii.String("us-west-2"),
 			"delivery_stream": jsii.String("my-stream"),
@@ -1025,16 +1025,16 @@ var parameter stringParameter
 
 
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.logDrivers.firelens(&fireLensLogDriverProps{
-		options: map[string]interface{}{
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Firelens(&FireLensLogDriverProps{
+		Options: map[string]interface{}{
 		},
-		secretOptions: map[string]secret{
+		SecretOptions: map[string]secret{
 			 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store
-			"apikey": ecs.*secret.fromSecretsManager(secret),
-			"host": ecs.*secret.fromSsmParameter(parameter),
+			"apikey": ecs.*secret_fromSecretsManager(secret),
+			"host": ecs.*secret_fromSsmParameter(parameter),
 		},
 	}),
 })
@@ -1047,12 +1047,12 @@ A generic log driver object exists to provide a lower level abstraction of the l
 ```go
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
-	memoryLimitMiB: jsii.Number(256),
-	logging: ecs.NewGenericLogDriver(&genericLogDriverProps{
-		logDriver: jsii.String("fluentd"),
-		options: map[string]*string{
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.NewGenericLogDriver(&GenericLogDriverProps{
+		LogDriver: jsii.String("fluentd"),
+		Options: map[string]*string{
 			"tag": jsii.String("example-tag"),
 		},
 	}),
@@ -1069,12 +1069,12 @@ var taskDefinition taskDefinition
 var cluster cluster
 
 
-service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	cloudMapOptions: &cloudMapOptions{
+service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	CloudMapOptions: &CloudMapOptions{
 		// Create A records - useful for AWSVPC network mode.
-		dnsRecordType: cloudmap.dnsRecordType_A,
+		DnsRecordType: cloudmap.DnsRecordType_A,
 	},
 })
 ```
@@ -1089,26 +1089,26 @@ var cluster cluster
 
 
 // Add a container to the task definition
-specificContainer := taskDefinition.addContainer(jsii.String("Container"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("/aws/aws-example-app")),
-	memoryLimitMiB: jsii.Number(2048),
+specificContainer := taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("/aws/aws-example-app")),
+	MemoryLimitMiB: jsii.Number(2048),
 })
 
 // Add a port mapping
-specificContainer.addPortMappings(&portMapping{
-	containerPort: jsii.Number(7600),
-	protocol: ecs.protocol_TCP,
+specificContainer.AddPortMappings(&PortMapping{
+	ContainerPort: jsii.Number(7600),
+	Protocol: ecs.Protocol_TCP,
 })
 
-ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	cloudMapOptions: &cloudMapOptions{
+ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	CloudMapOptions: &CloudMapOptions{
 		// Create SRV records - useful for bridge networking
-		dnsRecordType: cloudmap.dnsRecordType_SRV,
+		DnsRecordType: cloudmap.DnsRecordType_SRV,
 		// Targets port TCP port 7600 `specificContainer`
-		container: specificContainer,
-		containerPort: jsii.Number(7600),
+		Container: specificContainer,
+		ContainerPort: jsii.Number(7600),
 	},
 })
 ```
@@ -1123,8 +1123,8 @@ var cloudMapService service
 var ecsService fargateService
 
 
-ecsService.associateCloudMapService(&associateCloudMapServiceOptions{
-	service: cloudMapService,
+ecsService.AssociateCloudMapService(&AssociateCloudMapServiceOptions{
+	Service: cloudMapService,
 })
 ```
 
@@ -1148,28 +1148,28 @@ providers on your cluster.
 var vpc vpc
 
 
-cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &clusterProps{
-	vpc: vpc,
-	enableFargateCapacityProviders: jsii.Boolean(true),
+cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &ClusterProps{
+	Vpc: Vpc,
+	EnableFargateCapacityProviders: jsii.Boolean(true),
 })
 
 taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
 
-taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 })
 
-ecs.NewFargateService(this, jsii.String("FargateService"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	capacityProviderStrategies: []capacityProviderStrategy{
+ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
-			capacityProvider: jsii.String("FARGATE_SPOT"),
-			weight: jsii.Number(2),
+			CapacityProvider: jsii.String("FARGATE_SPOT"),
+			Weight: jsii.Number(2),
 		},
 		&capacityProviderStrategy{
-			capacityProvider: jsii.String("FARGATE"),
-			weight: jsii.Number(1),
+			CapacityProvider: jsii.String("FARGATE"),
+			Weight: jsii.Number(1),
 		},
 	},
 })
@@ -1207,37 +1207,37 @@ Managed Termination Protection to work.
 var vpc vpc
 
 
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
 })
 
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
-	minCapacity: jsii.Number(0),
-	maxCapacity: jsii.Number(100),
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
+	MinCapacity: jsii.Number(0),
+	MaxCapacity: jsii.Number(100),
 })
 
-capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
-	autoScalingGroup: autoScalingGroup,
+capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
+	AutoScalingGroup: AutoScalingGroup,
 })
-cluster.addAsgCapacityProvider(capacityProvider)
+cluster.AddAsgCapacityProvider(capacityProvider)
 
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
 
-taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	memoryReservationMiB: jsii.Number(256),
+taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryReservationMiB: jsii.Number(256),
 })
 
-ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	capacityProviderStrategies: []capacityProviderStrategy{
+ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
-			capacityProvider: capacityProvider.capacityProviderName,
-			weight: jsii.Number(1),
+			CapacityProvider: capacityProvider.CapacityProviderName,
+			Weight: jsii.Number(1),
 		},
 	},
 })
@@ -1259,8 +1259,8 @@ inferenceAccelerators := []map[string]*string{
 	},
 }
 
-taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("Ec2TaskDef"), &ec2TaskDefinitionProps{
-	inferenceAccelerators: inferenceAccelerators,
+taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("Ec2TaskDef"), &Ec2TaskDefinitionProps{
+	InferenceAccelerators: InferenceAccelerators,
 })
 ```
 
@@ -1275,10 +1275,10 @@ inferenceAcceleratorResources := []*string{
 	"device1",
 }
 
-taskDefinition.addContainer(jsii.String("cont"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("test")),
-	memoryLimitMiB: jsii.Number(1024),
-	inferenceAcceleratorResources: inferenceAcceleratorResources,
+taskDefinition.AddContainer(jsii.String("cont"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MemoryLimitMiB: jsii.Number(1024),
+	InferenceAcceleratorResources: InferenceAcceleratorResources,
 })
 ```
 
@@ -1296,10 +1296,10 @@ var cluster cluster
 var taskDefinition taskDefinition
 
 
-service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	enableExecuteCommand: jsii.Boolean(true),
+service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	EnableExecuteCommand: jsii.Boolean(true),
 })
 ```
 
@@ -1320,27 +1320,27 @@ var vpc vpc
 kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 
 // Pass the KMS key in the `encryptionKey` field to associate the key to the log group
-logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"), &logGroupProps{
-	encryptionKey: kmsKey,
+logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"), &LogGroupProps{
+	EncryptionKey: kmsKey,
 })
 
 // Pass the KMS key in the `encryptionKey` field to associate the key to the S3 bucket
-execBucket := s3.NewBucket(this, jsii.String("EcsExecBucket"), &bucketProps{
-	encryptionKey: kmsKey,
+execBucket := s3.NewBucket(this, jsii.String("EcsExecBucket"), &BucketProps{
+	EncryptionKey: kmsKey,
 })
 
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
-	executeCommandConfiguration: &executeCommandConfiguration{
-		kmsKey: kmsKey,
-		logConfiguration: &executeCommandLogConfiguration{
-			cloudWatchLogGroup: logGroup,
-			cloudWatchEncryptionEnabled: jsii.Boolean(true),
-			s3Bucket: execBucket,
-			s3EncryptionEnabled: jsii.Boolean(true),
-			s3KeyPrefix: jsii.String("exec-command-output"),
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
+	ExecuteCommandConfiguration: &ExecuteCommandConfiguration{
+		KmsKey: *KmsKey,
+		LogConfiguration: &ExecuteCommandLogConfiguration{
+			CloudWatchLogGroup: logGroup,
+			CloudWatchEncryptionEnabled: jsii.Boolean(true),
+			S3Bucket: execBucket,
+			S3EncryptionEnabled: jsii.Boolean(true),
+			S3KeyPrefix: jsii.String("exec-command-output"),
 		},
-		logging: ecs.executeCommandLogging_OVERRIDE,
+		Logging: ecs.ExecuteCommandLogging_OVERRIDE,
 	},
 })
 ```
@@ -1361,26 +1361,26 @@ var taskDefinition taskDefinition
 var container containerDefinition
 
 
-container.addPortMappings(&portMapping{
-	name: jsii.String("api"),
-	containerPort: jsii.Number(8080),
+container.AddPortMappings(&PortMapping{
+	Name: jsii.String("api"),
+	ContainerPort: jsii.Number(8080),
 })
 
-taskDefinition.addContainer(container)
+taskDefinition.AddContainer(container)
 
-cluster.addDefaultCloudMapNamespace(&cloudMapNamespaceOptions{
-	name: jsii.String("local"),
+cluster.AddDefaultCloudMapNamespace(&CloudMapNamespaceOptions{
+	Name: jsii.String("local"),
 })
 
-service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	serviceConnectConfiguration: &serviceConnectProps{
-		services: []serviceConnectService{
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	ServiceConnectConfiguration: &ServiceConnectProps{
+		Services: []serviceConnectService{
 			&serviceConnectService{
-				portMappingName: jsii.String("api"),
-				dnsName: jsii.String("http-api"),
-				port: jsii.Number(80),
+				PortMappingName: jsii.String("api"),
+				DnsName: jsii.String("http-api"),
+				Port: jsii.Number(80),
 			},
 		},
 	},
@@ -1394,31 +1394,31 @@ To opt a service into using service connect without advertising a port, simply c
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
 })
-service.enableServiceConnect()
+service.EnableServiceConnect()
 ```
 
 Service Connect also allows custom logging, Service Discovery name, and configuration of the port where service connect traffic is received.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &fargateServiceProps{
-	cluster: cluster,
-	taskDefinition: taskDefinition,
-	serviceConnectConfiguration: &serviceConnectProps{
-		logDriver: ecs.logDrivers.awslogs(map[string]*string{
+customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	ServiceConnectConfiguration: &ServiceConnectProps{
+		LogDriver: ecs.LogDrivers.awslogs(map[string]*string{
 			"streamPrefix": jsii.String("sc-traffic"),
 		}),
-		services: []serviceConnectService{
+		Services: []serviceConnectService{
 			&serviceConnectService{
-				portMappingName: jsii.String("api"),
-				dnsName: jsii.String("customized-api"),
-				port: jsii.Number(80),
-				ingressPortOverride: jsii.Number(20040),
-				discoveryName: jsii.String("custom"),
+				PortMappingName: jsii.String("api"),
+				DnsName: jsii.String("customized-api"),
+				Port: jsii.Number(80),
+				IngressPortOverride: jsii.Number(20040),
+				DiscoveryName: jsii.String("custom"),
 			},
 		},
 	},

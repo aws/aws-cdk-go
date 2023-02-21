@@ -34,18 +34,18 @@ In the event that a single container is sufficient for your inference use-case, 
 single-container model:
 
 ```go
-import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
-import path "github.com/aws-samples/dummy/path"
+import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+import "github.com/aws-samples/dummy/path"
 
 
-image := sagemaker.containerImage.fromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
-modelData := sagemaker.modelData.fromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
+image := sagemaker.ContainerImage_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
+modelData := sagemaker.ModelData_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
 
-model := sagemaker.NewModel(this, jsii.String("PrimaryContainerModel"), &modelProps{
-	containers: []containerDefinition{
+model := sagemaker.NewModel(this, jsii.String("PrimaryContainerModel"), &ModelProps{
+	Containers: []containerDefinition{
 		&containerDefinition{
-			image: image,
-			modelData: modelData,
+			Image: image,
+			ModelData: modelData,
 		},
 	},
 })
@@ -70,19 +70,19 @@ var image3 containerImage
 var modelData3 modelData
 
 
-model := sagemaker.NewModel(this, jsii.String("InferencePipelineModel"), &modelProps{
-	containers: []containerDefinition{
+model := sagemaker.NewModel(this, jsii.String("InferencePipelineModel"), &ModelProps{
+	Containers: []containerDefinition{
 		&containerDefinition{
-			image: image1,
-			modelData: modelData1,
+			Image: image1,
+			ModelData: modelData1,
 		},
 		&containerDefinition{
-			image: image2,
-			modelData: modelData2,
+			Image: image2,
+			ModelData: modelData2,
 		},
 		&containerDefinition{
-			image: image3,
-			modelData: modelData3,
+			Image: image3,
+			ModelData: modelData3,
 		},
 	},
 })
@@ -103,7 +103,7 @@ import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 import path "github.com/aws-samples/dummy/path"
 
 
-image := sagemaker.containerImage.fromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
+image := sagemaker.ContainerImage_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
 ```
 
 #### ECR Image
@@ -115,8 +115,8 @@ import ecr "github.com/aws/aws-cdk-go/awscdk"
 import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
 
-repository := ecr.repository.fromRepositoryName(this, jsii.String("Repository"), jsii.String("repo"))
-image := sagemaker.containerImage.fromEcrRepository(repository, jsii.String("tag"))
+repository := ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("repo"))
+image := sagemaker.ContainerImage_FromEcrRepository(repository, jsii.String("tag"))
 ```
 
 ### Model Artifacts
@@ -135,7 +135,7 @@ import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 import path "github.com/aws-samples/dummy/path"
 
 
-modelData := sagemaker.modelData.fromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
+modelData := sagemaker.ModelData_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
 ```
 
 #### S3 Model Data
@@ -148,7 +148,7 @@ import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-modelData := sagemaker.modelData.fromBucket(bucket, jsii.String("path/to/artifact/file.tar.gz"))
+modelData := sagemaker.ModelData_FromBucket(bucket, jsii.String("path/to/artifact/file.tar.gz"))
 ```
 
 ## Model Hosting
@@ -175,17 +175,17 @@ var modelA model
 var modelB model
 
 
-endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &endpointConfigProps{
-	instanceProductionVariants: []instanceProductionVariantProps{
+endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &EndpointConfigProps{
+	InstanceProductionVariants: []instanceProductionVariantProps{
 		&instanceProductionVariantProps{
-			model: modelA,
-			variantName: jsii.String("modelA"),
-			initialVariantWeight: jsii.Number(2),
+			Model: modelA,
+			VariantName: jsii.String("modelA"),
+			InitialVariantWeight: jsii.Number(2),
 		},
 		&instanceProductionVariantProps{
-			model: modelB,
-			variantName: jsii.String("variantB"),
-			initialVariantWeight: jsii.Number(1),
+			Model: modelB,
+			VariantName: jsii.String("variantB"),
+			InitialVariantWeight: jsii.Number(1),
 		},
 	},
 })
@@ -206,8 +206,8 @@ import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 var endpointConfig endpointConfig
 
 
-endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &endpointProps{
-	endpointConfig: endpointConfig,
+endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &EndpointProps{
+	EndpointConfig: EndpointConfig,
 })
 ```
 
@@ -216,30 +216,30 @@ endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &endpointProps{
 To enable autoscaling on the production variant, use the `autoScaleInstanceCount` method:
 
 ```go
-import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
 var model model
 
 
 variantName := "my-variant"
-endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &endpointConfigProps{
-	instanceProductionVariants: []instanceProductionVariantProps{
+endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &EndpointConfigProps{
+	InstanceProductionVariants: []instanceProductionVariantProps{
 		&instanceProductionVariantProps{
-			model: model,
-			variantName: variantName,
+			Model: model,
+			VariantName: variantName,
 		},
 	},
 })
 
-endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &endpointProps{
-	endpointConfig: endpointConfig,
+endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &EndpointProps{
+	EndpointConfig: EndpointConfig,
 })
-productionVariant := endpoint.findInstanceProductionVariant(variantName)
-instanceCount := productionVariant.autoScaleInstanceCount(&enableScalingProps{
-	maxCapacity: jsii.Number(3),
+productionVariant := endpoint.FindInstanceProductionVariant(variantName)
+instanceCount := productionVariant.AutoScaleInstanceCount(&EnableScalingProps{
+	MaxCapacity: jsii.Number(3),
 })
-instanceCount.scaleOnInvocations(jsii.String("LimitRPS"), &invocationsScalingProps{
-	maxRequestsPerSecond: jsii.Number(30),
+instanceCount.ScaleOnInvocations(jsii.String("LimitRPS"), &InvocationsScalingProps{
+	MaxRequestsPerSecond: jsii.Number(30),
 })
 ```
 
@@ -257,12 +257,12 @@ import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 var endpointConfig endpointConfig
 
 
-endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &endpointProps{
-	endpointConfig: endpointConfig,
+endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &EndpointProps{
+	EndpointConfig: EndpointConfig,
 })
-productionVariant := endpoint.findInstanceProductionVariant(jsii.String("my-variant"))
-productionVariant.metricModelLatency().createAlarm(this, jsii.String("ModelLatencyAlarm"), &createAlarmOptions{
-	threshold: jsii.Number(100000),
-	evaluationPeriods: jsii.Number(3),
+productionVariant := endpoint.FindInstanceProductionVariant(jsii.String("my-variant"))
+productionVariant.MetricModelLatency().CreateAlarm(this, jsii.String("ModelLatencyAlarm"), &CreateAlarmOptions{
+	Threshold: jsii.Number(100000),
+	EvaluationPeriods: jsii.Number(3),
 })
 ```

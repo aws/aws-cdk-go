@@ -38,12 +38,12 @@ The `Service` construct allows you to create AWS App Runner services with `ECR P
 To create a `Service` with ECR Public:
 
 ```go
-apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
-		imageConfiguration: &imageConfiguration{
-			port: jsii.Number(8000),
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
 		},
-		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 	}),
 })
 ```
@@ -56,13 +56,13 @@ To create a `Service` from an existing ECR repository:
 import ecr "github.com/aws/aws-cdk-go/awscdk"
 
 
-apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromEcr(&ecrProps{
-		imageConfiguration: &imageConfiguration{
-			port: jsii.Number(80),
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcr(&EcrProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(80),
 		},
-		repository: ecr.repository.fromRepositoryName(this, jsii.String("NginxRepository"), jsii.String("nginx")),
-		tagOrDigest: jsii.String("latest"),
+		Repository: ecr.Repository_FromRepositoryName(this, jsii.String("NginxRepository"), jsii.String("nginx")),
+		TagOrDigest: jsii.String("latest"),
 	}),
 })
 ```
@@ -73,15 +73,15 @@ To create a `Service` from local docker image asset directory  built and pushed 
 import assets "github.com/aws/aws-cdk-go/awscdk"
 
 
-imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("./docker.assets")),
+imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("./docker.assets")),
 })
-apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromAsset(&assetProps{
-		imageConfiguration: &imageConfiguration{
-			port: jsii.Number(8000),
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromAsset(&AssetProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
 		},
-		asset: imageAsset,
+		Asset: imageAsset,
 	}),
 })
 ```
@@ -93,12 +93,12 @@ To create a `Service` from the GitHub repository, you need to specify an existin
 See [Managing App Runner connections](https://docs.aws.amazon.com/apprunner/latest/dg/manage-connections.html) for more details.
 
 ```go
-apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromGitHub(&githubRepositoryProps{
-		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-		branch: jsii.String("main"),
-		configurationSource: apprunner.configurationSourceType_REPOSITORY,
-		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromGitHub(&GithubRepositoryProps{
+		RepositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
+		Branch: jsii.String("main"),
+		ConfigurationSource: apprunner.ConfigurationSourceType_REPOSITORY,
+		Connection: apprunner.GitHubConnection_FromConnectionArn(jsii.String("CONNECTION_ARN")),
 	}),
 })
 ```
@@ -106,18 +106,18 @@ apprunner.NewService(this, jsii.String("Service"), &serviceProps{
 Use `codeConfigurationValues` to override configuration values with the `API` configuration source type.
 
 ```go
-apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromGitHub(&githubRepositoryProps{
-		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-		branch: jsii.String("main"),
-		configurationSource: apprunner.configurationSourceType_API,
-		codeConfigurationValues: &codeConfigurationValues{
-			runtime: apprunner.runtime_PYTHON_3(),
-			port: jsii.String("8000"),
-			startCommand: jsii.String("python app.py"),
-			buildCommand: jsii.String("yum install -y pycairo && pip install -r requirements.txt"),
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromGitHub(&GithubRepositoryProps{
+		RepositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
+		Branch: jsii.String("main"),
+		ConfigurationSource: apprunner.ConfigurationSourceType_API,
+		CodeConfigurationValues: &CodeConfigurationValues{
+			Runtime: apprunner.Runtime_PYTHON_3(),
+			Port: jsii.String("8000"),
+			StartCommand: jsii.String("python app.py"),
+			BuildCommand: jsii.String("yum install -y pycairo && pip install -r requirements.txt"),
 		},
-		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
+		Connection: apprunner.GitHubConnection_FromConnectionArn(jsii.String("CONNECTION_ARN")),
 	}),
 })
 ```
@@ -140,29 +140,29 @@ See [App Runner IAM Roles](https://docs.aws.amazon.com/apprunner/latest/dg/secur
 To associate an App Runner service with a custom VPC, define `vpcConnector` for the service.
 
 ```go
-import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
-vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
-	ipAddresses: ec2.ipAddresses.cidr(jsii.String("10.0.0.0/16")),
+vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	IpAddresses: ec2.IpAddresses_Cidr(jsii.String("10.0.0.0/16")),
 })
 
-vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
-	vpc: vpc,
-	vpcSubnets: vpc.selectSubnets(&subnetSelection{
-		subnetType: ec2.subnetType_PUBLIC,
+vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &VpcConnectorProps{
+	Vpc: Vpc,
+	VpcSubnets: vpc.selectSubnets(&SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
 	}),
-	vpcConnectorName: jsii.String("MyVpcConnector"),
+	VpcConnectorName: jsii.String("MyVpcConnector"),
 })
 
-apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
-		imageConfiguration: &imageConfiguration{
-			port: jsii.Number(8000),
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
 		},
-		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 	}),
-	vpcConnector: vpcConnector,
+	VpcConnector: VpcConnector,
 })
 ```
 
@@ -180,29 +180,29 @@ var stack stack
 
 
 secret := secretsmanager.NewSecret(stack, jsii.String("Secret"))
-parameter := ssm.stringParameter.fromSecureStringParameterAttributes(stack, jsii.String("Parameter"), &secureStringParameterAttributes{
-	parameterName: jsii.String("/name"),
-	version: jsii.Number(1),
+parameter := ssm.StringParameter_FromSecureStringParameterAttributes(stack, jsii.String("Parameter"), &SecureStringParameterAttributes{
+	ParameterName: jsii.String("/name"),
+	Version: jsii.Number(1),
 })
 
-service := apprunner.NewService(stack, jsii.String("Service"), &serviceProps{
-	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
-		imageConfiguration: &imageConfiguration{
-			port: jsii.Number(8000),
-			environmentSecrets: map[string]secret{
-				"SECRET": apprunner.*secret.fromSecretsManager(secret),
-				"PARAMETER": apprunner.*secret.fromSsmParameter(parameter),
-				"SECRET_ID": apprunner.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+service := apprunner.NewService(stack, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+			EnvironmentSecrets: map[string]secret{
+				"SECRET": apprunner.*secret_fromSecretsManager(secret),
+				"PARAMETER": apprunner.*secret_fromSsmParameter(parameter),
+				"SECRET_ID": apprunner.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 					"versionId": jsii.String("version-id"),
 				}),
-				"SECRET_STAGE": apprunner.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+				"SECRET_STAGE": apprunner.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 					"versionStage": jsii.String("version-stage"),
 				}),
 			},
 		},
-		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 	}),
 })
 
-service.addSecret(jsii.String("LATER_SECRET"), apprunner.secret.fromSecretsManager(secret, jsii.String("field")))
+service.AddSecret(jsii.String("LATER_SECRET"), apprunner.secret_FromSecretsManager(secret, jsii.String("field")))
 ```

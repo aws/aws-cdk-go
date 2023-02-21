@@ -23,11 +23,11 @@ retention period (including infinite retention).
 
 ```go
 // Configure log group for short retention
-logGroup := awscdk.NewLogGroup(stack, jsii.String("LogGroup"), &logGroupProps{
-	retention: awscdk.RetentionDays_ONE_WEEK,
+logGroup := awscdk.NewLogGroup(stack, jsii.String("LogGroup"), &LogGroupProps{
+	Retention: awscdk.RetentionDays_ONE_WEEK,
 })// Configure log group for infinite retention
-logGroup := awscdk.NewLogGroup(stack, jsii.String("LogGroup"), &logGroupProps{
-	retention: infinity,
+logGroup := awscdk.NewLogGroup(stack, jsii.String("LogGroup"), &LogGroupProps{
+	Retention: infinity,
 })
 ```
 
@@ -54,16 +54,16 @@ A resource policy is automatically created when `addToResourcePolicy` is called 
 
 ```go
 logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
-logGroup.addToResourcePolicy(iam.NewPolicyStatement(&policyStatementProps{
-	actions: []*string{
+logGroup.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
 		jsii.String("logs:CreateLogStream"),
 		jsii.String("logs:PutLogEvents"),
 	},
-	principals: []iPrincipal{
+	Principals: []iPrincipal{
 		iam.NewServicePrincipal(jsii.String("es.amazonaws.com")),
 	},
-	resources: []*string{
-		logGroup.logGroupArn,
+	Resources: []*string{
+		logGroup.LogGroupArn,
 	},
 }))
 ```
@@ -100,8 +100,8 @@ Here's a simple example of creating an encrypted Log Group using a KMS CMK.
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
 
-logs.NewLogGroup(this, jsii.String("LogGroup"), &logGroupProps{
-	encryptionKey: kms.NewKey(this, jsii.String("Key")),
+logs.NewLogGroup(this, jsii.String("LogGroup"), &LogGroupProps{
+	EncryptionKey: kms.NewKey(this, jsii.String("Key")),
 })
 ```
 
@@ -127,10 +127,10 @@ var fn function
 var logGroup logGroup
 
 
-logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &subscriptionFilterProps{
-	logGroup: logGroup,
-	destination: destinations.NewLambdaDestination(fn),
-	filterPattern: logs.filterPattern.allTerms(jsii.String("ERROR"), jsii.String("MainThread")),
+logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
+	LogGroup: LogGroup,
+	Destination: destinations.NewLambdaDestination(fn),
+	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
 })
 ```
 
@@ -147,12 +147,12 @@ event and uses that as the metric value.
 Example:
 
 ```go
-awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
-	logGroup: logGroup,
-	metricNamespace: jsii.String("MyApp"),
-	metricName: jsii.String("Latency"),
-	filterPattern: awscdk.FilterPattern.exists(jsii.String("$.latency")),
-	metricValue: jsii.String("$.latency"),
+awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
+	LogGroup: LogGroup,
+	MetricNamespace: jsii.String("MyApp"),
+	MetricName: jsii.String("Latency"),
+	FilterPattern: awscdk.FilterPattern_Exists(jsii.String("$.latency")),
+	MetricValue: jsii.String("$.latency"),
 })
 ```
 
@@ -181,27 +181,27 @@ This has a default of `statistic = 'avg'` if the statistic is not set in the `pr
 // Example automatically generated from non-compiling source. May contain errors.
 var logGroup logGroup
 
-mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
-	logGroup: logGroup,
-	metricNamespace: jsii.String("MyApp"),
-	metricName: jsii.String("Latency"),
-	filterPattern: logs.filterPattern.exists(jsii.String("$.latency")),
-	metricValue: jsii.String("$.latency"),
-	dimensions: map[string]*string{
+mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
+	LogGroup: LogGroup,
+	MetricNamespace: jsii.String("MyApp"),
+	MetricName: jsii.String("Latency"),
+	FilterPattern: logs.FilterPattern_Exists(jsii.String("$.latency")),
+	MetricValue: jsii.String("$.latency"),
+	Dimensions: map[string]*string{
 		"ErrorCode": jsii.String("$.errorCode"),
 	},
-	unit: unit_MILLISECONDS,
+	Unit: unit_MILLISECONDS,
 })
 
 //expose a metric from the metric filter
-metric := mf.metric()
+metric := mf.Metric()
 
 //you can use the metric to create a new alarm
 //you can use the metric to create a new alarm
-cloudwatch.NewAlarm(this, jsii.String("alarm from metric filter"), &alarmProps{
-	metric: metric,
-	threshold: jsii.Number(100),
-	evaluationPeriods: jsii.Number(2),
+cloudwatch.NewAlarm(this, jsii.String("alarm from metric filter"), &AlarmProps{
+	Metric: Metric,
+	Threshold: jsii.Number(100),
+	EvaluationPeriods: jsii.Number(2),
 })
 ```
 
@@ -242,11 +242,11 @@ Examples:
 
 ```go
 // Search for lines that contain both "ERROR" and "MainThread"
-pattern1 := logs.filterPattern.allTerms(jsii.String("ERROR"), jsii.String("MainThread"))
+pattern1 := logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread"))
 
 // Search for lines that either contain both "ERROR" and "MainThread", or
 // both "WARN" and "Deadlock".
-pattern2 := logs.filterPattern.anyTermGroup([]*string{
+pattern2 := logs.FilterPattern_AnyTermGroup([]*string{
 	jsii.String("ERROR"),
 	jsii.String("MainThread"),
 }, []*string{
@@ -295,7 +295,7 @@ Example:
 // Search for all events where the component field is equal to
 // "HttpServer" and either error is true or the latency is higher
 // than 1000.
-pattern := logs.filterPattern.all(logs.filterPattern.stringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.filterPattern.any(logs.filterPattern.booleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.filterPattern.numberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
+pattern := logs.FilterPattern_All(logs.FilterPattern_StringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.FilterPattern_Any(logs.FilterPattern_BooleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.FilterPattern_NumberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
 ```
 
 ## Space-delimited table patterns
@@ -329,7 +329,7 @@ Example:
 ```go
 // Search for all events where the component is "HttpServer" and the
 // result code is not equal to 200.
-pattern := logs.filterPattern.spaceDelimited(jsii.String("time"), jsii.String("component"), jsii.String("..."), jsii.String("result_code"), jsii.String("latency")).whereString(jsii.String("component"), jsii.String("="), jsii.String("HttpServer")).whereNumber(jsii.String("result_code"), jsii.String("!="), jsii.Number(200))
+pattern := logs.FilterPattern_SpaceDelimited(jsii.String("time"), jsii.String("component"), jsii.String("..."), jsii.String("result_code"), jsii.String("latency")).WhereString(jsii.String("component"), jsii.String("="), jsii.String("HttpServer")).WhereNumber(jsii.String("result_code"), jsii.String("!="), jsii.Number(200))
 ```
 
 ## Logs Insights Query Definition
@@ -339,15 +339,23 @@ Creates a query definition for CloudWatch Logs Insights.
 Example:
 
 ```go
-logs.NewQueryDefinition(this, jsii.String("QueryDefinition"), &queryDefinitionProps{
-	queryDefinitionName: jsii.String("MyQuery"),
-	queryString: logs.NewQueryString(&queryStringProps{
-		fields: []*string{
+logs.NewQueryDefinition(this, jsii.String("QueryDefinition"), &QueryDefinitionProps{
+	QueryDefinitionName: jsii.String("MyQuery"),
+	QueryString: logs.NewQueryString(&QueryStringProps{
+		Fields: []*string{
 			jsii.String("@timestamp"),
 			jsii.String("@message"),
 		},
-		sort: jsii.String("@timestamp desc"),
-		limit: jsii.Number(20),
+		ParseStatements: []*string{
+			jsii.String("@message \"[*] *\" as loggingType, loggingMessage"),
+			jsii.String("@message \"<*>: *\" as differentLoggingType, differentLoggingMessage"),
+		},
+		FilterStatements: []*string{
+			jsii.String("loggingType = \"ERROR\""),
+			jsii.String("loggingMessage = \"A very strange error occurred!\""),
+		},
+		Sort: jsii.String("@timestamp desc"),
+		Limit: jsii.Number(20),
 	}),
 })
 ```

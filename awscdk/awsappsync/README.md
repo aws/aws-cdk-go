@@ -35,50 +35,50 @@ type Mutation {
 CDK stack file `app-stack.ts`:
 
 ```go
-api := appsync.NewGraphqlApi(this, jsii.String("Api"), &graphqlApiProps{
-	name: jsii.String("demo"),
-	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
-	authorizationConfig: &authorizationConfig{
-		defaultAuthorization: &authorizationMode{
-			authorizationType: appsync.authorizationType_IAM,
+api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
+	Name: jsii.String("demo"),
+	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+	AuthorizationConfig: &AuthorizationConfig{
+		DefaultAuthorization: &AuthorizationMode{
+			AuthorizationType: appsync.AuthorizationType_IAM,
 		},
 	},
-	xrayEnabled: jsii.Boolean(true),
+	XrayEnabled: jsii.Boolean(true),
 })
 
-demoTable := dynamodb.NewTable(this, jsii.String("DemoTable"), &tableProps{
-	partitionKey: &attribute{
-		name: jsii.String("id"),
-		type: dynamodb.attributeType_STRING,
+demoTable := dynamodb.NewTable(this, jsii.String("DemoTable"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
 	},
 })
 
-demoDS := api.addDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
+demoDS := api.AddDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
 
 // Resolver for the Query "getDemos" that scans the DynamoDb table and returns the entire list.
 // Resolver Mapping Template Reference:
 // https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html
-demoDS.createResolver(jsii.String("QueryGetDemosResolver"), &baseResolverProps{
-	typeName: jsii.String("Query"),
-	fieldName: jsii.String("getDemos"),
-	requestMappingTemplate: appsync.mappingTemplate.dynamoDbScanTable(),
-	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultList(),
+demoDS.CreateResolver(jsii.String("QueryGetDemosResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Query"),
+	FieldName: jsii.String("getDemos"),
+	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbScanTable(),
+	ResponseMappingTemplate: appsync.MappingTemplate_DynamoDbResultList(),
 })
 
 // Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
-demoDS.createResolver(jsii.String("MutationAddDemoResolver"), &baseResolverProps{
-	typeName: jsii.String("Mutation"),
-	fieldName: jsii.String("addDemo"),
-	requestMappingTemplate: appsync.*mappingTemplate.dynamoDbPutItem(appsync.primaryKey.partition(jsii.String("id")).auto(), appsync.values.projecting(jsii.String("input"))),
-	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultItem(),
+demoDS.CreateResolver(jsii.String("MutationAddDemoResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Mutation"),
+	FieldName: jsii.String("addDemo"),
+	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbPutItem(appsync.PrimaryKey_Partition(jsii.String("id")).Auto(), appsync.Values_Projecting(jsii.String("input"))),
+	ResponseMappingTemplate: appsync.MappingTemplate_DynamoDbResultItem(),
 })
 
 //To enable DynamoDB read consistency with the `MappingTemplate`:
-demoDS.createResolver(jsii.String("QueryGetDemosConsistentResolver"), &baseResolverProps{
-	typeName: jsii.String("Query"),
-	fieldName: jsii.String("getDemosConsistent"),
-	requestMappingTemplate: appsync.*mappingTemplate.dynamoDbScanTable(jsii.Boolean(true)),
-	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultList(),
+demoDS.CreateResolver(jsii.String("QueryGetDemosConsistentResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Query"),
+	FieldName: jsii.String("getDemosConsistent"),
+	RequestMappingTemplate: appsync.MappingTemplate_*DynamoDbScanTable(jsii.Boolean(true)),
+	ResponseMappingTemplate: appsync.MappingTemplate_*DynamoDbResultList(),
 })
 ```
 
@@ -92,39 +92,62 @@ against the Data API with GraphQL queries, mutations, and subscriptions.
 // Build a data source for AppSync to access the database.
 var api graphqlApi
 // Create username and password secret for DB Cluster
-secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
-	username: jsii.String("clusteradmin"),
+secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
+	Username: jsii.String("clusteradmin"),
 })
 
 // The VPC to place the cluster in
 vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
 
 // Create the serverless cluster, provide all values needed to customise the database.
-cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &serverlessClusterProps{
-	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
-	vpc: vpc,
-	credentials: map[string]*string{
+cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &ServerlessClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
+	Vpc: Vpc,
+	Credentials: map[string]*string{
 		"username": jsii.String("clusteradmin"),
 	},
-	clusterIdentifier: jsii.String("db-endpoint-test"),
-	defaultDatabaseName: jsii.String("demos"),
+	ClusterIdentifier: jsii.String("db-endpoint-test"),
+	DefaultDatabaseName: jsii.String("demos"),
 })
-rdsDS := api.addRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+rdsDS := api.AddRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
 
 // Set up a resolver for an RDS query.
-rdsDS.createResolver(jsii.String("QueryGetDemosRdsResolver"), &baseResolverProps{
-	typeName: jsii.String("Query"),
-	fieldName: jsii.String("getDemosRds"),
-	requestMappingTemplate: appsync.mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"SELECT * FROM demos\"\n    ]\n  }\n  ")),
-	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])\n  ")),
+rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Query"),
+	FieldName: jsii.String("getDemosRds"),
+	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
+	  {
+	    "version": "2018-05-29",
+	    "statements": [
+	      "SELECT * FROM demos"
+	    ]
+	  }
+	  `)),
+	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
+	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
+	  `)),
 })
 
 // Set up a resolver for an RDS mutation.
-rdsDS.createResolver(jsii.String("MutationAddDemoRdsResolver"), &baseResolverProps{
-	typeName: jsii.String("Mutation"),
-	fieldName: jsii.String("addDemoRds"),
-	requestMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"INSERT INTO demos VALUES (:id, :version)\",\n      \"SELECT * WHERE id = :id\"\n    ],\n    \"variableMap\": {\n      \":id\": $util.toJson($util.autoId()),\n      \":version\": $util.toJson($ctx.args.version)\n    }\n  }\n  ")),
-	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
+rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Mutation"),
+	FieldName: jsii.String("addDemoRds"),
+	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
+	  {
+	    "version": "2018-05-29",
+	    "statements": [
+	      "INSERT INTO demos VALUES (:id, :version)",
+	      "SELECT * WHERE id = :id"
+	    ],
+	    "variableMap": {
+	      ":id": $util.toJson($util.autoId()),
+	      ":version": $util.toJson($ctx.args.version)
+	    }
+	  }
+	  `)),
+	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
+	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
+	  `)),
 })
 ```
 
@@ -178,25 +201,25 @@ GraphQL response mapping template `response.vtl`:
 CDK stack file `app-stack.ts`:
 
 ```go
-api := appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-	name: jsii.String("api"),
-	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("api"),
+	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
 })
 
-httpDs := api.addHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &httpDataSourceOptions{
-	name: jsii.String("httpDsWithStepF"),
-	description: jsii.String("from appsync to StepFunctions Workflow"),
-	authorizationConfig: &awsIamConfig{
-		signingRegion: jsii.String("us-east-1"),
-		signingServiceName: jsii.String("states"),
+httpDs := api.AddHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &HttpDataSourceOptions{
+	Name: jsii.String("httpDsWithStepF"),
+	Description: jsii.String("from appsync to StepFunctions Workflow"),
+	AuthorizationConfig: &AwsIamConfig{
+		SigningRegion: jsii.String("us-east-1"),
+		SigningServiceName: jsii.String("states"),
 	},
 })
 
-httpDs.createResolver(jsii.String("MutationCallStepFunctionResolver"), &baseResolverProps{
-	typeName: jsii.String("Mutation"),
-	fieldName: jsii.String("callStepFunction"),
-	requestMappingTemplate: appsync.mappingTemplate.fromFile(jsii.String("request.vtl")),
-	responseMappingTemplate: appsync.*mappingTemplate.fromFile(jsii.String("response.vtl")),
+httpDs.CreateResolver(jsii.String("MutationCallStepFunctionResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Mutation"),
+	FieldName: jsii.String("callStepFunction"),
+	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
+	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
 })
 ```
 
@@ -208,30 +231,30 @@ use AppSync resolvers to perform GraphQL operations such as queries, mutations, 
 subscriptions.
 
 ```go
-import opensearch "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var api graphqlApi
 
 
 user := iam.NewUser(this, jsii.String("User"))
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-	version: opensearch.engineVersion_OPENSEARCH_2_3(),
-	removalPolicy: awscdk.RemovalPolicy_DESTROY,
-	fineGrainedAccessControl: &advancedSecurityOptions{
-		masterUserArn: user.userArn,
+domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+	FineGrainedAccessControl: &AdvancedSecurityOptions{
+		MasterUserArn: user.UserArn,
 	},
-	encryptionAtRest: &encryptionAtRestOptions{
-		enabled: jsii.Boolean(true),
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		Enabled: jsii.Boolean(true),
 	},
-	nodeToNodeEncryption: jsii.Boolean(true),
-	enforceHttps: jsii.Boolean(true),
+	NodeToNodeEncryption: jsii.Boolean(true),
+	EnforceHttps: jsii.Boolean(true),
 })
-ds := api.addOpenSearchDataSource(jsii.String("ds"), domain)
+ds := api.AddOpenSearchDataSource(jsii.String("ds"), domain)
 
-ds.createResolver(jsii.String("QueryGetTestsResolver"), &baseResolverProps{
-	typeName: jsii.String("Query"),
-	fieldName: jsii.String("getTests"),
-	requestMappingTemplate: appsync.mappingTemplate.fromString(jSON.stringify(map[string]interface{}{
+ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Query"),
+	FieldName: jsii.String("getTests"),
+	RequestMappingTemplate: appsync.MappingTemplate_FromString(jSON.stringify(map[string]interface{}{
 		"version": jsii.String("2017-02-28"),
 		"operation": jsii.String("GET"),
 		"path": jsii.String("/id/post/_search"),
@@ -246,7 +269,12 @@ ds.createResolver(jsii.String("QueryGetTestsResolver"), &baseResolverProps{
 			},
 		},
 	})),
-	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("[\n    #foreach($entry in $context.result.hits.hits)\n    #if( $velocityCount > 1 ) , #end\n    $utils.toJson($entry.get(\"_source\"))\n    #end\n  ]")),
+	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`[
+	    #foreach($entry in $context.result.hits.hits)
+	    #if( $velocityCount > 1 ) , #end
+	    $utils.toJson($entry.get("_source"))
+	    #end
+	  ]`)),
 })
 ```
 
@@ -257,7 +285,7 @@ GraphQL API. This can be done during the API creation.
 
 ```go
 import acm "github.com/aws/aws-cdk-go/awscdk"
-import route53 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 // hosted zone and route53 features
 var hostedZoneId string
@@ -265,33 +293,33 @@ zoneName := "example.com"
 
 
 myDomainName := "api.example.com"
-certificate := acm.NewCertificate(this, jsii.String("cert"), &certificateProps{
-	domainName: myDomainName,
+certificate := acm.NewCertificate(this, jsii.String("cert"), &CertificateProps{
+	DomainName: myDomainName,
 })
-schema := appsync.NewSchemaFile(&schemaProps{
-	filePath: jsii.String("mySchemaFile"),
+schema := appsync.NewSchemaFile(&SchemaProps{
+	FilePath: jsii.String("mySchemaFile"),
 })
-api := appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-	name: jsii.String("myApi"),
-	schema: schema,
-	domainName: &domainOptions{
-		certificate: certificate,
-		domainName: myDomainName,
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("myApi"),
+	Schema: Schema,
+	DomainName: &DomainOptions{
+		Certificate: *Certificate,
+		DomainName: myDomainName,
 	},
 })
 
 // hosted zone for adding appsync domain
-zone := route53.hostedZone.fromHostedZoneAttributes(this, jsii.String("HostedZone"), &hostedZoneAttributes{
-	hostedZoneId: jsii.String(hostedZoneId),
-	zoneName: jsii.String(zoneName),
+zone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("HostedZone"), &HostedZoneAttributes{
+	HostedZoneId: jsii.String(HostedZoneId),
+	ZoneName: jsii.String(ZoneName),
 })
 
 // create a cname to the appsync domain. will map to something like xxxx.cloudfront.net
 // create a cname to the appsync domain. will map to something like xxxx.cloudfront.net
-route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &cnameRecordProps{
-	recordName: jsii.String("api"),
-	zone: zone,
-	domainName: api.appSyncDomainName,
+route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &CnameRecordProps{
+	RecordName: jsii.String("api"),
+	Zone: Zone,
+	DomainName: api.appSyncDomainName,
 })
 ```
 
@@ -307,16 +335,16 @@ To obtain the GraphQL API's log group as a `logs.ILogGroup` use the `logGroup` p
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
 
-logConfig := &logConfig{
-	retention: logs.retentionDays_ONE_WEEK,
+logConfig := &LogConfig{
+	Retention: logs.RetentionDays_ONE_WEEK,
 }
 
-appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-	authorizationConfig: &authorizationConfig{
+appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	AuthorizationConfig: &AuthorizationConfig{
 	},
-	name: jsii.String("myApi"),
-	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
-	logConfig: logConfig,
+	Name: jsii.String("myApi"),
+	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
+	LogConfig: LogConfig,
 })
 ```
 
@@ -325,9 +353,9 @@ appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
 You can define a schema using from a local file using `SchemaFile.fromAsset`
 
 ```go
-api := appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-	name: jsii.String("myApi"),
-	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("schema.graphl"))),
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("myApi"),
+	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphl"))),
 })
 ```
 
@@ -347,11 +375,11 @@ the ability to add data sources and resolvers through a `IGraphqlApi` interface.
 var api graphqlApi
 var table table
 
-importedApi := appsync.graphqlApi.fromGraphqlApiAttributes(this, jsii.String("IApi"), &graphqlApiAttributes{
-	graphqlApiId: api.apiId,
-	graphqlApiArn: api.arn,
+importedApi := appsync.graphqlApi_FromGraphqlApiAttributes(this, jsii.String("IApi"), &GraphqlApiAttributes{
+	GraphqlApiId: api.ApiId,
+	GraphqlApiArn: api.Arn,
 })
-importedApi.addDynamoDbDataSource(jsii.String("TableDataSource"), table)
+importedApi.AddDynamoDbDataSource(jsii.String("TableDataSource"), table)
 ```
 
 If you don't specify `graphqlArn` in `fromXxxAttributes`, CDK will autogenerate
@@ -379,14 +407,14 @@ import lambda "github.com/aws/aws-cdk-go/awscdk"
 var authFunction function
 
 
-appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-	name: jsii.String("api"),
-	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
-	authorizationConfig: &authorizationConfig{
-		defaultAuthorization: &authorizationMode{
-			authorizationType: appsync.authorizationType_LAMBDA,
-			lambdaAuthorizerConfig: &lambdaAuthorizerConfig{
-				handler: authFunction,
+appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("api"),
+	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
+	AuthorizationConfig: &AuthorizationConfig{
+		DefaultAuthorization: &AuthorizationMode{
+			AuthorizationType: appsync.AuthorizationType_LAMBDA,
+			LambdaAuthorizerConfig: &LambdaAuthorizerConfig{
+				Handler: authFunction,
 			},
 		},
 	},
@@ -438,11 +466,11 @@ Use the `grant` function for more granular authorization.
 
 ```go
 var api graphqlApi
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 
-api.grant(role, appsync.iamResource.custom(jsii.String("types/Mutation/fields/updateExample")), jsii.String("appsync:GraphQL"))
+api.Grant(role, appsync.IamResource_Custom(jsii.String("types/Mutation/fields/updateExample")), jsii.String("appsync:GraphQL"))
 ```
 
 ### IamResource
@@ -469,10 +497,10 @@ var role role
 
 
 // For generic types
-api.grantMutation(role, jsii.String("updateExample"))
+api.GrantMutation(role, jsii.String("updateExample"))
 
 // For custom types and granular design
-api.grant(role, appsync.iamResource.ofType(jsii.String("Mutation"), jsii.String("updateExample")), jsii.String("appsync:GraphQL"))
+api.Grant(role, appsync.IamResource_OfType(jsii.String("Mutation"), jsii.String("updateExample")), jsii.String("appsync:GraphQL"))
 ```
 
 ## Pipeline Resolvers and AppSync Functions
@@ -485,12 +513,12 @@ them in sequence with Pipeline Resolvers.
 var api graphqlApi
 
 
-appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &appsyncFunctionProps{
-	name: jsii.String("appsync_function"),
-	api: api,
-	dataSource: api.addNoneDataSource(jsii.String("none")),
-	requestMappingTemplate: appsync.mappingTemplate.fromFile(jsii.String("request.vtl")),
-	responseMappingTemplate: appsync.*mappingTemplate.fromFile(jsii.String("response.vtl")),
+appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
+	Name: jsii.String("appsync_function"),
+	Api: Api,
+	DataSource: api.AddNoneDataSource(jsii.String("none")),
+	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
+	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
 })
 ```
 
@@ -502,16 +530,16 @@ var api graphqlApi
 var appsyncFunction appsyncFunction
 
 
-pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &resolverProps{
-	api: api,
-	dataSource: api.addNoneDataSource(jsii.String("none")),
-	typeName: jsii.String("typeName"),
-	fieldName: jsii.String("fieldName"),
-	requestMappingTemplate: appsync.mappingTemplate.fromFile(jsii.String("beforeRequest.vtl")),
-	pipelineConfig: []iAppsyncFunction{
+pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &ResolverProps{
+	Api: Api,
+	DataSource: api.AddNoneDataSource(jsii.String("none")),
+	TypeName: jsii.String("typeName"),
+	FieldName: jsii.String("fieldName"),
+	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
+	PipelineConfig: []iAppsyncFunction{
 		appsyncFunction,
 	},
-	responseMappingTemplate: appsync.*mappingTemplate.fromFile(jsii.String("afterResponse.vtl")),
+	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),
 })
 ```
 
@@ -523,21 +551,32 @@ JS Functions and resolvers are also supported. You can use a `.js` file within y
 var api graphqlApi
 
 
-myJsFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &appsyncFunctionProps{
-	name: jsii.String("my_js_function"),
-	api: api,
-	dataSource: api.addNoneDataSource(jsii.String("none")),
-	code: appsync.code.fromAsset(jsii.String("directory/function_code.js")),
-	runtime: appsync.functionRuntime_JS_1_0_0(),
+myJsFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
+	Name: jsii.String("my_js_function"),
+	Api: Api,
+	DataSource: api.AddNoneDataSource(jsii.String("none")),
+	Code: appsync.Code_FromAsset(jsii.String("directory/function_code.js")),
+	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
 })
 
-appsync.NewResolver(this, jsii.String("PipelineResolver"), &resolverProps{
-	api: api,
-	typeName: jsii.String("typeName"),
-	fieldName: jsii.String("fieldName"),
-	code: appsync.*code.fromInline(jsii.String("\n    // The before step\n    export function request(...args) {\n      console.log(args);\n      return {}\n    }\n\n    // The after step\n    export function response(ctx) {\n      return ctx.prev.result\n    }\n  ")),
-	runtime: appsync.*functionRuntime_JS_1_0_0(),
-	pipelineConfig: []iAppsyncFunction{
+appsync.NewResolver(this, jsii.String("PipelineResolver"), &ResolverProps{
+	Api: Api,
+	TypeName: jsii.String("typeName"),
+	FieldName: jsii.String("fieldName"),
+	Code: appsync.Code_FromInline(jsii.String(`
+	    // The before step
+	    export function request(...args) {
+	      console.log(args);
+	      return {}
+	    }
+
+	    // The after step
+	    export function response(ctx) {
+	      return ctx.prev.result
+	    }
+	  `)),
+	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
+	PipelineConfig: []iAppsyncFunction{
 		myJsFunction,
 	},
 })

@@ -11,10 +11,10 @@ pick the size of the fleet, the instance type and the OS image:
 var vpc vpc
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_MICRO),
-	machineImage: ec2.NewAmazonLinuxImage(),
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+	MachineImage: ec2.NewAmazonLinuxImage(),
 })
 ```
 
@@ -27,14 +27,14 @@ group to attach to the instances that are launched, rather than have the group c
 var vpc vpc
 
 
-mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &securityGroupProps{
-	vpc: vpc,
+mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
 })
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_MICRO),
-	machineImage: ec2.NewAmazonLinuxImage(),
-	securityGroup: mySecurityGroup,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+	MachineImage: ec2.NewAmazonLinuxImage(),
+	SecurityGroup: mySecurityGroup,
 })
 ```
 
@@ -45,9 +45,9 @@ var vpc vpc
 var launchTemplate launchTemplate
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	launchTemplate: launchTemplate,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	LaunchTemplate: launchTemplate,
 })
 ```
 
@@ -59,23 +59,23 @@ var launchTemplate1 launchTemplate
 var launchTemplate2 launchTemplate
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	mixedInstancesPolicy: &mixedInstancesPolicy{
-		instancesDistribution: &instancesDistribution{
-			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	MixedInstancesPolicy: &MixedInstancesPolicy{
+		InstancesDistribution: &InstancesDistribution{
+			OnDemandPercentageAboveBaseCapacity: jsii.Number(50),
 		},
-		launchTemplate: launchTemplate1,
-		launchTemplateOverrides: []launchTemplateOverrides{
+		LaunchTemplate: launchTemplate1,
+		LaunchTemplateOverrides: []launchTemplateOverrides{
 			&launchTemplateOverrides{
-				instanceType: ec2.NewInstanceType(jsii.String("t3.micro")),
+				InstanceType: ec2.NewInstanceType(jsii.String("t3.micro")),
 			},
 			&launchTemplateOverrides{
-				instanceType: ec2.NewInstanceType(jsii.String("t3a.micro")),
+				InstanceType: ec2.NewInstanceType(jsii.String("t3a.micro")),
 			},
 			&launchTemplateOverrides{
-				instanceType: ec2.NewInstanceType(jsii.String("t4g.micro")),
-				launchTemplate: launchTemplate2,
+				InstanceType: ec2.NewInstanceType(jsii.String("t4g.micro")),
+				LaunchTemplate: launchTemplate2,
 			},
 		},
 	},
@@ -94,15 +94,15 @@ selectable by instantiating one of these classes:
 
 ```go
 // Pick a Windows edition to use
-windows := ec2.NewWindowsImage(ec2.windowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE)
+windows := ec2.NewWindowsImage(ec2.WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE)
 
 // Pick the right Amazon Linux edition. All arguments shown are optional
 // and will default to these values when omitted.
-amznLinux := ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
-	generation: ec2.amazonLinuxGeneration_AMAZON_LINUX,
-	edition: ec2.amazonLinuxEdition_STANDARD,
-	virtualization: ec2.amazonLinuxVirt_HVM,
-	storage: ec2.amazonLinuxStorage_GENERAL_PURPOSE,
+amznLinux := ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
+	Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX,
+	Edition: ec2.AmazonLinuxEdition_STANDARD,
+	Virtualization: ec2.AmazonLinuxVirt_HVM,
+	Storage: ec2.AmazonLinuxStorage_GENERAL_PURPOSE,
 })
 
 // For other custom (Linux) images, instantiate a `GenericLinuxImage` with
@@ -151,13 +151,13 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
-	minCapacity: jsii.Number(5),
-	maxCapacity: jsii.Number(100),
+	MinCapacity: jsii.Number(5),
+	MaxCapacity: jsii.Number(100),
 })
 ```
 
@@ -187,31 +187,31 @@ you would configure the scaling something like this:
 var autoScalingGroup autoScalingGroup
 
 
-workerUtilizationMetric := cloudwatch.NewMetric(&metricProps{
-	namespace: jsii.String("MyService"),
-	metricName: jsii.String("WorkerUtilization"),
+workerUtilizationMetric := cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("MyService"),
+	MetricName: jsii.String("WorkerUtilization"),
 })
 
-autoScalingGroup.scaleOnMetric(jsii.String("ScaleToCPU"), &basicStepScalingPolicyProps{
-	metric: workerUtilizationMetric,
-	scalingSteps: []scalingInterval{
+autoScalingGroup.scaleOnMetric(jsii.String("ScaleToCPU"), &BasicStepScalingPolicyProps{
+	Metric: workerUtilizationMetric,
+	ScalingSteps: []scalingInterval{
 		&scalingInterval{
-			upper: jsii.Number(10),
-			change: -jsii.Number(1),
+			Upper: jsii.Number(10),
+			Change: -jsii.Number(1),
 		},
 		&scalingInterval{
-			lower: jsii.Number(50),
-			change: +jsii.Number(1),
+			Lower: jsii.Number(50),
+			Change: +jsii.Number(1),
 		},
 		&scalingInterval{
-			lower: jsii.Number(70),
-			change: +jsii.Number(3),
+			Lower: jsii.Number(70),
+			Change: +jsii.Number(3),
 		},
 	},
 
 	// Change this to AdjustmentType.PERCENT_CHANGE_IN_CAPACITY to interpret the
 	// 'change' numbers before as percentages instead of capacity counts.
-	adjustmentType: autoscaling.adjustmentType_CHANGE_IN_CAPACITY,
+	AdjustmentType: autoscaling.AdjustmentType_CHANGE_IN_CAPACITY,
 })
 ```
 
@@ -237,8 +237,8 @@ The following example scales to keep the CPU usage of your instances around
 var autoScalingGroup autoScalingGroup
 
 
-autoScalingGroup.scaleOnCpuUtilization(jsii.String("KeepSpareCPU"), &cpuUtilizationScalingProps{
-	targetUtilizationPercent: jsii.Number(50),
+autoScalingGroup.scaleOnCpuUtilization(jsii.String("KeepSpareCPU"), &CpuUtilizationScalingProps{
+	TargetUtilizationPercent: jsii.Number(50),
 })
 ```
 
@@ -248,11 +248,11 @@ To scale on average network traffic in and out of your instances:
 var autoScalingGroup autoScalingGroup
 
 
-autoScalingGroup.scaleOnIncomingBytes(jsii.String("LimitIngressPerInstance"), &networkUtilizationScalingProps{
-	targetBytesPerSecond: jsii.Number(10 * 1024 * 1024),
+autoScalingGroup.scaleOnIncomingBytes(jsii.String("LimitIngressPerInstance"), &NetworkUtilizationScalingProps{
+	TargetBytesPerSecond: jsii.Number(10 * 1024 * 1024),
 })
-autoScalingGroup.scaleOnOutgoingBytes(jsii.String("LimitEgressPerInstance"), &networkUtilizationScalingProps{
-	targetBytesPerSecond: jsii.Number(10 * 1024 * 1024),
+autoScalingGroup.scaleOnOutgoingBytes(jsii.String("LimitEgressPerInstance"), &NetworkUtilizationScalingProps{
+	TargetBytesPerSecond: jsii.Number(10 * 1024 * 1024),
 })
 ```
 
@@ -264,8 +264,8 @@ Balancers):
 var autoScalingGroup autoScalingGroup
 
 
-autoScalingGroup.scaleOnRequestCount(jsii.String("LimitRPS"), &requestCountScalingProps{
-	targetRequestsPerSecond: jsii.Number(1000),
+autoScalingGroup.scaleOnRequestCount(jsii.String("LimitRPS"), &RequestCountScalingProps{
+	TargetRequestsPerSecond: jsii.Number(1000),
 })
 ```
 
@@ -290,20 +290,20 @@ scaling (all the way down to 1 instance if necessary) at night:
 var autoScalingGroup autoScalingGroup
 
 
-autoScalingGroup.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &basicScheduledActionProps{
-	schedule: autoscaling.schedule.cron(&cronOptions{
-		hour: jsii.String("8"),
-		minute: jsii.String("0"),
+autoScalingGroup.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &BasicScheduledActionProps{
+	Schedule: autoscaling.Schedule_Cron(&CronOptions{
+		Hour: jsii.String("8"),
+		Minute: jsii.String("0"),
 	}),
-	minCapacity: jsii.Number(20),
+	MinCapacity: jsii.Number(20),
 })
 
-autoScalingGroup.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &basicScheduledActionProps{
-	schedule: autoscaling.*schedule.cron(&cronOptions{
-		hour: jsii.String("20"),
-		minute: jsii.String("0"),
+autoScalingGroup.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &BasicScheduledActionProps{
+	Schedule: autoscaling.Schedule_*Cron(&CronOptions{
+		Hour: jsii.String("20"),
+		Minute: jsii.String("0"),
 	}),
-	minCapacity: jsii.Number(1),
+	MinCapacity: jsii.Number(1),
 })
 ```
 
@@ -321,16 +321,16 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
-	blockDevices: []blockDevice{
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+	BlockDevices: []blockDevice{
 		&blockDevice{
-			deviceName: jsii.String("gp3-volume"),
-			volume: autoscaling.blockDeviceVolume.ebs(jsii.Number(15), &ebsDeviceOptions{
-				volumeType: autoscaling.ebsDeviceVolumeType_GP3,
-				throughput: jsii.Number(125),
+			DeviceName: jsii.String("gp3-volume"),
+			Volume: autoscaling.BlockDeviceVolume_Ebs(jsii.Number(15), &EbsDeviceOptions{
+				VolumeType: autoscaling.EbsDeviceVolumeType_GP3,
+				Throughput: jsii.Number(125),
 			}),
 		},
 	},
@@ -363,16 +363,16 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	init: ec2.cloudFormationInit.fromElements(ec2.initFile.fromString(jsii.String("/etc/my_instance"), jsii.String("This got written during instance startup"))),
-	signals: autoscaling.signals.waitForAll(&signalsOptions{
-		timeout: awscdk.Duration.minutes(jsii.Number(10)),
+	Init: ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/my_instance"), jsii.String("This got written during instance startup"))),
+	Signals: autoscaling.Signals_WaitForAll(&SignalsOptions{
+		Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
 	}),
 })
 ```
@@ -473,29 +473,29 @@ var machineImage iMachineImage
 
 // Enable monitoring of all group metrics
 // Enable monitoring of all group metrics
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	groupMetrics: []groupMetrics{
-		autoscaling.*groupMetrics.all(),
+	GroupMetrics: []groupMetrics{
+		autoscaling.*groupMetrics_All(),
 	},
 })
 
 // Enable monitoring for a subset of group metrics
 // Enable monitoring for a subset of group metrics
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	groupMetrics: []*groupMetrics{
-		autoscaling.NewGroupMetrics(autoscaling.groupMetric_MIN_SIZE(), autoscaling.*groupMetric_MAX_SIZE()),
+	GroupMetrics: []*groupMetrics{
+		autoscaling.NewGroupMetrics(autoscaling.GroupMetric_MIN_SIZE(), autoscaling.GroupMetric_MAX_SIZE()),
 	},
 })
 ```
@@ -513,14 +513,14 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	terminationPolicies: []terminationPolicy{
+	TerminationPolicies: []terminationPolicy{
 		autoscaling.*terminationPolicy_OLDEST_INSTANCE,
 		autoscaling.*terminationPolicy_DEFAULT,
 	},
@@ -544,14 +544,14 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	newInstancesProtectedFromScaleIn: jsii.Boolean(true),
+	NewInstancesProtectedFromScaleIn: jsii.Boolean(true),
 })
 ```
 
@@ -565,14 +565,14 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	capacityRebalance: jsii.Boolean(true),
+	CapacityRebalance: jsii.Boolean(true),
 })
 ```
 
@@ -592,14 +592,14 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	requireImdsv2: jsii.Boolean(true),
+	RequireImdsv2: jsii.Boolean(true),
 })
 ```
 
@@ -609,7 +609,7 @@ The example below demonstrates the `AutoScalingGroupRequireImdsv2Aspect` being u
 ```go
 aspect := autoscaling.NewAutoScalingGroupRequireImdsv2Aspect()
 
-awscdk.Aspects.of(this).add(aspect)
+awscdk.Aspects_Of(this).Add(aspect)
 ```
 
 ## Warm Pool
@@ -629,9 +629,9 @@ You can also customize a warm pool by configuring parameters:
 var autoScalingGroup autoScalingGroup
 
 
-autoScalingGroup.addWarmPool(&warmPoolOptions{
-	minSize: jsii.Number(1),
-	reuseOnScaleIn: jsii.Boolean(true),
+autoScalingGroup.addWarmPool(&WarmPoolOptions{
+	MinSize: jsii.Number(1),
+	ReuseOnScaleIn: jsii.Boolean(true),
 })
 ```
 
@@ -653,14 +653,14 @@ var instanceType instanceType
 var machineImage iMachineImage
 
 
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
 
 	// ...
 
-	defaultInstanceWarmup: awscdk.Duration.seconds(jsii.Number(5)),
+	DefaultInstanceWarmup: awscdk.Duration_Seconds(jsii.Number(5)),
 })
 ```
 

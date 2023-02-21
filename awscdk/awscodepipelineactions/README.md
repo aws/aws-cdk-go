@@ -15,22 +15,22 @@ To use a CodeCommit Repository in a CodePipeline:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-repo := codecommit.NewRepository(this, jsii.String("Repo"), &repositoryProps{
-	repositoryName: jsii.String("MyRepo"),
+repo := codecommit.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	RepositoryName: jsii.String("MyRepo"),
 })
 
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
-	pipelineName: jsii.String("MyPipeline"),
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
+	PipelineName: jsii.String("MyPipeline"),
 })
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("CodeCommit"),
-	repository: repo,
-	output: sourceOutput,
+sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("CodeCommit"),
+	Repository: repo,
+	Output: sourceOutput,
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Source"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Source"),
+	Actions: []iAction{
 		sourceAction,
 	},
 })
@@ -42,12 +42,12 @@ You can specify the role object in eventRole property.
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 var repo repository
-eventRole := iam.role.fromRoleArn(this, jsii.String("Event-role"), jsii.String("roleArn"))
-sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("CodeCommit"),
-	repository: repo,
-	output: codepipeline.NewArtifact(),
-	eventRole: eventRole,
+eventRole := iam.Role_FromRoleArn(this, jsii.String("Event-role"), jsii.String("roleArn"))
+sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("CodeCommit"),
+	Repository: repo,
+	Output: codepipeline.NewArtifact(),
+	EventRole: EventRole,
 })
 ```
 
@@ -60,19 +60,19 @@ var project pipelineProject
 var repo repository
 
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("CodeCommit"),
-	repository: repo,
-	output: sourceOutput,
-	codeBuildCloneOutput: jsii.Boolean(true),
+sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("CodeCommit"),
+	Repository: repo,
+	Output: sourceOutput,
+	CodeBuildCloneOutput: jsii.Boolean(true),
 })
 
-buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
+buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
 	 // The build action must use the CodeCommitSourceAction output as input.
-	outputs: []artifact{
+	Outputs: []artifact{
 		codepipeline.NewArtifact(),
 	},
 })
@@ -86,21 +86,21 @@ var project pipelineProject
 var repo repository
 
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("CodeCommit"),
-	repository: repo,
-	output: sourceOutput,
-	variablesNamespace: jsii.String("MyNamespace"),
+sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("CodeCommit"),
+	Repository: repo,
+	Output: sourceOutput,
+	VariablesNamespace: jsii.String("MyNamespace"),
 })
 
 // later:
 
 // later:
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"COMMIT_ID": &buildEnvironmentVariable{
 			"value": sourceAction.variables.commitId,
 		},
@@ -129,17 +129,17 @@ To use GitHub as the source of a CodePipeline:
 // Read the secret from Secrets Manager
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewGitHubSourceAction(&gitHubSourceActionProps{
-	actionName: jsii.String("GitHub_Source"),
-	owner: jsii.String("awslabs"),
-	repo: jsii.String("aws-cdk"),
-	oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
-	output: sourceOutput,
-	branch: jsii.String("develop"),
+sourceAction := codepipeline_actions.NewGitHubSourceAction(&GitHubSourceActionProps{
+	ActionName: jsii.String("GitHub_Source"),
+	Owner: jsii.String("awslabs"),
+	Repo: jsii.String("aws-cdk"),
+	OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
+	Output: sourceOutput,
+	Branch: jsii.String("develop"),
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Source"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Source"),
+	Actions: []iAction{
 		sourceAction,
 	},
 })
@@ -153,23 +153,23 @@ var sourceOutput artifact
 var project pipelineProject
 
 
-sourceAction := codepipeline_actions.NewGitHubSourceAction(&gitHubSourceActionProps{
-	actionName: jsii.String("Github_Source"),
-	output: sourceOutput,
-	owner: jsii.String("my-owner"),
-	repo: jsii.String("my-repo"),
-	oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
-	variablesNamespace: jsii.String("MyNamespace"),
+sourceAction := codepipeline_actions.NewGitHubSourceAction(&GitHubSourceActionProps{
+	ActionName: jsii.String("Github_Source"),
+	Output: sourceOutput,
+	Owner: jsii.String("my-owner"),
+	Repo: jsii.String("my-repo"),
+	OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
+	VariablesNamespace: jsii.String("MyNamespace"),
 })
 
 // later:
 
 // later:
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"COMMIT_URL": &buildEnvironmentVariable{
 			"value": sourceAction.variables.commitUrl,
 		},
@@ -196,12 +196,12 @@ the connection has already been created.
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&codeStarConnectionsSourceActionProps{
-	actionName: jsii.String("BitBucket_Source"),
-	owner: jsii.String("aws"),
-	repo: jsii.String("aws-cdk"),
-	output: sourceOutput,
-	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
+sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&CodeStarConnectionsSourceActionProps{
+	ActionName: jsii.String("BitBucket_Source"),
+	Owner: jsii.String("aws"),
+	Repo: jsii.String("aws-cdk"),
+	Output: sourceOutput,
+	ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
 })
 ```
 
@@ -216,23 +216,23 @@ var project project
 
 
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&codeStarConnectionsSourceActionProps{
-	actionName: jsii.String("BitBucket_Source"),
-	owner: jsii.String("aws"),
-	repo: jsii.String("aws-cdk"),
-	output: sourceOutput,
-	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
-	variablesNamespace: jsii.String("SomeSpace"),
+sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&CodeStarConnectionsSourceActionProps{
+	ActionName: jsii.String("BitBucket_Source"),
+	Owner: jsii.String("aws"),
+	Repo: jsii.String("aws-cdk"),
+	Output: sourceOutput,
+	ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
+	VariablesNamespace: jsii.String("SomeSpace"),
 })
 
 // later:
 
 // later:
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"COMMIT_ID": &buildEnvironmentVariable{
 			"value": sourceAction.variables.commitId,
 		},
@@ -246,21 +246,21 @@ To use an S3 Bucket as a source in CodePipeline:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-sourceBucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
-	versioned: jsii.Boolean(true),
+sourceBucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	Versioned: jsii.Boolean(true),
 })
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewS3SourceAction(&s3SourceActionProps{
-	actionName: jsii.String("S3Source"),
-	bucket: sourceBucket,
-	bucketKey: jsii.String("path/to/file.zip"),
-	output: sourceOutput,
+sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
+	ActionName: jsii.String("S3Source"),
+	Bucket: sourceBucket,
+	BucketKey: jsii.String("path/to/file.zip"),
+	Output: sourceOutput,
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Source"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Source"),
+	Actions: []iAction{
 		sourceAction,
 	},
 })
@@ -274,9 +274,9 @@ you can specify the region explicitly:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-sourceBucket := s3.bucket.fromBucketAttributes(this, jsii.String("SourceBucket"), &bucketAttributes{
-	bucketName: jsii.String("my-bucket"),
-	region: jsii.String("ap-southeast-1"),
+sourceBucket := s3.Bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
+	BucketName: jsii.String("my-bucket"),
+	Region: jsii.String("ap-southeast-1"),
 })
 ```
 
@@ -290,27 +290,27 @@ You can do it through the CDK:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var sourceBucket bucket
 
 sourceOutput := codepipeline.NewArtifact()
 key := "some/key.zip"
 trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
-trail.addS3EventSelector([]s3EventSelector{
+trail.AddS3EventSelector([]s3EventSelector{
 	&s3EventSelector{
-		bucket: sourceBucket,
-		objectPrefix: key,
+		Bucket: sourceBucket,
+		ObjectPrefix: key,
 	},
-}, &addEventSelectorOptions{
-	readWriteType: cloudtrail.readWriteType_WRITE_ONLY,
+}, &AddEventSelectorOptions{
+	ReadWriteType: cloudtrail.ReadWriteType_WRITE_ONLY,
 })
-sourceAction := codepipeline_actions.NewS3SourceAction(&s3SourceActionProps{
-	actionName: jsii.String("S3Source"),
-	bucketKey: key,
-	bucket: sourceBucket,
-	output: sourceOutput,
-	trigger: codepipeline_actions.s3Trigger_EVENTS,
+sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
+	ActionName: jsii.String("S3Source"),
+	BucketKey: key,
+	Bucket: sourceBucket,
+	Output: sourceOutput,
+	Trigger: codepipeline_actions.S3Trigger_EVENTS,
 })
 ```
 
@@ -324,18 +324,18 @@ var sourceBucket bucket
 var project pipelineProject
 key := "some/key.zip"
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewS3SourceAction(&s3SourceActionProps{
-	actionName: jsii.String("S3Source"),
-	bucketKey: key,
-	bucket: sourceBucket,
-	output: sourceOutput,
-	variablesNamespace: jsii.String("MyNamespace"),
+sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
+	ActionName: jsii.String("S3Source"),
+	BucketKey: key,
+	Bucket: sourceBucket,
+	Output: sourceOutput,
+	VariablesNamespace: jsii.String("MyNamespace"),
 })
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"VERSION_ID": &buildEnvironmentVariable{
 			"value": sourceAction.variables.versionId,
 		},
@@ -355,16 +355,16 @@ var ecrRepository repository
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewEcrSourceAction(&ecrSourceActionProps{
-	actionName: jsii.String("ECR"),
-	repository: ecrRepository,
-	imageTag: jsii.String("some-tag"),
+sourceAction := codepipeline_actions.NewEcrSourceAction(&EcrSourceActionProps{
+	ActionName: jsii.String("ECR"),
+	Repository: ecrRepository,
+	ImageTag: jsii.String("some-tag"),
 	 // optional, default: 'latest'
-	output: sourceOutput,
+	Output: sourceOutput,
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Source"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Source"),
+	Actions: []iAction{
 		sourceAction,
 	},
 })
@@ -382,17 +382,17 @@ var project pipelineProject
 
 
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewEcrSourceAction(&ecrSourceActionProps{
-	actionName: jsii.String("Source"),
-	output: sourceOutput,
-	repository: ecrRepository,
-	variablesNamespace: jsii.String("MyNamespace"),
+sourceAction := codepipeline_actions.NewEcrSourceAction(&EcrSourceActionProps{
+	ActionName: jsii.String("Source"),
+	Output: sourceOutput,
+	Repository: ecrRepository,
+	VariablesNamespace: jsii.String("MyNamespace"),
 })
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"IMAGE_URI": &buildEnvironmentVariable{
 			"value": sourceAction.variables.imageUri,
 		},
@@ -410,41 +410,41 @@ Example of a CodeBuild Project used in a Pipeline, alongside CodeCommit:
 // Example automatically generated from non-compiling source. May contain errors.
 var project pipelineProject
 
-repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &repositoryProps{
-	repositoryName: jsii.String("MyRepository"),
+repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("MyRepository"),
 })
 project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
 
 sourceOutput := codepipeline.NewArtifact()
-sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("CodeCommit"),
-	repository: repository,
-	output: sourceOutput,
+sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("CodeCommit"),
+	Repository: Repository,
+	Output: sourceOutput,
 })
-buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	outputs: []artifact{
+buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	Outputs: []artifact{
 		codepipeline.NewArtifact(),
 	},
 	 // optional
-	executeBatchBuild: jsii.Boolean(true),
+	ExecuteBatchBuild: jsii.Boolean(true),
 	 // optional, defaults to false
-	combineBatchBuildArtifacts: jsii.Boolean(true),
+	CombineBatchBuildArtifacts: jsii.Boolean(true),
 })
 
-codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
-	stages: []stageProps{
+codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
+	Stages: []stageProps{
 		&stageProps{
-			stageName: jsii.String("Source"),
-			actions: []iAction{
+			StageName: jsii.String("Source"),
+			Actions: []iAction{
 				sourceAction,
 			},
 		},
 		&stageProps{
-			stageName: jsii.String("Build"),
-			actions: []*iAction{
+			StageName: jsii.String("Build"),
+			Actions: []*iAction{
 				buildAction,
 			},
 		},
@@ -461,11 +461,11 @@ override the `type` property:
 var project pipelineProject
 
 sourceOutput := codepipeline.NewArtifact()
-testAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("IntegrationTest"),
-	project: project,
-	input: sourceOutput,
-	type: codepipeline_actions.codeBuildActionType_TEST,
+testAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("IntegrationTest"),
+	Project: Project,
+	Input: sourceOutput,
+	Type: codepipeline_actions.CodeBuildActionType_TEST,
 })
 ```
 
@@ -485,25 +485,25 @@ var repository2 repository
 var project pipelineProject
 
 sourceOutput1 := codepipeline.NewArtifact()
-sourceAction1 := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("Source1"),
-	repository: repository1,
-	output: sourceOutput1,
+sourceAction1 := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("Source1"),
+	Repository: repository1,
+	Output: sourceOutput1,
 })
 sourceOutput2 := codepipeline.NewArtifact(jsii.String("source2"))
-sourceAction2 := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("Source2"),
-	repository: repository2,
-	output: sourceOutput2,
+sourceAction2 := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("Source2"),
+	Repository: repository2,
+	Output: sourceOutput2,
 })
-buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("Build"),
-	project: project,
-	input: sourceOutput1,
-	extraInputs: []artifact{
+buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("Build"),
+	Project: Project,
+	Input: sourceOutput1,
+	ExtraInputs: []artifact{
 		sourceOutput2,
 	},
-	outputs: []*artifact{
+	Outputs: []*artifact{
 		codepipeline.NewArtifact(jsii.String("artifact1")),
 		 // for better buildspec readability - see below
 		codepipeline.NewArtifact(jsii.String("artifact2")),
@@ -521,8 +521,8 @@ Example buildspec for the above project:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-project := codebuild.NewPipelineProject(this, jsii.String("MyProject"), &pipelineProjectProps{
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+project := codebuild.NewPipelineProject(this, jsii.String("MyProject"), &PipelineProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]interface{}{
 			"build": map[string][]interface{}{
@@ -555,11 +555,11 @@ Example:
 // later:
 var project pipelineProject
 sourceOutput := codepipeline.NewArtifact()
-buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("Build1"),
-	input: sourceOutput,
-	project: codebuild.NewPipelineProject(this, jsii.String("Project"), &pipelineProjectProps{
-		buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("Build1"),
+	Input: sourceOutput,
+	Project: codebuild.NewPipelineProject(this, jsii.String("Project"), &PipelineProjectProps{
+		BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 			"version": jsii.String("0.2"),
 			"env": map[string][]*string{
 				"exported-variables": []*string{
@@ -573,13 +573,13 @@ buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
 			},
 		}),
 	}),
-	variablesNamespace: jsii.String("MyNamespace"),
+	VariablesNamespace: jsii.String("MyNamespace"),
 })
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"MyVar": &buildEnvironmentVariable{
 			"value": buildAction.variable(jsii.String("MY_VAR")),
 		},
@@ -594,10 +594,10 @@ you first need to create a `JenkinsProvider`:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-jenkinsProvider := codepipeline_actions.NewJenkinsProvider(this, jsii.String("JenkinsProvider"), &jenkinsProviderProps{
-	providerName: jsii.String("MyJenkinsProvider"),
-	serverUrl: jsii.String("http://my-jenkins.com:8080"),
-	version: jsii.String("2"),
+jenkinsProvider := codepipeline_actions.NewJenkinsProvider(this, jsii.String("JenkinsProvider"), &JenkinsProviderProps{
+	ProviderName: jsii.String("MyJenkinsProvider"),
+	ServerUrl: jsii.String("http://my-jenkins.com:8080"),
+	Version: jsii.String("2"),
 })
 ```
 
@@ -607,10 +607,10 @@ you can import it:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-jenkinsProvider := codepipeline_actions.jenkinsProvider.fromJenkinsProviderAttributes(this, jsii.String("JenkinsProvider"), &jenkinsProviderAttributes{
-	providerName: jsii.String("MyJenkinsProvider"),
-	serverUrl: jsii.String("http://my-jenkins.com:8080"),
-	version: jsii.String("2"),
+jenkinsProvider := codepipeline_actions.JenkinsProvider_FromJenkinsProviderAttributes(this, jsii.String("JenkinsProvider"), &JenkinsProviderAttributes{
+	ProviderName: jsii.String("MyJenkinsProvider"),
+	ServerUrl: jsii.String("http://my-jenkins.com:8080"),
+	Version: jsii.String("2"),
 })
 ```
 
@@ -626,11 +626,11 @@ we can create a Jenkins Action:
 // Example automatically generated from non-compiling source. May contain errors.
 var jenkinsProvider jenkinsProvider
 
-buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
-	actionName: jsii.String("JenkinsBuild"),
-	jenkinsProvider: jenkinsProvider,
-	projectName: jsii.String("MyProject"),
-	type: codepipeline_actions.jenkinsActionType_BUILD,
+buildAction := codepipeline_actions.NewJenkinsAction(&JenkinsActionProps{
+	ActionName: jsii.String("JenkinsBuild"),
+	JenkinsProvider: jenkinsProvider,
+	ProjectName: jsii.String("MyProject"),
+	Type: codepipeline_actions.JenkinsActionType_BUILD,
 })
 ```
 
@@ -645,15 +645,15 @@ directly from a CodeCommit repository, with a manual approval step in between to
 
 ```go
 // Source stage: read from repository
-repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
-	repositoryName: jsii.String("template-repo"),
+repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &RepositoryProps{
+	RepositoryName: jsii.String("template-repo"),
 })
 sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
-source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	actionName: jsii.String("Source"),
-	repository: repo,
-	output: sourceOutput,
-	trigger: cpactions.codeCommitTrigger_POLL,
+source := cpactions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("Source"),
+	Repository: repo,
+	Output: sourceOutput,
+	Trigger: cpactions.CodeCommitTrigger_POLL,
 })
 sourceStage := map[string]interface{}{
 	"stageName": jsii.String("Source"),
@@ -690,8 +690,8 @@ prodStage := map[string]interface{}{
 	},
 }
 
-codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
-	stages: []stageProps{
+codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &PipelineProps{
+	Stages: []stageProps{
 		sourceStage,
 		prodStage,
 	},
@@ -737,20 +737,20 @@ var pipeline pipeline
 var sourceOutput artifact
 
 
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("DeployStackSets"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("DeployStackSets"),
+	Actions: []iAction{
 		// First, update the StackSet itself with the newest template
-		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
-			actionName: jsii.String("UpdateStackSet"),
-			runOrder: jsii.Number(1),
-			stackSetName: jsii.String("MyStackSet"),
-			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+		codepipeline_actions.NewCloudFormationDeployStackSetAction(&CloudFormationDeployStackSetActionProps{
+			ActionName: jsii.String("UpdateStackSet"),
+			RunOrder: jsii.Number(1),
+			StackSetName: jsii.String("MyStackSet"),
+			Template: codepipeline_actions.StackSetTemplate_FromArtifactPath(sourceOutput.AtPath(jsii.String("template.yaml"))),
 
 			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
-			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+			DeploymentModel: codepipeline_actions.StackSetDeploymentModel_SelfManaged(),
 			// This deploys to a set of accounts
-			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+			StackInstances: codepipeline_actions.StackInstances_InAccounts([]*string{
 				jsii.String("111111111111"),
 			}, []*string{
 				jsii.String("us-east-1"),
@@ -759,11 +759,11 @@ pipeline.addStage(&stageOptions{
 		}),
 
 		// Afterwards, update/create additional instances in other accounts
-		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
-			actionName: jsii.String("AddMoreInstances"),
-			runOrder: jsii.Number(2),
-			stackSetName: jsii.String("MyStackSet"),
-			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&CloudFormationDeployStackInstancesActionProps{
+			ActionName: jsii.String("AddMoreInstances"),
+			RunOrder: jsii.Number(2),
+			StackSetName: jsii.String("MyStackSet"),
+			StackInstances: codepipeline_actions.StackInstances_*InAccounts([]*string{
 				jsii.String("222222222222"),
 				jsii.String("333333333333"),
 			}, []*string{
@@ -786,11 +786,11 @@ using a CloudFormation CodePipeline Action. Example:
 
 ```go
 lambdaStack := cdk.NewStack(app, jsii.String("LambdaStack"))
-lambdaCode := lambda.code.fromCfnParameters()
-lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &functionProps{
-	code: lambdaCode,
-	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
+lambdaCode := lambda.Code_FromCfnParameters()
+lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &FunctionProps{
+	Code: lambdaCode,
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
 })
 // other resources that your Lambda needs, added to the lambdaStack...
 
@@ -800,24 +800,24 @@ pipeline := codepipeline.NewPipeline(pipelineStack, jsii.String("Pipeline"))
 // add the source code repository containing this code to your Pipeline,
 // and the source code of the Lambda Function, if they're separate
 cdkSourceOutput := codepipeline.NewArtifact()
-cdkSourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	repository: codecommit.NewRepository(pipelineStack, jsii.String("CdkCodeRepo"), &repositoryProps{
-		repositoryName: jsii.String("CdkCodeRepo"),
+cdkSourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	Repository: codecommit.NewRepository(pipelineStack, jsii.String("CdkCodeRepo"), &RepositoryProps{
+		RepositoryName: jsii.String("CdkCodeRepo"),
 	}),
-	actionName: jsii.String("CdkCode_Source"),
-	output: cdkSourceOutput,
+	ActionName: jsii.String("CdkCode_Source"),
+	Output: cdkSourceOutput,
 })
 lambdaSourceOutput := codepipeline.NewArtifact()
-lambdaSourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-	repository: codecommit.NewRepository(pipelineStack, jsii.String("LambdaCodeRepo"), &repositoryProps{
-		repositoryName: jsii.String("LambdaCodeRepo"),
+lambdaSourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	Repository: codecommit.NewRepository(pipelineStack, jsii.String("LambdaCodeRepo"), &RepositoryProps{
+		RepositoryName: jsii.String("LambdaCodeRepo"),
 	}),
-	actionName: jsii.String("LambdaCode_Source"),
-	output: lambdaSourceOutput,
+	ActionName: jsii.String("LambdaCode_Source"),
+	Output: lambdaSourceOutput,
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Source"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Source"),
+	Actions: []iAction{
 		cdkSourceAction,
 		lambdaSourceAction,
 	},
@@ -826,11 +826,11 @@ pipeline.addStage(&stageOptions{
 // synthesize the Lambda CDK template, using CodeBuild
 // the below values are just examples, assuming your CDK code is in TypeScript/JavaScript -
 // adjust the build environment and/or commands accordingly
-cdkBuildProject := codebuild.NewProject(pipelineStack, jsii.String("CdkBuildProject"), &projectProps{
-	environment: &buildEnvironment{
-		buildImage: codebuild.linuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
+cdkBuildProject := codebuild.NewProject(pipelineStack, jsii.String("CdkBuildProject"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.LinuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
 	},
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string]*string{
 			"install": map[string]*string{
@@ -849,11 +849,11 @@ cdkBuildProject := codebuild.NewProject(pipelineStack, jsii.String("CdkBuildProj
 	}),
 })
 cdkBuildOutput := codepipeline.NewArtifact()
-cdkBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CDK_Build"),
-	project: cdkBuildProject,
-	input: cdkSourceOutput,
-	outputs: []artifact{
+cdkBuildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CDK_Build"),
+	Project: cdkBuildProject,
+	Input: cdkSourceOutput,
+	Outputs: []artifact{
 		cdkBuildOutput,
 	},
 })
@@ -861,11 +861,11 @@ cdkBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
 // build your Lambda code, using CodeBuild
 // again, this example assumes your Lambda is written in TypeScript/JavaScript -
 // make sure to adjust the build environment and/or commands if they don't match your specific situation
-lambdaBuildProject := codebuild.NewProject(pipelineStack, jsii.String("LambdaBuildProject"), &projectProps{
-	environment: &buildEnvironment{
-		buildImage: codebuild.*linuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
+lambdaBuildProject := codebuild.NewProject(pipelineStack, jsii.String("LambdaBuildProject"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.LinuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
 	},
-	buildSpec: codebuild.*buildSpec.fromObject(map[string]interface{}{
+	BuildSpec: codebuild.BuildSpec_*FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string]*string{
 			"install": map[string]*string{
@@ -884,34 +884,34 @@ lambdaBuildProject := codebuild.NewProject(pipelineStack, jsii.String("LambdaBui
 	}),
 })
 lambdaBuildOutput := codepipeline.NewArtifact()
-lambdaBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("Lambda_Build"),
-	project: lambdaBuildProject,
-	input: lambdaSourceOutput,
-	outputs: []*artifact{
+lambdaBuildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("Lambda_Build"),
+	Project: lambdaBuildProject,
+	Input: lambdaSourceOutput,
+	Outputs: []*artifact{
 		lambdaBuildOutput,
 	},
 })
 
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Build"),
-	actions: []*iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Build"),
+	Actions: []*iAction{
 		cdkBuildAction,
 		lambdaBuildAction,
 	},
 })
 
 // finally, deploy your Lambda Stack
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Deploy"),
-	actions: []*iAction{
-		codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
-			actionName: jsii.String("Lambda_CFN_Deploy"),
-			templatePath: cdkBuildOutput.atPath(jsii.String("LambdaStack.template.yaml")),
-			stackName: jsii.String("LambdaStackDeployedName"),
-			adminPermissions: jsii.Boolean(true),
-			parameterOverrides: lambdaCode.assign(lambdaBuildOutput.s3Location),
-			extraInputs: []*artifact{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []*iAction{
+		codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
+			ActionName: jsii.String("Lambda_CFN_Deploy"),
+			TemplatePath: cdkBuildOutput.AtPath(jsii.String("LambdaStack.template.yaml")),
+			StackName: jsii.String("LambdaStackDeployedName"),
+			AdminPermissions: jsii.Boolean(true),
+			ParameterOverrides: lambdaCode.Assign(lambdaBuildOutput.s3Location),
+			ExtraInputs: []*artifact{
 				lambdaBuildOutput,
 			},
 		}),
@@ -927,12 +927,12 @@ pass the `account` property when creating the action:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
-codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
-	actionName: jsii.String("CloudFormationCreateUpdate"),
-	stackName: jsii.String("MyStackName"),
-	adminPermissions: jsii.Boolean(true),
-	templatePath: sourceOutput.atPath(jsii.String("template.yaml")),
-	account: jsii.String("123456789012"),
+codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
+	ActionName: jsii.String("CloudFormationCreateUpdate"),
+	StackName: jsii.String("MyStackName"),
+	AdminPermissions: jsii.Boolean(true),
+	TemplatePath: sourceOutput.AtPath(jsii.String("template.yaml")),
+	Account: jsii.String("123456789012"),
 })
 ```
 
@@ -951,20 +951,20 @@ import "github.com/aws/aws-cdk-go/awscdk"
 // in stack for account 123456789012...
 var otherAccountStack stack
 
-actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &roleProps{
-	assumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
+actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &RoleProps{
+	AssumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
 	// the role has to have a physical name set
-	roleName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
+	RoleName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 })
 
 // in the pipeline stack...
 sourceOutput := codepipeline.NewArtifact()
-codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
-	actionName: jsii.String("CloudFormationCreateUpdate"),
-	stackName: jsii.String("MyStackName"),
-	adminPermissions: jsii.Boolean(true),
-	templatePath: sourceOutput.atPath(jsii.String("template.yaml")),
-	role: actionRole,
+codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
+	ActionName: jsii.String("CloudFormationCreateUpdate"),
+	StackName: jsii.String("MyStackName"),
+	AdminPermissions: jsii.Boolean(true),
+	TemplatePath: sourceOutput.AtPath(jsii.String("template.yaml")),
+	Role: actionRole,
 })
 ```
 
@@ -977,20 +977,20 @@ To use CodeDeploy for EC2/on-premise deployments in a Pipeline:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 var deploymentGroup serverDeploymentGroup
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
-	pipelineName: jsii.String("MyPipeline"),
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
+	PipelineName: jsii.String("MyPipeline"),
 })
 
 // add the source and build Stages to the Pipeline...
 buildOutput := codepipeline.NewArtifact()
-deployAction := codepipeline_actions.NewCodeDeployServerDeployAction(&codeDeployServerDeployActionProps{
-	actionName: jsii.String("CodeDeploy"),
-	input: buildOutput,
-	deploymentGroup: deploymentGroup,
+deployAction := codepipeline_actions.NewCodeDeployServerDeployAction(&CodeDeployServerDeployActionProps{
+	ActionName: jsii.String("CodeDeploy"),
+	Input: buildOutput,
+	DeploymentGroup: DeploymentGroup,
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Deploy"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []iAction{
 		deployAction,
 	},
 })
@@ -1002,22 +1002,22 @@ To use CodeDeploy for blue-green Lambda deployments in a Pipeline:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-lambdaCode := lambda.code.fromCfnParameters()
-func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
-	code: lambdaCode,
-	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
+lambdaCode := lambda.Code_FromCfnParameters()
+func := lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
+	Code: lambdaCode,
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
 })
 // used to make sure each CDK synthesis produces a different Version
 version := func.currentVersion
-alias := lambda.NewAlias(this, jsii.String("LambdaAlias"), &aliasProps{
-	aliasName: jsii.String("Prod"),
-	version: version,
+alias := lambda.NewAlias(this, jsii.String("LambdaAlias"), &AliasProps{
+	AliasName: jsii.String("Prod"),
+	Version: Version,
 })
 
-codedeploy.NewLambdaDeploymentGroup(this, jsii.String("DeploymentGroup"), &lambdaDeploymentGroupProps{
-	alias: alias,
-	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
+codedeploy.NewLambdaDeploymentGroup(this, jsii.String("DeploymentGroup"), &LambdaDeploymentGroupProps{
+	Alias: Alias,
+	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 })
 ```
 
@@ -1039,21 +1039,21 @@ var service fargateService
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 buildOutput := codepipeline.NewArtifact()
-deployStage := pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Deploy"),
-	actions: []iAction{
-		codepipeline_actions.NewEcsDeployAction(&ecsDeployActionProps{
-			actionName: jsii.String("DeployAction"),
-			service: service,
+deployStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []iAction{
+		codepipeline_actions.NewEcsDeployAction(&EcsDeployActionProps{
+			ActionName: jsii.String("DeployAction"),
+			Service: *Service,
 			// if your file is called imagedefinitions.json,
 			// use the `input` property,
 			// and leave out the `imageFile` property
-			input: buildOutput,
+			Input: buildOutput,
 			// if your file name is _not_ imagedefinitions.json,
 			// use the `imageFile` property,
 			// and leave out the `input` property
-			imageFile: buildOutput.atPath(jsii.String("imageDef.json")),
-			deploymentTimeout: awscdk.Duration.minutes(jsii.Number(60)),
+			ImageFile: buildOutput.AtPath(jsii.String("imageDef.json")),
+			DeploymentTimeout: awscdk.Duration_Minutes(jsii.Number(60)),
 		}),
 	},
 })
@@ -1070,17 +1070,17 @@ This also works if the service is in a different account and/or region than the 
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
 
-service := ecs.baseService.fromServiceArnWithCluster(this, jsii.String("EcsService"), jsii.String("arn:aws:ecs:us-east-1:123456789012:service/myClusterName/myServiceName"))
+service := ecs.BaseService_FromServiceArnWithCluster(this, jsii.String("EcsService"), jsii.String("arn:aws:ecs:us-east-1:123456789012:service/myClusterName/myServiceName"))
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 buildOutput := codepipeline.NewArtifact()
 // add source and build stages to the pipeline as usual...
-deployStage := pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Deploy"),
-	actions: []iAction{
-		codepipeline_actions.NewEcsDeployAction(&ecsDeployActionProps{
-			actionName: jsii.String("DeployAction"),
-			service: service,
-			input: buildOutput,
+deployStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []iAction{
+		codepipeline_actions.NewEcsDeployAction(&EcsDeployActionProps{
+			ActionName: jsii.String("DeployAction"),
+			Service: service,
+			Input: buildOutput,
 		}),
 	},
 })
@@ -1125,19 +1125,19 @@ func NewEcsAppStack(scope construct, id *string, props ecsAppStackProps) *EcsApp
 	this := &EcsAppStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
-	taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDefinition"), &taskDefinitionProps{
-		compatibility: ecs.compatibility_FARGATE,
-		cpu: jsii.String("1024"),
-		memoryMiB: jsii.String("2048"),
+	taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDefinition"), &TaskDefinitionProps{
+		Compatibility: ecs.Compatibility_FARGATE,
+		Cpu: jsii.String("1024"),
+		MemoryMiB: jsii.String("2048"),
 	})
-	taskDefinition.addContainer(jsii.String("AppContainer"), &containerDefinitionOptions{
-		image: props.image,
+	taskDefinition.AddContainer(jsii.String("AppContainer"), &ContainerDefinitionOptions{
+		Image: props.image,
 	})
-	ecs.NewFargateService(this, jsii.String("EcsService"), &fargateServiceProps{
-		taskDefinition: taskDefinition,
-		cluster: ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-			vpc: ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
-				maxAzs: jsii.Number(1),
+	ecs.NewFargateService(this, jsii.String("EcsService"), &FargateServiceProps{
+		TaskDefinition: TaskDefinition,
+		Cluster: ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+			Vpc: ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+				MaxAzs: jsii.Number(1),
 			}),
 		}),
 	})
@@ -1161,12 +1161,12 @@ func NewPipelineStack(scope construct, id *string, props stackProps) *PipelineSt
 	// this is the ECR repository where the built Docker image will be pushed
 	appEcrRepo := ecr.NewRepository(this, jsii.String("EcsDeployRepository"))
 	// the build that creates the Docker image, and pushes it to the ECR repo
-	appCodeDockerBuild := codebuild.NewPipelineProject(this, jsii.String("AppCodeDockerImageBuildAndPushProject"), &pipelineProjectProps{
-		environment: &buildEnvironment{
+	appCodeDockerBuild := codebuild.NewPipelineProject(this, jsii.String("AppCodeDockerImageBuildAndPushProject"), &PipelineProjectProps{
+		Environment: &BuildEnvironment{
 			// we need to run Docker
-			privileged: jsii.Boolean(true),
+			Privileged: jsii.Boolean(true),
 		},
-		buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+		BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 			"version": jsii.String("0.2"),
 			"phases": map[string]map[string][]*string{
 				"build": map[string][]*string{
@@ -1189,19 +1189,19 @@ func NewPipelineStack(scope construct, id *string, props stackProps) *PipelineSt
 				},
 			},
 		}),
-		environmentVariables: map[string]buildEnvironmentVariable{
+		EnvironmentVariables: map[string]buildEnvironmentVariable{
 			"REPOSITORY_URI": &buildEnvironmentVariable{
 				"value": appEcrRepo.repositoryUri,
 			},
 		},
 	})
 	// needed for `docker push`
-	appEcrRepo.grantPullPush(appCodeDockerBuild)
+	appEcrRepo.GrantPullPush(appCodeDockerBuild)
 	// create the ContainerImage used for the ECS application Stack
 	this.tagParameterContainerImage = ecs.NewTagParameterContainerImage(appEcrRepo)
 
-	cdkCodeBuild := codebuild.NewPipelineProject(this, jsii.String("CdkCodeBuildProject"), &pipelineProjectProps{
-		buildSpec: codebuild.*buildSpec.fromObject(map[string]interface{}{
+	cdkCodeBuild := codebuild.NewPipelineProject(this, jsii.String("CdkCodeBuildProject"), &PipelineProjectProps{
+		BuildSpec: codebuild.BuildSpec_*FromObject(map[string]interface{}{
 			"version": jsii.String("0.2"),
 			"phases": map[string]map[string][]*string{
 				"install": map[string][]*string{
@@ -1228,62 +1228,62 @@ func NewPipelineStack(scope construct, id *string, props stackProps) *PipelineSt
 	appCodeSourceOutput := codepipeline.NewArtifact()
 	cdkCodeSourceOutput := codepipeline.NewArtifact()
 	cdkCodeBuildOutput := codepipeline.NewArtifact()
-	appCodeBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-		actionName: jsii.String("AppCodeDockerImageBuildAndPush"),
-		project: appCodeDockerBuild,
-		input: appCodeSourceOutput,
+	appCodeBuildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+		ActionName: jsii.String("AppCodeDockerImageBuildAndPush"),
+		Project: appCodeDockerBuild,
+		Input: appCodeSourceOutput,
 	})
-	codepipeline.NewPipeline(this, jsii.String("CodePipelineDeployingEcsApplication"), &pipelineProps{
-		artifactBucket: s3.NewBucket(this, jsii.String("ArtifactBucket"), &bucketProps{
-			removalPolicy: cdk.removalPolicy_DESTROY,
+	codepipeline.NewPipeline(this, jsii.String("CodePipelineDeployingEcsApplication"), &PipelineProps{
+		ArtifactBucket: s3.NewBucket(this, jsii.String("ArtifactBucket"), &BucketProps{
+			RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 		}),
-		stages: []stageProps{
+		Stages: []stageProps{
 			&stageProps{
-				stageName: jsii.String("Source"),
-				actions: []iAction{
+				StageName: jsii.String("Source"),
+				Actions: []iAction{
 					// this is the Action that takes the source of your application code
-					codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-						actionName: jsii.String("AppCodeSource"),
-						repository: codecommit.NewRepository(this, jsii.String("AppCodeSourceRepository"), &repositoryProps{
-							repositoryName: jsii.String("AppCodeSourceRepository"),
+					codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+						ActionName: jsii.String("AppCodeSource"),
+						Repository: codecommit.NewRepository(this, jsii.String("AppCodeSourceRepository"), &RepositoryProps{
+							RepositoryName: jsii.String("AppCodeSourceRepository"),
 						}),
-						output: appCodeSourceOutput,
+						Output: appCodeSourceOutput,
 					}),
 					// this is the Action that takes the source of your CDK code
 					// (which would probably include this Pipeline code as well)
-					codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
-						actionName: jsii.String("CdkCodeSource"),
-						repository: codecommit.NewRepository(this, jsii.String("CdkCodeSourceRepository"), &repositoryProps{
-							repositoryName: jsii.String("CdkCodeSourceRepository"),
+					codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+						ActionName: jsii.String("CdkCodeSource"),
+						Repository: codecommit.NewRepository(this, jsii.String("CdkCodeSourceRepository"), &RepositoryProps{
+							RepositoryName: jsii.String("CdkCodeSourceRepository"),
 						}),
-						output: cdkCodeSourceOutput,
+						Output: cdkCodeSourceOutput,
 					}),
 				},
 			},
 			&stageProps{
-				stageName: jsii.String("Build"),
-				actions: []*iAction{
+				StageName: jsii.String("Build"),
+				Actions: []*iAction{
 					appCodeBuildAction,
-					codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-						actionName: jsii.String("CdkCodeBuildAndSynth"),
-						project: cdkCodeBuild,
-						input: cdkCodeSourceOutput,
-						outputs: []artifact{
+					codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+						ActionName: jsii.String("CdkCodeBuildAndSynth"),
+						Project: cdkCodeBuild,
+						Input: cdkCodeSourceOutput,
+						Outputs: []artifact{
 							cdkCodeBuildOutput,
 						},
 					}),
 				},
 			},
 			&stageProps{
-				stageName: jsii.String("Deploy"),
-				actions: []*iAction{
-					codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
-						actionName: jsii.String("CFN_Deploy"),
-						stackName: jsii.String("SampleEcsStackDeployedFromCodePipeline"),
+				StageName: jsii.String("Deploy"),
+				Actions: []*iAction{
+					codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
+						ActionName: jsii.String("CFN_Deploy"),
+						StackName: jsii.String("SampleEcsStackDeployedFromCodePipeline"),
 						// this name has to be the same name as used below in the CDK code for the application Stack
-						templatePath: cdkCodeBuildOutput.atPath(jsii.String("EcsStackDeployedInPipeline.template.json")),
-						adminPermissions: jsii.Boolean(true),
-						parameterOverrides: map[string]interface{}{
+						TemplatePath: cdkCodeBuildOutput.AtPath(jsii.String("EcsStackDeployedInPipeline.template.json")),
+						AdminPermissions: jsii.Boolean(true),
+						ParameterOverrides: map[string]interface{}{
 							// read the tag pushed to the ECR repository from the CodePipeline Variable saved by the application build step,
 							// and pass it as the CloudFormation Parameter for the tag
 							this.tagParameterContainerImage.tagParameterName: appCodeBuildAction.variable(jsii.String("imageTag")),
@@ -1317,14 +1317,14 @@ sourceOutput := codepipeline.NewArtifact()
 targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-deployAction := codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
-	actionName: jsii.String("S3Deploy"),
-	bucket: targetBucket,
-	input: sourceOutput,
+deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+	ActionName: jsii.String("S3Deploy"),
+	Bucket: targetBucket,
+	Input: sourceOutput,
 })
-deployStage := pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Deploy"),
-	actions: []iAction{
+deployStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []iAction{
 		deployAction,
 	},
 })
@@ -1344,8 +1344,8 @@ var distribution distribution
 
 
 // Create the build project that will invalidate the cache
-invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &PipelineProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]*string{
 			"build": map[string][]*string{
@@ -1355,7 +1355,7 @@ invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("Invali
 			},
 		},
 	}),
-	environmentVariables: map[string]buildEnvironmentVariable{
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"CLOUDFRONT_ID": &buildEnvironmentVariable{
 			"value": distribution.distributionId,
 		},
@@ -1363,12 +1363,12 @@ invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("Invali
 })
 
 // Add Cloudfront invalidation permissions to the project
-distributionArn := fmt.Sprintf("arn:aws:cloudfront::%v:distribution/%v", this.account, distribution.distributionId)
-invalidateBuildProject.addToRolePolicy(iam.NewPolicyStatement(&policyStatementProps{
-	resources: []*string{
+distributionArn := fmt.Sprintf("arn:aws:cloudfront::%v:distribution/%v", this.Account, distribution.DistributionId)
+invalidateBuildProject.addToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Resources: []*string{
 		distributionArn,
 	},
-	actions: []*string{
+	Actions: []*string{
 		jsii.String("cloudfront:CreateInvalidation"),
 	},
 }))
@@ -1376,22 +1376,22 @@ invalidateBuildProject.addToRolePolicy(iam.NewPolicyStatement(&policyStatementPr
 // Create the pipeline (here only the S3 deploy and Invalidate cache build)
 deployBucket := s3.NewBucket(this, jsii.String("DeployBucket"))
 deployInput := codepipeline.NewArtifact()
-codepipeline.NewPipeline(this, jsii.String("Pipeline"), &pipelineProps{
-	stages: []stageProps{
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	Stages: []stageProps{
 		&stageProps{
-			stageName: jsii.String("Deploy"),
-			actions: []iAction{
-				codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
-					actionName: jsii.String("S3Deploy"),
-					bucket: deployBucket,
-					input: deployInput,
-					runOrder: jsii.Number(1),
+			StageName: jsii.String("Deploy"),
+			Actions: []iAction{
+				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+					ActionName: jsii.String("S3Deploy"),
+					Bucket: deployBucket,
+					Input: deployInput,
+					RunOrder: jsii.Number(1),
 				}),
-				codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-					actionName: jsii.String("InvalidateCache"),
-					project: invalidateBuildProject,
-					input: deployInput,
-					runOrder: jsii.Number(2),
+				codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+					ActionName: jsii.String("InvalidateCache"),
+					Project: invalidateBuildProject,
+					Input: deployInput,
+					RunOrder: jsii.Number(2),
 				}),
 			},
 		},
@@ -1409,16 +1409,16 @@ sourceOutput := codepipeline.NewArtifact()
 targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-deployAction := codepipeline_actions.NewElasticBeanstalkDeployAction(&elasticBeanstalkDeployActionProps{
-	actionName: jsii.String("ElasticBeanstalkDeploy"),
-	input: sourceOutput,
-	environmentName: jsii.String("envName"),
-	applicationName: jsii.String("appName"),
+deployAction := codepipeline_actions.NewElasticBeanstalkDeployAction(&ElasticBeanstalkDeployActionProps{
+	ActionName: jsii.String("ElasticBeanstalkDeploy"),
+	Input: sourceOutput,
+	EnvironmentName: jsii.String("envName"),
+	ApplicationName: jsii.String("appName"),
 })
 
-deployStage := pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Deploy"),
-	actions: []iAction{
+deployStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []iAction{
 		deployAction,
 	},
 })
@@ -1431,20 +1431,20 @@ You can deploy to Alexa using CodePipeline with the following Action:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 // Read the secrets from ParameterStore
-clientId := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientId"))
-clientSecret := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientSecret"))
-refreshToken := awscdk.SecretValue.secretsManager(jsii.String("AlexaRefreshToken"))
+clientId := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientId"))
+clientSecret := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientSecret"))
+refreshToken := awscdk.SecretValue_SecretsManager(jsii.String("AlexaRefreshToken"))
 
 // Add deploy action
 sourceOutput := codepipeline.NewArtifact()
-codepipeline_actions.NewAlexaSkillDeployAction(&alexaSkillDeployActionProps{
-	actionName: jsii.String("DeploySkill"),
-	runOrder: jsii.Number(1),
-	input: sourceOutput,
-	clientId: clientId.toString(),
-	clientSecret: clientSecret,
-	refreshToken: refreshToken,
-	skillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
+codepipeline_actions.NewAlexaSkillDeployAction(&AlexaSkillDeployActionProps{
+	ActionName: jsii.String("DeploySkill"),
+	RunOrder: jsii.Number(1),
+	Input: sourceOutput,
+	ClientId: clientId.ToString(),
+	ClientSecret: clientSecret,
+	RefreshToken: refreshToken,
+	SkillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
 })
 ```
 
@@ -1454,29 +1454,29 @@ If you need manifest overrides you can specify them as `parameterOverridesArtifa
 // Example automatically generated from non-compiling source. May contain errors.
 // Deploy some CFN change set and store output
 executeOutput := codepipeline.NewArtifact(jsii.String("CloudFormation"))
-executeChangeSetAction := codepipeline_actions.NewCloudFormationExecuteChangeSetAction(&cloudFormationExecuteChangeSetActionProps{
-	actionName: jsii.String("ExecuteChangesTest"),
-	runOrder: jsii.Number(2),
-	stackName: jsii.String("MyStack"),
-	changeSetName: jsii.String("MyChangeSet"),
-	outputFileName: jsii.String("overrides.json"),
-	output: executeOutput,
+executeChangeSetAction := codepipeline_actions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+	ActionName: jsii.String("ExecuteChangesTest"),
+	RunOrder: jsii.Number(2),
+	StackName: jsii.String("MyStack"),
+	ChangeSetName: jsii.String("MyChangeSet"),
+	OutputFileName: jsii.String("overrides.json"),
+	Output: executeOutput,
 })
 
 // Provide CFN output as manifest overrides
-clientId := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientId"))
-clientSecret := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientSecret"))
-refreshToken := awscdk.SecretValue.secretsManager(jsii.String("AlexaRefreshToken"))
+clientId := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientId"))
+clientSecret := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientSecret"))
+refreshToken := awscdk.SecretValue_SecretsManager(jsii.String("AlexaRefreshToken"))
 sourceOutput := codepipeline.NewArtifact()
-codepipeline_actions.NewAlexaSkillDeployAction(&alexaSkillDeployActionProps{
-	actionName: jsii.String("DeploySkill"),
-	runOrder: jsii.Number(1),
-	input: sourceOutput,
-	parameterOverridesArtifact: executeOutput,
-	clientId: clientId.toString(),
-	clientSecret: clientSecret,
-	refreshToken: refreshToken,
-	skillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
+codepipeline_actions.NewAlexaSkillDeployAction(&AlexaSkillDeployActionProps{
+	ActionName: jsii.String("DeploySkill"),
+	RunOrder: jsii.Number(1),
+	Input: sourceOutput,
+	ParameterOverridesArtifact: executeOutput,
+	ClientId: clientId.ToString(),
+	ClientSecret: clientSecret,
+	RefreshToken: refreshToken,
+	SkillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
 })
 ```
 
@@ -1487,12 +1487,12 @@ You can deploy a CloudFormation template to an existing Service Catalog product 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 cdkBuildOutput := codepipeline.NewArtifact()
-serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&serviceCatalogDeployActionBeta1Props{
-	actionName: jsii.String("ServiceCatalogDeploy"),
-	templatePath: cdkBuildOutput.atPath(jsii.String("Sample.template.json")),
-	productVersionName: jsii.String("Version - " + date.now.toString),
-	productVersionDescription: jsii.String("This is a version from the pipeline with a new description."),
-	productId: jsii.String("prod-XXXXXXXX"),
+serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&ServiceCatalogDeployActionBeta1Props{
+	ActionName: jsii.String("ServiceCatalogDeploy"),
+	TemplatePath: cdkBuildOutput.AtPath(jsii.String("Sample.template.json")),
+	ProductVersionName: jsii.String("Version - " + date.now.toString),
+	ProductVersionDescription: jsii.String("This is a version from the pipeline with a new description."),
+	ProductId: jsii.String("prod-XXXXXXXX"),
 })
 ```
 
@@ -1508,20 +1508,20 @@ import sns "github.com/aws/aws-cdk-go/awscdk"
 
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-approveStage := pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Approve"),
+approveStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Approve"),
 })
-manualApprovalAction := codepipeline_actions.NewManualApprovalAction(&manualApprovalActionProps{
-	actionName: jsii.String("Approve"),
-	notificationTopic: sns.NewTopic(this, jsii.String("Topic")),
+manualApprovalAction := codepipeline_actions.NewManualApprovalAction(&ManualApprovalActionProps{
+	ActionName: jsii.String("Approve"),
+	NotificationTopic: sns.NewTopic(this, jsii.String("Topic")),
 	 // optional
-	notifyEmails: []*string{
+	NotifyEmails: []*string{
 		jsii.String("some_email@example.com"),
 	},
 	 // optional
-	additionalInformation: jsii.String("additional info"),
+	AdditionalInformation: jsii.String("additional info"),
 })
-approveStage.addAction(manualApprovalAction)
+approveStage.AddAction(manualApprovalAction)
 ```
 
 If the `notificationTopic` has not been provided,
@@ -1535,20 +1535,20 @@ you can invoke the method `grantManualApproval` passing it a `IGrantable`:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-approveStage := pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Approve"),
+approveStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Approve"),
 })
-manualApprovalAction := codepipeline_actions.NewManualApprovalAction(&manualApprovalActionProps{
-	actionName: jsii.String("Approve"),
+manualApprovalAction := codepipeline_actions.NewManualApprovalAction(&ManualApprovalActionProps{
+	ActionName: jsii.String("Approve"),
 })
-approveStage.addAction(manualApprovalAction)
+approveStage.AddAction(manualApprovalAction)
 
-role := iam.role.fromRoleArn(this, jsii.String("Admin"), awscdk.Arn.format(&arnComponents{
-	service: jsii.String("iam"),
-	resource: jsii.String("role"),
-	resourceName: jsii.String("Admin"),
+role := iam.Role_FromRoleArn(this, jsii.String("Admin"), awscdk.Arn_Format(&ArnComponents{
+	Service: jsii.String("iam"),
+	Resource: jsii.String("role"),
+	ResourceName: jsii.String("Admin"),
 }, this))
-manualApprovalAction.grantManualApproval(role)
+manualApprovalAction.GrantManualApproval(role)
 ```
 
 ### AWS Lambda
@@ -1560,13 +1560,13 @@ This module contains an Action that allows you to invoke a Lambda function in a 
 var fn function
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-	actionName: jsii.String("Lambda"),
-	lambda: fn,
+lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+	ActionName: jsii.String("Lambda"),
+	Lambda: fn,
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("Lambda"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Lambda"),
+	Actions: []iAction{
 		lambdaAction,
 	},
 })
@@ -1581,17 +1581,17 @@ var fn function
 
 sourceOutput := codepipeline.NewArtifact()
 buildOutput := codepipeline.NewArtifact()
-lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-	actionName: jsii.String("Lambda"),
-	inputs: []artifact{
+lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+	ActionName: jsii.String("Lambda"),
+	Inputs: []artifact{
 		sourceOutput,
 		buildOutput,
 	},
-	outputs: []*artifact{
+	Outputs: []*artifact{
 		codepipeline.NewArtifact(jsii.String("Out1")),
 		codepipeline.NewArtifact(jsii.String("Out2")),
 	},
-	lambda: fn,
+	Lambda: fn,
 })
 ```
 
@@ -1604,15 +1604,15 @@ var fn function
 
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-	actionName: jsii.String("Lambda"),
-	lambda: fn,
-	userParameters: map[string]interface{}{
+lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+	ActionName: jsii.String("Lambda"),
+	Lambda: fn,
+	UserParameters: map[string]interface{}{
 		"foo": jsii.String("bar"),
 		"baz": jsii.String("qux"),
 	},
 	// OR
-	userParametersString: jsii.String("my-parameter-string"),
+	UserParametersString: jsii.String("my-parameter-string"),
 })
 ```
 
@@ -1626,21 +1626,33 @@ Example:
 // Example automatically generated from non-compiling source. May contain errors.
 // later:
 var project pipelineProject
-lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-	actionName: jsii.String("Lambda"),
-	lambda: lambda.NewFunction(this, jsii.String("Func"), &functionProps{
-		runtime: lambda.runtime_NODEJS_14_X(),
-		handler: jsii.String("index.handler"),
-		code: lambda.code.fromInline(jsii.String("\n        const AWS = require('aws-sdk');\n\n        exports.handler = async function(event, context) {\n            const codepipeline = new AWS.CodePipeline();\n            await codepipeline.putJobSuccessResult({\n                jobId: event['CodePipeline.job'].id,\n                outputVariables: {\n                    MY_VAR: \"some value\",\n                },\n            }).promise();\n        }\n    ")),
+lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+	ActionName: jsii.String("Lambda"),
+	Lambda: lambda.NewFunction(this, jsii.String("Func"), &FunctionProps{
+		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Handler: jsii.String("index.handler"),
+		Code: lambda.Code_FromInline(jsii.String(`
+		        const AWS = require('aws-sdk');
+
+		        exports.handler = async function(event, context) {
+		            const codepipeline = new AWS.CodePipeline();
+		            await codepipeline.putJobSuccessResult({
+		                jobId: event['CodePipeline.job'].id,
+		                outputVariables: {
+		                    MY_VAR: "some value",
+		                },
+		            }).promise();
+		        }
+		    `)),
 	}),
-	variablesNamespace: jsii.String("MyNamespace"),
+	VariablesNamespace: jsii.String("MyNamespace"),
 })
 sourceOutput := codepipeline.NewArtifact()
-codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-	actionName: jsii.String("CodeBuild"),
-	project: project,
-	input: sourceOutput,
-	environmentVariables: map[string]buildEnvironmentVariable{
+codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+	ActionName: jsii.String("CodeBuild"),
+	Project: Project,
+	Input: sourceOutput,
+	EnvironmentVariables: map[string]buildEnvironmentVariable{
 		"MyVar": &buildEnvironmentVariable{
 			"value": lambdaInvokeAction.variable(jsii.String("MY_VAR")),
 		},
@@ -1657,23 +1669,23 @@ This module contains an Action that allows you to invoke a Step Function in a Pi
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 startState := stepfunctions.NewPass(this, jsii.String("StartState"))
-simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
-	definition: startState,
+simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &StateMachineProps{
+	Definition: startState,
 })
-stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&stepFunctionsInvokeActionProps{
-	actionName: jsii.String("Invoke"),
-	stateMachine: simpleStateMachine,
-	stateMachineInput: codepipeline_actions.stateMachineInput.literal(map[string]*bool{
+stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&StepFunctionsInvokeActionProps{
+	ActionName: jsii.String("Invoke"),
+	StateMachine: simpleStateMachine,
+	StateMachineInput: codepipeline_actions.StateMachineInput_Literal(map[string]*bool{
 		"IsHelloWorldExample": jsii.Boolean(true),
 	}),
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("StepFunctions"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("StepFunctions"),
+	Actions: []iAction{
 		stepFunctionAction,
 	},
 })
@@ -1684,23 +1696,23 @@ The `StateMachineInput` can be created with one of 2 static factory methods:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 inputArtifact := codepipeline.NewArtifact()
 startState := stepfunctions.NewPass(this, jsii.String("StartState"))
-simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
-	definition: startState,
+simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &StateMachineProps{
+	Definition: startState,
 })
-stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&stepFunctionsInvokeActionProps{
-	actionName: jsii.String("Invoke"),
-	stateMachine: simpleStateMachine,
-	stateMachineInput: codepipeline_actions.stateMachineInput.filePath(inputArtifact.atPath(jsii.String("assets/input.json"))),
+stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&StepFunctionsInvokeActionProps{
+	ActionName: jsii.String("Invoke"),
+	StateMachine: simpleStateMachine,
+	StateMachineInput: codepipeline_actions.StateMachineInput_FilePath(inputArtifact.AtPath(jsii.String("assets/input.json"))),
 })
-pipeline.addStage(&stageOptions{
-	stageName: jsii.String("StepFunctions"),
-	actions: []iAction{
+pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("StepFunctions"),
+	Actions: []iAction{
 		stepFunctionAction,
 	},
 })

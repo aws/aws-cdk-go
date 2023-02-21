@@ -1,0 +1,107 @@
+package awssnssubscriptions
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
+)
+
+// Use a Lambda function as a subscription target.
+//
+// Example:
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var fn function
+//
+//
+//   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
+//
+//   // Lambda should receive only message matching the following conditions on attributes:
+//   // color: 'red' or 'orange' or begins with 'bl'
+//   // size: anything but 'small' or 'medium'
+//   // price: between 100 and 200 or greater than 300
+//   // store: attribute must be present
+//   myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
+//   	FilterPolicy: map[string]subscriptionFilter{
+//   		"color": sns.*subscriptionFilter_stringFilter(&StringConditions{
+//   			"allowlist": []*string{
+//   				jsii.String("red"),
+//   				jsii.String("orange"),
+//   			},
+//   			"matchPrefixes": []*string{
+//   				jsii.String("bl"),
+//   			},
+//   		}),
+//   		"size": sns.*subscriptionFilter_stringFilter(&StringConditions{
+//   			"denylist": []*string{
+//   				jsii.String("small"),
+//   				jsii.String("medium"),
+//   			},
+//   		}),
+//   		"price": sns.*subscriptionFilter_numericFilter(&NumericConditions{
+//   			"between": &BetweenCondition{
+//   				"start": jsii.Number(100),
+//   				"stop": jsii.Number(200),
+//   			},
+//   			"greaterThan": jsii.Number(300),
+//   		}),
+//   		"store": sns.*subscriptionFilter_existsFilter(),
+//   	},
+//   }))
+//
+type LambdaSubscription interface {
+	awssns.ITopicSubscription
+	// Returns a configuration for a Lambda function to subscribe to an SNS topic.
+	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
+}
+
+// The jsii proxy struct for LambdaSubscription
+type jsiiProxy_LambdaSubscription struct {
+	internal.Type__awssnsITopicSubscription
+}
+
+func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProps) LambdaSubscription {
+	_init_.Initialize()
+
+	if err := validateNewLambdaSubscriptionParameters(fn, props); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_LambdaSubscription{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		[]interface{}{fn, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewLambdaSubscription_Override(l LambdaSubscription, fn awslambda.IFunction, props *LambdaSubscriptionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		[]interface{}{fn, props},
+		l,
+	)
+}
+
+func (l *jsiiProxy_LambdaSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := l.validateBindParameters(topic); err != nil {
+		panic(err)
+	}
+	var returns *awssns.TopicSubscriptionConfig
+
+	_jsii_.Invoke(
+		l,
+		"bind",
+		[]interface{}{topic},
+		&returns,
+	)
+
+	return returns
+}
+

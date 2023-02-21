@@ -27,9 +27,9 @@ import neptune "github.com/aws/aws-cdk-go/awscdkneptunealpha"
 To set up a Neptune database, define a `DatabaseCluster`. You must always launch a database in a VPC.
 
 ```go
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
 })
 ```
 
@@ -41,14 +41,14 @@ To control who can access the cluster, use the `.connections` attribute. Neptune
 you don't need to specify the port:
 
 ```go
-cluster.connections.allowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
+cluster.Connections.AllowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
 ```
 
 The endpoints to access your database cluster will be available as the `.clusterEndpoint` and `.clusterReadEndpoint`
 attributes:
 
 ```go
-writeAddress := cluster.clusterEndpoint.socketAddress
+writeAddress := cluster.ClusterEndpoint.SocketAddress
 ```
 
 ## IAM Authentication
@@ -60,17 +60,17 @@ versions and limitations.
 The following example shows enabling IAM authentication for a database cluster and granting connection access to an IAM role.
 
 ```go
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	iamAuthentication: jsii.Boolean(true),
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	IamAuthentication: jsii.Boolean(true),
 })
-role := iam.NewRole(this, jsii.String("DBRole"), &roleProps{
-	assumedBy: iam.NewAccountPrincipal(this.account),
+role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
+	AssumedBy: iam.NewAccountPrincipal(this.Account),
 })
 // Use one of the following statements to grant the role the necessary permissions
-cluster.grantConnect(role) // Grant the role neptune-db:* access to the DB
-cluster.grant(role, jsii.String("neptune-db:ReadDataViaQuery"), jsii.String("neptune-db:WriteDataViaQuery"))
+cluster.GrantConnect(role) // Grant the role neptune-db:* access to the DB
+cluster.Grant(role, jsii.String("neptune-db:ReadDataViaQuery"), jsii.String("neptune-db:WriteDataViaQuery"))
 ```
 
 ## Customizing parameters
@@ -79,25 +79,25 @@ Neptune allows configuring database behavior by supplying custom parameter group
 following link: [https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html](https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html)
 
 ```go
-clusterParams := neptune.NewClusterParameterGroup(this, jsii.String("ClusterParams"), &clusterParameterGroupProps{
-	description: jsii.String("Cluster parameter group"),
-	parameters: map[string]*string{
+clusterParams := neptune.NewClusterParameterGroup(this, jsii.String("ClusterParams"), &ClusterParameterGroupProps{
+	Description: jsii.String("Cluster parameter group"),
+	Parameters: map[string]*string{
 		"neptune_enable_audit_log": jsii.String("1"),
 	},
 })
 
-dbParams := neptune.NewParameterGroup(this, jsii.String("DbParams"), &parameterGroupProps{
-	description: jsii.String("Db parameter group"),
-	parameters: map[string]*string{
+dbParams := neptune.NewParameterGroup(this, jsii.String("DbParams"), &ParameterGroupProps{
+	Description: jsii.String("Db parameter group"),
+	Parameters: map[string]*string{
 		"neptune_query_timeout": jsii.String("120000"),
 	},
 })
 
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	clusterParameterGroup: clusterParams,
-	parameterGroup: dbParams,
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	ClusterParameterGroup: clusterParams,
+	ParameterGroup: dbParams,
 })
 ```
 
@@ -109,19 +109,19 @@ Note: if you want to use Neptune engine `1.2.0.0` or later, you need to specify 
 attribute.
 
 ```go
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	instances: jsii.Number(2),
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	Instances: jsii.Number(2),
 })
 ```
 
 Additionally, it is also possible to add replicas using `DatabaseInstance` for an existing cluster.
 
 ```go
-replica1 := neptune.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
-	cluster: cluster,
-	instanceType: neptune.*instanceType_R5_LARGE(),
+replica1 := neptune.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Cluster: Cluster,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
 })
 ```
 
@@ -132,10 +132,10 @@ the engine of the entire cluster to the latest minor version after a stabilizati
 window of 2 to 3 weeks.
 
 ```go
-neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	autoMinorVersionUpgrade: jsii.Boolean(true),
+neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	AutoMinorVersionUpgrade: jsii.Boolean(true),
 })
 ```
 
@@ -148,24 +148,24 @@ Neptune supports various methods for monitoring performance and usage. One of th
 
 ```go
 // Cluster parameter group with the neptune_enable_audit_log param set to 1
-clusterParameterGroup := neptune.NewClusterParameterGroup(this, jsii.String("ClusterParams"), &clusterParameterGroupProps{
-	description: jsii.String("Cluster parameter group"),
-	parameters: map[string]*string{
+clusterParameterGroup := neptune.NewClusterParameterGroup(this, jsii.String("ClusterParams"), &ClusterParameterGroupProps{
+	Description: jsii.String("Cluster parameter group"),
+	Parameters: map[string]*string{
 		"neptune_enable_audit_log": jsii.String("1"),
 	},
 })
 
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
 	// Audit logs are enabled via the clusterParameterGroup
-	clusterParameterGroup: clusterParameterGroup,
+	ClusterParameterGroup: ClusterParameterGroup,
 	// Optionally configuring audit logs to be exported to CloudWatch Logs
-	cloudwatchLogsExports: []logType{
+	CloudwatchLogsExports: []logType{
 		neptune.*logType_AUDIT(),
 	},
 	// Optionally set a retention period on exported CloudWatch Logs
-	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
+	CloudwatchLogsRetention: logs.RetentionDays_ONE_MONTH,
 })
 ```
 
@@ -182,8 +182,8 @@ var cluster databaseCluster
 var instance databaseInstance
 
 
-cluster.metric(jsii.String("SparqlRequestsPerSec")) // cluster-level SparqlErrors metric
-instance.metric(jsii.String("SparqlRequestsPerSec"))
+cluster.Metric(jsii.String("SparqlRequestsPerSec")) // cluster-level SparqlErrors metric
+instance.Metric(jsii.String("SparqlRequestsPerSec"))
 ```
 
 For more details on the available metrics, refer to https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html

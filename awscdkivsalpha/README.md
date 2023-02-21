@@ -44,7 +44,7 @@ You can reference an existing channel, for example, if you need to create a
 stream key for an existing channel
 
 ```go
-myChannel := ivs.channel.fromChannelArn(this, jsii.String("Channel"), myChannelArn)
+myChannel := ivs.Channel_FromChannelArn(this, jsii.String("Channel"), myChannelArn)
 ```
 
 ## Stream Keys
@@ -56,7 +56,7 @@ storing this value, it should be treated as if it were a password.
 You can create a stream key for a given channel
 
 ```go
-myStreamKey := myChannel.addStreamKey(jsii.String("StreamKey"))
+myStreamKey := myChannel.AddStreamKey(jsii.String("StreamKey"))
 ```
 
 ## Private Channels
@@ -74,15 +74,15 @@ In order for Amazon IVS to validate the token, you need to upload
 the public key that corresponds to the private key you use to sign the token.
 
 ```go
-keyPair := ivs.NewPlaybackKeyPair(this, jsii.String("PlaybackKeyPair"), &playbackKeyPairProps{
-	publicKeyMaterial: myPublicKeyPemString,
+keyPair := ivs.NewPlaybackKeyPair(this, jsii.String("PlaybackKeyPair"), &PlaybackKeyPairProps{
+	PublicKeyMaterial: myPublicKeyPemString,
 })
 ```
 
 Then, when creating a channel, specify the authorized property
 
 ```go
-myChannel := ivs.NewChannel(this, jsii.String("Channel"), &channelProps{
-	authorized: jsii.Boolean(true),
+myChannel := ivs.NewChannel(this, jsii.String("Channel"), &ChannelProps{
+	Authorized: jsii.Boolean(true),
 })
 ```

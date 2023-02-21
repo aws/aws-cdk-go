@@ -21,10 +21,10 @@ The following example creates an MSK Cluster.
 ```go
 var vpc vpc
 
-cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
+cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
 })
 ```
 
@@ -35,14 +35,14 @@ To control who can access the Cluster, use the `.connections` attribute. For a l
 ```go
 var vpc vpc
 
-cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
+cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
 })
 
-cluster.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(2181)))
-cluster.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(9094)))
+cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(2181)))
+cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(9094)))
 ```
 
 ## Cluster Endpoints
@@ -52,23 +52,23 @@ You can use the following attributes to get a list of the Kafka broker or ZooKee
 ```go
 var cluster cluster
 
-awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokers"), &cfnOutputProps{
-	value: cluster.bootstrapBrokers,
+awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokers"), &CfnOutputProps{
+	Value: cluster.bootstrapBrokers,
 })
-awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokersTls"), &cfnOutputProps{
-	value: cluster.bootstrapBrokersTls,
+awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokersTls"), &CfnOutputProps{
+	Value: cluster.bootstrapBrokersTls,
 })
-awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokersSaslScram"), &cfnOutputProps{
-	value: cluster.bootstrapBrokersSaslScram,
+awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokersSaslScram"), &CfnOutputProps{
+	Value: cluster.bootstrapBrokersSaslScram,
 })
-awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokerStringSaslIam"), &cfnOutputProps{
-	value: cluster.bootstrapBrokersSaslIam,
+awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokerStringSaslIam"), &CfnOutputProps{
+	Value: cluster.bootstrapBrokersSaslIam,
 })
-awscdk.NewCfnOutput(this, jsii.String("ZookeeperConnection"), &cfnOutputProps{
-	value: cluster.zookeeperConnectionString,
+awscdk.NewCfnOutput(this, jsii.String("ZookeeperConnection"), &CfnOutputProps{
+	Value: cluster.zookeeperConnectionString,
 })
-awscdk.NewCfnOutput(this, jsii.String("ZookeeperConnectionTls"), &cfnOutputProps{
-	value: cluster.zookeeperConnectionStringTls,
+awscdk.NewCfnOutput(this, jsii.String("ZookeeperConnectionTls"), &CfnOutputProps{
+	Value: cluster.zookeeperConnectionStringTls,
 })
 ```
 
@@ -77,7 +77,7 @@ awscdk.NewCfnOutput(this, jsii.String("ZookeeperConnectionTls"), &cfnOutputProps
 To import an existing MSK cluster into your CDK app use the `.fromClusterArn()` method.
 
 ```go
-cluster := msk.cluster.fromClusterArn(this, jsii.String("Cluster"), jsii.String("arn:aws:kafka:us-west-2:1234567890:cluster/a-cluster/11111111-1111-1111-1111-111111111111-1"))
+cluster := msk.Cluster_FromClusterArn(this, jsii.String("Cluster"), jsii.String("arn:aws:kafka:us-west-2:1234567890:cluster/a-cluster/11111111-1111-1111-1111-111111111111-1"))
 ```
 
 ## Client Authentication
@@ -93,16 +93,16 @@ import acmpca "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc
 
-cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
-	encryptionInTransit: &encryptionInTransitConfig{
-		clientBroker: msk.clientBrokerEncryption_TLS,
+cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
+	EncryptionInTransit: &EncryptionInTransitConfig{
+		ClientBroker: msk.ClientBrokerEncryption_TLS,
 	},
-	clientAuthentication: msk.clientAuthentication.tls(&tlsAuthProps{
-		certificateAuthorities: []iCertificateAuthority{
-			acmpca.certificateAuthority.fromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
+	ClientAuthentication: msk.ClientAuthentication_Tls(&TlsAuthProps{
+		CertificateAuthorities: []iCertificateAuthority{
+			acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
 		},
 	}),
 })
@@ -115,15 +115,15 @@ Enable client authentication with [SASL/SCRAM](https://docs.aws.amazon.com/msk/l
 ```go
 var vpc vpc
 
-cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
-	encryptionInTransit: &encryptionInTransitConfig{
-		clientBroker: msk.clientBrokerEncryption_TLS,
+cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
+	EncryptionInTransit: &EncryptionInTransitConfig{
+		ClientBroker: msk.ClientBrokerEncryption_TLS,
 	},
-	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-		scram: jsii.Boolean(true),
+	ClientAuthentication: msk.ClientAuthentication_Sasl(&SaslAuthProps{
+		Scram: jsii.Boolean(true),
 	}),
 })
 ```
@@ -135,15 +135,15 @@ Enable client authentication with [IAM](https://docs.aws.amazon.com/msk/latest/d
 ```go
 var vpc vpc
 
-cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
-	encryptionInTransit: &encryptionInTransitConfig{
-		clientBroker: msk.clientBrokerEncryption_TLS,
+cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
+	EncryptionInTransit: &EncryptionInTransitConfig{
+		ClientBroker: msk.ClientBrokerEncryption_TLS,
 	},
-	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-		iam: jsii.Boolean(true),
+	ClientAuthentication: msk.ClientAuthentication_Sasl(&SaslAuthProps{
+		Iam: jsii.Boolean(true),
 	}),
 })
 ```
@@ -158,17 +158,17 @@ import acmpca "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc
 
-cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
-	encryptionInTransit: &encryptionInTransitConfig{
-		clientBroker: msk.clientBrokerEncryption_TLS,
+cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
+	EncryptionInTransit: &EncryptionInTransitConfig{
+		ClientBroker: msk.ClientBrokerEncryption_TLS,
 	},
-	clientAuthentication: msk.clientAuthentication.saslTls(&saslTlsAuthProps{
-		iam: jsii.Boolean(true),
-		certificateAuthorities: []iCertificateAuthority{
-			acmpca.certificateAuthority.fromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
+	ClientAuthentication: msk.ClientAuthentication_SaslTls(&SaslTlsAuthProps{
+		Iam: jsii.Boolean(true),
+		CertificateAuthorities: []iCertificateAuthority{
+			acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
 		},
 	}),
 })
@@ -185,13 +185,13 @@ To configure logs to be sent to an S3 bucket, provide a bucket in the `logging` 
 var vpc vpc
 var bucket iBucket
 
-cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-	clusterName: jsii.String("myCluster"),
-	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-	vpc: vpc,
-	logging: &brokerLogging{
-		s3: &s3LoggingConfiguration{
-			bucket: bucket,
+cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
+	ClusterName: jsii.String("myCluster"),
+	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+	Vpc: Vpc,
+	Logging: &BrokerLogging{
+		S3: &S3LoggingConfiguration{
+			Bucket: *Bucket,
 		},
 	},
 })

@@ -9,37 +9,37 @@ Create a receipt rule set with rules and actions (actions can be found in the
 
 ```go
 import s3 "github.com/aws/aws-cdk-go/awscdk"
-import actions "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
 topic := sns.NewTopic(this, jsii.String("Topic"))
 
-ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &receiptRuleSetProps{
-	rules: []receiptRuleOptions{
+ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &ReceiptRuleSetProps{
+	Rules: []receiptRuleOptions{
 		&receiptRuleOptions{
-			recipients: []*string{
+			Recipients: []*string{
 				jsii.String("hello@aws.com"),
 			},
-			actions: []iReceiptRuleAction{
-				actions.NewAddHeader(&addHeaderProps{
-					name: jsii.String("X-Special-Header"),
-					value: jsii.String("aws"),
+			Actions: []iReceiptRuleAction{
+				actions.NewAddHeader(&AddHeaderProps{
+					Name: jsii.String("X-Special-Header"),
+					Value: jsii.String("aws"),
 				}),
-				actions.NewS3(&s3Props{
-					bucket: bucket,
-					objectKeyPrefix: jsii.String("emails/"),
-					topic: topic,
+				actions.NewS3(&S3Props{
+					Bucket: *Bucket,
+					ObjectKeyPrefix: jsii.String("emails/"),
+					Topic: *Topic,
 				}),
 			},
 		},
 		&receiptRuleOptions{
-			recipients: []*string{
+			Recipients: []*string{
 				jsii.String("aws.com"),
 			},
-			actions: []*iReceiptRuleAction{
-				actions.NewSns(&snsProps{
-					topic: topic,
+			Actions: []*iReceiptRuleAction{
+				actions.NewSns(&SnsProps{
+					Topic: *Topic,
 				}),
 			},
 		},
@@ -52,8 +52,8 @@ Alternatively, rules can be added to a rule set:
 ```go
 ruleSet := ses.NewReceiptRuleSet(this, jsii.String("RuleSet"))
 
-awsRule := ruleSet.addRule(jsii.String("Aws"), &receiptRuleOptions{
-	recipients: []*string{
+awsRule := ruleSet.addRule(jsii.String("Aws"), &ReceiptRuleOptions{
+	Recipients: []*string{
 		jsii.String("aws.com"),
 	},
 })
@@ -67,8 +67,8 @@ import actions "github.com/aws/aws-cdk-go/awscdk"
 var awsRule receiptRule
 var topic topic
 
-awsRule.addAction(actions.NewSns(&snsProps{
-	topic: topic,
+awsRule.AddAction(actions.NewSns(&SnsProps{
+	Topic: Topic,
 }))
 ```
 
@@ -79,8 +79,8 @@ When using `addRule`, the new rule is added after the last added rule unless `af
 A rule to drop spam can be added by setting `dropSpam` to `true`:
 
 ```go
-ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &receiptRuleSetProps{
-	dropSpam: jsii.Boolean(true),
+ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &ReceiptRuleSetProps{
+	DropSpam: jsii.Boolean(true),
 })
 ```
 
@@ -91,16 +91,16 @@ This will add a rule at the top of the rule set with a Lambda action that stops 
 Create a receipt filter:
 
 ```go
-ses.NewReceiptFilter(this, jsii.String("Filter"), &receiptFilterProps{
-	ip: jsii.String("1.2.3.4/16"),
+ses.NewReceiptFilter(this, jsii.String("Filter"), &ReceiptFilterProps{
+	Ip: jsii.String("1.2.3.4/16"),
 })
 ```
 
 An allow list filter is also available:
 
 ```go
-ses.NewAllowListReceiptFilter(this, jsii.String("AllowList"), &allowListReceiptFilterProps{
-	ips: []*string{
+ses.NewAllowListReceiptFilter(this, jsii.String("AllowList"), &AllowListReceiptFilterProps{
+	Ips: []*string{
 		jsii.String("10.0.0.0/16"),
 		jsii.String("1.2.3.4/16"),
 	},
@@ -137,11 +137,11 @@ Use the `ConfigurationSet` construct to create a configuration set:
 var myPool iDedicatedIpPool
 
 
-ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &configurationSetProps{
-	customTrackingRedirectDomain: jsii.String("track.cdk.dev"),
-	suppressionReasons: ses.suppressionReasons_COMPLAINTS_ONLY,
-	tlsPolicy: ses.configurationSetTlsPolicy_REQUIRE,
-	dedicatedIpPool: myPool,
+ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
+	CustomTrackingRedirectDomain: jsii.String("track.cdk.dev"),
+	SuppressionReasons: ses.SuppressionReasons_COMPLAINTS_ONLY,
+	TlsPolicy: ses.ConfigurationSetTlsPolicy_REQUIRE,
+	DedicatedIpPool: myPool,
 })
 ```
 
@@ -159,9 +159,9 @@ To verify an identity for a hosted zone, you create an `EmailIdentity`:
 var myHostedZone iPublicHostedZone
 
 
-identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
-	identity: ses.identity.publicHostedZone(myHostedZone),
-	mailFromDomain: jsii.String("mail.cdk.dev"),
+identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+	Identity: ses.Identity_PublicHostedZone(myHostedZone),
+	MailFromDomain: jsii.String("mail.cdk.dev"),
 })
 ```
 
@@ -176,9 +176,9 @@ as [Bring Your Own DKIM (BYODKIM)](https://docs.aws.amazon.com/ses/latest/dg/sen
 var myHostedZone iPublicHostedZone
 
 
-ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
-	identity: ses.identity.publicHostedZone(myHostedZone),
-	dkimIdentity: dkimIdentity_ByoDkim(map[string]interface{}{
+ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+	Identity: ses.Identity_PublicHostedZone(myHostedZone),
+	DkimIdentity: dkimIdentity_ByoDkim(map[string]interface{}{
 		"privateKey": SecretValue_secretsManager(jsii.String("dkim-private-key")),
 		"publicKey": jsii.String("...base64-encoded-public-key..."),
 		"selector": jsii.String("selector"),
@@ -196,11 +196,11 @@ When working with `domain()`, records must be created manually:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
-	identity: ses.identity.domain(jsii.String("cdk.dev")),
+identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+	Identity: ses.Identity_Domain(jsii.String("cdk.dev")),
 })
 
-for _, record := range identity.dkimRecords {}
+for _, record := range identity.DkimRecords {}
 ```
 
 ### Virtual Deliverability Manager (VDM)

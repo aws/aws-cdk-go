@@ -32,37 +32,37 @@ EC2 Environments are defined with `Ec2Environment`. To create an EC2 environment
 
 ```go
 // create a cloud9 ec2 environment in a new VPC
-vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
-	maxAzs: jsii.Number(3),
+vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+	MaxAzs: jsii.Number(3),
 })
-cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
-	vpc: vpc,
-	imageId: cloud9.imageId_AMAZON_LINUX_2,
+cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 })
 
 // or create the cloud9 environment in the default VPC with specific instanceType
-defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
-	isDefault: jsii.Boolean(true),
+defaultVpc := ec2.Vpc_FromLookup(this, jsii.String("DefaultVPC"), &VpcLookupOptions{
+	IsDefault: jsii.Boolean(true),
 })
-cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
-	vpc: defaultVpc,
-	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-	imageId: cloud9.*imageId_AMAZON_LINUX_2,
+cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &Ec2EnvironmentProps{
+	Vpc: defaultVpc,
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 })
 
 // or specify in a different subnetSelection
-c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
-	vpc: vpc,
-	subnetSelection: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	SubnetSelection: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
-	imageId: cloud9.*imageId_AMAZON_LINUX_2,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 })
 
 // print the Cloud9 IDE URL in the output
 // print the Cloud9 IDE URL in the output
-awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
-	value: c9env.ideUrl,
+awscdk.NewCfnOutput(this, jsii.String("URL"), &CfnOutputProps{
+	Value: c9env.IdeUrl,
 })
 ```
 
@@ -71,13 +71,13 @@ awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
 Use `imageId` to specify the EC2 AMI image to be used:
 
 ```go
-defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
-	isDefault: jsii.Boolean(true),
+defaultVpc := ec2.Vpc_FromLookup(this, jsii.String("DefaultVPC"), &VpcLookupOptions{
+	IsDefault: jsii.Boolean(true),
 })
-cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
-	vpc: defaultVpc,
-	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-	imageId: cloud9.imageId_UBUNTU_18_04,
+cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &Ec2EnvironmentProps{
+	Vpc: defaultVpc,
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+	ImageId: cloud9.ImageId_UBUNTU_18_04,
 })
 ```
 
@@ -86,26 +86,26 @@ cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
 Use `clonedRepositories` to clone one or multiple AWS Codecommit repositories into the environment:
 
 ```go
-import codecommit "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 // create a new Cloud9 environment and clone the two repositories
 var vpc vpc
 
 
 // create a codecommit repository to clone into the cloud9 environment
-repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &repositoryProps{
-	repositoryName: jsii.String("new-repo"),
+repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &RepositoryProps{
+	RepositoryName: jsii.String("new-repo"),
 })
 
 // import an existing codecommit repository to clone into the cloud9 environment
-repoExisting := codecommit.repository.fromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
-cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
-	vpc: vpc,
-	clonedRepositories: []cloneRepository{
-		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
-		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
+repoExisting := codecommit.Repository_FromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	ClonedRepositories: []cloneRepository{
+		cloud9.*cloneRepository_FromCodeCommit(repoNew, jsii.String("/src/new-repo")),
+		cloud9.*cloneRepository_*FromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 	},
-	imageId: cloud9.imageId_AMAZON_LINUX_2,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 })
 ```
 
@@ -122,27 +122,27 @@ To specify the AWS Account Root User as the environment owner, use `Owner.accoun
 ```go
 var vpc vpc
 
-cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
-	vpc: vpc,
-	imageId: cloud9.imageId_AMAZON_LINUX_2,
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 
-	owner: cloud9.owner.accountRoot(jsii.String("111111111")),
+	Owner: cloud9.Owner_AccountRoot(jsii.String("111111111")),
 })
 ```
 
 To specify a specific IAM User as the environment owner, use `Owner.user()`. The user should have the `AWSCloud9Administrator` managed policy
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 var vpc vpc
 
 
 user := iam.NewUser(this, jsii.String("user"))
-user.addManagedPolicy(iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("AWSCloud9Administrator")))
-cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
-	vpc: vpc,
-	imageId: cloud9.imageId_AMAZON_LINUX_2,
+user.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AWSCloud9Administrator")))
+cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
+	Vpc: Vpc,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 
-	owner: cloud9.owner.user(user),
+	Owner: cloud9.Owner_User(user),
 })
 ```

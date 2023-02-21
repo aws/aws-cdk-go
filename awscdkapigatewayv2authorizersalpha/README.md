@@ -55,15 +55,15 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2authorizersalpha"
 
 
 issuer := "https://test.us.auth0.com"
-authorizer := awscdkapigatewayv2authorizersalpha.NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &httpJwtAuthorizerProps{
-	jwtAudience: []*string{
+authorizer := awscdkapigatewayv2authorizersalpha.NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &HttpJwtAuthorizerProps{
+	JwtAudience: []*string{
 		jsii.String("3131231"),
 	},
 })
 
-api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &httpApiProps{
-	defaultAuthorizer: authorizer,
-	defaultAuthorizationScopes: []*string{
+api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &HttpApiProps{
+	DefaultAuthorizer: authorizer,
+	DefaultAuthorizationScopes: []*string{
 		jsii.String("manage:books"),
 	},
 })
@@ -85,53 +85,53 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 
 issuer := "https://test.us.auth0.com"
-authorizer := awscdkapigatewayv2authorizersalpha.NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &httpJwtAuthorizerProps{
-	jwtAudience: []*string{
+authorizer := awscdkapigatewayv2authorizersalpha.NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &HttpJwtAuthorizerProps{
+	JwtAudience: []*string{
 		jsii.String("3131231"),
 	},
 })
 
-api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &httpApiProps{
-	defaultAuthorizer: authorizer,
-	defaultAuthorizationScopes: []*string{
+api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &HttpApiProps{
+	DefaultAuthorizer: authorizer,
+	DefaultAuthorizationScopes: []*string{
 		jsii.String("read:books"),
 	},
 })
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books"),
-	methods: []httpMethod{
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books"),
+	Methods: []httpMethod{
 		apigwv2.*httpMethod_GET,
 	},
 })
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books/{id}"),
-	methods: []*httpMethod{
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books/{id}"),
+	Methods: []*httpMethod{
 		apigwv2.*httpMethod_GET,
 	},
 })
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books"),
-	methods: []*httpMethod{
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books"),
+	Methods: []*httpMethod{
 		apigwv2.*httpMethod_POST,
 	},
-	authorizationScopes: []*string{
+	AuthorizationScopes: []*string{
 		jsii.String("write:books"),
 	},
 })
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/login"),
-	methods: []*httpMethod{
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/login"),
+	Methods: []*httpMethod{
 		apigwv2.*httpMethod_POST,
 	},
-	authorizer: apigwv2.NewHttpNoneAuthorizer(),
+	Authorizer: apigwv2.NewHttpNoneAuthorizer(),
 })
 ```
 
@@ -157,18 +157,18 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 
 issuer := "https://test.us.auth0.com"
-authorizer := awscdkapigatewayv2authorizersalpha.NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &httpJwtAuthorizerProps{
-	jwtAudience: []*string{
+authorizer := awscdkapigatewayv2authorizersalpha.NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &HttpJwtAuthorizerProps{
+	JwtAudience: []*string{
 		jsii.String("3131231"),
 	},
 })
 
 api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books"),
-	authorizer: authorizer,
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books"),
+	Authorizer: Authorizer,
 })
 ```
 
@@ -192,10 +192,10 @@ authorizer := awscdkapigatewayv2authorizersalpha.NewHttpUserPoolAuthorizer(jsii.
 
 api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books"),
-	authorizer: authorizer,
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books"),
+	Authorizer: Authorizer,
 })
 ```
 
@@ -213,18 +213,18 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 var authHandler function
 
 
-authorizer := awscdkapigatewayv2authorizersalpha.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
-	responseTypes: []httpLambdaResponseType{
+authorizer := awscdkapigatewayv2authorizersalpha.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
+	ResponseTypes: []httpLambdaResponseType{
 		awscdkapigatewayv2authorizersalpha.HttpLambdaResponseType_SIMPLE,
 	},
 })
 
 api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
-api.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books"),
-	authorizer: authorizer,
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books"),
+	Authorizer: Authorizer,
 })
 ```
 
@@ -241,16 +241,16 @@ var principal anyPrincipal
 
 authorizer := awscdkapigatewayv2authorizersalpha.NewHttpIamAuthorizer()
 
-httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &httpApiProps{
-	defaultAuthorizer: authorizer,
+httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &HttpApiProps{
+	DefaultAuthorizer: authorizer,
 })
 
-routes := httpApi.addRoutes(&addRoutesOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
-	path: jsii.String("/books/{book}"),
+routes := httpApi.AddRoutes(&AddRoutesOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books/{book}"),
 })
 
-routes[0].grantInvoke(principal)
+routes[0].GrantInvoke(principal)
 ```
 
 ## WebSocket APIs
@@ -276,10 +276,10 @@ authorizer := awscdkapigatewayv2authorizersalpha.NewWebSocketLambdaAuthorizer(js
 
 integration := awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
 
-apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &webSocketApiProps{
-	connectRouteOptions: &webSocketRouteOptions{
-		integration: integration,
-		authorizer: authorizer,
+apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &WebSocketApiProps{
+	ConnectRouteOptions: &WebSocketRouteOptions{
+		Integration: *Integration,
+		Authorizer: *Authorizer,
 	},
 })
 ```
@@ -298,28 +298,28 @@ var connectHandler function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"))
 
-webSocketApi.addRoute(jsii.String("$connect"), &webSocketRouteOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("Integration"), connectHandler),
-	authorizer: awscdkapigatewayv2authorizersalpha.NewWebSocketIamAuthorizer(),
+webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("Integration"), connectHandler),
+	Authorizer: awscdkapigatewayv2authorizersalpha.NewWebSocketIamAuthorizer(),
 })
 
 // Create an IAM user (identity)
 user := iam.NewUser(this, jsii.String("User"))
 
-webSocketArn := awscdk.stack.of(this).formatArn(&arnComponents{
-	service: jsii.String("execute-api"),
-	resource: webSocketApi.apiId,
+webSocketArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
+	Service: jsii.String("execute-api"),
+	Resource: webSocketApi.ApiId,
 })
 
 // Grant access to the IAM user
-user.attachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &policyProps{
-	statements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
+user.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &PolicyProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("execute-api:Invoke"),
 			},
-			effect: iam.effect_ALLOW,
-			resources: []*string{
+			Effect: iam.Effect_ALLOW,
+			Resources: []*string{
 				webSocketArn,
 			},
 		}),

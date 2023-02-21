@@ -45,9 +45,9 @@ Using the CDK, a new user pool can be created as part of the stack using the con
 the `userPoolName` to give your own identifier to the user pool. If not, CloudFormation will generate a name.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	userPoolName: jsii.String("myawesomeapp-userpool"),
-	signInCaseSensitive: jsii.Boolean(false),
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	UserPoolName: jsii.String("myawesomeapp-userpool"),
+	SignInCaseSensitive: jsii.Boolean(false),
 })
 ```
 
@@ -65,8 +65,8 @@ IAM principal's policy.
 
 ```go
 userPool := cognito.NewUserPool(this, jsii.String("myuserpool"))
-role := iam.NewRole(this, jsii.String("role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("foo")),
+role := iam.NewRole(this, jsii.String("role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("foo")),
 })
 userPool.grant(role, jsii.String("cognito-idp:AdminCreateUser"))
 ```
@@ -81,14 +81,14 @@ When a user signs up, email and SMS messages are used to verify their account an
 snippet configures a user pool with properties relevant to these verification messages -
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	selfSignUpEnabled: jsii.Boolean(true),
-	userVerification: &userVerificationConfig{
-		emailSubject: jsii.String("Verify your email for our awesome app!"),
-		emailBody: jsii.String("Thanks for signing up to our awesome app! Your verification code is {####}"),
-		emailStyle: cognito.verificationEmailStyle_CODE,
-		smsMessage: jsii.String("Thanks for signing up to our awesome app! Your verification code is {####}"),
+	SelfSignUpEnabled: jsii.Boolean(true),
+	UserVerification: &UserVerificationConfig{
+		EmailSubject: jsii.String("Verify your email for our awesome app!"),
+		EmailBody: jsii.String("Thanks for signing up to our awesome app! Your verification code is {####}"),
+		EmailStyle: cognito.VerificationEmailStyle_CODE,
+		SmsMessage: jsii.String("Thanks for signing up to our awesome app! Your verification code is {####}"),
 	},
 })
 ```
@@ -101,12 +101,12 @@ invitation to join the user pool. The following code snippet configures a user p
 invitation messages -
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	userInvitation: &userInvitationConfig{
-		emailSubject: jsii.String("Invite to join our awesome app!"),
-		emailBody: jsii.String("Hello {username}, you have been invited to join our awesome app! Your temporary password is {####}"),
-		smsMessage: jsii.String("Hello {username}, your temporary password for our awesome app is {####}"),
+	UserInvitation: &UserInvitationConfig{
+		EmailSubject: jsii.String("Invite to join our awesome app!"),
+		EmailBody: jsii.String("Hello {username}, you have been invited to join our awesome app! Your temporary password is {####}"),
+		SmsMessage: jsii.String("Hello {username}, your temporary password for our awesome app is {####}"),
 	},
 })
 ```
@@ -129,12 +129,12 @@ available:
 The following code sets up a user pool so that the user can sign in with either their username or their email address -
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
 	// ...
-	signInAliases: &signInAliases{
-		username: jsii.Boolean(true),
-		email: jsii.Boolean(true),
+	SignInAliases: &SignInAliases{
+		Username: jsii.Boolean(true),
+		Email: jsii.Boolean(true),
 	},
 })
 ```
@@ -159,16 +159,16 @@ overridden by specifying the `autoVerify` property.
 The following code snippet sets up only email as a sign in alias, but both email and phone number to be auto-verified.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
 	// ...
-	signInAliases: &signInAliases{
-		username: jsii.Boolean(true),
-		email: jsii.Boolean(true),
+	SignInAliases: &SignInAliases{
+		Username: jsii.Boolean(true),
+		Email: jsii.Boolean(true),
 	},
-	autoVerify: &autoVerifiedAttrs{
-		email: jsii.Boolean(true),
-		phone: jsii.Boolean(true),
+	AutoVerify: &AutoVerifiedAttrs{
+		Email: jsii.Boolean(true),
+		Phone: jsii.Boolean(true),
 	},
 })
 ```
@@ -190,19 +190,19 @@ The following code configures a user pool with two standard attributes (name and
 four custom attributes.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	standardAttributes: &standardAttributes{
-		fullname: &standardAttribute{
-			required: jsii.Boolean(true),
-			mutable: jsii.Boolean(false),
+	StandardAttributes: &StandardAttributes{
+		Fullname: &StandardAttribute{
+			Required: jsii.Boolean(true),
+			Mutable: jsii.Boolean(false),
 		},
-		address: &standardAttribute{
-			required: jsii.Boolean(false),
-			mutable: jsii.Boolean(true),
+		Address: &StandardAttribute{
+			Required: jsii.Boolean(false),
+			Mutable: jsii.Boolean(true),
 		},
 	},
-	customAttributes: map[string]iCustomAttribute{
+	CustomAttributes: map[string]iCustomAttribute{
 		"myappid": cognito.NewStringAttribute(&StringAttributeProps{
 			"minLen": jsii.Number(5),
 			"maxLen": jsii.Number(15),
@@ -245,18 +245,18 @@ Learn more on [configuring email or phone verification in Cognito's documentatio
 The following code configures a user pool that keeps the original value for the two standard attributes (email and phone_number) until the new values are verified.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	signInAliases: &signInAliases{
-		username: jsii.Boolean(true),
+	SignInAliases: &SignInAliases{
+		Username: jsii.Boolean(true),
 	},
-	autoVerify: &autoVerifiedAttrs{
-		email: jsii.Boolean(true),
-		phone: jsii.Boolean(true),
+	AutoVerify: &AutoVerifiedAttrs{
+		Email: jsii.Boolean(true),
+		Phone: jsii.Boolean(true),
 	},
-	keepOriginal: &keepOriginalAttrs{
-		email: jsii.Boolean(true),
-		phone: jsii.Boolean(true),
+	KeepOriginal: &KeepOriginalAttrs{
+		Email: jsii.Boolean(true),
+		Phone: jsii.Boolean(true),
 	},
 })
 ```
@@ -274,14 +274,14 @@ Additionally, the property `enableSmsRole` can be used to override the CDK's def
 suppress automatic role creation.
 
 ```go
-poolSmsRole := iam.NewRole(this, jsii.String("userpoolsmsrole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("foo")),
+poolSmsRole := iam.NewRole(this, jsii.String("userpoolsmsrole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("foo")),
 })
 
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	smsRole: poolSmsRole,
-	smsRoleExternalId: jsii.String("c87467be-4f34-11ea-b77f-2e728ce88125"),
+	SmsRole: poolSmsRole,
+	SmsRoleExternalId: jsii.String("c87467be-4f34-11ea-b77f-2e728ce88125"),
 })
 ```
 
@@ -304,12 +304,12 @@ configure an MFA token and use it for sign in. It also allows for the users to u
 (TOTP)](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html).
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	mfa: cognito.mfa_REQUIRED,
-	mfaSecondFactor: &mfaSecondFactor{
-		sms: jsii.Boolean(true),
-		otp: jsii.Boolean(true),
+	Mfa: cognito.Mfa_REQUIRED,
+	MfaSecondFactor: &MfaSecondFactor{
+		Sms: jsii.Boolean(true),
+		Otp: jsii.Boolean(true),
 	},
 })
 ```
@@ -324,15 +324,15 @@ The validity of this password dictates how long to give the user to use this pas
 The following code snippet configures these properties -
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	passwordPolicy: &passwordPolicy{
-		minLength: jsii.Number(12),
-		requireLowercase: jsii.Boolean(true),
-		requireUppercase: jsii.Boolean(true),
-		requireDigits: jsii.Boolean(true),
-		requireSymbols: jsii.Boolean(true),
-		tempPasswordValidity: awscdk.Duration.days(jsii.Number(3)),
+	PasswordPolicy: &PasswordPolicy{
+		MinLength: jsii.Number(12),
+		RequireLowercase: jsii.Boolean(true),
+		RequireUppercase: jsii.Boolean(true),
+		RequireDigits: jsii.Boolean(true),
+		RequireSymbols: jsii.Boolean(true),
+		TempPasswordValidity: awscdk.Duration_Days(jsii.Number(3)),
 	},
 })
 ```
@@ -345,9 +345,9 @@ User pools can be configured on which method a user should use when recovering t
 can either be email and/or SMS. Read more at [Recovering User Accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html)
 
 ```go
-cognito.NewUserPool(this, jsii.String("UserPool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("UserPool"), &UserPoolProps{
 	// ...
-	accountRecovery: cognito.accountRecovery_EMAIL_ONLY,
+	AccountRecovery: cognito.AccountRecovery_EMAIL_ONLY,
 })
 ```
 
@@ -359,9 +359,9 @@ A user will not be allowed to reset their password via phone if they are also us
 User pools can be configured to use Advanced security. You can turn the user pool advanced security features on, and customize the actions that are taken in response to different risks. Or you can use audit mode to gather metrics on detected risks without taking action. In audit mode, the advanced security features publish metrics to Amazon CloudWatch. See the [documentation on Advanced security](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) to learn more.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	advancedSecurityMode: cognito.advancedSecurityMode_ENFORCED,
+	AdvancedSecurityMode: cognito.AdvancedSecurityMode_ENFORCED,
 })
 ```
 
@@ -376,8 +376,8 @@ from `no-reply@verificationemail.com`. If you want to use a custom email address
 Cognito to send emails through Amazon SES, which is detailed below.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	email: cognito.userPoolEmail.withCognito(jsii.String("support@myawesomeapp.com")),
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	Email: cognito.UserPoolEmail_WithCognito(jsii.String("support@myawesomeapp.com")),
 })
 ```
 
@@ -390,11 +390,11 @@ authorization policy.
 Once the SES setup is complete, the UserPool can be configured to use the SES email.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
-		fromEmail: jsii.String("noreply@myawesomeapp.com"),
-		fromName: jsii.String("Awesome App"),
-		replyTo: jsii.String("support@myawesomeapp.com"),
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	Email: cognito.UserPoolEmail_WithSES(&UserPoolSESOptions{
+		FromEmail: jsii.String("noreply@myawesomeapp.com"),
+		FromName: jsii.String("Awesome App"),
+		ReplyTo: jsii.String("support@myawesomeapp.com"),
 	}),
 })
 ```
@@ -403,12 +403,12 @@ Sending emails through SES requires that SES be configured (as described above) 
 If the UserPool is being created in a different region, `sesRegion` must be used to specify the correct SES region.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
-		sesRegion: jsii.String("us-east-1"),
-		fromEmail: jsii.String("noreply@myawesomeapp.com"),
-		fromName: jsii.String("Awesome App"),
-		replyTo: jsii.String("support@myawesomeapp.com"),
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	Email: cognito.UserPoolEmail_WithSES(&UserPoolSESOptions{
+		SesRegion: jsii.String("us-east-1"),
+		FromEmail: jsii.String("noreply@myawesomeapp.com"),
+		FromName: jsii.String("Awesome App"),
+		ReplyTo: jsii.String("support@myawesomeapp.com"),
 	}),
 })
 ```
@@ -417,13 +417,13 @@ When sending emails from an SES verified domain, `sesVerifiedDomain` can be used
 The email address does not need to be verified when sending emails from a verified domain, because the identity of the email configuration is can be determined from the domain alone.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
-		sesRegion: jsii.String("us-east-1"),
-		fromEmail: jsii.String("noreply@myawesomeapp.com"),
-		fromName: jsii.String("Awesome App"),
-		replyTo: jsii.String("support@myawesomeapp.com"),
-		sesVerifiedDomain: jsii.String("myawesomeapp.com"),
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	Email: cognito.UserPoolEmail_WithSES(&UserPoolSESOptions{
+		SesRegion: jsii.String("us-east-1"),
+		FromEmail: jsii.String("noreply@myawesomeapp.com"),
+		FromName: jsii.String("Awesome App"),
+		ReplyTo: jsii.String("support@myawesomeapp.com"),
+		SesVerifiedDomain: jsii.String("myawesomeapp.com"),
 	}),
 })
 ```
@@ -431,10 +431,10 @@ cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 If `fromName` does not comply RFC 5322 atom or quoted-string, it will be quoted or mime-encoded.
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
-		fromEmail: jsii.String("noreply@myawesomeapp.com"),
-		fromName: jsii.String("myname@mycompany.com"),
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	Email: cognito.UserPoolEmail_WithSES(&UserPoolSESOptions{
+		FromEmail: jsii.String("noreply@myawesomeapp.com"),
+		FromName: jsii.String("myname@mycompany.com"),
 	}),
 })
 ```
@@ -445,11 +445,11 @@ User pools can be configured to track devices that users have logged in to.
 Read more at [Device Tracking](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html)
 
 ```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	deviceTracking: &deviceTracking{
-		challengeRequiredOnNewDevice: jsii.Boolean(true),
-		deviceOnlyRememberedOnUserPrompt: jsii.Boolean(true),
+	DeviceTracking: &DeviceTracking{
+		ChallengeRequiredOnNewDevice: jsii.Boolean(true),
+		DeviceOnlyRememberedOnUserPrompt: jsii.Boolean(true),
 	},
 })
 ```
@@ -467,23 +467,23 @@ Lambda triggers can either be specified as part of the `UserPool` initialization
 on the construct, as so -
 
 ```go
-authChallengeFn := lambda.NewFunction(this, jsii.String("authChallengeFn"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
+authChallengeFn := lambda.NewFunction(this, jsii.String("authChallengeFn"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 })
 
-userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
 	// ...
-	lambdaTriggers: &userPoolTriggers{
-		createAuthChallenge: authChallengeFn,
+	LambdaTriggers: &UserPoolTriggers{
+		CreateAuthChallenge: authChallengeFn,
 	},
 })
 
-userpool.addTrigger(cognito.userPoolOperation_USER_MIGRATION(), lambda.NewFunction(this, jsii.String("userMigrationFn"), &functionProps{
-	runtime: lambda.*runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.*code.fromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
+userpool.AddTrigger(cognito.UserPoolOperation_USER_MIGRATION(), lambda.NewFunction(this, jsii.String("userMigrationFn"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_*FromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 }))
 ```
 
@@ -507,21 +507,21 @@ To work around the circular dependency issue, use the `attachInlinePolicy()` API
 var postAuthFn function
 
 
-userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	lambdaTriggers: &userPoolTriggers{
-		postAuthentication: postAuthFn,
+userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+	LambdaTriggers: &UserPoolTriggers{
+		PostAuthentication: postAuthFn,
 	},
 })
 
 // provide permissions to describe the user pool scoped to the ARN the user pool
-postAuthFn.role.attachInlinePolicy(iam.NewPolicy(this, jsii.String("userpool-policy"), &policyProps{
-	statements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
+postAuthFn.Role.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("userpool-policy"), &PolicyProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("cognito-idp:DescribeUserPool"),
 			},
-			resources: []*string{
-				userpool.userPoolArn,
+			Resources: []*string{
+				userpool.UserPoolArn,
 			},
 		}),
 	},
@@ -540,9 +540,9 @@ User pools can be imported either using their id via the `UserPool.fromUserPoolI
 `UserPool.fromUserPoolArn()` API.
 
 ```go
-awesomePool := cognito.userPool.fromUserPoolId(this, jsii.String("awesome-user-pool"), jsii.String("us-east-1_oiuR12Abd"))
+awesomePool := cognito.UserPool_FromUserPoolId(this, jsii.String("awesome-user-pool"), jsii.String("us-east-1_oiuR12Abd"))
 
-otherAwesomePool := cognito.userPool.fromUserPoolArn(this, jsii.String("other-awesome-user-pool"), jsii.String("arn:aws:cognito-idp:eu-west-1:123456789012:userpool/us-east-1_mtRyYQ14D"))
+otherAwesomePool := cognito.UserPool_FromUserPoolArn(this, jsii.String("other-awesome-user-pool"), jsii.String("arn:aws:cognito-idp:eu-west-1:123456789012:userpool/us-east-1_mtRyYQ14D"))
 ```
 
 ### Identity Providers
@@ -568,10 +568,10 @@ third-party identity provider.
 ```go
 userpool := cognito.NewUserPool(this, jsii.String("Pool"))
 
-provider := cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &userPoolIdentityProviderAmazonProps{
-	clientId: jsii.String("amzn-client-id"),
-	clientSecret: jsii.String("amzn-client-secret"),
-	userPool: userpool,
+provider := cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &UserPoolIdentityProviderAmazonProps{
+	ClientId: jsii.String("amzn-client-id"),
+	ClientSecret: jsii.String("amzn-client-secret"),
+	UserPool: userpool,
 })
 ```
 
@@ -584,10 +584,10 @@ secret := secretsManager.secret_FromSecretAttributes(this, jsii.String("CognitoC
 	"secretCompleteArn": jsii.String("arn:aws:secretsmanager:xxx:xxx:secret:xxx-xxx"),
 }).secretValue
 
-provider := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("Google"), &userPoolIdentityProviderGoogleProps{
-	clientId: jsii.String("amzn-client-id"),
-	clientSecretValue: secret,
-	userPool: userpool,
+provider := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("Google"), &UserPoolIdentityProviderGoogleProps{
+	ClientId: jsii.String("amzn-client-id"),
+	ClientSecretValue: secret,
+	UserPool: userpool,
 })
 ```
 
@@ -601,15 +601,15 @@ user pool attributes.
 ```go
 userpool := cognito.NewUserPool(this, jsii.String("Pool"))
 
-cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &userPoolIdentityProviderAmazonProps{
-	clientId: jsii.String("amzn-client-id"),
-	clientSecret: jsii.String("amzn-client-secret"),
-	userPool: userpool,
-	attributeMapping: &attributeMapping{
-		email: cognito.providerAttribute_AMAZON_EMAIL(),
-		website: cognito.*providerAttribute.other(jsii.String("url")),
+cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &UserPoolIdentityProviderAmazonProps{
+	ClientId: jsii.String("amzn-client-id"),
+	ClientSecret: jsii.String("amzn-client-secret"),
+	UserPool: userpool,
+	AttributeMapping: &AttributeMapping{
+		Email: cognito.ProviderAttribute_AMAZON_EMAIL(),
+		Website: cognito.ProviderAttribute_Other(jsii.String("url")),
 		 // use other() when an attribute is not pre-defined in the CDK
-		custom: map[string]*providerAttribute{
+		Custom: map[string]providerAttribute{
 			// custom user pool attributes go here
 			"uniqueId": cognito.*providerAttribute_AMAZON_USER_ID(),
 		},
@@ -629,16 +629,16 @@ The following code creates an app client and retrieves the client id -
 ```go
 pool := cognito.NewUserPool(this, jsii.String("pool"))
 client := pool.addClient(jsii.String("customer-app-client"))
-clientId := client.userPoolClientId
+clientId := client.UserPoolClientId
 ```
 
 Existing app clients can be imported into the CDK app using the `UserPoolClient.fromUserPoolClientId()` API. For new
 and imported user pools, clients can also be created via the `UserPoolClient` constructor, as so -
 
 ```go
-importedPool := cognito.userPool.fromUserPoolId(this, jsii.String("imported-pool"), jsii.String("us-east-1_oiuR12Abd"))
-cognito.NewUserPoolClient(this, jsii.String("customer-app-client"), &userPoolClientProps{
-	userPool: importedPool,
+importedPool := cognito.UserPool_FromUserPoolId(this, jsii.String("imported-pool"), jsii.String("us-east-1_oiuR12Abd"))
+cognito.NewUserPoolClient(this, jsii.String("customer-app-client"), &UserPoolClientProps{
+	UserPool: importedPool,
 })
 ```
 
@@ -651,10 +651,10 @@ The following code configures a client to use both SRP and username-and-password
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
-	authFlows: &authFlow{
-		userPassword: jsii.Boolean(true),
-		userSrp: jsii.Boolean(true),
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+	AuthFlows: &AuthFlow{
+		UserPassword: jsii.Boolean(true),
+		UserSrp: jsii.Boolean(true),
 	},
 })
 ```
@@ -675,18 +675,18 @@ be found in the [OAuth 2.0 RFC](https://tools.ietf.org/html/rfc6749).
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
-	oAuth: &oAuthSettings{
-		flows: &oAuthFlows{
-			authorizationCodeGrant: jsii.Boolean(true),
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+	OAuth: &OAuthSettings{
+		Flows: &OAuthFlows{
+			AuthorizationCodeGrant: jsii.Boolean(true),
 		},
-		scopes: []oAuthScope{
+		Scopes: []oAuthScope{
 			cognito.*oAuthScope_OPENID(),
 		},
-		callbackUrls: []*string{
+		CallbackUrls: []*string{
 			jsii.String("https://my-app-domain.com/welcome"),
 		},
-		logoutUrls: []*string{
+		LogoutUrls: []*string{
 			jsii.String("https://my-app-domain.com/signin"),
 		},
 	},
@@ -702,8 +702,8 @@ for the full details on the behavior of this flag.
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
-	preventUserExistenceErrors: jsii.Boolean(true),
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+	PreventUserExistenceErrors: jsii.Boolean(true),
 })
 ```
 
@@ -714,9 +714,9 @@ Alternatively, the list of supported identity providers for a client can be expl
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 	// ...
-	supportedIdentityProviders: []userPoolClientIdentityProvider{
+	SupportedIdentityProviders: []userPoolClientIdentityProvider{
 		cognito.*userPoolClientIdentityProvider_AMAZON(),
 		cognito.*userPoolClientIdentityProvider_COGNITO(),
 	},
@@ -729,20 +729,20 @@ dependency to the identity provider automatically because the client does not ha
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-provider := cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &userPoolIdentityProviderAmazonProps{
-	userPool: pool,
-	clientId: jsii.String("amzn-client-id"),
-	clientSecret: jsii.String("amzn-client-secret"),
+provider := cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &UserPoolIdentityProviderAmazonProps{
+	UserPool: pool,
+	ClientId: jsii.String("amzn-client-id"),
+	ClientSecret: jsii.String("amzn-client-secret"),
 })
 
-client := pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+client := pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 	// ...
-	supportedIdentityProviders: []userPoolClientIdentityProvider{
+	SupportedIdentityProviders: []userPoolClientIdentityProvider{
 		cognito.*userPoolClientIdentityProvider_AMAZON(),
 	},
 })
 
-client.node.addDependency(provider)
+client.Node.AddDependency(provider)
 ```
 
 The property `authSessionValidity` is the session token for each API request in the authentication flow.
@@ -750,9 +750,9 @@ Valid duration is from 3 to 15 minutes.
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 	// ...
-	authSessionValidity: awscdk.Duration.minutes(jsii.Number(15)),
+	AuthSessionValidity: awscdk.Duration_Minutes(jsii.Number(15)),
 })
 ```
 
@@ -762,11 +762,11 @@ The expiration time for these tokens can be configured as shown below.
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 	// ...
-	accessTokenValidity: awscdk.Duration.minutes(jsii.Number(60)),
-	idTokenValidity: awscdk.Duration.minutes(jsii.Number(60)),
-	refreshTokenValidity: awscdk.Duration.days(jsii.Number(30)),
+	AccessTokenValidity: awscdk.Duration_Minutes(jsii.Number(60)),
+	IdTokenValidity: awscdk.Duration_*Minutes(jsii.Number(60)),
+	RefreshTokenValidity: awscdk.Duration_Days(jsii.Number(30)),
 })
 ```
 
@@ -780,19 +780,19 @@ configured for a client.
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
 
-clientWriteAttributes := (cognito.NewClientAttributes()).withStandardAttributes(&standardAttributesMask{
-	fullname: jsii.Boolean(true),
-	email: jsii.Boolean(true),
-}).withCustomAttributes(jsii.String("favouritePizza"), jsii.String("favouriteBeverage"))
+clientWriteAttributes := (cognito.NewClientAttributes()).WithStandardAttributes(&StandardAttributesMask{
+	Fullname: jsii.Boolean(true),
+	Email: jsii.Boolean(true),
+}).WithCustomAttributes(jsii.String("favouritePizza"), jsii.String("favouriteBeverage"))
 
-clientReadAttributes := clientWriteAttributes.withStandardAttributes(&standardAttributesMask{
-	emailVerified: jsii.Boolean(true),
-}).withCustomAttributes(jsii.String("pointsEarned"))
+clientReadAttributes := clientWriteAttributes.WithStandardAttributes(&StandardAttributesMask{
+	EmailVerified: jsii.Boolean(true),
+}).WithCustomAttributes(jsii.String("pointsEarned"))
 
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 	// ...
-	readAttributes: clientReadAttributes,
-	writeAttributes: clientWriteAttributes,
+	ReadAttributes: clientReadAttributes,
+	WriteAttributes: clientWriteAttributes,
 })
 ```
 
@@ -802,9 +802,9 @@ pools. The property can be used to enable the token revocation in existing app c
 
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 	// ...
-	enableTokenRevocation: jsii.Boolean(true),
+	EnableTokenRevocation: jsii.Boolean(true),
 })
 ```
 
@@ -814,9 +814,9 @@ To create a client with an autogenerated client secret, pass the `generateSecret
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"), &userPoolClientProps{
-	userPool: importedPool,
-	generateSecret: jsii.Boolean(true),
+userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"), &UserPoolClientProps{
+	UserPool: importedPool,
+	GenerateSecret: jsii.Boolean(true),
 })
 
 // Allows you to pass the generated secret to other pieces of infrastructure
@@ -837,39 +837,39 @@ app clients and configures the clients to use these scopes.
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
 
-readOnlyScope := cognito.NewResourceServerScope(&resourceServerScopeProps{
-	scopeName: jsii.String("read"),
-	scopeDescription: jsii.String("Read-only access"),
+readOnlyScope := cognito.NewResourceServerScope(&ResourceServerScopeProps{
+	ScopeName: jsii.String("read"),
+	ScopeDescription: jsii.String("Read-only access"),
 })
-fullAccessScope := cognito.NewResourceServerScope(&resourceServerScopeProps{
-	scopeName: jsii.String("*"),
-	scopeDescription: jsii.String("Full access"),
+fullAccessScope := cognito.NewResourceServerScope(&ResourceServerScopeProps{
+	ScopeName: jsii.String("*"),
+	ScopeDescription: jsii.String("Full access"),
 })
 
-userServer := pool.addResourceServer(jsii.String("ResourceServer"), &userPoolResourceServerOptions{
-	identifier: jsii.String("users"),
-	scopes: []resourceServerScope{
+userServer := pool.addResourceServer(jsii.String("ResourceServer"), &UserPoolResourceServerOptions{
+	Identifier: jsii.String("users"),
+	Scopes: []resourceServerScope{
 		readOnlyScope,
 		fullAccessScope,
 	},
 })
 
-readOnlyClient := pool.addClient(jsii.String("read-only-client"), &userPoolClientOptions{
+readOnlyClient := pool.addClient(jsii.String("read-only-client"), &UserPoolClientOptions{
 	// ...
-	oAuth: &oAuthSettings{
+	OAuth: &OAuthSettings{
 		// ...
-		scopes: []oAuthScope{
-			cognito.*oAuthScope.resourceServer(userServer, readOnlyScope),
+		Scopes: []oAuthScope{
+			cognito.*oAuthScope_ResourceServer(userServer, readOnlyScope),
 		},
 	},
 })
 
-fullAccessClient := pool.addClient(jsii.String("full-access-client"), &userPoolClientOptions{
+fullAccessClient := pool.addClient(jsii.String("full-access-client"), &UserPoolClientOptions{
 	// ...
-	oAuth: &oAuthSettings{
+	OAuth: &OAuthSettings{
 		// ...
-		scopes: []*oAuthScope{
-			cognito.*oAuthScope.resourceServer(userServer, fullAccessScope),
+		Scopes: []*oAuthScope{
+			cognito.*oAuthScope_*ResourceServer(userServer, fullAccessScope),
 		},
 	},
 })
@@ -888,19 +888,19 @@ another domain with the custom domain 'user.myapp.com' -
 ```go
 pool := cognito.NewUserPool(this, jsii.String("Pool"))
 
-pool.addDomain(jsii.String("CognitoDomain"), &userPoolDomainOptions{
-	cognitoDomain: &cognitoDomainOptions{
-		domainPrefix: jsii.String("my-awesome-app"),
+pool.addDomain(jsii.String("CognitoDomain"), &UserPoolDomainOptions{
+	CognitoDomain: &CognitoDomainOptions{
+		DomainPrefix: jsii.String("my-awesome-app"),
 	},
 })
 
 certificateArn := "arn:aws:acm:us-east-1:123456789012:certificate/11-3336f1-44483d-adc7-9cd375c5169d"
 
-domainCert := certificatemanager.certificate.fromCertificateArn(this, jsii.String("domainCert"), certificateArn)
-pool.addDomain(jsii.String("CustomDomain"), &userPoolDomainOptions{
-	customDomain: &customDomainOptions{
-		domainName: jsii.String("user.myapp.com"),
-		certificate: domainCert,
+domainCert := certificatemanager.Certificate_FromCertificateArn(this, jsii.String("domainCert"), certificateArn)
+pool.addDomain(jsii.String("CustomDomain"), &UserPoolDomainOptions{
+	CustomDomain: &CustomDomainOptions{
+		DomainName: jsii.String("user.myapp.com"),
+		Certificate: domainCert,
 	},
 })
 ```
@@ -914,31 +914,31 @@ hosted UI configured with Cognito. Learn more at [Hosted UI with the Amazon Cogn
 Console](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html#cognito-user-pools-create-an-app-integration).
 
 ```go
-userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &userPoolProps{
+userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &UserPoolProps{
 })
-client := userpool.addClient(jsii.String("Client"), &userPoolClientOptions{
+client := userpool.addClient(jsii.String("Client"), &UserPoolClientOptions{
 	// ...
-	oAuth: &oAuthSettings{
-		flows: &oAuthFlows{
-			implicitCodeGrant: jsii.Boolean(true),
+	OAuth: &OAuthSettings{
+		Flows: &OAuthFlows{
+			ImplicitCodeGrant: jsii.Boolean(true),
 		},
-		callbackUrls: []*string{
+		CallbackUrls: []*string{
 			jsii.String("https://myapp.com/home"),
 			jsii.String("https://myapp.com/users"),
 		},
 	},
 })
-domain := userpool.addDomain(jsii.String("Domain"), &userPoolDomainOptions{
+domain := userpool.addDomain(jsii.String("Domain"), &UserPoolDomainOptions{
 })
-signInUrl := domain.signInUrl(client, &signInUrlOptions{
-	redirectUri: jsii.String("https://myapp.com/home"),
+signInUrl := domain.SignInUrl(client, &SignInUrlOptions{
+	RedirectUri: jsii.String("https://myapp.com/home"),
 })
 ```
 
 Existing domains can be imported into CDK apps using `UserPoolDomain.fromDomainName()` API
 
 ```go
-myUserPoolDomain := cognito.userPoolDomain.fromDomainName(this, jsii.String("my-user-pool-domain"), jsii.String("domain-name"))
+myUserPoolDomain := cognito.UserPoolDomain_FromDomainName(this, jsii.String("my-user-pool-domain"), jsii.String("domain-name"))
 ```
 
 ### Deletion protection
@@ -946,9 +946,9 @@ myUserPoolDomain := cognito.userPoolDomain.fromDomainName(this, jsii.String("my-
 Deletion protection can be enabled on a user pool to prevent accidental deletion:
 
 ```go
-userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &userPoolProps{
+userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &UserPoolProps{
 	// ...
-	deletionProtection: jsii.Boolean(true),
+	DeletionProtection: jsii.Boolean(true),
 })
 ```
 

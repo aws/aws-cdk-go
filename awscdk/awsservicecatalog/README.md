@@ -37,9 +37,9 @@ AWS Service Catalog portfolios allow administrators to organize, manage, and dis
 Using the CDK, a new portfolio can be created with the `Portfolio` construct:
 
 ```go
-servicecatalog.NewPortfolio(this, jsii.String("Portfolio"), &portfolioProps{
-	displayName: jsii.String("MyPortfolio"),
-	providerName: jsii.String("MyTeam"),
+servicecatalog.NewPortfolio(this, jsii.String("Portfolio"), &PortfolioProps{
+	DisplayName: jsii.String("MyPortfolio"),
+	ProviderName: jsii.String("MyTeam"),
 })
 ```
 
@@ -47,11 +47,11 @@ You can also specify optional metadata properties such as `description` and `mes
 to help better catalog and manage your portfolios.
 
 ```go
-servicecatalog.NewPortfolio(this, jsii.String("Portfolio"), &portfolioProps{
-	displayName: jsii.String("MyFirstPortfolio"),
-	providerName: jsii.String("SCAdmin"),
-	description: jsii.String("Portfolio for a project"),
-	messageLanguage: servicecatalog.messageLanguage_EN,
+servicecatalog.NewPortfolio(this, jsii.String("Portfolio"), &PortfolioProps{
+	DisplayName: jsii.String("MyFirstPortfolio"),
+	ProviderName: jsii.String("SCAdmin"),
+	Description: jsii.String("Portfolio for a project"),
+	MessageLanguage: servicecatalog.MessageLanguage_EN,
 })
 ```
 
@@ -60,7 +60,7 @@ Read more at [Creating and Managing Portfolios](https://docs.aws.amazon.com/serv
 To reference an existing portfolio into your CDK application, use the `Portfolio.fromPortfolioArn()` factory method:
 
 ```go
-portfolio := servicecatalog.portfolio.fromPortfolioArn(this, jsii.String("ReferencedPortfolio"), jsii.String("arn:aws:catalog:region:account-id:portfolio/port-abcdefghi"))
+portfolio := servicecatalog.Portfolio_FromPortfolioArn(this, jsii.String("ReferencedPortfolio"), jsii.String("arn:aws:catalog:region:account-id:portfolio/port-abcdefghi"))
 ```
 
 ### Granting access to a portfolio
@@ -70,7 +70,7 @@ Entities with granted access will be able to utilize the portfolios resources an
 Once resources are deployed end users will be able to access them via the console or service catalog CLI.
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 
@@ -78,8 +78,8 @@ var portfolio portfolio
 user := iam.NewUser(this, jsii.String("User"))
 portfolio.giveAccessToUser(user)
 
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewAccountRootPrincipal(),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewAccountRootPrincipal(),
 })
 portfolio.giveAccessToRole(role)
 
@@ -108,13 +108,13 @@ Using the CDK, a new Product can be created with the `CloudFormationProduct` con
 You can use `CloudFormationTemplate.fromUrl` to create a Product from a CloudFormation template directly from a URL that points to the template in S3, GitHub, or CodeCommit:
 
 ```go
-product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
-	productName: jsii.String("My Product"),
-	owner: jsii.String("Product Owner"),
-	productVersions: []cloudFormationProductVersion{
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &CloudFormationProductProps{
+	ProductName: jsii.String("My Product"),
+	Owner: jsii.String("Product Owner"),
+	ProductVersions: []cloudFormationProductVersion{
 		&cloudFormationProductVersion{
-			productVersionName: jsii.String("v1"),
-			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
+			ProductVersionName: jsii.String("v1"),
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
 		},
 	},
 })
@@ -130,17 +130,17 @@ Assets are files that are uploaded to an S3 Bucket before deployment.
 import path "github.com/aws-samples/dummy/path"
 
 
-product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
-	productName: jsii.String("My Product"),
-	owner: jsii.String("Product Owner"),
-	productVersions: []cloudFormationProductVersion{
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &CloudFormationProductProps{
+	ProductName: jsii.String("My Product"),
+	Owner: jsii.String("Product Owner"),
+	ProductVersions: []cloudFormationProductVersion{
 		&cloudFormationProductVersion{
-			productVersionName: jsii.String("v1"),
-			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
+			ProductVersionName: jsii.String("v1"),
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
 		},
 		&cloudFormationProductVersion{
-			productVersionName: jsii.String("v2"),
-			cloudFormationTemplate: servicecatalog.*cloudFormationTemplate.fromAsset(path.join(__dirname, jsii.String("development-environment.template.json"))),
+			ProductVersionName: jsii.String("v2"),
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromAsset(path.join(__dirname, jsii.String("development-environment.template.json"))),
 		},
 	},
 })
@@ -170,13 +170,13 @@ func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
 	return this
 }
 
-product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
-	productName: jsii.String("My Product"),
-	owner: jsii.String("Product Owner"),
-	productVersions: []cloudFormationProductVersion{
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &CloudFormationProductProps{
+	ProductName: jsii.String("My Product"),
+	Owner: jsii.String("Product Owner"),
+	ProductVersions: []cloudFormationProductVersion{
 		&cloudFormationProductVersion{
-			productVersionName: jsii.String("v1"),
-			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
+			ProductVersionName: jsii.String("v1"),
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 		},
 	},
 })
@@ -189,7 +189,7 @@ In this case, you must provide a S3 Bucket with a bucketName to store your asset
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
@@ -202,25 +202,25 @@ func newLambdaProduct(scope construct, id *string) *lambdaProduct {
 	this := &lambdaProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
-	lambda.NewFunction(this, jsii.String("LambdaProduct"), &functionProps{
-		runtime: lambda.runtime_PYTHON_3_9(),
-		code: lambda.code.fromAsset(jsii.String("./assets")),
-		handler: jsii.String("index.handler"),
+	lambda.NewFunction(this, jsii.String("LambdaProduct"), &FunctionProps{
+		Runtime: lambda.Runtime_PYTHON_3_9(),
+		Code: lambda.Code_FromAsset(jsii.String("./assets")),
+		Handler: jsii.String("index.handler"),
 	})
 	return this
 }
 
-userDefinedBucket := awscdk.NewBucket(this, jsii.String("UserDefinedBucket"), &bucketProps{
-	bucketName: jsii.String("user-defined-bucket-for-product-stack-assets"),
+userDefinedBucket := awscdk.NewBucket(this, jsii.String("UserDefinedBucket"), &BucketProps{
+	BucketName: jsii.String("user-defined-bucket-for-product-stack-assets"),
 })
 
-product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
-	productName: jsii.String("My Product"),
-	owner: jsii.String("Product Owner"),
-	productVersions: []cloudFormationProductVersion{
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &CloudFormationProductProps{
+	ProductName: jsii.String("My Product"),
+	Owner: jsii.String("Product Owner"),
+	ProductVersions: []cloudFormationProductVersion{
 		&cloudFormationProductVersion{
-			productVersionName: jsii.String("v1"),
-			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), map[string]bucket{
+			ProductVersionName: jsii.String("v1"),
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), map[string]bucket{
 				"assetBucket": userDefinedBucket,
 			})),
 		},
@@ -326,10 +326,10 @@ func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	return this
 }
 
-productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
-	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
-	currentVersionName: jsii.String("v1"),
-	currentVersionLocked: jsii.Boolean(true),
+productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
+	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	CurrentVersionName: jsii.String("v1"),
+	CurrentVersionLocked: jsii.Boolean(true),
 })
 ```
 
@@ -353,17 +353,17 @@ func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	return this
 }
 
-productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
-	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
-	currentVersionName: jsii.String("v2"),
-	currentVersionLocked: jsii.Boolean(true),
+productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
+	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	CurrentVersionName: jsii.String("v2"),
+	CurrentVersionLocked: jsii.Boolean(true),
 })
 
-product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
-	productName: jsii.String("My Product"),
-	owner: jsii.String("Product Owner"),
-	productVersions: []cloudFormationProductVersion{
-		productStackHistory.currentVersion(),
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &CloudFormationProductProps{
+	ProductName: jsii.String("My Product"),
+	Owner: jsii.String("Product Owner"),
+	ProductVersions: []cloudFormationProductVersion{
+		productStackHistory.CurrentVersion(),
 	},
 })
 ```
@@ -395,18 +395,18 @@ func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	return this
 }
 
-productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
-	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
-	currentVersionName: jsii.String("v2"),
-	currentVersionLocked: jsii.Boolean(true),
+productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
+	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	CurrentVersionName: jsii.String("v2"),
+	CurrentVersionLocked: jsii.Boolean(true),
 })
 
-product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
-	productName: jsii.String("My Product"),
-	owner: jsii.String("Product Owner"),
-	productVersions: []cloudFormationProductVersion{
-		productStackHistory.currentVersion(),
-		productStackHistory.versionFromSnapshot(jsii.String("v1")),
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &CloudFormationProductProps{
+	ProductName: jsii.String("My Product"),
+	Owner: jsii.String("Product Owner"),
+	ProductVersions: []cloudFormationProductVersion{
+		productStackHistory.CurrentVersion(),
+		productStackHistory.VersionFromSnapshot(jsii.String("v1")),
 	},
 })
 ```
@@ -438,8 +438,8 @@ var portfolio portfolio
 var product cloudFormationProduct
 
 
-tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &tagOptionsProps{
-	allowedValuesForTags: map[string][]*string{
+tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &TagOptionsProps{
+	AllowedValuesForTags: map[string][]*string{
 		"Group": []*string{
 			jsii.String("finance"),
 			jsii.String("engineering"),
@@ -455,8 +455,8 @@ tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTag
 })
 portfolio.associateTagOptions(tagOptionsForPortfolio)
 
-tagOptionsForProduct := servicecatalog.NewTagOptions(this, jsii.String("ProductTagOptions"), &tagOptionsProps{
-	allowedValuesForTags: map[string][]*string{
+tagOptionsForProduct := servicecatalog.NewTagOptions(this, jsii.String("ProductTagOptions"), &TagOptionsProps{
+	AllowedValuesForTags: map[string][]*string{
 		"Environment": []*string{
 			jsii.String("dev"),
 			jsii.String("alpha"),
@@ -501,8 +501,8 @@ var product cloudFormationProduct
 
 
 // to disable tag updates:
-portfolio.constrainTagUpdates(product, &tagUpdateConstraintOptions{
-	allow: jsii.Boolean(false),
+portfolio.constrainTagUpdates(product, &TagUpdateConstraintOptions{
+	Allow: jsii.Boolean(false),
 })
 ```
 
@@ -513,7 +513,7 @@ When an end user provisions a product it creates a CloudFormation stack that not
 An individual `SNS` topic may only have a single subscription to any given portfolio-product association.
 
 ```go
-import sns "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 var product cloudFormationProduct
@@ -523,8 +523,8 @@ topic1 := sns.NewTopic(this, jsii.String("Topic1"))
 portfolio.notifyOnStackEvents(product, topic1)
 
 topic2 := sns.NewTopic(this, jsii.String("Topic2"))
-portfolio.notifyOnStackEvents(product, topic2, &commonConstraintOptions{
-	description: jsii.String("description for topic2"),
+portfolio.notifyOnStackEvents(product, topic2, &CommonConstraintOptions{
+	Description: jsii.String("description for topic2"),
 })
 ```
 
@@ -540,23 +540,23 @@ For information on rule-specific intrinsic functions to define rule conditions a
 see [AWS Rule Functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-rules.html).
 
 ```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 var product cloudFormationProduct
 
 
-portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
-	rule: &templateRule{
-		ruleName: jsii.String("testInstanceType"),
-		condition: cdk.fn.conditionEquals(cdk.*fn.ref(jsii.String("Environment")), jsii.String("test")),
-		assertions: []templateRuleAssertion{
+portfolio.constrainCloudFormationParameters(product, &CloudFormationRuleConstraintOptions{
+	Rule: &TemplateRule{
+		RuleName: jsii.String("testInstanceType"),
+		Condition: cdk.Fn_ConditionEquals(cdk.Fn_Ref(jsii.String("Environment")), jsii.String("test")),
+		Assertions: []templateRuleAssertion{
 			&templateRuleAssertion{
-				assert: cdk.*fn.conditionContains([]*string{
+				Assert: cdk.Fn_ConditionContains([]*string{
 					jsii.String("t2.micro"),
 					jsii.String("t2.small"),
-				}, cdk.*fn.ref(jsii.String("InstanceType"))),
-				description: jsii.String("For test environment, the instance type should be small"),
+				}, cdk.Fn_*Ref(jsii.String("InstanceType"))),
+				Description: jsii.String("For test environment, the instance type should be small"),
 			},
 		},
 	},
@@ -573,14 +573,14 @@ You can only have one launch role set for a portfolio-product association,
 and you cannot set a launch role on a product that already has a StackSets deployment configured.
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 var product cloudFormationProduct
 
 
-launchRole := iam.NewRole(this, jsii.String("LaunchRole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("servicecatalog.amazonaws.com")),
+launchRole := iam.NewRole(this, jsii.String("LaunchRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("servicecatalog.amazonaws.com")),
 })
 
 portfolio.setLaunchRole(product, launchRole)
@@ -594,15 +594,15 @@ as well as in any end user accounts that wish to provision a product with the la
 You can do this by passing in the role with an explicitly set name:
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 var product cloudFormationProduct
 
 
-launchRole := iam.NewRole(this, jsii.String("LaunchRole"), &roleProps{
-	roleName: jsii.String("MyRole"),
-	assumedBy: iam.NewServicePrincipal(jsii.String("servicecatalog.amazonaws.com")),
+launchRole := iam.NewRole(this, jsii.String("LaunchRole"), &RoleProps{
+	RoleName: jsii.String("MyRole"),
+	AssumedBy: iam.NewServicePrincipal(jsii.String("servicecatalog.amazonaws.com")),
 })
 
 portfolio.setLocalLaunchRole(product, launchRole)
@@ -636,31 +636,31 @@ You can only define one StackSets deployment configuration per portfolio-product
 and you cannot both set a launch role and StackSets deployment configuration for an assocation.
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 var product cloudFormationProduct
 
 
-adminRole := iam.NewRole(this, jsii.String("AdminRole"), &roleProps{
-	assumedBy: iam.NewAccountRootPrincipal(),
+adminRole := iam.NewRole(this, jsii.String("AdminRole"), &RoleProps{
+	AssumedBy: iam.NewAccountRootPrincipal(),
 })
 
-portfolio.deployWithStackSets(product, &stackSetsConstraintOptions{
-	accounts: []*string{
+portfolio.deployWithStackSets(product, &StackSetsConstraintOptions{
+	Accounts: []*string{
 		jsii.String("012345678901"),
 		jsii.String("012345678902"),
 		jsii.String("012345678903"),
 	},
-	regions: []*string{
+	Regions: []*string{
 		jsii.String("us-west-1"),
 		jsii.String("us-east-1"),
 		jsii.String("us-west-2"),
 		jsii.String("us-east-1"),
 	},
-	adminRole: adminRole,
-	executionRoleName: jsii.String("SCStackSetExecutionRole"),
+	AdminRole: adminRole,
+	ExecutionRoleName: jsii.String("SCStackSetExecutionRole"),
 	 // Name of role deployed in end users accounts.
-	allowStackSetInstanceOperations: jsii.Boolean(true),
+	AllowStackSetInstanceOperations: jsii.Boolean(true),
 })
 ```

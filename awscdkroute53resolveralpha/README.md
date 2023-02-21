@@ -35,19 +35,19 @@ Domain lists can be created using a list of strings, a text file stored in Amazo
 text file:
 
 ```go
-blockList := route53resolver.NewFirewallDomainList(this, jsii.String("BlockList"), &firewallDomainListProps{
-	domains: route53resolver.firewallDomains.fromList([]*string{
+blockList := route53resolver.NewFirewallDomainList(this, jsii.String("BlockList"), &FirewallDomainListProps{
+	Domains: route53resolver.FirewallDomains_FromList([]*string{
 		jsii.String("bad-domain.com"),
 		jsii.String("bot-domain.net"),
 	}),
 })
 
-s3List := route53resolver.NewFirewallDomainList(this, jsii.String("S3List"), &firewallDomainListProps{
-	domains: route53resolver.*firewallDomains.fromS3Url(jsii.String("s3://bucket/prefix/object")),
+s3List := route53resolver.NewFirewallDomainList(this, jsii.String("S3List"), &FirewallDomainListProps{
+	Domains: route53resolver.FirewallDomains_FromS3Url(jsii.String("s3://bucket/prefix/object")),
 })
 
-assetList := route53resolver.NewFirewallDomainList(this, jsii.String("AssetList"), &firewallDomainListProps{
-	domains: route53resolver.*firewallDomains.fromAsset(jsii.String("/path/to/domains.txt")),
+assetList := route53resolver.NewFirewallDomainList(this, jsii.String("AssetList"), &FirewallDomainListProps{
+	Domains: route53resolver.FirewallDomains_FromAsset(jsii.String("/path/to/domains.txt")),
 })
 ```
 
@@ -57,7 +57,7 @@ Use `FirewallDomainList.fromFirewallDomainListId()` to import an existing or [AW
 
 ```go
 // AWSManagedDomainsMalwareDomainList in us-east-1
-malwareList := route53resolver.firewallDomainList.fromFirewallDomainListId(this, jsii.String("Malware"), jsii.String("rslvr-fdl-2c46f2ecbfec4dcc"))
+malwareList := route53resolver.FirewallDomainList_FromFirewallDomainListId(this, jsii.String("Malware"), jsii.String("rslvr-fdl-2c46f2ecbfec4dcc"))
 ```
 
 ### Rule group
@@ -67,13 +67,13 @@ Create a rule group:
 ```go
 var myBlockList firewallDomainList
 
-route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &firewallRuleGroupProps{
-	rules: []firewallRule{
+route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &FirewallRuleGroupProps{
+	Rules: []firewallRule{
 		&firewallRule{
-			priority: jsii.Number(10),
-			firewallDomainList: myBlockList,
+			Priority: jsii.Number(10),
+			FirewallDomainList: myBlockList,
 			// block and reply with NODATA
-			action: route53resolver.firewallRuleAction.block(),
+			Action: route53resolver.FirewallRuleAction_Block(),
 		},
 	},
 })
@@ -86,18 +86,18 @@ var myBlockList firewallDomainList
 var ruleGroup firewallRuleGroup
 
 
-ruleGroup.addRule(&firewallRule{
-	priority: jsii.Number(10),
-	firewallDomainList: myBlockList,
+ruleGroup.AddRule(&FirewallRule{
+	Priority: jsii.Number(10),
+	FirewallDomainList: myBlockList,
 	// block and reply with NXDOMAIN
-	action: route53resolver.firewallRuleAction.block(route53resolver.dnsBlockResponse.nxDomain()),
+	Action: route53resolver.FirewallRuleAction_Block(route53resolver.DnsBlockResponse_NxDomain()),
 })
 
-ruleGroup.addRule(&firewallRule{
-	priority: jsii.Number(20),
-	firewallDomainList: myBlockList,
+ruleGroup.AddRule(&FirewallRule{
+	Priority: jsii.Number(20),
+	FirewallDomainList: myBlockList,
 	// block and override DNS response with a custom domain
-	action: route53resolver.*firewallRuleAction.block(route53resolver.*dnsBlockResponse.override(jsii.String("amazon.com"))),
+	Action: route53resolver.FirewallRuleAction_*Block(route53resolver.DnsBlockResponse_Override(jsii.String("amazon.com"))),
 })
 ```
 
@@ -110,8 +110,8 @@ var ruleGroup firewallRuleGroup
 var myVpc vpc
 
 
-ruleGroup.associate(jsii.String("Association"), &firewallRuleGroupAssociationOptions{
-	priority: jsii.Number(101),
-	vpc: myVpc,
+ruleGroup.Associate(jsii.String("Association"), &FirewallRuleGroupAssociationOptions{
+	Priority: jsii.Number(101),
+	Vpc: myVpc,
 })
 ```

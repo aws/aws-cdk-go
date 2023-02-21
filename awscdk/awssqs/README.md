@@ -39,28 +39,28 @@ To learn more about SSE-SQS on Amazon SQS, please visit the
 ```go
 // Use managed key
 // Use managed key
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	encryption: sqs.queueEncryption_KMS_MANAGED,
+sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
+	Encryption: sqs.QueueEncryption_KMS_MANAGED,
 })
 
 // Use custom key
 myKey := kms.NewKey(this, jsii.String("Key"))
 
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	encryption: sqs.*queueEncryption_KMS,
-	encryptionMasterKey: myKey,
+sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
+	Encryption: sqs.QueueEncryption_KMS,
+	EncryptionMasterKey: myKey,
 })
 
 // Use SQS managed server side encryption (SSE-SQS)
 // Use SQS managed server side encryption (SSE-SQS)
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	encryption: sqs.*queueEncryption_SQS_MANAGED,
+sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
+	Encryption: sqs.QueueEncryption_SQS_MANAGED,
 })
 
 // Unencrypted queue
 // Unencrypted queue
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	encryption: sqs.*queueEncryption_UNENCRYPTED,
+sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
+	Encryption: sqs.QueueEncryption_UNENCRYPTED,
 })
 ```
 
@@ -71,8 +71,8 @@ A resource policy statement that allows only encrypted connections over HTTPS (T
 will be added to the queue.
 
 ```go
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	enforceSSL: jsii.Boolean(true),
+sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
+	EnforceSSL: jsii.Boolean(true),
 })
 ```
 

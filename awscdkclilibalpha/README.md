@@ -43,7 +43,7 @@ Currently the package includes implementations for:
 Obtain an `AwsCdkCli` class from an AWS CDK app directory (containing a `cdk.json` file):
 
 ```go
-cli := awscdkclilibalpha.AwsCdkCli.fromCdkAppDirectory(jsii.String("/path/to/cdk/app"))
+cli := awscdkclilibalpha.AwsCdkCli_FromCdkAppDirectory(jsii.String("/path/to/cdk/app"))
 ```
 
 ### Cloud Assembly Directory Producer
@@ -62,11 +62,11 @@ type myProducer struct {
 }
 
 func (this *myProducer) produce(context map[string]interface{}) promise {
-	app := cdk.NewApp(&appProps{
-		context: context,
+	app := cdk.NewApp(&AppProps{
+		Context: Context,
 	})
 	stack := cdk.NewStack(app)
-	return app.synth().directory
+	return app.Synth().Directory
 }
 ```
 
@@ -76,7 +76,7 @@ Since it is not possible to update the context of an app, it must be created as 
 The producer can than be used like this:
 
 ```go
-cli := awscdkclilibalpha.AwsCdkCli.fromCloudAssemblyDirectoryProducer(NewMyProducer())
+cli := awscdkclilibalpha.AwsCdkCli_FromCloudAssemblyDirectoryProducer(NewMyProducer())
 ```
 
 ## Commands
@@ -85,15 +85,15 @@ cli := awscdkclilibalpha.AwsCdkCli.fromCloudAssemblyDirectoryProducer(NewMyProdu
 
 ```go
 // await this asynchronous method call using a language feature
-cli.list()
+cli.List()
 ```
 
 ### synth
 
 ```go
 // await this asynchronous method call using a language feature
-cli.synth(&synthOptions{
-	stacks: []*string{
+cli.Synth(&SynthOptions{
+	Stacks: []*string{
 		jsii.String("MyTestStack"),
 	},
 })
@@ -103,8 +103,8 @@ cli.synth(&synthOptions{
 
 ```go
 // await this asynchronous method call using a language feature
-cli.deploy(&deployOptions{
-	stacks: []*string{
+cli.Deploy(&DeployOptions{
+	Stacks: []*string{
 		jsii.String("MyTestStack"),
 	},
 })
@@ -114,8 +114,8 @@ cli.deploy(&deployOptions{
 
 ```go
 // await this asynchronous method call using a language feature
-cli.destroy(&destroyOptions{
-	stacks: []*string{
+cli.Destroy(&DestroyOptions{
+	Stacks: []*string{
 		jsii.String("MyTestStack"),
 	},
 })

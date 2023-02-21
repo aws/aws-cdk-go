@@ -3,8 +3,8 @@
 Define a KMS key:
 
 ```go
-kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-	enableKeyRotation: jsii.Boolean(true),
+kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	EnableKeyRotation: jsii.Boolean(true),
 })
 ```
 
@@ -13,8 +13,8 @@ Define a KMS key with waiting period:
 Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 
 ```go
-key := kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-	pendingWindow: awscdk.Duration.days(jsii.Number(10)),
+key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	PendingWindow: awscdk.Duration_Days(jsii.Number(10)),
 })
 ```
 
@@ -31,10 +31,10 @@ Define a key with specific key spec and key usage:
 Valid `keySpec` values depends on `keyUsage` value.
 
 ```go
-key := kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-	keySpec: kms.keySpec_ECC_SECG_P256K1,
+key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	KeySpec: kms.KeySpec_ECC_SECG_P256K1,
 	 // Default to SYMMETRIC_DEFAULT
-	keyUsage: kms.keyUsage_SIGN_VERIFY,
+	KeyUsage: kms.KeyUsage_SIGN_VERIFY,
 })
 ```
 
@@ -55,8 +55,8 @@ type keyStack struct {
 func newKeyStack(scope app, id *string, props stackProps) *keyStack {
 	this := &keyStack{}
 	cdk.NewStack_Override(this, scope, id, props)
-	this.key = kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-		removalPolicy: cdk.removalPolicy_DESTROY,
+	this.key = kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+		RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 	})
 	return this
 }
@@ -79,9 +79,9 @@ func newUseStack(scope app, id *string, props useStackProps) *useStack {
 
 	// Use the IKey object here.
 	// Use the IKey object here.
-	kms.NewAlias(this, jsii.String("Alias"), &aliasProps{
-		aliasName: jsii.String("alias/foo"),
-		targetKey: props.key,
+	kms.NewAlias(this, jsii.String("Alias"), &AliasProps{
+		AliasName: jsii.String("alias/foo"),
+		TargetKey: props.key,
 	})
 	return this
 }
@@ -100,10 +100,10 @@ To use a KMS key that is not defined in this CDK app, but is created through oth
 `Key.fromKeyArn(parent, name, ref)`:
 
 ```go
-myKeyImported := kms.key.fromKeyArn(this, jsii.String("MyImportedKey"), jsii.String("arn:aws:..."))
+myKeyImported := kms.Key_FromKeyArn(this, jsii.String("MyImportedKey"), jsii.String("arn:aws:..."))
 
 // you can do stuff with this imported key.
-myKeyImported.addAlias(jsii.String("alias/foo"))
+myKeyImported.AddAlias(jsii.String("alias/foo"))
 ```
 
 Note that a call to `.addToResourcePolicy(statement)` on `myKeyImported` will not have
@@ -119,10 +119,10 @@ of the Key as a reference. A common scenario for this is in referencing AWS mana
 import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 
 
-myKeyAlias := kms.alias.fromAliasName(this, jsii.String("myKey"), jsii.String("alias/aws/s3"))
-trail := cloudtrail.NewTrail(this, jsii.String("myCloudTrail"), &trailProps{
-	sendToCloudWatchLogs: jsii.Boolean(true),
-	kmsKey: myKeyAlias,
+myKeyAlias := kms.Alias_FromAliasName(this, jsii.String("myKey"), jsii.String("alias/aws/s3"))
+trail := cloudtrail.NewTrail(this, jsii.String("myCloudTrail"), &TrailProps{
+	SendToCloudWatchLogs: jsii.Boolean(true),
+	KmsKey: myKeyAlias,
 })
 ```
 
@@ -144,14 +144,14 @@ as CI build steps, and to ensure your template builds are repeatable.
 Here's how `Key.fromLookup()` can be used:
 
 ```go
-myKeyLookup := kms.key.fromLookup(this, jsii.String("MyKeyLookup"), &keyLookupOptions{
-	aliasName: jsii.String("alias/KeyAlias"),
+myKeyLookup := kms.Key_FromLookup(this, jsii.String("MyKeyLookup"), &KeyLookupOptions{
+	AliasName: jsii.String("alias/KeyAlias"),
 })
 
-role := iam.NewRole(this, jsii.String("MyRole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
-myKeyLookup.grantEncryptDecrypt(role)
+myKeyLookup.GrantEncryptDecrypt(role)
 ```
 
 Note that a call to `.addToResourcePolicy(statement)` on `myKeyLookup` will not have
@@ -173,8 +173,8 @@ which is set for all new projects; for existing projects, this same behavior can
 passing the `trustAccountIdentities` property as `true` when creating the key:
 
 ```go
-kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-	trustAccountIdentities: jsii.Boolean(true),
+kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	TrustAccountIdentities: jsii.Boolean(true),
 })
 ```
 
@@ -214,15 +214,15 @@ A common addition to the key policy would be to add other key admins that are al
 via the `grantAdmin` method.
 
 ```go
-myTrustedAdminRole := iam.role.fromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
-key := kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-	admins: []iPrincipal{
+myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
+key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	Admins: []iPrincipal{
 		myTrustedAdminRole,
 	},
 })
 
 secondKey := kms.NewKey(this, jsii.String("MyKey2"))
-secondKey.grantAdmin(myTrustedAdminRole)
+secondKey.GrantAdmin(myTrustedAdminRole)
 ```
 
 Alternatively, a custom key policy can be specified, which will replace the default key policy.
@@ -232,29 +232,29 @@ Alternatively, a custom key policy can be specified, which will replace the defa
 > provided policy to the default key policy, rather than *replacing* the default policy.
 
 ```go
-myTrustedAdminRole := iam.role.fromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
+myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
 // Creates a limited admin policy and assigns to the account root.
-myCustomPolicy := iam.NewPolicyDocument(&policyDocumentProps{
-	statements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
+myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("kms:Create*"),
 				jsii.String("kms:Describe*"),
 				jsii.String("kms:Enable*"),
 				jsii.String("kms:List*"),
 				jsii.String("kms:Put*"),
 			},
-			principals: []iPrincipal{
+			Principals: []iPrincipal{
 				iam.NewAccountRootPrincipal(),
 			},
-			resources: []*string{
+			Resources: []*string{
 				jsii.String("*"),
 			},
 		}),
 	},
 })
-key := kms.NewKey(this, jsii.String("MyKey"), &keyProps{
-	policy: myCustomPolicy,
+key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	Policy: myCustomPolicy,
 })
 ```
 

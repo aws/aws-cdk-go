@@ -50,12 +50,12 @@ booksIntegration := awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration
 
 httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
-httpApi.addRoutes(&addRoutesOptions{
-	path: jsii.String("/books"),
-	methods: []httpMethod{
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/books"),
+	Methods: []httpMethod{
 		apigwv2.*httpMethod_GET,
 	},
-	integration: booksIntegration,
+	Integration: booksIntegration,
 })
 ```
 
@@ -77,12 +77,12 @@ booksIntegration := awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(js
 
 httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
-httpApi.addRoutes(&addRoutesOptions{
-	path: jsii.String("/books"),
-	methods: []httpMethod{
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/books"),
+	Methods: []httpMethod{
 		apigwv2.*httpMethod_GET,
 	},
-	integration: booksIntegration,
+	Integration: booksIntegration,
 })
 ```
 
@@ -103,18 +103,18 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &applicationLoadBalancerProps{
-	vpc: vpc,
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
 })
-listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-listener.addTargets(jsii.String("target"), &addApplicationTargetsProps{
-	port: jsii.Number(80),
+listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
 })
 
-httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
+httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
 })
 ```
 
@@ -129,18 +129,18 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
-lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
-	vpc: vpc,
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
 })
-listener := lb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
+	Port: jsii.Number(80),
 })
-listener.addTargets(jsii.String("target"), &addNetworkTargetsProps{
-	port: jsii.Number(80),
+listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
+	Port: jsii.Number(80),
 })
 
-httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 })
 ```
 
@@ -156,18 +156,18 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
-vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &vpcLinkProps{
-	vpc: vpc,
+vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &VpcLinkProps{
+	Vpc: Vpc,
 })
-namespace := servicediscovery.NewPrivateDnsNamespace(this, jsii.String("Namespace"), &privateDnsNamespaceProps{
-	name: jsii.String("boobar.com"),
-	vpc: vpc,
+namespace := servicediscovery.NewPrivateDnsNamespace(this, jsii.String("Namespace"), &PrivateDnsNamespaceProps{
+	Name: jsii.String("boobar.com"),
+	Vpc: Vpc,
 })
-service := namespace.createService(jsii.String("Service"))
+service := namespace.CreateService(jsii.String("Service"))
 
-httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &httpServiceDiscoveryIntegrationProps{
-		vpcLink: vpcLink,
+httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &HttpServiceDiscoveryIntegrationProps{
+		VpcLink: *VpcLink,
 	}),
 })
 ```
@@ -185,16 +185,16 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 var lb applicationLoadBalancer
 
-listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-listener.addTargets(jsii.String("target"), &addApplicationTargetsProps{
-	port: jsii.Number(80),
+listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
 })
 
-httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
-		parameterMapping: apigwv2.NewParameterMapping().appendHeader(jsii.String("header2"), apigwv2.mappingValue.requestHeader(jsii.String("header1"))).removeHeader(jsii.String("header1")),
+httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
+		ParameterMapping: apigwv2.NewParameterMapping().AppendHeader(jsii.String("header2"), apigwv2.MappingValue_RequestHeader(jsii.String("header1"))).RemoveHeader(jsii.String("header1")),
 	}),
 })
 ```
@@ -206,16 +206,16 @@ import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 
 var lb applicationLoadBalancer
 
-listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-listener.addTargets(jsii.String("target"), &addApplicationTargetsProps{
-	port: jsii.Number(80),
+listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
 })
 
-httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-	defaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
-		parameterMapping: apigwv2.NewParameterMapping().custom(jsii.String("myKey"), jsii.String("myValue")),
+httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
+		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("myKey"), jsii.String("myValue")),
 	}),
 })
 ```
@@ -240,12 +240,12 @@ var messageHandler function
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
-apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
-	webSocketApi: webSocketApi,
-	stageName: jsii.String("dev"),
-	autoDeploy: jsii.Boolean(true),
+apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+	WebSocketApi: WebSocketApi,
+	StageName: jsii.String("dev"),
+	AutoDeploy: jsii.Boolean(true),
 })
-webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-	integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 })
 ```

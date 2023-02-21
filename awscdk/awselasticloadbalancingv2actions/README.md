@@ -67,7 +67,7 @@ lb.addListener(jsii.String("Listener"), map[string]interface{}{
 	}),
 })
 
-awscdk.NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
-	value: lb.loadBalancerDnsName,
+awscdk.NewCfnOutput(this, jsii.String("DNS"), &CfnOutputProps{
+	Value: lb.loadBalancerDnsName,
 })
 ```

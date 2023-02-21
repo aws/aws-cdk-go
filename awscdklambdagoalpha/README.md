@@ -27,8 +27,8 @@ using a Go version >= 1.11 and is using [Go modules](https://golang.org/ref/mod)
 Define a `GoFunction`:
 
 ```go
-go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
+go.NewGoFunction(this, jsii.String("handler"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
 })
 ```
 
@@ -111,10 +111,10 @@ By default the following environment variables are set for you:
 Use the `environment` prop to define additional environment variables when go runs:
 
 ```go
-go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		environment: map[string]*string{
+go.NewGoFunction(this, jsii.String("handler"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		Environment: map[string]*string{
 			"HELLO": jsii.String("WORLD"),
 		},
 	},
@@ -136,10 +136,10 @@ To force bundling in a docker container even if `Go` is available in your enviro
 Use the `buildArgs` prop to pass build arguments when building the bundling image:
 
 ```go
-go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		buildArgs: map[string]*string{
+go.NewGoFunction(this, jsii.String("handler"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		BuildArgs: map[string]*string{
 			"HTTPS_PROXY": jsii.String("https://127.0.0.1:3001"),
 		},
 	},
@@ -149,10 +149,10 @@ go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
 Use the `bundling.dockerImage` prop to use a custom bundling image:
 
 ```go
-go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		dockerImage: awscdk.DockerImage.fromBuild(jsii.String("/path/to/Dockerfile")),
+go.NewGoFunction(this, jsii.String("handler"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		DockerImage: awscdk.DockerImage_FromBuild(jsii.String("/path/to/Dockerfile")),
 	},
 })
 ```
@@ -160,10 +160,10 @@ go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
 Use the `bundling.goBuildFlags` prop to pass additional build flags to `go build`:
 
 ```go
-go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		goBuildFlags: []*string{
+go.NewGoFunction(this, jsii.String("handler"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		GoBuildFlags: []*string{
 			jsii.String("-ldflags \"-s -w\""),
 		},
 	},
@@ -175,11 +175,11 @@ a standard Go installation, which would use the Google proxy by default. To
 recreate that behavior, do the following:
 
 ```go
-go.NewGoFunction(this, jsii.String("GoFunction"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		goProxies: []*string{
-			go.goFunction_GOOGLE_GOPROXY(),
+go.NewGoFunction(this, jsii.String("GoFunction"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		GoProxies: []*string{
+			go.GoFunction_GOOGLE_GOPROXY(),
 			jsii.String("direct"),
 		},
 	},
@@ -189,19 +189,19 @@ go.NewGoFunction(this, jsii.String("GoFunction"), &goFunctionProps{
 You can set additional Docker options to configure the build environment:
 
 ```go
-go.NewGoFunction(this, jsii.String("GoFunction"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		network: jsii.String("host"),
-		securityOpt: jsii.String("no-new-privileges"),
-		user: jsii.String("user:group"),
-		volumesFrom: []*string{
+go.NewGoFunction(this, jsii.String("GoFunction"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		Network: jsii.String("host"),
+		SecurityOpt: jsii.String("no-new-privileges"),
+		User: jsii.String("user:group"),
+		VolumesFrom: []*string{
 			jsii.String("777f7dc92da7"),
 		},
-		volumes: []dockerVolume{
+		Volumes: []dockerVolume{
 			&dockerVolume{
-				hostPath: jsii.String("/host-path"),
-				containerPath: jsii.String("/container-path"),
+				HostPath: jsii.String("/host-path"),
+				ContainerPath: jsii.String("/container-path"),
 			},
 		},
 	},
@@ -300,10 +300,10 @@ By default the input and output of Docker based bundling is handled via bind mou
 In situtations where this does not work, like Docker-in-Docker setups or when using a remote Docker socket, you can configure an alternative, but slower, variant that also works in these situations.
 
 ```go
-go.NewGoFunction(this, jsii.String("GoFunction"), &goFunctionProps{
-	entry: jsii.String("app/cmd/api"),
-	bundling: &bundlingOptions{
-		bundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
+go.NewGoFunction(this, jsii.String("GoFunction"), &GoFunctionProps{
+	Entry: jsii.String("app/cmd/api"),
+	Bundling: &BundlingOptions{
+		BundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
 	},
 })
 ```

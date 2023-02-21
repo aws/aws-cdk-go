@@ -12,7 +12,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 var fn function
 
-fn.addLayers(awscdk.NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
+fn.AddLayers(awscdk.NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
 ```
 
 The CLI will be installed under `/opt/awscli/aws`.

@@ -18,15 +18,15 @@ Define a role and add permissions to it. This will automatically create and
 attach an IAM policy to the role:
 
 ```go
-role := awscdk.NewRole(this, jsii.String("MyRole"), &roleProps{
-	assumedBy: awscdk.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
+role := awscdk.NewRole(this, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: awscdk.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
 })
 
-role.addToPolicy(awscdk.NewPolicyStatement(&policyStatementProps{
-	resources: []*string{
+role.AddToPolicy(awscdk.NewPolicyStatement(&PolicyStatementProps{
+	Resources: []*string{
 		jsii.String("*"),
 	},
-	actions: []*string{
+	Actions: []*string{
 		jsii.String("lambda:InvokeFunction"),
 	},
 }))
@@ -36,13 +36,13 @@ Define a policy and attach it to groups, users and roles. Note that it is possib
 the policy either by calling `xxx.attachInlinePolicy(policy)` or `policy.attachToXxx(xxx)`.
 
 ```go
-user := awscdk.NewUser(this, jsii.String("MyUser"), &userProps{
-	password: awscdk.SecretValue.plainText(jsii.String("1234")),
+user := awscdk.NewUser(this, jsii.String("MyUser"), &UserProps{
+	Password: awscdk.SecretValue_PlainText(jsii.String("1234")),
 })
 group := awscdk.NewGroup(this, jsii.String("MyGroup"))
 
 policy := awscdk.NewPolicy(this, jsii.String("MyPolicy"))
-policy.attachToUser(user)
+policy.AttachToUser(user)
 group.attachInlinePolicy(policy)
 ```
 
@@ -50,7 +50,7 @@ Managed policies can be attached using `xxx.addManagedPolicy(ManagedPolicy.fromA
 
 ```go
 group := awscdk.NewGroup(this, jsii.String("MyGroup"))
-group.addManagedPolicy(awscdk.ManagedPolicy.fromAwsManagedPolicyName(jsii.String("AdministratorAccess")))
+group.AddManagedPolicy(awscdk.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AdministratorAccess")))
 ```
 
 ## Granting permissions to resources
@@ -117,22 +117,22 @@ For example, to have an AWS CodePipeline *not* automatically add the required
 permissions to trigger the expected targets, do the following:
 
 ```go
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("codepipeline.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("codepipeline.amazonaws.com")),
 	// custom description if desired
-	description: jsii.String("This is a custom role..."),
+	Description: jsii.String("This is a custom role..."),
 })
 
-codepipeline.NewPipeline(this, jsii.String("Pipeline"), &pipelineProps{
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	// Give the Pipeline an immutable view of the Role
-	role: role.withoutPolicyUpdates(),
+	Role: role.WithoutPolicyUpdates(),
 })
 
 // You now have to manage the Role policies yourself
-role.addToPolicy(iam.NewPolicyStatement(&policyStatementProps{
-	actions: []*string{
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
 	},
-	resources: []*string{
+	Resources: []*string{
 	},
 }))
 ```
@@ -144,11 +144,11 @@ would like to use in your CDK application, you can use `Role.fromRoleArn` to
 import them, as follows:
 
 ```go
-role := iam.role.fromRoleArn(this, jsii.String("Role"), jsii.String("arn:aws:iam::123456789012:role/MyExistingRole"), &fromRoleArnOptions{
+role := iam.Role_FromRoleArn(this, jsii.String("Role"), jsii.String("arn:aws:iam::123456789012:role/MyExistingRole"), &FromRoleArnOptions{
 	// Set 'mutable' to 'false' to use the role as-is and prevent adding new
 	// policies to it. The default is 'true', which means the role may be
 	// modified as part of the deployment.
-	mutable: jsii.Boolean(false),
+	Mutable: jsii.Boolean(false),
 })
 ```
 
@@ -164,7 +164,7 @@ An example of how to opt in to this behavior is below:
 ```go
 var stack stack
 
-iam.role.customizeRoles(stack)
+iam.Role_CustomizeRoles(stack)
 ```
 
 CDK will not create any IAM roles or policies with the `stack` scope. `cdk synth` will fail and
@@ -180,14 +180,14 @@ property, like shown below:
 var app app
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.role.customizeRoles(stack, &customizeRolesOptions{
-	usePrecreatedRoles: map[string]*string{
+iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+	UsePrecreatedRoles: map[string]*string{
 		"MyStack/MyRole": jsii.String("my-precreated-role-name"),
 	},
 })
 
-iam.NewRole(stack, jsii.String("MyRole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
+iam.NewRole(stack, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
 })
 ```
 
@@ -199,16 +199,16 @@ following CDK code:
 var app app
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.role.customizeRoles(stack)
+iam.Role_CustomizeRoles(stack)
 
-fn := lambda.NewFunction(stack, jsii.String("MyLambda"), &functionProps{
-	code: lambda.NewInlineCode(jsii.String("foo")),
-	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
+fn := lambda.NewFunction(stack, jsii.String("MyLambda"), &FunctionProps{
+	Code: lambda.NewInlineCode(jsii.String("foo")),
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
 })
 
 bucket := s3.NewBucket(stack, jsii.String("Bucket"))
-bucket.grantRead(fn)
+bucket.GrantRead(fn)
 ```
 
 The following report will be generated.
@@ -259,8 +259,8 @@ come back and update the `customizeRoles` with the role name.
 var app app
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.role.customizeRoles(stack, &customizeRolesOptions{
-	usePrecreatedRoles: map[string]*string{
+iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+	UsePrecreatedRoles: map[string]*string{
 		"MyStack/MyLambda/ServiceRole": jsii.String("my-role-name"),
 	},
 })
@@ -276,8 +276,8 @@ It is also possible to generate the report *without* preventing the role/policy 
 ```go
 var stack stack
 
-iam.role.customizeRoles(stack, &customizeRolesOptions{
-	preventSynthesis: jsii.Boolean(false),
+iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+	PreventSynthesis: jsii.Boolean(false),
 })
 ```
 
@@ -288,9 +288,9 @@ to assume them](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create
 an `ExternalId` works like this:
 
 ```go
-role := iam.NewRole(this, jsii.String("MyRole"), &roleProps{
-	assumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
-	externalIds: []*string{
+role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
+	ExternalIds: []*string{
 		jsii.String("SUPPLY-ME"),
 	},
 })
@@ -331,9 +331,9 @@ If multiple principals are added to the policy statement, they will be merged to
 
 ```go
 statement := iam.NewPolicyStatement()
-statement.addServicePrincipal(jsii.String("cloudwatch.amazonaws.com"))
-statement.addServicePrincipal(jsii.String("ec2.amazonaws.com"))
-statement.addArnPrincipal(jsii.String("arn:aws:boom:boom"))
+statement.AddServicePrincipal(jsii.String("cloudwatch.amazonaws.com"))
+statement.AddServicePrincipal(jsii.String("ec2.amazonaws.com"))
+statement.AddArnPrincipal(jsii.String("arn:aws:boom:boom"))
 ```
 
 Will result in:
@@ -350,8 +350,8 @@ Will result in:
 The `CompositePrincipal` class can also be used to define complex principals, for example:
 
 ```go
-role := iam.NewRole(this, jsii.String("MyRole"), &roleProps{
-	assumedBy: iam.NewCompositePrincipal(
+role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: iam.NewCompositePrincipal(
 	iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 	iam.NewAccountPrincipal(jsii.String("1818188181818187272"))),
 })
@@ -363,7 +363,7 @@ constructor. The `principal.withConditions()` method can be used to create a
 `PrincipalWithConditions` from an existing principal, for example:
 
 ```go
-principal := iam.NewAccountPrincipal(jsii.String("123456789000")).withConditions(map[string]interface{}{
+principal := iam.NewAccountPrincipal(jsii.String("123456789000")).WithConditions(map[string]interface{}{
 	"StringEquals": map[string]*string{
 		"foo": jsii.String("baz"),
 	},
@@ -395,15 +395,15 @@ need to call `.withSessionTags()` to add the required permissions to the Role's
 policy document:
 
 ```go
-iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewWebIdentityPrincipal(jsii.String("cognito-identity.amazonaws.com"), map[string]interface{}{
+iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewWebIdentityPrincipal(jsii.String("cognito-identity.amazonaws.com"), map[string]interface{}{
 		"StringEquals": map[string]*string{
 			"cognito-identity.amazonaws.com:aud": jsii.String("us-east-2:12345678-abcd-abcd-abcd-123456"),
 		},
 		"ForAnyValue:StringLike": map[string]*string{
 			"cognito-identity.amazonaws.com:amr": jsii.String("unauthenticated"),
 		},
-	}).withSessionTags(),
+	}).WithSessionTags(),
 })
 ```
 
@@ -449,15 +449,15 @@ policyDocument := map[string]interface{}{
 	},
 }
 
-customPolicyDocument := iam.policyDocument.fromJson(policyDocument)
+customPolicyDocument := iam.PolicyDocument_FromJson(policyDocument)
 
 // You can pass this document as an initial document to a ManagedPolicy
 // or inline Policy.
-newManagedPolicy := iam.NewManagedPolicy(this, jsii.String("MyNewManagedPolicy"), &managedPolicyProps{
-	document: customPolicyDocument,
+newManagedPolicy := iam.NewManagedPolicy(this, jsii.String("MyNewManagedPolicy"), &ManagedPolicyProps{
+	Document: customPolicyDocument,
 })
-newPolicy := iam.NewPolicy(this, jsii.String("MyNewPolicy"), &policyProps{
-	document: customPolicyDocument,
+newPolicy := iam.NewPolicy(this, jsii.String("MyNewPolicy"), &PolicyProps{
+	Document: customPolicyDocument,
 })
 ```
 
@@ -499,8 +499,8 @@ boundary with the name
 OR
 
 ```go
-awscdk.NewApp(&appProps{
-	context: map[string]interface{}{
+awscdk.NewApp(&AppProps{
+	Context: map[string]interface{}{
 		awscdk.PERMISSIONS_BOUNDARY_CONTEXT_KEY: map[string]*string{
 			"name": jsii.String("cdk-${Qualifier}-PermissionsBoundary"),
 		},
@@ -526,16 +526,16 @@ var app app
 
 awscdk.NewStage(app, jsii.String("DevStage"))
 
-awscdk.NewStage(app, jsii.String("BetaStage"), &stageProps{
-	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("beta-permissions-boundary")),
+awscdk.NewStage(app, jsii.String("BetaStage"), &StageProps{
+	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("beta-permissions-boundary")),
 })
 
-awscdk.NewStage(app, jsii.String("GammaStage"), &stageProps{
-	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("prod-permissions-boundary")),
+awscdk.NewStage(app, jsii.String("GammaStage"), &StageProps{
+	PermissionsBoundary: awscdk.PermissionsBoundary_*FromName(jsii.String("prod-permissions-boundary")),
 })
 
-awscdk.NewStage(app, jsii.String("ProdStage"), &stageProps{
-	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("prod-permissions-boundary")),
+awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
+	PermissionsBoundary: awscdk.PermissionsBoundary_*FromName(jsii.String("prod-permissions-boundary")),
 })
 ```
 
@@ -553,13 +553,13 @@ that the Stack has the environment specified, it does not work with environment.
 var app app
 
 
-prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &stageProps{
-	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary-${AWS::AccountId}-${AWS::Region}")),
+prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
+	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary-${AWS::AccountId}-${AWS::Region}")),
 })
 
-awscdk.Newstack(prodStage, jsii.String("ProdStack"), &stackProps{
-	synthesizer: awscdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
-		qualifier: jsii.String("custom"),
+awscdk.Newstack(prodStage, jsii.String("ProdStack"), &StackProps{
+	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
+		Qualifier: jsii.String("custom"),
 	}),
 })
 ```
@@ -582,28 +582,28 @@ var fn function
 // Remove a Permissions Boundary that is inherited, for example from the Stack level
 var customResource customResource
 // This imports an existing policy.
-boundary := iam.managedPolicy.fromManagedPolicyArn(this, jsii.String("Boundary"), jsii.String("arn:aws:iam::123456789012:policy/boundary"))
+boundary := iam.ManagedPolicy_FromManagedPolicyArn(this, jsii.String("Boundary"), jsii.String("arn:aws:iam::123456789012:policy/boundary"))
 
 // This creates a new boundary
-boundary2 := iam.NewManagedPolicy(this, jsii.String("Boundary2"), &managedPolicyProps{
-	statements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			effect: iam.effect_DENY,
-			actions: []*string{
+boundary2 := iam.NewManagedPolicy(this, jsii.String("Boundary2"), &ManagedPolicyProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Effect: iam.Effect_DENY,
+			Actions: []*string{
 				jsii.String("iam:*"),
 			},
-			resources: []*string{
+			Resources: []*string{
 				jsii.String("*"),
 			},
 		}),
 	},
 })
-iam.permissionsBoundary.of(role).apply(boundary)
-iam.permissionsBoundary.of(fn).apply(boundary)
+iam.PermissionsBoundary_Of(role).Apply(boundary)
+iam.PermissionsBoundary_Of(fn).Apply(boundary)
 
 // Apply the boundary to all Roles in a stack
-iam.permissionsBoundary.of(this).apply(boundary)
-iam.permissionsBoundary.of(customResource).clear()
+iam.PermissionsBoundary_Of(this).Apply(boundary)
+iam.PermissionsBoundary_Of(customResource).Clear()
 ```
 
 ## OpenID Connect Providers
@@ -623,9 +623,9 @@ The following examples defines an OpenID Connect provider. Two client IDs
 [https://openid/connect](https://openid/connect).
 
 ```go
-provider := iam.NewOpenIdConnectProvider(this, jsii.String("MyProvider"), &openIdConnectProviderProps{
-	url: jsii.String("https://openid/connect"),
-	clientIds: []*string{
+provider := iam.NewOpenIdConnectProvider(this, jsii.String("MyProvider"), &OpenIdConnectProviderProps{
+	Url: jsii.String("https://openid/connect"),
+	ClientIds: []*string{
 		jsii.String("myclient1"),
 		jsii.String("myclient2"),
 	},
@@ -648,21 +648,21 @@ import cognito "github.com/aws/aws-cdk-go/awscdk"
 
 var myProvider openIdConnectProvider
 
-cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &cfnIdentityPoolProps{
-	openIdConnectProviderArns: []*string{
-		myProvider.openIdConnectProviderArn,
+cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
+	OpenIdConnectProviderArns: []*string{
+		myProvider.OpenIdConnectProviderArn,
 	},
 	// And the other properties for your identity pool
-	allowUnauthenticatedIdentities: jsii.Boolean(false),
+	AllowUnauthenticatedIdentities: jsii.Boolean(false),
 })
 ```
 
 The `OpenIdConnectPrincipal` class can be used as a principal used with a `OpenIdConnectProvider`, for example:
 
 ```go
-provider := iam.NewOpenIdConnectProvider(this, jsii.String("MyProvider"), &openIdConnectProviderProps{
-	url: jsii.String("https://openid/connect"),
-	clientIds: []*string{
+provider := iam.NewOpenIdConnectProvider(this, jsii.String("MyProvider"), &OpenIdConnectProviderProps{
+	Url: jsii.String("https://openid/connect"),
+	ClientIds: []*string{
 		jsii.String("myclient1"),
 		jsii.String("myclient2"),
 	},
@@ -681,16 +681,16 @@ access AWS resources. IAM SAML identity providers are used as principals in an
 IAM trust policy.
 
 ```go
-iam.NewSamlProvider(this, jsii.String("Provider"), &samlProviderProps{
-	metadataDocument: iam.samlMetadataDocument.fromFile(jsii.String("/path/to/saml-metadata-document.xml")),
+iam.NewSamlProvider(this, jsii.String("Provider"), &SamlProviderProps{
+	MetadataDocument: iam.SamlMetadataDocument_FromFile(jsii.String("/path/to/saml-metadata-document.xml")),
 })
 ```
 
 The `SamlPrincipal` class can be used as a principal with a `SamlProvider`:
 
 ```go
-provider := iam.NewSamlProvider(this, jsii.String("Provider"), &samlProviderProps{
-	metadataDocument: iam.samlMetadataDocument.fromFile(jsii.String("/path/to/saml-metadata-document.xml")),
+provider := iam.NewSamlProvider(this, jsii.String("Provider"), &SamlProviderProps{
+	MetadataDocument: iam.SamlMetadataDocument_FromFile(jsii.String("/path/to/saml-metadata-document.xml")),
 })
 principal := iam.NewSamlPrincipal(provider, map[string]interface{}{
 	"StringEquals": map[string]*string{
@@ -703,11 +703,11 @@ When creating a role for programmatic and AWS Management Console access, use the
 class:
 
 ```go
-provider := iam.NewSamlProvider(this, jsii.String("Provider"), &samlProviderProps{
-	metadataDocument: iam.samlMetadataDocument.fromFile(jsii.String("/path/to/saml-metadata-document.xml")),
+provider := iam.NewSamlProvider(this, jsii.String("Provider"), &SamlProviderProps{
+	MetadataDocument: iam.SamlMetadataDocument_FromFile(jsii.String("/path/to/saml-metadata-document.xml")),
 })
-iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewSamlConsolePrincipal(provider),
+iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewSamlConsolePrincipal(provider),
 })
 ```
 
@@ -722,20 +722,20 @@ user := iam.NewUser(this, jsii.String("MyUser"))
 To import an existing user by name [with path](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names):
 
 ```go
-user := iam.user.fromUserName(this, jsii.String("MyImportedUserByName"), jsii.String("johnsmith"))
+user := iam.User_FromUserName(this, jsii.String("MyImportedUserByName"), jsii.String("johnsmith"))
 ```
 
 To import an existing user by ARN:
 
 ```go
-user := iam.user.fromUserArn(this, jsii.String("MyImportedUserByArn"), jsii.String("arn:aws:iam::123456789012:user/johnsmith"))
+user := iam.User_FromUserArn(this, jsii.String("MyImportedUserByArn"), jsii.String("arn:aws:iam::123456789012:user/johnsmith"))
 ```
 
 To import an existing user by attributes:
 
 ```go
-user := iam.user.fromUserAttributes(this, jsii.String("MyImportedUserByAttributes"), &userAttributes{
-	userArn: jsii.String("arn:aws:iam::123456789012:user/johnsmith"),
+user := iam.User_FromUserAttributes(this, jsii.String("MyImportedUserByAttributes"), &UserAttributes{
+	UserArn: jsii.String("arn:aws:iam::123456789012:user/johnsmith"),
 })
 ```
 
@@ -746,8 +746,8 @@ access key pair. To create an access key:
 
 ```go
 user := iam.NewUser(this, jsii.String("MyUser"))
-accessKey := iam.NewAccessKey(this, jsii.String("MyAccessKey"), &accessKeyProps{
-	user: user,
+accessKey := iam.NewAccessKey(this, jsii.String("MyAccessKey"), &AccessKeyProps{
+	User: user,
 })
 ```
 
@@ -756,9 +756,9 @@ property. Simply provide a higher serial value than any number used previously:
 
 ```go
 user := iam.NewUser(this, jsii.String("MyUser"))
-accessKey := iam.NewAccessKey(this, jsii.String("MyAccessKey"), &accessKeyProps{
-	user: user,
-	serial: jsii.Number(1),
+accessKey := iam.NewAccessKey(this, jsii.String("MyAccessKey"), &AccessKeyProps{
+	User: user,
+	Serial: jsii.Number(1),
 })
 ```
 
@@ -776,13 +776,13 @@ group := iam.NewGroup(this, jsii.String("MyGroup"))
 To import an existing group by ARN:
 
 ```go
-group := iam.group.fromGroupArn(this, jsii.String("MyImportedGroupByArn"), jsii.String("arn:aws:iam::account-id:group/group-name"))
+group := iam.Group_FromGroupArn(this, jsii.String("MyImportedGroupByArn"), jsii.String("arn:aws:iam::account-id:group/group-name"))
 ```
 
 To import an existing group by name [with path](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names):
 
 ```go
-group := iam.group.fromGroupName(this, jsii.String("MyImportedGroupByName"), jsii.String("group-name"))
+group := iam.Group_FromGroupName(this, jsii.String("MyImportedGroupByName"), jsii.String("group-name"))
 ```
 
 To add a user to a group (both for a new and imported user/group):
@@ -791,7 +791,7 @@ To add a user to a group (both for a new and imported user/group):
 user := iam.NewUser(this, jsii.String("MyUser")) // or User.fromUserName(stack, 'User', 'johnsmith');
 group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(stack, 'Group', 'arn:aws:iam::account-id:group/group-name');
 
-user.addToGroup(group)
+user.AddToGroup(group)
 // or
 group.addUser(user)
 ```

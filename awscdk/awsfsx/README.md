@@ -44,13 +44,13 @@ Setup required properties and create:
 var vpc vpc
 
 
-fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
-	lustreConfiguration: &lustreConfiguration{
-		deploymentType: fsx.lustreDeploymentType_SCRATCH_2,
+fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
+	LustreConfiguration: &LustreConfiguration{
+		DeploymentType: fsx.LustreDeploymentType_SCRATCH_2,
 	},
-	storageCapacityGiB: jsii.Number(1200),
-	vpc: vpc,
-	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+	StorageCapacityGiB: jsii.Number(1200),
+	Vpc: Vpc,
+	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
 })
 ```
 
@@ -64,7 +64,7 @@ var fileSystem lustreFileSystem
 var instance instance
 
 
-fileSystem.connections.allowDefaultPortFrom(instance)
+fileSystem.Connections.AllowDefaultPortFrom(instance)
 ```
 
 ### Mounting
@@ -82,33 +82,33 @@ lustreConfiguration := map[string]lustreDeploymentType{
 	"deploymentType": fsx.lustreDeploymentType_SCRATCH_2,
 }
 
-fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
-	lustreConfiguration: lustreConfiguration,
-	storageCapacityGiB: jsii.Number(1200),
-	vpc: vpc,
-	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
+	LustreConfiguration: LustreConfiguration,
+	StorageCapacityGiB: jsii.Number(1200),
+	Vpc: Vpc,
+	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
 })
 
-inst := ec2.NewInstance(this, jsii.String("inst"), &instanceProps{
-	instanceType: ec2.instanceType.of(ec2.instanceClass_T2, ec2.instanceSize_LARGE),
-	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
-		generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
+inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
+		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
 	}),
-	vpc: vpc,
-	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PUBLIC,
+	Vpc: Vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
 	},
 })
-fs.connections.allowDefaultPortFrom(inst)
+fs.Connections.AllowDefaultPortFrom(inst)
 
 // Need to give the instance access to read information about FSx to determine the file system's mount name.
-inst.role.addManagedPolicy(iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("AmazonFSxReadOnlyAccess")))
+inst.Role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonFSxReadOnlyAccess")))
 
 mountPath := "/mnt/fsx"
-dnsName := fs.dnsName
-mountName := fs.mountName
+dnsName := fs.DnsName
+mountName := fs.MountName
 
-inst.userData.addCommands(jsii.String("set -eux"), jsii.String("yum update -y"), jsii.String("amazon-linux-extras install -y lustre2.10"),
+inst.UserData.AddCommands(jsii.String("set -eux"), jsii.String("yum update -y"), jsii.String("amazon-linux-extras install -y lustre2.10"),
 // Set up the directory to mount the file system to and change the owner to the AL2 default ec2-user.
 fmt.Sprintf("mkdir -p %v", mountPath),
 fmt.Sprintf("chmod 777 %v", mountPath),
@@ -125,37 +125,37 @@ system, and then also import the VPC the file system is in and add an EC2 instan
 system.
 
 ```go
-sg := ec2.securityGroup.fromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
-fs := fsx.lustreFileSystem.fromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &fileSystemAttributes{
-	dnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
-	fileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
-	securityGroup: sg,
+sg := ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
+fs := fsx.LustreFileSystem_FromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &FileSystemAttributes{
+	DnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
+	FileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
+	SecurityGroup: sg,
 })
 
-vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("Vpc"), &vpcAttributes{
-	availabilityZones: []*string{
+vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("Vpc"), &VpcAttributes{
+	AvailabilityZones: []*string{
 		jsii.String("us-west-2a"),
 		jsii.String("us-west-2b"),
 	},
-	publicSubnetIds: []*string{
+	PublicSubnetIds: []*string{
 		jsii.String("{US-WEST-2A-SUBNET-ID}"),
 		jsii.String("{US-WEST-2B-SUBNET-ID}"),
 	},
-	vpcId: jsii.String("{VPC-ID}"),
+	VpcId: jsii.String("{VPC-ID}"),
 })
 
-inst := ec2.NewInstance(this, jsii.String("inst"), &instanceProps{
-	instanceType: ec2.instanceType.of(ec2.instanceClass_T2, ec2.instanceSize_LARGE),
-	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
-		generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
+inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
+		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
 	}),
-	vpc: vpc,
-	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PUBLIC,
+	Vpc: Vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
 	},
 })
 
-fs.connections.allowDefaultPortFrom(inst)
+fs.Connections.AllowDefaultPortFrom(inst)
 ```
 
 ### Lustre Data Repository Association support
@@ -179,11 +179,11 @@ lustreConfiguration := map[string]interface{}{
 	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
 }
 
-fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
-	vpc: vpc,
-	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
-	storageCapacityGiB: jsii.Number(1200),
-	lustreConfiguration: lustreConfiguration,
+fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
+	Vpc: vpc,
+	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
+	StorageCapacityGiB: jsii.Number(1200),
+	LustreConfiguration: LustreConfiguration,
 })
 ```
 

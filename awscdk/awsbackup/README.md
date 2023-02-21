@@ -16,7 +16,7 @@ This module provides ready-made backup plans (similar to the console experience)
 
 ```go
 // Daily, weekly and monthly with 5 year retention
-plan := backup.backupPlan.dailyWeeklyMonthly5YearRetention(this, jsii.String("Plan"))
+plan := backup.BackupPlan_DailyWeeklyMonthly5YearRetention(this, jsii.String("Plan"))
 ```
 
 Assigning resources to a plan can be done with `addSelection()`:
@@ -25,37 +25,37 @@ Assigning resources to a plan can be done with `addSelection()`:
 var plan backupPlan
 var vpc vpc
 
-myTable := dynamodb.table.fromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
-myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &databaseInstanceProps{
-	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
-		version: rds.mysqlEngineVersion_VER_8_0_26(),
+myTable := dynamodb.Table_FromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
+myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_26(),
 	}),
-	vpc: vpc,
+	Vpc: Vpc,
 })
-myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterProps{
-	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
-		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
 	}),
-	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
-	instanceProps: &instanceProps{
-		vpc: vpc,
+	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+	InstanceProps: &InstanceProps{
+		Vpc: *Vpc,
 	},
 })
-myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &serverlessClusterProps{
-	engine: rds.*databaseClusterEngine_AURORA_POSTGRESQL(),
-	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
-	vpc: vpc,
+myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
+	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+	Vpc: Vpc,
 })
 myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 
-plan.addSelection(jsii.String("Selection"), &backupSelectionOptions{
-	resources: []backupResource{
-		backup.*backupResource.fromDynamoDbTable(myTable),
-		backup.*backupResource.fromRdsDatabaseInstance(myDatabaseInstance),
-		backup.*backupResource.fromRdsDatabaseCluster(myDatabaseCluster),
-		backup.*backupResource.fromRdsServerlessCluster(myServerlessCluster),
-		backup.*backupResource.fromTag(jsii.String("stage"), jsii.String("prod")),
-		backup.*backupResource.fromConstruct(myCoolConstruct),
+plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
+	Resources: []backupResource{
+		backup.*backupResource_FromDynamoDbTable(myTable),
+		backup.*backupResource_FromRdsDatabaseInstance(myDatabaseInstance),
+		backup.*backupResource_FromRdsDatabaseCluster(myDatabaseCluster),
+		backup.*backupResource_FromRdsServerlessCluster(myServerlessCluster),
+		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
+		backup.*backupResource_FromConstruct(myCoolConstruct),
 	},
 })
 ```
@@ -68,16 +68,16 @@ To add rules to a plan, use `addRule()`:
 ```go
 var plan backupPlan
 
-plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
-	completionWindow: awscdk.Duration.hours(jsii.Number(2)),
-	startWindow: awscdk.Duration.hours(jsii.Number(1)),
-	scheduleExpression: events.schedule.cron(&cronOptions{
+plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+	CompletionWindow: awscdk.Duration_Hours(jsii.Number(2)),
+	StartWindow: awscdk.Duration_*Hours(jsii.Number(1)),
+	ScheduleExpression: events.Schedule_Cron(&CronOptions{
 		 // Only cron expressions are supported
-		day: jsii.String("15"),
-		hour: jsii.String("3"),
-		minute: jsii.String("30"),
+		Day: jsii.String("15"),
+		Hour: jsii.String("3"),
+		Minute: jsii.String("30"),
 	}),
-	moveToColdStorageAfter: awscdk.Duration.days(jsii.Number(30)),
+	MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
 }))
 ```
 
@@ -90,9 +90,9 @@ This example defines an AWS Backup rule with PITR and a retention period set to 
 ```go
 var plan backupPlan
 
-plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
-	enableContinuousBackup: jsii.Boolean(true),
-	deleteAfter: awscdk.Duration.days(jsii.Number(14)),
+plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+	EnableContinuousBackup: jsii.Boolean(true),
+	DeleteAfter: awscdk.Duration_Days(jsii.Number(14)),
 }))
 ```
 
@@ -103,12 +103,12 @@ optionally have `moveToColdStorageAfter` and `deleteAfter` configured.
 var plan backupPlan
 var secondaryVault backupVault
 
-plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
-	copyActions: []backupPlanCopyActionProps{
+plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+	CopyActions: []backupPlanCopyActionProps{
 		&backupPlanCopyActionProps{
-			destinationBackupVault: secondaryVault,
-			moveToColdStorageAfter: awscdk.Duration.days(jsii.Number(30)),
-			deleteAfter: awscdk.Duration.days(jsii.Number(120)),
+			DestinationBackupVault: secondaryVault,
+			MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
+			DeleteAfter: awscdk.Duration_*Days(jsii.Number(120)),
 		},
 	},
 }))
@@ -119,8 +119,8 @@ Ready-made rules are also available:
 ```go
 var plan backupPlan
 
-plan.addRule(backup.backupPlanRule.daily())
-plan.addRule(backup.backupPlanRule.weekly())
+plan.AddRule(backup.BackupPlanRule_Daily())
+plan.AddRule(backup.BackupPlanRule_Weekly())
 ```
 
 By default a new [vault](#Backup-vault) is created when creating a plan.
@@ -128,11 +128,11 @@ It is also possible to specify a vault either at the plan level or at the
 rule level.
 
 ```go
-myVault := backup.backupVault.fromBackupVaultName(this, jsii.String("Vault1"), jsii.String("myVault"))
-otherVault := backup.backupVault.fromBackupVaultName(this, jsii.String("Vault2"), jsii.String("otherVault"))
+myVault := backup.BackupVault_FromBackupVaultName(this, jsii.String("Vault1"), jsii.String("myVault"))
+otherVault := backup.BackupVault_FromBackupVaultName(this, jsii.String("Vault2"), jsii.String("otherVault"))
 
-plan := backup.backupPlan.daily35DayRetention(this, jsii.String("Plan"), myVault) // Use `myVault` for all plan rules
-plan.addRule(backup.backupPlanRule.monthly1Year(otherVault))
+plan := backup.BackupPlan_Daily35DayRetention(this, jsii.String("Plan"), myVault) // Use `myVault` for all plan rules
+plan.AddRule(backup.BackupPlanRule_Monthly1Year(otherVault))
 ```
 
 You can [backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html)
@@ -141,8 +141,8 @@ parameter to `true`. If the application has VSS writer registered with Windows V
 then AWS Backup creates a snapshot that will be consistent for that application.
 
 ```go
-plan := backup.NewBackupPlan(this, jsii.String("Plan"), &backupPlanProps{
-	windowsVss: jsii.Boolean(true),
+plan := backup.NewBackupPlan(this, jsii.String("Plan"), &BackupPlanProps{
+	WindowsVss: jsii.Boolean(true),
 })
 ```
 
@@ -155,13 +155,13 @@ encryption keys or access policies for different groups of backups, you can opti
 backup vaults.
 
 ```go
-myKey := kms.key.fromKeyArn(this, jsii.String("MyKey"), jsii.String("aaa"))
-myTopic := sns.topic.fromTopicArn(this, jsii.String("MyTopic"), jsii.String("bbb"))
+myKey := kms.Key_FromKeyArn(this, jsii.String("MyKey"), jsii.String("aaa"))
+myTopic := sns.Topic_FromTopicArn(this, jsii.String("MyTopic"), jsii.String("bbb"))
 
-vault := backup.NewBackupVault(this, jsii.String("Vault"), &backupVaultProps{
-	encryptionKey: myKey,
+vault := backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
+	EncryptionKey: myKey,
 	 // Custom encryption key
-	notificationTopic: myTopic,
+	NotificationTopic: myTopic,
 })
 ```
 
@@ -175,21 +175,21 @@ their ability to delete recovery points after they're created.
 Use the `accessPolicy` property to create a backup vault policy:
 
 ```go
-vault := backup.NewBackupVault(this, jsii.String("Vault"), &backupVaultProps{
-	accessPolicy: iam.NewPolicyDocument(&policyDocumentProps{
-		statements: []policyStatement{
-			iam.NewPolicyStatement(&policyStatementProps{
-				effect: iam.effect_DENY,
-				principals: []iPrincipal{
+vault := backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
+	AccessPolicy: iam.NewPolicyDocument(&PolicyDocumentProps{
+		Statements: []policyStatement{
+			iam.NewPolicyStatement(&PolicyStatementProps{
+				Effect: iam.Effect_DENY,
+				Principals: []iPrincipal{
 					iam.NewAnyPrincipal(),
 				},
-				actions: []*string{
+				Actions: []*string{
 					jsii.String("backup:DeleteRecoveryPoint"),
 				},
-				resources: []*string{
+				Resources: []*string{
 					jsii.String("*"),
 				},
-				conditions: map[string]interface{}{
+				Conditions: map[string]interface{}{
 					"StringNotLike": map[string][]*string{
 						"aws:userId": []*string{
 							jsii.String("user1"),
@@ -210,10 +210,10 @@ a statement to the vault access policy that prevents recovery point deletions in
 
 ```go
 var backupVault backupVault
-backup.NewBackupVault(this, jsii.String("Vault"), &backupVaultProps{
-	blockRecoveryPointDeletion: jsii.Boolean(true),
+backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
+	BlockRecoveryPointDeletion: jsii.Boolean(true),
 })
-backupVault.blockRecoveryPointDeletion()
+backupVault.BlockRecoveryPointDeletion()
 ```
 
 By default access is not restricted.
@@ -224,7 +224,7 @@ Use the `lockConfiguration` property to enable [AWS Backup Vault Lock](https://d
 // Example automatically generated from non-compiling source. May contain errors.
 NewBackupVault(stack, jsii.String("Vault"), map[string]map[string]duration{
 	"lockConfiguration": map[string]duration{
-		"minRetention": awscdk.Duration.days(jsii.Number(30)),
+		"minRetention": awscdk.Duration_days(jsii.Number(30)),
 	},
 })
 ```
@@ -235,11 +235,11 @@ To import an existing backup vault into your CDK application, use the `BackupVau
 static method. Here is an example of giving an IAM Role permission to start a backup job:
 
 ```go
-importedVault := backup.backupVault.fromBackupVaultName(this, jsii.String("Vault"), jsii.String("myVaultName"))
+importedVault := backup.BackupVault_FromBackupVaultName(this, jsii.String("Vault"), jsii.String("myVaultName"))
 
-role := iam.NewRole(this, jsii.String("Access Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Access Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 
-importedVault.grant(role, jsii.String("backup:StartBackupJob"))
+importedVault.Grant(role, jsii.String("backup:StartBackupJob"))
 ```

@@ -24,13 +24,13 @@ To set up an Amplify Console app, define an `App`:
 import codebuild "github.com/aws/aws-cdk-go/awscdk"
 
 
-amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
-	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
-		owner: jsii.String("<user>"),
-		repository: jsii.String("<repo>"),
-		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
+amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
+		Owner: jsii.String("<user>"),
+		Repository: jsii.String("<repo>"),
+		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 	}),
-	buildSpec: codebuild.buildSpec.fromObjectToYaml(map[string]interface{}{
+	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
 		// Alternatively add a `amplify.yml` to the repo
 		"version": jsii.String("1.0"),
 		"frontend": map[string]map[string]map[string][]*string{
@@ -58,11 +58,11 @@ amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
 To connect your `App` to GitLab, use the `GitLabSourceCodeProvider`:
 
 ```go
-amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
-	sourceCodeProvider: amplify.NewGitLabSourceCodeProvider(&gitLabSourceCodeProviderProps{
-		owner: jsii.String("<user>"),
-		repository: jsii.String("<repo>"),
-		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-gitlab-token")),
+amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+	SourceCodeProvider: amplify.NewGitLabSourceCodeProvider(&GitLabSourceCodeProviderProps{
+		Owner: jsii.String("<user>"),
+		Repository: jsii.String("<repo>"),
+		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-gitlab-token")),
 	}),
 })
 ```
@@ -73,13 +73,13 @@ To connect your `App` to CodeCommit, use the `CodeCommitSourceCodeProvider`:
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
 
 
-repository := codecommit.NewRepository(this, jsii.String("Repo"), &repositoryProps{
-	repositoryName: jsii.String("my-repo"),
+repository := codecommit.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	RepositoryName: jsii.String("my-repo"),
 })
 
-amplifyApp := amplify.NewApp(this, jsii.String("App"), &appProps{
-	sourceCodeProvider: amplify.NewCodeCommitSourceCodeProvider(&codeCommitSourceCodeProviderProps{
-		repository: repository,
+amplifyApp := amplify.NewApp(this, jsii.String("App"), &AppProps{
+	SourceCodeProvider: amplify.NewCodeCommitSourceCodeProvider(&CodeCommitSourceCodeProviderProps{
+		Repository: *Repository,
 	}),
 })
 ```
@@ -93,11 +93,11 @@ Add branches:
 var amplifyApp app
 
 
-main := amplifyApp.addBranch(jsii.String("main")) // `id` will be used as repo branch name
-dev := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
-	performanceMode: jsii.Boolean(true),
+main := amplifyApp.AddBranch(jsii.String("main")) // `id` will be used as repo branch name
+dev := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
+	PerformanceMode: jsii.Boolean(true),
 })
-dev.addEnvironment(jsii.String("STAGE"), jsii.String("dev"))
+dev.AddEnvironment(jsii.String("STAGE"), jsii.String("dev"))
 ```
 
 Auto build and pull request preview are enabled by default.
@@ -107,7 +107,7 @@ Add custom rules for redirection:
 ```go
 var amplifyApp app
 
-amplifyApp.addCustomRule(map[string]interface{}{
+amplifyApp.AddCustomRule(map[string]interface{}{
 	"source": jsii.String("/docs/specific-filename.html"),
 	"target": jsii.String("/documents/different-filename.html"),
 	"status": amplify.RedirectStatus_TEMPORARY_REDIRECT,
@@ -124,7 +124,7 @@ ttf, map, json, webmanifest.
 var mySinglePageApp app
 
 
-mySinglePageApp.addCustomRule(amplify.customRule_SINGLE_PAGE_APPLICATION_REDIRECT())
+mySinglePageApp.AddCustomRule(amplify.CustomRule_SINGLE_PAGE_APPLICATION_REDIRECT())
 ```
 
 Add a domain and map sub domains to branches:
@@ -135,17 +135,17 @@ var main branch
 var dev branch
 
 
-domain := amplifyApp.addDomain(jsii.String("example.com"), &domainOptions{
-	enableAutoSubdomain: jsii.Boolean(true),
+domain := amplifyApp.AddDomain(jsii.String("example.com"), &DomainOptions{
+	EnableAutoSubdomain: jsii.Boolean(true),
 	 // in case subdomains should be auto registered for branches
-	autoSubdomainCreationPatterns: []*string{
+	AutoSubdomainCreationPatterns: []*string{
 		jsii.String("*"),
 		jsii.String("pr*"),
 	},
 })
-domain.mapRoot(main) // map main branch to domain root
-domain.mapSubDomain(main, jsii.String("www"))
-domain.mapSubDomain(dev)
+domain.MapRoot(main) // map main branch to domain root
+domain.MapSubDomain(main, jsii.String("www"))
+domain.MapSubDomain(dev)
 ```
 
 ## Restricting access
@@ -155,26 +155,26 @@ Password protect the app with basic auth by specifying the `basicAuth` prop.
 Use `BasicAuth.fromCredentials` when referencing an existing secret:
 
 ```go
-amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
-	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
-		owner: jsii.String("<user>"),
-		repository: jsii.String("<repo>"),
-		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
+amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
+		Owner: jsii.String("<user>"),
+		Repository: jsii.String("<repo>"),
+		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 	}),
-	basicAuth: amplify.basicAuth.fromCredentials(jsii.String("username"), awscdk.SecretValue.secretsManager(jsii.String("my-github-token"))),
+	BasicAuth: amplify.BasicAuth_FromCredentials(jsii.String("username"), awscdk.SecretValue_*SecretsManager(jsii.String("my-github-token"))),
 })
 ```
 
 Use `BasicAuth.fromGeneratedPassword` to generate a password in Secrets Manager:
 
 ```go
-amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
-	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
-		owner: jsii.String("<user>"),
-		repository: jsii.String("<repo>"),
-		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
+amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
+		Owner: jsii.String("<user>"),
+		Repository: jsii.String("<repo>"),
+		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 	}),
-	basicAuth: amplify.basicAuth.fromGeneratedPassword(jsii.String("username")),
+	BasicAuth: amplify.BasicAuth_FromGeneratedPassword(jsii.String("username")),
 })
 ```
 
@@ -183,8 +183,8 @@ Basic auth can be added to specific branches:
 ```go
 var amplifyApp app
 
-amplifyApp.addBranch(jsii.String("feature/next"), &branchOptions{
-	basicAuth: amplify.basicAuth.fromGeneratedPassword(jsii.String("username")),
+amplifyApp.AddBranch(jsii.String("feature/next"), &BranchOptions{
+	BasicAuth: amplify.BasicAuth_FromGeneratedPassword(jsii.String("username")),
 })
 ```
 
@@ -194,20 +194,20 @@ Use the `autoBranchCreation` and `autoBranchDeletion` props to control creation/
 of branches:
 
 ```go
-amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
-	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
-		owner: jsii.String("<user>"),
-		repository: jsii.String("<repo>"),
-		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
+amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
+		Owner: jsii.String("<user>"),
+		Repository: jsii.String("<repo>"),
+		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 	}),
-	autoBranchCreation: &autoBranchCreation{
+	AutoBranchCreation: &AutoBranchCreation{
 		 // Automatically connect branches that match a pattern set
-		patterns: []*string{
+		Patterns: []*string{
 			jsii.String("feature/*"),
 			jsii.String("test/*"),
 		},
 	},
-	autoBranchDeletion: jsii.Boolean(true),
+	AutoBranchDeletion: jsii.Boolean(true),
 })
 ```
 
@@ -216,23 +216,23 @@ amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &appProps{
 Use the `customResponseHeaders` prop to configure custom response headers for an Amplify app:
 
 ```go
-amplifyApp := amplify.NewApp(this, jsii.String("App"), &appProps{
-	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
-		owner: jsii.String("<user>"),
-		repository: jsii.String("<repo>"),
-		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
+amplifyApp := amplify.NewApp(this, jsii.String("App"), &AppProps{
+	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
+		Owner: jsii.String("<user>"),
+		Repository: jsii.String("<repo>"),
+		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 	}),
-	customResponseHeaders: []customResponseHeader{
+	CustomResponseHeaders: []customResponseHeader{
 		&customResponseHeader{
-			pattern: jsii.String("*.json"),
-			headers: map[string]*string{
+			Pattern: jsii.String("*.json"),
+			Headers: map[string]*string{
 				"custom-header-name-1": jsii.String("custom-header-value-1"),
 				"custom-header-name-2": jsii.String("custom-header-value-2"),
 			},
 		},
 		&customResponseHeader{
-			pattern: jsii.String("/path/*"),
-			headers: map[string]*string{
+			Pattern: jsii.String("/path/*"),
+			Headers: map[string]*string{
 				"custom-header-name-1": jsii.String("custom-header-value-2"),
 			},
 		},
@@ -250,7 +250,7 @@ import assets "github.com/aws/aws-cdk-go/awscdk"
 var asset asset
 var amplifyApp app
 
-branch := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
-	asset: asset,
+branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
+	Asset: asset,
 })
 ```

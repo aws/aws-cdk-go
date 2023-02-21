@@ -17,41 +17,41 @@ var submitLambda function
 var getStatusLambda function
 
 
-submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &lambdaInvokeProps{
-	lambdaFunction: submitLambda,
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
+	LambdaFunction: submitLambda,
 	// Lambda's result is in the attribute `guid`
-	outputPath: jsii.String("$.guid"),
+	OutputPath: jsii.String("$.guid"),
 })
 
-waitX := sfn.NewWait(this, jsii.String("Wait X Seconds"), &waitProps{
-	time: sfn.waitTime.secondsPath(jsii.String("$.waitSeconds")),
+waitX := sfn.NewWait(this, jsii.String("Wait X Seconds"), &WaitProps{
+	Time: sfn.WaitTime_SecondsPath(jsii.String("$.waitSeconds")),
 })
 
-getStatus := tasks.NewLambdaInvoke(this, jsii.String("Get Job Status"), &lambdaInvokeProps{
-	lambdaFunction: getStatusLambda,
+getStatus := tasks.NewLambdaInvoke(this, jsii.String("Get Job Status"), &LambdaInvokeProps{
+	LambdaFunction: getStatusLambda,
 	// Pass just the field named "guid" into the Lambda, put the
 	// Lambda's result in a field called "status" in the response
-	inputPath: jsii.String("$.guid"),
-	outputPath: jsii.String("$.status"),
+	InputPath: jsii.String("$.guid"),
+	OutputPath: jsii.String("$.status"),
 })
 
-jobFailed := sfn.NewFail(this, jsii.String("Job Failed"), &failProps{
-	cause: jsii.String("AWS Batch Job Failed"),
-	error: jsii.String("DescribeJob returned FAILED"),
+jobFailed := sfn.NewFail(this, jsii.String("Job Failed"), &FailProps{
+	Cause: jsii.String("AWS Batch Job Failed"),
+	Error: jsii.String("DescribeJob returned FAILED"),
 })
 
-finalStatus := tasks.NewLambdaInvoke(this, jsii.String("Get Final Job Status"), &lambdaInvokeProps{
-	lambdaFunction: getStatusLambda,
+finalStatus := tasks.NewLambdaInvoke(this, jsii.String("Get Final Job Status"), &LambdaInvokeProps{
+	LambdaFunction: getStatusLambda,
 	// Use "guid" field as input
-	inputPath: jsii.String("$.guid"),
-	outputPath: jsii.String("$.Payload"),
+	InputPath: jsii.String("$.guid"),
+	OutputPath: jsii.String("$.Payload"),
 })
 
-definition := submitJob.next(waitX).next(getStatus).next(sfn.NewChoice(this, jsii.String("Job Complete?")).when(sfn.condition.stringEquals(jsii.String("$.status"), jsii.String("FAILED")), jobFailed).when(sfn.condition.stringEquals(jsii.String("$.status"), jsii.String("SUCCEEDED")), finalStatus).otherwise(waitX))
+definition := submitJob.Next(waitX).Next(getStatus).Next(sfn.NewChoice(this, jsii.String("Job Complete?")).When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("FAILED")), jobFailed).When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("SUCCEEDED")), finalStatus).Otherwise(waitX))
 
-sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
-	timeout: awscdk.Duration.minutes(jsii.Number(5)),
+sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
+	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 })
 ```
 
@@ -67,8 +67,8 @@ all states reachable from the start state:
 ```go
 startState := sfn.NewPass(this, jsii.String("StartState"))
 
-sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: startState,
+sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: startState,
 })
 ```
 
@@ -82,6 +82,9 @@ permissions added that are required to make all state machine tasks execute
 properly (for example, permissions to invoke any Lambda functions you add to
 your workflow). A role will be created by default, but you can supply an
 existing one as well.
+
+Set the `removalPolicy` prop to `RemovalPolicy.RETAIN` if you want to retain the execution
+history when CloudFormation deletes your state machine.
 
 ## State Machine Data
 
@@ -150,10 +153,10 @@ import lambda "github.com/aws/aws-cdk-go/awscdk"
 var orderFn function
 
 
-submitJob := tasks.NewLambdaInvoke(this, jsii.String("InvokeOrderProcessor"), &lambdaInvokeProps{
-	lambdaFunction: orderFn,
-	payload: sfn.taskInput.fromObject(map[string]interface{}{
-		"OrderId": sfn.JsonPath.stringAt(jsii.String("$.OrderId")),
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("InvokeOrderProcessor"), &LambdaInvokeProps{
+	LambdaFunction: orderFn,
+	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
+		"OrderId": sfn.JsonPath_stringAt(jsii.String("$.OrderId")),
 	}),
 })
 ```
@@ -230,16 +233,16 @@ will be passed as the state's output.
 
 ```go
 // Makes the current JSON state { ..., "subObject": { "hello": "world" } }
-pass := sfn.NewPass(this, jsii.String("Add Hello World"), &passProps{
-	result: sfn.result.fromObject(map[string]interface{}{
+pass := sfn.NewPass(this, jsii.String("Add Hello World"), &PassProps{
+	Result: sfn.Result_FromObject(map[string]interface{}{
 		"hello": jsii.String("world"),
 	}),
-	resultPath: jsii.String("$.subObject"),
+	ResultPath: jsii.String("$.subObject"),
 })
 
 // Set the next state
 nextState := sfn.NewPass(this, jsii.String("NextState"))
-pass.next(nextState)
+pass.Next(nextState)
 ```
 
 The `Pass` state also supports passing key-value pairs as input. Values can
@@ -249,10 +252,10 @@ The following example filters the `greeting` field from the state input
 and also injects a field called `otherData`.
 
 ```go
-pass := sfn.NewPass(this, jsii.String("Filter input and inject data"), &passProps{
-	parameters: map[string]interface{}{
+pass := sfn.NewPass(this, jsii.String("Filter input and inject data"), &PassProps{
+	Parameters: map[string]interface{}{
 		 // input to the pass state
-		"input": sfn.JsonPath.stringAt(jsii.String("$.input.greeting")),
+		"input": sfn.JsonPath_stringAt(jsii.String("$.input.greeting")),
 		"otherData": jsii.String("some-extra-stuff"),
 	},
 })
@@ -273,13 +276,13 @@ state.
 ```go
 // Wait until it's the time mentioned in the the state object's "triggerTime"
 // field.
-wait := sfn.NewWait(this, jsii.String("Wait For Trigger Time"), &waitProps{
-	time: sfn.waitTime.timestampPath(jsii.String("$.triggerTime")),
+wait := sfn.NewWait(this, jsii.String("Wait For Trigger Time"), &WaitProps{
+	Time: sfn.WaitTime_TimestampPath(jsii.String("$.triggerTime")),
 })
 
 // Set the next state
 startTheWork := sfn.NewPass(this, jsii.String("StartTheWork"))
-wait.next(startTheWork)
+wait.Next(startTheWork)
 ```
 
 ### Choice
@@ -293,12 +296,12 @@ choice := sfn.NewChoice(this, jsii.String("Did it work?"))
 // Add conditions with .when()
 successState := sfn.NewPass(this, jsii.String("SuccessState"))
 failureState := sfn.NewPass(this, jsii.String("FailureState"))
-choice.when(sfn.condition.stringEquals(jsii.String("$.status"), jsii.String("SUCCESS")), successState)
-choice.when(sfn.condition.numberGreaterThan(jsii.String("$.attempts"), jsii.Number(5)), failureState)
+choice.When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("SUCCESS")), successState)
+choice.When(sfn.Condition_NumberGreaterThan(jsii.String("$.attempts"), jsii.Number(5)), failureState)
 
 // Use .otherwise() to indicate what should be done if none of the conditions match
 tryAgainState := sfn.NewPass(this, jsii.String("TryAgainState"))
-choice.otherwise(tryAgainState)
+choice.Otherwise(tryAgainState)
 ```
 
 If you want to temporarily branch your workflow based on a condition, but have
@@ -309,13 +312,13 @@ choice := sfn.NewChoice(this, jsii.String("What color is it?"))
 handleBlueItem := sfn.NewPass(this, jsii.String("HandleBlueItem"))
 handleRedItem := sfn.NewPass(this, jsii.String("HandleRedItem"))
 handleOtherItemColor := sfn.NewPass(this, jsii.String("HanldeOtherItemColor"))
-choice.when(sfn.condition.stringEquals(jsii.String("$.color"), jsii.String("BLUE")), handleBlueItem)
-choice.when(sfn.condition.stringEquals(jsii.String("$.color"), jsii.String("RED")), handleRedItem)
-choice.otherwise(handleOtherItemColor)
+choice.When(sfn.Condition_StringEquals(jsii.String("$.color"), jsii.String("BLUE")), handleBlueItem)
+choice.When(sfn.Condition_StringEquals(jsii.String("$.color"), jsii.String("RED")), handleRedItem)
+choice.Otherwise(handleOtherItemColor)
 
 // Use .afterwards() to join all possible paths back together and continue
 shipTheItem := sfn.NewPass(this, jsii.String("ShipTheItem"))
-choice.afterwards().next(shipTheItem)
+choice.Afterwards().Next(shipTheItem)
 ```
 
 If your `Choice` doesn't have an `otherwise()` and none of the conditions match
@@ -384,22 +387,22 @@ parallel := sfn.NewParallel(this, jsii.String("Do the work in parallel"))
 shipItem := sfn.NewPass(this, jsii.String("ShipItem"))
 sendInvoice := sfn.NewPass(this, jsii.String("SendInvoice"))
 restock := sfn.NewPass(this, jsii.String("Restock"))
-parallel.branch(shipItem)
-parallel.branch(sendInvoice)
-parallel.branch(restock)
+parallel.Branch(shipItem)
+parallel.Branch(sendInvoice)
+parallel.Branch(restock)
 
 // Retry the whole workflow if something goes wrong
-parallel.addRetry(&retryProps{
-	maxAttempts: jsii.Number(1),
+parallel.AddRetry(&RetryProps{
+	MaxAttempts: jsii.Number(1),
 })
 
 // How to recover from errors
 sendFailureNotification := sfn.NewPass(this, jsii.String("SendFailureNotification"))
-parallel.addCatch(sendFailureNotification)
+parallel.AddCatch(sendFailureNotification)
 
 // What to do in case everything succeeded
 closeOrder := sfn.NewPass(this, jsii.String("CloseOrder"))
-parallel.next(closeOrder)
+parallel.Next(closeOrder)
 ```
 
 ### Succeed
@@ -418,9 +421,9 @@ failure status. The fail state should report the reason for the failure.
 Failures can be caught by encompassing `Parallel` states.
 
 ```go
-success := sfn.NewFail(this, jsii.String("Fail"), &failProps{
-	error: jsii.String("WorkflowFailure"),
-	cause: jsii.String("Something went wrong"),
+success := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
+	Error: jsii.String("WorkflowFailure"),
+	Cause: jsii.String("Something went wrong"),
 })
 ```
 
@@ -433,11 +436,11 @@ While the `Parallel` state executes multiple branches of steps using the same in
 execute the same steps for multiple entries of an array in the state input.
 
 ```go
-map := sfn.NewMap(this, jsii.String("Map State"), &mapProps{
-	maxConcurrency: jsii.Number(1),
-	itemsPath: sfn.jsonPath.stringAt(jsii.String("$.inputForMap")),
+map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
+	MaxConcurrency: jsii.Number(1),
+	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
 })
-map.iterator(sfn.NewPass(this, jsii.String("Pass State")))
+map.Iterator(sfn.NewPass(this, jsii.String("Pass State")))
 ```
 
 ### Custom State
@@ -463,14 +466,14 @@ the State Machine uses.
 The following example uses the `DynamoDB` service integration to insert data into a DynamoDB table.
 
 ```go
-import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
 // create a table
-table := dynamodb.NewTable(this, jsii.String("montable"), &tableProps{
-	partitionKey: &attribute{
-		name: jsii.String("id"),
-		type: dynamodb.attributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("montable"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
 	},
 })
 
@@ -493,15 +496,15 @@ stateJson := map[string]interface{}{
 }
 
 // custom state which represents a task to insert data into DynamoDB
-custom := sfn.NewCustomState(this, jsii.String("my custom task"), &customStateProps{
-	stateJson: stateJson,
+custom := sfn.NewCustomState(this, jsii.String("my custom task"), &CustomStateProps{
+	StateJson: StateJson,
 })
 
-chain := sfn.chain.start(custom).next(finalStatus)
+chain := sfn.Chain_Start(custom).Next(finalStatus)
 
-sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: chain,
-	timeout: awscdk.Duration.seconds(jsii.Number(30)),
+sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: chain,
+	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
 })
 
 // don't forget permissions. You need to assign them
@@ -528,14 +531,14 @@ step8 := sfn.NewPass(this, jsii.String("Step8"))
 step9 := sfn.NewPass(this, jsii.String("Step9"))
 step10 := sfn.NewPass(this, jsii.String("Step10"))
 choice := sfn.NewChoice(this, jsii.String("Choice"))
-condition1 := sfn.condition.stringEquals(jsii.String("$.status"), jsii.String("SUCCESS"))
+condition1 := sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("SUCCESS"))
 parallel := sfn.NewParallel(this, jsii.String("Parallel"))
 finish := sfn.NewPass(this, jsii.String("Finish"))
 
-definition := step1.next(step2).next(choice.when(condition1, step3.next(step4).next(step5)).otherwise(step6).afterwards()).next(parallel.branch(step7.next(step8)).branch(step9.next(step10))).next(finish)
+definition := step1.Next(step2).Next(choice.When(condition1, step3.Next(step4).Next(step5)).Otherwise(step6).Afterwards()).Next(parallel.Branch(step7.Next(step8)).Branch(step9.Next(step10))).Next(finish)
 
-sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
+sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
 })
 ```
 
@@ -547,7 +550,7 @@ step1 := sfn.NewPass(this, jsii.String("Step1"))
 step2 := sfn.NewPass(this, jsii.String("Step2"))
 step3 := sfn.NewPass(this, jsii.String("Step3"))
 
-definition := sfn.chain.start(step1).next(step2).next(step3)
+definition := sfn.Chain_Start(step1).Next(step2).Next(step3)
 ```
 
 ## Task Credentials
@@ -565,16 +568,16 @@ var iamRole role
 
 
 // use a fixed role for all task invocations
-role := sfn.taskRole.fromRole(iamRole)
+role := sfn.TaskRole_FromRole(iamRole)
 // or use a json expression to resolve the role at runtime based on task inputs
 //const role = sfn.TaskRole.fromRoleArnJsonPath('$.RoleArn');
 
-submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &lambdaInvokeProps{
-	lambdaFunction: submitLambda,
-	outputPath: jsii.String("$.Payload"),
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
+	LambdaFunction: submitLambda,
+	OutputPath: jsii.String("$.Payload"),
 	// use credentials
-	credentials: &credentials{
-		role: role,
+	Credentials: &Credentials{
+		Role: *Role,
 	},
 })
 ```
@@ -604,7 +607,7 @@ machine as a subclass of this, it will be convenient to use:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/constructs-go/constructs"
-import sfn "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 type myJobProps struct {
 	jobFlavor *string
@@ -620,12 +623,12 @@ func newMyJob(parent construct, id *string, props myJobProps) *myJob {
 	this := &myJob{}
 	sfn.NewStateMachineFragment_Override(this, parent, id)
 
-	choice := sfn.NewChoice(this, jsii.String("Choice")).when(sfn.condition.stringEquals(jsii.String("$.branch"), jsii.String("left")), sfn.NewPass(this, jsii.String("Left Branch"))).when(sfn.condition.stringEquals(jsii.String("$.branch"), jsii.String("right")), sfn.NewPass(this, jsii.String("Right Branch")))
+	choice := sfn.NewChoice(this, jsii.String("Choice")).When(sfn.Condition_StringEquals(jsii.String("$.branch"), jsii.String("left")), sfn.NewPass(this, jsii.String("Left Branch"))).When(sfn.Condition_StringEquals(jsii.String("$.branch"), jsii.String("right")), sfn.NewPass(this, jsii.String("Right Branch")))
 
 	// ...
 
 	this.startState = choice
-	this.endStates = choice.afterwards().endStates
+	this.endStates = choice.Afterwards().EndStates
 	return this
 }
 
@@ -637,16 +640,16 @@ func newMyStack(scope construct, id *string) *myStack {
 	this := &myStack{}
 	newStack_Override(this, scope, id)
 	// Do 3 different variants of MyJob in parallel
-	parallel := sfn.NewParallel(this, jsii.String("All jobs")).branch(NewMyJob(this, jsii.String("Quick"), &myJobProps{
+	parallel := sfn.NewParallel(this, jsii.String("All jobs")).Branch(NewMyJob(this, jsii.String("Quick"), &myJobProps{
 		jobFlavor: jsii.String("quick"),
-	}).prefixStates()).branch(NewMyJob(this, jsii.String("Medium"), &myJobProps{
+	}).PrefixStates()).Branch(NewMyJob(this, jsii.String("Medium"), &myJobProps{
 		jobFlavor: jsii.String("medium"),
-	}).prefixStates()).branch(NewMyJob(this, jsii.String("Slow"), &myJobProps{
+	}).PrefixStates()).Branch(NewMyJob(this, jsii.String("Slow"), &myJobProps{
 		jobFlavor: jsii.String("slow"),
-	}).prefixStates())
+	}).PrefixStates())
 
-	sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &stateMachineProps{
-		definition: parallel,
+	sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
+		Definition: parallel,
 	})
 	return this
 }
@@ -674,8 +677,8 @@ activity := sfn.NewActivity(this, jsii.String("Activity"))
 // the activity.
 // Read this CloudFormation Output from your application and use it to poll for work on
 // the activity.
-awscdk.NewCfnOutput(this, jsii.String("ActivityArn"), &cfnOutputProps{
-	value: activity.activityArn,
+awscdk.NewCfnOutput(this, jsii.String("ActivityArn"), &CfnOutputProps{
+	Value: activity.ActivityArn,
 })
 ```
 
@@ -686,11 +689,11 @@ Granting IAM permissions to an activity can be achieved by calling the `grant(pr
 ```go
 activity := sfn.NewActivity(this, jsii.String("Activity"))
 
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 
-activity.grant(role, jsii.String("states:SendTaskSuccess"))
+activity.Grant(role, jsii.String("states:SendTaskSuccess"))
 ```
 
 This will grant the IAM principal the specified actions onto the activity.
@@ -703,10 +706,10 @@ to create an alarm on a particular task failing:
 ```go
 var task task
 
-cloudwatch.NewAlarm(this, jsii.String("TaskAlarm"), &alarmProps{
-	metric: task.metricFailed(),
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(1),
+cloudwatch.NewAlarm(this, jsii.String("TaskAlarm"), &AlarmProps{
+	Metric: task.metricFailed(),
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(1),
 })
 ```
 
@@ -715,20 +718,20 @@ There are also metrics on the complete state machine:
 ```go
 var stateMachine stateMachine
 
-cloudwatch.NewAlarm(this, jsii.String("StateMachineAlarm"), &alarmProps{
-	metric: stateMachine.metricFailed(),
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(1),
+cloudwatch.NewAlarm(this, jsii.String("StateMachineAlarm"), &AlarmProps{
+	Metric: stateMachine.metricFailed(),
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(1),
 })
 ```
 
 And there are metrics on the capacity of all state machines in your account:
 
 ```go
-cloudwatch.NewAlarm(this, jsii.String("ThrottledAlarm"), &alarmProps{
-	metric: sfn.stateTransitionMetric.metricThrottledEvents(),
-	threshold: jsii.Number(10),
-	evaluationPeriods: jsii.Number(2),
+cloudwatch.NewAlarm(this, jsii.String("ThrottledAlarm"), &AlarmProps{
+	Metric: sfn.StateTransitionMetric_MetricThrottledEvents(),
+	Threshold: jsii.Number(10),
+	EvaluationPeriods: jsii.Number(2),
 })
 ```
 
@@ -760,11 +763,11 @@ import logs "github.com/aws/aws-cdk-go/awscdk"
 
 logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 
-sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &stateMachineProps{
-	definition: sfn.chain.start(sfn.NewPass(this, jsii.String("Pass"))),
-	logs: &logOptions{
-		destination: logGroup,
-		level: sfn.logLevel_ALL,
+sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
+	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass"))),
+	Logs: &LogOptions{
+		Destination: logGroup,
+		Level: sfn.LogLevel_ALL,
 	},
 })
 ```
@@ -774,9 +777,9 @@ sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &stateMachineProps{
 Enable X-Ray tracing for StateMachine:
 
 ```go
-sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &stateMachineProps{
-	definition: sfn.chain.start(sfn.NewPass(this, jsii.String("Pass"))),
-	tracingEnabled: jsii.Boolean(true),
+sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
+	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass"))),
+	TracingEnabled: jsii.Boolean(true),
 })
 ```
 
@@ -801,11 +804,11 @@ Grant permission to start an execution of a state machine by calling the `grantS
 
 ```go
 var definition iChainable
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
-stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
 })
 
 // Give role permission to start execution of state machine
@@ -822,11 +825,11 @@ Grant `read` access to a state machine by calling the `grantRead()` API.
 
 ```go
 var definition iChainable
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
-stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
 })
 
 // Give role read access to state machine
@@ -850,11 +853,11 @@ Grant permission to allow task responses to a state machine by calling the `gran
 
 ```go
 var definition iChainable
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
-stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
 })
 
 // Give role task response permissions to the state machine
@@ -873,11 +876,11 @@ Grant execution-level permissions to a state machine by calling the `grantExecut
 
 ```go
 var definition iChainable
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
-stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
 })
 
 // Give role permission to get execution history of ALL executions for the state machine
@@ -891,8 +894,8 @@ You can add any set of permissions to a state machine by calling the `grant()` A
 ```go
 var definition iChainable
 user := iam.NewUser(this, jsii.String("MyUser"))
-stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: definition,
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: Definition,
 })
 
 //give user permission to send task success to the state machine
@@ -910,7 +913,7 @@ In addition, the StateMachine can be imported via the `StateMachine.fromStateMac
 ```go
 app := awscdk.NewApp()
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-sfn.stateMachine.fromStateMachineArn(stack, jsii.String("ViaArnImportedStateMachine"), jsii.String("arn:aws:states:us-east-1:123456789012:stateMachine:StateMachine2E01A3A5-N5TJppzoevKQ"))
+sfn.StateMachine_FromStateMachineArn(stack, jsii.String("ViaArnImportedStateMachine"), jsii.String("arn:aws:states:us-east-1:123456789012:stateMachine:StateMachine2E01A3A5-N5TJppzoevKQ"))
 
-sfn.stateMachine.fromStateMachineName(stack, jsii.String("ViaResourceNameImportedStateMachine"), jsii.String("StateMachine2E01A3A5-N5TJppzoevKQ"))
+sfn.StateMachine_FromStateMachineName(stack, jsii.String("ViaResourceNameImportedStateMachine"), jsii.String("StateMachine2E01A3A5-N5TJppzoevKQ"))
 ```

@@ -28,80 +28,80 @@ You can define built-in actions to use a timer or set a variable, or send data t
 See also [@aws-cdk/aws-iotevents-actions](https://docs.aws.amazon.com/cdk/api/v1/docs/aws-iotevents-actions-readme.html) for other actions.
 
 ```go
-import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
-import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
+import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+import "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 var func iFunction
 
 
-input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
-	inputName: jsii.String("my_input"),
+input := iotevents.NewInput(this, jsii.String("MyInput"), &InputProps{
+	InputName: jsii.String("my_input"),
 	 // optional
-	attributeJsonPaths: []*string{
+	AttributeJsonPaths: []*string{
 		jsii.String("payload.deviceId"),
 		jsii.String("payload.temperature"),
 	},
 })
 
-warmState := iotevents.NewState(&stateProps{
-	stateName: jsii.String("warm"),
-	onEnter: []event{
+warmState := iotevents.NewState(&StateProps{
+	StateName: jsii.String("warm"),
+	OnEnter: []event{
 		&event{
-			eventName: jsii.String("test-enter-event"),
-			condition: iotevents.expression.currentInput(input),
-			actions: []iAction{
+			EventName: jsii.String("test-enter-event"),
+			Condition: iotevents.Expression_CurrentInput(input),
+			Actions: []iAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},
 	},
-	onInput: []*event{
+	OnInput: []*event{
 		&event{
 			 // optional
-			eventName: jsii.String("test-input-event"),
-			actions: []*iAction{
+			EventName: jsii.String("test-input-event"),
+			Actions: []*iAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},
 	},
-	onExit: []*event{
+	OnExit: []*event{
 		&event{
 			 // optional
-			eventName: jsii.String("test-exit-event"),
-			actions: []*iAction{
+			EventName: jsii.String("test-exit-event"),
+			Actions: []*iAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},
 	},
 })
-coldState := iotevents.NewState(&stateProps{
-	stateName: jsii.String("cold"),
+coldState := iotevents.NewState(&StateProps{
+	StateName: jsii.String("cold"),
 })
 
 // transit to coldState when temperature is less than 15
-warmState.transitionTo(coldState, &transitionOptions{
-	eventName: jsii.String("to_coldState"),
+warmState.TransitionTo(coldState, &TransitionOptions{
+	EventName: jsii.String("to_coldState"),
 	 // optional property, default by combining the names of the States
-	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
-	executing: []*iAction{
+	When: iotevents.Expression_Lt(iotevents.Expression_InputAttribute(input, jsii.String("payload.temperature")), iotevents.Expression_FromString(jsii.String("15"))),
+	Executing: []*iAction{
 		actions.NewLambdaInvokeAction(func),
 	},
 })
 // transit to warmState when temperature is greater than or equal to 15
-coldState.transitionTo(warmState, &transitionOptions{
-	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
+coldState.TransitionTo(warmState, &TransitionOptions{
+	When: iotevents.Expression_Gte(iotevents.Expression_*InputAttribute(input, jsii.String("payload.temperature")), iotevents.Expression_*FromString(jsii.String("15"))),
 })
 
-iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
-	detectorModelName: jsii.String("test-detector-model"),
+iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &DetectorModelProps{
+	DetectorModelName: jsii.String("test-detector-model"),
 	 // optional
-	description: jsii.String("test-detector-model-description"),
+	Description: jsii.String("test-detector-model-description"),
 	 // optional property, default is none
-	evaluationMethod: iotevents.eventEvaluation_SERIAL,
+	EvaluationMethod: iotevents.EventEvaluation_SERIAL,
 	 // optional property, default is iotevents.EventEvaluation.BATCH
-	detectorKey: jsii.String("payload.deviceId"),
+	DetectorKey: jsii.String("payload.deviceId"),
 	 // optional property, default is none and single detector instance will be created and all inputs will be routed to it
-	initialState: warmState,
+	InitialState: warmState,
 })
 ```
 
@@ -114,7 +114,7 @@ import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 
 var grantable iGrantable
 
-input := iotevents.input.fromInputName(this, jsii.String("MyInput"), jsii.String("my_input"))
+input := iotevents.Input_FromInputName(this, jsii.String("MyInput"), jsii.String("my_input"))
 
-input.grantWrite(grantable)
+input.GrantWrite(grantable)
 ```

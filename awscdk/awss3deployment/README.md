@@ -7,17 +7,17 @@ The following example defines a publicly accessible S3 bucket with web hosting
 enabled and populates it from a local directory on disk.
 
 ```go
-websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &bucketProps{
-	websiteIndexDocument: jsii.String("index.html"),
-	publicReadAccess: jsii.Boolean(true),
+websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &BucketProps{
+	WebsiteIndexDocument: jsii.String("index.html"),
+	PublicReadAccess: jsii.Boolean(true),
 })
 
-s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(jsii.String("./website-dist")),
+s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
-	destinationBucket: websiteBucket,
-	destinationKeyPrefix: jsii.String("web/static"),
+	DestinationBucket: websiteBucket,
+	DestinationKeyPrefix: jsii.String("web/static"),
 })
 ```
 
@@ -43,11 +43,11 @@ the bucket is created:
 var websiteBucket bucket
 
 
-deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
+deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
-	destinationBucket: websiteBucket,
+	DestinationBucket: websiteBucket,
 })
 
 NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]iBucket{
@@ -62,15 +62,15 @@ It is also possible to add additional sources using the `addSource` method.
 var websiteBucket iBucket
 
 
-deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(jsii.String("./website-dist")),
+deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
-	destinationBucket: websiteBucket,
-	destinationKeyPrefix: jsii.String("web/static"),
+	DestinationBucket: websiteBucket,
+	DestinationKeyPrefix: jsii.String("web/static"),
 })
 
-deployment.addSource(s3deploy.source.asset(jsii.String("./another-asset")))
+deployment.AddSource(s3deploy.Source_Asset(jsii.String("./another-asset")))
 ```
 
 ## Supported sources
@@ -144,12 +144,12 @@ this behavior, in which case the files will not be deleted.
 ```go
 var destinationBucket bucket
 
-s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutDeletingFilesOnDestination"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
+s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutDeletingFilesOnDestination"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
-	destinationBucket: destinationBucket,
-	prune: jsii.Boolean(false),
+	DestinationBucket: DestinationBucket,
+	Prune: jsii.Boolean(false),
 })
 ```
 
@@ -161,35 +161,35 @@ based on file extensions:
 ```go
 var destinationBucket bucket
 
-s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(jsii.String("./website"), &assetOptions{
-			exclude: []*string{
+s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website"), &AssetOptions{
+			Exclude: []*string{
 				jsii.String("index.html"),
 			},
 		}),
 	},
-	destinationBucket: destinationBucket,
-	cacheControl: []cacheControl{
-		s3deploy.*cacheControl.fromString(jsii.String("max-age=31536000,public,immutable")),
+	DestinationBucket: DestinationBucket,
+	CacheControl: []cacheControl{
+		s3deploy.*cacheControl_FromString(jsii.String("max-age=31536000,public,immutable")),
 	},
-	prune: jsii.Boolean(false),
+	Prune: jsii.Boolean(false),
 })
 
-s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &bucketDeploymentProps{
-	sources: []*iSource{
-		s3deploy.*source.asset(jsii.String("./website"), &assetOptions{
-			exclude: []*string{
+s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketDeploymentProps{
+	Sources: []*iSource{
+		s3deploy.Source_*Asset(jsii.String("./website"), &AssetOptions{
+			Exclude: []*string{
 				jsii.String("*"),
 				jsii.String("!index.html"),
 			},
 		}),
 	},
-	destinationBucket: destinationBucket,
-	cacheControl: []*cacheControl{
-		s3deploy.*cacheControl.fromString(jsii.String("max-age=0,no-cache,no-store,must-revalidate")),
+	DestinationBucket: DestinationBucket,
+	CacheControl: []*cacheControl{
+		s3deploy.*cacheControl_*FromString(jsii.String("max-age=0,no-cache,no-store,must-revalidate")),
 	},
-	prune: jsii.Boolean(false),
+	Prune: jsii.Boolean(false),
 })
 ```
 
@@ -200,16 +200,16 @@ There are two points at which filters are evaluated in a deployment: asset bundl
 ```go
 var destinationBucket bucket
 
-s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(jsii.String("./website"), &assetOptions{
-			exclude: []*string{
+s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website"), &AssetOptions{
+			Exclude: []*string{
 				jsii.String("*"),
 				jsii.String("!index.html"),
 			},
 		}),
 	},
-	destinationBucket: destinationBucket,
+	DestinationBucket: DestinationBucket,
 })
 ```
 
@@ -218,12 +218,12 @@ If you want to specify filters to be used in the deployment process, you can use
 ```go
 var destinationBucket bucket
 
-s3deploy.NewBucketDeployment(this, jsii.String("DeployButExcludeSpecificFiles"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
+s3deploy.NewBucketDeployment(this, jsii.String("DeployButExcludeSpecificFiles"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
-	destinationBucket: destinationBucket,
-	exclude: []*string{
+	DestinationBucket: DestinationBucket,
+	Exclude: []*string{
 		jsii.String("*.txt"),
 	},
 })
@@ -258,34 +258,34 @@ You can find more information about system defined metadata keys in
 and [`aws s3 sync` documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html).
 
 ```go
-websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &bucketProps{
-	websiteIndexDocument: jsii.String("index.html"),
-	publicReadAccess: jsii.Boolean(true),
+websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &BucketProps{
+	WebsiteIndexDocument: jsii.String("index.html"),
+	PublicReadAccess: jsii.Boolean(true),
 })
 
-s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(jsii.String("./website-dist")),
+s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
-	destinationBucket: websiteBucket,
-	destinationKeyPrefix: jsii.String("web/static"),
+	DestinationBucket: websiteBucket,
+	DestinationKeyPrefix: jsii.String("web/static"),
 	 // optional prefix in destination bucket
-	metadata: &userDefinedObjectMetadata{
-		a: jsii.String("1"),
-		b: jsii.String("2"),
+	Metadata: &UserDefinedObjectMetadata{
+		A: jsii.String("1"),
+		B: jsii.String("2"),
 	},
 	 // user-defined metadata
 
 	// system-defined metadata
-	contentType: jsii.String("text/html"),
-	contentLanguage: jsii.String("en"),
-	storageClass: s3deploy.storageClass_INTELLIGENT_TIERING,
-	serverSideEncryption: s3deploy.serverSideEncryption_AES_256,
-	cacheControl: []cacheControl{
-		s3deploy.*cacheControl.setPublic(),
-		s3deploy.*cacheControl.maxAge(awscdk.Duration.hours(jsii.Number(1))),
+	ContentType: jsii.String("text/html"),
+	ContentLanguage: jsii.String("en"),
+	StorageClass: s3deploy.StorageClass_INTELLIGENT_TIERING,
+	ServerSideEncryption: s3deploy.ServerSideEncryption_AES_256,
+	CacheControl: []cacheControl{
+		s3deploy.*cacheControl_SetPublic(),
+		s3deploy.*cacheControl_MaxAge(awscdk.Duration_Hours(jsii.Number(1))),
 	},
-	accessControl: s3.bucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
+	AccessControl: s3.BucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
 })
 ```
 
@@ -301,19 +301,19 @@ import origins "github.com/aws/aws-cdk-go/awscdk"
 bucket := s3.NewBucket(this, jsii.String("Destination"))
 
 // Handles buckets whether or not they are configured for website hosting.
-distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(bucket),
+distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(bucket),
 	},
 })
 
-s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(jsii.String("./website-dist")),
+s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
-	destinationBucket: bucket,
-	distribution: distribution,
-	distributionPaths: []*string{
+	DestinationBucket: bucket,
+	Distribution: Distribution,
+	DistributionPaths: []*string{
 		jsii.String("/images/*.png"),
 	},
 })
@@ -347,15 +347,15 @@ var destinationBucket bucket
 var vpc vpc
 
 
-s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithEfsStorage"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
+s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithEfsStorage"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
-	destinationBucket: destinationBucket,
-	destinationKeyPrefix: jsii.String("efs/"),
-	useEfs: jsii.Boolean(true),
-	vpc: vpc,
-	retainOnDelete: jsii.Boolean(false),
+	DestinationBucket: DestinationBucket,
+	DestinationKeyPrefix: jsii.String("efs/"),
+	UseEfs: jsii.Boolean(true),
+	Vpc: Vpc,
+	RetainOnDelete: jsii.Boolean(false),
 })
 ```
 
@@ -378,11 +378,11 @@ appConfig := map[string]interface{}{
 	"base_url": jsii.String("https://my-endpoint"),
 }
 
-s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.jsonData(jsii.String("config.json"), appConfig),
+s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_JsonData(jsii.String("config.json"), appConfig),
 	},
-	destinationBucket: destinationBucket,
+	DestinationBucket: DestinationBucket,
 })
 ```
 
@@ -397,21 +397,21 @@ By default, files are zipped, then extracted into the destination bucket.
 You can use the option `extract: false` to disable this behavior, in which case, files will remain in a zip file when deployed to S3. To reference the object keys, or filenames, which will be deployed to the bucket, you can use the `objectKeys` getter on the bucket deployment.
 
 ```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var destinationBucket bucket
 
 
-myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &bucketDeploymentProps{
-	sources: []iSource{
-		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
+myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
-	destinationBucket: destinationBucket,
-	extract: jsii.Boolean(false),
+	DestinationBucket: DestinationBucket,
+	Extract: jsii.Boolean(false),
 })
 
-cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &cfnOutputProps{
-	value: cdk.fn.select(jsii.Number(0), myBucketDeployment.objectKeys),
+cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &CfnOutputProps{
+	Value: cdk.Fn_Select(jsii.Number(0), myBucketDeployment.objectKeys),
 })
 ```
 

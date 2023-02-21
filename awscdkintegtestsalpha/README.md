@@ -30,10 +30,10 @@ we would need to create a file to contain our integration test application.
 ```go
 app := awscdk.NewApp()
 stack := awscdk.NewStack()
-lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+lambda.NewFunction(stack, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
 ```
 
@@ -50,8 +50,8 @@ use the `IntegTest` construct.
 var app app
 var stack stack
 
-awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
@@ -82,11 +82,11 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 	this := &stackUnderTest{}
 	newStack_Override(this, scope, id, props)
 
-	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
-		runtime: lambda.runtime_NODEJS_14_X(),
-		handler: jsii.String("index.handler"),
-		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-		architecture: props.architecture,
+	lambda.NewFunction(this, jsii.String("Handler"), &FunctionProps{
+		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Handler: jsii.String("index.handler"),
+		Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+		Architecture: props.architecture,
 	})
 	return this
 }
@@ -111,11 +111,11 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 	this := &stackUnderTest{}
 	newStack_Override(this, scope, id, props)
 
-	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
-		runtime: lambda.runtime_NODEJS_14_X(),
-		handler: jsii.String("index.handler"),
-		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-		architecture: props.architecture,
+	lambda.NewFunction(this, jsii.String("Handler"), &FunctionProps{
+		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Handler: jsii.String("index.handler"),
+		Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+		Architecture: props.architecture,
 	})
 	return this
 }
@@ -123,8 +123,8 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 // Beginning of the test suite
 app := awscdk.NewApp()
 
-awscdkintegtestsalpha.NewIntegTest(app, jsii.String("DifferentArchitectures"), &integTestProps{
-	testCases: []*stack{
+awscdkintegtestsalpha.NewIntegTest(app, jsii.String("DifferentArchitectures"), &IntegTestProps{
+	TestCases: []*stack{
 		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 			architecture: lambda.*architecture_ARM_64(),
 		}),
@@ -146,22 +146,22 @@ stackUnderTest := awscdk.NewStack(app, jsii.String("StackUnderTest"))
 
 stack := awscdk.NewStack(app, jsii.String("stack"))
 
-testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
-	testCases: []stack{
+testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &IntegTestProps{
+	TestCases: []stack{
 		stackUnderTest,
 	},
-	diffAssets: jsii.Boolean(true),
-	stackUpdateWorkflow: jsii.Boolean(true),
-	cdkCommandOptions: &cdkCommands{
-		deploy: &deployCommand{
-			args: &deployOptions{
-				requireApproval: awscdk.RequireApproval_NEVER,
-				json: jsii.Boolean(true),
+	DiffAssets: jsii.Boolean(true),
+	StackUpdateWorkflow: jsii.Boolean(true),
+	CdkCommandOptions: &CdkCommands{
+		Deploy: &DeployCommand{
+			Args: &DeployOptions{
+				RequireApproval: awscdk.RequireApproval_NEVER,
+				Json: jsii.Boolean(true),
 			},
 		},
-		destroy: &destroyCommand{
-			args: &destroyOptions{
-				force: jsii.Boolean(true),
+		Destroy: &DestroyCommand{
+			Args: &DestroyOptions{
+				Force: jsii.Boolean(true),
 			},
 		},
 	},
@@ -182,12 +182,12 @@ For example, you might want to have one test case where `diffAssets` is enabled.
 var app app
 var stackUnderTest stack
 
-testCaseWithAssets := awscdkintegtestsalpha.NewIntegTestCaseStack(app, jsii.String("TestCaseAssets"), &integTestCaseStackProps{
-	diffAssets: jsii.Boolean(true),
+testCaseWithAssets := awscdkintegtestsalpha.NewIntegTestCaseStack(app, jsii.String("TestCaseAssets"), &IntegTestCaseStackProps{
+	DiffAssets: jsii.Boolean(true),
 })
 
-awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stackUnderTest,
 		testCaseWithAssets,
 	},
@@ -210,12 +210,12 @@ var app app
 var stack stack
 
 
-integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
-integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("getObject"))
+integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("getObject"))
 ```
 
 By default an assertions stack is automatically generated for you. You may however provide your own stack to use.
@@ -226,13 +226,13 @@ var stack stack
 var assertionStack stack
 
 
-integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
-	assertionStack: assertionStack,
+	AssertionStack: assertionStack,
 })
-integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("getObject"))
+integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("getObject"))
 ```
 
 * Part of a  normal CDK deployment
@@ -244,9 +244,9 @@ before the deployment is considered successful. In this case you can utilize the
 var myAppStack stack
 
 
-awscdkintegtestsalpha.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &awsApiCallProps{
-	service: jsii.String("S3"),
-	api: jsii.String("getObject"),
+awscdkintegtestsalpha.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &AwsApiCallProps{
+	Service: jsii.String("S3"),
+	Api: jsii.String("getObject"),
 })
 ```
 
@@ -264,14 +264,14 @@ var stack stack
 var app app
 
 
-integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
-integ.assertions.expect(jsii.String("CustomAssertion"), awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
+integ.Assertions.Expect(jsii.String("CustomAssertion"), awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	"foo": jsii.String("bar"),
-}), awscdkintegtestsalpha.ActualResult.fromCustomResource(myCustomResource, jsii.String("data")))
+}), awscdkintegtestsalpha.ActualResult_FromCustomResource(myCustomResource, jsii.String("data")))
 ```
 
 In the above example an assertion is created that will trigger a user defined `CustomResource`
@@ -290,10 +290,10 @@ This can be done by using the class directory (in the case of a normal deploymen
 var stack stack
 
 
-awscdkintegtestsalpha.NewAwsApiCall(stack, jsii.String("MyAssertion"), &awsApiCallProps{
-	service: jsii.String("SQS"),
-	api: jsii.String("receiveMessage"),
-	parameters: map[string]*string{
+awscdkintegtestsalpha.NewAwsApiCall(stack, jsii.String("MyAssertion"), &AwsApiCallProps{
+	Service: jsii.String("SQS"),
+	Api: jsii.String("receiveMessage"),
+	Parameters: map[string]*string{
 		"QueueUrl": jsii.String("url"),
 	},
 })
@@ -305,12 +305,12 @@ Or by using the `awsApiCall` method on `DeployAssert` (when writing integration 
 var app app
 var stack stack
 
-integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
-integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
+integ.Assertions.AwsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
 	"QueueUrl": jsii.String("url"),
 })
 ```
@@ -330,11 +330,11 @@ var stack stack
 var integ integTest
 
 
-apiCall := integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("listObjectsV2"), map[string]*string{
+apiCall := integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("listObjectsV2"), map[string]*string{
 	"Bucket": jsii.String("mybucket"),
 })
 
-apiCall.provider.addToRolePolicy(map[string]interface{}{
+apiCall.Provider.AddToRolePolicy(map[string]interface{}{
 	"Effect": jsii.String("Allow"),
 	"Action": []*string{
 		jsii.String("s3:GetObject"),
@@ -363,26 +363,26 @@ var queue queue
 var fn iFunction
 
 
-integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-	testCases: []*stack{
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
 
-integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
-	functionName: fn.functionName,
-	invocationType: awscdkintegtestsalpha.InvocationType_EVENT,
-	payload: jSON.stringify(map[string]*string{
+integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
+	FunctionName: fn.FunctionName,
+	InvocationType: awscdkintegtestsalpha.InvocationType_EVENT,
+	Payload: jSON.stringify(map[string]*string{
 		"status": jsii.String("OK"),
 	}),
 })
 
-message := integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
+message := integ.Assertions.AwsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
 	"QueueUrl": queue.queueUrl,
 	"WaitTimeSeconds": jsii.Number(20),
 })
 
-message.assertAtPath(jsii.String("Messages.0.Body"), awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
+message.AssertAtPath(jsii.String("Messages.0.Body"), awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	"requestContext": map[string]*string{
 		"condition": jsii.String("Success"),
 	},
@@ -405,21 +405,21 @@ can be used to construct the `ExpectedResult`. While the utility is similar, onl
 var message awsApiCall
 
 
-message.expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
-	"Messages": awscdkintegtestsalpha.Match.arrayWith([]interface{}{
+message.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+	"Messages": awscdkintegtestsalpha.Match_arrayWith([]interface{}{
 		map[string]map[string]map[string]interface{}{
-			"Payload": awscdkintegtestsalpha.Match.serializedJson(map[string]interface{}{
+			"Payload": awscdkintegtestsalpha.Match_serializedJson(map[string]interface{}{
 				"key": jsii.String("value"),
 			}),
 		},
 		map[string]map[string]map[string][]interface{}{
 			"Body": map[string]map[string][]interface{}{
-				"Values": awscdkintegtestsalpha.Match.arrayWith([]interface{}{
+				"Values": awscdkintegtestsalpha.Match_arrayWith([]interface{}{
 					map[string]*f64{
 						"Asdf": jsii.Number(3),
 					},
 				}),
-				"Message": awscdkintegtestsalpha.Match.stringLikeRegexp(jsii.String("message")),
+				"Message": awscdkintegtestsalpha.Match_stringLikeRegexp(jsii.String("message")),
 			},
 		},
 	}),
@@ -440,16 +440,16 @@ var app app
 
 stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
 
-integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
-	testCases: []stack{
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+	TestCases: []stack{
 		stack,
 	},
 })
 
-invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
-	functionName: lambdaFunction.functionName,
+invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
+	FunctionName: lambdaFunction.FunctionName,
 })
-invoke.expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
+invoke.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	"Payload": jsii.String("200"),
 }))
 ```
@@ -465,24 +465,24 @@ var stack stack
 var sm iStateMachine
 
 
-testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
-	testCases: []*stack{
+testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
 
 // Start an execution
-start := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
+start := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
 	"stateMachineArn": sm.stateMachineArn,
 })
 
 // describe the results of the execution
-describe := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
 	"executionArn": start.getAttString(jsii.String("executionArn")),
 })
 
 // assert the results
-describe.expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
+describe.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	"status": jsii.String("SUCCEEDED"),
 }))
 ```
@@ -496,11 +496,11 @@ need to do is add a dependency between the calls. There is an helper method `nex
 var integ integTest
 
 
-integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("putObject"), map[string]*string{
+integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("putObject"), map[string]*string{
 	"Bucket": jsii.String("my-bucket"),
 	"Key": jsii.String("my-key"),
 	"Body": jsii.String("helloWorld"),
-}).next(integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("getObject"), map[string]*string{
+}).Next(integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("getObject"), map[string]*string{
 	"Bucket": jsii.String("my-bucket"),
 	"Key": jsii.String("my-key"),
 }))
@@ -521,23 +521,23 @@ var stack stack
 var sm iStateMachine
 
 
-testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
-	testCases: []*stack{
+testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+	TestCases: []*stack{
 		stack,
 	},
 })
 
 // Start an execution
-start := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
+start := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
 	"stateMachineArn": sm.stateMachineArn,
 })
 
 // describe the results of the execution
-describe := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
 	"executionArn": start.getAttString(jsii.String("executionArn")),
-}).expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
+}).Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	"status": jsii.String("SUCCEEDED"),
-})).waitForAssertions()
+})).WaitForAssertions()
 ```
 
 When you call `waitForAssertions()` the assertion provider will continuously make the `awsApiCall` until the
@@ -548,13 +548,13 @@ var testCase integTest
 var start iApiCall
 
 
-describe := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
 	"executionArn": start.getAttString(jsii.String("executionArn")),
-}).expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
+}).Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	"status": jsii.String("SUCCEEDED"),
-})).waitForAssertions(&waiterStateMachineOptions{
-	totalTimeout: awscdk.Duration.minutes(jsii.Number(5)),
-	interval: awscdk.Duration.seconds(jsii.Number(15)),
-	backoffRate: jsii.Number(3),
+})).WaitForAssertions(&WaiterStateMachineOptions{
+	TotalTimeout: awscdk.Duration_Minutes(jsii.Number(5)),
+	Interval: awscdk.Duration_Seconds(jsii.Number(15)),
+	BackoffRate: jsii.Number(3),
 })
 ```

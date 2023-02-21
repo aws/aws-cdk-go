@@ -36,16 +36,16 @@ Resources:
 It can be included in a CDK application with the following code:
 
 ```go
-cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &cfnIncludeProps{
-	templateFile: jsii.String("my-template.json"),
+cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &CfnIncludeProps{
+	TemplateFile: jsii.String("my-template.json"),
 })
 ```
 
 Or, if your template uses YAML:
 
 ```go
-cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &cfnIncludeProps{
-	templateFile: jsii.String("my-template.yaml"),
+cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &CfnIncludeProps{
+	TemplateFile: jsii.String("my-template.yaml"),
 })
 ```
 
@@ -68,7 +68,7 @@ you can cast the returned object to the correct type:
 ```go
 var cfnTemplate cfnInclude
 
-cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
+cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
 ```
 
 Note that any resources not present in the latest version of the CloudFormation schema
@@ -83,8 +83,8 @@ for example, the name of the bucket can be changed:
 ```go
 var cfnTemplate cfnInclude
 
-cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
-cfnBucket.bucketName = "my-bucket-name"
+cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
+cfnBucket.BucketName = "my-bucket-name"
 ```
 
 You can also refer to the resource when defining other constructs,
@@ -95,17 +95,17 @@ for example:
 ```go
 var cfnTemplate cfnInclude
 
-cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
+cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
 
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewAnyPrincipal(),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewAnyPrincipal(),
 })
-role.addToPolicy(iam.NewPolicyStatement(&policyStatementProps{
-	actions: []*string{
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
 		jsii.String("s3:*"),
 	},
-	resources: []*string{
-		cfnBucket.attrArn,
+	Resources: []*string{
+		cfnBucket.AttrArn,
 	},
 }))
 ```
@@ -163,8 +163,8 @@ and passing the L1 instance as an argument:
 ```go
 var cfnTemplate cfnInclude
 
-cfnKey := cfnTemplate.getResource(jsii.String("Key")).(cfnKey)
-key := kms.key.fromCfnKey(cfnKey)
+cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(cfnKey)
+key := kms.Key_FromCfnKey(cfnKey)
 ```
 
 This returns an instance of the `kms.IKey` type that can be passed anywhere in the CDK an `IKey` is expected.
@@ -236,17 +236,17 @@ var privateCfnSubnet2 cfnSubnet
 
 
 // using from*Name()
-cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
-bucket := s3.bucket.fromBucketName(this, jsii.String("L2Bucket"), cfnBucket.ref)
+cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
+bucket := s3.Bucket_FromBucketName(this, jsii.String("L2Bucket"), cfnBucket.ref)
 
 // using from*Arn()
-cfnKey := cfnTemplate.getResource(jsii.String("Key")).(cfnKey)
-key := kms.key.fromKeyArn(this, jsii.String("L2Key"), cfnKey.attrArn)
-cfnVpc := cfnTemplate.getResource(jsii.String("Vpc")).(cfnVPC)
-vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("L2Vpc"), &vpcAttributes{
-	vpcId: cfnVpc.ref,
-	availabilityZones: core.fn.getAzs(),
-	privateSubnetIds: []*string{
+cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(cfnKey)
+key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.AttrArn)
+cfnVpc := cfnTemplate.GetResource(jsii.String("Vpc")).(cfnVPC)
+vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("L2Vpc"), &VpcAttributes{
+	VpcId: cfnVpc.ref,
+	AvailabilityZones: core.Fn_GetAzs(),
+	PrivateSubnetIds: []*string{
 		privateCfnSubnet1.ref,
 		privateCfnSubnet2.ref,
 	},
@@ -270,7 +270,7 @@ you can also retrieve and mutate all other template elements:
   ```go
   var cfnTemplate cfnInclude
 
-  param := cfnTemplate.getParameter(jsii.String("MyParameter"))
+  param := cfnTemplate.GetParameter(jsii.String("MyParameter"))
 
   // mutating the parameter
   param.default = "MyDefault"
@@ -280,20 +280,20 @@ you can also retrieve and mutate all other template elements:
   ```go
   var cfnTemplate cfnInclude
 
-  condition := cfnTemplate.getCondition(jsii.String("MyCondition"))
+  condition := cfnTemplate.GetCondition(jsii.String("MyCondition"))
 
   // mutating the condition
-  condition.expression = core.fn.conditionEquals(jsii.Number(1), jsii.Number(2))
+  condition.Expression = core.Fn_ConditionEquals(jsii.Number(1), jsii.Number(2))
   ```
 * [Mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html):
 
   ```go
   var cfnTemplate cfnInclude
 
-  mapping := cfnTemplate.getMapping(jsii.String("MyMapping"))
+  mapping := cfnTemplate.GetMapping(jsii.String("MyMapping"))
 
   // mutating the mapping
-  mapping.setValue(jsii.String("my-region"), jsii.String("AMI"), jsii.String("ami-04681a1dbd79675a5"))
+  mapping.SetValue(jsii.String("my-region"), jsii.String("AMI"), jsii.String("ami-04681a1dbd79675a5"))
   ```
 * [Service Catalog template Rules](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html):
 
@@ -303,8 +303,8 @@ you can also retrieve and mutate all other template elements:
   // mutating the rule
   var myParameter cfnParameter
 
-  rule := cfnTemplate.getRule(jsii.String("MyRule"))
-  rule.addAssertion(core.fn.conditionContains([]*string{
+  rule := cfnTemplate.GetRule(jsii.String("MyRule"))
+  rule.AddAssertion(core.Fn_ConditionContains([]*string{
   	jsii.String("m1.small"),
   }, myParameter.valueAsString), jsii.String("MyParameter has to be m1.small"))
   ```
@@ -316,8 +316,8 @@ you can also retrieve and mutate all other template elements:
   // mutating the output
   var cfnBucket cfnBucket
 
-  output := cfnTemplate.getOutput(jsii.String("MyOutput"))
-  output.value = cfnBucket.attrArn
+  output := cfnTemplate.GetOutput(jsii.String("MyOutput"))
+  output.value = cfnBucket.AttrArn
   ```
 * [Hooks for blue-green deployments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html):
 
@@ -327,9 +327,9 @@ you can also retrieve and mutate all other template elements:
   // mutating the hook
   var myRole role
 
-  hook := cfnTemplate.getHook(jsii.String("MyOutput"))
+  hook := cfnTemplate.GetHook(jsii.String("MyOutput"))
   codeDeployHook := hook.(cfnCodeDeployBlueGreenHook)
-  codeDeployHook.serviceRole = myRole.roleArn
+  codeDeployHook.serviceRole = myRole.RoleArn
   ```
 
 ## Parameter replacement
@@ -339,9 +339,9 @@ you may want to remove them in favor of build-time values.
 You can do that using the `parameters` property:
 
 ```go
-cfn_inc.NewCfnInclude(this, jsii.String("includeTemplate"), &cfnIncludeProps{
-	templateFile: jsii.String("path/to/my/template"),
-	parameters: map[string]interface{}{
+cfn_inc.NewCfnInclude(this, jsii.String("includeTemplate"), &CfnIncludeProps{
+	TemplateFile: jsii.String("path/to/my/template"),
+	Parameters: map[string]interface{}{
 		"MyParam": jsii.String("my-value"),
 	},
 })
@@ -385,9 +385,9 @@ You can include both the parent stack,
 and the nested stack in your CDK application as follows:
 
 ```go
-parentTemplate := cfn_inc.NewCfnInclude(this, jsii.String("ParentStack"), &cfnIncludeProps{
-	templateFile: jsii.String("path/to/my-parent-template.json"),
-	loadNestedStacks: map[string]*cfnIncludeProps{
+parentTemplate := cfn_inc.NewCfnInclude(this, jsii.String("ParentStack"), &CfnIncludeProps{
+	TemplateFile: jsii.String("path/to/my-parent-template.json"),
+	LoadNestedStacks: map[string]cfnIncludeProps{
 		"ChildStack": &cfnIncludeProps{
 			"templateFile": jsii.String("path/to/my-nested-template.json"),
 		},
@@ -409,9 +409,9 @@ The included nested stack can be accessed with the `getNestedStack` method:
 var parentTemplate cfnInclude
 
 
-includedChildStack := parentTemplate.getNestedStack(jsii.String("ChildStack"))
-childStack := includedChildStack.stack
-childTemplate := includedChildStack.includedTemplate
+includedChildStack := parentTemplate.GetNestedStack(jsii.String("ChildStack"))
+childStack := includedChildStack.Stack
+childTemplate := includedChildStack.IncludedTemplate
 ```
 
 Now you can reference resources from `ChildStack`,
@@ -421,21 +421,21 @@ and modify them like any other included template:
 var childTemplate cfnInclude
 
 
-cfnBucket := childTemplate.getResource(jsii.String("MyBucket")).(cfnBucket)
-cfnBucket.bucketName = "my-new-bucket-name"
+cfnBucket := childTemplate.GetResource(jsii.String("MyBucket")).(cfnBucket)
+cfnBucket.BucketName = "my-new-bucket-name"
 
-role := iam.NewRole(this, jsii.String("MyRole"), &roleProps{
-	assumedBy: iam.NewAccountRootPrincipal(),
+role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+	AssumedBy: iam.NewAccountRootPrincipal(),
 })
 
-role.addToPolicy(iam.NewPolicyStatement(&policyStatementProps{
-	actions: []*string{
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
 		jsii.String("s3:GetObject*"),
 		jsii.String("s3:GetBucket*"),
 		jsii.String("s3:List*"),
 	},
-	resources: []*string{
-		cfnBucket.attrArn,
+	Resources: []*string{
+		cfnBucket.AttrArn,
 	},
 }))
 ```
@@ -446,8 +446,8 @@ instead of doing it on construction:
 ```go
 var parentTemplate cfnInclude
 
-includedChildStack := parentTemplate.loadNestedStack(jsii.String("ChildTemplate"), &cfnIncludeProps{
-	templateFile: jsii.String("path/to/my-nested-template.json"),
+includedChildStack := parentTemplate.LoadNestedStack(jsii.String("ChildTemplate"), &CfnIncludeProps{
+	TemplateFile: jsii.String("path/to/my-nested-template.json"),
 })
 ```
 
@@ -473,9 +473,9 @@ func NewMyConstruct(scope construct, id *string) *MyConstruct {
 
 	// include a template inside the Construct
 	// include a template inside the Construct
-	cfn_inc.NewCfnInclude(this, jsii.String("MyConstruct"), &cfnIncludeProps{
-		templateFile: path.join(__dirname, jsii.String("my-template.json")),
-		preserveLogicalIds: jsii.Boolean(false),
+	cfn_inc.NewCfnInclude(this, jsii.String("MyConstruct"), &CfnIncludeProps{
+		TemplateFile: path.join(__dirname, jsii.String("my-template.json")),
+		PreserveLogicalIds: jsii.Boolean(false),
 	})
 	return this
 }

@@ -37,16 +37,16 @@ An ETL job processes data in batches using Apache Spark.
 ```go
 var bucket bucket
 
-glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &jobProps{
-	executable: glue.jobExecutable.scalaEtl(&scalaJobExecutableProps{
-		glueVersion: glue.glueVersion_V4_0(),
-		script: glue.code.fromBucket(bucket, jsii.String("src/com/example/HelloWorld.scala")),
-		className: jsii.String("com.example.HelloWorld"),
-		extraJars: []*code{
-			glue.*code.fromBucket(bucket, jsii.String("jars/HelloWorld.jar")),
+glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &JobProps{
+	Executable: glue.JobExecutable_ScalaEtl(&ScalaJobExecutableProps{
+		GlueVersion: glue.GlueVersion_V4_0(),
+		Script: glue.Code_FromBucket(bucket, jsii.String("src/com/example/HelloWorld.scala")),
+		ClassName: jsii.String("com.example.HelloWorld"),
+		ExtraJars: []code{
+			glue.*code_*FromBucket(bucket, jsii.String("jars/HelloWorld.jar")),
 		},
 	}),
-	description: jsii.String("an example Scala ETL job"),
+	Description: jsii.String("an example Scala ETL job"),
 })
 ```
 
@@ -55,13 +55,13 @@ glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &jobProps{
 A Streaming job is similar to an ETL job, except that it performs ETL on data streams. It uses the Apache Spark Structured Streaming framework. Some Spark job features are not available to streaming ETL jobs.
 
 ```go
-glue.NewJob(this, jsii.String("PythonSparkStreamingJob"), &jobProps{
-	executable: glue.jobExecutable.pythonStreaming(&pythonSparkJobExecutableProps{
-		glueVersion: glue.glueVersion_V4_0(),
-		pythonVersion: glue.pythonVersion_THREE,
-		script: glue.code.fromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+glue.NewJob(this, jsii.String("PythonSparkStreamingJob"), &JobProps{
+	Executable: glue.JobExecutable_PythonStreaming(&PythonSparkJobExecutableProps{
+		GlueVersion: glue.GlueVersion_V4_0(),
+		PythonVersion: glue.PythonVersion_THREE,
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
 	}),
-	description: jsii.String("an example Python Streaming job"),
+	Description: jsii.String("an example Python Streaming job"),
 })
 ```
 
@@ -77,13 +77,13 @@ This can be used to schedule and run tasks that don't require an Apache Spark en
 ```go
 var bucket bucket
 
-glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
-	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
-		glueVersion: glue.glueVersion_V1_0(),
-		pythonVersion: glue.pythonVersion_THREE,
-		script: glue.code.fromBucket(bucket, jsii.String("script.py")),
+glue.NewJob(this, jsii.String("PythonShellJob"), &JobProps{
+	Executable: glue.JobExecutable_PythonShell(&PythonShellExecutableProps{
+		GlueVersion: glue.GlueVersion_V1_0(),
+		PythonVersion: glue.PythonVersion_THREE,
+		Script: glue.Code_FromBucket(bucket, jsii.String("script.py")),
 	}),
-	description: jsii.String("an example Python Shell job"),
+	Description: jsii.String("an example Python Shell job"),
 })
 ```
 
@@ -92,15 +92,15 @@ glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 These jobs run in a Ray environment managed by AWS Glue.
 
 ```go
-glue.NewJob(this, jsii.String("RayJob"), &jobProps{
-	executable: glue.jobExecutable.pythonRay(&pythonRayExecutableProps{
-		glueVersion: glue.glueVersion_V4_0(),
-		pythonVersion: glue.pythonVersion_THREE_NINE,
-		script: glue.code.fromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+glue.NewJob(this, jsii.String("RayJob"), &JobProps{
+	Executable: glue.JobExecutable_PythonRay(&PythonRayExecutableProps{
+		GlueVersion: glue.GlueVersion_V4_0(),
+		PythonVersion: glue.PythonVersion_THREE_NINE,
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
 	}),
-	workerType: glue.workerType_Z_2X(),
-	workerCount: jsii.Number(2),
-	description: jsii.String("an example Ray job"),
+	WorkerType: glue.WorkerType_Z_2X(),
+	WorkerCount: jsii.Number(2),
+	Description: jsii.String("an example Ray job"),
 })
 ```
 
@@ -114,14 +114,14 @@ A `Connection` allows Glue jobs, crawlers and development endpoints to access ce
 var securityGroup securityGroup
 var subnet subnet
 
-glue.NewConnection(this, jsii.String("MyConnection"), &connectionProps{
-	type: glue.connectionType_NETWORK(),
+glue.NewConnection(this, jsii.String("MyConnection"), &ConnectionProps{
+	Type: glue.ConnectionType_NETWORK(),
 	// The security groups granting AWS Glue inbound access to the data source within the VPC
-	securityGroups: []iSecurityGroup{
+	SecurityGroups: []iSecurityGroup{
 		securityGroup,
 	},
 	// The VPC subnet which contains the data source
-	subnet: subnet,
+	Subnet: Subnet,
 })
 ```
 
@@ -132,13 +132,13 @@ var securityGroup securityGroup
 var subnet subnet
 var db databaseCluster
 
-glue.NewConnection(this, jsii.String("RdsConnection"), &connectionProps{
-	type: glue.connectionType_JDBC(),
-	securityGroups: []iSecurityGroup{
+glue.NewConnection(this, jsii.String("RdsConnection"), &ConnectionProps{
+	Type: glue.ConnectionType_JDBC(),
+	SecurityGroups: []iSecurityGroup{
 		securityGroup,
 	},
-	subnet: subnet,
-	properties: map[string]*string{
+	Subnet: Subnet,
+	Properties: map[string]*string{
 		"JDBC_CONNECTION_URL": fmt.Sprintf("jdbc:mysql://%v/databasename", db.clusterEndpoint.socketAddress),
 		"JDBC_ENFORCE_SSL": jsii.String("false"),
 		"SECRET_ID": db.secret.secretName,
@@ -155,15 +155,15 @@ See [Adding a Connection to Your Data Store](https://docs.aws.amazon.com/glue/la
 A `SecurityConfiguration` is a set of security properties that can be used by AWS Glue to encrypt data at rest.
 
 ```go
-glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &securityConfigurationProps{
-	cloudWatchEncryption: &cloudWatchEncryption{
-		mode: glue.cloudWatchEncryptionMode_KMS,
+glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
+	CloudWatchEncryption: &CloudWatchEncryption{
+		Mode: glue.CloudWatchEncryptionMode_KMS,
 	},
-	jobBookmarksEncryption: &jobBookmarksEncryption{
-		mode: glue.jobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
+	JobBookmarksEncryption: &JobBookmarksEncryption{
+		Mode: glue.JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
 	},
-	s3Encryption: &s3Encryption{
-		mode: glue.s3EncryptionMode_KMS,
+	S3Encryption: &S3Encryption{
+		Mode: glue.S3EncryptionMode_KMS,
 	},
 })
 ```
@@ -173,10 +173,10 @@ By default, a shared KMS key is created for use with the encryption configuratio
 ```go
 var key key
 
-glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &securityConfigurationProps{
-	cloudWatchEncryption: &cloudWatchEncryption{
-		mode: glue.cloudWatchEncryptionMode_KMS,
-		kmsKey: key,
+glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
+	CloudWatchEncryption: &CloudWatchEncryption{
+		Mode: glue.CloudWatchEncryptionMode_KMS,
+		KmsKey: key,
 	},
 })
 ```
@@ -198,20 +198,20 @@ A Glue table describes a table of data in S3: its structure (column names and ty
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	database: myDatabase,
-	columns: []column{
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 		&column{
-			name: jsii.String("col2"),
-			type: glue.*schema.array(glue.*schema_STRING()),
-			comment: jsii.String("col2 is an array of strings"),
+			Name: jsii.String("col2"),
+			Type: glue.Schema_Array(glue.Schema_STRING()),
+			Comment: jsii.String("col2 is an array of strings"),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -221,18 +221,18 @@ By default, a S3 bucket will be created to store the table's data but you can ma
 var myBucket bucket
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	bucket: myBucket,
-	s3Prefix: jsii.String("my-table/"),
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Bucket: myBucket,
+	S3Prefix: jsii.String("my-table/"),
 	// ...
-	database: myDatabase,
-	columns: []column{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -245,25 +245,25 @@ To improve query performance, a table can specify `partitionKeys` on which data 
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	database: myDatabase,
-	columns: []column{
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	partitionKeys: []*column{
+	PartitionKeys: []*column{
 		&column{
-			name: jsii.String("year"),
-			type: glue.*schema_SMALL_INT(),
+			Name: jsii.String("year"),
+			Type: glue.Schema_SMALL_INT(),
 		},
 		&column{
-			name: jsii.String("month"),
-			type: glue.*schema_SMALL_INT(),
+			Name: jsii.String("month"),
+			Type: glue.Schema_SMALL_INT(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -282,35 +282,35 @@ property:
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	database: myDatabase,
-	columns: []column{
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	partitionKeys: []*column{
+	PartitionKeys: []*column{
 		&column{
-			name: jsii.String("year"),
-			type: glue.*schema_SMALL_INT(),
+			Name: jsii.String("year"),
+			Type: glue.Schema_SMALL_INT(),
 		},
 		&column{
-			name: jsii.String("month"),
-			type: glue.*schema_SMALL_INT(),
+			Name: jsii.String("month"),
+			Type: glue.Schema_SMALL_INT(),
 		},
 	},
-	partitionIndexes: []partitionIndex{
+	PartitionIndexes: []partitionIndex{
 		&partitionIndex{
-			indexName: jsii.String("my-index"),
+			IndexName: jsii.String("my-index"),
 			 // optional
-			keyNames: []*string{
+			KeyNames: []*string{
 				jsii.String("year"),
 			},
 		},
 	},
 	 // supply up to 3 indexes
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -319,9 +319,9 @@ Alternatively, you can call the `addPartitionIndex()` function on a table:
 ```go
 var myTable table
 
-myTable.addPartitionIndex(&partitionIndex{
-	indexName: jsii.String("my-index"),
-	keyNames: []*string{
+myTable.AddPartitionIndex(&PartitionIndex{
+	IndexName: jsii.String("my-index"),
+	KeyNames: []*string{
 		jsii.String("year"),
 	},
 })
@@ -334,26 +334,26 @@ If you have a table with a large number of partitions that grows over time, cons
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	database: myDatabase,
-	columns: []column{
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	partitionKeys: []*column{
+	PartitionKeys: []*column{
 		&column{
-			name: jsii.String("year"),
-			type: glue.*schema_SMALL_INT(),
+			Name: jsii.String("year"),
+			Type: glue.Schema_SMALL_INT(),
 		},
 		&column{
-			name: jsii.String("month"),
-			type: glue.*schema_SMALL_INT(),
+			Name: jsii.String("month"),
+			Type: glue.Schema_SMALL_INT(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
-	enablePartitionFiltering: jsii.Boolean(true),
+	DataFormat: glue.DataFormat_JSON(),
+	EnablePartitionFiltering: jsii.Boolean(true),
 })
 ```
 
@@ -367,17 +367,17 @@ You can enable encryption on a Table's data:
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	encryption: glue.tableEncryption_S3_MANAGED,
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Encryption: glue.TableEncryption_S3_MANAGED,
 	// ...
-	database: myDatabase,
-	columns: []column{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -388,33 +388,33 @@ var myDatabase database
 
 // KMS key is created automatically
 // KMS key is created automatically
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	encryption: glue.tableEncryption_KMS,
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Encryption: glue.TableEncryption_KMS,
 	// ...
-	database: myDatabase,
-	columns: []column{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 
 // with an explicit KMS key
 // with an explicit KMS key
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	encryption: glue.*tableEncryption_KMS,
-	encryptionKey: kms.NewKey(this, jsii.String("MyKey")),
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Encryption: glue.TableEncryption_KMS,
+	EncryptionKey: kms.NewKey(this, jsii.String("MyKey")),
 	// ...
-	database: myDatabase,
-	columns: []*column{
+	Database: myDatabase,
+	Columns: []*column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.*schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.*dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -423,17 +423,17 @@ glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	encryption: glue.tableEncryption_KMS_MANAGED,
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Encryption: glue.TableEncryption_KMS_MANAGED,
 	// ...
-	database: myDatabase,
-	columns: []column{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -444,33 +444,33 @@ var myDatabase database
 
 // KMS key is created automatically
 // KMS key is created automatically
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	encryption: glue.tableEncryption_CLIENT_SIDE_KMS,
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Encryption: glue.TableEncryption_CLIENT_SIDE_KMS,
 	// ...
-	database: myDatabase,
-	columns: []column{
+	Database: myDatabase,
+	Columns: []column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 
 // with an explicit KMS key
 // with an explicit KMS key
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	encryption: glue.*tableEncryption_CLIENT_SIDE_KMS,
-	encryptionKey: kms.NewKey(this, jsii.String("MyKey")),
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Encryption: glue.TableEncryption_CLIENT_SIDE_KMS,
+	EncryptionKey: kms.NewKey(this, jsii.String("MyKey")),
 	// ...
-	database: myDatabase,
-	columns: []*column{
+	Database: myDatabase,
+	Columns: []*column{
 		&column{
-			name: jsii.String("col1"),
-			type: glue.*schema_STRING(),
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
 		},
 	},
-	dataFormat: glue.*dataFormat_JSON(),
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 
@@ -483,37 +483,37 @@ A table's schema is a collection of columns, each of which have a `name` and a `
 ```go
 var myDatabase database
 
-glue.NewTable(this, jsii.String("MyTable"), &tableProps{
-	columns: []column{
+glue.NewTable(this, jsii.String("MyTable"), &TableProps{
+	Columns: []column{
 		&column{
-			name: jsii.String("primitive_column"),
-			type: glue.schema_STRING(),
+			Name: jsii.String("primitive_column"),
+			Type: glue.Schema_STRING(),
 		},
 		&column{
-			name: jsii.String("array_column"),
-			type: glue.*schema.array(glue.*schema_INTEGER()),
-			comment: jsii.String("array<integer>"),
+			Name: jsii.String("array_column"),
+			Type: glue.Schema_Array(glue.Schema_INTEGER()),
+			Comment: jsii.String("array<integer>"),
 		},
 		&column{
-			name: jsii.String("map_column"),
-			type: glue.*schema.map(glue.*schema_STRING(), glue.*schema_TIMESTAMP()),
-			comment: jsii.String("map<string,string>"),
+			Name: jsii.String("map_column"),
+			Type: glue.Schema_Map(glue.Schema_STRING(), glue.Schema_TIMESTAMP()),
+			Comment: jsii.String("map<string,string>"),
 		},
 		&column{
-			name: jsii.String("struct_column"),
-			type: glue.*schema.struct_([]*column{
+			Name: jsii.String("struct_column"),
+			Type: glue.Schema_Struct([]*column{
 				&column{
-					name: jsii.String("nested_column"),
-					type: glue.*schema_DATE(),
-					comment: jsii.String("nested comment"),
+					Name: jsii.String("nested_column"),
+					Type: glue.Schema_DATE(),
+					Comment: jsii.String("nested comment"),
 				},
 			}),
-			comment: jsii.String("struct<nested_column:date COMMENT 'nested comment'>"),
+			Comment: jsii.String("struct<nested_column:date COMMENT 'nested comment'>"),
 		},
 	},
 	// ...
-	database: myDatabase,
-	dataFormat: glue.dataFormat_JSON(),
+	Database: myDatabase,
+	DataFormat: glue.DataFormat_JSON(),
 })
 ```
 

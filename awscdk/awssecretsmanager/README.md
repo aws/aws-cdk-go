@@ -16,28 +16,28 @@ var vpc vpc
 // Simple secret
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 // Using the secret
-instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
-	engine: rds.databaseInstanceEngine_POSTGRES(),
-	credentials: rds.credentials.fromSecret(secret),
-	vpc: vpc,
+instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
+	Credentials: rds.Credentials_FromSecret(secret),
+	Vpc: Vpc,
 })
 // Templated secret with username and password fields
-templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
-	generateSecretString: &secretStringGenerator{
-		secretStringTemplate: jSON.stringify(map[string]*string{
+templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &SecretProps{
+	GenerateSecretString: &SecretStringGenerator{
+		SecretStringTemplate: jSON.stringify(map[string]*string{
 			"username": jsii.String("postgres"),
 		}),
-		generateStringKey: jsii.String("password"),
+		GenerateStringKey: jsii.String("password"),
 	},
 })
 // Using the templated secret as credentials
-instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
-	engine: rds.*databaseInstanceEngine_POSTGRES(),
-	credentials: map[string]interface{}{
+instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
+	Credentials: map[string]interface{}{
 		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
 		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
 	},
-	vpc: vpc,
+	Vpc: Vpc,
 })
 ```
 
@@ -48,10 +48,10 @@ or `Secret.fromSecretAttributes` method to make it available in your CDK Applica
 ```go
 var encryptionKey key
 
-secret := secretsmanager.secret.fromSecretAttributes(this, jsii.String("ImportedSecret"), &secretAttributes{
-	secretArn: jsii.String("arn:aws:secretsmanager:<region>:<account-id-number>:secret:<secret-name>-<random-6-characters>"),
+secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("ImportedSecret"), &SecretAttributes{
+	SecretArn: jsii.String("arn:aws:secretsmanager:<region>:<account-id-number>:secret:<secret-name>-<random-6-characters>"),
 	// If the secret is encrypted using a KMS-hosted CMK, either import or reference that key:
-	encryptionKey: encryptionKey,
+	EncryptionKey: EncryptionKey,
 })
 ```
 
@@ -67,8 +67,8 @@ use a secret. This can be achieved with the `Secret.grantRead` and/or `Secret.gr
 method, depending on your need:
 
 ```go
-role := iam.NewRole(this, jsii.String("SomeRole"), &roleProps{
-	assumedBy: iam.NewAccountRootPrincipal(),
+role := iam.NewRole(this, jsii.String("SomeRole"), &RoleProps{
+	AssumedBy: iam.NewAccountRootPrincipal(),
 })
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 secret.grantRead(role)
@@ -81,8 +81,8 @@ If, as in the following example, your secret was created with a KMS key:
 var role role
 
 key := kms.NewKey(this, jsii.String("KMS"))
-secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
-	encryptionKey: key,
+secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
+	EncryptionKey: key,
 })
 secret.grantRead(role)
 secret.grantWrite(role)
@@ -97,8 +97,8 @@ The principal is automatically added to Secret resource policy and KMS Key polic
 ```go
 otherAccount := iam.NewAccountPrincipal(jsii.String("1234"))
 key := kms.NewKey(this, jsii.String("KMS"))
-secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
-	encryptionKey: key,
+secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
+	EncryptionKey: key,
 })
 secret.grantRead(otherAccount)
 ```
@@ -116,9 +116,9 @@ var fn function
 
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 
-secret.addRotationSchedule(jsii.String("RotationSchedule"), &rotationScheduleOptions{
-	rotationLambda: fn,
-	automaticallyAfter: awscdk.Duration.days(jsii.Number(15)),
+secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
+	RotationLambda: fn,
+	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(15)),
 })
 ```
 
@@ -133,8 +133,8 @@ Use the `hostedRotation` prop to rotate a secret with a hosted Lambda function:
 ```go
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 
-secret.addRotationSchedule(jsii.String("RotationSchedule"), &rotationScheduleOptions{
-	hostedRotation: secretsmanager.hostedRotation.mysqlSingleUser(),
+secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
+	HostedRotation: secretsmanager.HostedRotation_MysqlSingleUser(),
 })
 ```
 
@@ -149,13 +149,13 @@ var dbConnections connections
 var secret secret
 
 
-myHostedRotation := secretsmanager.hostedRotation.mysqlSingleUser(&singleUserHostedRotationOptions{
-	vpc: myVpc,
+myHostedRotation := secretsmanager.HostedRotation_MysqlSingleUser(&SingleUserHostedRotationOptions{
+	Vpc: myVpc,
 })
-secret.addRotationSchedule(jsii.String("RotationSchedule"), &rotationScheduleOptions{
-	hostedRotation: myHostedRotation,
+secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
+	HostedRotation: myHostedRotation,
 })
-dbConnections.allowDefaultPortFrom(myHostedRotation)
+dbConnections.AllowDefaultPortFrom(myHostedRotation)
 ```
 
 Use the `excludeCharacters` option to customize the characters excluded from
@@ -175,15 +175,15 @@ var myDatabase iConnectable
 var myVpc vpc
 
 
-secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &secretRotationProps{
-	application: secretsmanager.secretRotationApplication_MYSQL_ROTATION_SINGLE_USER(),
+secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
+	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_SINGLE_USER(),
 	 // MySQL single user scheme
-	secret: mySecret,
-	target: myDatabase,
+	Secret: mySecret,
+	Target: myDatabase,
 	 // a Connectable
-	vpc: myVpc,
+	Vpc: myVpc,
 	 // The VPC where the secret rotation application will be deployed
-	excludeCharacters: jsii.String(" %+:;{}"),
+	ExcludeCharacters: jsii.String(" %+:;{}"),
 })
 ```
 
@@ -210,14 +210,14 @@ var myDatabase iConnectable
 var myVpc vpc
 
 
-secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &secretRotationProps{
-	application: secretsmanager.secretRotationApplication_MYSQL_ROTATION_MULTI_USER(),
-	secret: myUserSecret,
+secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
+	Application: secretsmanager.SecretRotationApplication_MYSQL_ROTATION_MULTI_USER(),
+	Secret: myUserSecret,
 	 // The secret that will be rotated
-	masterSecret: myMasterSecret,
+	MasterSecret: myMasterSecret,
 	 // The secret used for the rotation
-	target: myDatabase,
-	vpc: myVpc,
+	Target: myDatabase,
+	Vpc: myVpc,
 })
 ```
 
@@ -234,13 +234,13 @@ Importing by name makes it easier to reference secrets created in different regi
 ```go
 secretCompleteArn := "arn:aws:secretsmanager:eu-west-1:111111111111:secret:MySecret-f3gDy9"
 secretPartialArn := "arn:aws:secretsmanager:eu-west-1:111111111111:secret:MySecret" // No Secrets Manager suffix
-encryptionKey := kms.key.fromKeyArn(this, jsii.String("MyEncKey"), jsii.String("arn:aws:kms:eu-west-1:111111111111:key/21c4b39b-fde2-4273-9ac0-d9bb5c0d0030"))
-mySecretFromCompleteArn := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("SecretFromCompleteArn"), secretCompleteArn)
-mySecretFromPartialArn := secretsmanager.secret.fromSecretPartialArn(this, jsii.String("SecretFromPartialArn"), secretPartialArn)
-mySecretFromName := secretsmanager.secret.fromSecretNameV2(this, jsii.String("SecretFromName"), jsii.String("MySecret"))
-mySecretFromAttrs := secretsmanager.secret.fromSecretAttributes(this, jsii.String("SecretFromAttributes"), &secretAttributes{
-	secretCompleteArn: jsii.String(secretCompleteArn),
-	encryptionKey: encryptionKey,
+encryptionKey := kms.Key_FromKeyArn(this, jsii.String("MyEncKey"), jsii.String("arn:aws:kms:eu-west-1:111111111111:key/21c4b39b-fde2-4273-9ac0-d9bb5c0d0030"))
+mySecretFromCompleteArn := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("SecretFromCompleteArn"), secretCompleteArn)
+mySecretFromPartialArn := secretsmanager.Secret_FromSecretPartialArn(this, jsii.String("SecretFromPartialArn"), secretPartialArn)
+mySecretFromName := secretsmanager.Secret_FromSecretNameV2(this, jsii.String("SecretFromName"), jsii.String("MySecret"))
+mySecretFromAttrs := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("SecretFromAttributes"), &SecretAttributes{
+	SecretCompleteArn: jsii.String(SecretCompleteArn),
+	EncryptionKey: EncryptionKey,
 })
 ```
 
@@ -251,14 +251,14 @@ Secrets can be replicated to multiple regions by specifying `replicaRegions`:
 ```go
 var myKey key
 
-secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
-	replicaRegions: []replicaRegion{
+secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
+	ReplicaRegions: []replicaRegion{
 		&replicaRegion{
-			region: jsii.String("eu-west-1"),
+			Region: jsii.String("eu-west-1"),
 		},
 		&replicaRegion{
-			region: jsii.String("eu-central-1"),
-			encryptionKey: myKey,
+			Region: jsii.String("eu-central-1"),
+			EncryptionKey: myKey,
 		},
 	},
 })
@@ -268,7 +268,7 @@ Alternatively, use `addReplicaRegion()`:
 
 ```go
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
-secret.addReplicaRegion(jsii.String("eu-west-1"))
+secret.AddReplicaRegion(jsii.String("eu-west-1"))
 ```
 
 ## Creating JSON Secrets
@@ -289,14 +289,14 @@ In order to create this type of secret, use the `secretObjectValue` input prop.
 ```go
 var stack stack
 user := iam.NewUser(stack, jsii.String("User"))
-accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &accessKeyProps{
-	user: user,
+accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &AccessKeyProps{
+	User: User,
 })
 
-secretsmanager.NewSecret(stack, jsii.String("Secret"), &secretProps{
-	secretObjectValue: map[string]secretValue{
-		"username": awscdk.SecretValue.unsafePlainText(user.userName),
-		"database": awscdk.SecretValue.unsafePlainText(jsii.String("foo")),
+secretsmanager.NewSecret(stack, jsii.String("Secret"), &SecretProps{
+	SecretObjectValue: map[string]secretValue{
+		"username": awscdk.SecretValue_unsafePlainText(user.userName),
+		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),
 		"password": accessKey.secretAccessKey,
 	},
 })

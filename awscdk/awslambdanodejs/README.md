@@ -38,10 +38,10 @@ authHandler := nodejs.NewNodejsFunction(this, jsii.String("auth"))
 Alternatively, an entry file and handler can be specified:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("MyFunction"), &nodejsFunctionProps{
-	entry: jsii.String("/path/to/my/file.ts"),
+nodejs.NewNodejsFunction(this, jsii.String("MyFunction"), &NodejsFunctionProps{
+	Entry: jsii.String("/path/to/my/file.ts"),
 	 // accepts .js, .jsx, .ts, .tsx and .mjs files
-	handler: jsii.String("myExportedFunc"),
+	Handler: jsii.String("myExportedFunc"),
 })
 ```
 
@@ -126,9 +126,9 @@ By default, all node modules are bundled except for `aws-sdk`. This can be confi
 `bundling.externalModules`:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		externalModules: []*string{
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		ExternalModules: []*string{
 			jsii.String("aws-sdk"),
 			jsii.String("cool-module"),
 		},
@@ -144,9 +144,9 @@ bundled but instead included in the `node_modules` folder of the Lambda package.
 when working with native dependencies or when `esbuild` fails to bundle a module.
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		nodeModules: []*string{
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		NodeModules: []*string{
 			jsii.String("native-module"),
 			jsii.String("other-module"),
 		},
@@ -169,55 +169,55 @@ The `NodejsFunction` construct exposes [esbuild options](https://esbuild.github.
 via properties under `bundling`:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		minify: jsii.Boolean(true),
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		Minify: jsii.Boolean(true),
 		 // minify code, defaults to false
-		sourceMap: jsii.Boolean(true),
+		SourceMap: jsii.Boolean(true),
 		 // include source map, defaults to false
-		sourceMapMode: nodejs.sourceMapMode_INLINE,
+		SourceMapMode: nodejs.SourceMapMode_INLINE,
 		 // defaults to SourceMapMode.DEFAULT
-		sourcesContent: jsii.Boolean(false),
+		SourcesContent: jsii.Boolean(false),
 		 // do not include original source into source map, defaults to true
-		target: jsii.String("es2020"),
+		Target: jsii.String("es2020"),
 		 // target environment for the generated JavaScript code
-		loader: map[string]*string{
+		Loader: map[string]*string{
 			 // Use the 'dataurl' loader for '.png' files
 			".png": jsii.String("dataurl"),
 		},
-		define: map[string]*string{
+		Define: map[string]*string{
 			 // Replace strings during build time
 			"process.env.API_KEY": JSON.stringify(jsii.String("xxx-xxxx-xxx")),
 			"process.env.PRODUCTION": JSON.stringify(jsii.Boolean(true)),
 			"process.env.NUMBER": JSON.stringify(jsii.Number(123)),
 		},
-		logLevel: nodejs.logLevel_SILENT,
+		LogLevel: nodejs.LogLevel_SILENT,
 		 // defaults to LogLevel.WARNING
-		keepNames: jsii.Boolean(true),
+		KeepNames: jsii.Boolean(true),
 		 // defaults to false
-		tsconfig: jsii.String("custom-tsconfig.json"),
+		Tsconfig: jsii.String("custom-tsconfig.json"),
 		 // use custom-tsconfig.json instead of default,
-		metafile: jsii.Boolean(true),
+		Metafile: jsii.Boolean(true),
 		 // include meta file, defaults to false
-		banner: jsii.String("/* comments */"),
+		Banner: jsii.String("/* comments */"),
 		 // requires esbuild >= 0.9.0, defaults to none
-		footer: jsii.String("/* comments */"),
+		Footer: jsii.String("/* comments */"),
 		 // requires esbuild >= 0.9.0, defaults to none
-		charset: nodejs.charset_UTF8,
+		Charset: nodejs.Charset_UTF8,
 		 // do not escape non-ASCII characters, defaults to Charset.ASCII
-		format: nodejs.outputFormat_ESM,
+		Format: nodejs.OutputFormat_ESM,
 		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js 14.x)
-		mainFields: []*string{
+		MainFields: []*string{
 			jsii.String("module"),
 			jsii.String("main"),
 		},
 		 // prefer ECMAScript versions of dependencies
-		inject: []*string{
+		Inject: []*string{
 			jsii.String("./my-shim.js"),
 			jsii.String("./other-shim.js"),
 		},
 		 // allows to automatically replace a global variable with an import from another file
-		esbuildArgs: map[string]interface{}{
+		EsbuildArgs: map[string]interface{}{
 			 // Pass additional arguments to esbuild
 			"--log-limit": jsii.String("0"),
 			"--splitting": jsii.Boolean(true),
@@ -275,9 +275,9 @@ In some cases, `esbuild` may not yet support some newer features of the typescri
 In such cases, it is possible to run pre-compilation using `tsc` by setting the `preCompilation` flag.
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		preCompilation: jsii.Boolean(true),
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		PreCompilation: jsii.Boolean(true),
 	},
 })
 ```
@@ -289,9 +289,9 @@ Note: A [`tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsco
 Use `bundling.environment` to define environments variables when `esbuild` runs:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		environment: map[string]*string{
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		Environment: map[string]*string{
 			"NODE_ENV": jsii.String("production"),
 		},
 	},
@@ -301,9 +301,9 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 Use `bundling.buildArgs` to pass build arguments when building the Docker bundling image:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		buildArgs: map[string]*string{
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		BuildArgs: map[string]*string{
 			"HTTPS_PROXY": jsii.String("https://127.0.0.1:3001"),
 		},
 	},
@@ -313,9 +313,9 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 Use `bundling.dockerImage` to use a custom Docker bundling image:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		dockerImage: awscdk.DockerImage.fromBuild(jsii.String("/path/to/Dockerfile")),
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		DockerImage: awscdk.DockerImage_FromBuild(jsii.String("/path/to/Dockerfile")),
 	},
 })
 ```
@@ -329,18 +329,18 @@ as a source of inspiration.
 You can set additional Docker options to configure the build environment:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		network: jsii.String("host"),
-		securityOpt: jsii.String("no-new-privileges"),
-		user: jsii.String("user:group"),
-		volumesFrom: []*string{
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		Network: jsii.String("host"),
+		SecurityOpt: jsii.String("no-new-privileges"),
+		User: jsii.String("user:group"),
+		VolumesFrom: []*string{
 			jsii.String("777f7dc92da7"),
 		},
-		volumes: []dockerVolume{
+		Volumes: []dockerVolume{
 			&dockerVolume{
-				hostPath: jsii.String("/host-path"),
-				containerPath: jsii.String("/container-path"),
+				HostPath: jsii.String("/host-path"),
+				ContainerPath: jsii.String("/container-path"),
 			},
 		},
 	},
@@ -354,9 +354,9 @@ By default the asset hash will be calculated based on the bundled output (`Asset
 Use the `assetHash` prop to pass a custom hash:
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		assetHash: jsii.String("my-custom-hash"),
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		AssetHash: jsii.String("my-custom-hash"),
 	},
 })
 ```
@@ -370,9 +370,9 @@ By default the input and output of Docker based bundling is handled via bind mou
 In situtations where this does not work, like Docker-in-Docker setups or when using a remote Docker socket, you can configure an alternative, but slower, variant that also works in these situations.
 
 ```go
-nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
-	bundling: &bundlingOptions{
-		bundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		BundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
 	},
 })
 ```

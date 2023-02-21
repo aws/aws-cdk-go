@@ -85,17 +85,17 @@ var table table
 identityPool := awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myIdentityPool"))
 
 // Grant permissions to authenticated users
-table.grantReadWriteData(identityPool.authenticatedRole)
+table.grantReadWriteData(identityPool.AuthenticatedRole)
 // Grant permissions to unauthenticated guest users
-table.grantReadData(identityPool.unauthenticatedRole)
+table.grantReadData(identityPool.UnauthenticatedRole)
 
 //Or add policy statements straight to the role
-identityPool.authenticatedRole.addToPrincipalPolicy(iam.NewPolicyStatement(&policyStatementProps{
-	effect: iam.effect_ALLOW,
-	actions: []*string{
+identityPool.AuthenticatedRole.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Effect: iam.Effect_ALLOW,
+	Actions: []*string{
 		jsii.String("dynamodb:*"),
 	},
-	resources: []*string{
+	Resources: []*string{
 		jsii.String("*"),
 	},
 }))
@@ -105,15 +105,15 @@ The default roles can also be supplied in `IdentityPoolProps`:
 
 ```go
 stack := awscdk.Newstack()
-authenticatedRole := iam.NewRole(this, jsii.String("authRole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("service.amazonaws.com")),
+authenticatedRole := iam.NewRole(this, jsii.String("authRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("service.amazonaws.com")),
 })
-unauthenticatedRole := iam.NewRole(this, jsii.String("unauthRole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("service.amazonaws.com")),
+unauthenticatedRole := iam.NewRole(this, jsii.String("unauthRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("service.amazonaws.com")),
 })
-identityPool := awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("TestIdentityPoolActions"), &identityPoolProps{
-	authenticatedRole: authenticatedRole,
-	unauthenticatedRole: unauthenticatedRole,
+identityPool := awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("TestIdentityPoolActions"), &IdentityPoolProps{
+	AuthenticatedRole: AuthenticatedRole,
+	UnauthenticatedRole: UnauthenticatedRole,
 })
 ```
 
@@ -135,12 +135,12 @@ to gather the necessary properties from the user pool constructs.
 ```go
 userPool := cognito.NewUserPool(this, jsii.String("Pool"))
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	authenticationProviders: &identityPoolAuthenticationProviders{
-		userPools: []iUserPoolAuthenticationProvider{
-			awscdkcognitoidentitypoolalpha.NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
-				userPool: userPool,
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
+		UserPools: []iUserPoolAuthenticationProvider{
+			awscdkcognitoidentitypoolalpha.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{
+				UserPool: *UserPool,
 			}),
 		},
 	},
@@ -154,8 +154,8 @@ returns the User Pool Client that has been created:
 var identityPool identityPool
 
 userPool := cognito.NewUserPool(this, jsii.String("Pool"))
-userPoolClient := identityPool.addUserPoolAuthentication(awscdkcognitoidentitypoolalpha.NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
-	userPool: userPool,
+userPoolClient := identityPool.AddUserPoolAuthentication(awscdkcognitoidentitypoolalpha.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{
+	UserPool: UserPool,
 }))
 ```
 
@@ -175,9 +175,9 @@ more [here](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_
 var identityPool identityPool
 
 userPool := cognito.NewUserPool(this, jsii.String("Pool"))
-identityPool.addUserPoolAuthentication(awscdkcognitoidentitypoolalpha.NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
-	userPool: userPool,
-	disableServerSideTokenCheck: jsii.Boolean(true),
+identityPool.AddUserPoolAuthentication(awscdkcognitoidentitypoolalpha.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{
+	UserPool: UserPool,
+	DisableServerSideTokenCheck: jsii.Boolean(true),
 }))
 ```
 
@@ -187,24 +187,24 @@ One or more [external identity providers](https://docs.aws.amazon.com/cognito/la
 `authenticationProviders`:
 
 ```go
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	authenticationProviders: &identityPoolAuthenticationProviders{
-		amazon: &identityPoolAmazonLoginProvider{
-			appId: jsii.String("amzn1.application.12312k3j234j13rjiwuenf"),
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
+		Amazon: &IdentityPoolAmazonLoginProvider{
+			AppId: jsii.String("amzn1.application.12312k3j234j13rjiwuenf"),
 		},
-		facebook: &identityPoolFacebookLoginProvider{
-			appId: jsii.String("1234567890123"),
+		Facebook: &IdentityPoolFacebookLoginProvider{
+			AppId: jsii.String("1234567890123"),
 		},
-		google: &identityPoolGoogleLoginProvider{
-			clientId: jsii.String("12345678012.apps.googleusercontent.com"),
+		Google: &IdentityPoolGoogleLoginProvider{
+			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 		},
-		apple: &identityPoolAppleLoginProvider{
-			servicesId: jsii.String("com.myappleapp.auth"),
+		Apple: &IdentityPoolAppleLoginProvider{
+			ServicesId: jsii.String("com.myappleapp.auth"),
 		},
-		twitter: &identityPoolTwitterLoginProvider{
-			consumerKey: jsii.String("my-twitter-id"),
-			consumerSecret: jsii.String("my-twitter-secret"),
+		Twitter: &IdentityPoolTwitterLoginProvider{
+			ConsumerKey: jsii.String("my-twitter-id"),
+			ConsumerSecret: jsii.String("my-twitter-secret"),
 		},
 	},
 })
@@ -229,13 +229,13 @@ var openIdConnectProvider openIdConnectProvider
 var samlProvider samlProvider
 
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	authenticationProviders: &identityPoolAuthenticationProviders{
-		openIdConnectProviders: []iOpenIdConnectProvider{
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
+		OpenIdConnectProviders: []iOpenIdConnectProvider{
 			openIdConnectProvider,
 		},
-		samlProviders: []iSamlProvider{
+		SamlProviders: []iSamlProvider{
 			samlProvider,
 		},
 	},
@@ -254,16 +254,16 @@ pool.
 ```go
 var openIdConnectProvider openIdConnectProvider
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	authenticationProviders: &identityPoolAuthenticationProviders{
-		google: &identityPoolGoogleLoginProvider{
-			clientId: jsii.String("12345678012.apps.googleusercontent.com"),
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
+		Google: &IdentityPoolGoogleLoginProvider{
+			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 		},
-		openIdConnectProviders: []iOpenIdConnectProvider{
+		OpenIdConnectProviders: []iOpenIdConnectProvider{
 			openIdConnectProvider,
 		},
-		customProvider: jsii.String("my-custom-provider.example.com"),
+		CustomProvider: jsii.String("my-custom-provider.example.com"),
 	},
 })
 ```
@@ -282,12 +282,12 @@ Using a [token-based approach](https://docs.aws.amazon.com/cognito/latest/develo
 import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	roleMappings: []identityPoolRoleMapping{
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	RoleMappings: []identityPoolRoleMapping{
 		&identityPoolRoleMapping{
-			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_AMAZON(),
-			useToken: jsii.Boolean(true),
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_AMAZON(),
+			UseToken: jsii.Boolean(true),
 		},
 	},
 })
@@ -301,23 +301,23 @@ import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 var adminRole role
 var nonAdminRole role
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
 	// Assign specific roles to users based on whether or not the custom admin claim is passed from the identity provider
-	roleMappings: []identityPoolRoleMapping{
+	RoleMappings: []identityPoolRoleMapping{
 		&identityPoolRoleMapping{
-			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_AMAZON(),
-			rules: []roleMappingRule{
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_AMAZON(),
+			Rules: []roleMappingRule{
 				&roleMappingRule{
-					claim: jsii.String("custom:admin"),
-					claimValue: jsii.String("admin"),
-					mappedRole: adminRole,
+					Claim: jsii.String("custom:admin"),
+					ClaimValue: jsii.String("admin"),
+					MappedRole: adminRole,
 				},
 				&roleMappingRule{
-					claim: jsii.String("custom:admin"),
-					claimValue: jsii.String("admin"),
-					matchType: awscdkcognitoidentitypoolalpha.RoleMappingMatchType_NOTEQUAL,
-					mappedRole: nonAdminRole,
+					Claim: jsii.String("custom:admin"),
+					ClaimValue: jsii.String("admin"),
+					MatchType: awscdkcognitoidentitypoolalpha.RoleMappingMatchType_NOTEQUAL,
+					MappedRole: nonAdminRole,
 				},
 			},
 		},
@@ -336,7 +336,7 @@ var myAddedRoleMapping2 identityPoolRoleMapping
 var myAddedRoleMapping3 identityPoolRoleMapping
 
 
-identityPool.addRoleMappings(myAddedRoleMapping1, myAddedRoleMapping2, myAddedRoleMapping3)
+identityPool.AddRoleMappings(myAddedRoleMapping1, myAddedRoleMapping2, myAddedRoleMapping3)
 ```
 
 #### Provider Urls
@@ -348,12 +348,12 @@ Role mappings must be associated with the url of an Identity Provider which can 
 import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	roleMappings: []identityPoolRoleMapping{
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	RoleMappings: []identityPoolRoleMapping{
 		&identityPoolRoleMapping{
-			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_FACEBOOK(),
-			useToken: jsii.Boolean(true),
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_FACEBOOK(),
+			UseToken: jsii.Boolean(true),
 		},
 	},
 })
@@ -365,16 +365,16 @@ For identity providers that don't have static Urls, a custom Url or User Pool Cl
 import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	roleMappings: []identityPoolRoleMapping{
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	RoleMappings: []identityPoolRoleMapping{
 		&identityPoolRoleMapping{
-			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.userPool(jsii.String("cognito-idp.my-idp-region.amazonaws.com/my-idp-region_abcdefghi:app_client_id")),
-			useToken: jsii.Boolean(true),
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_UserPool(jsii.String("cognito-idp.my-idp-region.amazonaws.com/my-idp-region_abcdefghi:app_client_id")),
+			UseToken: jsii.Boolean(true),
 		},
 		&identityPoolRoleMapping{
-			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.custom(jsii.String("my-custom-provider.com")),
-			useToken: jsii.Boolean(true),
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_Custom(jsii.String("my-custom-provider.com")),
+			UseToken: jsii.Boolean(true),
 		},
 	},
 })
@@ -390,13 +390,13 @@ import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 
 var userPool userPool
 
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	roleMappings: []identityPoolRoleMapping{
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	RoleMappings: []identityPoolRoleMapping{
 		&identityPoolRoleMapping{
-			mappingKey: jsii.String("cognito"),
-			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.userPool(userPool.userPoolProviderUrl),
-			useToken: jsii.Boolean(true),
+			MappingKey: jsii.String("cognito"),
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_UserPool(userPool.UserPoolProviderUrl),
+			UseToken: jsii.Boolean(true),
 		},
 	},
 })
@@ -410,9 +410,9 @@ Identity Pool [Authentication Flow](https://docs.aws.amazon.com/cognito/latest/d
 can also be implemented using `allowClassicFlow`:
 
 ```go
-awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
-	identityPoolName: jsii.String("myidentitypool"),
-	allowClassicFlow: jsii.Boolean(true),
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
+	IdentityPoolName: jsii.String("myidentitypool"),
+	AllowClassicFlow: jsii.Boolean(true),
 })
 ```
 
@@ -428,6 +428,6 @@ You can import existing identity pools into your stack using Identity Pool stati
 Arn:
 
 ```go
-awscdkcognitoidentitypoolalpha.IdentityPool.fromIdentityPoolId(this, jsii.String("my-imported-identity-pool"), jsii.String("us-east-1:dj2823ryiwuhef937"))
-awscdkcognitoidentitypoolalpha.IdentityPool.fromIdentityPoolArn(this, jsii.String("my-imported-identity-pool"), jsii.String("arn:aws:cognito-identity:us-east-1:123456789012:identitypool/us-east-1:dj2823ryiwuhef937"))
+awscdkcognitoidentitypoolalpha.IdentityPool_FromIdentityPoolId(this, jsii.String("my-imported-identity-pool"), jsii.String("us-east-1:dj2823ryiwuhef937"))
+awscdkcognitoidentitypoolalpha.IdentityPool_FromIdentityPoolArn(this, jsii.String("my-imported-identity-pool"), jsii.String("arn:aws:cognito-identity:us-east-1:123456789012:identitypool/us-east-1:dj2823ryiwuhef937"))
 ```

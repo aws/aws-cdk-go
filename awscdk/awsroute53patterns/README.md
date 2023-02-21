@@ -33,14 +33,14 @@ The following example creates an HTTPS redirect from `foo.example.com` to `bar.e
 As an existing certificate is not provided, one will be created in `us-east-1` by the CDK.
 
 ```go
-patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &httpsRedirectProps{
-	recordNames: []*string{
+patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &HttpsRedirectProps{
+	RecordNames: []*string{
 		jsii.String("foo.example.com"),
 	},
-	targetDomain: jsii.String("bar.example.com"),
-	zone: route53.hostedZone.fromHostedZoneAttributes(this, jsii.String("HostedZone"), &hostedZoneAttributes{
-		hostedZoneId: jsii.String("ID"),
-		zoneName: jsii.String("example.com"),
+	TargetDomain: jsii.String("bar.example.com"),
+	Zone: route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("HostedZone"), &HostedZoneAttributes{
+		HostedZoneId: jsii.String("ID"),
+		ZoneName: jsii.String("example.com"),
 	}),
 })
 ```
@@ -54,21 +54,21 @@ you must also enable `crossRegionReferences` on the stack.
 ```go
 var app app
 
-stack := awscdk.Newstack(app, jsii.String("Stack"), &stackProps{
-	crossRegionReferences: jsii.Boolean(true),
-	env: &environment{
-		region: jsii.String("us-east-2"),
+stack := awscdk.Newstack(app, jsii.String("Stack"), &StackProps{
+	CrossRegionReferences: jsii.Boolean(true),
+	Env: &Environment{
+		Region: jsii.String("us-east-2"),
 	},
 })
 
-patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &httpsRedirectProps{
-	recordNames: []*string{
+patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &HttpsRedirectProps{
+	RecordNames: []*string{
 		jsii.String("foo.example.com"),
 	},
-	targetDomain: jsii.String("bar.example.com"),
-	zone: route53.hostedZone.fromHostedZoneAttributes(this, jsii.String("HostedZone"), &hostedZoneAttributes{
-		hostedZoneId: jsii.String("ID"),
-		zoneName: jsii.String("example.com"),
+	TargetDomain: jsii.String("bar.example.com"),
+	Zone: route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("HostedZone"), &HostedZoneAttributes{
+		HostedZoneId: jsii.String("ID"),
+		ZoneName: jsii.String("example.com"),
 	}),
 })
 ```

@@ -29,14 +29,14 @@ The Hitchhikers Guide to the Galaxy
 The below code defines a canary that will hit the `books/topbook` endpoint every 5 minutes:
 
 ```go
-canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
-	test: synthetics.test.custom(&customTestOptions{
-		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
-		handler: jsii.String("index.handler"),
+canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
+	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
-	environmentVariables: map[string]*string{
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
+	EnvironmentVariables: map[string]*string{
 		"stage": jsii.String("prod"),
 	},
 })
@@ -89,14 +89,14 @@ object to the `schedule` property.
 Configure a run rate of up to 60 minutes with `Schedule.rate`:
 
 ```go
-schedule := synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5)))
+schedule := synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5)))
 ```
 
 You can also specify a [cron expression](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) with `Schedule.cron`:
 
 ```go
-schedule := synthetics.schedule.cron(&cronOptions{
-	hour: jsii.String("0,8,16"),
+schedule := synthetics.Schedule_Cron(&CronOptions{
+	Hour: jsii.String("0,8,16"),
 })
 ```
 
@@ -111,13 +111,13 @@ This can be provisioned by setting the `enableAutoDeleteLambdas` property to `tr
 ```go
 stack := awscdk.Newstack()
 
-canary := synthetics.NewCanary(stack, jsii.String("Canary"), &canaryProps{
-	test: synthetics.test.custom(&customTestOptions{
-		handler: jsii.String("index.handler"),
-		code: synthetics.code.fromInline(jsii.String("/* Synthetics handler code")),
+canary := synthetics.NewCanary(stack, jsii.String("Canary"), &CanaryProps{
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Handler: jsii.String("index.handler"),
+		Code: synthetics.Code_FromInline(jsii.String("/* Synthetics handler code")),
 	}),
-	enableAutoDeleteLambdas: jsii.Boolean(true),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
+	EnableAutoDeleteLambdas: jsii.Boolean(true),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
 })
 ```
 
@@ -141,30 +141,30 @@ Using the `Code` class static initializers:
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 // To supply the code inline:
 // To supply the code inline:
-synthetics.NewCanary(this, jsii.String("Inline Canary"), &canaryProps{
-	test: synthetics.test.custom(&customTestOptions{
-		code: synthetics.code.fromInline(jsii.String("/* Synthetics handler code */")),
-		handler: jsii.String("index.handler"),
+synthetics.NewCanary(this, jsii.String("Inline Canary"), &CanaryProps{
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromInline(jsii.String("/* Synthetics handler code */")),
+		Handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
 })
 
 // To supply the code from your local filesystem:
 // To supply the code from your local filesystem:
-synthetics.NewCanary(this, jsii.String("Asset Canary"), &canaryProps{
-	test: synthetics.*test.custom(&customTestOptions{
-		code: synthetics.*code.fromAsset(path.join(__dirname, jsii.String("canary"))),
-		handler: jsii.String("index.handler"),
+synthetics.NewCanary(this, jsii.String("Asset Canary"), &CanaryProps{
+	Test: synthetics.Test_*Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.*runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
 })
 bucket := s3.NewBucket(this, jsii.String("Code Bucket"))
-synthetics.NewCanary(this, jsii.String("Bucket Canary"), &canaryProps{
-	test: synthetics.*test.custom(&customTestOptions{
-		code: synthetics.*code.fromBucket(bucket, jsii.String("canary.zip")),
-		handler: jsii.String("index.handler"),
+synthetics.NewCanary(this, jsii.String("Bucket Canary"), &CanaryProps{
+	Test: synthetics.Test_*Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromBucket(bucket, jsii.String("canary.zip")),
+		Handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.*runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
 })
 ```
 
@@ -198,13 +198,13 @@ import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc iVpc
 
-synthetics.NewCanary(this, jsii.String("Vpc Canary"), &canaryProps{
-	test: synthetics.test.custom(&customTestOptions{
-		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
-		handler: jsii.String("index.handler"),
+synthetics.NewCanary(this, jsii.String("Vpc Canary"), &CanaryProps{
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
-	vpc: vpc,
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_9(),
+	Vpc: Vpc,
 })
 ```
 
@@ -225,14 +225,14 @@ You can configure a CloudWatch Alarm on a canary metric. Metrics are emitted by 
 Create an alarm that tracks the canary metric:
 
 ```go
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var canary canary
 
-cloudwatch.NewAlarm(this, jsii.String("CanaryAlarm"), &alarmProps{
-	metric: canary.metricSuccessPercent(),
-	evaluationPeriods: jsii.Number(2),
-	threshold: jsii.Number(90),
-	comparisonOperator: cloudwatch.comparisonOperator_LESS_THAN_THRESHOLD,
+cloudwatch.NewAlarm(this, jsii.String("CanaryAlarm"), &AlarmProps{
+	Metric: canary.MetricSuccessPercent(),
+	EvaluationPeriods: jsii.Number(2),
+	Threshold: jsii.Number(90),
+	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_THRESHOLD,
 })
 ```

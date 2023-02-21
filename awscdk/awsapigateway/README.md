@@ -52,15 +52,15 @@ endpoints: `ANY /`, `GET /books`, `POST /books`, `GET /books/{book_id}`, `DELETE
 ```go
 api := apigateway.NewRestApi(this, jsii.String("books-api"))
 
-api.root.addMethod(jsii.String("ANY"))
+api.Root.AddMethod(jsii.String("ANY"))
 
-books := api.root.addResource(jsii.String("books"))
-books.addMethod(jsii.String("GET"))
-books.addMethod(jsii.String("POST"))
+books := api.Root.AddResource(jsii.String("books"))
+books.AddMethod(jsii.String("GET"))
+books.AddMethod(jsii.String("POST"))
 
-book := books.addResource(jsii.String("{book_id}"))
-book.addMethod(jsii.String("GET"))
-book.addMethod(jsii.String("DELETE"))
+book := books.AddResource(jsii.String("{book_id}"))
+book.AddMethod(jsii.String("GET"))
+book.AddMethod(jsii.String("DELETE"))
 ```
 
 ## AWS Lambda-backed APIs
@@ -74,8 +74,8 @@ specified AWS Lambda function:
 ```go
 var backend function
 
-apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
-	handler: backend,
+apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
+	Handler: backend,
 })
 ```
 
@@ -85,21 +85,21 @@ define the API model:
 ```go
 var backend function
 
-api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
-	handler: backend,
-	proxy: jsii.Boolean(false),
+api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
+	Handler: backend,
+	Proxy: jsii.Boolean(false),
 })
 
-items := api.root.addResource(jsii.String("items"))
-items.addMethod(jsii.String("GET")) // GET /items
-items.addMethod(jsii.String("POST")) // POST /items
+items := api.Root.AddResource(jsii.String("items"))
+items.AddMethod(jsii.String("GET")) // GET /items
+items.AddMethod(jsii.String("POST")) // POST /items
 
-item := items.addResource(jsii.String("{item}"))
-item.addMethod(jsii.String("GET")) // GET /items/{item}
+item := items.AddResource(jsii.String("{item}"))
+item.AddMethod(jsii.String("GET")) // GET /items/{item}
 
 // the default integration for methods is "handler", but one can
 // customize this behavior per method or even a sub path.
-item.addMethod(jsii.String("DELETE"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")))
+item.AddMethod(jsii.String("DELETE"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")))
 ```
 
 Additionally, `integrationOptions` can be supplied to explicitly define
@@ -109,11 +109,11 @@ options of the Lambda integration:
 var backend function
 
 
-api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
-	handler: backend,
-	integrationOptions: &lambdaIntegrationOptions{
-		allowTestInvoke: jsii.Boolean(false),
-		timeout: awscdk.Duration.seconds(jsii.Number(1)),
+api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
+	Handler: backend,
+	IntegrationOptions: &LambdaIntegrationOptions{
+		AllowTestInvoke: jsii.Boolean(false),
+		Timeout: awscdk.Duration_Seconds(jsii.Number(1)),
 	},
 })
 ```
@@ -146,14 +146,14 @@ The following code defines a REST API that routes all requests to the specified 
 ```go
 stateMachineDefinition := stepfunctions.NewPass(this, jsii.String("PassState"))
 
-stateMachine := stepfunctions.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
-	definition: stateMachineDefinition,
-	stateMachineType: stepfunctions.stateMachineType_EXPRESS,
+stateMachine := stepfunctions.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	Definition: stateMachineDefinition,
+	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
 })
 
-apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &stepFunctionsRestApiProps{
-	deploy: jsii.Boolean(true),
-	stateMachine: stateMachine,
+apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{
+	Deploy: jsii.Boolean(true),
+	StateMachine: stateMachine,
 })
 ```
 
@@ -199,15 +199,15 @@ Additional information around the request such as the request context, authorize
 forwarded to the state machine. The following example enables headers to be included in the input but not query string.
 
 ```go
-apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &stepFunctionsRestApiProps{
-	stateMachine: machine,
-	headers: jsii.Boolean(true),
-	path: jsii.Boolean(false),
-	querystring: jsii.Boolean(false),
-	authorizer: jsii.Boolean(false),
-	requestContext: &requestContext{
-		caller: jsii.Boolean(true),
-		user: jsii.Boolean(true),
+apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{
+	StateMachine: machine,
+	Headers: jsii.Boolean(true),
+	Path: jsii.Boolean(false),
+	Querystring: jsii.Boolean(false),
+	Authorizer: jsii.Boolean(false),
+	RequestContext: &RequestContext{
+		Caller: jsii.Boolean(true),
+		User: jsii.Boolean(true),
 	},
 })
 ```
@@ -267,31 +267,31 @@ func newRootStack(scope construct) *rootStack {
 	this := &rootStack{}
 	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 
-	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
-		cloudWatchRole: jsii.Boolean(true),
-		deploy: jsii.Boolean(false),
+	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &RestApiProps{
+		CloudWatchRole: jsii.Boolean(true),
+		Deploy: jsii.Boolean(false),
 	})
-	restApi.root.addMethod(jsii.String("ANY"))
+	restApi.Root.AddMethod(jsii.String("ANY"))
 
 	petsStack := NewPetsStack(this, &resourceNestedStackProps{
-		restApiId: restApi.restApiId,
-		rootResourceId: restApi.restApiRootResourceId,
+		restApiId: restApi.RestApiId,
+		rootResourceId: restApi.RestApiRootResourceId,
 	})
 	booksStack := NewBooksStack(this, &resourceNestedStackProps{
-		restApiId: restApi.restApiId,
-		rootResourceId: restApi.restApiRootResourceId,
+		restApiId: restApi.*RestApiId,
+		rootResourceId: restApi.*RestApiRootResourceId,
 	})
 	NewDeployStack(this, &deployStackProps{
-		restApiId: restApi.restApiId,
+		restApiId: restApi.*RestApiId,
 		methods: petsStack.methods.concat(booksStack.methods),
 	})
 
-	awscdk.NewCfnOutput(this, jsii.String("PetsURL"), &cfnOutputProps{
-		value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/pets", restApi.restApiId, this.region),
+	awscdk.NewCfnOutput(this, jsii.String("PetsURL"), &CfnOutputProps{
+		Value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/pets", restApi.*RestApiId, this.Region),
 	})
 
-	awscdk.NewCfnOutput(this, jsii.String("BooksURL"), &cfnOutputProps{
-		value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/books", restApi.restApiId, this.region),
+	awscdk.NewCfnOutput(this, jsii.String("BooksURL"), &CfnOutputProps{
+		Value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/books", restApi.*RestApiId, this.*Region),
 	})
 	return this
 }
@@ -311,25 +311,25 @@ func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
 	this := &petsStack{}
 	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-PetsStack"), props)
 
-	api := awscdk.RestApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
-		restApiId: props.restApiId,
-		rootResourceId: props.rootResourceId,
+	api := awscdk.RestApi_FromRestApiAttributes(this, jsii.String("RestApi"), &RestApiAttributes{
+		RestApiId: props.restApiId,
+		RootResourceId: props.rootResourceId,
 	})
 
-	method := api.root.addResource(jsii.String("pets")).addMethod(jsii.String("GET"), awscdk.NewMockIntegration(&integrationOptions{
-		integrationResponses: []integrationResponse{
+	method := api.Root.AddResource(jsii.String("pets")).AddMethod(jsii.String("GET"), awscdk.NewMockIntegration(&IntegrationOptions{
+		IntegrationResponses: []integrationResponse{
 			&integrationResponse{
-				statusCode: jsii.String("200"),
+				StatusCode: jsii.String("200"),
 			},
 		},
-		passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-		requestTemplates: map[string]*string{
+		PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+		RequestTemplates: map[string]*string{
 			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 		},
-	}), &methodOptions{
-		methodResponses: []methodResponse{
+	}), &MethodOptions{
+		MethodResponses: []methodResponse{
 			&methodResponse{
-				statusCode: jsii.String("200"),
+				StatusCode: jsii.String("200"),
 			},
 		},
 	})
@@ -347,25 +347,25 @@ func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack 
 	this := &booksStack{}
 	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-BooksStack"), props)
 
-	api := awscdk.RestApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
-		restApiId: props.restApiId,
-		rootResourceId: props.rootResourceId,
+	api := awscdk.RestApi_FromRestApiAttributes(this, jsii.String("RestApi"), &RestApiAttributes{
+		RestApiId: props.restApiId,
+		RootResourceId: props.rootResourceId,
 	})
 
-	method := api.root.addResource(jsii.String("books")).addMethod(jsii.String("GET"), awscdk.NewMockIntegration(&integrationOptions{
-		integrationResponses: []*integrationResponse{
+	method := api.Root.AddResource(jsii.String("books")).AddMethod(jsii.String("GET"), awscdk.NewMockIntegration(&IntegrationOptions{
+		IntegrationResponses: []*integrationResponse{
 			&integrationResponse{
-				statusCode: jsii.String("200"),
+				StatusCode: jsii.String("200"),
 			},
 		},
-		passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-		requestTemplates: map[string]*string{
+		PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+		RequestTemplates: map[string]*string{
 			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 		},
-	}), &methodOptions{
-		methodResponses: []*methodResponse{
+	}), &MethodOptions{
+		MethodResponses: []*methodResponse{
 			&methodResponse{
-				statusCode: jsii.String("200"),
+				StatusCode: jsii.String("200"),
 			},
 		},
 	})
@@ -388,16 +388,16 @@ func newDeployStack(scope construct, props deployStackProps) *deployStack {
 	this := &deployStack{}
 	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-DeployStack"), props)
 
-	deployment := awscdk.NewDeployment(this, jsii.String("Deployment"), &deploymentProps{
-		api: awscdk.RestApi.fromRestApiId(this, jsii.String("RestApi"), props.restApiId),
+	deployment := awscdk.NewDeployment(this, jsii.String("Deployment"), &DeploymentProps{
+		Api: awscdk.RestApi_FromRestApiId(this, jsii.String("RestApi"), props.restApiId),
 	})
 	if *props.methods {
 		for _, method := range *props.methods {
-			deployment.node.addDependency(method)
+			deployment.Node.AddDependency(method)
 		}
 	}
-	awscdk.NewStage(this, jsii.String("Stage"), &stageProps{
-		deployment: deployment,
+	awscdk.NewStage(this, jsii.String("Stage"), &StageProps{
+		Deployment: Deployment,
 	})
 	return this
 }
@@ -425,7 +425,7 @@ var book resource
 
 
 getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler)
-book.addMethod(jsii.String("GET"), getBookIntegration)
+book.AddMethod(jsii.String("GET"), getBookIntegration)
 ```
 
 Integration options can be optionally be specified:
@@ -435,10 +435,10 @@ var getBookHandler function
 var getBookIntegration lambdaIntegration
 
 
-getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &lambdaIntegrationOptions{
-	contentHandling: apigateway.contentHandling_CONVERT_TO_TEXT,
+getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &LambdaIntegrationOptions{
+	ContentHandling: apigateway.ContentHandling_CONVERT_TO_TEXT,
 	 // convert to base64
-	credentialsPassthrough: jsii.Boolean(true),
+	CredentialsPassthrough: jsii.Boolean(true),
 })
 ```
 
@@ -449,9 +449,9 @@ var book resource
 var getBookIntegration lambdaIntegration
 
 
-book.addMethod(jsii.String("GET"), getBookIntegration, &methodOptions{
-	authorizationType: apigateway.authorizationType_IAM,
-	apiKeyRequired: jsii.Boolean(true),
+book.AddMethod(jsii.String("GET"), getBookIntegration, &MethodOptions{
+	AuthorizationType: apigateway.AuthorizationType_IAM,
+	ApiKeyRequired: jsii.Boolean(true),
 })
 ```
 
@@ -459,10 +459,10 @@ It is possible to also integrate with AWS services in a different region. The fo
 `eu-west-1` region.
 
 ```go
-getMessageIntegration := apigateway.NewAwsIntegration(&awsIntegrationProps{
-	service: jsii.String("sqs"),
-	path: jsii.String("queueName"),
-	region: jsii.String("eu-west-1"),
+getMessageIntegration := apigateway.NewAwsIntegration(&AwsIntegrationProps{
+	Service: jsii.String("sqs"),
+	Path: jsii.String("queueName"),
+	Region: jsii.String("eu-west-1"),
 })
 ```
 
@@ -480,21 +480,21 @@ var integration lambdaIntegration
 
 api := apigateway.NewRestApi(this, jsii.String("hello-api"))
 
-v1 := api.root.addResource(jsii.String("v1"))
-echo := v1.addResource(jsii.String("echo"))
-echoMethod := echo.addMethod(jsii.String("GET"), integration, &methodOptions{
-	apiKeyRequired: jsii.Boolean(true),
+v1 := api.Root.AddResource(jsii.String("v1"))
+echo := v1.AddResource(jsii.String("echo"))
+echoMethod := echo.AddMethod(jsii.String("GET"), integration, &MethodOptions{
+	ApiKeyRequired: jsii.Boolean(true),
 })
 
-plan := api.addUsagePlan(jsii.String("UsagePlan"), &usagePlanProps{
-	name: jsii.String("Easy"),
-	throttle: &throttleSettings{
-		rateLimit: jsii.Number(10),
-		burstLimit: jsii.Number(2),
+plan := api.AddUsagePlan(jsii.String("UsagePlan"), &UsagePlanProps{
+	Name: jsii.String("Easy"),
+	Throttle: &ThrottleSettings{
+		RateLimit: jsii.Number(10),
+		BurstLimit: jsii.Number(2),
 	},
 })
 
-key := api.addApiKey(jsii.String("ApiKey"))
+key := api.AddApiKey(jsii.String("ApiKey"))
 plan.addApiKey(key)
 ```
 
@@ -506,14 +506,14 @@ var api restApi
 var echoMethod method
 
 
-plan.addApiStage(&usagePlanPerApiStage{
-	stage: api.deploymentStage,
-	throttle: []throttlingPerMethod{
+plan.AddApiStage(&UsagePlanPerApiStage{
+	Stage: api.DeploymentStage,
+	Throttle: []throttlingPerMethod{
 		&throttlingPerMethod{
-			method: echoMethod,
-			throttle: &throttleSettings{
-				rateLimit: jsii.Number(10),
-				burstLimit: jsii.Number(2),
+			Method: echoMethod,
+			Throttle: &ThrottleSettings{
+				RateLimit: jsii.Number(10),
+				BurstLimit: jsii.Number(2),
 			},
 		},
 	},
@@ -523,7 +523,7 @@ plan.addApiStage(&usagePlanPerApiStage{
 Existing usage plans can be imported into a CDK app using its id.
 
 ```go
-importedUsagePlan := apigateway.usagePlan.fromUsagePlanId(this, jsii.String("imported-usage-plan"), jsii.String("<usage-plan-key-id>"))
+importedUsagePlan := apigateway.UsagePlan_FromUsagePlanId(this, jsii.String("imported-usage-plan"), jsii.String("<usage-plan-key-id>"))
 ```
 
 The name and value of the API Key can be specified at creation; if not
@@ -532,16 +532,16 @@ provided, a name and value will be automatically generated by API Gateway.
 ```go
 var api restApi
 
-key := api.addApiKey(jsii.String("ApiKey"), &apiKeyOptions{
-	apiKeyName: jsii.String("myApiKey1"),
-	value: jsii.String("MyApiKeyThatIsAtLeast20Characters"),
+key := api.AddApiKey(jsii.String("ApiKey"), &ApiKeyOptions{
+	ApiKeyName: jsii.String("myApiKey1"),
+	Value: jsii.String("MyApiKeyThatIsAtLeast20Characters"),
 })
 ```
 
 Existing API keys can also be imported into a CDK app using its id.
 
 ```go
-importedKey := apigateway.apiKey.fromApiKeyId(this, jsii.String("imported-key"), jsii.String("<api-key-id>"))
+importedKey := apigateway.ApiKey_FromApiKeyId(this, jsii.String("imported-key"), jsii.String("<api-key-id>"))
 ```
 
 The "grant" methods can be used to give prepackaged sets of permissions to other resources. The
@@ -563,12 +563,12 @@ Key requires a stage, you should instead add the Api Key to the imported Stage.
 ```go
 var restApi iRestApi
 
-importedStage := apigateway.stage.fromStageAttributes(this, jsii.String("imported-stage"), &stageAttributes{
-	stageName: jsii.String("myStageName"),
-	restApi: restApi,
+importedStage := apigateway.Stage_FromStageAttributes(this, jsii.String("imported-stage"), &StageAttributes{
+	StageName: jsii.String("myStageName"),
+	RestApi: RestApi,
 })
 
-importedStage.addApiKey(jsii.String("MyApiKey"))
+importedStage.AddApiKey(jsii.String("MyApiKey"))
 ```
 
 ### ⚠️ Multiple API Keys
@@ -588,8 +588,8 @@ var usageplan usagePlan
 var apiKey apiKey
 
 
-usageplan.addApiKey(apiKey, &addApiKeyOptions{
-	overrideLogicalId: jsii.String("..."),
+usageplan.addApiKey(apiKey, &AddApiKeyOptions{
+	OverrideLogicalId: jsii.String("..."),
 })
 ```
 
@@ -605,14 +605,14 @@ The following example shows how to use a rate limited api key :
 var api restApi
 
 
-key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &rateLimitedApiKeyProps{
-	customerId: jsii.String("hello-customer"),
-	stages: []iStage{
-		api.deploymentStage,
+key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
+	CustomerId: jsii.String("hello-customer"),
+	Stages: []iStage{
+		api.DeploymentStage,
 	},
-	quota: &quotaSettings{
-		limit: jsii.Number(10000),
-		period: apigateway.period_MONTH,
+	Quota: &QuotaSettings{
+		Limit: jsii.Number(10000),
+		Period: apigateway.Period_MONTH,
 	},
 })
 ```
@@ -623,15 +623,15 @@ When you work with Lambda integrations that are not Proxy integrations, you
 have to define your models and mappings for the request, response, and integration.
 
 ```go
-hello := lambda.NewFunction(this, jsii.String("hello"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("hello.handler"),
-	code: lambda.code.fromAsset(jsii.String("lambda")),
+hello := lambda.NewFunction(this, jsii.String("hello"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("hello.handler"),
+	Code: lambda.Code_FromAsset(jsii.String("lambda")),
 })
 
-api := apigateway.NewRestApi(this, jsii.String("hello-api"), &restApiProps{
+api := apigateway.NewRestApi(this, jsii.String("hello-api"), &RestApiProps{
 })
-resource := api.root.addResource(jsii.String("v1"))
+resource := api.Root.AddResource(jsii.String("v1"))
 ```
 
 You can define more parameters on the integration to tune the behavior of API Gateway
@@ -640,17 +640,17 @@ You can define more parameters on the integration to tune the behavior of API Ga
 var hello function
 
 
-integration := apigateway.NewLambdaIntegration(hello, &lambdaIntegrationOptions{
-	proxy: jsii.Boolean(false),
-	requestParameters: map[string]*string{
+integration := apigateway.NewLambdaIntegration(hello, &LambdaIntegrationOptions{
+	Proxy: jsii.Boolean(false),
+	RequestParameters: map[string]*string{
 		// You can define mapping parameters from your method to your integration
 		// - Destination parameters (the key) are the integration parameters (used in mappings)
 		// - Source parameters (the value) are the source request parameters or expressions
 		// @see: https://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
 		"integration.request.querystring.who": jsii.String("method.request.querystring.who"),
 	},
-	allowTestInvoke: jsii.Boolean(true),
-	requestTemplates: map[string]*string{
+	AllowTestInvoke: jsii.Boolean(true),
+	RequestTemplates: map[string]*string{
 		// You can define a mapping that will build a payload for your integration, based
 		//  on the integration parameters that you have specified
 		// Check: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
@@ -660,14 +660,14 @@ integration := apigateway.NewLambdaIntegration(hello, &lambdaIntegrationOptions{
 		}),
 	},
 	// This parameter defines the behavior of the engine is no suitable response template is found
-	passthroughBehavior: apigateway.passthroughBehavior_NEVER,
-	integrationResponses: []integrationResponse{
+	PassthroughBehavior: apigateway.PassthroughBehavior_NEVER,
+	IntegrationResponses: []integrationResponse{
 		&integrationResponse{
 			// Successful response from the Lambda function, no filter defined
 			//  - the selectionPattern filter only tests the error message
 			// We will set the response status code to 200
-			statusCode: jsii.String("200"),
-			responseTemplates: map[string]*string{
+			StatusCode: jsii.String("200"),
+			ResponseTemplates: map[string]*string{
 				// This template takes the "message" result from the Lambda function, and embeds it in a JSON response
 				// Check https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 				"application/json": JSON.stringify(map[string]*string{
@@ -675,7 +675,7 @@ integration := apigateway.NewLambdaIntegration(hello, &lambdaIntegrationOptions{
 					"greeting": jsii.String("$util.escapeJavaScript($input.body)"),
 				}),
 			},
-			responseParameters: map[string]*string{
+			ResponseParameters: map[string]*string{
 				// We can map response parameters
 				// - Destination parameters (the key) are the response parameters (used in mappings)
 				// - Source parameters (the value) are the integration response parameters or expressions
@@ -686,16 +686,16 @@ integration := apigateway.NewLambdaIntegration(hello, &lambdaIntegrationOptions{
 		},
 		&integrationResponse{
 			// For errors, we check if the error message is not empty, get the error data
-			selectionPattern: jsii.String("(\n|.)+"),
+			SelectionPattern: jsii.String("(\n|.)+"),
 			// We will set the response status code to 200
-			statusCode: jsii.String("400"),
-			responseTemplates: map[string]*string{
+			StatusCode: jsii.String("400"),
+			ResponseTemplates: map[string]*string{
 				"application/json": JSON.stringify(map[string]*string{
 					"state": jsii.String("error"),
 					"message": jsii.String("$util.escapeJavaScript($input.path('$.errorMessage'))"),
 				}),
 			},
-			responseParameters: map[string]*string{
+			ResponseParameters: map[string]*string{
 				"method.response.header.Content-Type": jsii.String("'application/json'"),
 				"method.response.header.Access-Control-Allow-Origin": jsii.String("'*'"),
 				"method.response.header.Access-Control-Allow-Credentials": jsii.String("'true'"),
@@ -712,38 +712,38 @@ var api restApi
 
 
 // We define the JSON Schema for the transformed valid response
-responseModel := api.addModel(jsii.String("ResponseModel"), &modelOptions{
-	contentType: jsii.String("application/json"),
-	modelName: jsii.String("ResponseModel"),
-	schema: &jsonSchema{
-		schema: apigateway.jsonSchemaVersion_DRAFT4,
-		title: jsii.String("pollResponse"),
-		type: apigateway.jsonSchemaType_OBJECT,
-		properties: map[string]*jsonSchema{
+responseModel := api.AddModel(jsii.String("ResponseModel"), &ModelOptions{
+	ContentType: jsii.String("application/json"),
+	ModelName: jsii.String("ResponseModel"),
+	Schema: &JsonSchema{
+		Schema: apigateway.JsonSchemaVersion_DRAFT4,
+		Title: jsii.String("pollResponse"),
+		Type: apigateway.JsonSchemaType_OBJECT,
+		Properties: map[string]jsonSchema{
 			"state": &jsonSchema{
-				"type": apigateway.*jsonSchemaType_STRING,
+				"type": apigateway.JsonSchemaType_STRING,
 			},
 			"greeting": &jsonSchema{
-				"type": apigateway.*jsonSchemaType_STRING,
+				"type": apigateway.JsonSchemaType_STRING,
 			},
 		},
 	},
 })
 
 // We define the JSON Schema for the transformed error response
-errorResponseModel := api.addModel(jsii.String("ErrorResponseModel"), &modelOptions{
-	contentType: jsii.String("application/json"),
-	modelName: jsii.String("ErrorResponseModel"),
-	schema: &jsonSchema{
-		schema: apigateway.*jsonSchemaVersion_DRAFT4,
-		title: jsii.String("errorResponse"),
-		type: apigateway.*jsonSchemaType_OBJECT,
-		properties: map[string]*jsonSchema{
+errorResponseModel := api.AddModel(jsii.String("ErrorResponseModel"), &ModelOptions{
+	ContentType: jsii.String("application/json"),
+	ModelName: jsii.String("ErrorResponseModel"),
+	Schema: &jsonSchema{
+		Schema: apigateway.JsonSchemaVersion_DRAFT4,
+		Title: jsii.String("errorResponse"),
+		Type: apigateway.JsonSchemaType_OBJECT,
+		Properties: map[string]*jsonSchema{
 			"state": &jsonSchema{
-				"type": apigateway.*jsonSchemaType_STRING,
+				"type": apigateway.JsonSchemaType_STRING,
 			},
 			"message": &jsonSchema{
-				"type": apigateway.*jsonSchemaType_STRING,
+				"type": apigateway.JsonSchemaType_STRING,
 			},
 		},
 	},
@@ -759,41 +759,41 @@ var responseModel model
 var errorResponseModel model
 
 
-resource.addMethod(jsii.String("GET"), integration, &methodOptions{
+resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
 	// We can mark the parameters as required
-	requestParameters: map[string]*bool{
+	RequestParameters: map[string]*bool{
 		"method.request.querystring.who": jsii.Boolean(true),
 	},
 	// we can set request validator options like below
-	requestValidatorOptions: &requestValidatorOptions{
-		requestValidatorName: jsii.String("test-validator"),
-		validateRequestBody: jsii.Boolean(true),
-		validateRequestParameters: jsii.Boolean(false),
+	RequestValidatorOptions: &RequestValidatorOptions{
+		RequestValidatorName: jsii.String("test-validator"),
+		ValidateRequestBody: jsii.Boolean(true),
+		ValidateRequestParameters: jsii.Boolean(false),
 	},
-	methodResponses: []methodResponse{
+	MethodResponses: []methodResponse{
 		&methodResponse{
 			// Successful response from the integration
-			statusCode: jsii.String("200"),
+			StatusCode: jsii.String("200"),
 			// Define what parameters are allowed or not
-			responseParameters: map[string]*bool{
+			ResponseParameters: map[string]*bool{
 				"method.response.header.Content-Type": jsii.Boolean(true),
 				"method.response.header.Access-Control-Allow-Origin": jsii.Boolean(true),
 				"method.response.header.Access-Control-Allow-Credentials": jsii.Boolean(true),
 			},
 			// Validate the schema on the response
-			responseModels: map[string]iModel{
+			ResponseModels: map[string]iModel{
 				"application/json": responseModel,
 			},
 		},
 		&methodResponse{
 			// Same thing for the error responses
-			statusCode: jsii.String("400"),
-			responseParameters: map[string]*bool{
+			StatusCode: jsii.String("400"),
+			ResponseParameters: map[string]*bool{
 				"method.response.header.Content-Type": jsii.Boolean(true),
 				"method.response.header.Access-Control-Allow-Origin": jsii.Boolean(true),
 				"method.response.header.Access-Control-Allow-Credentials": jsii.Boolean(true),
 			},
-			responseModels: map[string]*iModel{
+			ResponseModels: map[string]*iModel{
 				"application/json": errorResponseModel,
 			},
 		},
@@ -821,16 +821,16 @@ integration will be routed to this AWS Lambda function.
 ```go
 var booksBackend lambdaIntegration
 
-api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
-	defaultIntegration: booksBackend,
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	DefaultIntegration: booksBackend,
 })
 
-books := api.root.addResource(jsii.String("books"))
-books.addMethod(jsii.String("GET")) // integrated with `booksBackend`
-books.addMethod(jsii.String("POST")) // integrated with `booksBackend`
+books := api.Root.AddResource(jsii.String("books"))
+books.AddMethod(jsii.String("GET")) // integrated with `booksBackend`
+books.AddMethod(jsii.String("POST")) // integrated with `booksBackend`
 
-book := books.addResource(jsii.String("{book_id}"))
-book.addMethod(jsii.String("GET"))
+book := books.AddResource(jsii.String("{book_id}"))
+book.AddMethod(jsii.String("GET"))
 ```
 
 A Method can be configured with authorization scopes. Authorization scopes are
@@ -845,9 +845,9 @@ Authorization scopes for a Method can be configured using the `authorizationScop
 var books resource
 
 
-books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
-	authorizationType: apigateway.authorizationType_COGNITO,
-	authorizationScopes: []*string{
+books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
+	AuthorizationType: apigateway.AuthorizationType_COGNITO,
+	AuthorizationScopes: []*string{
 		jsii.String("Scope1"),
 		jsii.String("Scope2"),
 	},
@@ -863,11 +863,11 @@ on a path. By default, this also installs an `"ANY"` method:
 var resource resource
 var handler function
 
-proxy := resource.addProxy(&proxyResourceOptions{
-	defaultIntegration: apigateway.NewLambdaIntegration(handler),
+proxy := resource.AddProxy(&ProxyResourceOptions{
+	DefaultIntegration: apigateway.NewLambdaIntegration(handler),
 
 	// "false" will require explicitly adding methods on the `proxy` resource
-	anyMethod: jsii.Boolean(true),
+	AnyMethod: jsii.Boolean(true),
 })
 ```
 
@@ -885,18 +885,18 @@ var books resource
 var iamUser user
 
 
-getBooks := books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
-	authorizationType: apigateway.authorizationType_IAM,
+getBooks := books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
+	AuthorizationType: apigateway.AuthorizationType_IAM,
 })
 
-iamUser.attachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &policyProps{
-	statements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
+iamUser.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &PolicyProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("execute-api:Invoke"),
 			},
-			effect: iam.effect_ALLOW,
-			resources: []*string{
+			Effect: iam.Effect_ALLOW,
+			Resources: []*string{
 				getBooks.methodArn,
 			},
 		}),
@@ -927,12 +927,12 @@ var authFn function
 var books resource
 
 
-auth := apigateway.NewTokenAuthorizer(this, jsii.String("booksAuthorizer"), &tokenAuthorizerProps{
-	handler: authFn,
+auth := apigateway.NewTokenAuthorizer(this, jsii.String("booksAuthorizer"), &TokenAuthorizerProps{
+	Handler: authFn,
 })
 
-books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
-	authorizer: auth,
+books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
+	Authorizer: auth,
 })
 ```
 
@@ -941,7 +941,7 @@ A full working example is shown below.
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 import path "github.com/aws-samples/dummy/path"
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws-samples/dummy/lib"
 
@@ -949,10 +949,10 @@ import "github.com/aws-samples/dummy/lib"
 app := awscdk.NewApp()
 stack := awscdk.Newstack(app, jsii.String("TokenAuthorizerInteg"))
 
-authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
+authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
 })
 
 authorizer := lib.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), map[string]function{
@@ -1016,15 +1016,15 @@ var authFn function
 var books resource
 
 
-auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &requestAuthorizerProps{
-	handler: authFn,
-	identitySources: []*string{
-		apigateway.identitySource.header(jsii.String("Authorization")),
+auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &RequestAuthorizerProps{
+	Handler: authFn,
+	IdentitySources: []*string{
+		apigateway.IdentitySource_Header(jsii.String("Authorization")),
 	},
 })
 
-books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
-	authorizer: auth,
+books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
+	Authorizer: auth,
 })
 ```
 
@@ -1032,7 +1032,7 @@ A full working example is shown below.
 
 ```go
 import path "github.com/aws-samples/dummy/path"
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -1046,41 +1046,68 @@ import "github.com/aws/aws-cdk-go/awscdk"
 app := awscdk.NewApp()
 stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 
-authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
+authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 })
 
-restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
-	cloudWatchRole: jsii.Boolean(true),
+restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &RestApiProps{
+	CloudWatchRole: jsii.Boolean(true),
 })
 
-authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
-	handler: authorizerFn,
-	identitySources: []*string{
-		awscdk.IdentitySource.header(jsii.String("Authorization")),
-		awscdk.IdentitySource.queryString(jsii.String("allow")),
+authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &RequestAuthorizerProps{
+	Handler: authorizerFn,
+	IdentitySources: []*string{
+		awscdk.IdentitySource_Header(jsii.String("Authorization")),
+		awscdk.IdentitySource_QueryString(jsii.String("allow")),
 	},
 })
 
-restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
-	integrationResponses: []integrationResponse{
+secondAuthorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MySecondAuthorizer"), &RequestAuthorizerProps{
+	Handler: authorizerFn,
+	IdentitySources: []*string{
+		awscdk.IdentitySource_*Header(jsii.String("Authorization")),
+		awscdk.IdentitySource_*QueryString(jsii.String("allow")),
+	},
+})
+
+restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+	IntegrationResponses: []integrationResponse{
 		&integrationResponse{
-			statusCode: jsii.String("200"),
+			StatusCode: jsii.String("200"),
 		},
 	},
-	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-	requestTemplates: map[string]*string{
+	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+	RequestTemplates: map[string]*string{
 		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 	},
-}), &methodOptions{
-	methodResponses: []methodResponse{
+}), &MethodOptions{
+	MethodResponses: []methodResponse{
 		&methodResponse{
-			statusCode: jsii.String("200"),
+			StatusCode: jsii.String("200"),
 		},
 	},
-	authorizer: authorizer,
+	Authorizer: Authorizer,
+})
+
+restapi.Root.ResourceForPath(jsii.String("auth")).AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+	IntegrationResponses: []*integrationResponse{
+		&integrationResponse{
+			StatusCode: jsii.String("200"),
+		},
+	},
+	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+	RequestTemplates: map[string]*string{
+		"application/json": jsii.String("{ \"statusCode\": 200 }"),
+	},
+}), &MethodOptions{
+	MethodResponses: []*methodResponse{
+		&methodResponse{
+			StatusCode: jsii.String("200"),
+		},
+	},
+	Authorizer: secondAuthorizer,
 })
 ```
 
@@ -1101,14 +1128,14 @@ The following snippet configures a Cognito user pool as an authorizer:
 var books resource
 userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 
-auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &cognitoUserPoolsAuthorizerProps{
-	cognitoUserPools: []iUserPool{
+auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &CognitoUserPoolsAuthorizerProps{
+	CognitoUserPools: []iUserPool{
 		userPool,
 	},
 })
-books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
-	authorizer: auth,
-	authorizationType: apigateway.authorizationType_COGNITO,
+books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
+	Authorizer: auth,
+	AuthorizationType: apigateway.AuthorizationType_COGNITO,
 })
 ```
 
@@ -1120,13 +1147,13 @@ Mutual TLS can be configured to limit access to your API based by using client c
 var acm interface{}
 
 
-apigateway.NewDomainName(this, jsii.String("domain-name"), &domainNameProps{
-	domainName: jsii.String("example.com"),
-	certificate: acm.certificate_FromCertificateArn(this, jsii.String("cert"), jsii.String("arn:aws:acm:us-east-1:1111111:certificate/11-3336f1-44483d-adc7-9cd375c5169d")),
-	mtls: &mTLSConfig{
-		bucket: s3.NewBucket(this, jsii.String("bucket")),
-		key: jsii.String("truststore.pem"),
-		version: jsii.String("version"),
+apigateway.NewDomainName(this, jsii.String("domain-name"), &DomainNameProps{
+	DomainName: jsii.String("example.com"),
+	Certificate: acm.certificate_FromCertificateArn(this, jsii.String("cert"), jsii.String("arn:aws:acm:us-east-1:1111111:certificate/11-3336f1-44483d-adc7-9cd375c5169d")),
+	Mtls: &MTLSConfig{
+		Bucket: s3.NewBucket(this, jsii.String("bucket")),
+		Key: jsii.String("truststore.pem"),
+		Version: jsii.String("version"),
 	},
 })
 ```
@@ -1169,11 +1196,11 @@ is disabled by default. When enabled (or `@aws-cdk/aws-apigateway:disableCloudWa
 an IAM role will be created and associated with API Gateway to allow it to write logs and metrics to AWS CloudWatch.
 
 ```go
-api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
-	cloudWatchRole: jsii.Boolean(true),
-	deployOptions: &stageOptions{
-		loggingLevel: apigateway.methodLoggingLevel_INFO,
-		dataTraceEnabled: jsii.Boolean(true),
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	CloudWatchRole: jsii.Boolean(true),
+	DeployOptions: &StageOptions{
+		LoggingLevel: apigateway.MethodLoggingLevel_INFO,
+		DataTraceEnabled: jsii.Boolean(true),
 	},
 })
 ```
@@ -1200,6 +1227,18 @@ CloudFormation to create a new deployment resource.
 By default, old deployments are *deleted*. You can set `retainDeployments: true`
 to allow users revert the stage to an old deployment manually.
 
+In order to also create a new deployment when changes are made to any authorizer attached to the API,
+the `@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId` [feature flag](https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html) can be enabled. This can be set
+in the `cdk.json` file.
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId": true
+  }
+}
+```
+
 ## Custom Domains
 
 To associate an API with a custom domain, use the `domainName` configuration when
@@ -1209,10 +1248,10 @@ you define your API:
 var acmCertificateForExampleCom interface{}
 
 
-api := apigateway.NewRestApi(this, jsii.String("MyDomain"), &restApiProps{
-	domainName: &domainNameOptions{
-		domainName: jsii.String("example.com"),
-		certificate: acmCertificateForExampleCom,
+api := apigateway.NewRestApi(this, jsii.String("MyDomain"), &RestApiProps{
+	DomainName: &DomainNameOptions{
+		DomainName: jsii.String("example.com"),
+		Certificate: acmCertificateForExampleCom,
 	},
 })
 ```
@@ -1228,16 +1267,16 @@ as `example.com`, and for subdomains, such as `www.example.com`. (You can create
 CNAME records only for subdomains.)
 
 ```go
-import route53 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
 var api restApi
 var hostedZoneForExampleCom interface{}
 
 
-route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &aRecordProps{
-	zone: hostedZoneForExampleCom,
-	target: route53.recordTarget.fromAlias(targets.NewApiGateway(api)),
+route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &ARecordProps{
+	Zone: hostedZoneForExampleCom,
+	Target: route53.RecordTarget_FromAlias(targets.NewApiGateway(api)),
 })
 ```
 
@@ -1247,12 +1286,12 @@ You can also define a `DomainName` resource directly in order to customize the d
 var acmCertificateForExampleCom interface{}
 
 
-apigateway.NewDomainName(this, jsii.String("custom-domain"), &domainNameProps{
-	domainName: jsii.String("example.com"),
-	certificate: acmCertificateForExampleCom,
-	endpointType: apigateway.endpointType_EDGE,
+apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
+	DomainName: jsii.String("example.com"),
+	Certificate: acmCertificateForExampleCom,
+	EndpointType: apigateway.EndpointType_EDGE,
 	 // default is REGIONAL
-	securityPolicy: apigateway.securityPolicy_TLS_1_2,
+	SecurityPolicy: apigateway.SecurityPolicy_TLS_1_2,
 })
 ```
 
@@ -1266,11 +1305,11 @@ var api1 restApi
 var api2 restApi
 
 
-domain.addBasePathMapping(api1, &basePathMappingOptions{
-	basePath: jsii.String("go-to-api1"),
+domain.AddBasePathMapping(api1, &BasePathMappingOptions{
+	BasePath: jsii.String("go-to-api1"),
 })
-domain.addBasePathMapping(api2, &basePathMappingOptions{
-	basePath: jsii.String("boom"),
+domain.AddBasePathMapping(api2, &BasePathMappingOptions{
+	BasePath: jsii.String("boom"),
 })
 ```
 
@@ -1282,15 +1321,15 @@ var domain domainName
 var restapi restApi
 
 
-betaDeploy := apigateway.NewDeployment(this, jsii.String("beta-deployment"), &deploymentProps{
-	api: restapi,
+betaDeploy := apigateway.NewDeployment(this, jsii.String("beta-deployment"), &DeploymentProps{
+	Api: restapi,
 })
-betaStage := apigateway.NewStage(this, jsii.String("beta-stage"), &stageProps{
-	deployment: betaDeploy,
+betaStage := apigateway.NewStage(this, jsii.String("beta-stage"), &StageProps{
+	Deployment: betaDeploy,
 })
-domain.addBasePathMapping(restapi, &basePathMappingOptions{
-	basePath: jsii.String("api/beta"),
-	stage: betaStage,
+domain.AddBasePathMapping(restapi, &BasePathMappingOptions{
+	BasePath: jsii.String("api/beta"),
+	Stage: betaStage,
 })
 ```
 
@@ -1305,9 +1344,9 @@ var domain domainName
 var api restApi
 
 
-domain.addBasePathMapping(api, &basePathMappingOptions{
-	basePath: jsii.String("myapi"),
-	attachToStage: jsii.Boolean(false),
+domain.AddBasePathMapping(api, &BasePathMappingOptions{
+	BasePath: jsii.String("myapi"),
+	AttachToStage: jsii.Boolean(false),
 })
 ```
 
@@ -1318,7 +1357,7 @@ to the API, and you won't be able to map another API to the same domain:
 var domain domainName
 var api restApi
 
-domain.addBasePathMapping(api)
+domain.AddBasePathMapping(api)
 ```
 
 This can also be achieved through the `mapping` configuration when defining the
@@ -1330,15 +1369,15 @@ Base path mappings can also be created with the `BasePathMapping` resource.
 var api restApi
 
 
-domainName := apigateway.domainName.fromDomainNameAttributes(this, jsii.String("DomainName"), &domainNameAttributes{
-	domainName: jsii.String("domainName"),
-	domainNameAliasHostedZoneId: jsii.String("domainNameAliasHostedZoneId"),
-	domainNameAliasTarget: jsii.String("domainNameAliasTarget"),
+domainName := apigateway.DomainName_FromDomainNameAttributes(this, jsii.String("DomainName"), &DomainNameAttributes{
+	DomainName: jsii.String("domainName"),
+	DomainNameAliasHostedZoneId: jsii.String("domainNameAliasHostedZoneId"),
+	DomainNameAliasTarget: jsii.String("domainNameAliasTarget"),
 })
 
-apigateway.NewBasePathMapping(this, jsii.String("BasePathMapping"), &basePathMappingProps{
-	domainName: domainName,
-	restApi: api,
+apigateway.NewBasePathMapping(this, jsii.String("BasePathMapping"), &BasePathMappingProps{
+	DomainName: domainName,
+	RestApi: api,
 })
 ```
 
@@ -1348,13 +1387,13 @@ If you wish to setup this domain with an Amazon Route53 alias, use the `targets.
 var hostedZoneForExampleCom interface{}
 var domainName domainName
 
-import route53 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
 
-route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &aRecordProps{
-	zone: hostedZoneForExampleCom,
-	target: route53.recordTarget.fromAlias(targets.NewApiGatewayDomain(domainName)),
+route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &ARecordProps{
+	Zone: hostedZoneForExampleCom,
+	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayDomain(domainName)),
 })
 ```
 
@@ -1372,11 +1411,11 @@ var acmCertificateForExampleCom interface{}
 var restApi restApi
 
 
-apigateway.NewDomainName(this, jsii.String("custom-domain"), &domainNameProps{
-	domainName: jsii.String("example.com"),
-	certificate: acmCertificateForExampleCom,
-	mapping: restApi,
-	basePath: jsii.String("orders/v1/api"),
+apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
+	DomainName: jsii.String("example.com"),
+	Certificate: acmCertificateForExampleCom,
+	Mapping: restApi,
+	BasePath: jsii.String("orders/v1/api"),
 })
 ```
 
@@ -1388,14 +1427,14 @@ var restApi restApi
 var secondRestApi restApi
 
 
-domain := apigateway.NewDomainName(this, jsii.String("custom-domain"), &domainNameProps{
-	domainName: jsii.String("example.com"),
-	certificate: acmCertificateForExampleCom,
-	mapping: restApi,
+domain := apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
+	DomainName: jsii.String("example.com"),
+	Certificate: acmCertificateForExampleCom,
+	Mapping: restApi,
 })
 
-domain.addApiMapping(secondRestApi.deploymentStage, &apiMappingOptions{
-	basePath: jsii.String("orders/v2/api"),
+domain.AddApiMapping(secondRestApi.DeploymentStage, &ApiMappingOptions{
+	BasePath: jsii.String("orders/v2/api"),
 })
 ```
 
@@ -1414,31 +1453,31 @@ Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-log
 ```go
 // production stage
 prdLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
-api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
-	deployOptions: &stageOptions{
-		accessLogDestination: apigateway.NewLogGroupLogDestination(prdLogGroup),
-		accessLogFormat: apigateway.accessLogFormat.jsonWithStandardFields(),
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	DeployOptions: &StageOptions{
+		AccessLogDestination: apigateway.NewLogGroupLogDestination(prdLogGroup),
+		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
 	},
 })
-deployment := apigateway.NewDeployment(this, jsii.String("Deployment"), &deploymentProps{
-	api: api,
+deployment := apigateway.NewDeployment(this, jsii.String("Deployment"), &DeploymentProps{
+	Api: Api,
 })
 
 // development stage
 devLogGroup := logs.NewLogGroup(this, jsii.String("DevLogs"))
-apigateway.NewStage(this, jsii.String("dev"), &stageProps{
-	deployment: deployment,
-	accessLogDestination: apigateway.NewLogGroupLogDestination(devLogGroup),
-	accessLogFormat: apigateway.*accessLogFormat.jsonWithStandardFields(&jsonWithStandardFieldProps{
-		caller: jsii.Boolean(false),
-		httpMethod: jsii.Boolean(true),
-		ip: jsii.Boolean(true),
-		protocol: jsii.Boolean(true),
-		requestTime: jsii.Boolean(true),
-		resourcePath: jsii.Boolean(true),
-		responseLength: jsii.Boolean(true),
-		status: jsii.Boolean(true),
-		user: jsii.Boolean(true),
+apigateway.NewStage(this, jsii.String("dev"), &StageProps{
+	Deployment: Deployment,
+	AccessLogDestination: apigateway.NewLogGroupLogDestination(devLogGroup),
+	AccessLogFormat: apigateway.AccessLogFormat_*JsonWithStandardFields(&JsonWithStandardFieldProps{
+		Caller: jsii.Boolean(false),
+		HttpMethod: jsii.Boolean(true),
+		Ip: jsii.Boolean(true),
+		Protocol: jsii.Boolean(true),
+		RequestTime: jsii.Boolean(true),
+		ResourcePath: jsii.Boolean(true),
+		ResponseLength: jsii.Boolean(true),
+		Status: jsii.Boolean(true),
+		User: jsii.Boolean(true),
 	}),
 })
 ```
@@ -1447,10 +1486,10 @@ The following code will generate the access log in the [CLF format](https://en.w
 
 ```go
 logGroup := logs.NewLogGroup(this, jsii.String("ApiGatewayAccessLogs"))
-api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
-	deployOptions: &stageOptions{
-		accessLogDestination: apigateway.NewLogGroupLogDestination(logGroup),
-		accessLogFormat: apigateway.accessLogFormat.clf(),
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	DeployOptions: &StageOptions{
+		AccessLogDestination: apigateway.NewLogGroupLogDestination(logGroup),
+		AccessLogFormat: apigateway.AccessLogFormat_Clf(),
 	},
 })
 ```
@@ -1460,11 +1499,11 @@ You can also configure your own access log format by using the `AccessLogFormat.
 
 ```go
 logGroup := logs.NewLogGroup(this, jsii.String("ApiGatewayAccessLogs"))
-apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
-	deployOptions: &stageOptions{
-		accessLogDestination: apigateway.NewLogGroupLogDestination(logGroup),
-		accessLogFormat: apigateway.accessLogFormat.custom(
-		fmt.Sprintf("%v %v %v\n      %v %v", apigateway.accessLogField.contextRequestId(), apigateway.*accessLogField.contextErrorMessage(), apigateway.*accessLogField.contextErrorMessageString(), apigateway.*accessLogField.contextAuthorizerError(), apigateway.*accessLogField.contextAuthorizerIntegrationStatus())),
+apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	DeployOptions: &StageOptions{
+		AccessLogDestination: apigateway.NewLogGroupLogDestination(logGroup),
+		AccessLogFormat: apigateway.AccessLogFormat_Custom(
+		fmt.Sprintf("%v %v %v\n      %v %v", apigateway.AccessLogField_ContextRequestId(), apigateway.AccessLogField_ContextErrorMessage(), apigateway.AccessLogField_ContextErrorMessageString(), apigateway.AccessLogField_ContextAuthorizerError(), apigateway.AccessLogField_ContextAuthorizerIntegrationStatus())),
 	},
 })
 ```
@@ -1476,12 +1515,12 @@ for a stage. The following snippet configures the a stage that accepts
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("books"))
-deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &deploymentProps{
-	api: api,
+deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &DeploymentProps{
+	Api: Api,
 })
-stage := apigateway.NewStage(this, jsii.String("my-stage"), &stageProps{
-	deployment: deployment,
-	methodOptions: map[string]methodDeploymentOptions{
+stage := apigateway.NewStage(this, jsii.String("my-stage"), &StageProps{
+	Deployment: Deployment,
+	MethodOptions: map[string]methodDeploymentOptions{
 		"/*/*": &methodDeploymentOptions{
 			 // This special path applies to all resource paths and all HTTP methods
 			"throttlingRateLimit": jsii.Number(100),
@@ -1495,9 +1534,9 @@ Configuring `methodOptions` on the `deployOptions` of `RestApi` will set the
 throttling behaviors on the default stage that is automatically created.
 
 ```go
-api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
-	deployOptions: &stageOptions{
-		methodOptions: map[string]methodDeploymentOptions{
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	DeployOptions: &StageOptions{
+		MethodOptions: map[string]methodDeploymentOptions{
 			"/*/*": &methodDeploymentOptions{
 				 // This special path applies to all resource paths and all HTTP methods
 				"throttlingRateLimit": jsii.Number(100),
@@ -1522,10 +1561,10 @@ HTTP method to any API resource via the `defaultCorsPreflightOptions` option or 
 The following example will enable CORS for all methods and all origins on all resources of the API:
 
 ```go
-apigateway.NewRestApi(this, jsii.String("api"), &restApiProps{
-	defaultCorsPreflightOptions: &corsOptions{
-		allowOrigins: apigateway.cors_ALL_ORIGINS(),
-		allowMethods: apigateway.*cors_ALL_METHODS(),
+apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
+	DefaultCorsPreflightOptions: &CorsOptions{
+		AllowOrigins: apigateway.Cors_ALL_ORIGINS(),
+		AllowMethods: apigateway.Cors_ALL_METHODS(),
 	},
 })
 ```
@@ -1537,11 +1576,11 @@ only allows GET and PUT HTTP requests from the origin [https://amazon.com.](http
 var myResource resource
 
 
-myResource.addCorsPreflight(&corsOptions{
-	allowOrigins: []*string{
+myResource.AddCorsPreflight(&CorsOptions{
+	AllowOrigins: []*string{
 		jsii.String("https://amazon.com"),
 	},
-	allowMethods: []*string{
+	AllowMethods: []*string{
 		jsii.String("GET"),
 		jsii.String("PUT"),
 	},
@@ -1558,9 +1597,9 @@ You can specify defaults this at the resource level, in which case they will be 
 var resource resource
 
 
-subtree := resource.addResource(jsii.String("subtree"), &resourceOptions{
-	defaultCorsPreflightOptions: &corsOptions{
-		allowOrigins: []*string{
+subtree := resource.AddResource(jsii.String("subtree"), &ResourceOptions{
+	DefaultCorsPreflightOptions: &CorsOptions{
+		AllowOrigins: []*string{
 			jsii.String("https://amazon.com"),
 		},
 	},
@@ -1580,9 +1619,9 @@ API gateway allows you to specify an
 To define an endpoint type for the API gateway, use `endpointConfiguration` property:
 
 ```go
-api := apigateway.NewRestApi(this, jsii.String("api"), &restApiProps{
-	endpointConfiguration: &endpointConfiguration{
-		types: []endpointType{
+api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
+	EndpointConfiguration: &EndpointConfiguration{
+		Types: []endpointType{
 			apigateway.*endpointType_EDGE,
 		},
 	},
@@ -1600,12 +1639,12 @@ Here is an example:
 var someEndpoint iVpcEndpoint
 
 
-api := apigateway.NewRestApi(this, jsii.String("api"), &restApiProps{
-	endpointConfiguration: &endpointConfiguration{
-		types: []endpointType{
+api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
+	EndpointConfiguration: &EndpointConfiguration{
+		Types: []endpointType{
 			apigateway.*endpointType_PRIVATE,
 		},
-		vpcEndpoints: []*iVpcEndpoint{
+		VpcEndpoints: []*iVpcEndpoint{
 			someEndpoint,
 		},
 	},
@@ -1633,20 +1672,20 @@ import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 
 
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
-nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &networkLoadBalancerProps{
-	vpc: vpc,
+nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
 })
-link := apigateway.NewVpcLink(this, jsii.String("link"), &vpcLinkProps{
-	targets: []iNetworkLoadBalancer{
+link := apigateway.NewVpcLink(this, jsii.String("link"), &VpcLinkProps{
+	Targets: []iNetworkLoadBalancer{
 		nlb,
 	},
 })
 
-integration := apigateway.NewIntegration(&integrationProps{
-	type: apigateway.integrationType_HTTP_PROXY,
-	options: &integrationOptions{
-		connectionType: apigateway.connectionType_VPC_LINK,
-		vpcLink: link,
+integration := apigateway.NewIntegration(&IntegrationProps{
+	Type: apigateway.IntegrationType_HTTP_PROXY,
+	Options: &IntegrationOptions{
+		ConnectionType: apigateway.ConnectionType_VPC_LINK,
+		VpcLink: link,
 	},
 })
 ```
@@ -1659,7 +1698,7 @@ property.
 Any existing `VpcLink` resource can be imported into the CDK app via the `VpcLink.fromVpcLinkId()`.
 
 ```go
-awesomeLink := apigateway.vpcLink.fromVpcLinkId(this, jsii.String("awesome-vpc-link"), jsii.String("us-east-1_oiuR12Abd"))
+awesomeLink := apigateway.VpcLink_FromVpcLinkId(this, jsii.String("awesome-vpc-link"), jsii.String("us-east-1_oiuR12Abd"))
 ```
 
 ## Gateway response
@@ -1675,15 +1714,15 @@ The following code configures a Gateway Response when the response is 'access de
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("books-api"))
-api.addGatewayResponse(jsii.String("test-response"), &gatewayResponseOptions{
-	type: apigateway.responseType_ACCESS_DENIED(),
-	statusCode: jsii.String("500"),
-	responseHeaders: map[string]*string{
+api.AddGatewayResponse(jsii.String("test-response"), &GatewayResponseOptions{
+	Type: apigateway.ResponseType_ACCESS_DENIED(),
+	StatusCode: jsii.String("500"),
+	ResponseHeaders: map[string]*string{
 		// Note that values must be enclosed within a pair of single quotes
 		"Access-Control-Allow-Origin": jsii.String("'test.com'"),
 		"test-key": jsii.String("'test-value'"),
 	},
-	templates: map[string]*string{
+	Templates: map[string]*string{
 		"application/json": jsii.String("{ \"message\": $context.error.messageString, \"statusCode\": \"488\", \"type\": \"$context.error.responseType\" }"),
 	},
 })
@@ -1701,12 +1740,12 @@ The following code creates a REST API using an external OpenAPI definition JSON 
 var integration integration
 
 
-api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &specRestApiProps{
-	apiDefinition: apigateway.apiDefinition.fromAsset(jsii.String("path-to-file.json")),
+api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &SpecRestApiProps{
+	ApiDefinition: apigateway.ApiDefinition_FromAsset(jsii.String("path-to-file.json")),
 })
 
-booksResource := api.root.addResource(jsii.String("books"))
-booksResource.addMethod(jsii.String("GET"), integration)
+booksResource := api.Root.AddResource(jsii.String("books"))
+booksResource.AddMethod(jsii.String("GET"), integration)
 ```
 
 It is possible to use the `addResource()` API to define additional API Gateway Resources.
@@ -1736,9 +1775,9 @@ This can be modified as shown below:
 var apiDefinition apiDefinition
 
 
-api := apigateway.NewSpecRestApi(this, jsii.String("ExampleRestApi"), &specRestApiProps{
-	apiDefinition: apiDefinition,
-	endpointTypes: []endpointType{
+api := apigateway.NewSpecRestApi(this, jsii.String("ExampleRestApi"), &SpecRestApiProps{
+	ApiDefinition: ApiDefinition,
+	EndpointTypes: []endpointType{
 		apigateway.*endpointType_PRIVATE,
 	},
 })
@@ -1759,12 +1798,12 @@ The APIs with the `metric` prefix can be used to get reference to specific metri
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("my-api"))
-stage := api.deploymentStage
-method := api.root.addMethod(jsii.String("GET"))
+stage := api.DeploymentStage
+method := api.Root.AddMethod(jsii.String("GET"))
 
-clientErrorApiMetric := api.metricClientError()
-serverErrorStageMetric := stage.metricServerError()
-latencyMethodMetric := method.metricLatency(stage)
+clientErrorApiMetric := api.MetricClientError()
+serverErrorStageMetric := stage.MetricServerError()
+latencyMethodMetric := method.MetricLatency(stage)
 ```
 
 ## APIGateway v2

@@ -43,9 +43,9 @@ An AppRegistry application enables you to define your applications and associate
 The application name must be unique at the account level and it's immutable.
 
 ```go
-application := appreg.NewApplication(this, jsii.String("MyFirstApplication"), &applicationProps{
-	applicationName: jsii.String("MyFirstApplicationName"),
-	description: jsii.String("description for my application"),
+application := appreg.NewApplication(this, jsii.String("MyFirstApplication"), &ApplicationProps{
+	ApplicationName: jsii.String("MyFirstApplicationName"),
+	Description: jsii.String("description for my application"),
 })
 ```
 
@@ -53,7 +53,7 @@ An application that has been created outside of the stack can be imported into y
 Applications can be imported by their ARN via the `Application.fromApplicationArn()` API:
 
 ```go
-importedApplication := appreg.application.fromApplicationArn(this, jsii.String("MyImportedApplication"), jsii.String("arn:aws:servicecatalog:us-east-1:012345678910:/applications/0aqmvxvgmry0ecc4mjhwypun6i"))
+importedApplication := appreg.Application_FromApplicationArn(this, jsii.String("MyImportedApplication"), jsii.String("arn:aws:servicecatalog:us-east-1:012345678910:/applications/0aqmvxvgmry0ecc4mjhwypun6i"))
 ```
 
 ## Application-Associator
@@ -63,17 +63,17 @@ and want to associate all stacks in the `App` scope to `MyAssociatedApplication`
 
 ```go
 app := awscdk.NewApp()
-associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &applicationAssociatorProps{
-	applications: []targetApplication{
-		appreg.*targetApplication.createApplicationStack(&createTargetApplicationOptions{
-			applicationName: jsii.String("MyAssociatedApplication"),
+associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
+	Applications: []targetApplication{
+		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+			ApplicationName: jsii.String("MyAssociatedApplication"),
 			// 'Application containing stacks deployed via CDK.' is the default
-			applicationDescription: jsii.String("Associated Application description"),
-			stackName: jsii.String("MyAssociatedApplicationStack"),
+			ApplicationDescription: jsii.String("Associated Application description"),
+			StackName: jsii.String("MyAssociatedApplicationStack"),
 			// AWS Account and Region that are implied by the current CLI configuration is the default
-			env: &environment{
-				account: jsii.String("123456789012"),
-				region: jsii.String("us-east-1"),
+			Env: &Environment{
+				Account: jsii.String("123456789012"),
+				Region: jsii.String("us-east-1"),
 			},
 		}),
 	},
@@ -87,11 +87,11 @@ and want to associate all stacks in the `App` scope to your imported application
 
 ```go
 app := awscdk.NewApp()
-associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &applicationAssociatorProps{
-	applications: []targetApplication{
-		appreg.*targetApplication.existingApplicationFromArn(&existingTargetApplicationOptions{
-			applicationArnValue: jsii.String("arn:aws:servicecatalog:us-east-1:123456789012:/applications/applicationId"),
-			stackName: jsii.String("MyAssociatedApplicationStack"),
+associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
+	Applications: []targetApplication{
+		appreg.*targetApplication_ExistingApplicationFromArn(&ExistingTargetApplicationOptions{
+			ApplicationArnValue: jsii.String("arn:aws:servicecatalog:us-east-1:123456789012:/applications/applicationId"),
+			StackName: jsii.String("MyAssociatedApplicationStack"),
 		}),
 	},
 })
@@ -102,7 +102,7 @@ ApplicationAssociator will not be able to find them. Call `associateStage` on ea
 Pipeline, as shown in the example below:
 
 ```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import codepipeline "github.com/aws/aws-cdk-go/awscdk"
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
 var repo repository
@@ -118,8 +118,8 @@ func newApplicationPipelineStack(scope app, id *string, props applicationPipelin
 	cdk.NewStack_Override(this, scope, id, props)
 
 	//associate the stage to application associator.
-	*props.application.associateStage(beta)
-	pipeline.addStage(beta)
+	*props.application.AssociateStage(beta)
+	pipeline.AddStage(beta)
 	return this
 }
 
@@ -129,14 +129,14 @@ type applicationPipelineStackProps struct {
 }
 
 app := awscdk.NewApp()
-associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &applicationAssociatorProps{
-	applications: []targetApplication{
-		appreg.*targetApplication.createApplicationStack(&createTargetApplicationOptions{
-			applicationName: jsii.String("MyPipelineAssociatedApplication"),
-			stackName: jsii.String("MyPipelineAssociatedApplicationStack"),
-			env: &environment{
-				account: jsii.String("123456789012"),
-				region: jsii.String("us-east-1"),
+associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
+	Applications: []targetApplication{
+		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+			ApplicationName: jsii.String("MyPipelineAssociatedApplication"),
+			StackName: jsii.String("MyPipelineAssociatedApplicationStack"),
+			Env: &Environment{
+				Account: jsii.String("123456789012"),
+				Region: jsii.String("us-east-1"),
 			},
 		}),
 	},
@@ -144,9 +144,9 @@ associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApp
 
 cdkPipeline := NewApplicationPipelineStack(app, jsii.String("CDKApplicationPipelineStack"), &applicationPipelineStackProps{
 	application: associatedApp,
-	env: &environment{
-		account: jsii.String("123456789012"),
-		region: jsii.String("us-east-1"),
+	env: &Environment{
+		Account: jsii.String("123456789012"),
+		Region: jsii.String("us-east-1"),
 	},
 })
 ```
@@ -157,11 +157,11 @@ An AppRegistry attribute group acts as a container for user-defined attributes f
 Metadata is attached in a machine-readable format to integrate with automated workflows and tools.
 
 ```go
-attributeGroup := appreg.NewAttributeGroup(this, jsii.String("MyFirstAttributeGroup"), &attributeGroupProps{
-	attributeGroupName: jsii.String("MyFirstAttributeGroupName"),
-	description: jsii.String("description for my attribute group"),
+attributeGroup := appreg.NewAttributeGroup(this, jsii.String("MyFirstAttributeGroup"), &AttributeGroupProps{
+	AttributeGroupName: jsii.String("MyFirstAttributeGroupName"),
+	Description: jsii.String("description for my attribute group"),
 	 // the description is optional,
-	attributes: map[string]interface{}{
+	Attributes: map[string]interface{}{
 		"project": jsii.String("foo"),
 		"team": []interface{}{
 			jsii.String("member1"),
@@ -182,7 +182,7 @@ An attribute group that has been created outside of the stack can be imported in
 Attribute groups can be imported by their ARN via the `AttributeGroup.fromAttributeGroupArn()` API:
 
 ```go
-importedAttributeGroup := appreg.attributeGroup.fromAttributeGroupArn(this, jsii.String("MyImportedAttrGroup"), jsii.String("arn:aws:servicecatalog:us-east-1:012345678910:/attribute-groups/0aqmvxvgmry0ecc4mjhwypun6i"))
+importedAttributeGroup := appreg.AttributeGroup_FromAttributeGroupArn(this, jsii.String("MyImportedAttrGroup"), jsii.String("arn:aws:servicecatalog:us-east-1:012345678910:/attribute-groups/0aqmvxvgmry0ecc4mjhwypun6i"))
 ```
 
 ## Associations
@@ -228,17 +228,17 @@ var application application
 var myRole iRole
 var myUser iUser
 
-application.shareApplication(&shareOptions{
-	accounts: []*string{
+application.shareApplication(&ShareOptions{
+	Accounts: []*string{
 		jsii.String("123456789012"),
 	},
-	organizationArns: []*string{
+	OrganizationArns: []*string{
 		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
 	},
-	roles: []*iRole{
+	Roles: []*iRole{
 		myRole,
 	},
-	users: []*iUser{
+	Users: []*iUser{
 		myUser,
 	},
 })
@@ -250,12 +250,12 @@ E.g., sharing an application with multiple accounts and allowing the accounts to
 import iam "github.com/aws/aws-cdk-go/awscdk"
 var application application
 
-application.shareApplication(&shareOptions{
-	accounts: []*string{
+application.shareApplication(&ShareOptions{
+	Accounts: []*string{
 		jsii.String("123456789012"),
 		jsii.String("234567890123"),
 	},
-	sharePermission: appreg.sharePermission_ALLOW_ACCESS,
+	SharePermission: appreg.SharePermission_ALLOW_ACCESS,
 })
 ```
 
@@ -267,17 +267,17 @@ var attributeGroup attributeGroup
 var myRole iRole
 var myUser iUser
 
-attributeGroup.shareAttributeGroup(&shareOptions{
-	accounts: []*string{
+attributeGroup.shareAttributeGroup(&ShareOptions{
+	Accounts: []*string{
 		jsii.String("123456789012"),
 	},
-	organizationArns: []*string{
+	OrganizationArns: []*string{
 		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
 	},
-	roles: []*iRole{
+	Roles: []*iRole{
 		myRole,
 	},
-	users: []*iUser{
+	Users: []*iUser{
 		myUser,
 	},
 })
@@ -289,11 +289,11 @@ E.g., sharing an application with multiple accounts and allowing the accounts to
 import iam "github.com/aws/aws-cdk-go/awscdk"
 var attributeGroup attributeGroup
 
-attributeGroup.shareAttributeGroup(&shareOptions{
-	accounts: []*string{
+attributeGroup.shareAttributeGroup(&ShareOptions{
+	Accounts: []*string{
 		jsii.String("123456789012"),
 		jsii.String("234567890123"),
 	},
-	sharePermission: appreg.sharePermission_ALLOW_ACCESS,
+	SharePermission: appreg.SharePermission_ALLOW_ACCESS,
 })
 ```

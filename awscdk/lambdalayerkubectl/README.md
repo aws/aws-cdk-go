@@ -13,7 +13,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 var fn function
 
-fn.addLayers(awscdk.NewKubectlLayer(this, jsii.String("KubectlLayer")))
+fn.AddLayers(awscdk.NewKubectlLayer(this, jsii.String("KubectlLayer")))
 ```
 
 `kubectl` will be installed under `/opt/kubectl/kubectl`, and `helm` will be installed under `/opt/helm/helm`.

@@ -33,15 +33,15 @@ The CDK currently supports Amazon EC2, on-premise, AWS Lambda, and Amazon ECS ap
 To create a new CodeDeploy Application that deploys to EC2/on-premise instances:
 
 ```go
-application := codedeploy.NewServerApplication(this, jsii.String("CodeDeployApplication"), &serverApplicationProps{
-	applicationName: jsii.String("MyApplication"),
+application := codedeploy.NewServerApplication(this, jsii.String("CodeDeployApplication"), &ServerApplicationProps{
+	ApplicationName: jsii.String("MyApplication"),
 })
 ```
 
 To import an already existing Application:
 
 ```go
-application := codedeploy.serverApplication.fromServerApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
+application := codedeploy.ServerApplication_FromServerApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
 ```
 
 ## EC2/on-premise Deployment Groups
@@ -56,17 +56,17 @@ var application serverApplication
 var asg autoScalingGroup
 var alarm alarm
 
-deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &serverDeploymentGroupProps{
-	application: application,
-	deploymentGroupName: jsii.String("MyDeploymentGroup"),
-	autoScalingGroups: []iAutoScalingGroup{
+deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &ServerDeploymentGroupProps{
+	Application: Application,
+	DeploymentGroupName: jsii.String("MyDeploymentGroup"),
+	AutoScalingGroups: []iAutoScalingGroup{
 		asg,
 	},
 	// adds User Data that installs the CodeDeploy agent on your auto-scaling groups hosts
 	// default: true
-	installAgent: jsii.Boolean(true),
+	InstallAgent: jsii.Boolean(true),
 	// adds EC2 instances matching tags
-	ec2InstanceTags: codedeploy.NewInstanceTagSet(map[string][]*string{
+	Ec2InstanceTags: codedeploy.NewInstanceTagSet(map[string][]*string{
 		// any instance with tags satisfying
 		// key1=v1 or key1=v2 or key2 (any value) or value v3 (any key)
 		// will match this group
@@ -81,7 +81,7 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDe
 		},
 	}),
 	// adds on-premise instances matching tags
-	onPremiseInstanceTags: codedeploy.NewInstanceTagSet(map[string][]*string{
+	OnPremiseInstanceTags: codedeploy.NewInstanceTagSet(map[string][]*string{
 		"key1": []*string{
 			jsii.String("v1"),
 			jsii.String("v2"),
@@ -92,19 +92,19 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDe
 		},
 	}),
 	// CloudWatch alarms
-	alarms: []iAlarm{
+	Alarms: []iAlarm{
 		alarm,
 	},
 	// whether to ignore failure to fetch the status of alarms from CloudWatch
 	// default: false
-	ignorePollAlarmsFailure: jsii.Boolean(false),
+	IgnorePollAlarmsFailure: jsii.Boolean(false),
 	// auto-rollback configuration
-	autoRollback: &autoRollbackConfig{
-		failedDeployment: jsii.Boolean(true),
+	AutoRollback: &AutoRollbackConfig{
+		FailedDeployment: jsii.Boolean(true),
 		 // default: true
-		stoppedDeployment: jsii.Boolean(true),
+		StoppedDeployment: jsii.Boolean(true),
 		 // default: false
-		deploymentInAlarm: jsii.Boolean(true),
+		DeploymentInAlarm: jsii.Boolean(true),
 	},
 })
 ```
@@ -117,9 +117,9 @@ To import an already existing Deployment Group:
 ```go
 var application serverApplication
 
-deploymentGroup := codedeploy.serverDeploymentGroup.fromServerDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &serverDeploymentGroupAttributes{
-	application: application,
-	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
+deploymentGroup := codedeploy.ServerDeploymentGroup_FromServerDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &ServerDeploymentGroupAttributes{
+	Application: Application,
+	DeploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
 })
 ```
 
@@ -137,12 +137,12 @@ import elb "github.com/aws/aws-cdk-go/awscdk"
 
 var lb loadBalancer
 
-lb.addListener(&loadBalancerListener{
-	externalPort: jsii.Number(80),
+lb.AddListener(&LoadBalancerListener{
+	ExternalPort: jsii.Number(80),
 })
 
-deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &serverDeploymentGroupProps{
-	loadBalancer: codedeploy.loadBalancer.classic(lb),
+deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
+	LoadBalancer: codedeploy.LoadBalancer_Classic(lb),
 })
 ```
 
@@ -154,15 +154,15 @@ import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 
 var alb applicationLoadBalancer
 
-listener := alb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-targetGroup := listener.addTargets(jsii.String("Fleet"), &addApplicationTargetsProps{
-	port: jsii.Number(80),
+targetGroup := listener.AddTargets(jsii.String("Fleet"), &AddApplicationTargetsProps{
+	Port: jsii.Number(80),
 })
 
-deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &serverDeploymentGroupProps{
-	loadBalancer: codedeploy.loadBalancer.application(targetGroup),
+deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
+	LoadBalancer: codedeploy.LoadBalancer_Application(targetGroup),
 })
 ```
 
@@ -171,8 +171,8 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("Deploy
 You can also pass a Deployment Configuration when creating the Deployment Group:
 
 ```go
-deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &serverDeploymentGroupProps{
-	deploymentConfig: codedeploy.serverDeploymentConfig_ALL_AT_ONCE(),
+deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &ServerDeploymentGroupProps{
+	DeploymentConfig: codedeploy.ServerDeploymentConfig_ALL_AT_ONCE(),
 })
 ```
 
@@ -181,18 +181,18 @@ The default Deployment Configuration is `ServerDeploymentConfig.ONE_AT_A_TIME`.
 You can also create a custom Deployment Configuration:
 
 ```go
-deploymentConfig := codedeploy.NewServerDeploymentConfig(this, jsii.String("DeploymentConfiguration"), &serverDeploymentConfigProps{
-	deploymentConfigName: jsii.String("MyDeploymentConfiguration"),
+deploymentConfig := codedeploy.NewServerDeploymentConfig(this, jsii.String("DeploymentConfiguration"), &ServerDeploymentConfigProps{
+	DeploymentConfigName: jsii.String("MyDeploymentConfiguration"),
 	 // optional property
 	// one of these is required, but both cannot be specified at the same time
-	minimumHealthyHosts: codedeploy.minimumHealthyHosts.count(jsii.Number(2)),
+	MinimumHealthyHosts: codedeploy.MinimumHealthyHosts_Count(jsii.Number(2)),
 })
 ```
 
 Or import an existing one:
 
 ```go
-deploymentConfig := codedeploy.serverDeploymentConfig.fromServerDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
+deploymentConfig := codedeploy.ServerDeploymentConfig_FromServerDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
 ```
 
 ## Lambda Applications
@@ -200,15 +200,15 @@ deploymentConfig := codedeploy.serverDeploymentConfig.fromServerDeploymentConfig
 To create a new CodeDeploy Application that deploys to a Lambda function:
 
 ```go
-application := codedeploy.NewLambdaApplication(this, jsii.String("CodeDeployApplication"), &lambdaApplicationProps{
-	applicationName: jsii.String("MyApplication"),
+application := codedeploy.NewLambdaApplication(this, jsii.String("CodeDeployApplication"), &LambdaApplicationProps{
+	ApplicationName: jsii.String("MyApplication"),
 })
 ```
 
 To import an already existing Application:
 
 ```go
-application := codedeploy.lambdaApplication.fromLambdaApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
+application := codedeploy.LambdaApplication_FromLambdaApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
 ```
 
 ## Lambda Deployment Groups
@@ -224,16 +224,16 @@ var myApplication lambdaApplication
 var func function
 
 version := func.currentVersion
-version1Alias := lambda.NewAlias(this, jsii.String("alias"), &aliasProps{
-	aliasName: jsii.String("prod"),
-	version: version,
+version1Alias := lambda.NewAlias(this, jsii.String("alias"), &AliasProps{
+	AliasName: jsii.String("prod"),
+	Version: Version,
 })
 
-deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-	application: myApplication,
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
+	Application: myApplication,
 	 // optional property: one will be created for you if not provided
-	alias: version1Alias,
-	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
+	Alias: version1Alias,
+	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 })
 ```
 
@@ -248,31 +248,31 @@ In order to deploy a new version of this function:
 CodeDeploy will roll back if the deployment fails. You can optionally trigger a rollback when one or more alarms are in a failed state:
 
 ```go
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var alias alias
 
 // or add alarms to an existing group
 var blueGreenAlias alias
 
-alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &alarmProps{
-	comparisonOperator: cloudwatch.comparisonOperator_GREATER_THAN_THRESHOLD,
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(1),
-	metric: alias.metricErrors(),
+alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &AlarmProps{
+	ComparisonOperator: cloudwatch.ComparisonOperator_GREATER_THAN_THRESHOLD,
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(1),
+	Metric: alias.metricErrors(),
 })
-deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-	alias: alias,
-	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
-	alarms: []iAlarm{
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
+	Alias: Alias,
+	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
+	Alarms: []iAlarm{
 		alarm,
 	},
 })
-deploymentGroup.addAlarm(cloudwatch.NewAlarm(this, jsii.String("BlueGreenErrors"), &alarmProps{
-	comparisonOperator: cloudwatch.*comparisonOperator_GREATER_THAN_THRESHOLD,
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(1),
-	metric: blueGreenAlias.metricErrors(),
+deploymentGroup.AddAlarm(cloudwatch.NewAlarm(this, jsii.String("BlueGreenErrors"), &AlarmProps{
+	ComparisonOperator: cloudwatch.ComparisonOperator_GREATER_THAN_THRESHOLD,
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(1),
+	Metric: blueGreenAlias.metricErrors(),
 }))
 ```
 
@@ -289,14 +289,14 @@ var alias alias
 
 
 // pass a hook whe creating the deployment group
-deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-	alias: alias,
-	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
-	preHook: warmUpUserCache,
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
+	Alias: alias,
+	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
+	PreHook: warmUpUserCache,
 })
 
 // or configure one on an existing deployment group
-deploymentGroup.addPostHook(endToEndValidation)
+deploymentGroup.AddPostHook(endToEndValidation)
 ```
 
 ### Import an existing Lambda Deployment Group
@@ -306,9 +306,9 @@ To import an already existing Deployment Group:
 ```go
 var application lambdaApplication
 
-deploymentGroup := codedeploy.lambdaDeploymentGroup.fromLambdaDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &lambdaDeploymentGroupAttributes{
-	application: application,
-	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
+deploymentGroup := codedeploy.LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &LambdaDeploymentGroupAttributes{
+	Application: Application,
+	DeploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
 })
 ```
 
@@ -320,11 +320,11 @@ The predefined configurations are available as LambdaDeploymentConfig constants.
 ```go
 var application lambdaApplication
 var alias alias
-config := codedeploy.lambdaDeploymentConfig_CANARY_10PERCENT_30MINUTES()
-deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-	application: application,
-	alias: alias,
-	deploymentConfig: config,
+config := codedeploy.LambdaDeploymentConfig_CANARY_10PERCENT_30MINUTES()
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
+	Application: Application,
+	Alias: Alias,
+	DeploymentConfig: config,
 })
 ```
 
@@ -336,16 +336,16 @@ letting you specify precisely how fast a new function version is deployed.
 // Example automatically generated from non-compiling source. May contain errors.
 var application lambdaApplication
 var alias alias
-config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &lambdaDeploymentConfigProps{
-	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
+	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
 		"interval": cdk.Duration_minutes(jsii.Number(15)),
 		"percentage": jsii.Number(5),
 	}),
 })
-deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-	application: application,
-	alias: alias,
-	deploymentConfig: config,
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
+	Application: Application,
+	Alias: Alias,
+	DeploymentConfig: config,
 })
 ```
 
@@ -353,19 +353,19 @@ You can specify a custom name for your deployment config, but if you do you will
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &lambdaDeploymentConfigProps{
-	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
+	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
 		"interval": cdk.Duration_minutes(jsii.Number(15)),
 		"percentage": jsii.Number(5),
 	}),
-	deploymentConfigName: jsii.String("MyDeploymentConfig"),
+	DeploymentConfigName: jsii.String("MyDeploymentConfig"),
 })
 ```
 
 To import an already existing Deployment Config:
 
 ```go
-deploymentConfig := codedeploy.lambdaDeploymentConfig.fromLambdaDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
+deploymentConfig := codedeploy.LambdaDeploymentConfig_FromLambdaDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
 ```
 
 ## ECS Applications
@@ -373,15 +373,15 @@ deploymentConfig := codedeploy.lambdaDeploymentConfig.fromLambdaDeploymentConfig
 To create a new CodeDeploy Application that deploys an ECS service:
 
 ```go
-application := codedeploy.NewEcsApplication(this, jsii.String("CodeDeployApplication"), &ecsApplicationProps{
-	applicationName: jsii.String("MyApplication"),
+application := codedeploy.NewEcsApplication(this, jsii.String("CodeDeployApplication"), &EcsApplicationProps{
+	ApplicationName: jsii.String("MyApplication"),
 })
 ```
 
 To import an already existing Application:
 
 ```go
-application := codedeploy.ecsApplication.fromEcsApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
+application := codedeploy.EcsApplication_FromEcsApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
 ```
 
 ## ECS Deployment Groups
@@ -420,14 +420,14 @@ service := ecs.NewFargateService(this, jsii.String("Service"), map[string]interf
 	},
 })
 
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &ecsDeploymentGroupProps{
-	service: service,
-	blueGreenDeploymentConfig: &ecsBlueGreenDeploymentConfig{
-		blueTargetGroup: blueTargetGroup,
-		greenTargetGroup: greenTargetGroup,
-		listener: listener,
+codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+	Service: Service,
+	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
+		BlueTargetGroup: *BlueTargetGroup,
+		GreenTargetGroup: *GreenTargetGroup,
+		Listener: *Listener,
 	},
-	deploymentConfig: codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
+	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 })
 ```
 
@@ -459,62 +459,62 @@ and green target groups.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
 // Alarm on the number of unhealthy ECS tasks in each target group
-blueUnhealthyHosts := cloudwatch.NewAlarm(stack, jsii.String("BlueUnhealthyHosts"), &alarmProps{
-	alarmName: jsii.String(stack.stackName + "-Unhealthy-Hosts-Blue"),
-	metric: blueTargetGroup.metricUnhealthyHostCount(),
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(2),
+blueUnhealthyHosts := cloudwatch.NewAlarm(stack, jsii.String("BlueUnhealthyHosts"), &AlarmProps{
+	AlarmName: jsii.String(stack.stackName + "-Unhealthy-Hosts-Blue"),
+	Metric: blueTargetGroup.metricUnhealthyHostCount(),
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(2),
 })
 
-greenUnhealthyHosts := cloudwatch.NewAlarm(stack, jsii.String("GreenUnhealthyHosts"), &alarmProps{
-	alarmName: jsii.String(stack.stackName + "-Unhealthy-Hosts-Green"),
-	metric: greenTargetGroup.metricUnhealthyHostCount(),
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(2),
+greenUnhealthyHosts := cloudwatch.NewAlarm(stack, jsii.String("GreenUnhealthyHosts"), &AlarmProps{
+	AlarmName: jsii.String(stack.stackName + "-Unhealthy-Hosts-Green"),
+	Metric: greenTargetGroup.metricUnhealthyHostCount(),
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(2),
 })
 
 // Alarm on the number of HTTP 5xx responses returned by each target group
-blueApiFailure := cloudwatch.NewAlarm(stack, jsii.String("Blue5xx"), &alarmProps{
-	alarmName: jsii.String(stack.stackName + "-Http-5xx-Blue"),
-	metric: blueTargetGroup.metricHttpCodeTarget(elbv2.httpCodeTarget_TARGET_5XX_COUNT, map[string]interface{}{
+blueApiFailure := cloudwatch.NewAlarm(stack, jsii.String("Blue5xx"), &AlarmProps{
+	AlarmName: jsii.String(stack.stackName + "-Http-5xx-Blue"),
+	Metric: blueTargetGroup.metricHttpCodeTarget(elbv2.httpCodeTarget_TARGET_5XX_COUNT, map[string]interface{}{
 		"period": cdk.Duration_minutes(jsii.Number(1)),
 	}),
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(1),
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(1),
 })
 
-greenApiFailure := cloudwatch.NewAlarm(stack, jsii.String("Green5xx"), &alarmProps{
-	alarmName: jsii.String(stack.stackName + "-Http-5xx-Green"),
-	metric: greenTargetGroup.metricHttpCodeTarget(elbv2.*httpCodeTarget_TARGET_5XX_COUNT, map[string]interface{}{
+greenApiFailure := cloudwatch.NewAlarm(stack, jsii.String("Green5xx"), &AlarmProps{
+	AlarmName: jsii.String(stack.stackName + "-Http-5xx-Green"),
+	Metric: greenTargetGroup.metricHttpCodeTarget(elbv2.*httpCodeTarget_TARGET_5XX_COUNT, map[string]interface{}{
 		"period": cdk.Duration_minutes(jsii.Number(1)),
 	}),
-	threshold: jsii.Number(1),
-	evaluationPeriods: jsii.Number(1),
+	Threshold: jsii.Number(1),
+	EvaluationPeriods: jsii.Number(1),
 })
 
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &ecsDeploymentGroupProps{
+codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	// CodeDeploy will monitor these alarms during a deployment and automatically roll back
-	alarms: []iAlarm{
+	Alarms: []iAlarm{
 		blueUnhealthyHosts,
 		greenUnhealthyHosts,
 		blueApiFailure,
 		greenApiFailure,
 	},
-	autoRollback: &autoRollbackConfig{
+	AutoRollback: &AutoRollbackConfig{
 		// CodeDeploy will automatically roll back if a deployment is stopped
-		stoppedDeployment: jsii.Boolean(true),
+		StoppedDeployment: jsii.Boolean(true),
 	},
-	service: service,
-	blueGreenDeploymentConfig: &ecsBlueGreenDeploymentConfig{
-		blueTargetGroup: blueTargetGroup,
-		greenTargetGroup: greenTargetGroup,
-		listener: listener,
+	Service: Service,
+	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
+		BlueTargetGroup: *BlueTargetGroup,
+		GreenTargetGroup: *GreenTargetGroup,
+		Listener: *Listener,
 	},
-	deploymentConfig: codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
+	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 })
 ```
 
@@ -537,15 +537,15 @@ var listener elbv2.IApplicationListener
 var testListener elbv2.IApplicationListener
 
 
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &ecsDeploymentGroupProps{
-	service: service,
-	blueGreenDeploymentConfig: &ecsBlueGreenDeploymentConfig{
-		blueTargetGroup: blueTargetGroup,
-		greenTargetGroup: greenTargetGroup,
-		listener: listener,
-		testListener: testListener,
+codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+	Service: Service,
+	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
+		BlueTargetGroup: *BlueTargetGroup,
+		GreenTargetGroup: *GreenTargetGroup,
+		Listener: *Listener,
+		TestListener: *TestListener,
 	},
-	deploymentConfig: codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
+	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 })
 ```
 
@@ -570,21 +570,21 @@ deployment and can automatically roll back the deployment.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &ecsDeploymentGroupProps{
-	autoRollback: &autoRollbackConfig{
+codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+	AutoRollback: &AutoRollbackConfig{
 		// CodeDeploy will automatically roll back if the 8-hour approval period times out and the deployment stops
-		stoppedDeployment: jsii.Boolean(true),
+		StoppedDeployment: jsii.Boolean(true),
 	},
-	service: service,
-	blueGreenDeploymentConfig: &ecsBlueGreenDeploymentConfig{
+	Service: Service,
+	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
 		// The deployment will wait for approval for up to 8 hours before stopping the deployment
-		deploymentApprovalWaitTime: awscdk.Duration.hours(jsii.Number(8)),
-		blueTargetGroup: blueTargetGroup,
-		greenTargetGroup: greenTargetGroup,
-		listener: listener,
-		testListener: testListener,
+		DeploymentApprovalWaitTime: awscdk.Duration_Hours(jsii.Number(8)),
+		BlueTargetGroup: *BlueTargetGroup,
+		GreenTargetGroup: *GreenTargetGroup,
+		Listener: *Listener,
+		TestListener: *TestListener,
 	},
-	deploymentConfig: codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
+	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 })
 ```
 
@@ -596,24 +596,24 @@ CloudWatch alarms specified for the deployment group and will automatically roll
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &ecsDeploymentGroupProps{
-	service: service,
-	blueGreenDeploymentConfig: &ecsBlueGreenDeploymentConfig{
-		blueTargetGroup: blueTargetGroup,
-		greenTargetGroup: greenTargetGroup,
-		listener: listener,
+codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+	Service: Service,
+	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
+		BlueTargetGroup: *BlueTargetGroup,
+		GreenTargetGroup: *GreenTargetGroup,
+		Listener: *Listener,
 		// CodeDeploy will wait for 30 minutes after completing the blue-green deployment before it terminates the blue tasks
-		terminationWaitTime: awscdk.Duration.minutes(jsii.Number(30)),
+		TerminationWaitTime: awscdk.Duration_Minutes(jsii.Number(30)),
 	},
 	// CodeDeploy will continue to monitor these alarms during the 30-minute bake time and will automatically
 	// roll back if they go into a failed state at any point during the deployment.
-	alarms: []iAlarm{
+	Alarms: []iAlarm{
 		blueUnhealthyHosts,
 		greenUnhealthyHosts,
 		blueApiFailure,
 		greenApiFailure,
 	},
-	deploymentConfig: codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
+	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 })
 ```
 
@@ -624,9 +624,9 @@ To import an already existing Deployment Group:
 ```go
 var application ecsApplication
 
-deploymentGroup := codedeploy.ecsDeploymentGroup.fromEcsDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &ecsDeploymentGroupAttributes{
-	application: application,
-	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
+deploymentGroup := codedeploy.EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &EcsDeploymentGroupAttributes{
+	Application: Application,
+	DeploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
 })
 ```
 
@@ -636,7 +636,7 @@ CodeDeploy for ECS comes with predefined configurations for traffic shifting.
 The predefined configurations are available as LambdaDeploymentConfig constants.
 
 ```go
-config := codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES()
+config := codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES()
 ```
 
 If you want to specify your own strategy,
@@ -645,8 +645,8 @@ letting you specify precisely how fast an ECS service is deployed.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &ecsDeploymentConfigProps{
-	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &EcsDeploymentConfigProps{
+	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
 		"interval": cdk.Duration_minutes(jsii.Number(15)),
 		"percentage": jsii.Number(5),
 	}),
@@ -657,19 +657,19 @@ You can specify a custom name for your deployment config, but if you do you will
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-config := codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &ecsDeploymentConfigProps{
-	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+config := codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &EcsDeploymentConfigProps{
+	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
 		"interval": cdk.Duration_minutes(jsii.Number(15)),
 		"percentage": jsii.Number(5),
 	}),
-	deploymentConfigName: jsii.String("MyDeploymentConfig"),
+	DeploymentConfigName: jsii.String("MyDeploymentConfig"),
 })
 ```
 
 Or import an existing one:
 
 ```go
-deploymentConfig := codedeploy.ecsDeploymentConfig.fromEcsDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
+deploymentConfig := codedeploy.EcsDeploymentConfig_FromEcsDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
 ```
 
 ## ECS Deployments
@@ -724,6 +724,6 @@ NewEcsDeployment(map[string]interface{}{
 		"containerName": jsii.String("mycontainer"),
 		"containerPort": jsii.Number(80),
 	},
-	"timeout": awscdk.Duration.minutes(jsii.Number(60)),
+	"timeout": awscdk.Duration_minutes(jsii.Number(60)),
 })
 ```
