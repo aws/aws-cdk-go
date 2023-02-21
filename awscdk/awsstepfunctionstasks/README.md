@@ -6,10 +6,7 @@ You build applications from individual components that each perform a discrete
 function, or task, allowing you to scale and change applications quickly.
 
 A [Task](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-task-state.html) state represents a single unit of work performed by a state machine.
-All work in your state machine is performed by tasks.  This module contains a collection of classes that allow you to call various AWS services
-from your Step Functions state machine.
-
-Be sure to familiarize yourself with the [`aws-stepfunctions` module documentation](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions-readme.html) first.
+All work in your state machine is performed by tasks.
 
 This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
@@ -18,6 +15,13 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 * [Tasks for AWS Step Functions](#tasks-for-aws-step-functions)
 
   * [Table Of Contents](#table-of-contents)
+  * [Task](#task)
+  * [Paths](#paths)
+
+    * [InputPath](#inputpath)
+    * [OutputPath](#outputpath)
+    * [ResultPath](#resultpath)
+  * [Task parameters from the state JSON](#task-parameters-from-the-state-json)
   * [Evaluate Expression](#evaluate-expression)
   * [API Gateway](#api-gateway)
 
@@ -86,9 +90,166 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
     * [Invoke Activity](#invoke-activity)
   * [SQS](#sqs)
 
+## Task
+
+A Task state represents a single unit of work performed by a state machine. In the
+CDK, the exact work to be done is determined by a class that implements `IStepFunctionsTask`.
+
+AWS Step Functions [integrates](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-service-integrations.html) with some AWS services so that you can call API
+actions, and coordinate executions directly from the Amazon States Language in
+Step Functions. You can directly call and pass parameters to the APIs of those
+services.
+
 ## Paths
 
+In the Amazon States Language, a [path](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html) is a string beginning with `$` that you
+can use to identify components within JSON text.
+
 Learn more about input and output processing in Step Functions [here](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-input-output-filtering.html)
+
+### InputPath
+
+Both `InputPath` and `Parameters` fields provide a way to manipulate JSON as it
+moves through your workflow. AWS Step Functions applies the `InputPath` field first,
+and then the `Parameters` field. You can first filter your raw input to a selection
+you want using InputPath, and then apply Parameters to manipulate that input
+further, or add new values. If you don't specify an `InputPath`, a default value
+of `$` will be used.
+
+The following example provides the field named `input` as the input to the `Task`
+state that runs a Lambda function.
+
+```go
+var fn function
+
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	inputPath: jsii.String("$.input"),
+})
+```
+
+### OutputPath
+
+Tasks also allow you to select a portion of the state output to pass to the next
+state. This enables you to filter out unwanted information, and pass only the
+portion of the JSON that you care about. If you don't specify an `OutputPath`,
+a default value of `$` will be used. This passes the entire JSON node to the next
+state.
+
+The [response](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_ResponseSyntax) from a Lambda function includes the response from the function
+as well as other metadata.
+
+The following example assigns the output from the Task to a field named `result`
+
+```go
+var fn function
+
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	outputPath: jsii.String("$.Payload.result"),
+})
+```
+
+### ResultSelector
+
+You can use [`ResultSelector`](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector)
+to manipulate the raw result of a Task, Map or Parallel state before it is
+passed to [`ResultPath`](###ResultPath). For service integrations, the raw
+result contains metadata in addition to the response payload. You can use
+ResultSelector to construct a JSON payload that becomes the effective result
+using static values or references to the raw result or context object.
+
+The following example extracts the output payload of a Lambda function Task and combines
+it with some static values and the state name from the context object.
+
+```go
+var fn function
+
+tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	resultSelector: map[string]interface{}{
+		"lambdaOutput": sfn.JsonPath.stringAt(jsii.String("$.Payload")),
+		"invokeRequestId": sfn.JsonPath.stringAt(jsii.String("$.SdkResponseMetadata.RequestId")),
+		"staticValue": map[string]*string{
+			"foo": jsii.String("bar"),
+		},
+		"stateName": sfn.JsonPath.stringAt(jsii.String("$.State.Name")),
+	},
+})
+```
+
+### ResultPath
+
+The output of a state can be a copy of its input, the result it produces (for
+example, output from a Task state’s Lambda function), or a combination of its
+input and result. Use [`ResultPath`](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html) to control which combination of these is
+passed to the state output. If you don't specify an `ResultPath`, a default
+value of `$` will be used.
+
+The following example adds the item from calling DynamoDB's `getItem` API to the state
+input and passes it to the next state.
+
+```go
+var myTable table
+
+tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &dynamoPutItemProps{
+	item: map[string]dynamoAttributeValue{
+		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-id")),
+	},
+	table: myTable,
+	resultPath: jsii.String("$.Item"),
+})
+```
+
+⚠️ The `OutputPath` is computed after applying `ResultPath`. All service integrations
+return metadata as part of their response. When using `ResultPath`, it's not possible to
+merge a subset of the task output to the input.
+
+## Task parameters from the state JSON
+
+Most tasks take parameters. Parameter values can either be static, supplied directly
+in the workflow definition (by specifying their values), or a value available at runtime
+in the state machine's execution (either as its input or an output of a prior state).
+Parameter values available at runtime can be specified via the `JsonPath` class,
+using methods such as `JsonPath.stringAt()`.
+
+The following example provides the field named `input` as the input to the Lambda function
+and invokes it asynchronously.
+
+```go
+var fn function
+
+
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	payload: sfn.taskInput.fromJsonPathAt(jsii.String("$.input")),
+	invocationType: tasks.lambdaInvocationType_EVENT,
+})
+```
+
+You can also use [intrinsic functions](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html) available on `JsonPath`, for example `JsonPath.format()`.
+Here is an example of starting an Athena query that is dynamically created using the task input:
+
+```go
+startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
+	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+	queryExecutionContext: &queryExecutionContext{
+		databaseName: jsii.String("interactions"),
+	},
+	resultConfiguration: &resultConfiguration{
+		encryptionConfiguration: &encryptionConfiguration{
+			encryptionOption: tasks.encryptionOption_S3_MANAGED,
+		},
+		outputLocation: &location{
+			bucketName: jsii.String("mybucket"),
+			objectKey: jsii.String("myprefix"),
+		},
+	},
+	integrationPattern: sfn.integrationPattern_RUN_JOB,
+})
+```
+
+Each service integration has its own set of parameters that can be supplied.
 
 ## Evaluate Expression
 
@@ -99,30 +260,30 @@ Use the `EvaluateExpression` to perform simple operations referencing state path
 Example: convert a wait time from milliseconds to seconds, concat this in a message and wait:
 
 ```go
-convertToSeconds := tasks.NewEvaluateExpression(this, jsii.String("Convert to seconds"), &EvaluateExpressionProps{
-	Expression: jsii.String("$.waitMilliseconds / 1000"),
-	ResultPath: jsii.String("$.waitSeconds"),
+convertToSeconds := tasks.NewEvaluateExpression(this, jsii.String("Convert to seconds"), &evaluateExpressionProps{
+	expression: jsii.String("$.waitMilliseconds / 1000"),
+	resultPath: jsii.String("$.waitSeconds"),
 })
 
-createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &EvaluateExpressionProps{
+createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &evaluateExpressionProps{
 	// Note: this is a string inside a string.
-	Expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	ResultPath: jsii.String("$.message"),
+	expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
+	runtime: lambda.runtime_NODEJS_14_X(),
+	resultPath: jsii.String("$.message"),
 })
 
-publishMessage := tasks.NewSnsPublish(this, jsii.String("Publish message"), &SnsPublishProps{
-	Topic: sns.NewTopic(this, jsii.String("cool-topic")),
-	Message: sfn.TaskInput_FromJsonPathAt(jsii.String("$.message")),
-	ResultPath: jsii.String("$.sns"),
+publishMessage := tasks.NewSnsPublish(this, jsii.String("Publish message"), &snsPublishProps{
+	topic: sns.NewTopic(this, jsii.String("cool-topic")),
+	message: sfn.taskInput.fromJsonPathAt(jsii.String("$.message")),
+	resultPath: jsii.String("$.sns"),
 })
 
-wait := sfn.NewWait(this, jsii.String("Wait"), &WaitProps{
-	Time: sfn.WaitTime_SecondsPath(jsii.String("$.waitSeconds")),
+wait := sfn.NewWait(this, jsii.String("Wait"), &waitProps{
+	time: sfn.waitTime.secondsPath(jsii.String("$.waitSeconds")),
 })
 
-sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	Definition: convertToSeconds.Next(createMessage).Next(publishMessage).*Next(wait),
+sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
+	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 })
 ```
 
@@ -147,10 +308,10 @@ import apigateway "github.com/aws/aws-cdk-go/awscdk"
 
 restApi := apigateway.NewRestApi(this, jsii.String("MyRestApi"))
 
-invokeTask := tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Call REST API"), &CallApiGatewayRestApiEndpointProps{
-	Api: restApi,
-	StageName: jsii.String("prod"),
-	Method: tasks.HttpMethod_GET,
+invokeTask := tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Call REST API"), &callApiGatewayRestApiEndpointProps{
+	api: restApi,
+	stageName: jsii.String("prod"),
+	method: tasks.httpMethod_GET,
 })
 ```
 
@@ -163,13 +324,13 @@ import apigateway "github.com/aws/aws-cdk-go/awscdk"
 var api restApi
 
 
-tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointProps{
-	Api: Api,
-	StageName: jsii.String("Stage"),
-	Method: tasks.HttpMethod_PUT,
-	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-	Headers: sfn.TaskInput_FromObject(map[string]interface{}{
-		"TaskToken": sfn.JsonPath_array(sfn.JsonPath_taskToken()),
+tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &callApiGatewayRestApiEndpointProps{
+	api: api,
+	stageName: jsii.String("Stage"),
+	method: tasks.httpMethod_PUT,
+	integrationPattern: sfn.integrationPattern_WAIT_FOR_TASK_TOKEN,
+	headers: sfn.taskInput.fromObject(map[string]interface{}{
+		"TaskToken": sfn.JsonPath.array(sfn.JsonPath.taskToken),
 	}),
 })
 ```
@@ -179,15 +340,14 @@ tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &CallApiGa
 The `CallApiGatewayHttpApiEndpoint` calls the HTTP API endpoint.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 
 httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 
-invokeTask := tasks.NewCallApiGatewayHttpApiEndpoint(this, jsii.String("Call HTTP API"), &CallApiGatewayHttpApiEndpointProps{
-	ApiId: httpApi.apiId,
-	ApiStack: awscdk.*stack_Of(httpApi),
-	Method: tasks.HttpMethod_GET,
+invokeTask := tasks.NewCallApiGatewayHttpApiEndpoint(this, jsii.String("Call HTTP API"), &callApiGatewayHttpApiEndpointProps{
+	apiId: httpApi.apiId,
+	apiStack: awscdk.*stack.of(httpApi),
+	method: tasks.httpMethod_GET,
 })
 ```
 
@@ -202,15 +362,15 @@ directly from your state machine, giving you access to over nine thousand API ac
 ```go
 var myBucket bucket
 
-getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &CallAwsServiceProps{
-	Service: jsii.String("s3"),
-	Action: jsii.String("getObject"),
-	Parameters: map[string]interface{}{
+getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &callAwsServiceProps{
+	service: jsii.String("s3"),
+	action: jsii.String("getObject"),
+	parameters: map[string]interface{}{
 		"Bucket": myBucket.bucketName,
-		"Key": sfn.JsonPath_stringAt(jsii.String("$.key")),
+		"Key": sfn.JsonPath.stringAt(jsii.String("$.key")),
 	},
-	IamResources: []*string{
-		myBucket.ArnForObjects(jsii.String("*")),
+	iamResources: []*string{
+		myBucket.arnForObjects(jsii.String("*")),
 	},
 })
 ```
@@ -224,38 +384,13 @@ Use the `iamAction` prop to manually specify the IAM action name in the case whe
 action name does not match with the API service/action name:
 
 ```go
-listBuckets := tasks.NewCallAwsService(this, jsii.String("ListBuckets"), &CallAwsServiceProps{
-	Service: jsii.String("s3"),
-	Action: jsii.String("listBuckets"),
-	IamResources: []*string{
+listBuckets := tasks.NewCallAwsService(this, jsii.String("ListBuckets"), &callAwsServiceProps{
+	service: jsii.String("s3"),
+	action: jsii.String("listBuckets"),
+	iamResources: []*string{
 		jsii.String("*"),
 	},
-	IamAction: jsii.String("s3:ListAllMyBuckets"),
-})
-```
-
-Use the `additionalIamStatements` prop to pass additional IAM statements that will be added to the
-state machine role's policy. Use it in the case where the call requires more than a single statement
-to be executed:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &CallAwsServiceProps{
-	Service: jsii.String("rekognition"),
-	Action: jsii.String("detectLabels"),
-	IamResources: []*string{
-		jsii.String("*"),
-	},
-	AdditionalIamStatements: []policyStatement{
-		iam.NewPolicyStatement(&PolicyStatementProps{
-			Actions: []*string{
-				jsii.String("s3:getObject"),
-			},
-			Resources: []*string{
-				jsii.String("arn:aws:s3:::my-bucket/*"),
-			},
-		}),
-	},
+	iamAction: jsii.String("s3:ListAllMyBuckets"),
 })
 ```
 
@@ -268,18 +403,18 @@ Step Functions supports [Athena](https://docs.aws.amazon.com/step-functions/late
 The [StartQueryExecution](https://docs.aws.amazon.com/athena/latest/APIReference/API_StartQueryExecution.html) API runs the SQL query statement.
 
 ```go
-startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &AthenaStartQueryExecutionProps{
-	QueryString: sfn.JsonPath_StringAt(jsii.String("$.queryString")),
-	QueryExecutionContext: &QueryExecutionContext{
-		DatabaseName: jsii.String("mydatabase"),
+startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
+	queryExecutionContext: &queryExecutionContext{
+		databaseName: jsii.String("mydatabase"),
 	},
-	ResultConfiguration: &ResultConfiguration{
-		EncryptionConfiguration: &EncryptionConfiguration{
-			EncryptionOption: tasks.EncryptionOption_S3_MANAGED,
+	resultConfiguration: &resultConfiguration{
+		encryptionConfiguration: &encryptionConfiguration{
+			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 		},
-		OutputLocation: &Location{
-			BucketName: jsii.String("query-results-bucket"),
-			ObjectKey: jsii.String("folder"),
+		outputLocation: &location{
+			bucketName: jsii.String("query-results-bucket"),
+			objectKey: jsii.String("folder"),
 		},
 	},
 })
@@ -290,8 +425,8 @@ startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("
 The [GetQueryExecution](https://docs.aws.amazon.com/athena/latest/APIReference/API_GetQueryExecution.html) API gets information about a single execution of a query.
 
 ```go
-getQueryExecutionJob := tasks.NewAthenaGetQueryExecution(this, jsii.String("Get Query Execution"), &AthenaGetQueryExecutionProps{
-	QueryExecutionId: sfn.JsonPath_StringAt(jsii.String("$.QueryExecutionId")),
+getQueryExecutionJob := tasks.NewAthenaGetQueryExecution(this, jsii.String("Get Query Execution"), &athenaGetQueryExecutionProps{
+	queryExecutionId: sfn.jsonPath.stringAt(jsii.String("$.QueryExecutionId")),
 })
 ```
 
@@ -300,8 +435,8 @@ getQueryExecutionJob := tasks.NewAthenaGetQueryExecution(this, jsii.String("Get 
 The [GetQueryResults](https://docs.aws.amazon.com/athena/latest/APIReference/API_GetQueryResults.html) API that streams the results of a single query execution specified by QueryExecutionId from S3.
 
 ```go
-getQueryResultsJob := tasks.NewAthenaGetQueryResults(this, jsii.String("Get Query Results"), &AthenaGetQueryResultsProps{
-	QueryExecutionId: sfn.JsonPath_StringAt(jsii.String("$.QueryExecutionId")),
+getQueryResultsJob := tasks.NewAthenaGetQueryResults(this, jsii.String("Get Query Results"), &athenaGetQueryResultsProps{
+	queryExecutionId: sfn.jsonPath.stringAt(jsii.String("$.QueryExecutionId")),
 })
 ```
 
@@ -310,8 +445,8 @@ getQueryResultsJob := tasks.NewAthenaGetQueryResults(this, jsii.String("Get Quer
 The [StopQueryExecution](https://docs.aws.amazon.com/athena/latest/APIReference/API_StopQueryExecution.html) API that stops a query execution.
 
 ```go
-stopQueryExecutionJob := tasks.NewAthenaStopQueryExecution(this, jsii.String("Stop Query Execution"), &AthenaStopQueryExecutionProps{
-	QueryExecutionId: sfn.JsonPath_StringAt(jsii.String("$.QueryExecutionId")),
+stopQueryExecutionJob := tasks.NewAthenaStopQueryExecution(this, jsii.String("Stop Query Execution"), &athenaStopQueryExecutionProps{
+	queryExecutionId: sfn.jsonPath.stringAt(jsii.String("$.QueryExecutionId")),
 })
 ```
 
@@ -324,16 +459,15 @@ Step Functions supports [Batch](https://docs.aws.amazon.com/step-functions/lates
 The [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API submits an AWS Batch job from a job definition.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import batch "github.com/aws/aws-cdk-go/awscdk"
-var batchJobDefinition batch.JobDefinition
-var batchQueue batch.JobQueue
+var batchJobDefinition jobDefinition
+var batchQueue jobQueue
 
 
-task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{
-	JobDefinitionArn: batchJobDefinition.jobDefinitionArn,
-	JobName: jsii.String("MyJob"),
-	JobQueueArn: batchQueue.jobQueueArn,
+task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &batchSubmitJobProps{
+	jobDefinitionArn: batchJobDefinition.jobDefinitionArn,
+	jobName: jsii.String("MyJob"),
+	jobQueueArn: batchQueue.jobQueueArn,
 })
 ```
 
@@ -346,12 +480,12 @@ Step Functions supports [CodeBuild](https://docs.aws.amazon.com/step-functions/l
 [StartBuild](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html) starts a CodeBuild Project by Project Name.
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
+import codebuild "github.com/aws/aws-cdk-go/awscdk"
 
 
-codebuildProject := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
-	ProjectName: jsii.String("MyTestProject"),
-	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+codebuildProject := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
+	projectName: jsii.String("MyTestProject"),
+	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]*string{
 			"build": map[string][]*string{
@@ -363,13 +497,13 @@ codebuildProject := codebuild.NewProject(this, jsii.String("Project"), &ProjectP
 	}),
 })
 
-task := tasks.NewCodeBuildStartBuild(this, jsii.String("Task"), &CodeBuildStartBuildProps{
-	Project: codebuildProject,
-	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
-	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
+task := tasks.NewCodeBuildStartBuild(this, jsii.String("Task"), &codeBuildStartBuildProps{
+	project: codebuildProject,
+	integrationPattern: sfn.integrationPattern_RUN_JOB,
+	environmentVariablesOverride: map[string]buildEnvironmentVariable{
 		"ZONE": &buildEnvironmentVariable{
 			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
-			"value": sfn.JsonPath_stringAt(jsii.String("$.envVariables.zone")),
+			"value": sfn.JsonPath.stringAt(jsii.String("$.envVariables.zone")),
 		},
 	},
 })
@@ -387,11 +521,11 @@ The [GetItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API
 ```go
 var myTable table
 
-tasks.NewDynamoGetItem(this, jsii.String("Get Item"), &DynamoGetItemProps{
-	Key: map[string]dynamoAttributeValue{
-		"messageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
+tasks.NewDynamoGetItem(this, jsii.String("Get Item"), &dynamoGetItemProps{
+	key: map[string]dynamoAttributeValue{
+		"messageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-007")),
 	},
-	Table: myTable,
+	table: myTable,
 })
 ```
 
@@ -402,13 +536,13 @@ The [PutItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API
 ```go
 var myTable table
 
-tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &DynamoPutItemProps{
-	Item: map[string]dynamoAttributeValue{
-		"MessageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
-		"Text": tasks.*dynamoAttributeValue_fromString(sfn.JsonPath_stringAt(jsii.String("$.bar"))),
-		"TotalCount": tasks.*dynamoAttributeValue_fromNumber(jsii.Number(10)),
+tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &dynamoPutItemProps{
+	item: map[string]dynamoAttributeValue{
+		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-007")),
+		"Text": tasks.*dynamoAttributeValue.fromString(sfn.JsonPath.stringAt(jsii.String("$.bar"))),
+		"TotalCount": tasks.*dynamoAttributeValue.fromNumber(jsii.Number(10)),
 	},
-	Table: myTable,
+	table: myTable,
 })
 ```
 
@@ -419,12 +553,12 @@ The [DeleteItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/
 ```go
 var myTable table
 
-tasks.NewDynamoDeleteItem(this, jsii.String("DeleteItem"), &DynamoDeleteItemProps{
-	Key: map[string]dynamoAttributeValue{
-		"MessageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
+tasks.NewDynamoDeleteItem(this, jsii.String("DeleteItem"), &dynamoDeleteItemProps{
+	key: map[string]dynamoAttributeValue{
+		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-007")),
 	},
-	Table: myTable,
-	ResultPath: sfn.JsonPath_DISCARD(),
+	table: myTable,
+	resultPath: sfn.jsonPath_DISCARD(),
 })
 ```
 
@@ -436,16 +570,16 @@ to the table if it does not already exist.
 ```go
 var myTable table
 
-tasks.NewDynamoUpdateItem(this, jsii.String("UpdateItem"), &DynamoUpdateItemProps{
-	Key: map[string]dynamoAttributeValue{
-		"MessageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
+tasks.NewDynamoUpdateItem(this, jsii.String("UpdateItem"), &dynamoUpdateItemProps{
+	key: map[string]dynamoAttributeValue{
+		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-007")),
 	},
-	Table: myTable,
-	ExpressionAttributeValues: map[string]*dynamoAttributeValue{
-		":val": tasks.*dynamoAttributeValue_numberFromString(sfn.JsonPath_stringAt(jsii.String("$.Item.TotalCount.N"))),
-		":rand": tasks.*dynamoAttributeValue_fromNumber(jsii.Number(20)),
+	table: myTable,
+	expressionAttributeValues: map[string]*dynamoAttributeValue{
+		":val": tasks.*dynamoAttributeValue.numberFromString(sfn.JsonPath.stringAt(jsii.String("$.Item.TotalCount.N"))),
+		":rand": tasks.*dynamoAttributeValue.fromNumber(jsii.Number(20)),
 	},
-	UpdateExpression: jsii.String("SET TotalCount = :val + :rand"),
+	updateExpression: jsii.String("SET TotalCount = :val + :rand"),
 })
 ```
 
@@ -473,41 +607,41 @@ The latest ACTIVE revision of the passed task definition is used for running the
 The following example runs a job from a task definition on EC2
 
 ```go
-vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
-	IsDefault: jsii.Boolean(true),
+vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+	isDefault: jsii.Boolean(true),
 })
 
-cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &ClusterProps{
-	Vpc: Vpc,
+cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &clusterProps{
+	vpc: vpc,
 })
-cluster.AddCapacity(jsii.String("DefaultAutoScalingGroup"), &AddCapacityOptions{
-	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
+cluster.addCapacity(jsii.String("DefaultAutoScalingGroup"), &addCapacityOptions{
+	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PUBLIC,
 	},
 })
 
-taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-	Compatibility: ecs.Compatibility_EC2,
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+	compatibility: ecs.compatibility_EC2,
 })
 
-taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
-	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
-	MemoryLimitMiB: jsii.Number(256),
+taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+	memoryLimitMiB: jsii.Number(256),
 })
 
-runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
-	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
-	Cluster: Cluster,
-	TaskDefinition: TaskDefinition,
-	LaunchTarget: tasks.NewEcsEc2LaunchTarget(&EcsEc2LaunchTargetOptions{
-		PlacementStrategies: []placementStrategy{
-			ecs.*placementStrategy_SpreadAcrossInstances(),
-			ecs.*placementStrategy_PackedByCpu(),
-			ecs.*placementStrategy_Randomly(),
+runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &ecsRunTaskProps{
+	integrationPattern: sfn.integrationPattern_RUN_JOB,
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	launchTarget: tasks.NewEcsEc2LaunchTarget(&ecsEc2LaunchTargetOptions{
+		placementStrategies: []placementStrategy{
+			ecs.*placementStrategy.spreadAcrossInstances(),
+			ecs.*placementStrategy.packedByCpu(),
+			ecs.*placementStrategy.randomly(),
 		},
-		PlacementConstraints: []placementConstraint{
-			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
+		placementConstraints: []placementConstraint{
+			ecs.*placementConstraint.memberOf(jsii.String("blieptuut")),
 		},
 	}),
 })
@@ -530,42 +664,42 @@ task definition is used for running the task. Learn more about
 The following example runs a job from a task definition on Fargate
 
 ```go
-vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
-	IsDefault: jsii.Boolean(true),
+vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+	isDefault: jsii.Boolean(true),
 })
 
-cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
-	Vpc: Vpc,
+cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &clusterProps{
+	vpc: vpc,
 })
 
-taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-	MemoryMiB: jsii.String("512"),
-	Cpu: jsii.String("256"),
-	Compatibility: ecs.Compatibility_FARGATE,
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+	memoryMiB: jsii.String("512"),
+	cpu: jsii.String("256"),
+	compatibility: ecs.compatibility_FARGATE,
 })
 
-containerDefinition := taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
-	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
-	MemoryLimitMiB: jsii.Number(256),
+containerDefinition := taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+	memoryLimitMiB: jsii.Number(256),
 })
 
-runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps{
-	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
-	Cluster: Cluster,
-	TaskDefinition: TaskDefinition,
-	AssignPublicIp: jsii.Boolean(true),
-	ContainerOverrides: []containerOverride{
+runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &ecsRunTaskProps{
+	integrationPattern: sfn.integrationPattern_RUN_JOB,
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	assignPublicIp: jsii.Boolean(true),
+	containerOverrides: []containerOverride{
 		&containerOverride{
-			ContainerDefinition: *ContainerDefinition,
-			Environment: []taskEnvironmentVariable{
+			containerDefinition: containerDefinition,
+			environment: []taskEnvironmentVariable{
 				&taskEnvironmentVariable{
-					Name: jsii.String("SOME_KEY"),
-					Value: sfn.JsonPath_StringAt(jsii.String("$.SomeKey")),
+					name: jsii.String("SOME_KEY"),
+					value: sfn.jsonPath.stringAt(jsii.String("$.SomeKey")),
 				},
 			},
 		},
 	},
-	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
+	launchTarget: tasks.NewEcsFargateLaunchTarget(),
 })
 ```
 
@@ -583,36 +717,36 @@ Creates and starts running a cluster (job flow).
 Corresponds to the [`runJobFlow`](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html) API in EMR.
 
 ```go
-clusterRole := iam.NewRole(this, jsii.String("ClusterRole"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+clusterRole := iam.NewRole(this, jsii.String("ClusterRole"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 })
 
-serviceRole := iam.NewRole(this, jsii.String("ServiceRole"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
+serviceRole := iam.NewRole(this, jsii.String("ServiceRole"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
 })
 
-autoScalingRole := iam.NewRole(this, jsii.String("AutoScalingRole"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
+autoScalingRole := iam.NewRole(this, jsii.String("AutoScalingRole"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
 })
 
-autoScalingRole.AssumeRolePolicy.AddStatements(
-iam.NewPolicyStatement(&PolicyStatementProps{
-	Effect: iam.Effect_ALLOW,
-	Principals: []iPrincipal{
+autoScalingRole.assumeRolePolicy.addStatements(
+iam.NewPolicyStatement(&policyStatementProps{
+	effect: iam.effect_ALLOW,
+	principals: []iPrincipal{
 		iam.NewServicePrincipal(jsii.String("application-autoscaling.amazonaws.com")),
 	},
-	Actions: []*string{
+	actions: []*string{
 		jsii.String("sts:AssumeRole"),
 	},
 }))
 
-tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
-	Instances: &InstancesConfigProperty{
+tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &emrCreateClusterProps{
+	instances: &instancesConfigProperty{
 	},
-	ClusterRole: ClusterRole,
-	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
-	ServiceRole: ServiceRole,
-	AutoScalingRole: AutoScalingRole,
+	clusterRole: clusterRole,
+	name: sfn.taskInput.fromJsonPathAt(jsii.String("$.ClusterName")).value,
+	serviceRole: serviceRole,
+	autoScalingRole: autoScalingRole,
 })
 ```
 
@@ -622,11 +756,11 @@ and 256 inclusive, where the default concurrency of 1 means no step concurrency 
 `stepConcurrencyLevel` requires the EMR release label to be 5.28.0 or above.
 
 ```go
-tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
-	Instances: &InstancesConfigProperty{
+tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &emrCreateClusterProps{
+	instances: &instancesConfigProperty{
 	},
-	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
-	StepConcurrencyLevel: jsii.Number(10),
+	name: sfn.taskInput.fromJsonPathAt(jsii.String("$.ClusterName")).value,
+	stepConcurrencyLevel: jsii.Number(10),
 })
 ```
 
@@ -638,9 +772,9 @@ terminated by user intervention, an API call, or a job-flow error.
 Corresponds to the [`setTerminationProtection`](https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr.html) API in EMR.
 
 ```go
-tasks.NewEmrSetClusterTerminationProtection(this, jsii.String("Task"), &EmrSetClusterTerminationProtectionProps{
-	ClusterId: jsii.String("ClusterId"),
-	TerminationProtected: jsii.Boolean(false),
+tasks.NewEmrSetClusterTerminationProtection(this, jsii.String("Task"), &emrSetClusterTerminationProtectionProps{
+	clusterId: jsii.String("ClusterId"),
+	terminationProtected: jsii.Boolean(false),
 })
 ```
 
@@ -650,8 +784,8 @@ Shuts down a cluster (job flow).
 Corresponds to the [`terminateJobFlows`](https://docs.aws.amazon.com/emr/latest/APIReference/API_TerminateJobFlows.html) API in EMR.
 
 ```go
-tasks.NewEmrTerminateCluster(this, jsii.String("Task"), &EmrTerminateClusterProps{
-	ClusterId: jsii.String("ClusterId"),
+tasks.NewEmrTerminateCluster(this, jsii.String("Task"), &emrTerminateClusterProps{
+	clusterId: jsii.String("ClusterId"),
 })
 ```
 
@@ -661,11 +795,11 @@ Adds a new step to a running cluster.
 Corresponds to the [`addJobFlowSteps`](https://docs.aws.amazon.com/emr/latest/APIReference/API_AddJobFlowSteps.html) API in EMR.
 
 ```go
-tasks.NewEmrAddStep(this, jsii.String("Task"), &EmrAddStepProps{
-	ClusterId: jsii.String("ClusterId"),
-	Name: jsii.String("StepName"),
-	Jar: jsii.String("Jar"),
-	ActionOnFailure: tasks.ActionOnFailure_CONTINUE,
+tasks.NewEmrAddStep(this, jsii.String("Task"), &emrAddStepProps{
+	clusterId: jsii.String("ClusterId"),
+	name: jsii.String("StepName"),
+	jar: jsii.String("Jar"),
+	actionOnFailure: tasks.actionOnFailure_CONTINUE,
 })
 ```
 
@@ -675,9 +809,9 @@ Cancels a pending step in a running cluster.
 Corresponds to the [`cancelSteps`](https://docs.aws.amazon.com/emr/latest/APIReference/API_CancelSteps.html) API in EMR.
 
 ```go
-tasks.NewEmrCancelStep(this, jsii.String("Task"), &EmrCancelStepProps{
-	ClusterId: jsii.String("ClusterId"),
-	StepId: jsii.String("StepId"),
+tasks.NewEmrCancelStep(this, jsii.String("Task"), &emrCancelStepProps{
+	clusterId: jsii.String("ClusterId"),
+	stepId: jsii.String("StepId"),
 })
 ```
 
@@ -689,11 +823,11 @@ fleet with the specified InstanceFleetName.
 Corresponds to the [`modifyInstanceFleet`](https://docs.aws.amazon.com/emr/latest/APIReference/API_ModifyInstanceFleet.html) API in EMR.
 
 ```go
-tasks.NewEmrModifyInstanceFleetByName(this, jsii.String("Task"), &EmrModifyInstanceFleetByNameProps{
-	ClusterId: jsii.String("ClusterId"),
-	InstanceFleetName: jsii.String("InstanceFleetName"),
-	TargetOnDemandCapacity: jsii.Number(2),
-	TargetSpotCapacity: jsii.Number(0),
+tasks.NewEmrModifyInstanceFleetByName(this, jsii.String("Task"), &emrModifyInstanceFleetByNameProps{
+	clusterId: jsii.String("ClusterId"),
+	instanceFleetName: jsii.String("InstanceFleetName"),
+	targetOnDemandCapacity: jsii.Number(2),
+	targetSpotCapacity: jsii.Number(0),
 })
 ```
 
@@ -704,11 +838,11 @@ Modifies the number of nodes and configuration settings of an instance group.
 Corresponds to the [`modifyInstanceGroups`](https://docs.aws.amazon.com/emr/latest/APIReference/API_ModifyInstanceGroups.html) API in EMR.
 
 ```go
-tasks.NewEmrModifyInstanceGroupByName(this, jsii.String("Task"), &EmrModifyInstanceGroupByNameProps{
-	ClusterId: jsii.String("ClusterId"),
-	InstanceGroupName: sfn.JsonPath_StringAt(jsii.String("$.InstanceGroupName")),
-	InstanceGroup: &InstanceGroupModifyConfigProperty{
-		InstanceCount: jsii.Number(1),
+tasks.NewEmrModifyInstanceGroupByName(this, jsii.String("Task"), &emrModifyInstanceGroupByNameProps{
+	clusterId: jsii.String("ClusterId"),
+	instanceGroupName: sfn.jsonPath.stringAt(jsii.String("$.InstanceGroupName")),
+	instanceGroup: &instanceGroupModifyConfigProperty{
+		instanceCount: jsii.Number(1),
 	},
 })
 ```
@@ -729,8 +863,8 @@ The [CreateVirtualCluster](https://docs.aws.amazon.com/emr-on-eks/latest/APIRefe
 The EKS cluster containing the Kubernetes namespace where the virtual cluster will be mapped can be passed in from the task input.
 
 ```go
-tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual Cluster"), &EmrContainersCreateVirtualClusterProps{
-	EksCluster: tasks.EksClusterInput_FromTaskInput(sfn.TaskInput_FromText(jsii.String("clusterId"))),
+tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual Cluster"), &emrContainersCreateVirtualClusterProps{
+	eksCluster: tasks.eksClusterInput.fromTaskInput(sfn.taskInput.fromText(jsii.String("clusterId"))),
 })
 ```
 
@@ -742,17 +876,17 @@ import eks "github.com/aws/aws-cdk-go/awscdk"
 var eksCluster cluster
 
 
-tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual Cluster"), &EmrContainersCreateVirtualClusterProps{
-	EksCluster: tasks.EksClusterInput_FromCluster(eksCluster),
+tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual Cluster"), &emrContainersCreateVirtualClusterProps{
+	eksCluster: tasks.eksClusterInput.fromCluster(eksCluster),
 })
 ```
 
 By default, the Kubernetes namespace that a virtual cluster maps to is "default", but a specific namespace within an EKS cluster can be selected.
 
 ```go
-tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual Cluster"), &EmrContainersCreateVirtualClusterProps{
-	EksCluster: tasks.EksClusterInput_FromTaskInput(sfn.TaskInput_FromText(jsii.String("clusterId"))),
-	EksNamespace: jsii.String("specified-namespace"),
+tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual Cluster"), &emrContainersCreateVirtualClusterProps{
+	eksCluster: tasks.eksClusterInput.fromTaskInput(sfn.taskInput.fromText(jsii.String("clusterId"))),
+	eksNamespace: jsii.String("specified-namespace"),
 })
 ```
 
@@ -761,8 +895,8 @@ tasks.NewEmrContainersCreateVirtualCluster(this, jsii.String("Create a Virtual C
 The [DeleteVirtualCluster](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.html) API deletes a virtual cluster.
 
 ```go
-tasks.NewEmrContainersDeleteVirtualCluster(this, jsii.String("Delete a Virtual Cluster"), &EmrContainersDeleteVirtualClusterProps{
-	VirtualClusterId: sfn.TaskInput_FromJsonPathAt(jsii.String("$.virtualCluster")),
+tasks.NewEmrContainersDeleteVirtualCluster(this, jsii.String("Delete a Virtual Cluster"), &emrContainersDeleteVirtualClusterProps{
+	virtualClusterId: sfn.taskInput.fromJsonPathAt(jsii.String("$.virtualCluster")),
 })
 ```
 
@@ -784,13 +918,13 @@ The following actions must be performed if the virtual cluster ID is supplied fr
 The job can be configured with spark submit parameters:
 
 ```go
-tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &EmrContainersStartJobRunProps{
-	VirtualCluster: tasks.VirtualClusterInput_FromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
-	ReleaseLabel: tasks.ReleaseLabel_EMR_6_2_0(),
-	JobDriver: &JobDriver{
-		SparkSubmitJobDriver: &SparkSubmitJobDriver{
-			EntryPoint: sfn.TaskInput_FromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
-			SparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
+tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &emrContainersStartJobRunProps{
+	virtualCluster: tasks.virtualClusterInput.fromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
+	releaseLabel: tasks.releaseLabel_EMR_6_2_0(),
+	jobDriver: &jobDriver{
+		sparkSubmitJobDriver: &sparkSubmitJobDriver{
+			entryPoint: sfn.taskInput.fromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
+			sparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
 		},
 	},
 })
@@ -799,19 +933,19 @@ tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Ru
 Configuring the job can also be done via application configuration:
 
 ```go
-tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &EmrContainersStartJobRunProps{
-	VirtualCluster: tasks.VirtualClusterInput_FromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
-	ReleaseLabel: tasks.ReleaseLabel_EMR_6_2_0(),
-	JobName: jsii.String("EMR-Containers-Job"),
-	JobDriver: &JobDriver{
-		SparkSubmitJobDriver: &SparkSubmitJobDriver{
-			EntryPoint: sfn.TaskInput_FromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
+tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &emrContainersStartJobRunProps{
+	virtualCluster: tasks.virtualClusterInput.fromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
+	releaseLabel: tasks.releaseLabel_EMR_6_2_0(),
+	jobName: jsii.String("EMR-Containers-Job"),
+	jobDriver: &jobDriver{
+		sparkSubmitJobDriver: &sparkSubmitJobDriver{
+			entryPoint: sfn.taskInput.fromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
 		},
 	},
-	ApplicationConfig: []applicationConfiguration{
+	applicationConfig: []applicationConfiguration{
 		&applicationConfiguration{
-			Classification: tasks.Classification_SPARK_DEFAULTS(),
-			Properties: map[string]*string{
+			classification: tasks.classification_SPARK_DEFAULTS(),
+			properties: map[string]*string{
 				"spark.executor.instances": jsii.String("1"),
 				"spark.executor.memory": jsii.String("512M"),
 			},
@@ -823,17 +957,17 @@ tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Ru
 Job monitoring can be enabled if `monitoring.logging` is set true. This automatically generates an S3 bucket and CloudWatch logs.
 
 ```go
-tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &EmrContainersStartJobRunProps{
-	VirtualCluster: tasks.VirtualClusterInput_FromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
-	ReleaseLabel: tasks.ReleaseLabel_EMR_6_2_0(),
-	JobDriver: &JobDriver{
-		SparkSubmitJobDriver: &SparkSubmitJobDriver{
-			EntryPoint: sfn.TaskInput_FromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
-			SparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
+tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &emrContainersStartJobRunProps{
+	virtualCluster: tasks.virtualClusterInput.fromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
+	releaseLabel: tasks.releaseLabel_EMR_6_2_0(),
+	jobDriver: &jobDriver{
+		sparkSubmitJobDriver: &sparkSubmitJobDriver{
+			entryPoint: sfn.taskInput.fromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
+			sparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
 		},
 	},
-	Monitoring: &Monitoring{
-		Logging: jsii.Boolean(true),
+	monitoring: &monitoring{
+		logging: jsii.Boolean(true),
 	},
 })
 ```
@@ -847,18 +981,18 @@ import logs "github.com/aws/aws-cdk-go/awscdk"
 logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))
 logBucket := s3.NewBucket(this, jsii.String("S3 Bucket"))
 
-tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &EmrContainersStartJobRunProps{
-	VirtualCluster: tasks.VirtualClusterInput_FromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
-	ReleaseLabel: tasks.ReleaseLabel_EMR_6_2_0(),
-	JobDriver: &JobDriver{
-		SparkSubmitJobDriver: &SparkSubmitJobDriver{
-			EntryPoint: sfn.TaskInput_FromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
-			SparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
+tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &emrContainersStartJobRunProps{
+	virtualCluster: tasks.virtualClusterInput.fromVirtualClusterId(jsii.String("de92jdei2910fwedz")),
+	releaseLabel: tasks.releaseLabel_EMR_6_2_0(),
+	jobDriver: &jobDriver{
+		sparkSubmitJobDriver: &sparkSubmitJobDriver{
+			entryPoint: sfn.taskInput.fromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
+			sparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
 		},
 	},
-	Monitoring: &Monitoring{
-		LogGroup: logGroup,
-		LogBucket: logBucket,
+	monitoring: &monitoring{
+		logGroup: logGroup,
+		logBucket: logBucket,
 	},
 })
 ```
@@ -866,15 +1000,15 @@ tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Ru
 Users can provide their own existing Job Execution Role.
 
 ```go
-tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &EmrContainersStartJobRunProps{
-	VirtualCluster: tasks.VirtualClusterInput_FromTaskInput(sfn.TaskInput_FromJsonPathAt(jsii.String("$.VirtualClusterId"))),
-	ReleaseLabel: tasks.ReleaseLabel_EMR_6_2_0(),
-	JobName: jsii.String("EMR-Containers-Job"),
-	ExecutionRole: iam.Role_FromRoleArn(this, jsii.String("Job-Execution-Role"), jsii.String("arn:aws:iam::xxxxxxxxxxxx:role/JobExecutionRole")),
-	JobDriver: &JobDriver{
-		SparkSubmitJobDriver: &SparkSubmitJobDriver{
-			EntryPoint: sfn.TaskInput_FromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
-			SparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
+tasks.NewEmrContainersStartJobRun(this, jsii.String("EMR Containers Start Job Run"), &emrContainersStartJobRunProps{
+	virtualCluster: tasks.virtualClusterInput.fromTaskInput(sfn.taskInput.fromJsonPathAt(jsii.String("$.VirtualClusterId"))),
+	releaseLabel: tasks.releaseLabel_EMR_6_2_0(),
+	jobName: jsii.String("EMR-Containers-Job"),
+	executionRole: iam.role.fromRoleArn(this, jsii.String("Job-Execution-Role"), jsii.String("arn:aws:iam::xxxxxxxxxxxx:role/JobExecutionRole")),
+	jobDriver: &jobDriver{
+		sparkSubmitJobDriver: &sparkSubmitJobDriver{
+			entryPoint: sfn.*taskInput.fromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
+			sparkSubmitParameters: jsii.String("--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"),
 		},
 	},
 })
@@ -895,18 +1029,18 @@ Corresponds to the [`call`](https://docs.aws.amazon.com/step-functions/latest/dg
 The following code snippet includes a Task state that uses eks:call to list the pods.
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
+import eks "github.com/aws/aws-cdk-go/awscdk"
 
 
-myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_18(),
-	ClusterName: jsii.String("myEksCluster"),
+myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &clusterProps{
+	version: eks.kubernetesVersion_V1_18(),
+	clusterName: jsii.String("myEksCluster"),
 })
 
-tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{
-	Cluster: myEksCluster,
-	HttpMethod: tasks.HttpMethods_GET,
-	HttpPath: jsii.String("/api/v1/namespaces/default/pods"),
+tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &eksCallProps{
+	cluster: myEksCluster,
+	httpMethod: tasks.httpMethods_GET,
+	httpPath: jsii.String("/api/v1/namespaces/default/pods"),
 })
 ```
 
@@ -928,19 +1062,19 @@ The following code snippet includes a Task state that uses events:putevents to s
 import events "github.com/aws/aws-cdk-go/awscdk"
 
 
-myEventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
-	EventBusName: jsii.String("MyEventBus1"),
+myEventBus := events.NewEventBus(this, jsii.String("EventBus"), &eventBusProps{
+	eventBusName: jsii.String("MyEventBus1"),
 })
 
-tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"), &EventBridgePutEventsProps{
-	Entries: []eventBridgePutEventsEntry{
+tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"), &eventBridgePutEventsProps{
+	entries: []eventBridgePutEventsEntry{
 		&eventBridgePutEventsEntry{
-			Detail: sfn.TaskInput_FromObject(map[string]interface{}{
+			detail: sfn.taskInput.fromObject(map[string]interface{}{
 				"Message": jsii.String("Hello from Step Functions!"),
 			}),
-			EventBus: myEventBus,
-			DetailType: jsii.String("MessageFromStepFunctions"),
-			Source: jsii.String("step.functions"),
+			eventBus: myEventBus,
+			detailType: jsii.String("MessageFromStepFunctions"),
+			source: jsii.String("step.functions"),
 		},
 	},
 })
@@ -953,13 +1087,13 @@ Step Functions supports [AWS Glue](https://docs.aws.amazon.com/step-functions/la
 You can call the [`StartJobRun`](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-StartJobRun) API from a `Task` state.
 
 ```go
-tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
-	GlueJobName: jsii.String("my-glue-job"),
-	Arguments: sfn.TaskInput_FromObject(map[string]interface{}{
+tasks.NewGlueStartJobRun(this, jsii.String("Task"), &glueStartJobRunProps{
+	glueJobName: jsii.String("my-glue-job"),
+	arguments: sfn.taskInput.fromObject(map[string]interface{}{
 		"key": jsii.String("value"),
 	}),
-	TaskTimeout: sfn.Timeout_Duration(awscdk.Duration_Minutes(jsii.Number(30))),
-	NotifyDelayAfter: awscdk.Duration_*Minutes(jsii.Number(5)),
+	timeout: awscdk.Duration.minutes(jsii.Number(30)),
+	notifyDelayAfter: awscdk.Duration.minutes(jsii.Number(5)),
 })
 ```
 
@@ -970,8 +1104,8 @@ Step Functions supports [AWS Glue DataBrew](https://docs.aws.amazon.com/step-fun
 You can call the [`StartJobRun`](https://docs.aws.amazon.com/databrew/latest/dg/API_StartJobRun.html) API from a `Task` state.
 
 ```go
-tasks.NewGlueDataBrewStartJobRun(this, jsii.String("Task"), &GlueDataBrewStartJobRunProps{
-	Name: jsii.String("databrew-job"),
+tasks.NewGlueDataBrewStartJobRun(this, jsii.String("Task"), &glueDataBrewStartJobRunProps{
+	name: jsii.String("databrew-job"),
 })
 ```
 
@@ -989,8 +1123,8 @@ by referencing the `$` path.
 ```go
 var fn function
 
-tasks.NewLambdaInvoke(this, jsii.String("Invoke with state input"), &LambdaInvokeProps{
-	LambdaFunction: fn,
+tasks.NewLambdaInvoke(this, jsii.String("Invoke with state input"), &lambdaInvokeProps{
+	lambdaFunction: fn,
 })
 ```
 
@@ -1006,17 +1140,17 @@ to reference the output of a Lambda executed before it.
 ```go
 var fn function
 
-tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &LambdaInvokeProps{
-	LambdaFunction: fn,
-	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
+tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	payload: sfn.taskInput.fromObject(map[string]interface{}{
 	}),
 })
 
 // use the output of fn as input
 // use the output of fn as input
-tasks.NewLambdaInvoke(this, jsii.String("Invoke with payload field in the state input"), &LambdaInvokeProps{
-	LambdaFunction: fn,
-	Payload: sfn.TaskInput_FromJsonPathAt(jsii.String("$.Payload")),
+tasks.NewLambdaInvoke(this, jsii.String("Invoke with payload field in the state input"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	payload: sfn.*taskInput.fromJsonPathAt(jsii.String("$.Payload")),
 })
 ```
 
@@ -1026,9 +1160,9 @@ the Lambda function response.
 ```go
 var fn function
 
-tasks.NewLambdaInvoke(this, jsii.String("Invoke and set function response as task output"), &LambdaInvokeProps{
-	LambdaFunction: fn,
-	OutputPath: jsii.String("$.Payload"),
+tasks.NewLambdaInvoke(this, jsii.String("Invoke and set function response as task output"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	outputPath: jsii.String("$.Payload"),
 })
 ```
 
@@ -1040,10 +1174,10 @@ integrationPattern, invocationType, clientContext, and qualifier properties.
 ```go
 var fn function
 
-tasks.NewLambdaInvoke(this, jsii.String("Invoke and combine function response with task input"), &LambdaInvokeProps{
-	LambdaFunction: fn,
-	PayloadResponseOnly: jsii.Boolean(true),
-	ResultPath: jsii.String("$.fn"),
+tasks.NewLambdaInvoke(this, jsii.String("Invoke and combine function response with task input"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	payloadResponseOnly: jsii.Boolean(true),
+	resultPath: jsii.String("$.fn"),
 })
 ```
 
@@ -1060,12 +1194,12 @@ to the Lambda.
 ```go
 var fn function
 
-tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &LambdaInvokeProps{
-	LambdaFunction: fn,
-	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
-		"token": sfn.JsonPath_taskToken(),
-		"input": sfn.JsonPath_stringAt(jsii.String("$.someField")),
+tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	integrationPattern: sfn.integrationPattern_WAIT_FOR_TASK_TOKEN,
+	payload: sfn.taskInput.fromObject(map[string]interface{}{
+		"token": sfn.JsonPath.taskToken,
+		"input": sfn.JsonPath.stringAt(jsii.String("$.someField")),
 	}),
 })
 ```
@@ -1095,34 +1229,34 @@ To set environment variables for the Docker container use the `environment` prop
 You can call the [`CreateTrainingJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html) API from a `Task` state.
 
 ```go
-tasks.NewSageMakerCreateTrainingJob(this, jsii.String("TrainSagemaker"), &SageMakerCreateTrainingJobProps{
-	TrainingJobName: sfn.JsonPath_StringAt(jsii.String("$.JobName")),
-	AlgorithmSpecification: &AlgorithmSpecification{
-		AlgorithmName: jsii.String("BlazingText"),
-		TrainingInputMode: tasks.InputMode_FILE,
+tasks.NewSageMakerCreateTrainingJob(this, jsii.String("TrainSagemaker"), &sageMakerCreateTrainingJobProps{
+	trainingJobName: sfn.jsonPath.stringAt(jsii.String("$.JobName")),
+	algorithmSpecification: &algorithmSpecification{
+		algorithmName: jsii.String("BlazingText"),
+		trainingInputMode: tasks.inputMode_FILE,
 	},
-	InputDataConfig: []channel{
+	inputDataConfig: []channel{
 		&channel{
-			ChannelName: jsii.String("train"),
-			DataSource: &DataSource{
-				S3DataSource: &S3DataSource{
-					S3DataType: tasks.S3DataType_S3_PREFIX,
-					S3Location: tasks.S3Location_FromJsonExpression(jsii.String("$.S3Bucket")),
+			channelName: jsii.String("train"),
+			dataSource: &dataSource{
+				s3DataSource: &s3DataSource{
+					s3DataType: tasks.s3DataType_S3_PREFIX,
+					s3Location: tasks.s3Location.fromJsonExpression(jsii.String("$.S3Bucket")),
 				},
 			},
 		},
 	},
-	OutputDataConfig: &OutputDataConfig{
-		S3OutputLocation: tasks.S3Location_FromBucket(s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("mybucket")), jsii.String("myoutputpath")),
+	outputDataConfig: &outputDataConfig{
+		s3OutputLocation: tasks.*s3Location.fromBucket(s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("mybucket")), jsii.String("myoutputpath")),
 	},
-	ResourceConfig: &ResourceConfig{
-		InstanceCount: jsii.Number(1),
-		InstanceType: ec2.NewInstanceType(sfn.JsonPath_*StringAt(jsii.String("$.InstanceType"))),
-		VolumeSize: awscdk.Size_Gibibytes(jsii.Number(50)),
+	resourceConfig: &resourceConfig{
+		instanceCount: jsii.Number(1),
+		instanceType: ec2.NewInstanceType(sfn.*jsonPath.stringAt(jsii.String("$.InstanceType"))),
+		volumeSize: awscdk.Size.gibibytes(jsii.Number(50)),
 	},
 	 // optional: default is 1 instance of EC2 `M4.XLarge` with `10GB` volume
-	StoppingCondition: &StoppingCondition{
-		MaxRuntime: awscdk.Duration_Hours(jsii.Number(2)),
+	stoppingCondition: &stoppingCondition{
+		maxRuntime: awscdk.Duration.hours(jsii.Number(2)),
 	},
 })
 ```
@@ -1132,28 +1266,28 @@ tasks.NewSageMakerCreateTrainingJob(this, jsii.String("TrainSagemaker"), &SageMa
 You can call the [`CreateTransformJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTransformJob.html) API from a `Task` state.
 
 ```go
-tasks.NewSageMakerCreateTransformJob(this, jsii.String("Batch Inference"), &SageMakerCreateTransformJobProps{
-	TransformJobName: jsii.String("MyTransformJob"),
-	ModelName: jsii.String("MyModelName"),
-	ModelClientOptions: &ModelClientOptions{
-		InvocationsMaxRetries: jsii.Number(3),
+tasks.NewSageMakerCreateTransformJob(this, jsii.String("Batch Inference"), &sageMakerCreateTransformJobProps{
+	transformJobName: jsii.String("MyTransformJob"),
+	modelName: jsii.String("MyModelName"),
+	modelClientOptions: &modelClientOptions{
+		invocationsMaxRetries: jsii.Number(3),
 		 // default is 0
-		InvocationsTimeout: awscdk.Duration_Minutes(jsii.Number(5)),
+		invocationsTimeout: awscdk.Duration.minutes(jsii.Number(5)),
 	},
-	TransformInput: &TransformInput{
-		TransformDataSource: &TransformDataSource{
-			S3DataSource: &TransformS3DataSource{
-				S3Uri: jsii.String("s3://inputbucket/train"),
-				S3DataType: tasks.S3DataType_S3_PREFIX,
+	transformInput: &transformInput{
+		transformDataSource: &transformDataSource{
+			s3DataSource: &transformS3DataSource{
+				s3Uri: jsii.String("s3://inputbucket/train"),
+				s3DataType: tasks.s3DataType_S3_PREFIX,
 			},
 		},
 	},
-	TransformOutput: &TransformOutput{
-		S3OutputPath: jsii.String("s3://outputbucket/TransformJobOutputPath"),
+	transformOutput: &transformOutput{
+		s3OutputPath: jsii.String("s3://outputbucket/TransformJobOutputPath"),
 	},
-	TransformResources: &TransformResources{
-		InstanceCount: jsii.Number(1),
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M4, ec2.InstanceSize_XLARGE),
+	transformResources: &transformResources{
+		instanceCount: jsii.Number(1),
+		instanceType: ec2.instanceType.of(ec2.instanceClass_M4, ec2.instanceSize_XLARGE),
 	},
 })
 ```
@@ -1163,9 +1297,9 @@ tasks.NewSageMakerCreateTransformJob(this, jsii.String("Batch Inference"), &Sage
 You can call the [`CreateEndpoint`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API from a `Task` state.
 
 ```go
-tasks.NewSageMakerCreateEndpoint(this, jsii.String("SagemakerEndpoint"), &SageMakerCreateEndpointProps{
-	EndpointName: sfn.JsonPath_StringAt(jsii.String("$.EndpointName")),
-	EndpointConfigName: sfn.JsonPath_*StringAt(jsii.String("$.EndpointConfigName")),
+tasks.NewSageMakerCreateEndpoint(this, jsii.String("SagemakerEndpoint"), &sageMakerCreateEndpointProps{
+	endpointName: sfn.jsonPath.stringAt(jsii.String("$.EndpointName")),
+	endpointConfigName: sfn.*jsonPath.stringAt(jsii.String("$.EndpointConfigName")),
 })
 ```
 
@@ -1174,14 +1308,14 @@ tasks.NewSageMakerCreateEndpoint(this, jsii.String("SagemakerEndpoint"), &SageMa
 You can call the [`CreateEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API from a `Task` state.
 
 ```go
-tasks.NewSageMakerCreateEndpointConfig(this, jsii.String("SagemakerEndpointConfig"), &SageMakerCreateEndpointConfigProps{
-	EndpointConfigName: jsii.String("MyEndpointConfig"),
-	ProductionVariants: []productionVariant{
+tasks.NewSageMakerCreateEndpointConfig(this, jsii.String("SagemakerEndpointConfig"), &sageMakerCreateEndpointConfigProps{
+	endpointConfigName: jsii.String("MyEndpointConfig"),
+	productionVariants: []productionVariant{
 		&productionVariant{
-			InitialInstanceCount: jsii.Number(2),
-			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
-			ModelName: jsii.String("MyModel"),
-			VariantName: jsii.String("awesome-variant"),
+			initialInstanceCount: jsii.Number(2),
+			instanceType: ec2.instanceType.of(ec2.instanceClass_M5, ec2.instanceSize_XLARGE),
+			modelName: jsii.String("MyModel"),
+			variantName: jsii.String("awesome-variant"),
 		},
 	},
 })
@@ -1192,12 +1326,12 @@ tasks.NewSageMakerCreateEndpointConfig(this, jsii.String("SagemakerEndpointConfi
 You can call the [`CreateModel`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API from a `Task` state.
 
 ```go
-tasks.NewSageMakerCreateModel(this, jsii.String("Sagemaker"), &SageMakerCreateModelProps{
-	ModelName: jsii.String("MyModel"),
-	PrimaryContainer: tasks.NewContainerDefinition(&ContainerDefinitionOptions{
-		Image: tasks.DockerImage_FromJsonExpression(sfn.JsonPath_StringAt(jsii.String("$.Model.imageName"))),
-		Mode: tasks.Mode_SINGLE_MODEL,
-		ModelS3Location: tasks.S3Location_FromJsonExpression(jsii.String("$.TrainingJob.ModelArtifacts.S3ModelArtifacts")),
+tasks.NewSageMakerCreateModel(this, jsii.String("Sagemaker"), &sageMakerCreateModelProps{
+	modelName: jsii.String("MyModel"),
+	primaryContainer: tasks.NewContainerDefinition(&containerDefinitionOptions{
+		image: tasks.dockerImage.fromJsonExpression(sfn.jsonPath.stringAt(jsii.String("$.Model.imageName"))),
+		mode: tasks.mode_SINGLE_MODEL,
+		modelS3Location: tasks.s3Location.fromJsonExpression(jsii.String("$.TrainingJob.ModelArtifacts.S3ModelArtifacts")),
 	}),
 })
 ```
@@ -1207,9 +1341,9 @@ tasks.NewSageMakerCreateModel(this, jsii.String("Sagemaker"), &SageMakerCreateMo
 You can call the [`UpdateEndpoint`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html) API from a `Task` state.
 
 ```go
-tasks.NewSageMakerUpdateEndpoint(this, jsii.String("SagemakerEndpoint"), &SageMakerUpdateEndpointProps{
-	EndpointName: sfn.JsonPath_StringAt(jsii.String("$.Endpoint.Name")),
-	EndpointConfigName: sfn.JsonPath_*StringAt(jsii.String("$.Endpoint.EndpointConfig")),
+tasks.NewSageMakerUpdateEndpoint(this, jsii.String("SagemakerEndpoint"), &sageMakerUpdateEndpointProps{
+	endpointName: sfn.jsonPath.stringAt(jsii.String("$.Endpoint.Name")),
+	endpointConfigName: sfn.*jsonPath.stringAt(jsii.String("$.Endpoint.EndpointConfig")),
 })
 ```
 
@@ -1223,18 +1357,18 @@ You can call the [`Publish`](https://docs.aws.amazon.com/sns/latest/api/API_Publ
 topic := sns.NewTopic(this, jsii.String("Topic"))
 
 // Use a field from the execution data as message.
-task1 := tasks.NewSnsPublish(this, jsii.String("Publish1"), &SnsPublishProps{
-	Topic: Topic,
-	IntegrationPattern: sfn.IntegrationPattern_REQUEST_RESPONSE,
-	Message: sfn.TaskInput_FromDataAt(jsii.String("$.state.message")),
-	MessageAttributes: map[string]messageAttribute{
+task1 := tasks.NewSnsPublish(this, jsii.String("Publish1"), &snsPublishProps{
+	topic: topic,
+	integrationPattern: sfn.integrationPattern_REQUEST_RESPONSE,
+	message: sfn.taskInput.fromDataAt(jsii.String("$.state.message")),
+	messageAttributes: map[string]messageAttribute{
 		"place": &messageAttribute{
-			"value": sfn.JsonPath_stringAt(jsii.String("$.place")),
+			"value": sfn.JsonPath.stringAt(jsii.String("$.place")),
 		},
 		"pic": &messageAttribute{
 			// BINARY must be explicitly set
 			"dataType": tasks.MessageAttributeDataType_BINARY,
-			"value": sfn.JsonPath_stringAt(jsii.String("$.pic")),
+			"value": sfn.JsonPath.stringAt(jsii.String("$.pic")),
 		},
 		"people": &messageAttribute{
 			"value": jsii.Number(4),
@@ -1252,11 +1386,11 @@ task1 := tasks.NewSnsPublish(this, jsii.String("Publish1"), &SnsPublishProps{
 
 // Combine a field from the execution data with
 // a literal object.
-task2 := tasks.NewSnsPublish(this, jsii.String("Publish2"), &SnsPublishProps{
-	Topic: Topic,
-	Message: sfn.TaskInput_FromObject(map[string]interface{}{
+task2 := tasks.NewSnsPublish(this, jsii.String("Publish2"), &snsPublishProps{
+	topic: topic,
+	message: sfn.*taskInput.fromObject(map[string]interface{}{
 		"field1": jsii.String("somedata"),
-		"field2": sfn.JsonPath_stringAt(jsii.String("$.field2")),
+		"field2": sfn.JsonPath.stringAt(jsii.String("$.field2")),
 	}),
 })
 ```
@@ -1271,25 +1405,25 @@ AWS Step Functions supports it's own [`StartExecution`](https://docs.aws.amazon.
 
 ```go
 // Define a state machine with one Pass state
-child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &StateMachineProps{
-	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"))),
+child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &stateMachineProps{
+	definition: sfn.chain.start(sfn.NewPass(this, jsii.String("PassState"))),
 })
 
 // Include the state machine in a Task state with callback pattern
-task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
-	StateMachine: child,
-	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-	Input: sfn.TaskInput_FromObject(map[string]interface{}{
-		"token": sfn.JsonPath_taskToken(),
+task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &stepFunctionsStartExecutionProps{
+	stateMachine: child,
+	integrationPattern: sfn.integrationPattern_WAIT_FOR_TASK_TOKEN,
+	input: sfn.taskInput.fromObject(map[string]interface{}{
+		"token": sfn.JsonPath.taskToken,
 		"foo": jsii.String("bar"),
 	}),
-	Name: jsii.String("MyExecutionName"),
+	name: jsii.String("MyExecutionName"),
 })
 
 // Define a second state machine with the Task state above
 // Define a second state machine with the Task state above
-sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &StateMachineProps{
-	Definition: task,
+sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &stateMachineProps{
+	definition: task,
 })
 ```
 
@@ -1300,9 +1434,9 @@ executions from parent executions, making it easier to trace execution flow acro
 ```go
 var child stateMachine
 
-task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
-	StateMachine: child,
-	AssociateWithParent: jsii.Boolean(true),
+task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &stepFunctionsStartExecutionProps{
+	stateMachine: child,
+	associateWithParent: jsii.Boolean(true),
 })
 ```
 
@@ -1332,27 +1466,8 @@ The following example creates an activity and creates a task that invokes the ac
 ```go
 submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
 
-tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &StepFunctionsInvokeActivityProps{
-	Activity: submitJobActivity,
-})
-```
-
-Use the [Parameters](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters) field to create a collection of key-value pairs that are passed as input.
-The values of each can either be static values that you include in your state machine definition, or selected from either the input or the context object with a path.
-
-```go
-submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
-
-tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &StepFunctionsInvokeActivityProps{
-	Activity: submitJobActivity,
-	Parameters: map[string]interface{}{
-		"comment": jsii.String("Selecting what I care about."),
-		"MyDetails": map[string]interface{}{
-			"size": sfn.JsonPath_stringAt(jsii.String("$.product.details.size")),
-			"exists": sfn.JsonPath_stringAt(jsii.String("$.product.availability")),
-			"StaticValue": jsii.String("foo"),
-		},
-	},
+tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
+	activity: submitJobActivity,
 })
 ```
 
@@ -1367,18 +1482,18 @@ to send a message to an SQS queue.
 queue := sqs.NewQueue(this, jsii.String("Queue"))
 
 // Use a field from the execution data as message.
-task1 := tasks.NewSqsSendMessage(this, jsii.String("Send1"), &SqsSendMessageProps{
-	Queue: Queue,
-	MessageBody: sfn.TaskInput_FromJsonPathAt(jsii.String("$.message")),
+task1 := tasks.NewSqsSendMessage(this, jsii.String("Send1"), &sqsSendMessageProps{
+	queue: queue,
+	messageBody: sfn.taskInput.fromJsonPathAt(jsii.String("$.message")),
 })
 
 // Combine a field from the execution data with
 // a literal object.
-task2 := tasks.NewSqsSendMessage(this, jsii.String("Send2"), &SqsSendMessageProps{
-	Queue: Queue,
-	MessageBody: sfn.TaskInput_FromObject(map[string]interface{}{
+task2 := tasks.NewSqsSendMessage(this, jsii.String("Send2"), &sqsSendMessageProps{
+	queue: queue,
+	messageBody: sfn.*taskInput.fromObject(map[string]interface{}{
 		"field1": jsii.String("somedata"),
-		"field2": sfn.JsonPath_stringAt(jsii.String("$.field2")),
+		"field2": sfn.JsonPath.stringAt(jsii.String("$.field2")),
 	}),
 })
 ```

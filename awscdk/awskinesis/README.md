@@ -25,8 +25,8 @@ Using the CDK, a new Kinesis stream can be created as part of the stack using th
 your own identifier to the stream. If not, CloudFormation will generate a name.
 
 ```go
-kinesis.NewStream(this, jsii.String("MyFirstStream"), &StreamProps{
-	StreamName: jsii.String("my-awesome-stream"),
+kinesis.NewStream(this, jsii.String("MyFirstStream"), &streamProps{
+	streamName: jsii.String("my-awesome-stream"),
 })
 ```
 
@@ -35,10 +35,10 @@ to specify how long the data in the shards should remain accessible.
 Read more at [Creating and Managing Streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html)
 
 ```go
-kinesis.NewStream(this, jsii.String("MyFirstStream"), &StreamProps{
-	StreamName: jsii.String("my-awesome-stream"),
-	ShardCount: jsii.Number(3),
-	RetentionPeriod: awscdk.Duration_Hours(jsii.Number(48)),
+kinesis.NewStream(this, jsii.String("MyFirstStream"), &streamProps{
+	streamName: jsii.String("my-awesome-stream"),
+	shardCount: jsii.Number(3),
+	retentionPeriod: awscdk.Duration.hours(jsii.Number(48)),
 })
 ```
 
@@ -57,8 +57,8 @@ You can enable encryption on your stream with a user-managed key by specifying t
 A KMS key will be created for you and associated with the stream.
 
 ```go
-kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-	Encryption: kinesis.StreamEncryption_KMS,
+kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &streamProps{
+	encryption: kinesis.streamEncryption_KMS,
 })
 ```
 
@@ -67,9 +67,9 @@ You can also supply your own external KMS key to use for stream encryption by sp
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 
-kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-	Encryption: kinesis.StreamEncryption_KMS,
-	EncryptionKey: key,
+kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &streamProps{
+	encryption: kinesis.streamEncryption_KMS,
+	encryptionKey: key,
 })
 ```
 
@@ -80,15 +80,15 @@ Any Kinesis stream that has been created outside the stack can be imported into 
 Streams can be imported by their ARN via the `Stream.fromStreamArn()` API
 
 ```go
-importedStream := kinesis.Stream_FromStreamArn(this, jsii.String("ImportedStream"), jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/f3j09j2230j"))
+importedStream := kinesis.stream.fromStreamArn(this, jsii.String("ImportedStream"), jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/f3j09j2230j"))
 ```
 
 Encrypted Streams can also be imported by their attributes via the `Stream.fromStreamAttributes()` API
 
 ```go
-importedStream := kinesis.Stream_FromStreamAttributes(this, jsii.String("ImportedEncryptedStream"), &StreamAttributes{
-	StreamArn: jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/f3j09j2230j"),
-	EncryptionKey: kms.Key_FromKeyArn(this, jsii.String("key"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")),
+importedStream := kinesis.stream.fromStreamAttributes(this, jsii.String("ImportedEncryptedStream"), &streamAttributes{
+	streamArn: jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/f3j09j2230j"),
+	encryptionKey: kms.key.fromKeyArn(this, jsii.String("key"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")),
 })
 ```
 
@@ -108,13 +108,13 @@ Grant `read` access to a stream by calling the `grantRead()` API.
 If the stream has an encryption key, read permissions will also be granted to the key.
 
 ```go
-lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
-	Description: jsii.String("Example role..."),
+lambdaRole := iam.NewRole(this, jsii.String("Role"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+	description: jsii.String("Example role..."),
 })
 
-stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-	Encryption: kinesis.StreamEncryption_KMS,
+stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &streamProps{
+	encryption: kinesis.streamEncryption_KMS,
 })
 
 // give lambda permissions to read stream
@@ -135,13 +135,13 @@ Grant `write` permissions to a stream is provided by calling the `grantWrite()` 
 If the stream has an encryption key, write permissions will also be granted to the key.
 
 ```go
-lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
-	Description: jsii.String("Example role..."),
+lambdaRole := iam.NewRole(this, jsii.String("Role"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+	description: jsii.String("Example role..."),
 })
 
-stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-	Encryption: kinesis.StreamEncryption_KMS,
+stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &streamProps{
+	encryption: kinesis.streamEncryption_KMS,
 })
 
 // give lambda permissions to write to stream
@@ -181,7 +181,7 @@ stream.metric(jsii.String("GetRecords.Success"))
 stream.metricGetRecordsSuccess()
 
 // using pre-defined and overriding the statistic
-stream.metricGetRecordsSuccess(&MetricOptions{
-	Statistic: jsii.String("Maximum"),
+stream.metricGetRecordsSuccess(&metricOptions{
+	statistic: jsii.String("Maximum"),
 })
 ```

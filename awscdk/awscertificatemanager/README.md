@@ -28,14 +28,12 @@ If Amazon Route 53 is your DNS provider for the requested domain, the DNS record
 created automatically:
 
 ```go
-myHostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &HostedZoneProps{
-	ZoneName: jsii.String("example.com"),
+myHostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &hostedZoneProps{
+	zoneName: jsii.String("example.com"),
 })
-acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-	DomainName: jsii.String("hello.example.com"),
-	CertificateName: jsii.String("Hello World Service"),
-	 // Optionally provide an certificate name
-	Validation: acm.CertificateValidation_FromDns(myHostedZone),
+acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
+	domainName: jsii.String("hello.example.com"),
+	validation: acm.certificateValidation.fromDns(myHostedZone),
 })
 ```
 
@@ -43,29 +41,29 @@ If Route 53 is not your DNS provider, the DNS records must be added manually and
 creating until the records are added.
 
 ```go
-acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-	DomainName: jsii.String("hello.example.com"),
-	Validation: acm.CertificateValidation_FromDns(),
+acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
+	domainName: jsii.String("hello.example.com"),
+	validation: acm.certificateValidation.fromDns(),
 })
 ```
 
 When working with multiple domains, use the `CertificateValidation.fromDnsMultiZone()`:
 
 ```go
-exampleCom := route53.NewHostedZone(this, jsii.String("ExampleCom"), &HostedZoneProps{
-	ZoneName: jsii.String("example.com"),
+exampleCom := route53.NewHostedZone(this, jsii.String("ExampleCom"), &hostedZoneProps{
+	zoneName: jsii.String("example.com"),
 })
-exampleNet := route53.NewHostedZone(this, jsii.String("ExampleNet"), &HostedZoneProps{
-	ZoneName: jsii.String("example.net"),
+exampleNet := route53.NewHostedZone(this, jsii.String("ExampleNet"), &hostedZoneProps{
+	zoneName: jsii.String("example.net"),
 })
 
-cert := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-	DomainName: jsii.String("test.example.com"),
-	SubjectAlternativeNames: []*string{
+cert := acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
+	domainName: jsii.String("test.example.com"),
+	subjectAlternativeNames: []*string{
 		jsii.String("cool.example.com"),
 		jsii.String("test.example.net"),
 	},
-	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]iHostedZone{
+	validation: acm.certificateValidation.fromDnsMultiZone(map[string]iHostedZone{
 		"test.example.com": exampleCom,
 		"cool.example.com": exampleCom,
 		"test.example.net": exampleNet,
@@ -83,52 +81,25 @@ See [Validate with Email](https://docs.aws.amazon.com/acm/latest/userguide/gs-ac
 in the AWS Certificate Manager User Guide.
 
 ```go
-acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-	DomainName: jsii.String("hello.example.com"),
-	Validation: acm.CertificateValidation_FromEmail(),
+acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
+	domainName: jsii.String("hello.example.com"),
+	validation: acm.certificateValidation.fromEmail(),
 })
 ```
 
 ## Cross-region Certificates
 
 ACM certificates that are used with CloudFront -- or higher-level constructs which rely on CloudFront -- must be in the `us-east-1` region.
-CloudFormation allows you to create a Stack with a CloudFront distribution in any region. In order
-to create an ACM certificate in us-east-1 and reference it in a CloudFront distribution is a
-different region, it is recommended to perform a multi stack deployment.
-
-Enable the Stack property `crossRegionReferences`
-in order to access the cross stack/region certificate.
-
-> **This feature is currently experimental**
+The `DnsValidatedCertificate` construct exists to facilitate creating these certificates cross-region. This resource can only be used with
+Route53-based DNS validation.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
-	Env: &Environment{
-		Region: jsii.String("us-east-1"),
-	},
-	CrossRegionReferences: jsii.Boolean(true),
-})
-cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
-	DomainName: jsii.String("*.example.com"),
-	Validation: acm.CertificateValidation_FromDns(awscdk.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("ZONE_ID"))),
-})
+var myHostedZone hostedZone
 
-stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
-	Env: &Environment{
-		Region: jsii.String("us-east-2"),
-	},
-	CrossRegionReferences: jsii.Boolean(true),
-})
-
-cloudfront.NewDistribution(stack2, jsii.String("Distribution"), map[string]interface{}{
-	"defaultBehavior": map[string]interface{}{
-		"origin": origins.NewHttpOrigin(jsii.String("example.com")),
-	},
-	"domainNames": []*string{
-		jsii.String("dev.example.com"),
-	},
-	"certificate": cert,
+acm.NewDnsValidatedCertificate(this, jsii.String("CrossRegionCertificate"), &dnsValidatedCertificateProps{
+	domainName: jsii.String("hello.example.com"),
+	hostedZone: myHostedZone,
+	region: jsii.String("us-east-1"),
 })
 ```
 
@@ -140,25 +111,14 @@ AWS Certificate Manager can create [private certificates](https://docs.aws.amazo
 import acmpca "github.com/aws/aws-cdk-go/awscdk"
 
 
-acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &PrivateCertificateProps{
-	DomainName: jsii.String("test.example.com"),
-	SubjectAlternativeNames: []*string{
+acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &privateCertificateProps{
+	domainName: jsii.String("test.example.com"),
+	subjectAlternativeNames: []*string{
 		jsii.String("cool.example.com"),
 		jsii.String("test.example.net"),
 	},
 	 // optional
-	CertificateAuthority: acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CA"), jsii.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/023077d8-2bfa-4eb0-8f22-05c96deade77")),
-})
-```
-
-## Requesting certificates without transparency logging
-
-Transparency logging can be opted out of for AWS Certificate Manager certificates. See [opting out of certificate transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency) for limits.
-
-```go
-acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-	DomainName: jsii.String("test.example.com"),
-	TransparencyLoggingEnabled: jsii.Boolean(false),
+	certificateAuthority: acmpca.certificateAuthority.fromCertificateAuthorityArn(this, jsii.String("CA"), jsii.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/023077d8-2bfa-4eb0-8f22-05c96deade77")),
 })
 ```
 
@@ -168,7 +128,7 @@ If you want to import an existing certificate, you can do so from its ARN:
 
 ```go
 arn := "arn:aws:..."
-certificate := acm.Certificate_FromCertificateArn(this, jsii.String("Certificate"), arn)
+certificate := acm.certificate.fromCertificateArn(this, jsii.String("Certificate"), arn)
 ```
 
 ## Sharing between Stacks
@@ -190,13 +150,13 @@ import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
 var myHostedZone hostedZone
 
-certificate := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-	DomainName: jsii.String("hello.example.com"),
-	Validation: acm.CertificateValidation_FromDns(myHostedZone),
+certificate := acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
+	domainName: jsii.String("hello.example.com"),
+	validation: acm.certificateValidation.fromDns(myHostedZone),
 })
-certificate.metricDaysToExpiry().CreateAlarm(this, jsii.String("Alarm"), &CreateAlarmOptions{
-	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_THRESHOLD,
-	EvaluationPeriods: jsii.Number(1),
-	Threshold: jsii.Number(45),
+certificate.metricDaysToExpiry().createAlarm(this, jsii.String("Alarm"), &createAlarmOptions{
+	comparisonOperator: cloudwatch.comparisonOperator_LESS_THAN_THRESHOLD,
+	evaluationPeriods: jsii.Number(1),
+	threshold: jsii.Number(45),
 })
 ```
