@@ -9,7 +9,17 @@ handles the event (e.g. creates a resource) and sends back a response to CloudFo
 
 The `@aws-cdk/custom-resources.Provider` construct is a "mini-framework" for
 implementing providers for AWS CloudFormation custom resources. The framework offers a high-level API which makes it easier to implement robust
-and powerful custom resources and includes the following capabilities:
+and powerful custom resources. If you are looking to implement a custom resource provider, we recommend
+you use this module unless you have good reasons not to. For an overview of different provider types you
+could be using, see the [Custom Resource Providers section in the core library documentation](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#custom-resource-providers).
+
+> **N.B.**: if you use the provider framework in this module you will write AWS Lambda Functions that look a lot like, but aren't exactly the same as the Lambda Functions you would write if you wrote CloudFormation Custom Resources directly, without this framework.
+>
+> Specifically, to report success or failure, have your Lambda Function exit in the right way: return data for success, or throw an
+> exception for failure. *Do not* post the success or failure of your custom resource to an HTTPS URL as the CloudFormation
+> documentation tells you to do.
+
+The framework has the following capabilities:
 
 * Handles responses to AWS CloudFormation and protects against blocked
   deployments
@@ -27,20 +37,20 @@ var isComplete function
 var myRole role
 
 
-myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &providerProps{
-	onEventHandler: onEvent,
-	isCompleteHandler: isComplete,
+myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
+	OnEventHandler: onEvent,
+	IsCompleteHandler: isComplete,
 	 // optional async "waiter"
-	logRetention: logs.retentionDays_ONE_DAY,
+	LogRetention: logs.RetentionDays_ONE_DAY,
 	 // default is INFINITE
-	role: myRole,
+	Role: myRole,
 })
 
-awscdk.NewCustomResource(this, jsii.String("Resource1"), &customResourceProps{
-	serviceToken: myProvider.serviceToken,
+awscdk.NewCustomResource(this, jsii.String("Resource1"), &CustomResourceProps{
+	ServiceToken: myProvider.ServiceToken,
 })
-awscdk.NewCustomResource(this, jsii.String("Resource2"), &customResourceProps{
-	serviceToken: myProvider.serviceToken,
+awscdk.NewCustomResource(this, jsii.String("Resource2"), &CustomResourceProps{
+	ServiceToken: myProvider.*ServiceToken,
 })
 ```
 
@@ -82,6 +92,9 @@ def on_delete(event):
   print("delete resource %s" % physical_id)
   # ...
 ```
+
+> When writing your handlers, there are a couple of non-obvious corner cases you need to
+> pay attention to. See the [important cases to handle](#important-cases-to-handle) section for more information.
 
 Users may also provide an additional handler called `isComplete`, for cases
 where the lifecycle operation cannot be completed immediately. The
@@ -278,16 +291,16 @@ The following example grants the `onEvent` handler `s3:GetObject*` permissions
 to all buckets:
 
 ```go
-lambda.NewFunction(this, jsii.String("OnEventHandler"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromInline(jsii.String("my code")),
-	initialPolicy: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
+lambda.NewFunction(this, jsii.String("OnEventHandler"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String("my code")),
+	InitialPolicy: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("s3:GetObject*"),
 			},
-			resources: []*string{
+			Resources: []*string{
 				jsii.String("*"),
 			},
 		}),
@@ -315,8 +328,8 @@ This module includes a few examples for custom resource implementations:
 
 Provisions an object in an S3 bucket with textual contents. See the source code
 for the
-[construct](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/custom-resources/test/provider-framework/integration-test-fixtures/s3-file.ts) and
-[handler](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/custom-resources/test/provider-framework/integration-test-fixtures/s3-file-handler/index.ts).
+[construct](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resources/test/provider-framework/integration-test-fixtures/s3-file.ts) and
+[handler](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resources/test/provider-framework/integration-test-fixtures/s3-file-handler/index.ts).
 
 The following example will create the file `folder/file1.txt` inside `myBucket`
 with the contents `hello!`.
@@ -377,12 +390,12 @@ var onEvent function
 var isComplete function
 var myRole role
 
-myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &providerProps{
-	onEventHandler: onEvent,
-	isCompleteHandler: isComplete,
-	logRetention: logs.retentionDays_ONE_DAY,
-	role: myRole,
-	providerFunctionName: jsii.String("the-lambda-name"),
+myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
+	OnEventHandler: onEvent,
+	IsCompleteHandler: isComplete,
+	LogRetention: logs.RetentionDays_ONE_DAY,
+	Role: myRole,
+	ProviderFunctionName: jsii.String("the-lambda-name"),
 })
 ```
 
@@ -412,8 +425,9 @@ the `installLatestAwsSdk` prop to `false`.
 
 ### Custom Resource Execution Policy
 
-You must provide the `policy` property defining the IAM Policy that will be applied to the API calls.
-The library provides two factory methods to quickly configure this:
+The `policy` property defines the IAM Policy that will be applied to the API calls. This must be provided
+if an existing `role` is not specified and is optional otherwise. The library provides two factory methods
+to quickly configure this:
 
 * **`AwsCustomResourcePolicy.fromSdkCalls`** - Use this to auto-generate IAM
   Policy statements based on the configured SDK calls. Keep two things in mind
@@ -439,28 +453,28 @@ resources.
 Chained API calls can be achieved by creating dependencies:
 
 ```go
-awsCustom1 := cr.NewAwsCustomResource(this, jsii.String("API1"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		service: jsii.String("..."),
-		action: jsii.String("..."),
-		physicalResourceId: cr.physicalResourceId.of(jsii.String("...")),
+awsCustom1 := cr.NewAwsCustomResource(this, jsii.String("API1"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		Service: jsii.String("..."),
+		Action: jsii.String("..."),
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("...")),
 	},
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 
-awsCustom2 := cr.NewAwsCustomResource(this, jsii.String("API2"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		service: jsii.String("..."),
-		action: jsii.String("..."),
-		parameters: map[string]*string{
+awsCustom2 := cr.NewAwsCustomResource(this, jsii.String("API2"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		Service: jsii.String("..."),
+		Action: jsii.String("..."),
+		Parameters: map[string]*string{
 			"text": awsCustom1.getResponseField(jsii.String("Items.0.text")),
 		},
-		physicalResourceId: cr.*physicalResourceId.of(jsii.String("...")),
+		PhysicalResourceId: cr.PhysicalResourceId_*Of(jsii.String("...")),
 	},
-	policy: cr.*awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_*FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 ```
@@ -470,25 +484,25 @@ awsCustom2 := cr.NewAwsCustomResource(this, jsii.String("API2"), &awsCustomResou
 Some AWS APIs may require passing the physical resource id in as a parameter for doing updates and deletes. You can pass it by using `PhysicalResourceIdReference`.
 
 ```go
-awsCustom := cr.NewAwsCustomResource(this, jsii.String("aws-custom"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		service: jsii.String("..."),
-		action: jsii.String("..."),
-		parameters: map[string]*string{
+awsCustom := cr.NewAwsCustomResource(this, jsii.String("aws-custom"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		Service: jsii.String("..."),
+		Action: jsii.String("..."),
+		Parameters: map[string]*string{
 			"text": jsii.String("..."),
 		},
-		physicalResourceId: cr.physicalResourceId.of(jsii.String("...")),
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("...")),
 	},
-	onUpdate: &awsSdkCall{
-		service: jsii.String("..."),
-		action: jsii.String("..."),
-		parameters: map[string]interface{}{
+	OnUpdate: &AwsSdkCall{
+		Service: jsii.String("..."),
+		Action: jsii.String("..."),
+		Parameters: map[string]interface{}{
 			"text": jsii.String("..."),
 			"resourceId": cr.NewPhysicalResourceIdReference(),
 		},
 	},
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 ```
@@ -514,20 +528,42 @@ the Lambda function implementing the custom resource:
 ```go
 var myRole role
 
-cr.NewAwsCustomResource(this, jsii.String("Customized"), &awsCustomResourceProps{
-	role: myRole,
+cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
+	Role: myRole,
 	 // must be assumable by the `lambda.amazonaws.com` service principal
-	timeout: awscdk.Duration.minutes(jsii.Number(10)),
+	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
 	 // defaults to 2 minutes
-	logRetention: logs.retentionDays_ONE_WEEK,
+	LogRetention: logs.RetentionDays_ONE_WEEK,
 	 // defaults to never delete logs
-	functionName: jsii.String("my-custom-name"),
+	FunctionName: jsii.String("my-custom-name"),
 	 // defaults to a CloudFormation generated name
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 ```
+
+Additionally, the Lambda function can be placed in a private VPC by using the `vpc`
+and `vpcSubnets` properties.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var myVpc ec2.Vpc
+
+cr.NewAwsCustomResource(this, jsii.String("CustomizedInVpc"), &AwsCustomResourceProps{
+	Vpc: Vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.subnetType_PRIVATE_NAT,
+	},
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
+	}),
+})
+```
+
+Note that Lambda functions in a VPC
+[require Network Address Translation (NAT) in order to access the internet](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html#vpc-internet).
+The subnets specified in `vpcSubnets` must be private subnets.
 
 ### Restricting the output of the Custom Resource
 
@@ -536,21 +572,21 @@ objects. If your API call returns an object that exceeds this limit, you can res
 the data returned by the custom resource to specific paths in the API response:
 
 ```go
-cr.NewAwsCustomResource(this, jsii.String("ListObjects"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		service: jsii.String("s3"),
-		action: jsii.String("listObjectsV2"),
-		parameters: map[string]*string{
+cr.NewAwsCustomResource(this, jsii.String("ListObjects"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		Service: jsii.String("s3"),
+		Action: jsii.String("listObjectsV2"),
+		Parameters: map[string]*string{
 			"Bucket": jsii.String("my-bucket"),
 		},
-		physicalResourceId: cr.physicalResourceId.of(jsii.String("id")),
-		outputPaths: []*string{
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
+		OutputPaths: []*string{
 			jsii.String("Contents.0.Key"),
 			jsii.String("Contents.1.Key"),
 		},
 	},
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 ```
@@ -560,79 +596,49 @@ path in `PhysicalResourceId.fromResponse()`.
 
 ### Custom Resource Examples
 
-#### Verify a domain with SES
-
-```go
-import route53 "github.com/aws/aws-cdk-go/awscdk"
-
-var zone hostedZone
-
-
-verifyDomainIdentity := cr.NewAwsCustomResource(this, jsii.String("VerifyDomainIdentity"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		service: jsii.String("SES"),
-		action: jsii.String("verifyDomainIdentity"),
-		parameters: map[string]*string{
-			"Domain": jsii.String("example.com"),
-		},
-		physicalResourceId: cr.physicalResourceId.fromResponse(jsii.String("VerificationToken")),
-	},
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
-	}),
-})
-route53.NewTxtRecord(this, jsii.String("SESVerificationRecord"), &txtRecordProps{
-	zone: zone,
-	recordName: jsii.String("_amazonses.example.com"),
-	values: []*string{
-		verifyDomainIdentity.getResponseField(jsii.String("VerificationToken")),
-	},
-})
-```
-
 #### Get the latest version of a secure SSM parameter
 
 ```go
-getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &awsCustomResourceProps{
-	onUpdate: &awsSdkCall{
+getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
+	OnUpdate: &AwsSdkCall{
 		 // will also be called for a CREATE event
-		service: jsii.String("SSM"),
-		action: jsii.String("getParameter"),
-		parameters: map[string]interface{}{
+		Service: jsii.String("SSM"),
+		Action: jsii.String("getParameter"),
+		Parameters: map[string]interface{}{
 			"Name": jsii.String("my-parameter"),
 			"WithDecryption": jsii.Boolean(true),
 		},
-		physicalResourceId: cr.physicalResourceId.of(date.now().toString()),
+		PhysicalResourceId: cr.PhysicalResourceId_Of(date.now().toString()),
 	},
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 
 // Use the value in another construct with
-getParameter.getResponseField(jsii.String("Parameter.Value"))
+getParameter.GetResponseField(jsii.String("Parameter.Value"))
 ```
 
 #### Associate a PrivateHostedZone with VPC shared from another account
 
 ```go
-getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHostedZone"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		assumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
-		service: jsii.String("Route53"),
-		action: jsii.String("associateVPCWithHostedZone"),
-		parameters: map[string]interface{}{
+getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHostedZone"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		AssumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
+		Service: jsii.String("Route53"),
+		Action: jsii.String("associateVPCWithHostedZone"),
+		Parameters: map[string]interface{}{
 			"HostedZoneId": jsii.String("hz-123"),
 			"VPC": map[string]*string{
 				"VPCId": jsii.String("vpc-123"),
 				"VPCRegion": jsii.String("region-for-vpc"),
 			},
 		},
-		physicalResourceId: cr.physicalResourceId.of(jsii.String("${vpcStack.SharedVpc.VpcId}-${vpcStack.Region}-${PrivateHostedZone.HostedZoneId}")),
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("${vpcStack.SharedVpc.VpcId}-${vpcStack.Region}-${PrivateHostedZone.HostedZoneId}")),
 	},
 	//Will ignore any resource and use the assumedRoleArn as resource and 'sts:AssumeRole' for service:action
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 	}),
 })
 ```

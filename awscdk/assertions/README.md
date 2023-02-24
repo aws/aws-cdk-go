@@ -1,7 +1,7 @@
 # Assertions
 
 If you're migrating from the old `assert` library, the migration guide can be found in
-[our GitHub repository](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/assertions/MIGRATING.md).
+[our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/assertions/MIGRATING.md).
 
 Functions for writing test asserting against CDK applications, with focus on CloudFormation templates.
 
@@ -15,15 +15,20 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 stack := awscdk.NewStack()
 // ...
-template := awscdk.Template.fromStack(stack)
+template := awscdk.Template_FromStack(stack)
 ```
 
 Alternatively, assertions can be run on an existing CloudFormation template -
 
 ```go
 templateJson := "{ \"Resources\": ... }" /* The CloudFormation template as JSON serialized string. */
-template := awscdk.Template.fromString(templateJson)
+template := awscdk.Template_FromString(templateJson)
 ```
+
+**Cyclical Resources Note**
+
+If allowing cyclical references is desired, for example in the case of unprocessed Transform templates, supply TemplateParsingOptions and
+set skipCyclicalDependenciesCheck to true. In all other cases, will fail on detecting cyclical dependencies.
 
 ## Full Template Match
 
@@ -31,7 +36,7 @@ The simplest assertion would be to assert that the template matches a given
 template.
 
 ```go
-template.templateMatches(map[string]map[string]map[string]interface{}{
+template.TemplateMatches(map[string]map[string]map[string]interface{}{
 	"Resources": map[string]map[string]interface{}{
 		"BarLogicalId": map[string]interface{}{
 			"Type": jsii.String("Foo::Bar"),
@@ -64,7 +69,21 @@ This module allows asserting the number of resources of a specific type found
 in a template.
 
 ```go
-template.resourceCountIs(jsii.String("Foo::Bar"), jsii.Number(2))
+template.ResourceCountIs(jsii.String("Foo::Bar"), jsii.Number(2))
+```
+
+You can also count the number of resources of a specific type whose `Properties`
+section contains the specified properties:
+
+```go
+template.ResourcePropertiesCountIs(jsii.String("Foo::Bar"), map[string]interface{}{
+	"Foo": jsii.String("Bar"),
+	"Baz": jsii.Number(5),
+	"Qux": []*string{
+		jsii.String("Waldo"),
+		jsii.String("Fred"),
+	},
+}, jsii.Number(1))
 ```
 
 ## Resource Matching & Retrieval
@@ -76,8 +95,22 @@ The following code asserts that the `Properties` section of a resource of type
 `Foo::Bar` contains the specified properties -
 
 ```go
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]interface{}{
-	"Foo": jsii.String("Bar"),
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]interface{}{
+	"Lorem": jsii.String("Ipsum"),
+	"Baz": jsii.Number(5),
+	"Qux": []*string{
+		jsii.String("Waldo"),
+		jsii.String("Fred"),
+	},
+})
+```
+
+You can also assert that the `Properties` section of all resources of type
+`Foo::Bar` contains the specified properties -
+
+```go
+template.AllResourcesProperties(jsii.String("Foo::Bar"), map[string]interface{}{
+	"Lorem": jsii.String("Ipsum"),
 	"Baz": jsii.Number(5),
 	"Qux": []*string{
 		jsii.String("Waldo"),
@@ -90,9 +123,24 @@ Alternatively, if you would like to assert the entire resource definition, you
 can use the `hasResource()` API.
 
 ```go
-template.hasResource(jsii.String("Foo::Bar"), map[string]interface{}{
+template.HasResource(jsii.String("Foo::Bar"), map[string]interface{}{
 	"Properties": map[string]*string{
-		"Foo": jsii.String("Bar"),
+		"Lorem": jsii.String("Ipsum"),
+	},
+	"DependsOn": []*string{
+		jsii.String("Waldo"),
+		jsii.String("Fred"),
+	},
+})
+```
+
+You can also assert the definitions of all resources of a type using the
+`allResources()` API.
+
+```go
+template.AllResources(jsii.String("Foo::Bar"), map[string]interface{}{
+	"Properties": map[string]*string{
+		"Lorem": jsii.String("Ipsum"),
 	},
 	"DependsOn": []*string{
 		jsii.String("Waldo"),
@@ -122,13 +170,13 @@ expected := map[string]interface{}{
 		"Name": jsii.String("ExportBaz"),
 	},
 }
-template.hasOutput(jsii.String("Foo"), expected)
+template.HasOutput(jsii.String("Foo"), expected)
 ```
 
 If you want to match against all Outputs in the template, use `*` as the `logicalId`.
 
 ```go
-template.hasOutput(jsii.String("*"), map[string]interface{}{
+template.HasOutput(jsii.String("*"), map[string]interface{}{
 	"Value": jsii.String("Bar"),
 	"Export": map[string]*string{
 		"Name": jsii.String("ExportBaz"),
@@ -140,7 +188,7 @@ template.hasOutput(jsii.String("*"), map[string]interface{}{
 and you can use the `'*'` special case as well.
 
 ```go
-result := template.findOutputs(jsii.String("*"), map[string]*string{
+result := template.FindOutputs(jsii.String("*"), map[string]*string{
 	"Value": jsii.String("Fred"),
 })
 expect(result.foo)_ToEqual(map[string]*string{
@@ -188,15 +236,15 @@ level, the list of keys in the target is a subset of the provided pattern.
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Fred": awscdk.Match.objectLike(map[string]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Fred": awscdk.Match_objectLike(map[string]interface{}{
 		"Wobble": jsii.String("Flob"),
 	}),
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Fred": awscdk.Match.objectLike(map[string]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Fred": awscdk.Match_objectLike(map[string]interface{}{
 		"Brew": jsii.String("Coffee"),
 	}),
 })
@@ -227,16 +275,16 @@ or outside of any matchers.
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Fred": awscdk.Match.objectLike(map[string]interface{}{
-		"Bob": awscdk.Match.absent(),
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Fred": awscdk.Match_objectLike(map[string]interface{}{
+		"Bob": awscdk.Match_absent(),
 	}),
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Fred": awscdk.Match.objectLike(map[string]interface{}{
-		"Wobble": awscdk.Match.absent(),
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Fred": awscdk.Match_objectLike(map[string]interface{}{
+		"Wobble": awscdk.Match_absent(),
 	}),
 })
 ```
@@ -263,19 +311,19 @@ This matcher can be combined with any of the other matchers.
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]matcher{
 	"Fred": map[string][]matcher{
 		"Wobble": []matcher{
-			awscdk.Match.anyValue(),
-			awscdk.Match.anyValue(),
+			awscdk.Match_anyValue(),
+			awscdk.Match_anyValue(),
 		},
 	},
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]matcher{
 	"Fred": map[string]matcher{
-		"Wimble": awscdk.Match.anyValue(),
+		"Wimble": awscdk.Match_anyValue(),
 	},
 })
 ```
@@ -300,15 +348,15 @@ This API will perform subset match on the target.
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Fred": awscdk.Match.arrayWith([]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Fred": awscdk.Match_arrayWith([]interface{}{
 		jsii.String("Flob"),
 	}),
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), awscdk.Match.objectLike(map[string]interface{}{
-	"Fred": awscdk.Match.arrayWith([]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), awscdk.Match_ObjectLike(map[string]interface{}{
+	"Fred": awscdk.Match_arrayWith([]interface{}{
 		jsii.String("Wobble"),
 	}),
 }))
@@ -339,13 +387,13 @@ provided regular expression.
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Template": awscdk.Match.stringLikeRegexp(jsii.String("includeHeaders = (true|false)")),
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Template": awscdk.Match_stringLikeRegexp(jsii.String("includeHeaders = (true|false)")),
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Template": awscdk.Match.stringLikeRegexp(jsii.String("includeHeaders = null")),
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Template": awscdk.Match_stringLikeRegexp(jsii.String("includeHeaders = null")),
 })
 ```
 
@@ -368,15 +416,15 @@ not match the pattern specified.
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Fred": awscdk.Match.not([]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Fred": awscdk.Match_not([]interface{}{
 		jsii.String("Flob"),
 	}),
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), awscdk.Match.objectLike(map[string]interface{}{
-	"Fred": awscdk.Match.not([]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), awscdk.Match_ObjectLike(map[string]interface{}{
+	"Fred": awscdk.Match_not([]interface{}{
 		jsii.String("Flob"),
 		jsii.String("Cat"),
 	}),
@@ -407,17 +455,17 @@ The `Match.serializedJson()` matcher allows deep matching within a stringified J
 // }
 
 // The following will NOT throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Baz": awscdk.Match.serializedJson(map[string]matcher{
-		"Fred": awscdk.Match.arrayWith([]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Baz": awscdk.Match_serializedJson(map[string]matcher{
+		"Fred": awscdk.Match_arrayWith([]interface{}{
 			jsii.String("Waldo"),
 		}),
 	}),
 })
 
 // The following will throw an assertion error
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Baz": awscdk.Match.serializedJson(map[string][]*string{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+	"Baz": awscdk.Match_serializedJson(map[string][]*string{
 		"Fred": []*string{
 			jsii.String("Waldo"),
 			jsii.String("Johnny"),
@@ -448,7 +496,7 @@ matching resource.
 
 fredCapture := awscdk.NewCapture()
 waldoCapture := awscdk.NewCapture()
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]interface{}{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]interface{}{
 	"Fred": fredCapture,
 	"Waldo": []interface{}{
 		jsii.String("Qix"),
@@ -456,8 +504,8 @@ template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]interface{}{
 	},
 })
 
-fredCapture.asArray() // returns ["Flob", "Cat"]
-waldoCapture.asString()
+fredCapture.AsArray() // returns ["Flob", "Cat"]
+waldoCapture.AsString()
 ```
 
 With captures, a nested pattern can also be specified, so that only targets
@@ -483,14 +531,14 @@ further Matchers.
 //   }
 // }
 
-capture := awscdk.NewCapture(awscdk.Match.arrayWith([]interface{}{
+capture := awscdk.NewCapture(awscdk.Match_ArrayWith([]interface{}{
 	jsii.String("Cat"),
 }))
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
 	"Fred": capture,
 })
 
-capture.asArray()
+capture.AsArray()
 ```
 
 When multiple resources match the given condition, each `Capture` defined in
@@ -517,13 +565,13 @@ the `next()` API. The following example illustrates this -
 // }
 
 fredCapture := awscdk.NewCapture()
-template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
 	"Fred": fredCapture,
 })
 
-fredCapture.asString() // returns "Flob"
-fredCapture.next() // returns true
-fredCapture.asString()
+fredCapture.AsString() // returns "Flob"
+fredCapture.Next() // returns true
+fredCapture.AsString()
 ```
 
 ## Asserting Annotations
@@ -536,20 +584,20 @@ API. You can learn more about Aspects [here](https://docs.aws.amazon.com/cdk/v2/
 Say you have a `MyAspect` and a `MyStack` that uses `MyAspect`:
 
 ```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/constructs-go/constructs"
 
 type myAspect struct {
 }
 
 func (this *myAspect) visit(node iConstruct) {
-	if *node instanceof cdk.cfnResource && *node.cfnResourceType == "Foo::Bar" {
+	if *node instanceof cdk.CfnResource && *node.CfnResourceType == "Foo::Bar" {
 		this.error(*node, jsii.String("we do not want a Foo::Bar resource"))
 	}
 }
 
 func (this *myAspect) error(node iConstruct, message *string) {
-	cdk.annotations.of(*node).addError(*message)
+	cdk.Annotations_Of(*node).AddError(*message)
 }
 
 type myStack struct {
@@ -561,13 +609,13 @@ func newMyStack(scope construct, id *string) *myStack {
 	cdk.NewStack_Override(this, scope, id)
 
 	stack := cdk.NewStack()
-	cdk.NewCfnResource(stack, jsii.String("Foo"), &cfnResourceProps{
-		type: jsii.String("Foo::Bar"),
-		properties: map[string]interface{}{
+	cdk.NewCfnResource(stack, jsii.String("Foo"), &CfnResourceProps{
+		Type: jsii.String("Foo::Bar"),
+		Properties: map[string]interface{}{
 			"Fred": jsii.String("Thud"),
 		},
 	})
-	cdk.aspects.of(stack).add(NewMyAspect())
+	cdk.Aspects_Of(stack).Add(NewMyAspect())
 	return this
 }
 ```
@@ -577,7 +625,7 @@ We can then assert that the stack contains the expected Error:
 ```go
 // import { Annotations } from '@aws-cdk/assertions';
 
-awscdk.Annotations.fromStack(stack).hasError(jsii.String("/Default/Foo"), jsii.String("we do not want a Foo::Bar resource"))
+awscdk.Annotations_FromStack(stack).HasError(jsii.String("/Default/Foo"), jsii.String("we do not want a Foo::Bar resource"))
 ```
 
 Here are the available APIs for `Annotations`:
@@ -589,9 +637,9 @@ Here are the available APIs for `Annotations`:
 The corresponding `findXxx()` API is complementary to the `hasXxx()` API, except instead
 of asserting its presence, it returns the set of matching messages.
 
-In addition, this suite of APIs is compatable with `Matchers` for more fine-grained control.
+In addition, this suite of APIs is compatible with `Matchers` for more fine-grained control.
 For example, the following assertion works as well:
 
 ```go
-awscdk.Annotations.fromStack(stack).hasError(jsii.String("/Default/Foo"), awscdk.Match.stringLikeRegexp(jsii.String(".*Foo::Bar.*")))
+awscdk.Annotations_FromStack(stack).HasError(jsii.String("/Default/Foo"), awscdk.Match_StringLikeRegexp(jsii.String(".*Foo::Bar.*")))
 ```

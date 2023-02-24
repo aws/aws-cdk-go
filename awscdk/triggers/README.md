@@ -15,17 +15,17 @@ triggered *during* deployment:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import triggers "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 var stack stack
 
 
-triggers.NewTriggerFunction(stack, jsii.String("MyTrigger"), &triggerFunctionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(jsii.String(__dirname + "/my-trigger")),
+triggers.NewTriggerFunction(stack, jsii.String("MyTrigger"), &TriggerFunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(jsii.String(__dirname + "/my-trigger")),
 })
 ```
 
@@ -65,8 +65,8 @@ var world construct
 var goodbye construct
 
 
-myTrigger.executeAfter(hello, world)
-myTrigger.executeBefore(goodbye)
+myTrigger.ExecuteAfter(hello, world)
+myTrigger.ExecuteBefore(goodbye)
 ```
 
 Note that `hello` and `world` are construct *scopes*. This means that they can

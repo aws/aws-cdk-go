@@ -10,9 +10,9 @@ documents.
 
 ```go
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket),
 	},
 })
 ```
@@ -29,10 +29,10 @@ You can configure CloudFront to add custom headers to the requests that it sends
 
 ```go
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket, &s3OriginProps{
-			customHeaders: map[string]*string{
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket, &S3OriginProps{
+			CustomHeaders: map[string]*string{
 				"Foo": jsii.String("bar"),
 			},
 		}),
@@ -53,13 +53,13 @@ var vpc vpc
 
 // Create an application load balancer in a VPC. 'internetFacing' must be 'true'
 // for CloudFront to access the load balancer and use it as an origin.
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 })
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewLoadBalancerV2Origin(lb),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewLoadBalancerV2Origin(lb),
 	},
 })
 ```
@@ -71,12 +71,12 @@ import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 
 var loadBalancer applicationLoadBalancer
 
-origin := origins.NewLoadBalancerV2Origin(loadBalancer, &loadBalancerV2OriginProps{
-	connectionAttempts: jsii.Number(3),
-	connectionTimeout: awscdk.Duration.seconds(jsii.Number(5)),
-	readTimeout: awscdk.Duration.seconds(jsii.Number(45)),
-	keepaliveTimeout: awscdk.Duration.seconds(jsii.Number(45)),
-	protocolPolicy: cloudfront.originProtocolPolicy_MATCH_VIEWER,
+origin := origins.NewLoadBalancerV2Origin(loadBalancer, &LoadBalancerV2OriginProps{
+	ConnectionAttempts: jsii.Number(3),
+	ConnectionTimeout: awscdk.Duration_Seconds(jsii.Number(5)),
+	ReadTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
+	KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
+	ProtocolPolicy: cloudfront.OriginProtocolPolicy_MATCH_VIEWER,
 })
 ```
 
@@ -89,9 +89,9 @@ still limited to a maximum value of 180 seconds, which is a hard limit for that 
 Origins can also be created from any other HTTP endpoint, given the domain name, and optionally, other origin properties.
 
 ```go
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
 	},
 })
 ```
@@ -108,13 +108,13 @@ You achieve that behavior in the CDK using the `OriginGroup` class:
 
 ```go
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewOriginGroup(&originGroupProps{
-			primaryOrigin: origins.NewS3Origin(myBucket),
-			fallbackOrigin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewOriginGroup(&OriginGroupProps{
+			PrimaryOrigin: origins.NewS3Origin(myBucket),
+			FallbackOrigin: origins.NewHttpOrigin(jsii.String("www.example.com")),
 			// optional, defaults to: 500, 502, 503 and 504
-			fallbackStatusCodes: []*f64{
+			FallbackStatusCodes: []*f64{
 				jsii.Number(404),
 			},
 		}),
@@ -130,9 +130,9 @@ Origins can be created from an API Gateway REST API. It is recommended to use a
 ```go
 var api restApi
 
-cloudfront.NewDistribution(this, jsii.String("Distribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewRestApiOrigin(api),
+cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewRestApiOrigin(api),
 	},
 })
 ```

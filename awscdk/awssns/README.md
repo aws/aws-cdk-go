@@ -3,23 +3,22 @@
 Add an SNS Topic to your stack:
 
 ```go
-topic := sns.NewTopic(this, jsii.String("Topic"), &topicProps{
-	displayName: jsii.String("Customer subscription topic"),
+topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
+	DisplayName: jsii.String("Customer subscription topic"),
 })
 ```
 
 Add a FIFO SNS topic with content-based de-duplication to your stack:
 
 ```go
-topic := sns.NewTopic(this, jsii.String("Topic"), &topicProps{
-	contentBasedDeduplication: jsii.Boolean(true),
-	displayName: jsii.String("Customer subscription topic"),
-	fifo: jsii.Boolean(true),
-	topicName: jsii.String("customerTopic"),
+topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
+	ContentBasedDeduplication: jsii.Boolean(true),
+	DisplayName: jsii.String("Customer subscription topic"),
+	Fifo: jsii.Boolean(true),
 })
 ```
 
-Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically added to the topic name if it is not explicitly provided.
+Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically generated and added to the topic name if it is not explicitly provided.
 
 ## Subscriptions
 
@@ -33,7 +32,7 @@ Add an HTTPS Subscription to your topic:
 ```go
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 
-myTopic.addSubscription(subscriptions.NewUrlSubscription(jsii.String("https://foobar.com/")))
+myTopic.AddSubscription(subscriptions.NewUrlSubscription(jsii.String("https://foobar.com/")))
 ```
 
 Subscribe a queue to the topic:
@@ -43,7 +42,7 @@ var queue queue
 
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 
-myTopic.addSubscription(subscriptions.NewSqsSubscription(queue))
+myTopic.AddSubscription(subscriptions.NewSqsSubscription(queue))
 ```
 
 Note that subscriptions of queues in different accounts need to be manually confirmed by
@@ -67,9 +66,9 @@ myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 // size: anything but 'small' or 'medium'
 // price: between 100 and 200 or greater than 300
 // store: attribute must be present
-myTopic.addSubscription(subscriptions.NewLambdaSubscription(fn, &lambdaSubscriptionProps{
-	filterPolicy: map[string]subscriptionFilter{
-		"color": sns.*subscriptionFilter.stringFilter(&StringConditions{
+myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
+	FilterPolicy: map[string]subscriptionFilter{
+		"color": sns.*subscriptionFilter_stringFilter(&StringConditions{
 			"allowlist": []*string{
 				jsii.String("red"),
 				jsii.String("orange"),
@@ -78,20 +77,20 @@ myTopic.addSubscription(subscriptions.NewLambdaSubscription(fn, &lambdaSubscript
 				jsii.String("bl"),
 			},
 		}),
-		"size": sns.*subscriptionFilter.stringFilter(&StringConditions{
+		"size": sns.*subscriptionFilter_stringFilter(&StringConditions{
 			"denylist": []*string{
 				jsii.String("small"),
 				jsii.String("medium"),
 			},
 		}),
-		"price": sns.*subscriptionFilter.numericFilter(&NumericConditions{
+		"price": sns.*subscriptionFilter_numericFilter(&NumericConditions{
 			"between": &BetweenCondition{
 				"start": jsii.Number(100),
 				"stop": jsii.Number(200),
 			},
 			"greaterThan": jsii.Number(300),
 		}),
-		"store": sns.*subscriptionFilter.existsFilter(),
+		"store": sns.*subscriptionFilter_existsFilter(),
 	},
 }))
 ```
@@ -99,17 +98,18 @@ myTopic.addSubscription(subscriptions.NewLambdaSubscription(fn, &lambdaSubscript
 ### Example of Firehose Subscription
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-var stream deliveryStream
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdklib/awskinesisfirehose"
+var stream DeliveryStream
 
 
 topic := sns.NewTopic(this, jsii.String("Topic"))
 
-sns.NewSubscription(this, jsii.String("Subscription"), &subscriptionProps{
-	topic: topic,
-	endpoint: stream.deliveryStreamArn,
-	protocol: sns.subscriptionProtocol_FIREHOSE,
-	subscriptionRoleArn: jsii.String("SAMPLE_ARN"),
+sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
+	Topic: Topic,
+	Endpoint: stream.deliveryStreamArn,
+	Protocol: sns.SubscriptionProtocol_FIREHOSE,
+	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 })
 ```
 
@@ -122,16 +122,16 @@ Example of usage with user provided DLQ.
 
 ```go
 topic := sns.NewTopic(this, jsii.String("Topic"))
-dlQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"), &queueProps{
-	queueName: jsii.String("MySubscription_DLQ"),
-	retentionPeriod: awscdk.Duration.days(jsii.Number(14)),
+dlQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"), &QueueProps{
+	QueueName: jsii.String("MySubscription_DLQ"),
+	RetentionPeriod: awscdk.Duration_Days(jsii.Number(14)),
 })
 
-sns.NewSubscription(this, jsii.String("Subscription"), &subscriptionProps{
-	endpoint: jsii.String("endpoint"),
-	protocol: sns.subscriptionProtocol_LAMBDA,
-	topic: topic,
-	deadLetterQueue: dlQueue,
+sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
+	Endpoint: jsii.String("endpoint"),
+	Protocol: sns.SubscriptionProtocol_LAMBDA,
+	Topic: Topic,
+	DeadLetterQueue: dlQueue,
 })
 ```
 
@@ -149,8 +149,8 @@ var repo repository
 
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 
-repo.onCommit(jsii.String("OnCommit"), &onCommitOptions{
-	target: targets.NewSnsTopic(myTopic),
+repo.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
+	Target: targets.NewSnsTopic(myTopic),
 })
 ```
 
@@ -165,21 +165,21 @@ add policies, but a `TopicPolicy` can also be created manually.
 
 ```go
 topic := sns.NewTopic(this, jsii.String("Topic"))
-topicPolicy := sns.NewTopicPolicy(this, jsii.String("TopicPolicy"), &topicPolicyProps{
-	topics: []iTopic{
+topicPolicy := sns.NewTopicPolicy(this, jsii.String("TopicPolicy"), &TopicPolicyProps{
+	Topics: []iTopic{
 		topic,
 	},
 })
 
-topicPolicy.document.addStatements(iam.NewPolicyStatement(&policyStatementProps{
-	actions: []*string{
+topicPolicy.Document.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
 		jsii.String("sns:Subscribe"),
 	},
-	principals: []iPrincipal{
+	Principals: []iPrincipal{
 		iam.NewAnyPrincipal(),
 	},
-	resources: []*string{
-		topic.topicArn,
+	Resources: []*string{
+		topic.TopicArn,
 	},
 }))
 ```
@@ -188,27 +188,27 @@ A policy document can also be passed on `TopicPolicy` construction
 
 ```go
 topic := sns.NewTopic(this, jsii.String("Topic"))
-policyDocument := iam.NewPolicyDocument(&policyDocumentProps{
-	assignSids: jsii.Boolean(true),
-	statements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
+policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
+	AssignSids: jsii.Boolean(true),
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("sns:Subscribe"),
 			},
-			principals: []iPrincipal{
+			Principals: []iPrincipal{
 				iam.NewAnyPrincipal(),
 			},
-			resources: []*string{
-				topic.topicArn,
+			Resources: []*string{
+				topic.TopicArn,
 			},
 		}),
 	},
 })
 
-topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &topicPolicyProps{
-	topics: []iTopic{
+topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps{
+	Topics: []iTopic{
 		topic,
 	},
-	policyDocument: policyDocument,
+	PolicyDocument: PolicyDocument,
 })
 ```
