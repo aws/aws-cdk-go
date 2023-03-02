@@ -1,0 +1,143 @@
+// An experiment to bundle the entire CDK into a single module
+package awscdk
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+// Accessor for scoped pseudo parameters.
+//
+// These pseudo parameters are anchored to a stack somewhere in the construct
+// tree, and their values will be exported automatically.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   scopedAws := monocdk.NewScopedAws(this)
+//
+// Experimental.
+type ScopedAws interface {
+	// Experimental.
+	AccountId() *string
+	// Experimental.
+	NotificationArns() *[]*string
+	// Experimental.
+	Partition() *string
+	// Experimental.
+	Region() *string
+	// Experimental.
+	StackId() *string
+	// Experimental.
+	StackName() *string
+	// Experimental.
+	UrlSuffix() *string
+}
+
+// The jsii proxy struct for ScopedAws
+type jsiiProxy_ScopedAws struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ScopedAws) AccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScopedAws) NotificationArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"notificationArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScopedAws) Partition() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"partition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScopedAws) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScopedAws) StackId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScopedAws) StackName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScopedAws) UrlSuffix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"urlSuffix",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewScopedAws(scope Construct) ScopedAws {
+	_init_.Initialize()
+
+	if err := validateNewScopedAwsParameters(scope); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_ScopedAws{}
+
+	_jsii_.Create(
+		"monocdk.ScopedAws",
+		[]interface{}{scope},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewScopedAws_Override(s ScopedAws, scope Construct) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.ScopedAws",
+		[]interface{}{scope},
+		s,
+	)
+}
+

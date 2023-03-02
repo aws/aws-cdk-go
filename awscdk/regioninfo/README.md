@@ -14,11 +14,11 @@ the regional information database:
 
 ```go
 // Get the information for "eu-west-1":
-region := regionInfo.RegionInfo_Get(jsii.String("eu-west-1"))
+region := regionInfo.regionInfo.get(jsii.String("eu-west-1"))
 
 // Access attributes:
 region.s3StaticWebsiteEndpoint // s3-website-eu-west-1.amazonaws.com
-region.ServicePrincipal(jsii.String("logs.amazonaws.com"))
+region.servicePrincipal(jsii.String("logs.amazonaws.com"))
 ```
 
 The `RegionInfo` layer is built on top of the Low-Level API, which is described
@@ -33,10 +33,10 @@ a list of known fact names, which can then be used with the `RegionInfo` to
 retrieve a particular value:
 
 ```go
-codeDeployPrincipal := regionInfo.Fact_Find(jsii.String("us-east-1"), regionInfo.FactName_ServicePrincipal(jsii.String("codedeploy.amazonaws.com")))
+codeDeployPrincipal := regionInfo.fact.find(jsii.String("us-east-1"), regionInfo.factName.servicePrincipal(jsii.String("codedeploy.amazonaws.com")))
 // => codedeploy.us-east-1.amazonaws.com
 
-staticWebsite := regionInfo.Fact_Find(jsii.String("ap-northeast-1"), regionInfo.FactName_S3_STATIC_WEBSITE_ENDPOINT())
+staticWebsite := regionInfo.fact.find(jsii.String("ap-northeast-1"), regionInfo.factName_S3_STATIC_WEBSITE_ENDPOINT())
 ```
 
 ## Supplying new or missing information
@@ -52,7 +52,7 @@ type myFact struct {
 	value
 }
 
-regionInfo.Fact_Register(NewMyFact())
+regionInfo.fact.register(NewMyFact())
 ```
 
 ## Overriding incorrect information
@@ -68,7 +68,7 @@ type myFact struct {
 	value
 }
 
-regionInfo.Fact_Register(NewMyFact(), jsii.Boolean(true))
+regionInfo.fact.register(NewMyFact(), jsii.Boolean(true))
 ```
 
 If you happen to have stumbled upon incorrect data built into this library, it

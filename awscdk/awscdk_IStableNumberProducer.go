@@ -1,0 +1,33 @@
+// An experiment to bundle the entire CDK into a single module
+package awscdk
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+// Interface for (stable) lazy number producers.
+// Experimental.
+type IStableNumberProducer interface {
+	// Produce the number value.
+	// Experimental.
+	Produce() *float64
+}
+
+// The jsii proxy for IStableNumberProducer
+type jsiiProxy_IStableNumberProducer struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IStableNumberProducer) Produce() *float64 {
+	var returns *float64
+
+	_jsii_.Invoke(
+		i,
+		"produce",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
