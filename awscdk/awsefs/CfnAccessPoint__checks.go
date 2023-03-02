@@ -179,66 +179,6 @@ func validateCfnAccessPoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnAccessPoint) validateSetAccessPointTagsParameters(val interface{}) error {
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *[]interface{}:
-		val := val.(*[]interface{})
-		for idx_97dfc6, v := range *val {
-			switch v.(type) {
-			case *CfnAccessPoint_AccessPointTagProperty:
-				v := v.(*CfnAccessPoint_AccessPointTagProperty)
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case CfnAccessPoint_AccessPointTagProperty:
-				v_ := v.(CfnAccessPoint_AccessPointTagProperty)
-				v := &v_
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case awscdk.IResolvable:
-				// ok
-			default:
-				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAccessPoint_AccessPointTagProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
-				}
-			}
-		}
-	case []interface{}:
-		val_ := val.([]interface{})
-		val := &val_
-		for idx_97dfc6, v := range *val {
-			switch v.(type) {
-			case *CfnAccessPoint_AccessPointTagProperty:
-				v := v.(*CfnAccessPoint_AccessPointTagProperty)
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case CfnAccessPoint_AccessPointTagProperty:
-				v_ := v.(CfnAccessPoint_AccessPointTagProperty)
-				v := &v_
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case awscdk.IResolvable:
-				// ok
-			default:
-				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAccessPoint_AccessPointTagProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
-				}
-			}
-		}
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnAccessPoint) validateSetFileSystemIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

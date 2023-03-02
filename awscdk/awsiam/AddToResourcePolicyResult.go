@@ -11,7 +11,8 @@ import (
 //   bucket := s3.Bucket_FromBucketName(this, jsii.String("existingBucket"), jsii.String("bucket-name"))
 //
 //   // No policy statement will be added to the resource
-//   result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   result := bucket.AddToResourcePolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
 //   		jsii.String("s3:GetObject"),
 //   	},

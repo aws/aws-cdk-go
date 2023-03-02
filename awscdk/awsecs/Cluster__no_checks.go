@@ -12,6 +12,10 @@ func (c *jsiiProxy_Cluster) validateAddCapacityParameters(id *string, options *A
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddDefaultCapacityProviderStrategyParameters(defaultCapacityProviderStrategy *[]*CapacityProviderStrategy) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateAddDefaultCloudMapNamespaceParameters(options *CloudMapNamespaceOptions) error {
 	return nil
 }

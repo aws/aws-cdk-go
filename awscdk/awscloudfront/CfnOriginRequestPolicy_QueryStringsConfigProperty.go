@@ -22,9 +22,10 @@ type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 	//
 	// Valid values are:
 	//
-	// - `none` – Query strings in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
-	// - `whitelist` – The query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
+	// - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
 	// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
 	QueryStringBehavior *string `field:"required" json:"queryStringBehavior" yaml:"queryStringBehavior"`
 	// Contains a list of query string names.
 	QueryStrings *[]*string `field:"optional" json:"queryStrings" yaml:"queryStrings"`

@@ -121,6 +121,8 @@ type EcsRunTaskProps struct {
 	//
 	// Specify the container to use and the overrides to apply.
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
+	// The revision number of ECS task definiton family.
+	RevisionNumber *float64 `field:"optional" json:"revisionNumber" yaml:"revisionNumber"`
 	// Existing security groups to use for the tasks.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Subnets to place the task's ENIs.

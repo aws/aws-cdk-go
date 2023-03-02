@@ -5,7 +5,7 @@ package awscloudfront
 //
 // These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
 //
-// The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+// The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,7 +44,7 @@ package awscloudfront
 //   }
 //
 type CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty struct {
-	// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+	// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
 	CookiesConfig interface{} `field:"required" json:"cookiesConfig" yaml:"cookiesConfig"`
 	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
 	//
@@ -60,9 +60,9 @@ type CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty struct {
 	//
 	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
 	EnableAcceptEncodingGzip interface{} `field:"required" json:"enableAcceptEncodingGzip" yaml:"enableAcceptEncodingGzip"`
-	// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+	// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
 	HeadersConfig interface{} `field:"required" json:"headersConfig" yaml:"headersConfig"`
-	// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+	// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
 	QueryStringsConfig interface{} `field:"required" json:"queryStringsConfig" yaml:"queryStringsConfig"`
 	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
 	//

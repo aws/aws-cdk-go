@@ -63,6 +63,10 @@ type Group interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Attaches a managed policy to this group.
+	//
+	// See [IAM and AWS STS quotas, name requirements, and character limits]
+	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entities)
+	// for quota of managed policies attached to an IAM group.
 	AddManagedPolicy(policy IManagedPolicy)
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool

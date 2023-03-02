@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::ResilienceHub::App`.
 //
-// Creates a Resilience Hub application. A Resilience Hub application is a collection of AWS resources structured to prevent and recover AWS application disruptions. To describe a Resilience Hub application, you provide an application name, resources from one or more–up to five– AWS CloudFormation stacks, and an appropriate resiliency policy.
+// Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of AWS resources structured to prevent and recover AWS application disruptions. To describe a AWS Resilience Hub application, you provide an application name, resources from one or more–up to five– AWS CloudFormation stacks, and an appropriate resiliency policy.
 //
-// After you create a Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).
+// After you create an AWS Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,7 +57,7 @@ type CfnApp interface {
 	// Assessment execution schedule with 'Daily' or 'Disabled' values.
 	AppAssessmentSchedule() *string
 	SetAppAssessmentSchedule(val *string)
-	// A string containing a full Resilience Hub app template body.
+	// A string containing a full AWS Resilience Hub app template body.
 	AppTemplateBody() *string
 	SetAppTemplateBody(val *string)
 	// The Amazon Resource Name (ARN) of the app.

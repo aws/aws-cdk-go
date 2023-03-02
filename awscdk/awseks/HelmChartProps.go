@@ -12,18 +12,12 @@ import (
 //
 //   // option 1: use a construct
 //   // option 1: use a construct
-//   eks.NewHelmChart(this, jsii.String("NginxIngress"), &HelmChartProps{
+//   eks.NewHelmChart(this, jsii.String("MyOCIChart"), &HelmChartProps{
 //   	Cluster: Cluster,
-//   	Chart: jsii.String("nginx-ingress"),
-//   	Repository: jsii.String("https://helm.nginx.com/stable"),
-//   	Namespace: jsii.String("kube-system"),
-//   })
-//
-//   // or, option2: use `addHelmChart`
-//   cluster.addHelmChart(jsii.String("NginxIngress"), &HelmChartOptions{
-//   	Chart: jsii.String("nginx-ingress"),
-//   	Repository: jsii.String("https://helm.nginx.com/stable"),
-//   	Namespace: jsii.String("kube-system"),
+//   	Chart: jsii.String("some-chart"),
+//   	Repository: jsii.String("oci://${ACCOUNT_ID}.dkr.ecr.${ACCOUNT_REGION}.amazonaws.com/${REPO_NAME}"),
+//   	Namespace: jsii.String("oci"),
+//   	Version: jsii.String("0.0.1"),
 //   })
 //
 type HelmChartProps struct {
@@ -45,6 +39,8 @@ type HelmChartProps struct {
 	//
 	// For example: https://charts.helm.sh/stable/
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`
+	// if set, no CRDs will be installed.
+	SkipCrds *bool `field:"optional" json:"skipCrds" yaml:"skipCrds"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//
 	// Maximum 15 minutes.

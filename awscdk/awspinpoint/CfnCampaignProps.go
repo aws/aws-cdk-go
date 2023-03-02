@@ -473,7 +473,7 @@ type CfnCampaignProps struct {
 	HoldoutPercent *float64 `field:"optional" json:"holdoutPercent" yaml:"holdoutPercent"`
 	// Specifies whether to pause the campaign.
 	//
-	// A paused campaign doesn't run unless you resume it by changing this value to `false` . If you restart a campaign, the campaign restarts from the beginning and not at the point you paused it.
+	// A paused campaign doesn't run unless you resume it by changing this value to `false` . If you restart a campaign, the campaign restarts from the beginning and not at the point you paused it. If a campaign is running it will complete and then pause. Pause only pauses or skips the next run for a recurring future scheduled campaign. A campaign scheduled for immediate can't be paused.
 	IsPaused interface{} `field:"optional" json:"isPaused" yaml:"isPaused"`
 	// The messaging limits for the campaign.
 	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`

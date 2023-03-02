@@ -930,12 +930,15 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAsgCapacityProvider", GoMethod: "AddAsgCapacityProvider"},
 			_jsii_.MemberMethod{JsiiMethod: "addCapacity", GoMethod: "AddCapacity"},
+			_jsii_.MemberMethod{JsiiMethod: "addDefaultCapacityProviderStrategy", GoMethod: "AddDefaultCapacityProviderStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCloudMapNamespace", GoMethod: "AddDefaultCloudMapNamespace"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoscalingGroup", GoGetter: "AutoscalingGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderNames", GoGetter: "CapacityProviderNames"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultCapacityProviderStrategy", GoGetter: "DefaultCapacityProviderStrategy"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCloudMapNamespace", GoGetter: "DefaultCloudMapNamespace"},
 			_jsii_.MemberMethod{JsiiMethod: "enableFargateCapacityProviders", GoMethod: "EnableFargateCapacityProviders"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -2083,6 +2086,18 @@ func init() {
 			return &jsiiProxy_PlacementStrategy{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.PortMap",
+		reflect.TypeOf((*PortMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkmode", GoGetter: "Networkmode"},
+			_jsii_.MemberProperty{JsiiProperty: "portmapping", GoGetter: "Portmapping"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PortMap{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.PortMapping",
 		reflect.TypeOf((*PortMapping)(nil)).Elem(),
@@ -2212,6 +2227,19 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.SecretVersionInfo",
 		reflect.TypeOf((*SecretVersionInfo)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.ServiceConnect",
+		reflect.TypeOf((*ServiceConnect)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isServiceConnect", GoMethod: "IsServiceConnect"},
+			_jsii_.MemberProperty{JsiiProperty: "networkmode", GoGetter: "Networkmode"},
+			_jsii_.MemberProperty{JsiiProperty: "portmapping", GoGetter: "Portmapping"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ServiceConnect{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ServiceConnectProps",

@@ -24,8 +24,8 @@ import (
 //   	FileSystemId: jsii.String("fileSystemId"),
 //
 //   	// the properties below are optional
-//   	AccessPointTags: []interface{}{
-//   		&AccessPointTagProperty{
+//   	AccessPointTags: []accessPointTagProperty{
+//   		&accessPointTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -53,11 +53,6 @@ import (
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	AccessPointTags() interface{}
-	SetAccessPointTags(val interface{})
 	// The ID of the EFS access point.
 	AttrAccessPointId() *string
 	// The Amazon Resource Name (ARN) of the access point.
@@ -106,6 +101,10 @@ type CfnAccessPoint interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -252,16 +251,6 @@ type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnAccessPoint) AccessPointTags() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"accessPointTags",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnAccessPoint) AttrAccessPointId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -402,6 +391,16 @@ func (j *jsiiProxy_CfnAccessPoint) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessPoint) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessPoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -449,17 +448,6 @@ func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id
 		"aws-cdk-lib.aws_efs.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnAccessPoint)SetAccessPointTags(val interface{}) {
-	if err := j.validateSetAccessPointTagsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"accessPointTags",
-		val,
 	)
 }
 

@@ -95,9 +95,7 @@ package awsappflow
 //   }
 //
 type CfnFlow_SourceFlowConfigProperty struct {
-	// The type of source connector, such as Salesforce, Amplitude, and so on.
-	//
-	// *Allowed Values* : S3 | Amplitude | Datadog | Dynatrace | Googleanalytics | Infornexus | Salesforce | Servicenow | Singular | Slack | Trendmicro | Veeva | Zendesk.
+	// The type of connector, such as Salesforce, Amplitude, and so on.
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`

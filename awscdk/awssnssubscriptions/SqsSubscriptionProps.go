@@ -14,6 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var filterOrPolicy filterOrPolicy
 //   var queue queue
 //   var subscriptionFilter subscriptionFilter
 //
@@ -21,6 +22,9 @@ import (
 //   	DeadLetterQueue: queue,
 //   	FilterPolicy: map[string]*subscriptionFilter{
 //   		"filterPolicyKey": subscriptionFilter,
+//   	},
+//   	FilterPolicyWithMessageBody: map[string]*filterOrPolicy{
+//   		"filterPolicyWithMessageBodyKey": filterOrPolicy,
 //   	},
 //   	RawMessageDelivery: jsii.Boolean(false),
 //   }
@@ -32,6 +36,10 @@ type SqsSubscriptionProps struct {
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
+	// The filter policy that is applied on the message body.
+	//
+	// To apply a filter policy to the message attributes, use `filterPolicy`. A maximum of one of `filterPolicyWithMessageBody` and `filterPolicy` may be used.
+	FilterPolicyWithMessageBody *map[string]awssns.FilterOrPolicy `field:"optional" json:"filterPolicyWithMessageBody" yaml:"filterPolicyWithMessageBody"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.

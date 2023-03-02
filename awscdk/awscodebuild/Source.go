@@ -10,16 +10,13 @@ import (
 // Source provider definition for a CodeBuild Project.
 //
 // Example:
-//   gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
-//   	Owner: jsii.String("awslabs"),
-//   	Repo: jsii.String("aws-cdk"),
-//   	Webhook: jsii.Boolean(true),
-//   	 // optional, default: true if `webhookFilters` were provided, false otherwise
-//   	WebhookTriggersBatchBuild: jsii.Boolean(true),
-//   	 // optional, default is false
-//   	WebhookFilters: []filterGroup{
-//   		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
-//   	},
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+//   	BuildSpec: codebuild.BuildSpec.fromSourceFileName(jsii.String("my-buildspec.yml")),
+//   	Source: codebuild.Source_GitHub(&GitHubSourceProps{
+//   		Owner: jsii.String("awslabs"),
+//   		Repo: jsii.String("aws-cdk"),
+//   	}),
 //   })
 //
 type Source interface {

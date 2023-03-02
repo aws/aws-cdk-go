@@ -1,6 +1,7 @@
 package awsapigateway
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
@@ -97,12 +98,20 @@ type StepFunctionsRestApiProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
 	//
 	EndpointConfiguration *EndpointConfiguration `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	// A Size(in bytes, kibibytes, mebibytes etc) that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
+	//
+	// When compression is enabled, compression or
+	// decompression is not applied on the payload if the payload size is
+	// smaller than this value. Setting it to zero allows compression for any
+	// payload size.
+	MinCompressionSize awscdk.Size `field:"optional" json:"minCompressionSize" yaml:"minCompressionSize"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
 	// When compression is enabled, compression or
 	// decompression is not applied on the payload if the payload size is
 	// smaller than this value. Setting it to zero allows compression for any
 	// payload size.
+	// Deprecated: - superseded by `minCompressionSize`.
 	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// The default State Machine that handles all requests from this API.
 	//

@@ -19,6 +19,8 @@ type CfnInstanceStorageConfig_EncryptionConfigProperty struct {
 	// The full ARN of the encryption key.
 	//
 	// > Be sure to provide the full ARN of the encryption key, not just the ID.
+	// >
+	// > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 

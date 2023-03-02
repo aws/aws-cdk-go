@@ -39,6 +39,19 @@ func (c *jsiiProxy_Cluster) validateAddCapacityParameters(id *string, options *A
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddDefaultCapacityProviderStrategyParameters(defaultCapacityProviderStrategy *[]*CapacityProviderStrategy) error {
+	if defaultCapacityProviderStrategy == nil {
+		return fmt.Errorf("parameter defaultCapacityProviderStrategy is required, but nil was provided")
+	}
+	for idx_3b12b9, v := range *defaultCapacityProviderStrategy {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter defaultCapacityProviderStrategy[%#v]", idx_3b12b9) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateAddDefaultCloudMapNamespaceParameters(options *CloudMapNamespaceOptions) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")

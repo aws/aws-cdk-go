@@ -50,6 +50,7 @@ type CfnDBProxyEndpoint interface {
 	//
 	// Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
 	AttrIsDefault() awscdk.IResolvable
+	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 	AttrTargetRole() *string
 	// The VPC ID of the DB proxy endpoint.
 	AttrVpcId() *string

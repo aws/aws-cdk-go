@@ -53,7 +53,7 @@ type CfnConnector interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the connector entity field.
+	// A description about the connector runtime setting.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.

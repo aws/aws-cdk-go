@@ -17,12 +17,15 @@ import (
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   dlt := sns.NewTopic(this, jsii.String("DLQ"))
-//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("// your code here")),
-//   	DeadLetterTopic: dlt,
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
+//   	Actions: []iAction{
+//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
+//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
+//   		}),
+//   	},
 //   })
 //
 type Topic interface {

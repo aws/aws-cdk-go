@@ -39,6 +39,8 @@ type HelmChartOptions struct {
 	//
 	// For example: https://charts.helm.sh/stable/
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`
+	// if set, no CRDs will be installed.
+	SkipCrds *bool `field:"optional" json:"skipCrds" yaml:"skipCrds"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//
 	// Maximum 15 minutes.

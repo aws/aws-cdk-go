@@ -36,7 +36,7 @@ type CfnMember_NetworkConfigurationProperty struct {
 	FrameworkVersion *string `field:"required" json:"frameworkVersion" yaml:"frameworkVersion"`
 	// The name of the network.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The voting rules for the network to decide if a proposal is accepted.
+	// The voting rules that the network uses to decide if a proposal is accepted.
 	VotingPolicy interface{} `field:"required" json:"votingPolicy" yaml:"votingPolicy"`
 	// Attributes of the blockchain framework for the network.
 	Description *string `field:"optional" json:"description" yaml:"description"`

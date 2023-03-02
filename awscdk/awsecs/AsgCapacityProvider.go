@@ -20,31 +20,30 @@ import (
 // Example:
 //   var vpc vpc
 //
-//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &LaunchTemplateProps{
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
-//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
-//   	UserData: ec2.UserData_ForLinux(),
-//   })
-//
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-//   	Vpc: Vpc,
-//   	MixedInstancesPolicy: &MixedInstancesPolicy{
-//   		InstancesDistribution: &InstancesDistribution{
-//   			OnDemandPercentageAboveBaseCapacity: jsii.Number(50),
-//   		},
-//   		LaunchTemplate: launchTemplate,
-//   	},
-//   })
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
-//   	AutoScalingGroup: AutoScalingGroup,
-//   	MachineImageType: ecs.MachineImageType_AMAZON_LINUX_2,
+//   // Either add default capacity
+//   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	DesiredCapacity: jsii.Number(3),
 //   })
 //
+//   // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(),
+//   	// Or use Amazon ECS-Optimized Amazon Linux 2 AMI
+//   	// machineImage: EcsOptimizedImage.amazonLinux2(),
+//   	DesiredCapacity: jsii.Number(3),
+//   })
+//
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
+//   	AutoScalingGroup: AutoScalingGroup,
+//   })
 //   cluster.AddAsgCapacityProvider(capacityProvider)
 //
 type AsgCapacityProvider interface {

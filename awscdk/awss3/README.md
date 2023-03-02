@@ -85,7 +85,8 @@ A bucket policy will be automatically created for the bucket upon the first call
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+result := bucket.AddToResourcePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
@@ -106,7 +107,8 @@ not do anything:
 bucket := s3.Bucket_FromBucketName(this, jsii.String("existingBucket"), jsii.String("bucket-name"))
 
 // No policy statement will be added to the resource
-result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+result := bucket.AddToResourcePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
@@ -126,7 +128,8 @@ statements to it. We recommend that you always check the result of the call:
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+result := bucket.AddToResourcePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
@@ -184,6 +187,7 @@ bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
 To use a bucket in a different stack in the same CDK application, pass the object to the other stack:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 /**
  * Stack that defines the bucket
  */
@@ -304,8 +308,7 @@ have the `.jpg` suffix are removed from the bucket.
 var myQueue queue
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED,
-s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
+bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
 	Prefix: jsii.String("foo/"),
 	Suffix: jsii.String(".jpg"),
 })

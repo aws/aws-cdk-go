@@ -43,8 +43,8 @@ type CfnEventInvokeConfigProps struct {
 	// A destination for events after they have been sent to a function for processing.
 	//
 	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
-	// - *Queue* - The ARN of an SQS queue.
-	// - *Topic* - The ARN of an SNS topic.
+	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Topic* - The ARN of a standard SNS topic.
 	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 	DestinationConfig interface{} `field:"optional" json:"destinationConfig" yaml:"destinationConfig"`
 	// The maximum age of a request that Lambda sends to a function for processing.

@@ -70,6 +70,7 @@ type CfnRestApi interface {
 	// Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType() *string
 	SetApiKeySourceType(val *string)
+	// The string identifier of the associated RestApi.
 	AttrRestApiId() *string
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	AttrRootResourceId() *string

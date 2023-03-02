@@ -59,12 +59,18 @@ type Cluster interface {
 	ICluster
 	// Getter for autoscaling group added to cluster.
 	AutoscalingGroup() awsautoscaling.IAutoScalingGroup
+	// Getter for _capacityProviderNames added to cluster.
+	CapacityProviderNames() *[]*string
 	// The Amazon Resource Name (ARN) that identifies the cluster.
 	ClusterArn() *string
 	// The name of the cluster.
 	ClusterName() *string
 	// Manage the allowed network connections for the cluster with Security Groups.
 	Connections() awsec2.Connections
+	// Getter for _defaultCapacityProviderStrategy.
+	//
+	// This is necessary to correctly create Capacity Provider Associations.
+	DefaultCapacityProviderStrategy() *[]*CapacityProviderStrategy
 	// Getter for namespace added to cluster.
 	DefaultCloudMapNamespace() awsservicediscovery.INamespace
 	// The environment this resource belongs to.
@@ -102,6 +108,8 @@ type Cluster interface {
 	//
 	// Returns the AutoScalingGroup so you can add autoscaling settings to it.
 	AddCapacity(id *string, options *AddCapacityOptions) awsautoscaling.AutoScalingGroup
+	// Add default capacity provider strategy for this cluster.
+	AddDefaultCapacityProviderStrategy(defaultCapacityProviderStrategy *[]*CapacityProviderStrategy)
 	// Add an AWS Cloud Map DNS namespace for this cluster.
 	//
 	// NOTE: HttpNamespaces are supported only for use cases involving Service Connect. For use cases involving both Service-
@@ -163,6 +171,16 @@ func (j *jsiiProxy_Cluster) AutoscalingGroup() awsautoscaling.IAutoScalingGroup 
 	return returns
 }
 
+func (j *jsiiProxy_Cluster) CapacityProviderNames() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"capacityProviderNames",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Cluster) ClusterArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -188,6 +206,16 @@ func (j *jsiiProxy_Cluster) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) DefaultCapacityProviderStrategy() *[]*CapacityProviderStrategy {
+	var returns *[]*CapacityProviderStrategy
+	_jsii_.Get(
+		j,
+		"defaultCapacityProviderStrategy",
 		&returns,
 	)
 	return returns
@@ -442,6 +470,17 @@ func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *AddCapacityOptions)
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_Cluster) AddDefaultCapacityProviderStrategy(defaultCapacityProviderStrategy *[]*CapacityProviderStrategy) {
+	if err := c.validateAddDefaultCapacityProviderStrategyParameters(defaultCapacityProviderStrategy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDefaultCapacityProviderStrategy",
+		[]interface{}{defaultCapacityProviderStrategy},
+	)
 }
 
 func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace {

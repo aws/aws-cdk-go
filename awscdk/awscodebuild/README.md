@@ -119,6 +119,59 @@ gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 })
 ```
 
+## BuildSpec
+
+The build spec can be provided from a number of different sources
+
+### File path relative to the root of the source
+
+You can specify a specific filename that exists within the project's source artifact to use as the buildspec.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec.fromSourceFileName(jsii.String("my-buildspec.yml")),
+	Source: codebuild.Source_GitHub(&GitHubSourceProps{
+		Owner: jsii.String("awslabs"),
+		Repo: jsii.String("aws-cdk"),
+	}),
+})
+```
+
+This will use `my-buildspec.yml` file within the `awslabs/aws-cdk` repository as the build spec.
+
+### File within the CDK project codebuild
+
+You can also specify a file within your cdk project directory to use as the buildspec.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromAsset(jsii.String("my-buildspec.yml")),
+})
+```
+
+This file will be uploaded to S3 and referenced from the codebuild project.
+
+### Inline object
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+	}),
+})
+```
+
+This will result in the buildspec being rendered as JSON within the codebuild project, if you prefer it to be rendered as YAML, use `fromObjectToYaml`.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
+		"version": jsii.String("0.2"),
+	}),
+})
+```
+
 ## Artifacts
 
 CodeBuild Projects can produce Artifacts and upload them to S3. For example:
@@ -140,9 +193,6 @@ project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 	}),
 })
 ```
-
-If you'd prefer your buildspec to be rendered as YAML in the template,
-use the `fromObjectToYaml()` method instead of `fromObject()`.
 
 Because we've not set the `name` property, this example will set the
 `overrideArtifactName` parameter, and produce an artifact named as defined in

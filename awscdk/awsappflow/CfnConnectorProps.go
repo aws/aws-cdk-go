@@ -28,7 +28,7 @@ type CfnConnectorProps struct {
 	ConnectorProvisioningType *string `field:"required" json:"connectorProvisioningType" yaml:"connectorProvisioningType"`
 	// The label used for registering the connector.
 	ConnectorLabel *string `field:"optional" json:"connectorLabel" yaml:"connectorLabel"`
-	// A description of the connector entity field.
+	// A description about the connector runtime setting.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

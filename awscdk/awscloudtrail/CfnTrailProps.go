@@ -89,7 +89,11 @@ type CfnTrailProps struct {
 	IncludeGlobalServiceEvents interface{} `field:"optional" json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
 	// A JSON string that contains the insight types you want to log on a trail.
 	//
-	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid insight types.
+	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid Insight types.
+	//
+	// The `ApiCallRateInsight` Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
+	//
+	// The `ApiErrorRateInsight` Insights type analyzes management API calls that result in error codes. The error is shown if the API call is unsuccessful.
 	InsightSelectors interface{} `field:"optional" json:"insightSelectors" yaml:"insightSelectors"`
 	// Specifies whether the trail applies only to the current region or to all regions.
 	//

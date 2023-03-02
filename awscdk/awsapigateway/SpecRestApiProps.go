@@ -1,6 +1,7 @@
 package awsapigateway
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -80,5 +81,12 @@ type SpecRestApiProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html
 	//
 	ApiDefinition ApiDefinition `field:"required" json:"apiDefinition" yaml:"apiDefinition"`
+	// A Size(in bytes, kibibytes, mebibytes etc) that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
+	//
+	// When compression is enabled, compression or
+	// decompression is not applied on the payload if the payload size is
+	// smaller than this value. Setting it to zero allows compression for any
+	// payload size.
+	MinCompressionSize awscdk.Size `field:"optional" json:"minCompressionSize" yaml:"minCompressionSize"`
 }
 

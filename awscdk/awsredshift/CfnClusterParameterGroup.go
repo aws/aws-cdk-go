@@ -40,7 +40,6 @@ import (
 type CfnClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The name of the parameter group.
 	AttrParameterGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

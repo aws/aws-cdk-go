@@ -177,6 +177,41 @@ func init() {
 		"aws-cdk-lib.aws_sns.CfnTopicProps",
 		reflect.TypeOf((*CfnTopicProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sns.Filter",
+		reflect.TypeOf((*Filter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "filterDoc", GoGetter: "FilterDoc"},
+			_jsii_.MemberMethod{JsiiMethod: "isFilter", GoMethod: "IsFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "isPolicy", GoMethod: "IsPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Filter{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_FilterOrPolicy)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sns.FilterOrPolicy",
+		reflect.TypeOf((*FilterOrPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isFilter", GoMethod: "IsFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "isPolicy", GoMethod: "IsPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_FilterOrPolicy{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_sns.FilterOrPolicyType",
+		reflect.TypeOf((*FilterOrPolicyType)(nil)).Elem(),
+		map[string]interface{}{
+			"FILTER": FilterOrPolicyType_FILTER,
+			"POLICY": FilterOrPolicyType_POLICY,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_sns.ITopic",
 		reflect.TypeOf((*ITopic)(nil)).Elem(),
@@ -223,6 +258,21 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.NumericConditions",
 		reflect.TypeOf((*NumericConditions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sns.Policy",
+		reflect.TypeOf((*Policy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isFilter", GoMethod: "IsFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "isPolicy", GoMethod: "IsPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "policyDoc", GoGetter: "PolicyDoc"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Policy{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_FilterOrPolicy)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.StringConditions",

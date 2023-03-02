@@ -12,8 +12,8 @@ package awsefs
 //   	FileSystemId: jsii.String("fileSystemId"),
 //
 //   	// the properties below are optional
-//   	AccessPointTags: []interface{}{
-//   		&AccessPointTagProperty{
+//   	AccessPointTags: []accessPointTagProperty{
+//   		&accessPointTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -46,7 +46,7 @@ type CfnAccessPointProps struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	AccessPointTags interface{} `field:"optional" json:"accessPointTags" yaml:"accessPointTags"`
+	AccessPointTags *[]*CfnAccessPoint_AccessPointTagProperty `field:"optional" json:"accessPointTags" yaml:"accessPointTags"`
 	// The opaque string specified in the request to ensure idempotent creation.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
 	// The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.

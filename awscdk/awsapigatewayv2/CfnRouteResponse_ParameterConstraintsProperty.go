@@ -1,6 +1,8 @@
 package awsapigatewayv2
 
 
+// Specifies whether the parameter is required.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsapigatewayv2
 //   }
 //
 type CfnRouteResponse_ParameterConstraintsProperty struct {
-	// `CfnRouteResponse.ParameterConstraintsProperty.Required`.
+	// Specifies whether the parameter is required.
 	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 

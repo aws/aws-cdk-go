@@ -17,18 +17,12 @@ import (
 //
 //   // option 1: use a construct
 //   // option 1: use a construct
-//   eks.NewHelmChart(this, jsii.String("NginxIngress"), &HelmChartProps{
+//   eks.NewHelmChart(this, jsii.String("MyOCIChart"), &HelmChartProps{
 //   	Cluster: Cluster,
-//   	Chart: jsii.String("nginx-ingress"),
-//   	Repository: jsii.String("https://helm.nginx.com/stable"),
-//   	Namespace: jsii.String("kube-system"),
-//   })
-//
-//   // or, option2: use `addHelmChart`
-//   cluster.addHelmChart(jsii.String("NginxIngress"), &HelmChartOptions{
-//   	Chart: jsii.String("nginx-ingress"),
-//   	Repository: jsii.String("https://helm.nginx.com/stable"),
-//   	Namespace: jsii.String("kube-system"),
+//   	Chart: jsii.String("some-chart"),
+//   	Repository: jsii.String("oci://${ACCOUNT_ID}.dkr.ecr.${ACCOUNT_REGION}.amazonaws.com/${REPO_NAME}"),
+//   	Namespace: jsii.String("oci"),
+//   	Version: jsii.String("0.0.1"),
 //   })
 //
 type HelmChart interface {

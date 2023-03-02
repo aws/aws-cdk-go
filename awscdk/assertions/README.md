@@ -191,11 +191,11 @@ and you can use the `'*'` special case as well.
 result := template.FindOutputs(jsii.String("*"), map[string]*string{
 	"Value": jsii.String("Fred"),
 })
-expect(result.foo)_ToEqual(map[string]*string{
+expect(result.foo).toEqual(map[string]*string{
 	"Value": jsii.String("Fred"),
 	"Description": jsii.String("FooFred"),
 })
-expect(result.bar)_ToEqual(map[string]*string{
+expect(result.bar).toEqual(map[string]*string{
 	"Value": jsii.String("Fred"),
 	"Description": jsii.String("BarFred"),
 })

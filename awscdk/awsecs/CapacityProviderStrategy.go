@@ -3,8 +3,6 @@ package awsecs
 
 // A Capacity Provider strategy to use for the service.
 //
-// NOTE: defaultCapacityProviderStrategy on cluster not currently supported.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

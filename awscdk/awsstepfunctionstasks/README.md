@@ -239,8 +239,7 @@ state machine role's policy. Use it in the case where the call requires more tha
 to be executed:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &CallAwsServiceProps{
+detectLabels := tasks.NewCallAwsService(this, jsii.String("DetectLabels"), &CallAwsServiceProps{
 	Service: jsii.String("rekognition"),
 	Action: jsii.String("detectLabels"),
 	IamResources: []*string{

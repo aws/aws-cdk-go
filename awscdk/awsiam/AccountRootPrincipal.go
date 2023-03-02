@@ -10,7 +10,8 @@ import (
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-//   result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   result := bucket.AddToResourcePolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
 //   		jsii.String("s3:GetObject"),
 //   	},

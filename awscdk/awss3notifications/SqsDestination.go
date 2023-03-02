@@ -17,8 +17,7 @@ import (
 //   var myQueue queue
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-//   bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED,
-//   s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
+//   bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
 //   	Prefix: jsii.String("foo/"),
 //   	Suffix: jsii.String(".jpg"),
 //   })

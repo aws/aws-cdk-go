@@ -105,6 +105,7 @@ type CfnEventSourceMapping interface {
 	// - *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
 	// - *Self-managed Apache Kafka* – Default 100. Max 10,000.
 	// - *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+	// - *DocumentDB* – Default 100. Max 10,000.
 	BatchSize() *float64
 	SetBatchSize(val *float64)
 	// (Streams only) If the function returns an error, split the batch in two and retry.
@@ -136,6 +137,7 @@ type CfnEventSourceMapping interface {
 	// - *Amazon Simple Queue Service* – The ARN of the queue.
 	// - *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster.
 	// - *Amazon MQ* – The ARN of the broker.
+	// - *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
 	EventSourceArn() *string
 	SetEventSourceArn(val *string)
 	// An object that defines the filter criteria that determine whether Lambda should process an event.

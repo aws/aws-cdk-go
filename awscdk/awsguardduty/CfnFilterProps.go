@@ -59,7 +59,7 @@ type CfnFilterProps struct {
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// The description of the filter.
 	//
-	// Valid special characters include period (.), underscore (_), dash (-), and whitespace. The new line character is considered to be an invalid input for description.
+	// Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`

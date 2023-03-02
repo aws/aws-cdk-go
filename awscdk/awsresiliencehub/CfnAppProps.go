@@ -40,7 +40,7 @@ package awsresiliencehub
 //   }
 //
 type CfnAppProps struct {
-	// A string containing a full Resilience Hub app template body.
+	// A string containing a full AWS Resilience Hub app template body.
 	AppTemplateBody *string `field:"required" json:"appTemplateBody" yaml:"appTemplateBody"`
 	// The name for the application.
 	Name *string `field:"required" json:"name" yaml:"name"`

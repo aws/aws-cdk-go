@@ -59,7 +59,7 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// - Must not match the name of an existing DB cluster parameter group.
 	//
-	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster paramter group.
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
 	//
 	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName() *string

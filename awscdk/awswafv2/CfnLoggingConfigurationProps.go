@@ -47,7 +47,7 @@ type CfnLoggingConfigurationProps struct {
 	LoggingFilter interface{} `field:"optional" json:"loggingFilter" yaml:"loggingFilter"`
 	// The parts of the request that you want to keep out of the logs.
 	//
-	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx` .
+	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `REDACTED` .
 	//
 	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , `Method` , and `JsonBody` .
 	RedactedFields interface{} `field:"optional" json:"redactedFields" yaml:"redactedFields"`

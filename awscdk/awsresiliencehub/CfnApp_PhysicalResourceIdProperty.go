@@ -23,7 +23,7 @@ type CfnApp_PhysicalResourceIdProperty struct {
 	// Specifies the type of physical resource identifier.
 	//
 	// - **Arn** - The resource identifier is an Amazon Resource Name (ARN) .
-	// - **Native** - The resource identifier is a Resilience Hub-native identifier.
+	// - **Native** - The resource identifier is an AWS Resilience Hub -native identifier.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The AWS account that owns the physical resource.
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`

@@ -346,7 +346,7 @@ type CfnDBCluster interface {
 	// Valid Values:
 	//
 	// - `aurora` (for MySQL 5.6-compatible Aurora)
-	// - `aurora-mysql` (for MySQL 5.7-compatible Aurora)
+	// - `aurora-mysql` (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)
 	// - `aurora-postgresql`
 	// - `mysql`
 	// - `postgres`

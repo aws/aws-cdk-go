@@ -15,7 +15,7 @@ package awsmanagedblockchain
 type CfnMember_NetworkFabricConfigurationProperty struct {
 	// The edition of Amazon Managed Blockchain that the network uses.
 	//
-	// Valid values are `standard` and `starter` . For more information, see
+	// Valid values are `standard` and `starter` . For more information, see [Amazon Managed Blockchain Pricing](https://docs.aws.amazon.com/managed-blockchain/pricing/)
 	Edition *string `field:"required" json:"edition" yaml:"edition"`
 }
 

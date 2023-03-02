@@ -19,7 +19,7 @@ type CfnLocationSMB_MountOptionsProperty struct {
 	//
 	// These are the following options for configuring the SMB version:
 	//
-	// - `AUTOMATIC` (default): DataSync and the SMB file server negotiate a protocol version that they mutually support. (DataSync supports SMB versions 1.0 and later.)
+	// - `AUTOMATIC` (default): DataSync and the SMB file server negotiate the highest version of SMB that they mutually support between 2.1 and 3.1.1.
 	//
 	// This is the recommended option. If you instead choose a specific version that your file server doesn't support, you may get an `Operation Not Supported` error.
 	// - `SMB3` : Restricts the protocol negotiation to only SMB version 3.0.2.

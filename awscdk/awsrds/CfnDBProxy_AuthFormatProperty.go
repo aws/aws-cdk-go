@@ -21,7 +21,7 @@ type CfnDBProxy_AuthFormatProperty struct {
 	//
 	// Valid Values: `SECRETS`.
 	AuthScheme *string `field:"optional" json:"authScheme" yaml:"authScheme"`
-	// `CfnDBProxy.AuthFormatProperty.ClientPasswordAuthType`.
+	// Specifies the details of authentication used by a proxy to log in as a specific database user.
 	ClientPasswordAuthType *string `field:"optional" json:"clientPasswordAuthType" yaml:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `field:"optional" json:"description" yaml:"description"`

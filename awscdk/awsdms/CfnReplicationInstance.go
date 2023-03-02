@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::DMS::ReplicationInstance`.
 //
-// The `AWS::DMS::ReplicationInstance` resource creates an AWS DMS replication instance.
+// The `AWS::DMS::ReplicationInstance` resource creates an AWS DMS replication instance. To create a ReplicationInstance, you need permissions to create instances. You'll need similar permissions to terminate instances when you delete stacks with instances.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

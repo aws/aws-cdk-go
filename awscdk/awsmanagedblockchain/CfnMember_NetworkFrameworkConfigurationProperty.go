@@ -15,7 +15,7 @@ package awsmanagedblockchain
 //   }
 //
 type CfnMember_NetworkFrameworkConfigurationProperty struct {
-	// Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.
+	// Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network that is using the Hyperledger Fabric framework.
 	NetworkFabricConfiguration interface{} `field:"optional" json:"networkFabricConfiguration" yaml:"networkFabricConfiguration"`
 }
 

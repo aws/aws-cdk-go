@@ -83,11 +83,11 @@ type SecretTargetAttachment interface {
 	Stack() awscdk.Stack
 	// Adds a rotation schedule to the secret.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
-	// Adds a statement to the IAM resource policy associated with this secret.
+	// Forward any additions to the resource policy to the original secret.
 	//
-	// If this secret was created in this stack, a resource policy will be
-	// automatically created upon the first call to `addToResourcePolicy`. If
-	// the secret is imported, then this is a no-op.
+	// This is required because a secret can only have a single resource policy.
+	// If we do not forward policy additions, a new policy resource is created using the secret attachment ARN.
+	// This ends up being rejected by CloudFormation.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//

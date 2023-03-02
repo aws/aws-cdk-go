@@ -137,7 +137,7 @@ type CfnTopic interface {
 	SetTopicName(val *string)
 	// Tracing mode of an Amazon SNS topic.
 	//
-	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to `Active` , SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
 	TracingConfig() *string
 	SetTracingConfig(val *string)
 	// Deprecated.

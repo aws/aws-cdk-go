@@ -78,7 +78,7 @@ type CfnFilter interface {
 	CreationStack() *[]*string
 	// The description of the filter.
 	//
-	// Valid special characters include period (.), underscore (_), dash (-), and whitespace. The new line character is considered to be an invalid input for description.
+	// Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.

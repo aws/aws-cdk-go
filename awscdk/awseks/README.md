@@ -1288,6 +1288,22 @@ cluster.addHelmChart(jsii.String("ExternalSecretsOperator"), map[string]interfac
 })
 ```
 
+Helm chart can come with Custom Resource Definitions (CRDs) defined that by default will be installed by helm as well. However in special cases it might be needed to skip the installation of CRDs, for that the property `skipCrds` can be used.
+
+```go
+var cluster cluster
+
+// option 1: use a construct
+// option 1: use a construct
+eks.NewHelmChart(this, jsii.String("NginxIngress"), &HelmChartProps{
+	Cluster: Cluster,
+	Chart: jsii.String("nginx-ingress"),
+	Repository: jsii.String("https://helm.nginx.com/stable"),
+	Namespace: jsii.String("kube-system"),
+	SkipCrds: jsii.Boolean(true),
+})
+```
+
 ### OCI Charts
 
 OCI charts are also supported.

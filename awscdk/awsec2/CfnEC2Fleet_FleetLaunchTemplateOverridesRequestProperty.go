@@ -108,6 +108,8 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	//
+	// `mac1.metal` is not supported as a launch template override.
+	//
 	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.

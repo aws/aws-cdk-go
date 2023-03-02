@@ -34,6 +34,10 @@ type SubscriptionProps struct {
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	FilterPolicy *map[string]SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
+	// The filter policy that is applied on the message body.
+	//
+	// To apply a filter policy to the message attributes, use `filterPolicy`. A maximum of one of `filterPolicyWithMessageBody` and `filterPolicy` may be used.
+	FilterPolicyWithMessageBody *map[string]FilterOrPolicy `field:"optional" json:"filterPolicyWithMessageBody" yaml:"filterPolicyWithMessageBody"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be

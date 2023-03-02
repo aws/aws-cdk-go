@@ -14,8 +14,7 @@ import (
 // A StepFunctions task to call an AWS service API.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &CallAwsServiceProps{
+//   detectLabels := tasks.NewCallAwsService(this, jsii.String("DetectLabels"), &CallAwsServiceProps{
 //   	Service: jsii.String("rekognition"),
 //   	Action: jsii.String("detectLabels"),
 //   	IamResources: []*string{

@@ -18,6 +18,7 @@ package cloudassemblyschema
 //   	// the properties below are optional
 //   	LookupRoleArn: jsii.String("lookupRoleArn"),
 //   	ReturnAsymmetricSubnets: jsii.Boolean(false),
+//   	ReturnVpnGateways: jsii.Boolean(false),
 //   	SubnetGroupNameTag: jsii.String("subnetGroupNameTag"),
 //   }
 //
@@ -36,6 +37,12 @@ type VpcContextQuery struct {
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Whether to populate the subnetGroups field of the `VpcContextResponse`, which contains potentially asymmetric subnet groups.
 	ReturnAsymmetricSubnets *bool `field:"optional" json:"returnAsymmetricSubnets" yaml:"returnAsymmetricSubnets"`
+	// Whether to populate the `vpnGatewayId` field of the `VpcContextResponse`, which contains the VPN Gateway ID, if one exists.
+	//
+	// You can explicitly
+	// disable this in order to avoid the lookup if you know the VPC does not have
+	// a VPN Gatway attached.
+	ReturnVpnGateways *bool `field:"optional" json:"returnVpnGateways" yaml:"returnVpnGateways"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.

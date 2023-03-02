@@ -226,7 +226,9 @@ type CfnDBInstance interface {
 	// Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles() interface{}
 	SetAssociatedRoles(val interface{})
+	// The CA identifier of the CA certificate used for the DB instance's server certificate.
 	AttrCertificateDetailsCaIdentifier() *string
+	// The expiration date of the DB instance’s server certificate.
 	AttrCertificateDetailsValidTill() *string
 	// The Amazon Resource Name (ARN) for the DB instance.
 	AttrDbInstanceArn() *string
@@ -686,7 +688,7 @@ type CfnDBInstance interface {
 	//
 	// If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB instance is encrypted, the specified `KmsKeyId` property is used.
 	//
-	// If you specify `DBSecurityGroups` , AWS CloudFormation ignores this property. To specify both a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html) in the *Amazon RDS User Guide* .
+	// If you specify `DBSecurityGroups` , AWS CloudFormation ignores this property. To specify both a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
 	//
 	// *Amazon Aurora*
 	//
@@ -887,9 +889,22 @@ type CfnDBInstance interface {
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
 	PerformanceInsightsKmsKeyId() *string
 	SetPerformanceInsightsKmsKeyId(val *string)
-	// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+	// The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:.
 	//
-	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
+	// - 7
+	// - *month* * 31, where *month* is a number of months from 1-23
+	// - 731
+	//
+	// For example, the following values are valid:
+	//
+	// - 93 (3 months * 31)
+	// - 341 (11 months * 31)
+	// - 589 (19 months * 31)
+	// - 731
+	//
+	// If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.
+	//
+	// This setting doesn't apply to RDS Custom.
 	PerformanceInsightsRetentionPeriod() *float64
 	SetPerformanceInsightsRetentionPeriod(val *float64)
 	// The port number on which the database accepts connections.
