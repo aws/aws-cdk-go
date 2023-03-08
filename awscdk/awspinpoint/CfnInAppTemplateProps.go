@@ -1,0 +1,107 @@
+package awspinpoint
+
+
+// Properties for defining a `CfnInAppTemplate`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var customConfig interface{}
+//   var tags interface{}
+//
+//   cfnInAppTemplateProps := &CfnInAppTemplateProps{
+//   	TemplateName: jsii.String("templateName"),
+//
+//   	// the properties below are optional
+//   	Content: []interface{}{
+//   		&InAppMessageContentProperty{
+//   			BackgroundColor: jsii.String("backgroundColor"),
+//   			BodyConfig: &BodyConfigProperty{
+//   				Alignment: jsii.String("alignment"),
+//   				Body: jsii.String("body"),
+//   				TextColor: jsii.String("textColor"),
+//   			},
+//   			HeaderConfig: &HeaderConfigProperty{
+//   				Alignment: jsii.String("alignment"),
+//   				Header: jsii.String("header"),
+//   				TextColor: jsii.String("textColor"),
+//   			},
+//   			ImageUrl: jsii.String("imageUrl"),
+//   			PrimaryBtn: &ButtonConfigProperty{
+//   				Android: &OverrideButtonConfigurationProperty{
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   				},
+//   				DefaultConfig: &DefaultButtonConfigurationProperty{
+//   					BackgroundColor: jsii.String("backgroundColor"),
+//   					BorderRadius: jsii.Number(123),
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   					Text: jsii.String("text"),
+//   					TextColor: jsii.String("textColor"),
+//   				},
+//   				Ios: &OverrideButtonConfigurationProperty{
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   				},
+//   				Web: &OverrideButtonConfigurationProperty{
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   				},
+//   			},
+//   			SecondaryBtn: &ButtonConfigProperty{
+//   				Android: &OverrideButtonConfigurationProperty{
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   				},
+//   				DefaultConfig: &DefaultButtonConfigurationProperty{
+//   					BackgroundColor: jsii.String("backgroundColor"),
+//   					BorderRadius: jsii.Number(123),
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   					Text: jsii.String("text"),
+//   					TextColor: jsii.String("textColor"),
+//   				},
+//   				Ios: &OverrideButtonConfigurationProperty{
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   				},
+//   				Web: &OverrideButtonConfigurationProperty{
+//   					ButtonAction: jsii.String("buttonAction"),
+//   					Link: jsii.String("link"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	CustomConfig: customConfig,
+//   	Layout: jsii.String("layout"),
+//   	Tags: tags,
+//   	TemplateDescription: jsii.String("templateDescription"),
+//   }
+//
+type CfnInAppTemplateProps struct {
+	// The name of the in-app message template.
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
+	Content interface{} `field:"optional" json:"content" yaml:"content"`
+	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+	CustomConfig interface{} `field:"optional" json:"customConfig" yaml:"customConfig"`
+	// A string that determines the appearance of the in-app message. You can specify one of the following:.
+	//
+	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+	// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+	// - `OVERLAYS` – a message that covers entire screen.
+	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
+	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	Layout *string `field:"optional" json:"layout" yaml:"layout"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	// An optional description of the in-app template.
+	TemplateDescription *string `field:"optional" json:"templateDescription" yaml:"templateDescription"`
+}
+

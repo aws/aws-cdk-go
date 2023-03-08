@@ -39,9 +39,11 @@ This example defines an Amazon EKS cluster with the following configuration:
 * A Kubernetes pod with a container based on the [paulbouwer/hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) image.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 // provisiong a cluster
-cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
+cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_24(),
+	KubectlLayer: NewKubectlV24Layer(this, jsii.String("kubectl")),
 })
 
 // apply a kubernetes manifest to the cluster
@@ -139,16 +141,16 @@ A more detailed breakdown of each is provided further down this README.
 Creating a new cluster is done using the `Cluster` or `FargateCluster` constructs. The only required property is the kubernetes `version`.
 
 ```go
-eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
 })
 ```
 
 You can also use `FargateCluster` to provision a cluster that uses only fargate workers.
 
 ```go
-eks.NewFargateCluster(this, jsii.String("HelloEKS"), &fargateClusterProps{
-	version: eks.kubernetesVersion_V1_21(),
+eks.NewFargateCluster(this, jsii.String("HelloEKS"), &FargateClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
 })
 ```
 
@@ -171,10 +173,10 @@ By default, this library will allocate a managed node group with 2 *m5.large* in
 At cluster instantiation time, you can customize the number of instances and their type:
 
 ```go
-eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	defaultCapacity: jsii.Number(5),
-	defaultCapacityInstance: ec2.instanceType.of(ec2.instanceClass_M5, ec2.instanceSize_SMALL),
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	DefaultCapacity: jsii.Number(5),
+	DefaultCapacityInstance: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_SMALL),
 })
 ```
 
@@ -183,18 +185,18 @@ To access the node group that was created on your behalf, you can use `cluster.d
 Additional customizations are available post instantiation. To apply them, set the default capacity to 0, and use the `cluster.addNodegroupCapacity` method:
 
 ```go
-cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	defaultCapacity: jsii.Number(0),
+cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	DefaultCapacity: jsii.Number(0),
 })
 
-cluster.addNodegroupCapacity(jsii.String("custom-node-group"), &nodegroupOptions{
-	instanceTypes: []instanceType{
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
 		ec2.NewInstanceType(jsii.String("m5.large")),
 	},
-	minSize: jsii.Number(4),
-	diskSize: jsii.Number(100),
-	amiType: eks.nodegroupAmiType_AL2_X86_64_GPU,
+	MinSize: jsii.Number(4),
+	DiskSize: jsii.Number(100),
+	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 })
 ```
 
@@ -203,15 +205,15 @@ To set node taints, you can set `taints` option.
 ```go
 var cluster cluster
 
-cluster.addNodegroupCapacity(jsii.String("custom-node-group"), &nodegroupOptions{
-	instanceTypes: []instanceType{
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
 		ec2.NewInstanceType(jsii.String("m5.large")),
 	},
-	taints: []taintSpec{
+	Taints: []taintSpec{
 		&taintSpec{
-			effect: eks.taintEffect_NO_SCHEDULE,
-			key: jsii.String("foo"),
-			value: jsii.String("bar"),
+			Effect: eks.TaintEffect_NO_SCHEDULE,
+			Key: jsii.String("foo"),
+			Value: jsii.String("bar"),
 		},
 	},
 })
@@ -227,14 +229,14 @@ Spot Instances, we recommend that you configure a Spot managed node group to use
 ```go
 var cluster cluster
 
-cluster.addNodegroupCapacity(jsii.String("extra-ng-spot"), &nodegroupOptions{
-	instanceTypes: []instanceType{
+cluster.AddNodegroupCapacity(jsii.String("extra-ng-spot"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
 		ec2.NewInstanceType(jsii.String("c5.large")),
 		ec2.NewInstanceType(jsii.String("c5a.large")),
 		ec2.NewInstanceType(jsii.String("c5d.large")),
 	},
-	minSize: jsii.Number(3),
-	capacityType: eks.capacityType_SPOT,
+	MinSize: jsii.Number(3),
+	CapacityType: eks.CapacityType_SPOT,
 })
 ```
 
@@ -250,18 +252,28 @@ for mode details.
 var cluster cluster
 
 
-userData := "MIME-Version: 1.0\nContent-Type: multipart/mixed; boundary=\"==MYBOUNDARY==\"\n\n--==MYBOUNDARY==\nContent-Type: text/x-shellscript; charset=\"us-ascii\"\n\n#!/bin/bash\necho \"Running custom user data script\"\n\n--==MYBOUNDARY==--\\\n"
-lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
-	launchTemplateData: &launchTemplateDataProperty{
-		instanceType: jsii.String("t3.small"),
-		userData: awscdk.Fn.base64(userData),
+userData := `MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
+
+--==MYBOUNDARY==
+Content-Type: text/x-shellscript; charset="us-ascii"
+
+#!/bin/bash
+echo "Running custom user data script"
+
+--==MYBOUNDARY==--\\
+`
+lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
+	LaunchTemplateData: &LaunchTemplateDataProperty{
+		InstanceType: jsii.String("t3.small"),
+		UserData: awscdk.Fn_Base64(userData),
 	},
 })
 
-cluster.addNodegroupCapacity(jsii.String("extra-ng"), &nodegroupOptions{
-	launchTemplateSpec: &launchTemplateSpec{
-		id: lt.ref,
-		version: lt.attrLatestVersionNumber,
+cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
+	LaunchTemplateSpec: &LaunchTemplateSpec{
+		Id: lt.ref,
+		Version: lt.AttrLatestVersionNumber,
 	},
 })
 ```
@@ -272,21 +284,21 @@ In the following example, `/ect/eks/bootstrap.sh` from the AMI will be used to b
 ```go
 var cluster cluster
 
-userData := ec2.userData.forLinux()
-userData.addCommands(jsii.String("set -o xtrace"),
-fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.clusterName))
-lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
-	launchTemplateData: &launchTemplateDataProperty{
-		imageId: jsii.String("some-ami-id"),
+userData := ec2.UserData_ForLinux()
+userData.AddCommands(jsii.String("set -o xtrace"),
+fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.ClusterName))
+lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
+	LaunchTemplateData: &LaunchTemplateDataProperty{
+		ImageId: jsii.String("some-ami-id"),
 		 // custom AMI
-		instanceType: jsii.String("t3.small"),
-		userData: awscdk.Fn.base64(userData.render()),
+		InstanceType: jsii.String("t3.small"),
+		UserData: awscdk.Fn_Base64(userData.Render()),
 	},
 })
-cluster.addNodegroupCapacity(jsii.String("extra-ng"), &nodegroupOptions{
-	launchTemplateSpec: &launchTemplateSpec{
-		id: lt.ref,
-		version: lt.attrLatestVersionNumber,
+cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
+	LaunchTemplateSpec: &LaunchTemplateSpec{
+		Id: lt.ref,
+		Version: lt.AttrLatestVersionNumber,
 	},
 })
 ```
@@ -296,6 +308,7 @@ You may specify one `instanceType` in the launch template or multiple `instanceT
 > For more details visit [Launch Template Support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
 
 Graviton 2 instance types are supported including `c6g`, `m6g`, `r6g` and `t4g`.
+Graviton 3 instance types are supported including `c7g`.
 
 ### Fargate profiles
 
@@ -317,10 +330,10 @@ that will match all pods from the "default" namespace:
 ```go
 var cluster cluster
 
-cluster.addFargateProfile(jsii.String("MyProfile"), &fargateProfileOptions{
-	selectors: []selector{
+cluster.AddFargateProfile(jsii.String("MyProfile"), &FargateProfileOptions{
+	Selectors: []selector{
 		&selector{
-			namespace: jsii.String("default"),
+			Namespace: jsii.String("default"),
 		},
 	},
 })
@@ -331,11 +344,11 @@ You can also directly use the `FargateProfile` construct to create profiles unde
 ```go
 var cluster cluster
 
-eks.NewFargateProfile(this, jsii.String("MyProfile"), &fargateProfileProps{
-	cluster: cluster,
-	selectors: []selector{
+eks.NewFargateProfile(this, jsii.String("MyProfile"), &FargateProfileProps{
+	Cluster: Cluster,
+	Selectors: []selector{
 		&selector{
-			namespace: jsii.String("default"),
+			Namespace: jsii.String("default"),
 		},
 	},
 })
@@ -345,8 +358,8 @@ To create an EKS cluster that **only** uses Fargate capacity, you can use `Farga
 The following code defines an Amazon EKS cluster with a default Fargate Profile that matches all pods from the "kube-system" and "default" namespaces. It is also configured to [run CoreDNS on Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html#fargate-gs-coredns).
 
 ```go
-cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &fargateClusterProps{
-	version: eks.kubernetesVersion_V1_21(),
+cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
 })
 ```
 
@@ -370,11 +383,11 @@ Creating an auto-scaling group and connecting it to the cluster is done using th
 ```go
 var cluster cluster
 
-cluster.addAutoScalingGroupCapacity(jsii.String("frontend-nodes"), &autoScalingGroupCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("t2.medium")),
-	minCapacity: jsii.Number(3),
-	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PUBLIC,
+cluster.AddAutoScalingGroupCapacity(jsii.String("frontend-nodes"), &AutoScalingGroupCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.medium")),
+	MinCapacity: jsii.Number(3),
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
 	},
 })
 ```
@@ -385,7 +398,7 @@ To connect an already initialized auto-scaling group, use the `cluster.connectAu
 var cluster cluster
 var asg autoScalingGroup
 
-cluster.connectAutoScalingGroupCapacity(asg, &autoScalingGroupOptions{
+cluster.connectAutoScalingGroupCapacity(asg, &AutoScalingGroupOptions{
 })
 ```
 
@@ -395,12 +408,12 @@ To connect a self-managed node group to an imported cluster, use the `cluster.co
 var cluster cluster
 var asg autoScalingGroup
 
-importedCluster := eks.cluster.fromClusterAttributes(this, jsii.String("ImportedCluster"), &clusterAttributes{
-	clusterName: cluster.clusterName,
-	clusterSecurityGroupId: cluster.clusterSecurityGroupId,
+importedCluster := eks.cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
+	ClusterName: cluster.ClusterName,
+	ClusterSecurityGroupId: cluster.ClusterSecurityGroupId,
 })
 
-importedCluster.connectAutoScalingGroupCapacity(asg, &autoScalingGroupOptions{
+importedCluster.ConnectAutoScalingGroupCapacity(asg, &AutoScalingGroupOptions{
 })
 ```
 
@@ -416,12 +429,12 @@ for bootstrapping the node to the EKS cluster. For example, you can use `kubelet
 ```go
 var cluster cluster
 
-cluster.addAutoScalingGroupCapacity(jsii.String("spot"), &autoScalingGroupCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-	minCapacity: jsii.Number(2),
-	bootstrapOptions: &bootstrapOptions{
-		kubeletExtraArgs: jsii.String("--node-labels foo=bar,goo=far"),
-		awsApiRetryAttempts: jsii.Number(5),
+cluster.AddAutoScalingGroupCapacity(jsii.String("spot"), &AutoScalingGroupCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+	MinCapacity: jsii.Number(2),
+	BootstrapOptions: &BootstrapOptions{
+		KubeletExtraArgs: jsii.String("--node-labels foo=bar,goo=far"),
+		AwsApiRetryAttempts: jsii.Number(5),
 	},
 })
 ```
@@ -430,9 +443,9 @@ To disable bootstrapping altogether (i.e. to fully customize user-data), set `bo
 You can also configure the cluster to use an auto-scaling group as the default capacity:
 
 ```go
-cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	defaultCapacityType: eks.defaultCapacityType_EC2,
+cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	DefaultCapacityType: eks.DefaultCapacityType_EC2,
 })
 ```
 
@@ -444,7 +457,7 @@ You can also independently create an `AutoScalingGroup` and connect it to the cl
 var cluster cluster
 var asg autoScalingGroup
 
-cluster.connectAutoScalingGroupCapacity(asg, &autoScalingGroupOptions{
+cluster.connectAutoScalingGroupCapacity(asg, &AutoScalingGroupOptions{
 })
 ```
 
@@ -458,10 +471,10 @@ To enable spot capacity, use the `spotPrice` property:
 ```go
 var cluster cluster
 
-cluster.addAutoScalingGroupCapacity(jsii.String("spot"), &autoScalingGroupCapacityOptions{
-	spotPrice: jsii.String("0.1094"),
-	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-	maxCapacity: jsii.Number(10),
+cluster.AddAutoScalingGroupCapacity(jsii.String("spot"), &AutoScalingGroupCapacityOptions{
+	SpotPrice: jsii.String("0.1094"),
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+	MaxCapacity: jsii.Number(10),
 })
 ```
 
@@ -491,8 +504,8 @@ To create a Bottlerocket managed nodegroup:
 ```go
 var cluster cluster
 
-cluster.addNodegroupCapacity(jsii.String("BottlerocketNG"), &nodegroupOptions{
-	amiType: eks.nodegroupAmiType_BOTTLEROCKET_X86_64,
+cluster.AddNodegroupCapacity(jsii.String("BottlerocketNG"), &NodegroupOptions{
+	AmiType: eks.NodegroupAmiType_BOTTLEROCKET_X86_64,
 })
 ```
 
@@ -501,10 +514,10 @@ The following example will create an auto-scaling group of 2 `t3.small` Linux in
 ```go
 var cluster cluster
 
-cluster.addAutoScalingGroupCapacity(jsii.String("BottlerocketNodes"), &autoScalingGroupCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("t3.small")),
-	minCapacity: jsii.Number(2),
-	machineImageType: eks.machineImageType_BOTTLEROCKET,
+cluster.AddAutoScalingGroupCapacity(jsii.String("BottlerocketNodes"), &AutoScalingGroupCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
+	MinCapacity: jsii.Number(2),
+	MachineImageType: eks.MachineImageType_BOTTLEROCKET,
 })
 ```
 
@@ -528,9 +541,9 @@ AWS Identity and Access Management (IAM) and native Kubernetes [Role Based Acces
 You can configure the [cluster endpoint access](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) by using the `endpointAccess` property:
 
 ```go
-cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	endpointAccess: eks.endpointAccess_PRIVATE(),
+cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 })
 ```
 
@@ -550,10 +563,10 @@ From the docs:
 To deploy the controller on your EKS cluster, configure the `albController` property:
 
 ```go
-eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	albController: &albControllerOptions{
-		version: eks.albControllerVersion_V2_4_1(),
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	AlbController: &AlbControllerOptions{
+		Version: eks.AlbControllerVersion_V2_4_1(),
 	},
 })
 ```
@@ -580,8 +593,8 @@ var cluster cluster
 
 manifest := cluster.addManifest(jsii.String("manifest"), map[string]interface{}{
 })
-if cluster.albController {
-	manifest.node.addDependency(cluster.albController)
+if cluster.AlbController {
+	manifest.Node.AddDependency(cluster.AlbController)
 }
 ```
 
@@ -593,12 +606,12 @@ You can specify the VPC of the cluster using the `vpc` and `vpcSubnets` properti
 var vpc vpc
 
 
-eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	vpc: vpc,
-	vpcSubnets: []subnetSelection{
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	Vpc: Vpc,
+	VpcSubnets: []subnetSelection{
 		&subnetSelection{
-			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 	},
 })
@@ -617,11 +630,11 @@ If you allocate self managed capacity, you can specify which subnets should the 
 var vpc vpc
 var cluster cluster
 
-cluster.addAutoScalingGroupCapacity(jsii.String("nodes"), &autoScalingGroupCapacityOptions{
-	vpcSubnets: &subnetSelection{
-		subnets: vpc.privateSubnets,
+cluster.AddAutoScalingGroupCapacity(jsii.String("nodes"), &AutoScalingGroupCapacityOptions{
+	VpcSubnets: &SubnetSelection{
+		Subnets: vpc.PrivateSubnets,
 	},
-	instanceType: ec2.NewInstanceType(jsii.String("t2.medium")),
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.medium")),
 })
 ```
 
@@ -648,16 +661,16 @@ You can configure the environment of the Cluster Handler functions by specifying
 ```go
 var proxyInstanceSecurityGroup securityGroup
 
-cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	clusterHandlerEnvironment: map[string]*string{
+cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	ClusterHandlerEnvironment: map[string]*string{
 		"https_proxy": jsii.String("http://proxy.myproxy.com"),
 	},
 	/**
 	   * If the proxy is not open publicly, you can pass a security group to the
 	   * Cluster Handler Lambdas so that it can reach the proxy.
 	   */
-	clusterHandlerSecurityGroup: proxyInstanceSecurityGroup,
+	ClusterHandlerSecurityGroup: proxyInstanceSecurityGroup,
 })
 ```
 
@@ -668,16 +681,16 @@ The resources are created in the cluster by running `kubectl apply` from a pytho
 By default, CDK will create a new python lambda function to apply your k8s manifests. If you want to use an existing kubectl provider function, for example with tight trusted entities on your IAM Roles - you can import the existing provider and then use the imported provider when importing the cluster:
 
 ```go
-handlerRole := iam.role.fromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
-kubectlProvider := eks.kubectlProvider.fromKubectlProviderAttributes(this, jsii.String("KubectlProvider"), &kubectlProviderAttributes{
-	functionArn: jsii.String("arn:aws:lambda:us-east-2:123456789012:function:my-function:1"),
-	kubectlRoleArn: jsii.String("arn:aws:iam::123456789012:role/kubectl-role"),
-	handlerRole: handlerRole,
+handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
+kubectlProvider := eks.KubectlProvider_FromKubectlProviderAttributes(this, jsii.String("KubectlProvider"), &KubectlProviderAttributes{
+	FunctionArn: jsii.String("arn:aws:lambda:us-east-2:123456789012:function:my-function:1"),
+	KubectlRoleArn: jsii.String("arn:aws:iam::123456789012:role/kubectl-role"),
+	HandlerRole: HandlerRole,
 })
 
-cluster := eks.cluster.fromClusterAttributes(this, jsii.String("Cluster"), &clusterAttributes{
-	clusterName: jsii.String("cluster"),
-	kubectlProvider: kubectlProvider,
+cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("Cluster"), &ClusterAttributes{
+	ClusterName: jsii.String("cluster"),
+	KubectlProvider: KubectlProvider,
 })
 ```
 
@@ -686,9 +699,9 @@ cluster := eks.cluster.fromClusterAttributes(this, jsii.String("Cluster"), &clus
 You can configure the environment of this function by specifying it at cluster instantiation. For example, this can be useful in order to configure an http proxy:
 
 ```go
-cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	kubectlEnvironment: map[string]*string{
+cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	KubectlEnvironment: map[string]*string{
 		"http_proxy": jsii.String("http://proxy.myproxy.com"),
 	},
 })
@@ -700,24 +713,41 @@ The kubectl handler uses `kubectl`, `helm` and the `aws` CLI in order to
 interact with the cluster. These are bundled into AWS Lambda layers included in
 the `@aws-cdk/lambda-layer-awscli` and `@aws-cdk/lambda-layer-kubectl` modules.
 
-You can specify a custom `lambda.LayerVersion` if you wish to use a different
-version of these tools. The handler expects the layer to include the following
-three executables:
+The version of kubectl used must be compatible with the Kubernetes version of the
+cluster. kubectl is supported within one minor version (older or newer) of Kubernetes
+(see [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy/#kubectl)).
+Only version 1.20 of kubectl is available in `aws-cdk-lib`. If you need a different
+version, you will need to use one of the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdklib/lambdalayerkubectlv24"
+
+
+cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_24(),
+	KubectlLayer: awscdkliblambdalayerkubectlv24.NewKubectlV24Layer(this, jsii.String("kubectl")),
+})
+```
+
+You can also specify a custom `lambda.LayerVersion` if you wish to use a
+different version of these tools, or a version not available in any of the
+`@aws-cdk/lambda-layer-kubectl-vXY` packages. The handler expects the layer to
+include the following two executables:
 
 ```text
 helm/helm
 kubectl/kubectl
-awscli/aws
 ```
 
 See more information in the
-[Dockerfile](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/lambda-layer-awscli/layer) for @aws-cdk/lambda-layer-awscli
+[Dockerfile](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/lambda-layer-awscli/layer) for @aws-cdk/lambda-layer-awscli
 and the
-[Dockerfile](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/lambda-layer-kubectl/layer) for @aws-cdk/lambda-layer-kubectl.
+[Dockerfile](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/lambda-layer-kubectl/layer) for @aws-cdk/lambda-layer-kubectl.
 
 ```go
-layer := lambda.NewLayerVersion(this, jsii.String("KubectlLayer"), &layerVersionProps{
-	code: lambda.code.fromAsset(jsii.String("layer.zip")),
+layer := lambda.NewLayerVersion(this, jsii.String("KubectlLayer"), &LayerVersionProps{
+	Code: lambda.Code_FromAsset(jsii.String("layer.zip")),
 })
 ```
 
@@ -728,18 +758,18 @@ var layer layerVersion
 var vpc vpc
 
 
-cluster1 := eks.NewCluster(this, jsii.String("MyCluster"), &clusterProps{
-	kubectlLayer: layer,
-	vpc: vpc,
-	clusterName: jsii.String("cluster-name"),
-	version: eks.kubernetesVersion_V1_21(),
+cluster1 := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
+	KubectlLayer: layer,
+	Vpc: Vpc,
+	ClusterName: jsii.String("cluster-name"),
+	Version: eks.KubernetesVersion_V1_21(),
 })
 
 // or
-cluster2 := eks.cluster.fromClusterAttributes(this, jsii.String("MyCluster"), &clusterAttributes{
-	kubectlLayer: layer,
-	vpc: vpc,
-	clusterName: jsii.String("cluster-name"),
+cluster2 := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+	KubectlLayer: layer,
+	Vpc: Vpc,
+	ClusterName: jsii.String("cluster-name"),
 })
 ```
 
@@ -750,14 +780,14 @@ By default, the kubectl provider is configured with 1024MiB of memory. You can u
 ```go
 // or
 var vpc vpc
-eks.NewCluster(this, jsii.String("MyCluster"), &clusterProps{
-	kubectlMemory: awscdk.Size.gibibytes(jsii.Number(4)),
-	version: eks.kubernetesVersion_V1_21(),
+eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
+	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
+	Version: eks.KubernetesVersion_V1_21(),
 })
-eks.cluster.fromClusterAttributes(this, jsii.String("MyCluster"), &clusterAttributes{
-	kubectlMemory: awscdk.Size.gibibytes(jsii.Number(4)),
-	vpc: vpc,
-	clusterName: jsii.String("cluster-name"),
+eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
+	Vpc: Vpc,
+	ClusterName: jsii.String("cluster-name"),
 })
 ```
 
@@ -770,17 +800,17 @@ Amazon Linux 2 AMI for ARM64 will be automatically selected.
 var cluster cluster
 
 // add a managed ARM64 nodegroup
-cluster.addNodegroupCapacity(jsii.String("extra-ng-arm"), &nodegroupOptions{
-	instanceTypes: []instanceType{
+cluster.AddNodegroupCapacity(jsii.String("extra-ng-arm"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
 		ec2.NewInstanceType(jsii.String("m6g.medium")),
 	},
-	minSize: jsii.Number(2),
+	MinSize: jsii.Number(2),
 })
 
 // add a self-managed ARM64 nodegroup
-cluster.addAutoScalingGroupCapacity(jsii.String("self-ng-arm"), &autoScalingGroupCapacityOptions{
-	instanceType: ec2.NewInstanceType(jsii.String("m6g.medium")),
-	minCapacity: jsii.Number(2),
+cluster.AddAutoScalingGroupCapacity(jsii.String("self-ng-arm"), &AutoScalingGroupCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("m6g.medium")),
+	MinCapacity: jsii.Number(2),
 })
 ```
 
@@ -791,9 +821,9 @@ When you create a cluster, you can specify a `mastersRole`. The `Cluster` constr
 ```go
 var role role
 
-eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	mastersRole: role,
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	MastersRole: role,
 })
 ```
 
@@ -818,9 +848,9 @@ You can use the `secretsEncryptionKey` to configure which key the cluster will u
 
 ```go
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
-cluster := eks.NewCluster(this, jsii.String("MyCluster"), &clusterProps{
-	secretsEncryptionKey: secretsKey,
-	version: eks.kubernetesVersion_V1_21(),
+cluster := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
+	SecretsEncryptionKey: secretsKey,
+	Version: eks.KubernetesVersion_V1_21(),
 })
 ```
 
@@ -828,9 +858,9 @@ You can also use a similar configuration for running a cluster built using the F
 
 ```go
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
-cluster := eks.NewFargateCluster(this, jsii.String("MyFargateCluster"), &fargateClusterProps{
-	secretsEncryptionKey: secretsKey,
-	version: eks.kubernetesVersion_V1_21(),
+cluster := eks.NewFargateCluster(this, jsii.String("MyFargateCluster"), &FargateClusterProps{
+	SecretsEncryptionKey: secretsKey,
+	Version: eks.KubernetesVersion_V1_21(),
 })
 ```
 
@@ -839,7 +869,7 @@ The Amazon Resource Name (ARN) for that CMK can be retrieved.
 ```go
 var cluster cluster
 
-clusterEncryptionConfigKeyArn := cluster.clusterEncryptionConfigKeyArn
+clusterEncryptionConfigKeyArn := cluster.ClusterEncryptionConfigKeyArn
 ```
 
 ## Permissions and Security
@@ -861,8 +891,8 @@ For example, let's say you want to grant an IAM user administrative privileges o
 var cluster cluster
 
 adminUser := iam.NewUser(this, jsii.String("Admin"))
-cluster.awsAuth.addUserMapping(adminUser, &awsAuthMapping{
-	groups: []*string{
+cluster.awsAuth.AddUserMapping(adminUser, &AwsAuthMapping{
+	Groups: []*string{
 		jsii.String("system:masters"),
 	},
 })
@@ -874,7 +904,7 @@ A convenience method for mapping a role to the `system:masters` group is also av
 var cluster cluster
 var role role
 
-cluster.awsAuth.addMastersRole(role)
+cluster.awsAuth.AddMastersRole(role)
 ```
 
 ### Cluster Security Group
@@ -888,7 +918,7 @@ The ID for that security group can be retrieved after creating the cluster.
 ```go
 var cluster cluster
 
-clusterSecurityGroupId := cluster.clusterSecurityGroupId
+clusterSecurityGroupId := cluster.ClusterSecurityGroupId
 ```
 
 ### Node SSH Access
@@ -913,7 +943,7 @@ var cluster cluster
 serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-bucket.grantReadWrite(serviceAccount)
+bucket.GrantReadWrite(serviceAccount)
 
 mypod := cluster.addManifest(jsii.String("mypod"), map[string]interface{}{
 	"apiVersion": jsii.String("v1"),
@@ -938,12 +968,12 @@ mypod := cluster.addManifest(jsii.String("mypod"), map[string]interface{}{
 })
 
 // create the resource after the service account.
-mypod.node.addDependency(serviceAccount)
+mypod.Node.AddDependency(serviceAccount)
 
 // print the IAM role arn for this service account
 // print the IAM role arn for this service account
-awscdk.NewCfnOutput(this, jsii.String("ServiceAccountIamRole"), &cfnOutputProps{
-	value: serviceAccount.role.roleArn,
+awscdk.NewCfnOutput(this, jsii.String("ServiceAccountIamRole"), &CfnOutputProps{
+	Value: serviceAccount.Role.RoleArn,
 })
 ```
 
@@ -956,11 +986,11 @@ It is possible to pass annotations and labels to the service account.
 var cluster cluster
 
 // add service account with annotations and labels
-serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &serviceAccountOptions{
-	annotations: map[string]*string{
+serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &ServiceAccountOptions{
+	Annotations: map[string]*string{
 		"eks.amazonaws.com/sts-regional-endpoints": jsii.String("false"),
 	},
-	labels: map[string]*string{
+	Labels: map[string]*string{
 		"some-label": jsii.String("with-some-value"),
 	},
 })
@@ -973,26 +1003,26 @@ To do so, pass the `openIdConnectProvider` property when you import the cluster 
 // or create a new one using an existing issuer url
 var issuerUrl string
 // you can import an existing provider
-provider := eks.openIdConnectProvider.fromOpenIdConnectProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
-provider2 := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &openIdConnectProviderProps{
-	url: issuerUrl,
+provider := eks.OpenIdConnectProvider_FromOpenIdConnectProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
+provider2 := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
+	Url: issuerUrl,
 })
 
-cluster := eks.cluster.fromClusterAttributes(this, jsii.String("MyCluster"), &clusterAttributes{
-	clusterName: jsii.String("Cluster"),
-	openIdConnectProvider: provider,
-	kubectlRoleArn: jsii.String("arn:aws:iam::123456:role/service-role/k8sservicerole"),
+cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+	ClusterName: jsii.String("Cluster"),
+	OpenIdConnectProvider: provider,
+	KubectlRoleArn: jsii.String("arn:aws:iam::123456:role/service-role/k8sservicerole"),
 })
 
-serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))
+serviceAccount := cluster.AddServiceAccount(jsii.String("MyServiceAccount"))
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-bucket.grantReadWrite(serviceAccount)
+bucket.GrantReadWrite(serviceAccount)
 ```
 
 Note that adding service accounts requires running `kubectl` commands against the cluster.
 This means you must also pass the `kubectlRoleArn` when importing the cluster.
-See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/master/packages/@aws-cdk/aws-eks#using-existing-clusters).
+See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/main/packages/@aws-cdk/aws-eks#using-existing-clusters).
 
 ## Applying Kubernetes Resources
 
@@ -1069,9 +1099,9 @@ service := map[string]interface{}{
 
 // option 1: use a construct
 // option 1: use a construct
-eks.NewKubernetesManifest(this, jsii.String("hello-kub"), &kubernetesManifestProps{
-	cluster: cluster,
-	manifest: []map[string]interface{}{
+eks.NewKubernetesManifest(this, jsii.String("hello-kub"), &KubernetesManifestProps{
+	Cluster: Cluster,
+	Manifest: []map[string]interface{}{
 		deployment,
 		service,
 	},
@@ -1138,7 +1168,7 @@ service := cluster.addManifest(jsii.String("my-service"), map[string]interface{}
 	},
 })
 
-service.node.addDependency(namespace)
+service.Node.AddDependency(namespace)
 ```
 
 **NOTE:** when a `KubernetesManifest` includes multiple resources (either directly
@@ -1163,9 +1193,9 @@ Pruning is enabled by default but can be disabled through the `prune` option
 when a cluster is defined:
 
 ```go
-eks.NewCluster(this, jsii.String("MyCluster"), &clusterProps{
-	version: eks.kubernetesVersion_V1_21(),
-	prune: jsii.Boolean(false),
+eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_21(),
+	Prune: jsii.Boolean(false),
 })
 ```
 
@@ -1177,14 +1207,14 @@ This can be accomplished by setting the `skipValidation` flag to `true` in the `
 ```go
 var cluster cluster
 
-eks.NewKubernetesManifest(this, jsii.String("HelloAppWithoutValidation"), &kubernetesManifestProps{
-	cluster: cluster,
-	manifest: []map[string]interface{}{
+eks.NewKubernetesManifest(this, jsii.String("HelloAppWithoutValidation"), &KubernetesManifestProps{
+	Cluster: Cluster,
+	Manifest: []map[string]interface{}{
 		map[string]interface{}{
 			"foo": jsii.String("bar"),
 		},
 	},
-	skipValidation: jsii.Boolean(true),
+	SkipValidation: jsii.Boolean(true),
 })
 ```
 
@@ -1204,18 +1234,18 @@ var cluster cluster
 
 // option 1: use a construct
 // option 1: use a construct
-eks.NewHelmChart(this, jsii.String("NginxIngress"), &helmChartProps{
-	cluster: cluster,
-	chart: jsii.String("nginx-ingress"),
-	repository: jsii.String("https://helm.nginx.com/stable"),
-	namespace: jsii.String("kube-system"),
+eks.NewHelmChart(this, jsii.String("NginxIngress"), &HelmChartProps{
+	Cluster: Cluster,
+	Chart: jsii.String("nginx-ingress"),
+	Repository: jsii.String("https://helm.nginx.com/stable"),
+	Namespace: jsii.String("kube-system"),
 })
 
 // or, option2: use `addHelmChart`
-cluster.addHelmChart(jsii.String("NginxIngress"), &helmChartOptions{
-	chart: jsii.String("nginx-ingress"),
-	repository: jsii.String("https://helm.nginx.com/stable"),
-	namespace: jsii.String("kube-system"),
+cluster.addHelmChart(jsii.String("NginxIngress"), &HelmChartOptions{
+	Chart: jsii.String("nginx-ingress"),
+	Repository: jsii.String("https://helm.nginx.com/stable"),
+	Namespace: jsii.String("kube-system"),
 })
 ```
 
@@ -1231,12 +1261,46 @@ import s3Assets "github.com/aws/aws-cdk-go/awscdk"
 
 var cluster cluster
 
-chartAsset := s3Assets.NewAsset(this, jsii.String("ChartAsset"), &assetProps{
-	path: jsii.String("/path/to/asset"),
+chartAsset := s3Assets.NewAsset(this, jsii.String("ChartAsset"), &AssetProps{
+	Path: jsii.String("/path/to/asset"),
 })
 
-cluster.addHelmChart(jsii.String("test-chart"), &helmChartOptions{
-	chartAsset: chartAsset,
+cluster.addHelmChart(jsii.String("test-chart"), &HelmChartOptions{
+	ChartAsset: chartAsset,
+})
+```
+
+Nested values passed to the `values` parameter should be provided as a nested dictionary:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+cluster.addHelmChart(jsii.String("ExternalSecretsOperator"), map[string]interface{}{
+	"chart": jsii.String("external-secrets"),
+	"release": jsii.String("external-secrets"),
+	"repository": jsii.String("https://charts.external-secrets.io"),
+	"namespace": jsii.String("external-secrets"),
+	"values": map[string]interface{}{
+		"installCRDs": jsii.Boolean(true),
+		"webhook": map[string]*f64{
+			"port": jsii.Number(9443),
+		},
+	},
+})
+```
+
+Helm chart can come with Custom Resource Definitions (CRDs) defined that by default will be installed by helm as well. However in special cases it might be needed to skip the installation of CRDs, for that the property `skipCrds` can be used.
+
+```go
+var cluster cluster
+
+// option 1: use a construct
+// option 1: use a construct
+eks.NewHelmChart(this, jsii.String("NginxIngress"), &HelmChartProps{
+	Cluster: Cluster,
+	Chart: jsii.String("nginx-ingress"),
+	Repository: jsii.String("https://helm.nginx.com/stable"),
+	Namespace: jsii.String("kube-system"),
+	SkipCrds: jsii.Boolean(true),
 })
 ```
 
@@ -1250,12 +1314,12 @@ var cluster cluster
 
 // option 1: use a construct
 // option 1: use a construct
-eks.NewHelmChart(this, jsii.String("MyOCIChart"), &helmChartProps{
-	cluster: cluster,
-	chart: jsii.String("some-chart"),
-	repository: jsii.String("oci://${ACCOUNT_ID}.dkr.ecr.${ACCOUNT_REGION}.amazonaws.com/${REPO_NAME}"),
-	namespace: jsii.String("oci"),
-	version: jsii.String("0.0.1"),
+eks.NewHelmChart(this, jsii.String("MyOCIChart"), &HelmChartProps{
+	Cluster: Cluster,
+	Chart: jsii.String("some-chart"),
+	Repository: jsii.String("oci://${ACCOUNT_ID}.dkr.ecr.${ACCOUNT_REGION}.amazonaws.com/${REPO_NAME}"),
+	Namespace: jsii.String("oci"),
+	Version: jsii.String("0.0.1"),
 })
 ```
 
@@ -1276,17 +1340,17 @@ charts:
 ```go
 var cluster cluster
 
-chart1 := cluster.addHelmChart(jsii.String("MyChart"), &helmChartOptions{
-	chart: jsii.String("foo"),
+chart1 := cluster.addHelmChart(jsii.String("MyChart"), &HelmChartOptions{
+	Chart: jsii.String("foo"),
 })
-chart2 := cluster.addHelmChart(jsii.String("MyChart"), &helmChartOptions{
-	chart: jsii.String("bar"),
+chart2 := cluster.addHelmChart(jsii.String("MyChart"), &HelmChartOptions{
+	Chart: jsii.String("bar"),
 })
 
-chart2.node.addDependency(chart1)
+chart2.Node.AddDependency(chart1)
 ```
 
-#### CDK8s Charts
+### CDK8s Charts
 
 [CDK8s](https://cdk8s.io/) is an open-source library that enables Kubernetes manifest authoring using familiar programming languages. It is founded on the same technologies as the AWS CDK, such as [`constructs`](https://github.com/aws/constructs) and [`jsii`](https://github.com/aws/jsii).
 
@@ -1301,32 +1365,30 @@ To get started, add the following dependencies to your `package.json` file:
 
 ```json
 "dependencies": {
-  "cdk8s": "^1.0.0",
-  "cdk8s-plus-21": "^1.0.0-beta.38",
-  "constructs": "^3.3.69"
+  "cdk8s": "^2.0.0",
+  "cdk8s-plus-22": "^2.0.0-rc.30",
+  "constructs": "^10.0.0"
 }
 ```
 
-Note that here we are using `cdk8s-plus-21` as we are targeting Kubernetes version 1.21.0. If you operate a different kubernetes version, you should
+Note that here we are using `cdk8s-plus-22` as we are targeting Kubernetes version 1.22.0. If you operate a different kubernetes version, you should
 use the corresponding `cdk8s-plus-XX` library.
 See [Select the appropriate cdk8s+ library](https://cdk8s.io/docs/latest/plus/#i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using)
 for more details.
 
-Similarly to how you would create a stack by extending `@aws-cdk/core.Stack`, we recommend you create a chart of your own that extends `cdk8s.Chart`,
+Similarly to how you would create a stack by extending `aws-cdk-lib.Stack`, we recommend you create a chart of your own that extends `cdk8s.Chart`,
 and add your kubernetes resources to it. You can use `aws-cdk` construct attributes and properties inside your `cdk8s` construct freely.
 
 In this example we create a chart that accepts an `s3.Bucket` and passes its name to a kubernetes pod as an environment variable.
 
-Notice that the chart must accept a `constructs.Construct` type as its scope, not an `@aws-cdk/core.Construct` as you would normally use.
-For this reason, to avoid possible confusion, we will create the chart in a separate file:
-
 `+ my-chart.ts`
 
 ```go
-import s3 "github.com/aws/aws-cdk-go/awscdk"
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
 import constructs "github.com/aws/constructs-go/constructs"
 import cdk8s "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
-import kplus "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus21"
+import "github.com/aws-samples/dummy/cdk8splus22"
 
 type myChartProps struct {
 	bucket bucket
@@ -1340,14 +1402,14 @@ func NewMyChart(scope construct, id *string, props myChartProps) *MyChart {
 	this := &MyChart{}
 	cdk8s.NewChart_Override(this, scope, id)
 
-	kplus.NewPod(this, jsii.String("Pod"), &podProps{
-		containers: []containerProps{
-			kplus.NewContainer(&containerProps{
-				image: jsii.String("my-image"),
-				envVariables: map[string]envValue{
-					"BUCKET_NAME": kplus.*envValue.fromValue(props.bucket.bucketName),
+	kplus.NewPod(this, jsii.String("Pod"), map[string][]map[string]interface{}{
+		"containers": []map[string]interface{}{
+			map[string]interface{}{
+				"image": jsii.String("my-image"),
+				"env": map[string]interface{}{
+					"BUCKET_NAME": kplus.EnvValue_fromValue(*props.bucket.bucketName),
 				},
-			}),
+			},
 		},
 	})
 	return this
@@ -1357,6 +1419,7 @@ func NewMyChart(scope construct, id *string, props myChartProps) *MyChart {
 Then, in your AWS CDK app:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var cluster cluster
 
 
@@ -1372,16 +1435,17 @@ myChart := NewMyChart(cdk8s.NewApp(), jsii.String("MyChart"), &myChartProps{
 cluster.addCdk8sChart(jsii.String("my-chart"), myChart)
 ```
 
-##### Custom CDK8s Constructs
+#### Custom CDK8s Constructs
 
 You can also compose a few stock `cdk8s+` constructs into your own custom construct. However, since mixing scopes between `aws-cdk` and `cdk8s` is currently not supported, the `Construct` class
 you'll need to use is the one from the [`constructs`](https://github.com/aws/constructs) module, and not from `@aws-cdk/core` like you normally would.
 This is why we used `new cdk8s.App()` as the scope of the chart above.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import constructs "github.com/aws/constructs-go/constructs"
-import cdk8s "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
-import kplus "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus21"
+import "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+import "github.com/aws-samples/dummy/cdk8splus21"
 
 type loadBalancedWebService struct {
 	port *f64
@@ -1400,24 +1464,24 @@ func NewLoadBalancedWebService(scope construct, id *string, props loadBalancedWe
 	this := &loadBalancedWebService{}
 	constructs.NewConstruct_Override(this, scope, id)
 
-	deployment := kplus.NewDeployment(chart, jsii.String("Deployment"), &deploymentProps{
-		replicas: props.replicas,
-		containers: []containerProps{
-			kplus.NewContainer(&containerProps{
-				image: props.image,
+	deployment := kplus.NewDeployment(chart, jsii.String("Deployment"), map[string]interface{}{
+		"replicas": *props.replicas,
+		"containers": []interface{}{
+			kplus.NewContainer(map[string]*string{
+				"image": *props.image,
 			}),
 		},
 	})
 
-	deployment.exposeViaService(&exposeDeploymentViaServiceOptions{
-		port: props.port,
-		serviceType: kplus.serviceType_LOAD_BALANCER,
+	deployment.exposeViaService(map[string]interface{}{
+		"port": *props.port,
+		"serviceType": kplus.ServiceType_LOAD_BALANCER,
 	})
 	return this
 }
 ```
 
-##### Manually importing k8s specs and CRD's
+#### Manually importing k8s specs and CRD's
 
 If you find yourself unable to use `cdk8s+`, or just like to directly use the `k8s` native objects or CRD's, you can do so by manually importing them using the `cdk8s-cli`.
 
@@ -1432,15 +1496,15 @@ deployment from the example above with 5 replicas.
 ```go
 var cluster cluster
 
-eks.NewKubernetesPatch(this, jsii.String("hello-kub-deployment-label"), &kubernetesPatchProps{
-	cluster: cluster,
-	resourceName: jsii.String("deployment/hello-kubernetes"),
-	applyPatch: map[string]interface{}{
+eks.NewKubernetesPatch(this, jsii.String("hello-kub-deployment-label"), &KubernetesPatchProps{
+	Cluster: Cluster,
+	ResourceName: jsii.String("deployment/hello-kubernetes"),
+	ApplyPatch: map[string]interface{}{
 		"spec": map[string]*f64{
 			"replicas": jsii.Number(5),
 		},
 	},
-	restorePatch: map[string]interface{}{
+	RestorePatch: map[string]interface{}{
 		"spec": map[string]*f64{
 			"replicas": jsii.Number(3),
 		},
@@ -1459,19 +1523,19 @@ For example, you can fetch the address of a [`LoadBalancer`](https://kubernetes.
 var cluster cluster
 
 // query the load balancer address
-myServiceAddress := eks.NewKubernetesObjectValue(this, jsii.String("LoadBalancerAttribute"), &kubernetesObjectValueProps{
-	cluster: cluster,
-	objectType: jsii.String("service"),
-	objectName: jsii.String("my-service"),
-	jsonPath: jsii.String(".status.loadBalancer.ingress[0].hostname"),
+myServiceAddress := eks.NewKubernetesObjectValue(this, jsii.String("LoadBalancerAttribute"), &KubernetesObjectValueProps{
+	Cluster: cluster,
+	ObjectType: jsii.String("service"),
+	ObjectName: jsii.String("my-service"),
+	JsonPath: jsii.String(".status.loadBalancer.ingress[0].hostname"),
 })
 
 // pass the address to a lambda function
-proxyFunction := lambda.NewFunction(this, jsii.String("ProxyFunction"), &functionProps{
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromInline(jsii.String("my-code")),
-	runtime: lambda.runtime_NODEJS_14_X(),
-	environment: map[string]*string{
+proxyFunction := lambda.NewFunction(this, jsii.String("ProxyFunction"), &FunctionProps{
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String("my-code")),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Environment: map[string]*string{
 		"myServiceAddress": myServiceAddress.value,
 	},
 })
@@ -1482,7 +1546,7 @@ Specifically, since the above use-case is quite common, there is an easier way t
 ```go
 var cluster cluster
 
-loadBalancerAddress := cluster.getServiceLoadBalancerAddress(jsii.String("my-service"))
+loadBalancerAddress := cluster.GetServiceLoadBalancerAddress(jsii.String("my-service"))
 ```
 
 ## Using existing clusters
@@ -1495,9 +1559,9 @@ First, you'll need to "import" a cluster to your CDK app. To do that, use the
 `eks.Cluster.fromClusterAttributes()` static method:
 
 ```go
-cluster := eks.cluster.fromClusterAttributes(this, jsii.String("MyCluster"), &clusterAttributes{
-	clusterName: jsii.String("my-cluster-name"),
-	kubectlRoleArn: jsii.String("arn:aws:iam::1111111:role/iam-role-that-has-masters-access"),
+cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+	ClusterName: jsii.String("my-cluster-name"),
+	KubectlRoleArn: jsii.String("arn:aws:iam::1111111:role/iam-role-that-has-masters-access"),
 })
 ```
 
@@ -1554,10 +1618,10 @@ You can enable logging for each one separately using the `clusterLogging`
 property. For example:
 
 ```go
-cluster := eks.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	// ...
-	version: eks.kubernetesVersion_V1_21(),
-	clusterLogging: []clusterLoggingTypes{
+	Version: eks.KubernetesVersion_V1_21(),
+	ClusterLogging: []clusterLoggingTypes{
 		eks.*clusterLoggingTypes_API,
 		eks.*clusterLoggingTypes_AUTHENTICATOR,
 		eks.*clusterLoggingTypes_SCHEDULER,
