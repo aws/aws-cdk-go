@@ -44,13 +44,13 @@ Setup required properties and create:
 var vpc vpc
 
 
-fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
-	LustreConfiguration: &LustreConfiguration{
-		DeploymentType: fsx.LustreDeploymentType_SCRATCH_2,
+fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
+	lustreConfiguration: &lustreConfiguration{
+		deploymentType: fsx.lustreDeploymentType_SCRATCH_2,
 	},
-	StorageCapacityGiB: jsii.Number(1200),
-	Vpc: Vpc,
-	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
+	storageCapacityGiB: jsii.Number(1200),
+	vpc: vpc,
+	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
 })
 ```
 
@@ -64,7 +64,7 @@ var fileSystem lustreFileSystem
 var instance instance
 
 
-fileSystem.Connections.AllowDefaultPortFrom(instance)
+fileSystem.connections.allowDefaultPortFrom(instance)
 ```
 
 ### Mounting
@@ -82,33 +82,33 @@ lustreConfiguration := map[string]lustreDeploymentType{
 	"deploymentType": fsx.lustreDeploymentType_SCRATCH_2,
 }
 
-fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
-	LustreConfiguration: LustreConfiguration,
-	StorageCapacityGiB: jsii.Number(1200),
-	Vpc: Vpc,
-	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
+fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
+	lustreConfiguration: lustreConfiguration,
+	storageCapacityGiB: jsii.Number(1200),
+	vpc: vpc,
+	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
 })
 
-inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_LARGE),
-	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
+inst := ec2.NewInstance(this, jsii.String("inst"), &instanceProps{
+	instanceType: ec2.instanceType.of(ec2.instanceClass_T2, ec2.instanceSize_LARGE),
+	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
+		generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
 	}),
-	Vpc: Vpc,
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
+	vpc: vpc,
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PUBLIC,
 	},
 })
-fs.Connections.AllowDefaultPortFrom(inst)
+fs.connections.allowDefaultPortFrom(inst)
 
 // Need to give the instance access to read information about FSx to determine the file system's mount name.
-inst.Role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonFSxReadOnlyAccess")))
+inst.role.addManagedPolicy(iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("AmazonFSxReadOnlyAccess")))
 
 mountPath := "/mnt/fsx"
-dnsName := fs.DnsName
-mountName := fs.MountName
+dnsName := fs.dnsName
+mountName := fs.mountName
 
-inst.UserData.AddCommands(jsii.String("set -eux"), jsii.String("yum update -y"), jsii.String("amazon-linux-extras install -y lustre2.10"),
+inst.userData.addCommands(jsii.String("set -eux"), jsii.String("yum update -y"), jsii.String("amazon-linux-extras install -y lustre2.10"),
 // Set up the directory to mount the file system to and change the owner to the AL2 default ec2-user.
 fmt.Sprintf("mkdir -p %v", mountPath),
 fmt.Sprintf("chmod 777 %v", mountPath),
@@ -117,7 +117,7 @@ fmt.Sprintf("chown ec2-user:ec2-user %v", mountPath),
 fmt.Sprintf("echo \"%v@tcp:/%v %v lustre defaults,noatime,flock,_netdev 0 0\" >> /etc/fstab", dnsName, mountName, mountPath), jsii.String("mount -a"))
 ```
 
-### Importing an existing Lustre filesystem
+### Importing
 
 An FSx for Lustre file system can be imported with `fromLustreFileSystemAttributes(stack, id, attributes)`. The
 following example lays out how you could import the SecurityGroup a file system belongs to, use that to import the file
@@ -125,80 +125,38 @@ system, and then also import the VPC the file system is in and add an EC2 instan
 system.
 
 ```go
-sg := ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
-fs := fsx.LustreFileSystem_FromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &FileSystemAttributes{
-	DnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
-	FileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
-	SecurityGroup: sg,
+sg := ec2.securityGroup.fromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
+fs := fsx.lustreFileSystem.fromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &fileSystemAttributes{
+	dnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
+	fileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
+	securityGroup: sg,
 })
 
-vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("Vpc"), &VpcAttributes{
-	AvailabilityZones: []*string{
+vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("Vpc"), &vpcAttributes{
+	availabilityZones: []*string{
 		jsii.String("us-west-2a"),
 		jsii.String("us-west-2b"),
 	},
-	PublicSubnetIds: []*string{
+	publicSubnetIds: []*string{
 		jsii.String("{US-WEST-2A-SUBNET-ID}"),
 		jsii.String("{US-WEST-2B-SUBNET-ID}"),
 	},
-	VpcId: jsii.String("{VPC-ID}"),
+	vpcId: jsii.String("{VPC-ID}"),
 })
 
-inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_LARGE),
-	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
+inst := ec2.NewInstance(this, jsii.String("inst"), &instanceProps{
+	instanceType: ec2.instanceType.of(ec2.instanceClass_T2, ec2.instanceSize_LARGE),
+	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
+		generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
 	}),
-	Vpc: Vpc,
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
+	vpc: vpc,
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PUBLIC,
 	},
 })
 
-fs.Connections.AllowDefaultPortFrom(inst)
+fs.connections.allowDefaultPortFrom(inst)
 ```
-
-### Lustre Data Repository Association support
-
-The LustreFilesystem Construct supports one [Data Repository Association](https://docs.aws.amazon.com/fsx/latest/LustreGuide/fsx-data-repositories.html) (DRA) to an S3 bucket.  This allows Lustre hierarchical storage management to S3 buckets, which in turn makes it possible to use S3 as a permanent backing store, and use FSx for Lustre as a temporary high performance cache.
-
-Note: CloudFormation does not currently support for `PERSISTENT_2` filesystems, and so neither does CDK.
-
-The following example illustrates setting up a DRA to an S3 bucket, including automated metadata import whenever a file is changed, created or deleted in the S3 bucket:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-var bucket s3.Bucket
-
-
-lustreConfiguration := map[string]interface{}{
-	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
-	"exportPath": bucket.s3UrlForObject(),
-	"importPath": bucket.s3UrlForObject(),
-	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
-}
-
-fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
-	Vpc: vpc,
-	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
-	StorageCapacityGiB: jsii.Number(1200),
-	LustreConfiguration: LustreConfiguration,
-})
-```
-
-### Compression
-
-By default, transparent compression of data within FSx for Lustre is switched off.  To enable it, add the following to your `lustreConfiguration`:
-
-```go
-lustreConfiguration := map[string]lustreDataCompressionType{
-	// ...
-	"dataCompressionType": fsx.lustreDataCompressionType_LZ4,
-}
-```
-
-When you turn data compression on for an existing file system, only newly written files are compressed.  Existing files are not compressed. For more information, see [Compressing previously written files](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html#migrate-compression).```
 
 ## FSx for Windows File Server
 

@@ -3,8 +3,8 @@
 To add a public hosted zone:
 
 ```go
-route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
-	ZoneName: jsii.String("fully.qualified.domain.com"),
+route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+	zoneName: jsii.String("fully.qualified.domain.com"),
 })
 ```
 
@@ -16,9 +16,9 @@ VPC you're configuring for private hosted zones.
 var vpc vpc
 
 
-zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &PrivateHostedZoneProps{
-	ZoneName: jsii.String("fully.qualified.domain.com"),
-	Vpc: Vpc,
+zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &privateHostedZoneProps{
+	zoneName: jsii.String("fully.qualified.domain.com"),
+	vpc: vpc,
 })
 ```
 
@@ -32,18 +32,18 @@ To add a TXT record to your zone:
 var myZone hostedZone
 
 
-route53.NewTxtRecord(this, jsii.String("TXTRecord"), &TxtRecordProps{
-	Zone: myZone,
-	RecordName: jsii.String("_foo"),
+route53.NewTxtRecord(this, jsii.String("TXTRecord"), &txtRecordProps{
+	zone: myZone,
+	recordName: jsii.String("_foo"),
 	 // If the name ends with a ".", it will be used as-is;
 	// if it ends with a "." followed by the zone name, a trailing "." will be added automatically;
 	// otherwise, a ".", the zone name, and a trailing "." will be added automatically.
 	// Defaults to zone root if not specified.
-	Values: []*string{
+	values: []*string{
 		jsii.String("Bar!"),
 		jsii.String("Baz?"),
 	},
-	Ttl: awscdk.Duration_Minutes(jsii.Number(90)),
+	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 })
 ```
 
@@ -53,14 +53,14 @@ To add a NS record to your zone:
 var myZone hostedZone
 
 
-route53.NewNsRecord(this, jsii.String("NSRecord"), &NsRecordProps{
-	Zone: myZone,
-	RecordName: jsii.String("foo"),
-	Values: []*string{
+route53.NewNsRecord(this, jsii.String("NSRecord"), &nsRecordProps{
+	zone: myZone,
+	recordName: jsii.String("foo"),
+	values: []*string{
 		jsii.String("ns-1.awsdns.co.uk."),
 		jsii.String("ns-2.awsdns.com."),
 	},
-	Ttl: awscdk.Duration_Minutes(jsii.Number(90)),
+	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 })
 ```
 
@@ -70,13 +70,13 @@ To add a DS record to your zone:
 var myZone hostedZone
 
 
-route53.NewDsRecord(this, jsii.String("DSRecord"), &DsRecordProps{
-	Zone: myZone,
-	RecordName: jsii.String("foo"),
-	Values: []*string{
+route53.NewDsRecord(this, jsii.String("DSRecord"), &dsRecordProps{
+	zone: myZone,
+	recordName: jsii.String("foo"),
+	values: []*string{
 		jsii.String("12345 3 1 123456789abcdef67890123456789abcdef67890"),
 	},
-	Ttl: awscdk.Duration_Minutes(jsii.Number(90)),
+	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 })
 ```
 
@@ -86,9 +86,9 @@ To add an A record to your zone:
 var myZone hostedZone
 
 
-route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
-	Zone: myZone,
-	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4"), jsii.String("5.6.7.8")),
+route53.NewARecord(this, jsii.String("ARecord"), &aRecordProps{
+	zone: myZone,
+	target: route53.recordTarget.fromIpAddresses(jsii.String("1.2.3.4"), jsii.String("5.6.7.8")),
 })
 ```
 
@@ -100,13 +100,13 @@ var instance instance
 var myZone hostedZone
 
 
-elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &CfnEIPProps{
-	Domain: jsii.String("vpc"),
-	InstanceId: instance.InstanceId,
+elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &cfnEIPProps{
+	domain: jsii.String("vpc"),
+	instanceId: instance.instanceId,
 })
-route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
-	Zone: myZone,
-	Target: route53.RecordTarget_FromIpAddresses(elasticIp.ref),
+route53.NewARecord(this, jsii.String("ARecord"), &aRecordProps{
+	zone: myZone,
+	target: route53.recordTarget.fromIpAddresses(elasticIp.ref),
 })
 ```
 
@@ -118,9 +118,9 @@ import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 var myZone hostedZone
 var distribution cloudFrontWebDistribution
 
-route53.NewAaaaRecord(this, jsii.String("Alias"), &AaaaRecordProps{
-	Zone: myZone,
-	Target: route53.RecordTarget_FromAlias(targets.NewCloudFrontTarget(distribution)),
+route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
+	zone: myZone,
+	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
 })
 ```
 
@@ -129,76 +129,43 @@ Constructs are available for A, AAAA, CAA, CNAME, MX, NS, SRV and TXT records.
 Use the `CaaAmazonRecord` construct to easily restrict certificate authorities
 allowed to issue certificates for a domain to Amazon only.
 
-### Replacing existing record sets (dangerous!)
-
-Use the `deleteExisting` prop to delete an existing record set before deploying the new one.
-This is useful if you want to minimize downtime and avoid "manual" actions while deploying a
-stack with a record set that already exists. This is typically the case for record sets that
-are not already "owned" by CloudFormation or "owned" by another stack or construct that is
-going to be deleted (migration).
-
-> **N.B.:** this feature is dangerous, use with caution! It can only be used safely when
-> `deleteExisting` is set to `true` as soon as the resource is added to the stack. Changing
-> an existing Record Set's `deleteExisting` property from `false -> true` after deployment
-> will delete the record!
-
-```go
-var myZone hostedZone
-
-
-route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
-	Zone: myZone,
-	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4"), jsii.String("5.6.7.8")),
-	DeleteExisting: jsii.Boolean(true),
-})
-```
-
-### Cross Account Zone Delegation
-
-If you want to have your root domain hosted zone in one account and your subdomain hosted
-zone in a diferent one, you can use `CrossAccountZoneDelegationRecord` to set up delegation
-between them.
+To add a NS record to a HostedZone in different account you can do the following:
 
 In the account containing the parent hosted zone:
 
 ```go
-parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
-	ZoneName: jsii.String("someexample.com"),
+parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+	zoneName: jsii.String("someexample.com"),
+	crossAccountZoneDelegationPrincipal: iam.NewAccountPrincipal(jsii.String("12345678901")),
+	crossAccountZoneDelegationRoleName: jsii.String("MyDelegationRole"),
 })
-crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProps{
-	// The role name must be predictable
-	RoleName: jsii.String("MyDelegationRole"),
-	// The other account
-	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
-})
-parentZone.GrantDelegation(crossAccountRole)
 ```
 
 In the account containing the child zone to be delegated:
 
 ```go
-subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &PublicHostedZoneProps{
-	ZoneName: jsii.String("sub.someexample.com"),
+subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &publicHostedZoneProps{
+	zoneName: jsii.String("sub.someexample.com"),
 })
 
 // import the delegation role by constructing the roleArn
-delegationRoleArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
-	Region: jsii.String(""),
+delegationRoleArn := awscdk.stack.of(this).formatArn(&arnComponents{
+	region: jsii.String(""),
 	 // IAM is global in each partition
-	Service: jsii.String("iam"),
-	Account: jsii.String("parent-account-id"),
-	Resource: jsii.String("role"),
-	ResourceName: jsii.String("MyDelegationRole"),
+	service: jsii.String("iam"),
+	account: jsii.String("parent-account-id"),
+	resource: jsii.String("role"),
+	resourceName: jsii.String("MyDelegationRole"),
 })
-delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+delegationRole := iam.role.fromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
 
 // create the record
 // create the record
-route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
-	DelegatedZone: subZone,
-	ParentHostedZoneName: jsii.String("someexample.com"),
+route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &crossAccountZoneDelegationRecordProps{
+	delegatedZone: subZone,
+	parentHostedZoneName: jsii.String("someexample.com"),
 	 // or you can use parentHostedZoneId
-	DelegationRole: DelegationRole,
+	delegationRole: delegationRole,
 })
 ```
 
@@ -208,8 +175,8 @@ If you don't know the ID of the Hosted Zone to import, you can use the
 `HostedZone.fromLookup`:
 
 ```go
-route53.HostedZone_FromLookup(this, jsii.String("MyZone"), &HostedZoneProviderProps{
-	DomainName: jsii.String("example.com"),
+route53.hostedZone.fromLookup(this, jsii.String("MyZone"), &hostedZoneProviderProps{
+	domainName: jsii.String("example.com"),
 })
 ```
 
@@ -230,9 +197,9 @@ new MyDevStack(app, 'dev', {
 If you know the ID and Name of a Hosted Zone, you can import it directly:
 
 ```go
-zone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("MyZone"), &HostedZoneAttributes{
-	ZoneName: jsii.String("example.com"),
-	HostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
+zone := route53.hostedZone.fromHostedZoneAttributes(this, jsii.String("MyZone"), &hostedZoneAttributes{
+	zoneName: jsii.String("example.com"),
+	hostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
 })
 ```
 
@@ -240,19 +207,19 @@ Alternatively, use the `HostedZone.fromHostedZoneId` to import hosted zones if
 you know the ID and the retrieval for the `zoneName` is undesirable.
 
 ```go
-zone := route53.HostedZone_FromHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+zone := route53.hostedZone.fromHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
-You can import a Public Hosted Zone as well with the similar `PublicHostedZone.fromPublicHostedZoneId` and `PublicHostedZone.fromPublicHostedZoneAttributes` methods:
+You can import a Public Hosted Zone as well with the similar `PubicHostedZone.fromPublicHostedZoneId` and `PubicHostedZone.fromPublicHostedZoneAttributes` methods:
 
 ```go
-zoneFromAttributes := route53.PublicHostedZone_FromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &PublicHostedZoneAttributes{
-	ZoneName: jsii.String("example.com"),
-	HostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
+zoneFromAttributes := route53.publicHostedZone.fromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &publicHostedZoneAttributes{
+	zoneName: jsii.String("example.com"),
+	hostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
 })
 
 // Does not know zoneName
-zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+zoneFromId := route53.publicHostedZone.fromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
 ## VPC Endpoint Service Private DNS
@@ -286,21 +253,21 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 stack := awscdk.NewStack()
 vpc := awscdk.NewVpc(stack, jsii.String("VPC"))
-nlb := awscdk.NewNetworkLoadBalancer(stack, jsii.String("NLB"), &NetworkLoadBalancerProps{
-	Vpc: Vpc,
+nlb := awscdk.NewNetworkLoadBalancer(stack, jsii.String("NLB"), &networkLoadBalancerProps{
+	vpc: vpc,
 })
-vpces := awscdk.NewVpcEndpointService(stack, jsii.String("VPCES"), &VpcEndpointServiceProps{
-	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
+vpces := awscdk.NewVpcEndpointService(stack, jsii.String("VPCES"), &vpcEndpointServiceProps{
+	vpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
 		nlb,
 	},
 })
 // You must use a public hosted zone so domain ownership can be verified
-zone := awscdk.NewPublicHostedZone(stack, jsii.String("PHZ"), &PublicHostedZoneProps{
-	ZoneName: jsii.String("aws-cdk.dev"),
+zone := awscdk.NewPublicHostedZone(stack, jsii.String("PHZ"), &publicHostedZoneProps{
+	zoneName: jsii.String("aws-cdk.dev"),
 })
-awscdk.NewVpcEndpointServiceDomainName(stack, jsii.String("EndpointDomain"), &VpcEndpointServiceDomainNameProps{
-	EndpointService: vpces,
-	DomainName: jsii.String("my-stuff.aws-cdk.dev"),
-	PublicHostedZone: zone,
+awscdk.NewVpcEndpointServiceDomainName(stack, jsii.String("EndpointDomain"), &vpcEndpointServiceDomainNameProps{
+	endpointService: vpces,
+	domainName: jsii.String("my-stuff.aws-cdk.dev"),
+	publicHostedZone: zone,
 })
 ```

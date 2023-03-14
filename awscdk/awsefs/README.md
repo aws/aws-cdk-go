@@ -21,17 +21,15 @@ performance mode, and `Bursting` throughput mode and does not transition files t
 Access (IA) storage class.
 
 ```go
-fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
-	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
-	LifecyclePolicy: efs.LifecyclePolicy_AFTER_14_DAYS,
+fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &fileSystemProps{
+	vpc: ec2.NewVpc(this, jsii.String("VPC")),
+	lifecyclePolicy: efs.lifecyclePolicy_AFTER_14_DAYS,
 	 // files are not transitioned to infrequent access (IA) storage by default
-	PerformanceMode: efs.PerformanceMode_GENERAL_PURPOSE,
+	performanceMode: efs.performanceMode_GENERAL_PURPOSE,
 	 // default
-	OutOfInfrequentAccessPolicy: efs.OutOfInfrequentAccessPolicy_AFTER_1_ACCESS,
+	outOfInfrequentAccessPolicy: efs.outOfInfrequentAccessPolicy_AFTER_1_ACCESS,
 })
 ```
-
-⚠️ An Amazon EFS file system's performance mode can't be MAX_IO when its throughputMode is ELASTIC.
 
 ⚠️ An Amazon EFS file system's performance mode can't be changed after the file system has been created.
 Updating this property will replace the file system.
@@ -45,46 +43,12 @@ Here is an example of giving a role write permissions on a file system.
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
 
-importedFileSystem := efs.FileSystem_FromFileSystemAttributes(this, jsii.String("existingFS"), &FileSystemAttributes{
-	FileSystemId: jsii.String("fs-12345678"),
+importedFileSystem := efs.fileSystem.fromFileSystemAttributes(this, jsii.String("existingFS"), &fileSystemAttributes{
+	fileSystemId: jsii.String("fs-12345678"),
 	 // You can also use fileSystemArn instead of fileSystemId.
-	SecurityGroup: ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("SG"), jsii.String("sg-123456789"), &SecurityGroupImportOptions{
-		AllowAllOutbound: jsii.Boolean(false),
+	securityGroup: ec2.securityGroup.fromSecurityGroupId(this, jsii.String("SG"), jsii.String("sg-123456789"), &securityGroupImportOptions{
+		allowAllOutbound: jsii.Boolean(false),
 	}),
-})
-```
-
-### IAM to control file system data access
-
-You can use both IAM identity policies and resource policies to control client access to Amazon EFS resources in a way that is scalable and optimized for cloud environments. Using IAM, you can permit clients to perform specific actions on a file system, including read-only, write, and root access.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-myFileSystemPolicy := NewPolicyDocument(map[string][]interface{}{
-	"statements": []interface{}{
-		NewPolicyStatement(map[string]interface{}{
-			"actions": []*string{
-				jsii.String("elasticfilesystem:ClientWrite"),
-				jsii.String("elasticfilesystem:ClientMount"),
-			},
-			"principals": []interface{}{
-				NewAccountRootPrincipal(),
-			},
-			"resources": []*string{
-				jsii.String("*"),
-			},
-			"conditions": map[string]map[string]*string{
-				"Bool": map[string]*string{
-					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
-				},
-			},
-		}),
-	},
-})
-
-fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
-	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
-	FileSystemPolicy: myFileSystemPolicy,
 })
 ```
 
@@ -94,8 +58,8 @@ If you need to grant file system permissions to another resource, you can use th
 As an example, the following code gives `elasticfilesystem:ClientWrite` permissions to an IAM role.
 
 ```go
-role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-	AssumedBy: iam.NewAnyPrincipal(),
+role := iam.NewRole(this, jsii.String("Role"), &roleProps{
+	assumedBy: iam.NewAnyPrincipal(),
 })
 
 fileSystem.grant(role, jsii.String("elasticfilesystem:ClientWrite"))
@@ -112,7 +76,7 @@ the access point can only access data in its own directory and below. To learn m
 Use the `addAccessPoint` API to create an access point from a fileSystem.
 
 ```go
-fileSystem.AddAccessPoint(jsii.String("AccessPoint"))
+fileSystem.addAccessPoint(jsii.String("AccessPoint"))
 ```
 
 By default, when you create an access point, the root(`/`) directory is exposed to the client
@@ -126,11 +90,11 @@ Any access point that has been created outside the stack can be imported into yo
 Use the `fromAccessPointAttributes()` API to import an existing access point.
 
 ```go
-efs.AccessPoint_FromAccessPointAttributes(this, jsii.String("ap"), &AccessPointAttributes{
-	AccessPointId: jsii.String("fsap-1293c4d9832fo0912"),
-	FileSystem: efs.FileSystem_FromFileSystemAttributes(this, jsii.String("efs"), &FileSystemAttributes{
-		FileSystemId: jsii.String("fs-099d3e2f"),
-		SecurityGroup: ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("sg"), jsii.String("sg-51530134")),
+efs.accessPoint.fromAccessPointAttributes(this, jsii.String("ap"), &accessPointAttributes{
+	accessPointId: jsii.String("fsap-1293c4d9832fo0912"),
+	fileSystem: efs.fileSystem.fromFileSystemAttributes(this, jsii.String("efs"), &fileSystemAttributes{
+		fileSystemId: jsii.String("fs-099d3e2f"),
+		securityGroup: ec2.securityGroup.fromSecurityGroupId(this, jsii.String("sg"), jsii.String("sg-51530134")),
 	}),
 })
 ```
@@ -150,7 +114,7 @@ To control who can access the EFS, use the `.connections` attribute. EFS has
 a fixed default port, so you don't need to specify the port:
 
 ```go
-fileSystem.Connections.AllowDefaultPortFrom(instance)
+fileSystem.connections.allowDefaultPortFrom(instance)
 ```
 
 Learn more about [managing file system network accessibility](https://docs.aws.amazon.com/efs/latest/ug/manage-fs-access.html)
@@ -163,9 +127,9 @@ EC2 instances, containers, and Lambda functions in your virtual private cloud (V
 The following example automatically mounts a file system during instance launch.
 
 ```go
-fileSystem.Connections.AllowDefaultPortFrom(instance)
+fileSystem.connections.allowDefaultPortFrom(instance)
 
-instance.UserData.AddCommands(jsii.String("yum check-update -y"), jsii.String("yum upgrade -y"), jsii.String("yum install -y amazon-efs-utils"), jsii.String("yum install -y nfs-utils"), jsii.String("file_system_id_1=" + fileSystem.FileSystemId), jsii.String("efs_mount_point_1=/mnt/efs/fs1"), jsii.String("mkdir -p \"${efs_mount_point_1}\""), jsii.String("test -f \"/sbin/mount.efs\" && echo \"${file_system_id_1}:/ ${efs_mount_point_1} efs defaults,_netdev\" >> /etc/fstab || " + "echo \"${file_system_id_1}.efs." + awscdk.stack_Of(this).Region + ".amazonaws.com:/ ${efs_mount_point_1} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0\" >> /etc/fstab"), jsii.String("mount -a -t efs,nfs4 defaults"))
+instance.userData.addCommands(jsii.String("yum check-update -y"), jsii.String("yum upgrade -y"), jsii.String("yum install -y amazon-efs-utils"), jsii.String("yum install -y nfs-utils"), jsii.String("file_system_id_1=" + fileSystem.fileSystemId), jsii.String("efs_mount_point_1=/mnt/efs/fs1"), jsii.String("mkdir -p \"${efs_mount_point_1}\""), jsii.String("test -f \"/sbin/mount.efs\" && echo \"${file_system_id_1}:/ ${efs_mount_point_1} efs defaults,_netdev\" >> /etc/fstab || " + "echo \"${file_system_id_1}.efs." + awscdk.stack.of(this).region + ".amazonaws.com:/ ${efs_mount_point_1} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0\" >> /etc/fstab"), jsii.String("mount -a -t efs,nfs4 defaults"))
 ```
 
 Learn more about [mounting EFS file systems](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html)
@@ -178,8 +142,8 @@ stack is deleted.
 You can configure the file system to be destroyed on stack deletion by setting a `removalPolicy`
 
 ```go
-fileSystem := efs.NewFileSystem(this, jsii.String("EfsFileSystem"), &FileSystemProps{
-	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
-	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+fileSystem := efs.NewFileSystem(this, jsii.String("EfsFileSystem"), &fileSystemProps{
+	vpc: ec2.NewVpc(this, jsii.String("VPC")),
+	removalPolicy: awscdk.RemovalPolicy_DESTROY,
 })
 ```

@@ -13,8 +13,8 @@ To give the Pipeline a nice, human-readable name:
 
 ```go
 // Give the Pipeline a nice, human-readable name
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
-	PipelineName: jsii.String("MyPipeline"),
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &pipelineProps{
+	pipelineName: jsii.String("MyPipeline"),
 })
 ```
 
@@ -30,8 +30,8 @@ when defining the Pipeline:
 
 ```go
 // Don't create Customer Master Keys
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
-	CrossAccountKeys: jsii.Boolean(false),
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &pipelineProps{
+	crossAccountKeys: jsii.Boolean(false),
 })
 ```
 
@@ -41,9 +41,9 @@ Note that key rotation will incur an additional cost of **$1/month**.
 
 ```go
 // Enable key rotation for the generated KMS key
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &pipelineProps{
 	// ...
-	EnableKeyRotation: jsii.Boolean(true),
+	enableKeyRotation: jsii.Boolean(true),
 })
 ```
 
@@ -53,11 +53,11 @@ You can provide Stages when creating the Pipeline:
 
 ```go
 // Provide a Stage when creating a pipeline
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
-	Stages: []stageProps{
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &pipelineProps{
+	stages: []stageProps{
 		&stageProps{
-			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			stageName: jsii.String("Source"),
+			actions: []iAction{
 			},
 		},
 	},
@@ -70,9 +70,9 @@ Or append a Stage to an existing Pipeline:
 // Append a Stage to an existing Pipeline
 var pipeline pipeline
 
-sourceStage := pipeline.AddStage(&StageOptions{
-	StageName: jsii.String("Source"),
-	Actions: []iAction{
+sourceStage := pipeline.addStage(&stageOptions{
+	stageName: jsii.String("Source"),
+	actions: []iAction{
 	},
 })
 ```
@@ -86,12 +86,12 @@ var anotherStage iStage
 var yetAnotherStage iStage
 
 
-someStage := pipeline.AddStage(&StageOptions{
-	StageName: jsii.String("SomeStage"),
-	Placement: &StagePlacement{
+someStage := pipeline.addStage(&stageOptions{
+	stageName: jsii.String("SomeStage"),
+	placement: &stagePlacement{
 		// note: you can only specify one of the below properties
-		RightBefore: anotherStage,
-		JustAfter: yetAnotherStage,
+		rightBefore: anotherStage,
+		justAfter: yetAnotherStage,
 	},
 })
 ```
@@ -103,10 +103,10 @@ You can disable transition to a Stage:
 var pipeline pipeline
 
 
-someStage := pipeline.AddStage(&StageOptions{
-	StageName: jsii.String("SomeStage"),
-	TransitionToEnabled: jsii.Boolean(false),
-	TransitionDisabledReason: jsii.String("Manual transition only"),
+someStage := pipeline.addStage(&stageOptions{
+	stageName: jsii.String("SomeStage"),
+	transitionToEnabled: jsii.Boolean(false),
+	transitionDisabledReason: jsii.String("Manual transition only"),
 })
 ```
 
@@ -126,7 +126,7 @@ or you can use the `IStage.addAction()` method to mutate an existing Stage:
 var sourceStage iStage
 var someAction action
 
-sourceStage.AddAction(someAction)
+sourceStage.addAction(someAction)
 ```
 
 ## Custom Action Registration
@@ -136,36 +136,36 @@ To make your own custom CodePipeline Action requires registering the action prov
 ```go
 // Make a custom CodePipeline Action
 // Make a custom CodePipeline Action
-codepipeline.NewCustomActionRegistration(this, jsii.String("GenericGitSourceProviderResource"), &CustomActionRegistrationProps{
-	Category: codepipeline.ActionCategory_SOURCE,
-	ArtifactBounds: &ActionArtifactBounds{
-		MinInputs: jsii.Number(0),
-		MaxInputs: jsii.Number(0),
-		MinOutputs: jsii.Number(1),
-		MaxOutputs: jsii.Number(1),
+codepipeline.NewCustomActionRegistration(this, jsii.String("GenericGitSourceProviderResource"), &customActionRegistrationProps{
+	category: codepipeline.actionCategory_SOURCE,
+	artifactBounds: &actionArtifactBounds{
+		minInputs: jsii.Number(0),
+		maxInputs: jsii.Number(0),
+		minOutputs: jsii.Number(1),
+		maxOutputs: jsii.Number(1),
 	},
-	Provider: jsii.String("GenericGitSource"),
-	Version: jsii.String("1"),
-	EntityUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
-	ExecutionUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
-	ActionProperties: []customActionProperty{
+	provider: jsii.String("GenericGitSource"),
+	version: jsii.String("1"),
+	entityUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
+	executionUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
+	actionProperties: []customActionProperty{
 		&customActionProperty{
-			Name: jsii.String("Branch"),
-			Required: jsii.Boolean(true),
-			Key: jsii.Boolean(false),
-			Secret: jsii.Boolean(false),
-			Queryable: jsii.Boolean(false),
-			Description: jsii.String("Git branch to pull"),
-			Type: jsii.String("String"),
+			name: jsii.String("Branch"),
+			required: jsii.Boolean(true),
+			key: jsii.Boolean(false),
+			secret: jsii.Boolean(false),
+			queryable: jsii.Boolean(false),
+			description: jsii.String("Git branch to pull"),
+			type: jsii.String("String"),
 		},
 		&customActionProperty{
-			Name: jsii.String("GitUrl"),
-			Required: jsii.Boolean(true),
-			Key: jsii.Boolean(false),
-			Secret: jsii.Boolean(false),
-			Queryable: jsii.Boolean(false),
-			Description: jsii.String("SSH git clone URL"),
-			Type: jsii.String("String"),
+			name: jsii.String("GitUrl"),
+			required: jsii.Boolean(true),
+			key: jsii.Boolean(false),
+			secret: jsii.Boolean(false),
+			queryable: jsii.Boolean(false),
+			description: jsii.String("SSH git clone URL"),
+			type: jsii.String("String"),
 		},
 	},
 })
@@ -195,12 +195,12 @@ different account:
 var stage iStage
 var input artifact
 
-stage.AddAction(codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
-	Bucket: s3.Bucket_FromBucketAttributes(this, jsii.String("Bucket"), &BucketAttributes{
-		Account: jsii.String("123456789012"),
+stage.addAction(codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
+	bucket: s3.bucket.fromBucketAttributes(this, jsii.String("Bucket"), &bucketAttributes{
+		account: jsii.String("123456789012"),
 	}),
-	Input: input,
-	ActionName: jsii.String("s3-deploy-action"),
+	input: input,
+	actionName: jsii.String("s3-deploy-action"),
 }))
 ```
 
@@ -211,12 +211,12 @@ Actions that don't accept a resource object accept an explicit `account` paramet
 var stage iStage
 var templatePath artifactPath
 
-stage.AddAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
-	Account: jsii.String("123456789012"),
-	TemplatePath: TemplatePath,
-	AdminPermissions: jsii.Boolean(false),
-	StackName: awscdk.*stack_Of(this).stackName,
-	ActionName: jsii.String("cloudformation-create-update"),
+stage.addAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+	account: jsii.String("123456789012"),
+	templatePath: templatePath,
+	adminPermissions: jsii.Boolean(false),
+	stackName: awscdk.*stack.of(this).stackName,
+	actionName: jsii.String("cloudformation-create-update"),
 }))
 ```
 
@@ -235,13 +235,13 @@ account the role belongs to:
 var stage iStage
 var templatePath artifactPath
 
-stage.AddAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
-	TemplatePath: TemplatePath,
-	AdminPermissions: jsii.Boolean(false),
-	StackName: awscdk.*stack_Of(this).stackName,
-	ActionName: jsii.String("cloudformation-create-update"),
+stage.addAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+	templatePath: templatePath,
+	adminPermissions: jsii.Boolean(false),
+	stackName: awscdk.*stack.of(this).stackName,
+	actionName: jsii.String("cloudformation-create-update"),
 	// ...
-	Role: iam.Role_FromRoleArn(this, jsii.String("ActionRole"), jsii.String("...")),
+	role: iam.role.fromRoleArn(this, jsii.String("ActionRole"), jsii.String("...")),
 }))
 ```
 
@@ -256,12 +256,12 @@ following Action deploys to an imported S3 bucket from a different Region:
 var stage iStage
 var input artifact
 
-stage.AddAction(codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
-	Bucket: s3.Bucket_FromBucketAttributes(this, jsii.String("Bucket"), &BucketAttributes{
-		Region: jsii.String("us-west-1"),
+stage.addAction(codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
+	bucket: s3.bucket.fromBucketAttributes(this, jsii.String("Bucket"), &bucketAttributes{
+		region: jsii.String("us-west-1"),
 	}),
-	Input: input,
-	ActionName: jsii.String("s3-deploy-action"),
+	input: input,
+	actionName: jsii.String("s3-deploy-action"),
 }))
 ```
 
@@ -273,13 +273,13 @@ parameter:
 var stage iStage
 var templatePath artifactPath
 
-stage.AddAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
-	TemplatePath: TemplatePath,
-	AdminPermissions: jsii.Boolean(false),
-	StackName: awscdk.*stack_Of(this).stackName,
-	ActionName: jsii.String("cloudformation-create-update"),
+stage.addAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+	templatePath: templatePath,
+	adminPermissions: jsii.Boolean(false),
+	stackName: awscdk.*stack.of(this).stackName,
+	actionName: jsii.String("cloudformation-create-update"),
 	// ...
-	Region: jsii.String("us-west-1"),
+	region: jsii.String("us-west-1"),
 }))
 ```
 
@@ -295,15 +295,15 @@ time using the `crossRegionReplicationBuckets` parameter. Example:
 
 ```go
 // Supply replication buckets for the Pipeline instead of using the generated support stack
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &pipelineProps{
 	// ...
 
-	CrossRegionReplicationBuckets: map[string]iBucket{
+	crossRegionReplicationBuckets: map[string]iBucket{
 		// note that a physical name of the replication Bucket must be known at synthesis time
-		"us-west-1": s3.Bucket_fromBucketAttributes(this, jsii.String("UsWest1ReplicationBucket"), &BucketAttributes{
+		"us-west-1": s3.Bucket.fromBucketAttributes(this, jsii.String("UsWest1ReplicationBucket"), &BucketAttributes{
 			"bucketName": jsii.String("my-us-west-1-replication-bucket"),
 			// optional KMS key
-			"encryptionKey": kms.Key_fromKeyArn(this, jsii.String("UsWest1ReplicationKey"), jsii.String("arn:aws:kms:us-west-1:123456789012:key/1234-5678-9012")),
+			"encryptionKey": kms.Key.fromKeyArn(this, jsii.String("UsWest1ReplicationKey"), jsii.String("arn:aws:kms:us-west-1:123456789012:key/1234-5678-9012")),
 		}),
 	},
 })
@@ -320,22 +320,22 @@ like this:
 ```go
 // Passing a replication bucket created in a different stack.
 app := awscdk.NewApp()
-replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &StackProps{
-	Env: &Environment{
-		Region: jsii.String("us-west-1"),
+replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-west-1"),
 	},
 })
 key := kms.NewKey(replicationStack, jsii.String("ReplicationKey"))
-replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &BucketProps{
+replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &bucketProps{
 	// like was said above - replication buckets need a set physical name
-	BucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
-	EncryptionKey: key,
+	bucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
+	encryptionKey: key,
 })
 
 // later...
 // later...
-codepipeline.NewPipeline(replicationStack, jsii.String("Pipeline"), &PipelineProps{
-	CrossRegionReplicationBuckets: map[string]iBucket{
+codepipeline.NewPipeline(replicationStack, jsii.String("Pipeline"), &pipelineProps{
+	crossRegionReplicationBuckets: map[string]iBucket{
 		"us-west-1": replicationBucket,
 	},
 })
@@ -352,20 +352,20 @@ In this case, you need to use an alias in place of the key when creating the buc
 ```go
 // Passing an encrypted replication bucket created in a different stack.
 app := awscdk.NewApp()
-replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &StackProps{
-	Env: &Environment{
-		Region: jsii.String("us-west-1"),
+replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-west-1"),
 	},
 })
 key := kms.NewKey(replicationStack, jsii.String("ReplicationKey"))
-alias := kms.NewAlias(replicationStack, jsii.String("ReplicationAlias"), &AliasProps{
+alias := kms.NewAlias(replicationStack, jsii.String("ReplicationAlias"), &aliasProps{
 	// aliasName is required
-	AliasName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
-	TargetKey: key,
+	aliasName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
+	targetKey: key,
 })
-replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &BucketProps{
-	BucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
-	EncryptionKey: alias,
+replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &bucketProps{
+	bucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
+	encryptionKey: alias,
 })
 ```
 
@@ -415,7 +415,7 @@ these are accessed through static properties of the `GlobalVariables` class:
 // OtherAction is some action type that produces variables, like EcrSourceAction
 NewOtherAction(&otherActionProps{
 	// ...
-	config: codepipeline.GlobalVariables_ExecutionId(),
+	config: codepipeline.globalVariables_ExecutionId(),
 	actionName: jsii.String("otherAction"),
 })
 ```
@@ -435,16 +435,16 @@ A pipeline can be used as a target for a CloudWatch event rule:
 ```go
 // A pipeline being used as a target for a CloudWatch event rule.
 import targets "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+import events "github.com/aws/aws-cdk-go/awscdk"
 
 var pipeline pipeline
 
 
 // kick off the pipeline every day
-rule := events.NewRule(this, jsii.String("Daily"), &RuleProps{
-	Schedule: events.Schedule_Rate(awscdk.Duration_Days(jsii.Number(1))),
+rule := events.NewRule(this, jsii.String("Daily"), &ruleProps{
+	schedule: events.schedule.rate(awscdk.Duration.days(jsii.Number(1))),
 })
-rule.AddTarget(targets.NewCodePipeline(pipeline))
+rule.addTarget(targets.NewCodePipeline(pipeline))
 ```
 
 When a pipeline is used as an event target, the
@@ -466,11 +466,11 @@ var myStage iStage
 var myAction action
 var target iRuleTarget
 
-myPipeline.onStateChange(jsii.String("MyPipelineStateChange"), &OnEventOptions{
-	Target: target,
+myPipeline.onStateChange(jsii.String("MyPipelineStateChange"), &onEventOptions{
+	target: target,
 })
-myStage.OnStateChange(jsii.String("MyStageStateChange"), target)
-myAction.OnStateChange(jsii.String("MyActionStateChange"), target)
+myStage.onStateChange(jsii.String("MyStageStateChange"), target)
+myAction.onStateChange(jsii.String("MyActionStateChange"), target)
 ```
 
 ## CodeStar Notifications
@@ -484,10 +484,10 @@ import chatbot "github.com/aws/aws-cdk-go/awscdk"
 
 var pipeline pipeline
 
-target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
-	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
-	SlackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
-	SlackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
+target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
+	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
+	slackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
+	slackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
 })
 rule := pipeline.notifyOnExecutionStateChange(jsii.String("NotifyOnExecutionStateChange"), target)
 ```

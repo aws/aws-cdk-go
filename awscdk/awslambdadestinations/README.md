@@ -21,12 +21,12 @@ import sns "github.com/aws/aws-cdk-go/awscdk"
 
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 
-myFn := lambda.NewFunction(this, jsii.String("Fn"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
-	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+myFn := lambda.NewFunction(this, jsii.String("Fn"), &functionProps{
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("index.handler"),
+	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 	// sns topic for successful invocations
-	OnSuccess: destinations.NewSnsDestination(myTopic),
+	onSuccess: destinations.NewSnsDestination(myTopic),
 })
 ```
 
@@ -39,12 +39,12 @@ import sqs "github.com/aws/aws-cdk-go/awscdk"
 
 deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 
-myFn := lambda.NewFunction(this, jsii.String("Fn"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
-	Code: lambda.Code_FromInline(jsii.String("// your code")),
+myFn := lambda.NewFunction(this, jsii.String("Fn"), &functionProps{
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("index.handler"),
+	code: lambda.code.fromInline(jsii.String("// your code")),
 	// sqs queue for unsuccessful invocations
-	OnFailure: destinations.NewSqsDestination(deadLetterQueue),
+	onFailure: destinations.NewSqsDestination(deadLetterQueue),
 })
 ```
 
@@ -128,13 +128,13 @@ invocation record:
 var destinationFn function
 
 
-sourceFn := lambda.NewFunction(this, jsii.String("Source"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
-	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+sourceFn := lambda.NewFunction(this, jsii.String("Source"), &functionProps{
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("index.handler"),
+	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 	// auto-extract on success
-	OnSuccess: destinations.NewLambdaDestination(destinationFn, &LambdaDestinationOptions{
-		ResponseOnly: jsii.Boolean(true),
+	onSuccess: destinations.NewLambdaDestination(destinationFn, &lambdaDestinationOptions{
+		responseOnly: jsii.Boolean(true),
 	}),
 })
 ```

@@ -38,14 +38,14 @@ within the number of days specified.
 ```go
 // https://docs.aws.amazon.com/config/latest/developerguide/access-keys-rotated.html
 // https://docs.aws.amazon.com/config/latest/developerguide/access-keys-rotated.html
-config.NewManagedRule(this, jsii.String("AccessKeysRotated"), &ManagedRuleProps{
-	Identifier: config.ManagedRuleIdentifiers_ACCESS_KEYS_ROTATED(),
-	InputParameters: map[string]interface{}{
+config.NewManagedRule(this, jsii.String("AccessKeysRotated"), &managedRuleProps{
+	identifier: config.managedRuleIdentifiers_ACCESS_KEYS_ROTATED(),
+	inputParameters: map[string]interface{}{
 		"maxAccessKeyAge": jsii.Number(60),
 	},
 
 	// default is 24 hours
-	MaximumExecutionFrequency: config.MaximumExecutionFrequency_TWELVE_HOURS,
+	maximumExecutionFrequency: config.maximumExecutionFrequency_TWELVE_HOURS,
 })
 ```
 
@@ -74,8 +74,8 @@ from it's expected configuration.
 // non-compliant if the stack's drift status is 'DRIFTED'
 // compliant if stack's status is 'IN_SYNC'
 // non-compliant if the stack's drift status is 'DRIFTED'
-config.NewCloudFormationStackDriftDetectionCheck(this, jsii.String("Drift"), &CloudFormationStackDriftDetectionCheckProps{
-	OwnStackOnly: jsii.Boolean(true),
+config.NewCloudFormationStackDriftDetectionCheck(this, jsii.String("Drift"), &cloudFormationStackDriftDetectionCheckProps{
+	ownStackOnly: jsii.Boolean(true),
 })
 ```
 
@@ -90,8 +90,8 @@ topic2 := sns.NewTopic(this, jsii.String("AllowedTopic2"))
 
 // non-compliant if CloudFormation stack does not send notifications to 'topic1' or 'topic2'
 // non-compliant if CloudFormation stack does not send notifications to 'topic1' or 'topic2'
-config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCheck"), &CloudFormationStackNotificationCheckProps{
-	Topics: []iTopic{
+config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCheck"), &cloudFormationStackNotificationCheckProps{
+	topics: []iTopic{
 		topic1,
 		topic2,
 	},
@@ -101,59 +101,8 @@ config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCh
 ### Custom rules
 
 You can develop custom rules and add them to AWS Config. You associate each custom rule with an
-AWS Lambda function and Guard.
-
-#### Custom Lambda Rules
-
-Lambda function which contains the logic that evaluates whether your AWS resources comply with the rule.
-
-```go
-// Lambda function containing logic that evaluates compliance with the rule.
-evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
-	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-})
-
-// A custom rule that runs on configuration changes of EC2 instances
-customRule := config.NewCustomRule(this, jsii.String("Custom"), &CustomRuleProps{
-	ConfigurationChanges: jsii.Boolean(true),
-	LambdaFunction: evalComplianceFn,
-	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_INSTANCE()),
-})
-```
-
-#### Custom Policy Rules
-
-Guard which contains the logic that evaluates whether your AWS resources comply with the rule.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-samplePolicyText := `
-# This rule checks if point in time recovery (PITR) is enabled on active Amazon DynamoDB tables
-let status = ['ACTIVE']
-
-rule tableisactive when
-    resourceType == "AWS::DynamoDB::Table" {
-    configuration.tableStatus == %status
-}
-
-rule checkcompliance when
-    resourceType == "AWS::DynamoDB::Table"
-    tableisactive {
-        let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-        %pitr == "ENABLED"
-}
-`
-
-config.NewCustomPolicy(stack, jsii.String("Custom"), &CustomPolicyProps{
-	PolicyText: samplePolicyText,
-	EnableDebugLog: jsii.Boolean(true),
-	RuleScope: config.RuleScope_FromResources([]resourceType{
-		config.*resourceType_DYNAMODB_TABLE(),
-	}),
-})
-```
+AWS Lambda function, which contains the logic that evaluates whether your AWS resources comply
+with the rule.
 
 ### Triggers
 
@@ -169,13 +118,13 @@ to run and the trigger types.
 var evalComplianceFn function
 
 
-config.NewCustomRule(this, jsii.String("CustomRule"), &CustomRuleProps{
-	LambdaFunction: evalComplianceFn,
-	ConfigurationChanges: jsii.Boolean(true),
-	Periodic: jsii.Boolean(true),
+config.NewCustomRule(this, jsii.String("CustomRule"), &customRuleProps{
+	lambdaFunction: evalComplianceFn,
+	configurationChanges: jsii.Boolean(true),
+	periodic: jsii.Boolean(true),
 
 	// default is 24 hours
-	MaximumExecutionFrequency: config.MaximumExecutionFrequency_SIX_HOURS,
+	maximumExecutionFrequency: config.maximumExecutionFrequency_SIX_HOURS,
 })
 ```
 
@@ -194,23 +143,23 @@ the scope of both managed and custom rules:
 
 ```go
 var evalComplianceFn function
-sshRule := config.NewManagedRule(this, jsii.String("SSH"), &ManagedRuleProps{
-	Identifier: config.ManagedRuleIdentifiers_EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED(),
-	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_SECURITY_GROUP(), jsii.String("sg-1234567890abcdefgh")),
+sshRule := config.NewManagedRule(this, jsii.String("SSH"), &managedRuleProps{
+	identifier: config.managedRuleIdentifiers_EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED(),
+	ruleScope: config.ruleScope.fromResource(config.resourceType_EC2_SECURITY_GROUP(), jsii.String("sg-1234567890abcdefgh")),
 })
-customRule := config.NewCustomRule(this, jsii.String("Lambda"), &CustomRuleProps{
-	LambdaFunction: evalComplianceFn,
-	ConfigurationChanges: jsii.Boolean(true),
-	RuleScope: config.RuleScope_FromResources([]resourceType{
+customRule := config.NewCustomRule(this, jsii.String("Lambda"), &customRuleProps{
+	lambdaFunction: evalComplianceFn,
+	configurationChanges: jsii.Boolean(true),
+	ruleScope: config.*ruleScope.fromResources([]*resourceType{
 		config.*resourceType_CLOUDFORMATION_STACK(),
 		config.*resourceType_S3_BUCKET(),
 	}),
 })
 
-tagRule := config.NewCustomRule(this, jsii.String("CostCenterTagRule"), &CustomRuleProps{
-	LambdaFunction: evalComplianceFn,
-	ConfigurationChanges: jsii.Boolean(true),
-	RuleScope: config.RuleScope_FromTag(jsii.String("Cost Center"), jsii.String("MyApp")),
+tagRule := config.NewCustomRule(this, jsii.String("CostCenterTagRule"), &customRuleProps{
+	lambdaFunction: evalComplianceFn,
+	configurationChanges: jsii.Boolean(true),
+	ruleScope: config.*ruleScope.fromTag(jsii.String("Cost Center"), jsii.String("MyApp")),
 })
 ```
 
@@ -227,8 +176,8 @@ of your AWS Config Rule fails:
 complianceTopic := sns.NewTopic(this, jsii.String("ComplianceTopic"))
 
 rule := config.NewCloudFormationStackDriftDetectionCheck(this, jsii.String("Drift"))
-rule.onComplianceChange(jsii.String("TopicEvent"), &OnEventOptions{
-	Target: targets.NewSnsTopic(complianceTopic),
+rule.onComplianceChange(jsii.String("TopicEvent"), &onEventOptions{
+	target: targets.NewSnsTopic(complianceTopic),
 })
 ```
 
@@ -240,8 +189,8 @@ rule is re-evaluated.
 reEvaluationTopic := sns.NewTopic(this, jsii.String("ComplianceTopic"))
 
 rule := config.NewCloudFormationStackDriftDetectionCheck(this, jsii.String("Drift"))
-rule.onReEvaluationStatus(jsii.String("ReEvaluationEvent"), &OnEventOptions{
-	Target: targets.NewSnsTopic(reEvaluationTopic),
+rule.onReEvaluationStatus(jsii.String("ReEvaluationEvent"), &onEventOptions{
+	target: targets.NewSnsTopic(reEvaluationTopic),
 })
 ```
 
@@ -252,17 +201,17 @@ Compliance events are published to an SNS topic.
 
 ```go
 // Lambda function containing logic that evaluates compliance with the rule.
-evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
-	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &functionProps{
+	code: lambda.assetCode.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
+	handler: jsii.String("index.handler"),
+	runtime: lambda.runtime_NODEJS_14_X(),
 })
 
 // A custom rule that runs on configuration changes of EC2 instances
-customRule := config.NewCustomRule(this, jsii.String("Custom"), &CustomRuleProps{
-	ConfigurationChanges: jsii.Boolean(true),
-	LambdaFunction: evalComplianceFn,
-	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_INSTANCE()),
+customRule := config.NewCustomRule(this, jsii.String("Custom"), &customRuleProps{
+	configurationChanges: jsii.Boolean(true),
+	lambdaFunction: evalComplianceFn,
+	ruleScope: config.ruleScope.fromResource(config.resourceType_EC2_INSTANCE()),
 })
 
 // A rule to detect stack drifts
@@ -272,7 +221,7 @@ driftRule := config.NewCloudFormationStackDriftDetectionCheck(this, jsii.String(
 complianceTopic := sns.NewTopic(this, jsii.String("ComplianceTopic"))
 
 // Send notification on compliance change events
-driftRule.onComplianceChange(jsii.String("ComplianceChange"), &OnEventOptions{
-	Target: targets.NewSnsTopic(complianceTopic),
+driftRule.onComplianceChange(jsii.String("ComplianceChange"), &onEventOptions{
+	target: targets.NewSnsTopic(complianceTopic),
 })
 ```

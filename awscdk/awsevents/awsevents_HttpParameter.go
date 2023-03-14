@@ -1,0 +1,83 @@
+package awsevents
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk"
+)
+
+// An additional HTTP parameter to send along with the OAuth request.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var secretValue secretValue
+//
+//   httpParameter := awscdk.Aws_events.httpParameter.fromSecret(secretValue)
+//
+// Experimental.
+type HttpParameter interface {
+}
+
+// The jsii proxy struct for HttpParameter
+type jsiiProxy_HttpParameter struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewHttpParameter_Override(h HttpParameter) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_events.HttpParameter",
+		nil, // no parameters
+		h,
+	)
+}
+
+// Make an OAuthParameter from a secret.
+// Experimental.
+func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
+	_init_.Initialize()
+
+	if err := validateHttpParameter_FromSecretParameters(value); err != nil {
+		panic(err)
+	}
+	var returns HttpParameter
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_events.HttpParameter",
+		"fromSecret",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an OAuthParameter from a string value.
+//
+// The value is not treated as a secret.
+// Experimental.
+func HttpParameter_FromString(value *string) HttpParameter {
+	_init_.Initialize()
+
+	if err := validateHttpParameter_FromStringParameters(value); err != nil {
+		panic(err)
+	}
+	var returns HttpParameter
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_events.HttpParameter",
+		"fromString",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+

@@ -27,8 +27,8 @@ Integrity](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail
 This is enabled on the `Trail` construct by default, but can be turned off by setting `enableFileValidation` to `false`.
 
 ```go
-trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &TrailProps{
-	EnableFileValidation: jsii.Boolean(false),
+trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &trailProps{
+	enableFileValidation: jsii.Boolean(false),
 })
 ```
 
@@ -41,8 +41,8 @@ The following code configures an SNS topic to be notified -
 
 ```go
 topic := sns.NewTopic(this, jsii.String("TrailTopic"))
-trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &TrailProps{
-	SnsTopic: topic,
+trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &trailProps{
+	snsTopic: topic,
 })
 ```
 
@@ -60,9 +60,9 @@ period for the created Log Group.
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
 
-trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &TrailProps{
-	SendToCloudWatchLogs: jsii.Boolean(true),
-	CloudWatchLogsRetention: logs.RetentionDays_FOUR_MONTHS,
+trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &trailProps{
+	sendToCloudWatchLogs: jsii.Boolean(true),
+	cloudWatchLogsRetention: logs.retentionDays_FOUR_MONTHS,
 })
 ```
 
@@ -79,21 +79,21 @@ to learn more about the event structure for events from CloudTrail.
 The following code filters events for S3 from a specific AWS account and triggers a lambda function.
 
 ```go
-myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-	Code: lambda.Code_FromAsset(jsii.String("resource/myfunction")),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
+myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+	code: lambda.code.fromAsset(jsii.String("resource/myfunction")),
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("index.handler"),
 })
 
-eventRule := cloudtrail.Trail_OnEvent(this, jsii.String("MyCloudWatchEvent"), &OnEventOptions{
-	Target: targets.NewLambdaFunction(myFunctionHandler),
+eventRule := cloudtrail.trail.onEvent(this, jsii.String("MyCloudWatchEvent"), &onEventOptions{
+	target: targets.NewLambdaFunction(myFunctionHandler),
 })
 
-eventRule.AddEventPattern(&EventPattern{
-	Account: []*string{
+eventRule.addEventPattern(&eventPattern{
+	account: []*string{
 		jsii.String("123456789012"),
 	},
-	Source: []*string{
+	source: []*string{
 		jsii.String("aws.s3"),
 	},
 })
@@ -116,10 +116,10 @@ Events for global services are turned on by default for `Trail` constructs in th
 The following code disables multi-region trail delivery and trail delivery for global services for a specific `Trail` -
 
 ```go
-trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &TrailProps{
+trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &trailProps{
 	// ...
-	IsMultiRegionTrail: jsii.Boolean(false),
-	IncludeGlobalServiceEvents: jsii.Boolean(false),
+	isMultiRegionTrail: jsii.Boolean(false),
+	includeGlobalServiceEvents: jsii.Boolean(false),
 })
 ```
 
@@ -135,9 +135,9 @@ log 'Read' or 'Write' events.
 The following code configures the `Trail` to only track management events that are of type 'Read'.
 
 ```go
-trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &TrailProps{
+trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"), &trailProps{
 	// ...
-	ManagementEvents: cloudtrail.ReadWriteType_READ_ONLY,
+	managementEvents: cloudtrail.readWriteType_READ_ONLY,
 })
 ```
 
@@ -160,10 +160,10 @@ var bucket bucket
 trail := cloudtrail.NewTrail(this, jsii.String("MyAmazingCloudTrail"))
 
 // Adds an event selector to the bucket foo
-trail.AddS3EventSelector([]s3EventSelector{
+trail.addS3EventSelector([]s3EventSelector{
 	&s3EventSelector{
-		Bucket: Bucket,
-		ObjectPrefix: jsii.String("bar/"),
+		bucket: bucket,
+		objectPrefix: jsii.String("bar/"),
 	},
 })
 ```
@@ -174,40 +174,14 @@ configures logging of Lambda data events for a specific Function.
 
 ```go
 trail := cloudtrail.NewTrail(this, jsii.String("MyAmazingCloudTrail"))
-amazingFunction := lambda.NewFunction(this, jsii.String("AnAmazingFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("hello.handler"),
-	Code: lambda.Code_FromAsset(jsii.String("lambda")),
+amazingFunction := lambda.NewFunction(this, jsii.String("AnAmazingFunction"), &functionProps{
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("hello.handler"),
+	code: lambda.code.fromAsset(jsii.String("lambda")),
 })
 
 // Add an event selector to log data events for the provided Lambda functions.
-trail.AddLambdaEventSelector([]iFunction{
+trail.addLambdaEventSelector([]iFunction{
 	amazingFunction,
-})
-```
-
-## Organization Trail
-
-It is possible to create a trail that will be applied to all accounts in an organization if the current account manages an organization.
-To enable this, the property `isOrganizationTrail` must be set. If this property is set and the current account does not manage an organization, the stack will fail to deploy.
-
-```go
-cloudtrail.NewTrail(this, jsii.String("OrganizationTrail"), &TrailProps{
-	IsOrganizationTrail: jsii.Boolean(true),
-})
-```
-
-## CloudTrail Insights
-
-Set `InsightSelector` to enable Insight.
-Insights selector values can be `ApiCallRateInsight`, `ApiErrorRateInsight`, or both.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-NewTrail(stack, jsii.String("Insights"), map[string][]interface{}{
-	"insightTypes": []interface{}{
-		InsightType_API_CALL_RATE,
-		InsightType_API_ERROR_RATE,
-	},
 })
 ```

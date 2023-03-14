@@ -7,26 +7,26 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 ```go
 import chatbot "github.com/aws/aws-cdk-go/awscdk"
 import sns "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+import iam "github.com/aws/aws-cdk-go/awscdk"
 
 
-slackChannel := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
-	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
-	SlackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
-	SlackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
+slackChannel := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
+	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
+	slackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
+	slackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
 })
 
-slackChannel.addToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Effect: iam.Effect_ALLOW,
-	Actions: []*string{
+slackChannel.addToRolePolicy(iam.NewPolicyStatement(&policyStatementProps{
+	effect: iam.effect_ALLOW,
+	actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
-	Resources: []*string{
+	resources: []*string{
 		jsii.String("arn:aws:s3:::abc/xyz/123.txt"),
 	},
 }))
 
-slackChannel.AddNotificationTopic(sns.NewTopic(this, jsii.String("MyTopic")))
+slackChannel.addNotificationTopic(sns.NewTopic(this, jsii.String("MyTopic")))
 ```
 
 ## Log Group
@@ -44,8 +44,3 @@ allows you to customize the maximum number of retries and base backoff duration.
 resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html) is added
 to the stack that pre-creates the log group as part of the stack deployment, if it already doesn't exist, and sets the
 correct log retention period (never expire, by default).
-
-## Guardrails
-
-By default slack channel will use `AdministratorAccess` managed policy as guardrail policy.
-The `guardrailPolicies` property can be used to set a different set of managed policies.
