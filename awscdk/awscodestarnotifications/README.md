@@ -33,23 +33,23 @@ project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
 
 topic := sns.NewTopic(this, jsii.String("MyTopic1"))
 
-slack := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
-	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
-	slackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
-	slackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
+slack := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
+	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
+	SlackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
+	SlackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
 })
 
-rule := notifications.NewNotificationRule(this, jsii.String("NotificationRule"), &notificationRuleProps{
-	source: project,
-	events: []*string{
+rule := notifications.NewNotificationRule(this, jsii.String("NotificationRule"), &NotificationRuleProps{
+	Source: project,
+	Events: []*string{
 		jsii.String("codebuild-project-build-state-succeeded"),
 		jsii.String("codebuild-project-build-state-failed"),
 	},
-	targets: []iNotificationRuleTarget{
+	Targets: []iNotificationRuleTarget{
 		topic,
 	},
 })
-rule.addTarget(slack)
+rule.AddTarget(slack)
 ```
 
 ## Notification Source

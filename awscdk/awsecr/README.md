@@ -5,7 +5,7 @@ This package contains constructs for working with Amazon Elastic Container Regis
 ## Repositories
 
 Define a repository by creating a new instance of `Repository`. A repository
-holds multiple verions of a single container image.
+holds multiple versions of a single container image.
 
 ```go
 repository := ecr.NewRepository(this, jsii.String("Repository"))
@@ -16,8 +16,8 @@ repository := ecr.NewRepository(this, jsii.String("Repository"))
 Amazon ECR image scanning helps in identifying software vulnerabilities in your container images. You can manually scan container images stored in Amazon ECR, or you can configure your repositories to scan images when you push them to a repository. To create a new repository to scan on push, simply enable `imageScanOnPush` in the properties
 
 ```go
-repository := ecr.NewRepository(this, jsii.String("Repo"), &repositoryProps{
-	imageScanOnPush: jsii.Boolean(true),
+repository := ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	ImageScanOnPush: jsii.Boolean(true),
 })
 ```
 
@@ -28,7 +28,7 @@ var repository repository
 var target someTarget
 
 
-repository.onImageScanCompleted(jsii.String("ImageScanComplete")).addTarget(target)
+repository.OnImageScanCompleted(jsii.String("ImageScanComplete")).AddTarget(target)
 ```
 
 ### Authorization Token
@@ -43,7 +43,7 @@ grants an IAM user access to call this API.
 
 ```go
 user := iam.NewUser(this, jsii.String("User"))
-ecr.authorizationToken.grantRead(user)
+ecr.AuthorizationToken_GrantRead(user)
 ```
 
 If you access images in the [Public ECR Gallery](https://gallery.ecr.aws/) as well, it is recommended you authenticate to the registry to benefit from
@@ -55,7 +55,7 @@ The following code snippet grants an IAM user access to retrieve an authorizatio
 
 ```go
 user := iam.NewUser(this, jsii.String("User"))
-ecr.publicGalleryAuthorizationToken.grantRead(user)
+ecr.PublicGalleryAuthorizationToken_GrantRead(user)
 ```
 
 This user can then proceed to login to the registry using one of the [authentication methods](https://docs.aws.amazon.com/AmazonECR/latest/public/public-registries.html#public-registry-auth).
@@ -65,8 +65,8 @@ This user can then proceed to login to the registry using one of the [authentica
 You can set tag immutability on images in our repository using the `imageTagMutability` construct prop.
 
 ```go
-ecr.NewRepository(this, jsii.String("Repo"), &repositoryProps{
-	imageTagMutability: ecr.tagMutability_IMMUTABLE,
+ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	ImageTagMutability: ecr.TagMutability_IMMUTABLE,
 })
 ```
 
@@ -81,8 +81,8 @@ When `encryptionKey` is set, the `encryption` property must be `KMS` or empty.
 In the case `encryption` is set to `KMS` but no `encryptionKey` is set, an AWS managed KMS key is used.
 
 ```go
-ecr.NewRepository(this, jsii.String("Repo"), &repositoryProps{
-	encryption: ecr.repositoryEncryption_KMS(),
+ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	Encryption: ecr.RepositoryEncryption_KMS(),
 })
 ```
 
@@ -92,8 +92,8 @@ Otherwise, a customer-managed KMS key is used if `encryptionKey` was set and `en
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
 
-ecr.NewRepository(this, jsii.String("Repo"), &repositoryProps{
-	encryptionKey: kms.NewKey(this, jsii.String("Key")),
+ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	EncryptionKey: kms.NewKey(this, jsii.String("Key")),
 })
 ```
 
@@ -108,13 +108,13 @@ is important here):
 ```go
 var repository repository
 
-repository.addLifecycleRule(&lifecycleRule{
-	tagPrefixList: []*string{
+repository.AddLifecycleRule(&LifecycleRule{
+	TagPrefixList: []*string{
 		jsii.String("prod"),
 	},
-	maxImageCount: jsii.Number(9999),
+	MaxImageCount: jsii.Number(9999),
 })
-repository.addLifecycleRule(&lifecycleRule{
-	maxImageAge: awscdk.Duration.days(jsii.Number(30)),
+repository.AddLifecycleRule(&LifecycleRule{
+	MaxImageAge: awscdk.Duration_Days(jsii.Number(30)),
 })
 ```

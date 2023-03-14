@@ -22,27 +22,27 @@ var vpc vpc
 
 // Create the load balancer in a VPC. 'internetFacing' is 'false'
 // by default, which creates an internal load balancer.
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 })
 
 // Add a listener and open up the load balancer's security group
 // to the world.
-listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 
 	// 'open: true' is the default, you can leave it out if you want. Set it
 	// to 'false' and use `listener.connections` if you want to be selective
 	// about who can access the load balancer.
-	open: jsii.Boolean(true),
+	Open: jsii.Boolean(true),
 })
 
 // Create an AutoScaling group and add it as a load balancing
 // target to the listener.
-listener.addTargets(jsii.String("ApplicationFleet"), &addApplicationTargetsProps{
-	port: jsii.Number(8080),
-	targets: []iApplicationLoadBalancerTarget{
+listener.AddTargets(jsii.String("ApplicationFleet"), &AddApplicationTargetsProps{
+	Port: jsii.Number(8080),
+	Targets: []iApplicationLoadBalancerTarget{
 		asg,
 	},
 })
@@ -58,19 +58,19 @@ if a security group isn't provided, one will be automatically created.
 var vpc vpc
 
 
-securityGroup1 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup1"), &securityGroupProps{
-	vpc: vpc,
+securityGroup1 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup1"), &SecurityGroupProps{
+	Vpc: Vpc,
 })
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
-	securityGroup: securityGroup1,
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
+	SecurityGroup: securityGroup1,
 })
 
-securityGroup2 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup2"), &securityGroupProps{
-	vpc: vpc,
+securityGroup2 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup2"), &SecurityGroupProps{
+	Vpc: Vpc,
 })
-lb.addSecurityGroup(securityGroup2)
+lb.AddSecurityGroup(securityGroup2)
 ```
 
 ### Conditions
@@ -85,19 +85,19 @@ var listener applicationListener
 var asg autoScalingGroup
 
 
-listener.addTargets(jsii.String("Example.Com Fleet"), &addApplicationTargetsProps{
-	priority: jsii.Number(10),
-	conditions: []listenerCondition{
-		elbv2.*listenerCondition.hostHeaders([]*string{
+listener.AddTargets(jsii.String("Example.Com Fleet"), &AddApplicationTargetsProps{
+	Priority: jsii.Number(10),
+	Conditions: []listenerCondition{
+		elbv2.*listenerCondition_HostHeaders([]*string{
 			jsii.String("example.com"),
 		}),
-		elbv2.*listenerCondition.pathPatterns([]*string{
+		elbv2.*listenerCondition_PathPatterns([]*string{
 			jsii.String("/ok"),
 			jsii.String("/path"),
 		}),
 	},
-	port: jsii.Number(8080),
-	targets: []iApplicationLoadBalancerTarget{
+	Port: jsii.Number(8080),
+	Targets: []iApplicationLoadBalancerTarget{
 		asg,
 	},
 })
@@ -157,16 +157,16 @@ Here's an example of serving a fixed response at the `/ok` URL:
 var listener applicationListener
 
 
-listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
-	priority: jsii.Number(10),
-	conditions: []listenerCondition{
-		elbv2.*listenerCondition.pathPatterns([]*string{
+listener.AddAction(jsii.String("Fixed"), &AddApplicationActionProps{
+	Priority: jsii.Number(10),
+	Conditions: []listenerCondition{
+		elbv2.*listenerCondition_PathPatterns([]*string{
 			jsii.String("/ok"),
 		}),
 	},
-	action: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
-		contentType: elbv2.contentType_TEXT_PLAIN,
-		messageBody: jsii.String("OK"),
+	Action: elbv2.ListenerAction_FixedResponse(jsii.Number(200), &FixedResponseOptions{
+		ContentType: jsii.String("text/plain"),
+		MessageBody: jsii.String("OK"),
 	}),
 })
 ```
@@ -178,18 +178,18 @@ var listener applicationListener
 var myTargetGroup applicationTargetGroup
 
 
-listener.addAction(jsii.String("DefaultAction"), &addApplicationActionProps{
-	action: elbv2.listenerAction.authenticateOidc(&authenticateOidcOptions{
-		authorizationEndpoint: jsii.String("https://example.com/openid"),
+listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
+	Action: elbv2.ListenerAction_AuthenticateOidc(&AuthenticateOidcOptions{
+		AuthorizationEndpoint: jsii.String("https://example.com/openid"),
 		// Other OIDC properties here
-		clientId: jsii.String("..."),
-		clientSecret: awscdk.SecretValue.secretsManager(jsii.String("...")),
-		issuer: jsii.String("..."),
-		tokenEndpoint: jsii.String("..."),
-		userInfoEndpoint: jsii.String("..."),
+		ClientId: jsii.String("..."),
+		ClientSecret: awscdk.SecretValue_SecretsManager(jsii.String("...")),
+		Issuer: jsii.String("..."),
+		TokenEndpoint: jsii.String("..."),
+		UserInfoEndpoint: jsii.String("..."),
 
 		// Next
-		next: elbv2.*listenerAction.forward([]iApplicationTargetGroup{
+		Next: elbv2.ListenerAction_Forward([]iApplicationTargetGroup{
 			myTargetGroup,
 		}),
 	}),
@@ -202,11 +202,11 @@ If you just want to redirect all incoming traffic on one port to another port, y
 var lb applicationLoadBalancer
 
 
-lb.addRedirect(&applicationLoadBalancerRedirectConfig{
-	sourceProtocol: elbv2.applicationProtocol_HTTPS,
-	sourcePort: jsii.Number(8443),
-	targetProtocol: elbv2.*applicationProtocol_HTTP,
-	targetPort: jsii.Number(8080),
+lb.AddRedirect(&ApplicationLoadBalancerRedirectConfig{
+	SourceProtocol: elbv2.ApplicationProtocol_HTTPS,
+	SourcePort: jsii.Number(8443),
+	TargetProtocol: elbv2.ApplicationProtocol_HTTP,
+	TargetPort: jsii.Number(8080),
 })
 ```
 
@@ -214,6 +214,34 @@ If you do not provide any options for this method, it redirects HTTP port 80 to 
 
 By default all ingress traffic will be allowed on the source port. If you want to be more selective with your
 ingress rules then set `open: false` and use the listener's `connections` object to selectively grant access to the listener.
+
+### Load Balancer attributes
+
+You can modify attributes of Application Load Balancers:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
+
+	// Whether HTTP/2 is enabled
+	Http2Enabled: jsii.Boolean(false),
+
+	// The idle timeout value, in seconds
+	IdleTimeout: cdk.duration_Seconds(jsii.Number(1000)),
+
+	// Whether HTTP headers with header fields thatare not valid
+	// are removed by the load balancer (true), or routed to targets
+	DropInvalidHeaderFields: jsii.Boolean(true),
+
+	// How the load balancer handles requests that might
+	// pose a security risk to your application
+	DesyncMitigationMode: elbv2.DesyncMitigationMode_DEFENSIVE,
+})
+```
+
+For more information, see [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
 
 ## Defining a Network Load Balancer
 
@@ -227,20 +255,20 @@ var asg autoScalingGroup
 
 // Create the load balancer in a VPC. 'internetFacing' is 'false'
 // by default, which creates an internal load balancer.
-lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &networkLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 })
 
 // Add a listener on a particular port.
-listener := lb.addListener(jsii.String("Listener"), &baseNetworkListenerProps{
-	port: jsii.Number(443),
+listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+	Port: jsii.Number(443),
 })
 
 // Add targets on a particular port.
-listener.addTargets(jsii.String("AppFleet"), &addNetworkTargetsProps{
-	port: jsii.Number(443),
-	targets: []iNetworkLoadBalancerTarget{
+listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
+	Port: jsii.Number(443),
+	Targets: []iNetworkLoadBalancerTarget{
 		asg,
 	},
 })
@@ -275,14 +303,14 @@ var asg1 autoScalingGroup
 var asg2 autoScalingGroup
 
 
-group := listener.addTargets(jsii.String("AppFleet"), &addNetworkTargetsProps{
-	port: jsii.Number(443),
-	targets: []iNetworkLoadBalancerTarget{
+group := listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
+	Port: jsii.Number(443),
+	Targets: []iNetworkLoadBalancerTarget{
 		asg1,
 	},
 })
 
-group.addTarget(asg2)
+group.AddTarget(asg2)
 ```
 
 ### Sticky sessions for your Application Load Balancer
@@ -296,20 +324,20 @@ var vpc vpc
 
 
 // Target group with duration-based stickiness with load-balancer generated cookie
-tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &applicationTargetGroupProps{
-	targetType: elbv2.targetType_INSTANCE,
-	port: jsii.Number(80),
-	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
-	vpc: vpc,
+tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &ApplicationTargetGroupProps{
+	TargetType: elbv2.TargetType_INSTANCE,
+	Port: jsii.Number(80),
+	StickinessCookieDuration: awscdk.Duration_Minutes(jsii.Number(5)),
+	Vpc: Vpc,
 })
 
 // Target group with application-based stickiness
-tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &applicationTargetGroupProps{
-	targetType: elbv2.*targetType_INSTANCE,
-	port: jsii.Number(80),
-	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
-	stickinessCookieName: jsii.String("MyDeliciousCookie"),
-	vpc: vpc,
+tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &ApplicationTargetGroupProps{
+	TargetType: elbv2.TargetType_INSTANCE,
+	Port: jsii.Number(80),
+	StickinessCookieDuration: awscdk.Duration_*Minutes(jsii.Number(5)),
+	StickinessCookieName: jsii.String("MyDeliciousCookie"),
+	Vpc: Vpc,
 })
 ```
 
@@ -323,16 +351,16 @@ By default, Application Load Balancers send requests to targets using HTTP/1.1. 
 var vpc vpc
 
 
-tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
-	targetType: elbv2.targetType_IP,
-	port: jsii.Number(50051),
-	protocol: elbv2.applicationProtocol_HTTP,
-	protocolVersion: elbv2.applicationProtocolVersion_GRPC,
-	healthCheck: &healthCheck{
-		enabled: jsii.Boolean(true),
-		healthyGrpcCodes: jsii.String("0-99"),
+tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
+	TargetType: elbv2.TargetType_IP,
+	Port: jsii.Number(50051),
+	Protocol: elbv2.ApplicationProtocol_HTTP,
+	ProtocolVersion: elbv2.ApplicationProtocolVersion_GRPC,
+	HealthCheck: &HealthCheck{
+		Enabled: jsii.Boolean(true),
+		HealthyGrpcCodes: jsii.String("0-99"),
 	},
-	vpc: vpc,
+	Vpc: Vpc,
 })
 ```
 
@@ -349,18 +377,18 @@ var lambdaFunction function
 var lb applicationLoadBalancer
 
 
-listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
-	port: jsii.Number(80),
+listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(80),
 })
-listener.addTargets(jsii.String("Targets"), &addApplicationTargetsProps{
-	targets: []iApplicationLoadBalancerTarget{
+listener.AddTargets(jsii.String("Targets"), &AddApplicationTargetsProps{
+	Targets: []iApplicationLoadBalancerTarget{
 		targets.NewLambdaTarget(lambdaFunction),
 	},
 
 	// For Lambda Targets, you need to explicitly enable health checks if you
 	// want them.
-	healthCheck: &healthCheck{
-		enabled: jsii.Boolean(true),
+	HealthCheck: &HealthCheck{
+		Enabled: jsii.Boolean(true),
 	},
 })
 ```
@@ -374,50 +402,50 @@ To use a single application load balancer as a target for the network load balan
 
 ```go
 import targets "github.com/aws/aws-cdk-go/awscdk"
-import ecs "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import patterns "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc
 
 
-task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &fargateTaskDefinitionProps{
-	cpu: jsii.Number(256),
-	memoryLimitMiB: jsii.Number(512),
+task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &FargateTaskDefinitionProps{
+	Cpu: jsii.Number(256),
+	MemoryLimitMiB: jsii.Number(512),
 })
-task.addContainer(jsii.String("nginx"), &containerDefinitionOptions{
-	image: ecs.containerImage.fromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
-	portMappings: []portMapping{
+task.AddContainer(jsii.String("nginx"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
+	PortMappings: []portMapping{
 		&portMapping{
-			containerPort: jsii.Number(80),
+			ContainerPort: jsii.Number(80),
 		},
 	},
 })
 
-svc := patterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-	vpc: vpc,
-	taskDefinition: task,
-	publicLoadBalancer: jsii.Boolean(false),
+svc := patterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
+	Vpc: Vpc,
+	TaskDefinition: task,
+	PublicLoadBalancer: jsii.Boolean(false),
 })
 
-nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("Nlb"), &networkLoadBalancerProps{
-	vpc: vpc,
-	crossZoneEnabled: jsii.Boolean(true),
-	internetFacing: jsii.Boolean(true),
+nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("Nlb"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	CrossZoneEnabled: jsii.Boolean(true),
+	InternetFacing: jsii.Boolean(true),
 })
 
-listener := nlb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
-	port: jsii.Number(80),
+listener := nlb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
+	Port: jsii.Number(80),
 })
 
-listener.addTargets(jsii.String("Targets"), &addNetworkTargetsProps{
-	targets: []iNetworkLoadBalancerTarget{
+listener.AddTargets(jsii.String("Targets"), &AddNetworkTargetsProps{
+	Targets: []iNetworkLoadBalancerTarget{
 		targets.NewAlbTarget(svc.loadBalancer, jsii.Number(80)),
 	},
-	port: jsii.Number(80),
+	Port: jsii.Number(80),
 })
 
-awscdk.NewCfnOutput(this, jsii.String("NlbEndpoint"), &cfnOutputProps{
-	value: fmt.Sprintf("http://%v", nlb.loadBalancerDnsName),
+awscdk.NewCfnOutput(this, jsii.String("NlbEndpoint"), &CfnOutputProps{
+	Value: fmt.Sprintf("http://%v", nlb.LoadBalancerDnsName),
 })
 ```
 
@@ -432,14 +460,14 @@ var listener applicationListener
 var asg autoScalingGroup
 
 
-listener.addTargets(jsii.String("AppFleet"), &addApplicationTargetsProps{
-	port: jsii.Number(8080),
-	targets: []iApplicationLoadBalancerTarget{
+listener.AddTargets(jsii.String("AppFleet"), &AddApplicationTargetsProps{
+	Port: jsii.Number(8080),
+	Targets: []iApplicationLoadBalancerTarget{
 		asg,
 	},
-	healthCheck: &healthCheck{
-		path: jsii.String("/ping"),
-		interval: awscdk.Duration.minutes(jsii.Number(1)),
+	HealthCheck: &HealthCheck{
+		Path: jsii.String("/ping"),
+		Interval: awscdk.Duration_Minutes(jsii.Number(1)),
 	},
 })
 ```
@@ -458,17 +486,17 @@ var listener applicationListener
 var asg autoScalingGroup
 
 
-listener.addTargets(jsii.String("AppFleet"), &addApplicationTargetsProps{
-	port: jsii.Number(8080),
-	targets: []iApplicationLoadBalancerTarget{
+listener.AddTargets(jsii.String("AppFleet"), &AddApplicationTargetsProps{
+	Port: jsii.Number(8080),
+	Targets: []iApplicationLoadBalancerTarget{
 		asg,
 	},
-	healthCheck: &healthCheck{
-		port: jsii.String("8088"),
+	HealthCheck: &HealthCheck{
+		Port: jsii.String("8088"),
 	},
 })
 
-asg.connections.allowFrom(lb, ec2.port.tcp(jsii.Number(8088)))
+asg.connections.AllowFrom(lb, ec2.Port_Tcp(jsii.Number(8088)))
 ```
 
 ## Using a Load Balancer from a different Stack
@@ -503,8 +531,8 @@ func (this *myTarget) attachToApplicationTargetGroup(targetGroup applicationTarg
 	// If we need to add security group rules
 	// targetGroup.registerConnectable(...);
 	return &loadBalancerTargetProps{
-		targetType: elbv2.targetType_IP,
-		targetJson: map[string]interface{}{
+		TargetType: elbv2.TargetType_IP,
+		TargetJson: map[string]interface{}{
 			"id": jsii.String("1.2.3.4"),
 			"port": jsii.Number(8080),
 		},
@@ -534,7 +562,7 @@ var targetGroup applicationTargetGroup
 // Make sure that the listener has been created, and so the TargetGroup
 // has been associated with the LoadBalancer, before 'resource' is created.
 
-constructs.Node.of(resource).addDependency(targetGroup.loadBalancerAttached)
+constructs.Node_Of(resource).AddDependency(targetGroup.loadBalancerAttached)
 ```
 
 ## Looking up Load Balancers and Listeners
@@ -562,16 +590,16 @@ provide more specific criteria.
 **Look up a Application Load Balancer by ARN**
 
 ```go
-loadBalancer := elbv2.applicationLoadBalancer.fromLookup(this, jsii.String("ALB"), &applicationLoadBalancerLookupOptions{
-	loadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/my-load-balancer/1234567890123456"),
+loadBalancer := elbv2.ApplicationLoadBalancer_FromLookup(this, jsii.String("ALB"), &ApplicationLoadBalancerLookupOptions{
+	LoadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/my-load-balancer/1234567890123456"),
 })
 ```
 
 **Look up an Application Load Balancer by tags**
 
 ```go
-loadBalancer := elbv2.applicationLoadBalancer.fromLookup(this, jsii.String("ALB"), &applicationLoadBalancerLookupOptions{
-	loadBalancerTags: map[string]*string{
+loadBalancer := elbv2.ApplicationLoadBalancer_FromLookup(this, jsii.String("ALB"), &ApplicationLoadBalancerLookupOptions{
+	LoadBalancerTags: map[string]*string{
 		// Finds a load balancer matching all tags.
 		"some": jsii.String("tag"),
 		"someother": jsii.String("tag"),
@@ -596,33 +624,88 @@ criteria.
 **Look up a Listener by associated Load Balancer, Port, and Protocol**
 
 ```go
-listener := elbv2.applicationListener.fromLookup(this, jsii.String("ALBListener"), &applicationListenerLookupOptions{
-	loadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/my-load-balancer/1234567890123456"),
-	listenerProtocol: elbv2.applicationProtocol_HTTPS,
-	listenerPort: jsii.Number(443),
+listener := elbv2.ApplicationListener_FromLookup(this, jsii.String("ALBListener"), &ApplicationListenerLookupOptions{
+	LoadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/my-load-balancer/1234567890123456"),
+	ListenerProtocol: elbv2.ApplicationProtocol_HTTPS,
+	ListenerPort: jsii.Number(443),
 })
 ```
 
 **Look up a Listener by associated Load Balancer Tag, Port, and Protocol**
 
 ```go
-listener := elbv2.applicationListener.fromLookup(this, jsii.String("ALBListener"), &applicationListenerLookupOptions{
-	loadBalancerTags: map[string]*string{
+listener := elbv2.ApplicationListener_FromLookup(this, jsii.String("ALBListener"), &ApplicationListenerLookupOptions{
+	LoadBalancerTags: map[string]*string{
 		"Cluster": jsii.String("MyClusterName"),
 	},
-	listenerProtocol: elbv2.applicationProtocol_HTTPS,
-	listenerPort: jsii.Number(443),
+	ListenerProtocol: elbv2.ApplicationProtocol_HTTPS,
+	ListenerPort: jsii.Number(443),
 })
 ```
 
 **Look up a Network Listener by associated Load Balancer Tag, Port, and Protocol**
 
 ```go
-listener := elbv2.networkListener.fromLookup(this, jsii.String("ALBListener"), &networkListenerLookupOptions{
-	loadBalancerTags: map[string]*string{
+listener := elbv2.NetworkListener_FromLookup(this, jsii.String("ALBListener"), &NetworkListenerLookupOptions{
+	LoadBalancerTags: map[string]*string{
 		"Cluster": jsii.String("MyClusterName"),
 	},
-	listenerProtocol: elbv2.protocol_TCP,
-	listenerPort: jsii.Number(12345),
+	ListenerProtocol: elbv2.Protocol_TCP,
+	ListenerPort: jsii.Number(12345),
 })
+```
+
+## Metrics
+
+You may create metrics for Load Balancers and Target Groups through the `metrics` attribute:
+
+**Load Balancer:**
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var alb iApplicationLoadBalancer
+
+
+albMetrics := alb.Metrics
+metricConnectionCount := albMetrics.ActiveConnectionCount()
+```
+
+**Target Group:**
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var targetGroup iApplicationTargetGroup
+
+
+targetGroupMetrics := targetGroup.Metrics
+metricHealthyHostCount := targetGroupMetrics.HealthyHostCount()
+```
+
+Metrics are also available to imported resources:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var stack stack
+
+
+targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
+	TargetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
+	LoadBalancerArns: *fn_*ImportValue(jsii.String("LoadBalancerArn")),
+})
+
+targetGroupMetrics := targetGroup.Metrics
+```
+
+Notice that TargetGroups must be imported by supplying the Load Balancer too, otherwise accessing the `metrics` will
+throw an error:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var stack stack
+
+targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
+	TargetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
+})
+
+targetGroupMetrics := targetGroup.Metrics
 ```
