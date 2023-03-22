@@ -14,16 +14,16 @@ var vpc iVpc
 
 var myAutoScalingGroup autoScalingGroup
 
-lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
-	Vpc: Vpc,
-	InternetFacing: jsii.Boolean(true),
-	HealthCheck: &HealthCheck{
-		Port: jsii.Number(80),
+lb := elb.NewLoadBalancer(this, jsii.String("LB"), &loadBalancerProps{
+	vpc: vpc,
+	internetFacing: jsii.Boolean(true),
+	healthCheck: &healthCheck{
+		port: jsii.Number(80),
 	},
 })
-lb.AddTarget(myAutoScalingGroup)
-lb.AddListener(&LoadBalancerListener{
-	ExternalPort: jsii.Number(80),
+lb.addTarget(myAutoScalingGroup)
+lb.addListener(&loadBalancerListener{
+	externalPort: jsii.Number(80),
 })
 ```
 
@@ -34,28 +34,10 @@ pass the `allowConnectionsFrom` property while setting up the listener:
 var mySecurityGroup securityGroup
 var lb loadBalancer
 
-lb.AddListener(&LoadBalancerListener{
-	ExternalPort: jsii.Number(80),
-	AllowConnectionsFrom: []iConnectable{
+lb.addListener(&loadBalancerListener{
+	externalPort: jsii.Number(80),
+	allowConnectionsFrom: []iConnectable{
 		mySecurityGroup,
 	},
 })
-```
-
-### Adding Ec2 Instance as a target for the load balancer
-
-You can add an EC2 instance to the load balancer by calling using `new InstanceTarget` as the argument to `addTarget()`:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
-	Vpc: Vpc,
-})
-// instance to add as the target for load balancer.
-instance := NewInstance(stack, jsii.String("targetInstance"), map[string]interface{}{
-	"vpc": vpc,
-	"instanceType": InstanceType_of(InstanceClass_BURSTABLE2, InstanceSize_MICRO),
-	"machineImage": NewAmazonLinuxImage(),
-})
-lb.AddTarget(elb.InstanceTarget(instance))
 ```

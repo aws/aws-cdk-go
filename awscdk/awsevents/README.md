@@ -51,9 +51,9 @@ var repo repository
 var project project
 
 
-onCommitRule := repo.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
-	Target: targets.NewCodeBuildProject(project),
-	Branches: []*string{
+onCommitRule := repo.onCommit(jsii.String("OnCommit"), &onCommitOptions{
+	target: targets.NewCodeBuildProject(project),
+	branches: []*string{
 		jsii.String("master"),
 	},
 })
@@ -71,9 +71,9 @@ var onCommitRule rule
 var topic topic
 
 
-onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
-	Message: events.RuleTargetInput_FromText(
-	fmt.Sprintf("A commit was pushed to the repository %v on branch %v", codecommit.ReferenceEvent_RepositoryName(), codecommit.ReferenceEvent_ReferenceName())),
+onCommitRule.addTarget(targets.NewSnsTopic(topic, &snsTopicProps{
+	message: events.ruleTargetInput.fromText(
+	fmt.Sprintf("A commit was pushed to the repository %v on branch %v", codecommit.referenceEvent.repositoryName, codecommit.*referenceEvent.referenceName)),
 }))
 ```
 
@@ -84,38 +84,11 @@ var onCommitRule rule
 var topic topic
 
 
-onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
-	Message: events.RuleTargetInput_FromObject(map[string]*string{
-		"DataType": fmt.Sprintf("custom_%v", events.EventField_fromPath(jsii.String("$.detail-type"))),
+onCommitRule.addTarget(targets.NewSnsTopic(topic, &snsTopicProps{
+	message: events.ruleTargetInput.fromObject(map[string]*string{
+		"DataType": fmt.Sprintf("custom_%v", events.EventField.fromPath(jsii.String("$.detail-type"))),
 	}),
 }))
-```
-
-To define a pattern, use the matcher API, which provides a number of factory methods to declare different logical predicates. For example, to match all S3 events for objects larger than 1024 bytes, stored using one of the storage classes Glacier, Glacier IR or Deep Archive and coming from any region other than the AWS GovCloud ones:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
-	EventPattern: &EventPattern{
-		Detail: map[string]interface{}{
-			"object": map[string][]*string{
-				// Matchers may appear at any level
-				"size": events.Match_greaterThan(jsii.Number(1024)),
-			},
-
-			// 'OR' condition
-			"source-storage-class": events.Match_anyOf(events.Match_prefix(jsii.String("GLACIER")), events.Match_exactString(jsii.String("DEEP_ARCHIVE"))),
-		},
-		Detailtype: events.Match_EqualsIgnoreCase(jsii.String("object created")),
-
-		// If you prefer, you can use a low level array of strings, as directly consumed by EventBridge
-		Source: []*string{
-			jsii.String("aws.s3"),
-		},
-
-		Region: events.Match_AnythingButPrefix(jsii.String("us-gov")),
-	},
-})
 ```
 
 ## Scheduling
@@ -136,18 +109,18 @@ var taskDefinition taskDefinition
 var role role
 
 
-ecsTaskTarget := awscdk.NewEcsTask(&EcsTaskProps{
-	Cluster: Cluster,
-	TaskDefinition: TaskDefinition,
-	Role: Role,
+ecsTaskTarget := awscdk.NewEcsTask(&ecsTaskProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	role: role,
 })
 
-awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
-	Schedule: awscdk.Schedule_Cron(&CronOptions{
-		Minute: jsii.String("0"),
-		Hour: jsii.String("4"),
+awscdk.NewRule(this, jsii.String("ScheduleRule"), &ruleProps{
+	schedule: awscdk.Schedule.cron(&cronOptions{
+		minute: jsii.String("0"),
+		hour: jsii.String("4"),
 	}),
-	Targets: []iRuleTarget{
+	targets: []iRuleTarget{
 		ecsTaskTarget,
 	},
 })
@@ -161,12 +134,12 @@ var taskDefinition taskDefinition
 var role role
 
 
-platformVersion := ecs.FargatePlatformVersion_VERSION1_4
-ecsTaskTarget := targets.NewEcsTask(&EcsTaskProps{
-	Cluster: Cluster,
-	TaskDefinition: TaskDefinition,
-	Role: Role,
-	PlatformVersion: PlatformVersion,
+platformVersion := ecs.fargatePlatformVersion_VERSION1_4
+ecsTaskTarget := targets.NewEcsTask(&ecsTaskProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	role: role,
+	platformVersion: platformVersion,
 })
 ```
 
@@ -204,27 +177,27 @@ app := awscdk.NewApp()
 account1 := "11111111111"
 account2 := "22222222222"
 
-stack1 := awscdk.NewStack(app, jsii.String("Stack1"), &StackProps{
-	Env: &Environment{
-		Account: account1,
-		Region: jsii.String("us-west-1"),
+stack1 := awscdk.NewStack(app, jsii.String("Stack1"), &stackProps{
+	env: &environment{
+		account: account1,
+		region: jsii.String("us-west-1"),
 	},
 })
-repo := codecommit.NewRepository(stack1, jsii.String("Repository"), &RepositoryProps{
-	RepositoryName: jsii.String("myrepository"),
+repo := codecommit.NewRepository(stack1, jsii.String("Repository"), &repositoryProps{
+	repositoryName: jsii.String("myrepository"),
 })
 
-stack2 := awscdk.NewStack(app, jsii.String("Stack2"), &StackProps{
-	Env: &Environment{
-		Account: account2,
-		Region: jsii.String("us-east-1"),
+stack2 := awscdk.NewStack(app, jsii.String("Stack2"), &stackProps{
+	env: &environment{
+		account: account2,
+		region: jsii.String("us-east-1"),
 	},
 })
-project := codebuild.NewProject(stack2, jsii.String("Project"), &ProjectProps{
+project := codebuild.NewProject(stack2, jsii.String("Project"), &projectProps{
 })
 
-repo.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
-	Target: targets.NewCodeBuildProject(project),
+repo.onCommit(jsii.String("OnCommit"), &onCommitOptions{
+	target: targets.NewCodeBuildProject(project),
 })
 ```
 
@@ -244,19 +217,19 @@ For more information, see the
 It is possible to archive all or some events sent to an event bus. It is then possible to [replay these events](https://aws.amazon.com/blogs/aws/new-archive-and-replay-events-with-amazon-eventbridge/).
 
 ```go
-bus := events.NewEventBus(this, jsii.String("bus"), &EventBusProps{
-	EventBusName: jsii.String("MyCustomEventBus"),
+bus := events.NewEventBus(this, jsii.String("bus"), &eventBusProps{
+	eventBusName: jsii.String("MyCustomEventBus"),
 })
 
-bus.archive(jsii.String("MyArchive"), &BaseArchiveProps{
-	ArchiveName: jsii.String("MyCustomEventBusArchive"),
-	Description: jsii.String("MyCustomerEventBus Archive"),
-	EventPattern: &EventPattern{
-		Account: []*string{
-			awscdk.*stack_Of(this).Account,
+bus.archive(jsii.String("MyArchive"), &baseArchiveProps{
+	archiveName: jsii.String("MyCustomEventBusArchive"),
+	description: jsii.String("MyCustomerEventBus Archive"),
+	eventPattern: &eventPattern{
+		account: []*string{
+			awscdk.*stack.of(this).account,
 		},
 	},
-	Retention: awscdk.Duration_Days(jsii.Number(365)),
+	retention: awscdk.Duration.days(jsii.Number(365)),
 })
 ```
 
@@ -271,8 +244,8 @@ Then, you can use the `grantPutEventsTo` method to grant `event:PutEvents` to th
 var lambdaFunction function
 
 
-eventBus := events.EventBus_FromEventBusArn(this, jsii.String("ImportedEventBus"), jsii.String("arn:aws:events:us-east-1:111111111:event-bus/my-event-bus"))
+eventBus := events.eventBus.fromEventBusArn(this, jsii.String("ImportedEventBus"), jsii.String("arn:aws:events:us-east-1:111111111:event-bus/my-event-bus"))
 
 // now you can just call methods on the eventbus
-eventBus.GrantPutEventsTo(lambdaFunction)
+eventBus.grantPutEventsTo(lambdaFunction)
 ```

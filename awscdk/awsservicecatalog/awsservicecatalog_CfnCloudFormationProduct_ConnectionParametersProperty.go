@@ -1,0 +1,24 @@
+package awsservicecatalog
+
+
+// Provides connection details.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   connectionParametersProperty := &connectionParametersProperty{
+//   	codeStar: &codeStarParametersProperty{
+//   		artifactPath: jsii.String("artifactPath"),
+//   		branch: jsii.String("branch"),
+//   		connectionArn: jsii.String("connectionArn"),
+//   		repository: jsii.String("repository"),
+//   	},
+//   }
+//
+type CfnCloudFormationProduct_ConnectionParametersProperty struct {
+	// Provides `ConnectionType` details.
+	CodeStar interface{} `field:"optional" json:"codeStar" yaml:"codeStar"`
+}
+

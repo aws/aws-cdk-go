@@ -7,39 +7,39 @@
 Create a development cluster by simply specifying the version:
 
 ```go
-devDomain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
+devDomain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
 })
 ```
 
 To perform version upgrades without replacing the entire domain, specify the `enableVersionUpgrade` property.
 
 ```go
-devDomain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_10(),
-	EnableVersionUpgrade: jsii.Boolean(true),
+devDomain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_10(),
+	enableVersionUpgrade: jsii.Boolean(true),
 })
 ```
 
 Create a production grade cluster by also specifying things like capacity and az distribution
 
 ```go
-prodDomain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
-	Capacity: &CapacityConfig{
-		MasterNodes: jsii.Number(5),
-		DataNodes: jsii.Number(20),
+prodDomain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
+	capacity: &capacityConfig{
+		masterNodes: jsii.Number(5),
+		dataNodes: jsii.Number(20),
 	},
-	Ebs: &EbsOptions{
-		VolumeSize: jsii.Number(20),
+	ebs: &ebsOptions{
+		volumeSize: jsii.Number(20),
 	},
-	ZoneAwareness: &ZoneAwarenessConfig{
-		AvailabilityZoneCount: jsii.Number(3),
+	zoneAwareness: &zoneAwarenessConfig{
+		availabilityZoneCount: jsii.Number(3),
 	},
-	Logging: &LoggingOptions{
-		SlowSearchLogEnabled: jsii.Boolean(true),
-		AppLogEnabled: jsii.Boolean(true),
-		SlowIndexLogEnabled: jsii.Boolean(true),
+	logging: &loggingOptions{
+		slowSearchLogEnabled: jsii.Boolean(true),
+		appLogEnabled: jsii.Boolean(true),
+		slowIndexLogEnabled: jsii.Boolean(true),
 	},
 })
 ```
@@ -51,7 +51,7 @@ logging the domain logs and slow search logs.
 
 Some cluster configurations (e.g VPC access) require the existence of the [`AWSServiceRoleForAmazonElasticsearchService`](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/slr.html) service-linked role.
 
-When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message similar to:
+When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message simlar to:
 
 ```console
 Before you can proceed, you must enable a service-linked role to give Amazon ES...
@@ -66,8 +66,8 @@ aws iam create-service-linked-role --aws-service-name es.amazonaws.com
 You can also create it using the CDK, **but note that only the first application deploying this will succeed**:
 
 ```go
-slr := iam.NewCfnServiceLinkedRole(this, jsii.String("ElasticSLR"), &CfnServiceLinkedRoleProps{
-	AwsServiceName: jsii.String("es.amazonaws.com"),
+slr := iam.NewCfnServiceLinkedRole(this, jsii.String("ElasticSLR"), &cfnServiceLinkedRoleProps{
+	awsServiceName: jsii.String("es.amazonaws.com"),
 })
 ```
 
@@ -78,7 +78,7 @@ This method accepts a domain endpoint of an already existing domain:
 
 ```go
 domainEndpoint := "https://my-domain-jcjotrt6f7otem4sqcwbch3c4u.us-east-1.es.amazonaws.com"
-domain := es.Domain_FromDomainEndpoint(this, jsii.String("ImportedDomain"), domainEndpoint)
+domain := es.domain.fromDomainEndpoint(this, jsii.String("ImportedDomain"), domainEndpoint)
 ```
 
 ## Permissions
@@ -104,15 +104,15 @@ domain.grantPathRead(jsii.String("app-search/_search"), fn)
 The domain can also be created with encryption enabled:
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_4(),
-	Ebs: &EbsOptions{
-		VolumeSize: jsii.Number(100),
-		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD,
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_4(),
+	ebs: &ebsOptions{
+		volumeSize: jsii.Number(100),
+		volumeType: ec2.ebsDeviceVolumeType_GENERAL_PURPOSE_SSD,
 	},
-	NodeToNodeEncryption: jsii.Boolean(true),
-	EncryptionAtRest: &EncryptionAtRestOptions{
-		Enabled: jsii.Boolean(true),
+	nodeToNodeEncryption: jsii.Boolean(true),
+	encryptionAtRest: &encryptionAtRestOptions{
+		enabled: jsii.Boolean(true),
 	},
 })
 ```
@@ -129,17 +129,17 @@ Elasticsearch domains can be placed inside a VPC, providing a secure communicati
 
 ```go
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-domainProps := &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
-	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-	Vpc: Vpc,
+domainProps := &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
+	removalPolicy: awscdk.RemovalPolicy_DESTROY,
+	vpc: vpc,
 	// must be enabled since our VPC contains multiple private subnets.
-	ZoneAwareness: &ZoneAwarenessConfig{
-		Enabled: jsii.Boolean(true),
+	zoneAwareness: &zoneAwarenessConfig{
+		enabled: jsii.Boolean(true),
 	},
-	Capacity: &CapacityConfig{
+	capacity: &capacityConfig{
 		// must be an even number since the default az count is 2.
-		DataNodes: jsii.Number(2),
+		dataNodes: jsii.Number(2),
 	},
 }
 es.NewDomain(this, jsii.String("Domain"), domainProps)
@@ -167,19 +167,19 @@ The domain can also be created with a master user configured. The password can
 be supplied or dynamically created if not supplied.
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
-	EnforceHttps: jsii.Boolean(true),
-	NodeToNodeEncryption: jsii.Boolean(true),
-	EncryptionAtRest: &EncryptionAtRestOptions{
-		Enabled: jsii.Boolean(true),
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
+	enforceHttps: jsii.Boolean(true),
+	nodeToNodeEncryption: jsii.Boolean(true),
+	encryptionAtRest: &encryptionAtRestOptions{
+		enabled: jsii.Boolean(true),
 	},
-	FineGrainedAccessControl: &AdvancedSecurityOptions{
-		MasterUserName: jsii.String("master-user"),
+	fineGrainedAccessControl: &advancedSecurityOptions{
+		masterUserName: jsii.String("master-user"),
 	},
 })
 
-masterUserPassword := domain.MasterUserPassword
+masterUserPassword := domain.masterUserPassword
 ```
 
 ## Using unsigned basic auth
@@ -190,7 +190,7 @@ means anyone can access the domain using the configured master username and
 password.
 
 To enable unsigned basic auth access the domain is configured with an access
-policy that allows anonymous requests, HTTPS required, node to node encryption,
+policy that allows anyonmous requests, HTTPS required, node to node encryption,
 encryption at rest and fine grained access control.
 
 If the above settings are not set they will be configured as part of enabling
@@ -205,12 +205,12 @@ stored in the AWS Secrets Manager as secret. The secret has the prefix
 `<domain id>MasterUser`.
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
-	UseUnsignedBasicAuth: jsii.Boolean(true),
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
+	useUnsignedBasicAuth: jsii.Boolean(true),
 })
 
-masterUserPassword := domain.MasterUserPassword
+masterUserPassword := domain.masterUserPassword
 ```
 
 ## Custom access policies
@@ -221,19 +221,19 @@ constructor property, or later by means of a helper method.
 For simple permissions the `accessPolicies` constructor may be sufficient:
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
-	AccessPolicies: []policyStatement{
-		iam.NewPolicyStatement(&PolicyStatementProps{
-			Actions: []*string{
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
+	accessPolicies: []policyStatement{
+		iam.NewPolicyStatement(&policyStatementProps{
+			actions: []*string{
 				jsii.String("es:*ESHttpPost"),
 				jsii.String("es:ESHttpPut*"),
 			},
-			Effect: iam.Effect_ALLOW,
-			Principals: []iPrincipal{
+			effect: iam.effect_ALLOW,
+			principals: []iPrincipal{
 				iam.NewAccountPrincipal(jsii.String("123456789012")),
 			},
-			Resources: []*string{
+			resources: []*string{
 				jsii.String("*"),
 			},
 		}),
@@ -246,44 +246,44 @@ For more complex use-cases, for example, to set the domain up to receive data fr
 allows for policies that include the explicit domain ARN.
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
 })
 
-domain.AddAccessPolicies(
-iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
+domain.addAccessPolicies(
+iam.NewPolicyStatement(&policyStatementProps{
+	actions: []*string{
 		jsii.String("es:ESHttpPost"),
 		jsii.String("es:ESHttpPut"),
 	},
-	Effect: iam.Effect_ALLOW,
-	Principals: []iPrincipal{
+	effect: iam.effect_ALLOW,
+	principals: []iPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
-	Resources: []*string{
-		domain.DomainArn,
-		fmt.Sprintf("%v/*", domain.*DomainArn),
+	resources: []*string{
+		domain.domainArn,
+		fmt.Sprintf("%v/*", domain.domainArn),
 	},
 }),
-iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
+iam.NewPolicyStatement(&policyStatementProps{
+	actions: []*string{
 		jsii.String("es:ESHttpGet"),
 	},
-	Effect: iam.Effect_ALLOW,
-	Principals: []*iPrincipal{
+	effect: iam.*effect_ALLOW,
+	principals: []*iPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
-	Resources: []*string{
-		fmt.Sprintf("%v/_all/_settings", domain.*DomainArn),
-		fmt.Sprintf("%v/_cluster/stats", domain.*DomainArn),
-		fmt.Sprintf("%v/index-name*/_mapping/type-name", domain.*DomainArn),
-		fmt.Sprintf("%v/roletest*/_mapping/roletest", domain.*DomainArn),
-		fmt.Sprintf("%v/_nodes", domain.*DomainArn),
-		fmt.Sprintf("%v/_nodes/stats", domain.*DomainArn),
-		fmt.Sprintf("%v/_nodes/*/stats", domain.*DomainArn),
-		fmt.Sprintf("%v/_stats", domain.*DomainArn),
-		fmt.Sprintf("%v/index-name*/_stats", domain.*DomainArn),
-		fmt.Sprintf("%v/roletest*/_stat", domain.*DomainArn),
+	resources: []*string{
+		fmt.Sprintf("%v/_all/_settings", domain.domainArn),
+		fmt.Sprintf("%v/_cluster/stats", domain.domainArn),
+		fmt.Sprintf("%v/index-name*/_mapping/type-name", domain.domainArn),
+		fmt.Sprintf("%v/roletest*/_mapping/roletest", domain.domainArn),
+		fmt.Sprintf("%v/_nodes", domain.domainArn),
+		fmt.Sprintf("%v/_nodes/stats", domain.domainArn),
+		fmt.Sprintf("%v/_nodes/*/stats", domain.domainArn),
+		fmt.Sprintf("%v/_stats", domain.domainArn),
+		fmt.Sprintf("%v/index-name*/_stats", domain.domainArn),
+		fmt.Sprintf("%v/roletest*/_stat", domain.domainArn),
 	},
 }))
 ```
@@ -293,21 +293,21 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 Audit logs can be enabled for a domain, but only when fine-grained access control is enabled.
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_1(),
-	EnforceHttps: jsii.Boolean(true),
-	NodeToNodeEncryption: jsii.Boolean(true),
-	EncryptionAtRest: &EncryptionAtRestOptions{
-		Enabled: jsii.Boolean(true),
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_1(),
+	enforceHttps: jsii.Boolean(true),
+	nodeToNodeEncryption: jsii.Boolean(true),
+	encryptionAtRest: &encryptionAtRestOptions{
+		enabled: jsii.Boolean(true),
 	},
-	FineGrainedAccessControl: &AdvancedSecurityOptions{
-		MasterUserName: jsii.String("master-user"),
+	fineGrainedAccessControl: &advancedSecurityOptions{
+		masterUserName: jsii.String("master-user"),
 	},
-	Logging: &LoggingOptions{
-		AuditLogEnabled: jsii.Boolean(true),
-		SlowSearchLogEnabled: jsii.Boolean(true),
-		AppLogEnabled: jsii.Boolean(true),
-		SlowIndexLogEnabled: jsii.Boolean(true),
+	logging: &loggingOptions{
+		auditLogEnabled: jsii.Boolean(true),
+		slowSearchLogEnabled: jsii.Boolean(true),
+		appLogEnabled: jsii.Boolean(true),
+		slowIndexLogEnabled: jsii.Boolean(true),
 	},
 })
 ```
@@ -317,12 +317,12 @@ domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
 UltraWarm nodes can be enabled to provide a cost-effective way to store large amounts of read-only data.
 
 ```go
-domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_10(),
-	Capacity: &CapacityConfig{
-		MasterNodes: jsii.Number(2),
-		WarmNodes: jsii.Number(2),
-		WarmInstanceType: jsii.String("ultrawarm1.medium.elasticsearch"),
+domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_10(),
+	capacity: &capacityConfig{
+		masterNodes: jsii.Number(2),
+		warmNodes: jsii.Number(2),
+		warmInstanceType: jsii.String("ultrawarm1.medium.elasticsearch"),
 	},
 })
 ```
@@ -332,10 +332,10 @@ domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
 Custom endpoints can be configured to reach the ES domain under a custom domain name.
 
 ```go
-es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_7(),
-	CustomEndpoint: &CustomEndpointOptions{
-		DomainName: jsii.String("search.example.com"),
+es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_7(),
+	customEndpoint: &customEndpointOptions{
+		domainName: jsii.String("search.example.com"),
 	},
 })
 ```
@@ -349,9 +349,9 @@ Additionally, an automatic CNAME-Record is created if a hosted zone is provided 
 [Advanced cluster settings](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) can used to configure additional options.
 
 ```go
-es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: es.ElasticsearchVersion_V7_7(),
-	AdvancedOptions: map[string]*string{
+es.NewDomain(this, jsii.String("Domain"), &domainProps{
+	version: es.elasticsearchVersion_V7_7(),
+	advancedOptions: map[string]*string{
 		"rest.action.multi.allow_explicit_index": jsii.String("false"),
 		"indices.fielddata.cache.size": jsii.String("25"),
 		"indices.query.bool.max_clause_count": jsii.String("2048"),
@@ -385,66 +385,60 @@ Make the following modifications to your CDK application to migrate to the `@aws
   For example:
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
   version := es.elasticsearchVersion_V7_1()
   ```
 
   ...becomes...
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
   version := opensearch.engineVersion_ELASTICSEARCH_7_1()
   ```
 * Replace the `cognitoKibanaAuth` property of `DomainProps` with `cognitoDashboardsAuth`.
   For example:
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
-  es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-  	CognitoKibanaAuth: &CognitoOptions{
-  		IdentityPoolId: jsii.String("test-identity-pool-id"),
-  		UserPoolId: jsii.String("test-user-pool-id"),
-  		Role: role,
+  es.NewDomain(this, jsii.String("Domain"), &domainProps{
+  	cognitoKibanaAuth: &cognitoOptions{
+  		identityPoolId: jsii.String("test-identity-pool-id"),
+  		userPoolId: jsii.String("test-user-pool-id"),
+  		role: role,
   	},
-  	Version: elasticsearchVersion,
+  	version: elasticsearchVersion,
   })
   ```
 
   ...becomes...
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
-  opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-  	CognitoDashboardsAuth: &CognitoOptions{
-  		IdentityPoolId: jsii.String("test-identity-pool-id"),
-  		UserPoolId: jsii.String("test-user-pool-id"),
-  		Role: role,
+  opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
+  	cognitoDashboardsAuth: &cognitoOptions{
+  		identityPoolId: jsii.String("test-identity-pool-id"),
+  		userPoolId: jsii.String("test-user-pool-id"),
+  		role: role,
   	},
-  	Version: openSearchVersion,
+  	version: openSearchVersion,
   })
   ```
 * Rewrite instance type suffixes from `.elasticsearch` to `.search`.
   For example:
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
-  es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-  	Capacity: &CapacityConfig{
-  		MasterNodeInstanceType: jsii.String("r5.large.elasticsearch"),
+  es.NewDomain(this, jsii.String("Domain"), &domainProps{
+  	capacity: &capacityConfig{
+  		masterNodeInstanceType: jsii.String("r5.large.elasticsearch"),
   	},
-  	Version: elasticsearchVersion,
+  	version: elasticsearchVersion,
   })
   ```
 
   ...becomes...
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
-  opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-  	Capacity: &CapacityConfig{
-  		MasterNodeInstanceType: jsii.String("r5.large.search"),
+  opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
+  	capacity: &capacityConfig{
+  		masterNodeInstanceType: jsii.String("r5.large.search"),
   	},
-  	Version: openSearchVersion,
+  	version: openSearchVersion,
   })
   ```
 * Any `CfnInclude`'d domains will need to be re-written in their original template in

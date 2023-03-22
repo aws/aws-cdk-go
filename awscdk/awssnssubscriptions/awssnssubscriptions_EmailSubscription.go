@@ -1,0 +1,78 @@
+package awssnssubscriptions
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
+)
+
+// Use an email address as a subscription target.
+//
+// Email subscriptions require confirmation.
+//
+// Example:
+//   myTopic := sns.NewTopic(this, jsii.String("Topic"))
+//   emailAddress := awscdk.NewCfnParameter(this, jsii.String("email-param"))
+//
+//   myTopic.addSubscription(subscriptions.NewEmailSubscription(emailAddress.valueAsString))
+//
+// Experimental.
+type EmailSubscription interface {
+	awssns.ITopicSubscription
+	// Returns a configuration for an email address to subscribe to an SNS topic.
+	// Experimental.
+	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
+}
+
+// The jsii proxy struct for EmailSubscription
+type jsiiProxy_EmailSubscription struct {
+	internal.Type__awssnsITopicSubscription
+}
+
+// Experimental.
+func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) EmailSubscription {
+	_init_.Initialize()
+
+	if err := validateNewEmailSubscriptionParameters(emailAddress, props); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_EmailSubscription{}
+
+	_jsii_.Create(
+		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		[]interface{}{emailAddress, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, props *EmailSubscriptionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		[]interface{}{emailAddress, props},
+		e,
+	)
+}
+
+func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := e.validateBindParameters(_topic); err != nil {
+		panic(err)
+	}
+	var returns *awssns.TopicSubscriptionConfig
+
+	_jsii_.Invoke(
+		e,
+		"bind",
+		[]interface{}{_topic},
+		&returns,
+	)
+
+	return returns
+}
+

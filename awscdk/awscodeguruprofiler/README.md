@@ -16,8 +16,8 @@ Here's how to setup a profiling group and give your compute role permissions to 
 
 ```go
 // The execution role of your application that publishes to the ProfilingGroup via CodeGuru Profiler Profiling Agent. (the following is merely an example)
-publishAppRole := iam.NewRole(this, jsii.String("PublishAppRole"), &RoleProps{
-	AssumedBy: iam.NewAccountRootPrincipal(),
+publishAppRole := iam.NewRole(this, jsii.String("PublishAppRole"), &roleProps{
+	assumedBy: iam.NewAccountRootPrincipal(),
 })
 
 profilingGroup := codeguruprofiler.NewProfilingGroup(this, jsii.String("MyProfilingGroup"))
@@ -30,7 +30,7 @@ Code Guru Profiler supports multiple compute environments.
 They can be configured when creating a Profiling Group by using the `computePlatform` property:
 
 ```go
-profilingGroup := codeguruprofiler.NewProfilingGroup(this, jsii.String("MyProfilingGroup"), &ProfilingGroupProps{
-	ComputePlatform: codeguruprofiler.ComputePlatform_AWS_LAMBDA,
+profilingGroup := codeguruprofiler.NewProfilingGroup(this, jsii.String("MyProfilingGroup"), &profilingGroupProps{
+	computePlatform: codeguruprofiler.computePlatform_AWS_LAMBDA,
 })
 ```
