@@ -12,7 +12,12 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 var fn function
 
-fn.addLayers(awscdk.NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
+fn.AddLayers(awscdk.NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
 ```
 
 The CLI will be installed under `/opt/awscli/aws`.
+
+## Alternatives
+
+This module bundles AWS cli v1. To use AWS cli v2, you can use the
+external module [awscdk-asset-awscli](https://github.com/cdklabs/awscdk-asset-awscli/tree/awscli-v2/main).

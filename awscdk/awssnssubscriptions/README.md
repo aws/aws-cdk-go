@@ -28,7 +28,7 @@ Add an HTTP or HTTPS Subscription to your topic:
 ```go
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 
-myTopic.addSubscription(subscriptions.NewUrlSubscription(jsii.String("https://foobar.com/")))
+myTopic.AddSubscription(subscriptions.NewUrlSubscription(jsii.String("https://foobar.com/")))
 ```
 
 The URL being subscribed can also be [tokens](https://docs.aws.amazon.com/cdk/latest/guide/tokens.html), that resolve
@@ -40,7 +40,7 @@ following code defines a CloudFormation parameter and uses it in a URL subscript
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 url := awscdk.NewCfnParameter(this, jsii.String("url-param"))
 
-myTopic.addSubscription(subscriptions.NewUrlSubscription(url.valueAsString))
+myTopic.AddSubscription(subscriptions.NewUrlSubscription(url.valueAsString))
 ```
 
 ### Amazon SQS
@@ -51,7 +51,7 @@ Subscribe a queue to your topic:
 myQueue := sqs.NewQueue(this, jsii.String("MyQueue"))
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 
-myTopic.addSubscription(subscriptions.NewSqsSubscription(myQueue))
+myTopic.AddSubscription(subscriptions.NewSqsSubscription(myQueue))
 ```
 
 KMS key permissions will automatically be granted to SNS when a subscription is made to
@@ -70,7 +70,7 @@ var myFunction function
 
 
 myTopic := sns.NewTopic(this, jsii.String("myTopic"))
-myTopic.addSubscription(subscriptions.NewLambdaSubscription(myFunction))
+myTopic.AddSubscription(subscriptions.NewLambdaSubscription(myFunction))
 ```
 
 ### Email
@@ -79,7 +79,7 @@ Subscribe an email address to your topic:
 
 ```go
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
-myTopic.addSubscription(subscriptions.NewEmailSubscription(jsii.String("foo@bar.com")))
+myTopic.AddSubscription(subscriptions.NewEmailSubscription(jsii.String("foo@bar.com")))
 ```
 
 The email being subscribed can also be [tokens](https://docs.aws.amazon.com/cdk/latest/guide/tokens.html), that resolve
@@ -91,7 +91,7 @@ following code defines a CloudFormation parameter and uses it in an email subscr
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 emailAddress := awscdk.NewCfnParameter(this, jsii.String("email-param"))
 
-myTopic.addSubscription(subscriptions.NewEmailSubscription(emailAddress.valueAsString))
+myTopic.AddSubscription(subscriptions.NewEmailSubscription(emailAddress.valueAsString))
 ```
 
 Note that email subscriptions require confirmation by visiting the link sent to the
@@ -104,7 +104,7 @@ Subscribe an sms number to your topic:
 ```go
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 
-myTopic.addSubscription(subscriptions.NewSmsSubscription(jsii.String("+15551231234")))
+myTopic.AddSubscription(subscriptions.NewSmsSubscription(jsii.String("+15551231234")))
 ```
 
 The number being subscribed can also be [tokens](https://docs.aws.amazon.com/cdk/latest/guide/tokens.html), that resolve
@@ -116,5 +116,5 @@ following code defines a CloudFormation parameter and uses it in an sms subscrip
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 smsNumber := awscdk.NewCfnParameter(this, jsii.String("sms-param"))
 
-myTopic.addSubscription(subscriptions.NewSmsSubscription(smsNumber.valueAsString))
+myTopic.AddSubscription(subscriptions.NewSmsSubscription(smsNumber.valueAsString))
 ```

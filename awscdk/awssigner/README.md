@@ -32,8 +32,8 @@ For more information, visit [Signing Profiles in AWS Signer](https://docs.aws.am
 The following code sets up a signing profile for signing lambda code bundles -
 
 ```go
-signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
-	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
+signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &SigningProfileProps{
+	Platform: signer.Platform_AWS_LAMBDA_SHA384_ECDSA(),
 })
 ```
 

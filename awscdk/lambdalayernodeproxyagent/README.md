@@ -12,7 +12,7 @@ import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 var fn function
 
-fn.addLayers(awscdk.NewNodeProxyAgentLayer(this, jsii.String("NodeProxyAgentLayer")))
+fn.AddLayers(awscdk.NewNodeProxyAgentLayer(this, jsii.String("NodeProxyAgentLayer")))
 ```
 
 [`proxy-agent`](https://www.npmjs.com/package/proxy-agent) will be installed under `/nodejs/node_modules`.

@@ -30,9 +30,9 @@ documents.
 ```go
 // Creates a distribution from an S3 bucket.
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket),
 	},
 })
 ```
@@ -54,13 +54,13 @@ var vpc vpc
 
 // Create an application load balancer in a VPC. 'internetFacing' must be 'true'
 // for CloudFront to access the load balancer and use it as an origin.
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-	vpc: vpc,
-	internetFacing: jsii.Boolean(true),
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 })
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewLoadBalancerV2Origin(lb),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewLoadBalancerV2Origin(lb),
 	},
 })
 ```
@@ -72,9 +72,9 @@ Origins can also be created from any other HTTP endpoint, given the domain name,
 ```go
 // Creates a distribution from an HTTP endpoint
 // Creates a distribution from an HTTP endpoint
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
 	},
 })
 ```
@@ -92,25 +92,25 @@ from SNI only and a minimum protocol version of TLSv1.2_2021 if the `@aws-cdk/aw
 
 ```go
 // To use your own domain name in a Distribution, you must associate a certificate
-import acm "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import route53 "github.com/aws/aws-cdk-go/awscdk"
 
 var hostedZone hostedZone
 
 var myBucket bucket
 
-myCertificate := acm.NewDnsValidatedCertificate(this, jsii.String("mySiteCert"), &dnsValidatedCertificateProps{
-	domainName: jsii.String("www.example.com"),
-	hostedZone: hostedZone,
+myCertificate := acm.NewCertificate(this, jsii.String("mySiteCert"), &CertificateProps{
+	DomainName: jsii.String("www.example.com"),
+	Validation: acm.CertificateValidation_FromDns(hostedZone),
 })
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket),
 	},
-	domainNames: []*string{
+	DomainNames: []*string{
 		jsii.String("www.example.com"),
 	},
-	certificate: myCertificate,
+	Certificate: myCertificate,
 })
 ```
 
@@ -120,15 +120,54 @@ However, you can customize the minimum protocol version for the certificate whil
 // Create a Distribution with a custom domain name and a minimum protocol version.
 var myBucket bucket
 
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket),
 	},
-	domainNames: []*string{
+	DomainNames: []*string{
 		jsii.String("www.example.com"),
 	},
-	minimumProtocolVersion: cloudfront.securityPolicyProtocol_TLS_V1_2016,
-	sslSupportMethod: cloudfront.sSLMethod_SNI,
+	MinimumProtocolVersion: cloudfront.SecurityPolicyProtocol_TLS_V1_2016,
+	SslSupportMethod: cloudfront.SSLMethod_SNI,
+})
+```
+
+#### Cross Region Certificates
+
+> **This feature is currently experimental**
+
+You can enable the Stack property `crossRegionReferences`
+in order to access resources in a different stack *and* region. With this feature flag
+enabled it is possible to do something like creating a CloudFront distribution in `us-east-2` and
+an ACM certificate in `us-east-1`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-east-1"),
+	},
+	CrossRegionReferences: jsii.Boolean(true),
+})
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), map[string]interface{}{
+	"domainName": jsii.String("*.example.com"),
+	"validation": acm.CertificateValidation_fromDns(route53.PublicHostedZone_fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+})
+
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-east-2"),
+	},
+	CrossRegionReferences: jsii.Boolean(true),
+})
+cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("example.com")),
+	},
+	DomainNames: []*string{
+		jsii.String("dev.example.com"),
+	},
+	Certificate: cert,
 })
 ```
 
@@ -145,11 +184,11 @@ methods and viewer protocol policy of the cache.
 // Create a Distribution with configured HTTP methods and viewer protocol policy of the cache.
 var myBucket bucket
 
-myWebDistribution := cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket),
-		allowedMethods: cloudfront.allowedMethods_ALLOW_ALL(),
-		viewerProtocolPolicy: cloudfront.viewerProtocolPolicy_REDIRECT_TO_HTTPS,
+myWebDistribution := cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket),
+		AllowedMethods: cloudfront.AllowedMethods_ALLOW_ALL(),
+		ViewerProtocolPolicy: cloudfront.ViewerProtocolPolicy_REDIRECT_TO_HTTPS,
 	},
 })
 ```
@@ -163,8 +202,8 @@ override the default viewer protocol policy for all of the images.
 var myBucket bucket
 var myWebDistribution distribution
 
-myWebDistribution.addBehavior(jsii.String("/images/*.jpg"), origins.NewS3Origin(myBucket), &addBehaviorOptions{
-	viewerProtocolPolicy: cloudfront.viewerProtocolPolicy_REDIRECT_TO_HTTPS,
+myWebDistribution.AddBehavior(jsii.String("/images/*.jpg"), origins.NewS3Origin(myBucket), &AddBehaviorOptions{
+	ViewerProtocolPolicy: cloudfront.ViewerProtocolPolicy_REDIRECT_TO_HTTPS,
 })
 ```
 
@@ -175,16 +214,16 @@ These behaviors can also be specified at distribution creation time.
 var myBucket bucket
 
 bucketOrigin := origins.NewS3Origin(myBucket)
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		allowedMethods: cloudfront.allowedMethods_ALLOW_ALL(),
-		viewerProtocolPolicy: cloudfront.viewerProtocolPolicy_REDIRECT_TO_HTTPS,
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		AllowedMethods: cloudfront.AllowedMethods_ALLOW_ALL(),
+		ViewerProtocolPolicy: cloudfront.ViewerProtocolPolicy_REDIRECT_TO_HTTPS,
 	},
-	additionalBehaviors: map[string]*behaviorOptions{
+	AdditionalBehaviors: map[string]behaviorOptions{
 		"/images/*.jpg": &behaviorOptions{
 			"origin": bucketOrigin,
-			"viewerProtocolPolicy": cloudfront.*viewerProtocolPolicy_REDIRECT_TO_HTTPS,
+			"viewerProtocolPolicy": cloudfront.ViewerProtocolPolicy_REDIRECT_TO_HTTPS,
 		},
 	},
 })
@@ -202,10 +241,10 @@ See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlli
 // Using an existing cache policy for a Distribution
 var bucketOrigin s3Origin
 
-cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		cachePolicy: cloudfront.cachePolicy_CACHING_OPTIMIZED(),
+cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		CachePolicy: cloudfront.CachePolicy_CACHING_OPTIMIZED(),
 	},
 })
 ```
@@ -214,22 +253,22 @@ cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &distributi
 // Creating a custom cache policy for a Distribution -- all parameters optional
 var bucketOrigin s3Origin
 
-myCachePolicy := cloudfront.NewCachePolicy(this, jsii.String("myCachePolicy"), &cachePolicyProps{
-	cachePolicyName: jsii.String("MyPolicy"),
-	comment: jsii.String("A default policy"),
-	defaultTtl: awscdk.Duration.days(jsii.Number(2)),
-	minTtl: awscdk.Duration.minutes(jsii.Number(1)),
-	maxTtl: awscdk.Duration.days(jsii.Number(10)),
-	cookieBehavior: cloudfront.cacheCookieBehavior.all(),
-	headerBehavior: cloudfront.cacheHeaderBehavior.allowList(jsii.String("X-CustomHeader")),
-	queryStringBehavior: cloudfront.cacheQueryStringBehavior.denyList(jsii.String("username")),
-	enableAcceptEncodingGzip: jsii.Boolean(true),
-	enableAcceptEncodingBrotli: jsii.Boolean(true),
+myCachePolicy := cloudfront.NewCachePolicy(this, jsii.String("myCachePolicy"), &CachePolicyProps{
+	CachePolicyName: jsii.String("MyPolicy"),
+	Comment: jsii.String("A default policy"),
+	DefaultTtl: awscdk.Duration_Days(jsii.Number(2)),
+	MinTtl: awscdk.Duration_Minutes(jsii.Number(1)),
+	MaxTtl: awscdk.Duration_*Days(jsii.Number(10)),
+	CookieBehavior: cloudfront.CacheCookieBehavior_All(),
+	HeaderBehavior: cloudfront.CacheHeaderBehavior_AllowList(jsii.String("X-CustomHeader")),
+	QueryStringBehavior: cloudfront.CacheQueryStringBehavior_DenyList(jsii.String("username")),
+	EnableAcceptEncodingGzip: jsii.Boolean(true),
+	EnableAcceptEncodingBrotli: jsii.Boolean(true),
 })
-cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		cachePolicy: myCachePolicy,
+cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		CachePolicy: myCachePolicy,
 	},
 })
 ```
@@ -247,10 +286,10 @@ See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlli
 // Using an existing origin request policy for a Distribution
 var bucketOrigin s3Origin
 
-cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		originRequestPolicy: cloudfront.originRequestPolicy_CORS_S3_ORIGIN(),
+cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		OriginRequestPolicy: cloudfront.OriginRequestPolicy_CORS_S3_ORIGIN(),
 	},
 })
 ```
@@ -259,18 +298,18 @@ cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &distributi
 // Creating a custom origin request policy for a Distribution -- all parameters optional
 var bucketOrigin s3Origin
 
-myOriginRequestPolicy := cloudfront.NewOriginRequestPolicy(this, jsii.String("OriginRequestPolicy"), &originRequestPolicyProps{
-	originRequestPolicyName: jsii.String("MyPolicy"),
-	comment: jsii.String("A default policy"),
-	cookieBehavior: cloudfront.originRequestCookieBehavior.none(),
-	headerBehavior: cloudfront.originRequestHeaderBehavior.all(jsii.String("CloudFront-Is-Android-Viewer")),
-	queryStringBehavior: cloudfront.originRequestQueryStringBehavior.allowList(jsii.String("username")),
+myOriginRequestPolicy := cloudfront.NewOriginRequestPolicy(this, jsii.String("OriginRequestPolicy"), &OriginRequestPolicyProps{
+	OriginRequestPolicyName: jsii.String("MyPolicy"),
+	Comment: jsii.String("A default policy"),
+	CookieBehavior: cloudfront.OriginRequestCookieBehavior_None(),
+	HeaderBehavior: cloudfront.OriginRequestHeaderBehavior_All(jsii.String("CloudFront-Is-Android-Viewer")),
+	QueryStringBehavior: cloudfront.OriginRequestQueryStringBehavior_AllowList(jsii.String("username")),
 })
 
-cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		originRequestPolicy: myOriginRequestPolicy,
+cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		OriginRequestPolicy: myOriginRequestPolicy,
 	},
 })
 ```
@@ -285,84 +324,88 @@ See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-re
 // Using an existing managed response headers policy
 var bucketOrigin s3Origin
 
-cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		responseHeadersPolicy: cloudfront.responseHeadersPolicy_CORS_ALLOW_ALL_ORIGINS(),
+cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		ResponseHeadersPolicy: cloudfront.ResponseHeadersPolicy_CORS_ALLOW_ALL_ORIGINS(),
 	},
 })
 
 // Creating a custom response headers policy -- all parameters optional
-myResponseHeadersPolicy := cloudfront.NewResponseHeadersPolicy(this, jsii.String("ResponseHeadersPolicy"), &responseHeadersPolicyProps{
-	responseHeadersPolicyName: jsii.String("MyPolicy"),
-	comment: jsii.String("A default policy"),
-	corsBehavior: &responseHeadersCorsBehavior{
-		accessControlAllowCredentials: jsii.Boolean(false),
-		accessControlAllowHeaders: []*string{
+myResponseHeadersPolicy := cloudfront.NewResponseHeadersPolicy(this, jsii.String("ResponseHeadersPolicy"), &ResponseHeadersPolicyProps{
+	ResponseHeadersPolicyName: jsii.String("MyPolicy"),
+	Comment: jsii.String("A default policy"),
+	CorsBehavior: &ResponseHeadersCorsBehavior{
+		AccessControlAllowCredentials: jsii.Boolean(false),
+		AccessControlAllowHeaders: []*string{
 			jsii.String("X-Custom-Header-1"),
 			jsii.String("X-Custom-Header-2"),
 		},
-		accessControlAllowMethods: []*string{
+		AccessControlAllowMethods: []*string{
 			jsii.String("GET"),
 			jsii.String("POST"),
 		},
-		accessControlAllowOrigins: []*string{
+		AccessControlAllowOrigins: []*string{
 			jsii.String("*"),
 		},
-		accessControlExposeHeaders: []*string{
+		AccessControlExposeHeaders: []*string{
 			jsii.String("X-Custom-Header-1"),
 			jsii.String("X-Custom-Header-2"),
 		},
-		accessControlMaxAge: awscdk.Duration.seconds(jsii.Number(600)),
-		originOverride: jsii.Boolean(true),
+		AccessControlMaxAge: awscdk.Duration_Seconds(jsii.Number(600)),
+		OriginOverride: jsii.Boolean(true),
 	},
-	customHeadersBehavior: &responseCustomHeadersBehavior{
-		customHeaders: []responseCustomHeader{
+	CustomHeadersBehavior: &ResponseCustomHeadersBehavior{
+		CustomHeaders: []responseCustomHeader{
 			&responseCustomHeader{
-				header: jsii.String("X-Amz-Date"),
-				value: jsii.String("some-value"),
-				override: jsii.Boolean(true),
+				Header: jsii.String("X-Amz-Date"),
+				Value: jsii.String("some-value"),
+				Override: jsii.Boolean(true),
 			},
 			&responseCustomHeader{
-				header: jsii.String("X-Amz-Security-Token"),
-				value: jsii.String("some-value"),
-				override: jsii.Boolean(false),
+				Header: jsii.String("X-Amz-Security-Token"),
+				Value: jsii.String("some-value"),
+				Override: jsii.Boolean(false),
 			},
 		},
 	},
-	securityHeadersBehavior: &responseSecurityHeadersBehavior{
-		contentSecurityPolicy: &responseHeadersContentSecurityPolicy{
-			contentSecurityPolicy: jsii.String("default-src https:;"),
-			override: jsii.Boolean(true),
+	SecurityHeadersBehavior: &ResponseSecurityHeadersBehavior{
+		ContentSecurityPolicy: &ResponseHeadersContentSecurityPolicy{
+			ContentSecurityPolicy: jsii.String("default-src https:;"),
+			Override: jsii.Boolean(true),
 		},
-		contentTypeOptions: &responseHeadersContentTypeOptions{
-			override: jsii.Boolean(true),
+		ContentTypeOptions: &ResponseHeadersContentTypeOptions{
+			Override: jsii.Boolean(true),
 		},
-		frameOptions: &responseHeadersFrameOptions{
-			frameOption: cloudfront.headersFrameOption_DENY,
-			override: jsii.Boolean(true),
+		FrameOptions: &ResponseHeadersFrameOptions{
+			FrameOption: cloudfront.HeadersFrameOption_DENY,
+			Override: jsii.Boolean(true),
 		},
-		referrerPolicy: &responseHeadersReferrerPolicy{
-			referrerPolicy: cloudfront.headersReferrerPolicy_NO_REFERRER,
-			override: jsii.Boolean(true),
+		ReferrerPolicy: &ResponseHeadersReferrerPolicy{
+			ReferrerPolicy: cloudfront.HeadersReferrerPolicy_NO_REFERRER,
+			Override: jsii.Boolean(true),
 		},
-		strictTransportSecurity: &responseHeadersStrictTransportSecurity{
-			accessControlMaxAge: awscdk.Duration.seconds(jsii.Number(600)),
-			includeSubdomains: jsii.Boolean(true),
-			override: jsii.Boolean(true),
+		StrictTransportSecurity: &ResponseHeadersStrictTransportSecurity{
+			AccessControlMaxAge: awscdk.Duration_*Seconds(jsii.Number(600)),
+			IncludeSubdomains: jsii.Boolean(true),
+			Override: jsii.Boolean(true),
 		},
-		xssProtection: &responseHeadersXSSProtection{
-			protection: jsii.Boolean(true),
-			modeBlock: jsii.Boolean(true),
-			reportUri: jsii.String("https://example.com/csp-report"),
-			override: jsii.Boolean(true),
+		XssProtection: &ResponseHeadersXSSProtection{
+			Protection: jsii.Boolean(true),
+			ModeBlock: jsii.Boolean(true),
+			ReportUri: jsii.String("https://example.com/csp-report"),
+			Override: jsii.Boolean(true),
 		},
 	},
+	RemoveHeaders: []*string{
+		jsii.String("Server"),
+	},
+	ServerTimingSamplingRate: jsii.Number(50),
 })
-cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: bucketOrigin,
-		responseHeadersPolicy: myResponseHeadersPolicy,
+cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+		ResponseHeadersPolicy: myResponseHeadersPolicy,
 	},
 })
 ```
@@ -379,20 +422,20 @@ cookies for all requests that match the cache behavior.
 // public key in PEM format
 var publicKey string
 
-pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &publicKeyProps{
-	encodedKey: publicKey,
+pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps{
+	EncodedKey: publicKey,
 })
 
-keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &keyGroupProps{
-	items: []iPublicKey{
+keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
+	Items: []iPublicKey{
 		pubKey,
 	},
 })
 
-cloudfront.NewDistribution(this, jsii.String("Dist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-		trustedKeyGroups: []iKeyGroup{
+cloudfront.NewDistribution(this, jsii.String("Dist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+		TrustedKeyGroups: []iKeyGroup{
 			keyGroup,
 		},
 	},
@@ -416,18 +459,18 @@ on every request:
 var myBucket bucket
 // A Lambda@Edge function added to default behavior of a Distribution
 // and triggered on every request
-myFunc := #error#.NewEdgeFunction(this, jsii.String("MyFunction"), &edgeFunctionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+myFunc := experimental.NewEdgeFunction(this, jsii.String("MyFunction"), &EdgeFunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(myBucket),
-		edgeLambdas: []edgeLambda{
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(myBucket),
+		EdgeLambdas: []edgeLambda{
 			&edgeLambda{
-				functionVersion: myFunc.currentVersion,
-				eventType: cloudfront.lambdaEdgeEventType_VIEWER_REQUEST,
+				FunctionVersion: myFunc.currentVersion,
+				EventType: cloudfront.LambdaEdgeEventType_VIEWER_REQUEST,
 			},
 		},
 	},
@@ -445,10 +488,10 @@ If the stack is in `us-east-1`, a "normal" `lambda.Function` can be used instead
 
 ```go
 // Using a lambda Function instead of an EdgeFunction for stacks in `us-east-`.
-myFunc := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+myFunc := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
 ```
 
@@ -458,18 +501,18 @@ you can also set a specific stack ID for each Lambda@Edge.
 ```go
 // Setting stackIds for EdgeFunctions that can be referenced from different applications
 // on the same account.
-myFunc1 := #error#.NewEdgeFunction(this, jsii.String("MyFunction1"), &edgeFunctionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler1"))),
-	stackId: jsii.String("edge-lambda-stack-id-1"),
+myFunc1 := experimental.NewEdgeFunction(this, jsii.String("MyFunction1"), &EdgeFunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler1"))),
+	StackId: jsii.String("edge-lambda-stack-id-1"),
 })
 
-myFunc2 := #error#.NewEdgeFunction(this, jsii.String("MyFunction2"), &edgeFunctionProps{
-	runtime: lambda.*runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.*code.fromAsset(path.join(__dirname, jsii.String("lambda-handler2"))),
-	stackId: jsii.String("edge-lambda-stack-id-2"),
+myFunc2 := experimental.NewEdgeFunction(this, jsii.String("MyFunction2"), &EdgeFunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_*FromAsset(path.join(__dirname, jsii.String("lambda-handler2"))),
+	StackId: jsii.String("edge-lambda-stack-id-2"),
 })
 ```
 
@@ -484,11 +527,11 @@ var myFunc edgeFunction
 var myBucket bucket
 
 myOrigin := origins.NewS3Origin(myBucket)
-myDistribution := cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: myOrigin,
+myDistribution := cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: myOrigin,
 	},
-	additionalBehaviors: map[string]*behaviorOptions{
+	AdditionalBehaviors: map[string]behaviorOptions{
 		"images/*": &behaviorOptions{
 			"origin": myOrigin,
 			"edgeLambdas": []EdgeLambda{
@@ -503,11 +546,11 @@ myDistribution := cloudfront.NewDistribution(this, jsii.String("myDist"), &distr
 })
 
 // assigning after creation
-myDistribution.addBehavior(jsii.String("images/*"), myOrigin, &addBehaviorOptions{
-	edgeLambdas: []edgeLambda{
+myDistribution.AddBehavior(jsii.String("images/*"), myOrigin, &AddBehaviorOptions{
+	EdgeLambdas: []edgeLambda{
 		&edgeLambda{
-			functionVersion: myFunc.currentVersion,
-			eventType: cloudfront.lambdaEdgeEventType_VIEWER_RESPONSE,
+			FunctionVersion: myFunc.currentVersion,
+			EventType: cloudfront.LambdaEdgeEventType_VIEWER_RESPONSE,
 		},
 	},
 })
@@ -520,15 +563,15 @@ Adding an existing Lambda@Edge function created in a different stack to a CloudF
 // to a CloudFront distribution.
 var s3Bucket bucket
 
-functionVersion := lambda.version.fromVersionArn(this, jsii.String("Version"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:functionName:1"))
+functionVersion := lambda.Version_FromVersionArn(this, jsii.String("Version"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:functionName:1"))
 
-cloudfront.NewDistribution(this, jsii.String("distro"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(s3Bucket),
-		edgeLambdas: []edgeLambda{
+cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(s3Bucket),
+		EdgeLambdas: []edgeLambda{
 			&edgeLambda{
-				functionVersion: functionVersion,
-				eventType: cloudfront.lambdaEdgeEventType_VIEWER_REQUEST,
+				FunctionVersion: *FunctionVersion,
+				EventType: cloudfront.LambdaEdgeEventType_VIEWER_REQUEST,
 			},
 		},
 	},
@@ -542,16 +585,16 @@ You can also deploy CloudFront functions and add them to a CloudFront distributi
 ```go
 var s3Bucket bucket
 // Add a cloudfront Function to a Distribution
-cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &functionProps{
-	code: cloudfront.functionCode.fromInline(jsii.String("function handler(event) { return event.request }")),
+cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
 })
-cloudfront.NewDistribution(this, jsii.String("distro"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(s3Bucket),
-		functionAssociations: []functionAssociation{
+cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(s3Bucket),
+		FunctionAssociations: []functionAssociation{
 			&functionAssociation{
-				function: cfFunction,
-				eventType: cloudfront.functionEventType_VIEWER_REQUEST,
+				Function: cfFunction,
+				EventType: cloudfront.FunctionEventType_VIEWER_REQUEST,
 			},
 		},
 	},
@@ -573,24 +616,41 @@ The logs can go to either an existing bucket, or a bucket will be created for yo
 // Simplest form - creates a new bucket and logs to it.
 // Configure logging for Distributions
 // Simplest form - creates a new bucket and logs to it.
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
 	},
-	enableLogging: jsii.Boolean(true),
+	EnableLogging: jsii.Boolean(true),
 })
 
 // You can optionally log to a specific bucket, configure whether cookies are logged, and give the log files a prefix.
 // You can optionally log to a specific bucket, configure whether cookies are logged, and give the log files a prefix.
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
 	},
-	enableLogging: jsii.Boolean(true),
+	EnableLogging: jsii.Boolean(true),
 	 // Optional, this is implied if logBucket is specified
-	logBucket: s3.NewBucket(this, jsii.String("LogBucket")),
-	logFilePrefix: jsii.String("distribution-access-logs/"),
-	logIncludesCookies: jsii.Boolean(true),
+	LogBucket: s3.NewBucket(this, jsii.String("LogBucket")),
+	LogFilePrefix: jsii.String("distribution-access-logs/"),
+	LogIncludesCookies: jsii.Boolean(true),
+})
+```
+
+### HTTP Versions
+
+You can configure CloudFront to use a particular version of the HTTP protocol. By default,
+newly created distributions use HTTP/2 but can be configured to use both HTTP/2 and HTTP/3 or
+just HTTP/3. For all supported HTTP versions, see the `HttpVerson` enum.
+
+```go
+// Configure a distribution to use HTTP/2 and HTTP/3
+// Configure a distribution to use HTTP/2 and HTTP/3
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+	},
+	HttpVersion: cloudfront.HttpVersion_HTTP2_AND_3,
 })
 ```
 
@@ -601,10 +661,23 @@ However, it can be used as a reference for other higher-level constructs.
 
 ```go
 // Using a reference to an imported Distribution
-distribution := cloudfront.distribution.fromDistributionAttributes(this, jsii.String("ImportedDist"), &distributionAttributes{
-	domainName: jsii.String("d111111abcdef8.cloudfront.net"),
-	distributionId: jsii.String("012345ABCDEF"),
+distribution := cloudfront.Distribution_FromDistributionAttributes(this, jsii.String("ImportedDist"), &DistributionAttributes{
+	DomainName: jsii.String("d111111abcdef8.cloudfront.net"),
+	DistributionId: jsii.String("012345ABCDEF"),
 })
+```
+
+### Permissions
+
+Use the `grant()` method to allow actions on the distribution.
+`grantCreateInvalidation()` is a shorthand to allow `CreateInvalidation`.
+
+```go
+var distribution distribution
+var lambdaFn function
+
+distribution.Grant(lambdaFn, jsii.String("cloudfront:ListInvalidations"), jsii.String("cloudfront:GetInvalidation"))
+distribution.GrantCreateInvalidation(lambdaFn)
 ```
 
 ## Migrating from the original CloudFrontWebDistribution to the newer Distribution construct
@@ -634,13 +707,13 @@ Example:
 var sourceBucket bucket
 
 
-myDistribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(sourceBucket),
+myDistribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(sourceBucket),
 	},
 })
-cfnDistribution := myDistribution.node.defaultChild.(cfnDistribution)
-cfnDistribution.overrideLogicalId(jsii.String("MyDistributionCFDistribution3H55TI9Q"))
+cfnDistribution := myDistribution.Node.defaultChild.(cfnDistribution)
+cfnDistribution.OverrideLogicalId(jsii.String("MyDistributionCFDistribution3H55TI9Q"))
 ```
 
 ### Behaviors
@@ -652,16 +725,16 @@ var sourceBucket bucket
 var oai originAccessIdentity
 
 
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
-				originAccessIdentity: oai,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
+				OriginAccessIdentity: oai,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
@@ -675,9 +748,9 @@ Becomes:
 var sourceBucket bucket
 
 
-distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(sourceBucket),
+distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(sourceBucket),
 	},
 })
 ```
@@ -689,26 +762,26 @@ var sourceBucket bucket
 var oai originAccessIdentity
 
 
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
-				originAccessIdentity: oai,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
+				OriginAccessIdentity: oai,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 		&sourceConfiguration{
-			customOriginSource: &customOriginConfig{
-				domainName: jsii.String("MYALIAS"),
+			CustomOriginSource: &CustomOriginConfig{
+				DomainName: jsii.String("MYALIAS"),
 			},
-			behaviors: []*behavior{
+			Behaviors: []*behavior{
 				&behavior{
-					pathPattern: jsii.String("/somewhere"),
+					PathPattern: jsii.String("/somewhere"),
 				},
 			},
 		},
@@ -722,11 +795,11 @@ Becomes:
 var sourceBucket bucket
 
 
-distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(sourceBucket),
+distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(sourceBucket),
 	},
-	additionalBehaviors: map[string]*behaviorOptions{
+	AdditionalBehaviors: map[string]behaviorOptions{
 		"/somewhere": &behaviorOptions{
 			"origin": origins.NewHttpOrigin(jsii.String("MYALIAS")),
 		},
@@ -745,26 +818,26 @@ var certificate certificate
 var sourceBucket bucket
 
 
-viewerCertificate := cloudfront.viewerCertificate.fromAcmCertificate(certificate, &viewerCertificateOptions{
-	aliases: []*string{
+viewerCertificate := cloudfront.ViewerCertificate_FromAcmCertificate(certificate, &ViewerCertificateOptions{
+	Aliases: []*string{
 		jsii.String("MYALIAS"),
 	},
 })
 
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 	},
-	viewerCertificate: viewerCertificate,
+	ViewerCertificate: viewerCertificate,
 })
 ```
 
@@ -776,14 +849,14 @@ var certificate certificate
 var sourceBucket bucket
 
 
-distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(sourceBucket),
+distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(sourceBucket),
 	},
-	domainNames: []*string{
+	DomainNames: []*string{
 		jsii.String("MYALIAS"),
 	},
-	certificate: certificate,
+	Certificate: certificate,
 })
 ```
 
@@ -792,26 +865,26 @@ IAM certificates aren't directly supported by the new API, but can be easily con
 ```go
 var sourceBucket bucket
 
-viewerCertificate := cloudfront.viewerCertificate.fromIamCertificate(jsii.String("MYIAMROLEIDENTIFIER"), &viewerCertificateOptions{
-	aliases: []*string{
+viewerCertificate := cloudfront.ViewerCertificate_FromIamCertificate(jsii.String("MYIAMROLEIDENTIFIER"), &ViewerCertificateOptions{
+	Aliases: []*string{
 		jsii.String("MYALIAS"),
 	},
 })
 
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 	},
-	viewerCertificate: viewerCertificate,
+	ViewerCertificate: viewerCertificate,
 })
 ```
 
@@ -820,19 +893,19 @@ Becomes:
 ```go
 var sourceBucket bucket
 
-distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewS3Origin(sourceBucket),
+distribution := cloudfront.NewDistribution(this, jsii.String("MyCfWebDistribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewS3Origin(sourceBucket),
 	},
-	domainNames: []*string{
+	DomainNames: []*string{
 		jsii.String("MYALIAS"),
 	},
 })
 
-cfnDistribution := distribution.node.defaultChild.(cfnDistribution)
+cfnDistribution := distribution.Node.defaultChild.(cfnDistribution)
 
-cfnDistribution.addPropertyOverride(jsii.String("ViewerCertificate.IamCertificateId"), jsii.String("MYIAMROLEIDENTIFIER"))
-cfnDistribution.addPropertyOverride(jsii.String("ViewerCertificate.SslSupportMethod"), jsii.String("sni-only"))
+cfnDistribution.AddPropertyOverride(jsii.String("ViewerCertificate.IamCertificateId"), jsii.String("MYIAMROLEIDENTIFIER"))
+cfnDistribution.AddPropertyOverride(jsii.String("ViewerCertificate.SslSupportMethod"), jsii.String("sni-only"))
 ```
 
 ### Other changes
@@ -853,15 +926,15 @@ Example usage:
 
 var sourceBucket bucket
 
-distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
@@ -886,20 +959,20 @@ Example:
 ```go
 s3BucketSource := s3.NewBucket(this, jsii.String("Bucket"))
 
-distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: s3BucketSource,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: *S3BucketSource,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 	},
-	viewerCertificate: cloudfront.viewerCertificate.fromCloudFrontDefaultCertificate(jsii.String("www.example.com")),
+	ViewerCertificate: cloudfront.ViewerCertificate_FromCloudFrontDefaultCertificate(jsii.String("www.example.com")),
 })
 ```
 
@@ -918,34 +991,34 @@ Example:
 ```go
 s3BucketSource := s3.NewBucket(this, jsii.String("Bucket"))
 
-certificate := certificatemanager.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
-	domainName: jsii.String("example.com"),
-	subjectAlternativeNames: []*string{
+certificate := certificatemanager.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
+	DomainName: jsii.String("example.com"),
+	SubjectAlternativeNames: []*string{
 		jsii.String("*.example.com"),
 	},
 })
 
-distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: s3BucketSource,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: *S3BucketSource,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 	},
-	viewerCertificate: cloudfront.viewerCertificate.fromAcmCertificate(certificate, &viewerCertificateOptions{
-		aliases: []*string{
+	ViewerCertificate: cloudfront.ViewerCertificate_FromAcmCertificate(certificate, &ViewerCertificateOptions{
+		Aliases: []*string{
 			jsii.String("example.com"),
 			jsii.String("www.example.com"),
 		},
-		securityPolicy: cloudfront.securityPolicyProtocol_TLS_V1,
+		SecurityPolicy: cloudfront.SecurityPolicyProtocol_TLS_V1,
 		 // default
-		sslMethod: cloudfront.sSLMethod_SNI,
+		SslMethod: cloudfront.SSLMethod_SNI,
 	}),
 })
 ```
@@ -961,26 +1034,26 @@ Example:
 ```go
 s3BucketSource := s3.NewBucket(this, jsii.String("Bucket"))
 
-distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: s3BucketSource,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: *S3BucketSource,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 	},
-	viewerCertificate: cloudfront.viewerCertificate.fromIamCertificate(jsii.String("certificateId"), &viewerCertificateOptions{
-		aliases: []*string{
+	ViewerCertificate: cloudfront.ViewerCertificate_FromIamCertificate(jsii.String("certificateId"), &ViewerCertificateOptions{
+		Aliases: []*string{
 			jsii.String("example.com"),
 		},
-		securityPolicy: cloudfront.securityPolicyProtocol_SSL_V3,
+		SecurityPolicy: cloudfront.SecurityPolicyProtocol_SSL_V3,
 		 // default
-		sslMethod: cloudfront.sSLMethod_SNI,
+		SslMethod: cloudfront.SSLMethod_SNI,
 	}),
 })
 ```
@@ -997,26 +1070,26 @@ Example:
 var sourceBucket bucket
 var publicKey string
 
-pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &publicKeyProps{
-	encodedKey: publicKey,
+pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps{
+	EncodedKey: publicKey,
 })
 
-keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &keyGroupProps{
-	items: []iPublicKey{
+keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
+	Items: []iPublicKey{
 		pubKey,
 	},
 })
 
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
-					trustedKeyGroups: []iKeyGroup{
+					IsDefaultBehavior: jsii.Boolean(true),
+					TrustedKeyGroups: []iKeyGroup{
 						keyGroup,
 					},
 				},
@@ -1038,20 +1111,20 @@ Example:
 // Adding restrictions to a Cloudfront Web Distribution.
 var sourceBucket bucket
 
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: sourceBucket,
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: sourceBucket,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
 	},
-	geoRestriction: cloudfront.geoRestriction.allowlist(jsii.String("US"), jsii.String("GB")),
+	GeoRestriction: cloudfront.GeoRestriction_Allowlist(jsii.String("US"), jsii.String("GB")),
 })
 ```
 
@@ -1068,14 +1141,14 @@ Example usage:
 
 ```go
 // Configuring connection behaviors between Cloudfront and your origin
-distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			connectionAttempts: jsii.Number(3),
-			connectionTimeout: awscdk.Duration.seconds(jsii.Number(10)),
-			behaviors: []behavior{
+			ConnectionAttempts: jsii.Number(3),
+			ConnectionTimeout: awscdk.Duration_Seconds(jsii.Number(10)),
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
@@ -1091,31 +1164,31 @@ specified status codes the failover origin source will be used.
 ```go
 // Configuring origin fallback options for the CloudFrontWebDistribution
 // Configuring origin fallback options for the CloudFrontWebDistribution
-cloudfront.NewCloudFrontWebDistribution(this, jsii.String("ADistribution"), &cloudFrontWebDistributionProps{
-	originConfigs: []sourceConfiguration{
+cloudfront.NewCloudFrontWebDistribution(this, jsii.String("ADistribution"), &CloudFrontWebDistributionProps{
+	OriginConfigs: []sourceConfiguration{
 		&sourceConfiguration{
-			s3OriginSource: &s3OriginConfig{
-				s3BucketSource: s3.bucket.fromBucketName(this, jsii.String("aBucket"), jsii.String("myoriginbucket")),
-				originPath: jsii.String("/"),
-				originHeaders: map[string]*string{
+			S3OriginSource: &S3OriginConfig{
+				S3BucketSource: s3.Bucket_FromBucketName(this, jsii.String("aBucket"), jsii.String("myoriginbucket")),
+				OriginPath: jsii.String("/"),
+				OriginHeaders: map[string]*string{
 					"myHeader": jsii.String("42"),
 				},
-				originShieldRegion: jsii.String("us-west-2"),
+				OriginShieldRegion: jsii.String("us-west-2"),
 			},
-			failoverS3OriginSource: &s3OriginConfig{
-				s3BucketSource: s3.*bucket.fromBucketName(this, jsii.String("aBucketFallback"), jsii.String("myoriginbucketfallback")),
-				originPath: jsii.String("/somewhere"),
-				originHeaders: map[string]*string{
+			FailoverS3OriginSource: &S3OriginConfig{
+				S3BucketSource: s3.Bucket_*FromBucketName(this, jsii.String("aBucketFallback"), jsii.String("myoriginbucketfallback")),
+				OriginPath: jsii.String("/somewhere"),
+				OriginHeaders: map[string]*string{
 					"myHeader2": jsii.String("21"),
 				},
-				originShieldRegion: jsii.String("us-east-1"),
+				OriginShieldRegion: jsii.String("us-east-1"),
 			},
-			failoverCriteriaStatusCodes: []failoverStatusCode{
+			FailoverCriteriaStatusCodes: []failoverStatusCode{
 				cloudfront.*failoverStatusCode_INTERNAL_SERVER_ERROR,
 			},
-			behaviors: []behavior{
+			Behaviors: []behavior{
 				&behavior{
-					isDefaultBehavior: jsii.Boolean(true),
+					IsDefaultBehavior: jsii.Boolean(true),
 				},
 			},
 		},
@@ -1147,10 +1220,10 @@ Example:
 ```go
 // Create a key group to use with CloudFront signed URLs and signed cookies.
 // Create a key group to use with CloudFront signed URLs and signed cookies.
-cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &keyGroupProps{
-	items: []iPublicKey{
-		cloudfront.NewPublicKey(this, jsii.String("MyPublicKey"), &publicKeyProps{
-			encodedKey: jsii.String("..."),
+cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
+	Items: []iPublicKey{
+		cloudfront.NewPublicKey(this, jsii.String("MyPublicKey"), &PublicKeyProps{
+			EncodedKey: jsii.String("..."),
 		}),
 	},
 })
