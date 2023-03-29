@@ -9,24 +9,6 @@ started quickly by using prepackaged build environments, or you can create
 custom build environments that use your own build tools. With CodeBuild, you are
 charged by the minute for the compute resources you use.
 
-## Installation
-
-Install the module:
-
-```console
-$ npm i @aws-cdk/aws-codebuild
-```
-
-Import it into your code:
-
-```go
-import codebuild "github.com/aws/aws-cdk-go/awscdk"
-```
-
-The `codebuild.Project` construct represents a build project resource. See the
-reference documentation for a comprehensive list of initialization properties,
-methods and attributes.
-
 ## Source
 
 Build projects are usually associated with a *source*, which is specified via
@@ -38,8 +20,8 @@ the `buildSpec` option is required in that case.
 Here's a CodeBuild project with no source which simply prints `Hello, CodeBuild!`:
 
 ```go
-codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]*string{
 			"build": map[string][]*string{
@@ -60,12 +42,12 @@ Use an AWS CodeCommit repository as the source of this build:
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
 
 
-repository := codecommit.NewRepository(this, jsii.String("MyRepo"), &repositoryProps{
-	repositoryName: jsii.String("foo"),
+repository := codecommit.NewRepository(this, jsii.String("MyRepo"), &RepositoryProps{
+	RepositoryName: jsii.String("foo"),
 })
-codebuild.NewProject(this, jsii.String("MyFirstCodeCommitProject"), &projectProps{
-	source: codebuild.source.codeCommit(&codeCommitSourceProps{
-		repository: repository,
+codebuild.NewProject(this, jsii.String("MyFirstCodeCommitProject"), &ProjectProps{
+	Source: codebuild.Source_CodeCommit(&CodeCommitSourceProps{
+		Repository: *Repository,
 	}),
 })
 ```
@@ -77,10 +59,10 @@ Create a CodeBuild project with an S3 bucket as the source:
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
-codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	source: codebuild.source.s3(&s3SourceProps{
-		bucket: bucket,
-		path: jsii.String("path/to/file.zip"),
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	Source: codebuild.Source_S3(&S3SourceProps{
+		Bucket: bucket,
+		Path: jsii.String("path/to/file.zip"),
 	}),
 })
 ```
@@ -93,15 +75,15 @@ These source types can be used to build code from a GitHub repository.
 Example:
 
 ```go
-gitHubSource := codebuild.source.gitHub(&gitHubSourceProps{
-	owner: jsii.String("awslabs"),
-	repo: jsii.String("aws-cdk"),
-	webhook: jsii.Boolean(true),
+gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
+	Owner: jsii.String("awslabs"),
+	Repo: jsii.String("aws-cdk"),
+	Webhook: jsii.Boolean(true),
 	 // optional, default: true if `webhookFilters` were provided, false otherwise
-	webhookTriggersBatchBuild: jsii.Boolean(true),
+	WebhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
-	webhookFilters: []filterGroup{
-		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+	WebhookFilters: []filterGroup{
+		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
 	},
 })
 ```
@@ -119,21 +101,74 @@ aws codebuild import-source-credentials --server-type GITHUB --auth-type PERSONA
 This source type can be used to build code from a BitBucket repository.
 
 ```go
-bbSource := codebuild.source.bitBucket(&bitBucketSourceProps{
-	owner: jsii.String("owner"),
-	repo: jsii.String("repo"),
+bbSource := codebuild.Source_BitBucket(&BitBucketSourceProps{
+	Owner: jsii.String("owner"),
+	Repo: jsii.String("repo"),
 })
 ```
 
 ### For all Git sources
 
-For all Git sources, you can fetch submodules while cloing git repo.
+For all Git sources, you can fetch submodules while cloning git repo.
 
 ```go
-gitHubSource := codebuild.source.gitHub(&gitHubSourceProps{
-	owner: jsii.String("awslabs"),
-	repo: jsii.String("aws-cdk"),
-	fetchSubmodules: jsii.Boolean(true),
+gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
+	Owner: jsii.String("awslabs"),
+	Repo: jsii.String("aws-cdk"),
+	FetchSubmodules: jsii.Boolean(true),
+})
+```
+
+## BuildSpec
+
+The build spec can be provided from a number of different sources
+
+### File path relative to the root of the source
+
+You can specify a specific filename that exists within the project's source artifact to use as the buildspec.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec.fromSourceFileName(jsii.String("my-buildspec.yml")),
+	Source: codebuild.Source_GitHub(&GitHubSourceProps{
+		Owner: jsii.String("awslabs"),
+		Repo: jsii.String("aws-cdk"),
+	}),
+})
+```
+
+This will use `my-buildspec.yml` file within the `awslabs/aws-cdk` repository as the build spec.
+
+### File within the CDK project codebuild
+
+You can also specify a file within your cdk project directory to use as the buildspec.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromAsset(jsii.String("my-buildspec.yml")),
+})
+```
+
+This file will be uploaded to S3 and referenced from the codebuild project.
+
+### Inline object
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+	}),
+})
+```
+
+This will result in the buildspec being rendered as JSON within the codebuild project, if you prefer it to be rendered as YAML, use `fromObjectToYaml`.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
+		"version": jsii.String("0.2"),
+	}),
 })
 ```
 
@@ -145,22 +180,19 @@ CodeBuild Projects can produce Artifacts and upload them to S3. For example:
 var bucket bucket
 
 
-project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 	}),
-	artifacts: codebuild.artifacts.s3(&s3ArtifactsProps{
-		bucket: bucket,
-		includeBuildId: jsii.Boolean(false),
-		packageZip: jsii.Boolean(true),
-		path: jsii.String("another/path"),
-		identifier: jsii.String("AddArtifact1"),
+	Artifacts: codebuild.Artifacts_S3(&S3ArtifactsProps{
+		Bucket: *Bucket,
+		IncludeBuildId: jsii.Boolean(false),
+		PackageZip: jsii.Boolean(true),
+		Path: jsii.String("another/path"),
+		Identifier: jsii.String("AddArtifact1"),
 	}),
 })
 ```
-
-If you'd prefer your buildspec to be rendered as YAML in the template,
-use the `fromObjectToYaml()` method instead of `fromObject()`.
 
 Because we've not set the `name` property, this example will set the
 `overrideArtifactName` parameter, and produce an artifact named as defined in
@@ -177,11 +209,11 @@ as these are handled by setting input and output CodePipeline `Artifact` instanc
 instead of setting them on the Project.
 
 ```go
-project := codebuild.NewPipelineProject(this, jsii.String("Project"), &pipelineProjectProps{
+project := codebuild.NewPipelineProject(this, jsii.String("Project"), &PipelineProjectProps{
 })
 ```
 
-For more details, see the readme of the `@aws-cdk/@aws-codepipeline-actions` package.
+For more details, see the readme of the `@aws-cdk/aws-codepipeline-actions` package.
 
 ## Caching
 
@@ -198,17 +230,17 @@ buildspec which indicates the files to be cached:
 var myCachingBucket bucket
 
 
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	source: codebuild.source.bitBucket(&bitBucketSourceProps{
-		owner: jsii.String("awslabs"),
-		repo: jsii.String("aws-cdk"),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Source: codebuild.Source_BitBucket(&BitBucketSourceProps{
+		Owner: jsii.String("awslabs"),
+		Repo: jsii.String("aws-cdk"),
 	}),
 
-	cache: codebuild.cache.bucket(myCachingBucket),
+	Cache: codebuild.Cache_Bucket(myCachingBucket),
 
 	// BuildSpec with a 'cache' section necessary for S3 caching. This can
 	// also come from 'buildspec.yml' in your source.
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]*string{
 			"build": map[string][]*string{
@@ -244,17 +276,17 @@ supported, which can be turned on individually.
 * `LocalCacheMode.CUSTOM` caches directories you specify in the buildspec file.
 
 ```go
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	source: codebuild.source.gitHubEnterprise(&gitHubEnterpriseSourceProps{
-		httpsCloneUrl: jsii.String("https://my-github-enterprise.com/owner/repo"),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Source: codebuild.Source_GitHubEnterprise(&GitHubEnterpriseSourceProps{
+		HttpsCloneUrl: jsii.String("https://my-github-enterprise.com/owner/repo"),
 	}),
 
 	// Enable Docker AND custom caching
-	cache: codebuild.cache.local(codebuild.localCacheMode_DOCKER_LAYER, codebuild.*localCacheMode_CUSTOM),
+	Cache: codebuild.Cache_Local(codebuild.LocalCacheMode_DOCKER_LAYER, codebuild.LocalCacheMode_CUSTOM),
 
 	// BuildSpec with a 'cache' section necessary for 'CUSTOM' caching. This can
 	// also come from 'buildspec.yml' in your source.
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]*string{
 			"build": map[string][]*string{
@@ -322,13 +354,13 @@ which can be either `WindowsImageType.STANDARD`, the default, or `WindowsImageTy
 var ecrRepository repository
 
 
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	environment: &buildEnvironment{
-		buildImage: codebuild.windowsBuildImage.fromEcrRepository(ecrRepository, jsii.String("v1.0"), codebuild.windowsImageType_SERVER_2019),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.WindowsBuildImage_FromEcrRepository(ecrRepository, jsii.String("v1.0"), codebuild.WindowsImageType_SERVER_2019),
 		// optional certificate to include in the build image
-		certificate: &buildEnvironmentCertificate{
-			bucket: s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket")),
-			objectKey: jsii.String("path/to/cert.pem"),
+		Certificate: &BuildEnvironmentCertificate{
+			Bucket: s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket")),
+			ObjectKey: jsii.String("path/to/cert.pem"),
 		},
 	},
 })
@@ -337,9 +369,9 @@ codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 The following example shows how to define an image from a Docker asset:
 
 ```go
-environment: &buildEnvironment{
-	buildImage: codebuild.linuxBuildImage.fromAsset(this, jsii.String("MyImage"), &dockerImageAssetProps{
-		directory: path.join(__dirname, jsii.String("demo-image")),
+Environment: &BuildEnvironment{
+	BuildImage: codebuild.LinuxBuildImage_FromAsset(this, jsii.String("MyImage"), &DockerImageAssetProps{
+		Directory: path.join(__dirname, jsii.String("demo-image")),
 	}),
 },
 ```
@@ -347,17 +379,17 @@ environment: &buildEnvironment{
 The following example shows how to define an image from an ECR repository:
 
 ```go
-environment: &buildEnvironment{
-	buildImage: codebuild.linuxBuildImage.fromEcrRepository(ecrRepository, jsii.String("v1.0")),
+Environment: &BuildEnvironment{
+	BuildImage: codebuild.LinuxBuildImage_FromEcrRepository(ecrRepository, jsii.String("v1.0")),
 },
 ```
 
 The following example shows how to define an image from a private docker registry:
 
 ```go
-environment: &buildEnvironment{
-	buildImage: codebuild.linuxBuildImage.fromDockerRegistry(jsii.String("my-registry/my-repo"), &dockerImageOptions{
-		secretsManagerCredentials: secrets,
+Environment: &BuildEnvironment{
+	BuildImage: codebuild.LinuxBuildImage_FromDockerRegistry(jsii.String("my-registry/my-repo"), &DockerImageOptions{
+		SecretsManagerCredentials: secrets,
 	}),
 },
 ```
@@ -368,9 +400,9 @@ The class `LinuxGpuBuildImage` contains constants for working with
 [AWS Deep Learning Container images](https://aws.amazon.com/releasenotes/available-deep-learning-containers-images):
 
 ```go
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	environment: &buildEnvironment{
-		buildImage: codebuild.linuxGpuBuildImage_DLC_TENSORFLOW_2_1_0_INFERENCE(),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.LinuxGpuBuildImage_DLC_TENSORFLOW_2_1_0_INFERENCE(),
 	},
 })
 ```
@@ -385,9 +417,9 @@ you can always specify the account
 explicitly using the `awsDeepLearningContainersImage` method:
 
 ```go
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	environment: &buildEnvironment{
-		buildImage: codebuild.linuxGpuBuildImage.awsDeepLearningContainersImage(jsii.String("tensorflow-inference"), jsii.String("2.1.0-gpu-py36-cu101-ubuntu18.04"), jsii.String("123456789012")),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.LinuxGpuBuildImage_AwsDeepLearningContainersImage(jsii.String("tensorflow-inference"), jsii.String("2.1.0-gpu-py36-cu101-ubuntu18.04"), jsii.String("123456789012")),
 	},
 })
 ```
@@ -403,10 +435,10 @@ By default, logs will go to cloudwatch.
 ### CloudWatch Logs Example
 
 ```go
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	logging: &loggingOptions{
-		cloudWatch: &cloudWatchLoggingOptions{
-			logGroup: logs.NewLogGroup(this, jsii.String("MyLogGroup")),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Logging: &LoggingOptions{
+		CloudWatch: &CloudWatchLoggingOptions{
+			LogGroup: logs.NewLogGroup(this, jsii.String("MyLogGroup")),
 		},
 	},
 })
@@ -415,12 +447,54 @@ codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 ### S3 Logs Example
 
 ```go
-codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	logging: &loggingOptions{
-		s3: &s3LoggingOptions{
-			bucket: s3.NewBucket(this, jsii.String("LogBucket")),
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Logging: &LoggingOptions{
+		S3: &S3LoggingOptions{
+			Bucket: s3.NewBucket(this, jsii.String("LogBucket")),
 		},
 	},
+})
+```
+
+## Debugging builds interactively using SSM Session Manager
+
+Integration with SSM Session Manager makes it possible to add breakpoints to your
+build commands, pause the build there and log into the container to interactively
+debug the environment.
+
+To do so, you need to:
+
+* Create the build with `ssmSessionPermissions: true`.
+* Use a build image with SSM agent installed and configured (default CodeBuild images come with the image preinstalled).
+* Start the build with [debugSessionEnabled](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html#CodeBuild-StartBuild-request-debugSessionEnabled) set to true.
+
+If these conditions are met, execution of the command `codebuild-breakpoint`
+will suspend your build and allow you to attach a Session Manager session from
+the CodeBuild console.
+
+For more information, see [View a running build in Session
+Manager](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html)
+in the CodeBuild documentation.
+
+Example:
+
+```go
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.LinuxBuildImage_STANDARD_6_0(),
+	},
+	SsmSessionPermissions: jsii.Boolean(true),
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+		"phases": map[string]map[string][]*string{
+			"build": map[string][]*string{
+				"commands": []*string{
+					jsii.String("codebuild-breakpoint"),
+					jsii.String("./my-build.sh"),
+				},
+			},
+		},
+	}),
 })
 ```
 
@@ -430,20 +504,20 @@ CodeBuild allows you to store credentials used when communicating with various s
 like GitHub:
 
 ```go
-codebuild.NewGitHubSourceCredentials(this, jsii.String("CodeBuildGitHubCreds"), &gitHubSourceCredentialsProps{
-	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-token")),
+codebuild.NewGitHubSourceCredentials(this, jsii.String("CodeBuildGitHubCreds"), &GitHubSourceCredentialsProps{
+	AccessToken: awscdk.SecretValue_SecretsManager(jsii.String("my-token")),
 })
 ```
 
 and BitBucket:
 
 ```go
-codebuild.NewBitBucketSourceCredentials(this, jsii.String("CodeBuildBitBucketCreds"), &bitBucketSourceCredentialsProps{
-	username: awscdk.SecretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
-		jsonField: jsii.String("username"),
+codebuild.NewBitBucketSourceCredentials(this, jsii.String("CodeBuildBitBucketCreds"), &BitBucketSourceCredentialsProps{
+	Username: awscdk.SecretValue_SecretsManager(jsii.String("my-bitbucket-creds"), &SecretsManagerSecretOptions{
+		JsonField: jsii.String("username"),
 	}),
-	password: awscdk.SecretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
-		jsonField: jsii.String("password"),
+	Password: awscdk.SecretValue_*SecretsManager(jsii.String("my-bitbucket-creds"), &SecretsManagerSecretOptions{
+		JsonField: jsii.String("password"),
 	}),
 })
 ```
@@ -462,8 +536,8 @@ to inspect what credentials are stored in your account.
 You can specify a test report in your buildspec:
 
 ```go
-project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		// ...
 		"reports": map[string]map[string]*string{
 			"myReport": map[string]*string{
@@ -487,9 +561,9 @@ you can opt out of it when creating the project:
 var source source
 
 
-project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	source: source,
-	grantReportGroupPermissions: jsii.Boolean(false),
+project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Source: Source,
+	GrantReportGroupPermissions: jsii.Boolean(false),
 })
 ```
 
@@ -503,9 +577,9 @@ var source source
 // create a new ReportGroup
 reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"))
 
-project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	source: source,
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Source: Source,
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		// ...
 		"reports": map[string]map[string]*string{
 			reportGroup.reportGroupArn: map[string]*string{
@@ -517,7 +591,33 @@ project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 })
 ```
 
-If you do that, you need to grant the project's role permissions to write reports to that report group:
+For a code coverage report, you can specify a report group with the code coverage report group type.
+
+```go
+var source source
+
+
+// create a new ReportGroup
+reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"), &ReportGroupProps{
+	Type: codebuild.ReportGroupType_CODE_COVERAGE,
+})
+
+project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Source: Source,
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		// ...
+		"reports": map[string]map[string]*string{
+			reportGroup.reportGroupArn: map[string]*string{
+				"files": jsii.String("**/*"),
+				"base-directory": jsii.String("build/coverage-report.xml"),
+				"file-format": jsii.String("JACOCOXML"),
+			},
+		},
+	}),
+})
+```
+
+If you specify a report group, you need to grant the project's role permissions to write reports to that report group:
 
 ```go
 var project project
@@ -526,6 +626,8 @@ var reportGroup reportGroup
 
 reportGroup.grantWrite(project)
 ```
+
+The created policy will adjust to the report group type. If no type is specified when creating the report group the created policy will contain the action for the test report group type.
 
 For more information on the test reports feature,
 see the [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/test-reporting.html).
@@ -549,8 +651,8 @@ var codeCommitRepository repository
 var project project
 
 
-codeCommitRepository.onCommit(jsii.String("OnCommit"), &onCommitOptions{
-	target: targets.NewCodeBuildProject(project),
+codeCommitRepository.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
+	Target: targets.NewCodeBuildProject(project),
 })
 ```
 
@@ -565,8 +667,8 @@ var fn function
 var project project
 
 
-rule := project.onStateChange(jsii.String("BuildStateChange"), &onEventOptions{
-	target: targets.NewLambdaFunction(fn),
+rule := project.onStateChange(jsii.String("BuildStateChange"), &OnEventOptions{
+	Target: targets.NewLambdaFunction(fn),
 })
 ```
 
@@ -581,10 +683,10 @@ import chatbot "github.com/aws/aws-cdk-go/awscdk"
 var project project
 
 
-target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
-	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
-	slackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
-	slackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
+target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
+	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
+	SlackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
+	SlackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
 })
 
 rule := project.notifyOnBuildSucceeded(jsii.String("NotifyOnBuildSucceeded"), target)
@@ -601,19 +703,19 @@ var repo repository
 var bucket bucket
 
 
-project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	secondarySources: []iSource{
-		codebuild.source.codeCommit(&codeCommitSourceProps{
-			identifier: jsii.String("source2"),
-			repository: repo,
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	SecondarySources: []iSource{
+		codebuild.Source_CodeCommit(&CodeCommitSourceProps{
+			Identifier: jsii.String("source2"),
+			Repository: repo,
 		}),
 	},
-	secondaryArtifacts: []iArtifacts{
-		codebuild.artifacts.s3(&s3ArtifactsProps{
-			identifier: jsii.String("artifact2"),
-			bucket: bucket,
-			path: jsii.String("some/path"),
-			name: jsii.String("file.zip"),
+	SecondaryArtifacts: []iArtifacts{
+		codebuild.Artifacts_S3(&S3ArtifactsProps{
+			Identifier: jsii.String("artifact2"),
+			Bucket: bucket,
+			Path: jsii.String("some/path"),
+			Name: jsii.String("file.zip"),
 		}),
 	},
 })
@@ -633,9 +735,9 @@ with their identifier.
 So, a buildspec for the above Project could look something like this:
 
 ```go
-project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 	// secondary sources and artifacts as above...
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 		"phases": map[string]map[string][]*string{
 			"build": map[string][]*string{
@@ -695,13 +797,13 @@ var loadBalancer applicationLoadBalancer
 
 
 vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
-project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	vpc: vpc,
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	Vpc: vpc,
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 	}),
 })
 
-project.connections.allowTo(loadBalancer, ec2.port.tcp(jsii.Number(443)))
+project.connections.AllowTo(loadBalancer, ec2.Port_Tcp(jsii.Number(443)))
 ```
 
 ## Project File System Location EFS
@@ -715,16 +817,16 @@ The only supported file system type is `EFS`.
 For example:
 
 ```go
-codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 	}),
-	fileSystemLocations: []iFileSystemLocation{
-		codebuild.fileSystemLocation.efs(&efsFileSystemLocationProps{
-			identifier: jsii.String("myidentifier2"),
-			location: jsii.String("myclodation.mydnsroot.com:/loc"),
-			mountPoint: jsii.String("/media"),
-			mountOptions: jsii.String("opts"),
+	FileSystemLocations: []iFileSystemLocation{
+		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
+			Identifier: jsii.String("myidentifier2"),
+			Location: jsii.String("myclodation.mydnsroot.com:/loc"),
+			MountPoint: jsii.String("/media"),
+			MountOptions: jsii.String("opts"),
 		}),
 	},
 })
@@ -745,11 +847,11 @@ or `undefined` if batch builds could not be enabled, for example if the project 
 var source source
 
 
-project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	source: source,
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	Source: Source,
 })
 
-if project.enableBatchBuilds() {
+if project.EnableBatchBuilds() {
 	fmt.Println("Batch builds were enabled")
 }
 ```
@@ -762,8 +864,8 @@ The default is 60 minutes.
 An example of overriding the default follows.
 
 ```go
-codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	timeout: awscdk.Duration.minutes(jsii.Number(90)),
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
 })
 ```
 
@@ -773,8 +875,8 @@ As an example, to allow your Project to queue for up to thirty (30) minutes befo
 use the following code.
 
 ```go
-codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	queuedTimeout: awscdk.Duration.minutes(jsii.Number(30)),
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	QueuedTimeout: awscdk.Duration_Minutes(jsii.Number(30)),
 })
 ```
 
@@ -785,7 +887,7 @@ It is possible to limit the maximum concurrent builds to value between 1 and the
 By default there is no explicit limit.
 
 ```go
-codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	concurrentBuildLimit: jsii.Number(1),
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	ConcurrentBuildLimit: jsii.Number(1),
 })
 ```

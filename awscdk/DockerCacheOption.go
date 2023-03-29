@@ -1,0 +1,41 @@
+// Version 2 of the AWS Cloud Development Kit library
+package awscdk
+
+
+// Options for configuring the Docker cache backend.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dockerCacheOption := &DockerCacheOption{
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	Params: map[string]*string{
+//   		"paramsKey": jsii.String("params"),
+//   	},
+//   }
+//
+type DockerCacheOption struct {
+	// The type of cache to use.
+	//
+	// Refer to https://docs.docker.com/build/cache/backends/ for full list of backends.
+	//
+	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
+	//   "registry"
+	//
+	Type *string `field:"required" json:"type" yaml:"type"`
+	// Any parameters to pass into the docker cache backend configuration.
+	//
+	// Refer to https://docs.docker.com/build/cache/backends/ for cache backend configuration.
+	//
+	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
+	//   {ref: `12345678.dkr.ecr.us-west-2.amazonaws.com/cache:${branch}`, mode"max"}
+	//
+	Params *map[string]*string `field:"optional" json:"params" yaml:"params"`
+}
+
