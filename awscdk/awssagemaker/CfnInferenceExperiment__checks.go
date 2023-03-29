@@ -181,6 +181,8 @@ func validateCfnInferenceExperiment_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnInferenceExperiment) validateSetDataStorageConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInferenceExperiment_DataStorageConfigProperty:
 		val := val.(*CfnInferenceExperiment_DataStorageConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetDataStorageConfigParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInferenceExperiment_DataStorageConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInferenceExperiment_DataStorageConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetModelVariantsParameters(va
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInferenceExperiment_ModelVariantConfigProperty:
 				v := v.(*CfnInferenceExperiment_ModelVariantConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetModelVariantsParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInferenceExperiment_ModelVariantConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInferenceExperiment_ModelVariantConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -246,6 +246,8 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetModelVariantsParameters(va
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInferenceExperiment_ModelVariantConfigProperty:
 				v := v.(*CfnInferenceExperiment_ModelVariantConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -257,11 +259,9 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetModelVariantsParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInferenceExperiment_ModelVariantConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInferenceExperiment_ModelVariantConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -292,6 +292,8 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetRoleArnParameters(val *str
 
 func (j *jsiiProxy_CfnInferenceExperiment) validateSetScheduleParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInferenceExperiment_InferenceExperimentScheduleProperty:
 		val := val.(*CfnInferenceExperiment_InferenceExperimentScheduleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -303,11 +305,9 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetScheduleParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInferenceExperiment_InferenceExperimentScheduleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInferenceExperiment_InferenceExperimentScheduleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -316,6 +316,8 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetScheduleParameters(val int
 
 func (j *jsiiProxy_CfnInferenceExperiment) validateSetShadowModeConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInferenceExperiment_ShadowModeConfigProperty:
 		val := val.(*CfnInferenceExperiment_ShadowModeConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -327,11 +329,9 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetShadowModeConfigParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInferenceExperiment_ShadowModeConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInferenceExperiment_ShadowModeConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

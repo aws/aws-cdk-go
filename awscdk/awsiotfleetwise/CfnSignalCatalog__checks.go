@@ -181,6 +181,8 @@ func validateCfnSignalCatalog_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnSignalCatalog) validateSetNodeCountsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSignalCatalog_NodeCountsProperty:
 		val := val.(*CfnSignalCatalog_NodeCountsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnSignalCatalog) validateSetNodeCountsParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSignalCatalog_NodeCountsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSignalCatalog_NodeCountsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnSignalCatalog) validateSetNodesParameters(val interface{})
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSignalCatalog_NodeProperty:
 				v := v.(*CfnSignalCatalog_NodeProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnSignalCatalog) validateSetNodesParameters(val interface{})
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSignalCatalog_NodeProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSignalCatalog_NodeProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -235,6 +235,8 @@ func (j *jsiiProxy_CfnSignalCatalog) validateSetNodesParameters(val interface{})
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSignalCatalog_NodeProperty:
 				v := v.(*CfnSignalCatalog_NodeProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -246,11 +248,9 @@ func (j *jsiiProxy_CfnSignalCatalog) validateSetNodesParameters(val interface{})
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSignalCatalog_NodeProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSignalCatalog_NodeProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

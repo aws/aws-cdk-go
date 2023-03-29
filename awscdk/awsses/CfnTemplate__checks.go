@@ -181,6 +181,8 @@ func validateCfnTemplate_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnTemplate) validateSetTemplateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTemplate_TemplateProperty:
 		val := val.(*CfnTemplate_TemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnTemplate) validateSetTemplateParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTemplate_TemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTemplate_TemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 

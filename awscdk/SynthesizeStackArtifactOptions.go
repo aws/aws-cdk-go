@@ -50,10 +50,10 @@ type SynthesizeStackArtifactOptions struct {
 	// Only used if `requiresBootstrapStackVersion` is set.
 	//
 	// - If this value is not set, the bootstrap stack name must be known at
-	//    deployment time so the stack version can be looked up from the stack
-	//    outputs.
+	//   deployment time so the stack version can be looked up from the stack
+	//   outputs.
 	// - If this value is set, the bootstrap stack can have any name because
-	//    we won't need to look it up.
+	//   we won't need to look it up.
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// The role that is passed to CloudFormation to execute the change set.
 	CloudFormationExecutionRoleArn *string `field:"optional" json:"cloudFormationExecutionRoleArn" yaml:"cloudFormationExecutionRoleArn"`

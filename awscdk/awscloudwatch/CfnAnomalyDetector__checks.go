@@ -181,6 +181,8 @@ func validateCfnAnomalyDetector_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnAnomalyDetector) validateSetConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnomalyDetector_ConfigurationProperty:
 		val := val.(*CfnAnomalyDetector_ConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnomalyDetector_ConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnomalyDetector_ConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAnomalyDetector_DimensionProperty:
 				v := v.(*CfnAnomalyDetector_DimensionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnomalyDetector_DimensionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAnomalyDetector_DimensionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -235,6 +235,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAnomalyDetector_DimensionProperty:
 				v := v.(*CfnAnomalyDetector_DimensionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -246,11 +248,9 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnomalyDetector_DimensionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAnomalyDetector_DimensionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -265,6 +265,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 
 func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricMathAnomalyDetectorParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnomalyDetector_MetricMathAnomalyDetectorProperty:
 		val := val.(*CfnAnomalyDetector_MetricMathAnomalyDetectorProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -276,11 +278,9 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricMathAnomalyDetectorParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnomalyDetector_MetricMathAnomalyDetectorProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnomalyDetector_MetricMathAnomalyDetectorProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,6 +289,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricMathAnomalyDetectorParam
 
 func (j *jsiiProxy_CfnAnomalyDetector) validateSetSingleMetricAnomalyDetectorParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty:
 		val := val.(*CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -300,11 +302,9 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetSingleMetricAnomalyDetectorPar
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty; received %#v (a %T)", val, val)
 		}
 	}
 

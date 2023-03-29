@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetAllowedOAuthFlowsUserPoolClient
 
 func (j *jsiiProxy_CfnUserPoolClient) validateSetAnalyticsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPoolClient_AnalyticsConfigurationProperty:
 		val := val.(*CfnUserPoolClient_AnalyticsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetAnalyticsConfigurationParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPoolClient_AnalyticsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolClient_AnalyticsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -273,6 +273,8 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetGenerateSecretParameters(val in
 
 func (j *jsiiProxy_CfnUserPoolClient) validateSetTokenValidityUnitsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPoolClient_TokenValidityUnitsProperty:
 		val := val.(*CfnUserPoolClient_TokenValidityUnitsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -284,11 +286,9 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetTokenValidityUnitsParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPoolClient_TokenValidityUnitsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolClient_TokenValidityUnitsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

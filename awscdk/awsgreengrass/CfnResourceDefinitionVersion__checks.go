@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) validateSetResourcesParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnResourceDefinitionVersion_ResourceInstanceProperty:
 				v := v.(*CfnResourceDefinitionVersion_ResourceInstanceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) validateSetResourcesParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnResourceDefinitionVersion_ResourceInstanceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnResourceDefinitionVersion_ResourceInstanceProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) validateSetResourcesParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnResourceDefinitionVersion_ResourceInstanceProperty:
 				v := v.(*CfnResourceDefinitionVersion_ResourceInstanceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) validateSetResourcesParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnResourceDefinitionVersion_ResourceInstanceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnResourceDefinitionVersion_ResourceInstanceProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

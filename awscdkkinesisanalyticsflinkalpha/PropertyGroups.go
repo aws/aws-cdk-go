@@ -5,21 +5,14 @@ package awscdkkinesisanalyticsflinkalpha
 // Interface for building AWS::KinesisAnalyticsV2::Application PropertyGroup configuration.
 //
 // Example:
-//   var bucket bucket
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import kinesisanalytics_flink_alpha "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
 //
-//   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
-//   	PropertyGroups: &PropertyGroups{
-//   		FlinkApplicationProperties: map[string]*string{
-//   			"inputStreamName": jsii.String("my-input-kinesis-stream"),
-//   			"outputStreamName": jsii.String("my-output-kinesis-stream"),
-//   		},
-//   	},
-//   	// ...
-//   	Runtime: flink.Runtime_FLINK_1_15(),
-//   	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
-//   })
+//   propertyGroups := &PropertyGroups{
+//   }
 //
-// Experimental.
+// Deprecated: Use raw property bags instead (object literals, `Map<String,Object>`, etc... )
 type PropertyGroups struct {
 }
 

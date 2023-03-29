@@ -6648,6 +6648,8 @@ func init() {
 			"R6G": InstanceClass_R6G,
 			"MEMORY6_GRAVITON2_NVME_DRIVE": InstanceClass_MEMORY6_GRAVITON2_NVME_DRIVE,
 			"R6GD": InstanceClass_R6GD,
+			"MEMORY7_GRAVITON": InstanceClass_MEMORY7_GRAVITON,
+			"R7G": InstanceClass_R7G,
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"C3": InstanceClass_C3,
 			"COMPUTE4": InstanceClass_COMPUTE4,
@@ -6754,6 +6756,8 @@ func init() {
 			"M6A": InstanceClass_M6A,
 			"STANDARD6_GRAVITON2_NVME_DRIVE": InstanceClass_STANDARD6_GRAVITON2_NVME_DRIVE,
 			"M6GD": InstanceClass_M6GD,
+			"STANDARD7_GRAVITON": InstanceClass_STANDARD7_GRAVITON,
+			"M7G": InstanceClass_M7G,
 			"HIGH_COMPUTE_MEMORY1": InstanceClass_HIGH_COMPUTE_MEMORY1,
 			"Z1D": InstanceClass_Z1D,
 			"INFERENCE1": InstanceClass_INFERENCE1,
@@ -7492,6 +7496,10 @@ func init() {
 			"VPC_PEERING_CONNECTION": RouterType_VPC_PEERING_CONNECTION,
 			"VPC_ENDPOINT": RouterType_VPC_ENDPOINT,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.RuleScope",
+		reflect.TypeOf((*RuleScope)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.S3DestinationOptions",

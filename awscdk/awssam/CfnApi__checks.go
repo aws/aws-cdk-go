@@ -181,6 +181,8 @@ func validateCfnApi_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnApi) validateSetAccessLogSettingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_AccessLogSettingProperty:
 		val := val.(*CfnApi_AccessLogSettingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnApi) validateSetAccessLogSettingParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApi_AccessLogSettingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApi_AccessLogSettingProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnApi) validateSetAccessLogSettingParameters(val interface{}
 
 func (j *jsiiProxy_CfnApi) validateSetAuthParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_AuthProperty:
 		val := val.(*CfnApi_AuthProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnApi) validateSetAuthParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApi_AuthProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApi_AuthProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -246,6 +246,8 @@ func (j *jsiiProxy_CfnApi) validateSetCacheClusterEnabledParameters(val interfac
 
 func (j *jsiiProxy_CfnApi) validateSetCanarySettingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_CanarySettingProperty:
 		val := val.(*CfnApi_CanarySettingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -257,11 +259,9 @@ func (j *jsiiProxy_CfnApi) validateSetCanarySettingParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApi_CanarySettingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApi_CanarySettingProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -274,6 +274,8 @@ func (j *jsiiProxy_CfnApi) validateSetCorsParameters(val interface{}) error {
 		// ok
 	case string:
 		// ok
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_CorsConfigurationProperty:
 		val := val.(*CfnApi_CorsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -285,11 +287,9 @@ func (j *jsiiProxy_CfnApi) validateSetCorsParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *string, *CfnApi_CorsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *string, awscdk.IResolvable, *CfnApi_CorsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -310,6 +310,8 @@ func (j *jsiiProxy_CfnApi) validateSetDefinitionUriParameters(val interface{}) e
 		// ok
 	case string:
 		// ok
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_S3LocationProperty:
 		val := val.(*CfnApi_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -321,11 +323,9 @@ func (j *jsiiProxy_CfnApi) validateSetDefinitionUriParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *string, *CfnApi_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *string, awscdk.IResolvable, *CfnApi_S3LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -351,6 +351,8 @@ func (j *jsiiProxy_CfnApi) validateSetDisableExecuteApiEndpointParameters(val in
 
 func (j *jsiiProxy_CfnApi) validateSetDomainParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_DomainConfigurationProperty:
 		val := val.(*CfnApi_DomainConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -362,11 +364,9 @@ func (j *jsiiProxy_CfnApi) validateSetDomainParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApi_DomainConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApi_DomainConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -379,6 +379,8 @@ func (j *jsiiProxy_CfnApi) validateSetEndpointConfigurationParameters(val interf
 		// ok
 	case string:
 		// ok
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApi_EndpointConfigurationProperty:
 		val := val.(*CfnApi_EndpointConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -390,11 +392,9 @@ func (j *jsiiProxy_CfnApi) validateSetEndpointConfigurationParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *string, *CfnApi_EndpointConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *string, awscdk.IResolvable, *CfnApi_EndpointConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

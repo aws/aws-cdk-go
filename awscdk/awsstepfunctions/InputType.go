@@ -16,8 +16,8 @@ const (
 	//
 	// example:
 	// {
-	//   literal: 'literal',
-	//   SomeInput: sfn.JsonPath.stringAt('$.someField')
+	//  literal: 'literal',
+	//  SomeInput: sfn.JsonPath.stringAt('$.someField')
 	// }.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html
 	//

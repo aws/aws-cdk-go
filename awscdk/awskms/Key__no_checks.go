@@ -44,6 +44,14 @@ func (k *jsiiProxy_Key) validateGrantEncryptDecryptParameters(grantee awsiam.IGr
 	return nil
 }
 
+func (k *jsiiProxy_Key) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (k *jsiiProxy_Key) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func validateKey_FromCfnKeyParameters(cfnKey CfnKey) error {
 	return nil
 }

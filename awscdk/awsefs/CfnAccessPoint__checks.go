@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetFileSystemIdParameters(val *string
 
 func (j *jsiiProxy_CfnAccessPoint) validateSetPosixUserParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccessPoint_PosixUserProperty:
 		val := val.(*CfnAccessPoint_PosixUserProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetPosixUserParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccessPoint_PosixUserProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccessPoint_PosixUserProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetPosixUserParameters(val interface{
 
 func (j *jsiiProxy_CfnAccessPoint) validateSetRootDirectoryParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccessPoint_RootDirectoryProperty:
 		val := val.(*CfnAccessPoint_RootDirectoryProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetRootDirectoryParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccessPoint_RootDirectoryProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccessPoint_RootDirectoryProperty; received %#v (a %T)", val, val)
 		}
 	}
 

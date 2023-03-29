@@ -16,7 +16,7 @@ import (
 //
 // ```text
 // afterBundling(inputDir: string, outputDir: string): string[]{
-//    return [`cp ${inputDir}/my-binary.node ${outputDir}`];
+//   return [`cp ${inputDir}/my-binary.node ${outputDir}`];
 // }
 // ```.
 type ICommandHooks interface {

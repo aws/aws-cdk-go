@@ -17,6 +17,7 @@ package awsservicecatalog
 //   	Description: jsii.String("description"),
 //   	DisableTemplateValidation: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
 //   }
 //
 type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
@@ -38,5 +39,7 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	//
 	// No spaces are allowed.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.Type`.
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

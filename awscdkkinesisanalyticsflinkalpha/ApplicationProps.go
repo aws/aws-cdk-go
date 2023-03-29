@@ -83,7 +83,7 @@ type ApplicationProps struct {
 	// You can use these property groups to pass
 	// arbitrary runtime configuration values to your Flink app.
 	// Experimental.
-	PropertyGroups *PropertyGroups `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
+	PropertyGroups *map[string]*map[string]*string `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// Provide a RemovalPolicy to override the default.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`

@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceParameters(val interface{}) error {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlow_SourceProperty:
 		val := val.(*CfnFlow_SourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlow_SourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlow_SourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,6 +216,8 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceParameters(val interface{}) error {
 
 func (j *jsiiProxy_CfnFlow) validateSetSourceFailoverConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlow_FailoverConfigProperty:
 		val := val.(*CfnFlow_FailoverConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -227,11 +229,9 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFailoverConfigParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlow_FailoverConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlow_FailoverConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

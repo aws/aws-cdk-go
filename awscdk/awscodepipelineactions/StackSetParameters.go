@@ -41,18 +41,18 @@ func NewStackSetParameters_Override(s StackSetParameters) {
 //
 // ```
 // [
-//      {
-//          "ParameterKey": "BucketName",
-//          "ParameterValue": "my-bucket"
-//      },
-//      {
-//          "ParameterKey": "Asset1",
-//          "ParameterValue": "true"
-//      },
-//      {
-//          "ParameterKey": "Asset2",
-//          "UsePreviousValue": true
-//      }
+//     {
+//         "ParameterKey": "BucketName",
+//         "ParameterValue": "my-bucket"
+//     },
+//     {
+//         "ParameterKey": "Asset1",
+//         "ParameterValue": "true"
+//     },
+//     {
+//         "ParameterKey": "Asset2",
+//         "UsePreviousValue": true
+//     }
 // ]
 // ```
 //

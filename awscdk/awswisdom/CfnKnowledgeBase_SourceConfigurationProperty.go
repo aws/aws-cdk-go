@@ -11,6 +11,8 @@ package awswisdom
 //   sourceConfigurationProperty := &SourceConfigurationProperty{
 //   	AppIntegrations: &AppIntegrationsConfigurationProperty{
 //   		AppIntegrationArn: jsii.String("appIntegrationArn"),
+//
+//   		// the properties below are optional
 //   		ObjectFields: []*string{
 //   			jsii.String("objectFields"),
 //   		},

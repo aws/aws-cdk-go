@@ -181,6 +181,8 @@ func validateCfnVdmAttributes_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnVdmAttributes) validateSetDashboardAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnVdmAttributes_DashboardAttributesProperty:
 		val := val.(*CfnVdmAttributes_DashboardAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnVdmAttributes) validateSetDashboardAttributesParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnVdmAttributes_DashboardAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVdmAttributes_DashboardAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnVdmAttributes) validateSetDashboardAttributesParameters(va
 
 func (j *jsiiProxy_CfnVdmAttributes) validateSetGuardianAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnVdmAttributes_GuardianAttributesProperty:
 		val := val.(*CfnVdmAttributes_GuardianAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnVdmAttributes) validateSetGuardianAttributesParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnVdmAttributes_GuardianAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVdmAttributes_GuardianAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -201,6 +201,8 @@ func (j *jsiiProxy_CfnReportGroup) validateSetExportConfigParameters(val interfa
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnReportGroup_ReportExportConfigProperty:
 		val := val.(*CfnReportGroup_ReportExportConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -212,11 +214,9 @@ func (j *jsiiProxy_CfnReportGroup) validateSetExportConfigParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnReportGroup_ReportExportConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnReportGroup_ReportExportConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

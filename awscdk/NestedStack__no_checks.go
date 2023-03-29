@@ -65,6 +65,10 @@ func (n *jsiiProxy_NestedStack) validateToJsonStringParameters(obj interface{}) 
 	return nil
 }
 
+func (n *jsiiProxy_NestedStack) validateToYamlStringParameters(obj interface{}) error {
+	return nil
+}
+
 func validateNestedStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

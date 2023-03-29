@@ -22,11 +22,11 @@ type ScalingInterval struct {
 	// The number is interpreted differently based on AdjustmentType:
 	//
 	// - ChangeInCapacity: add the adjustment to the current capacity.
-	//   The number can be positive or negative.
+	//  The number can be positive or negative.
 	// - PercentChangeInCapacity: add or remove the given percentage of the current
-	//    capacity to itself. The number can be in the range [-100..100].
+	//   capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
-	//    be positive.
+	//   be positive.
 	Change *float64 `field:"required" json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//

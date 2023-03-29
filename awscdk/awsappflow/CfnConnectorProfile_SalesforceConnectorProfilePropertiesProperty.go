@@ -19,7 +19,29 @@ type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `field:"optional" json:"instanceUrl" yaml:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment.
 	IsSandboxEnvironment interface{} `field:"optional" json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
-	// `CfnConnectorProfile.SalesforceConnectorProfilePropertiesProperty.usePrivateLinkForMetadataAndAuthorization`.
+	// If the connection mode for the connector profile is private, this parameter sets whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce.
+	//
+	// Amazon AppFlow sends private calls through AWS PrivateLink . These calls travel through AWS infrastructure without being exposed to the public internet.
+	//
+	// Set either of the following values:
+	//
+	// - **true** - Amazon AppFlow sends all calls to Salesforce over the private network.
+	//
+	// These private calls are:
+	//
+	// - Calls to get metadata about your Salesforce records. This metadata describes your Salesforce objects and their fields.
+	// - Calls to get or refresh access tokens that allow Amazon AppFlow to access your Salesforce records.
+	// - Calls to transfer your Salesforce records as part of a flow run.
+	// - **false** - The default value. Amazon AppFlow sends some calls to Salesforce privately and other calls over the public internet.
+	//
+	// The public calls are:
+	//
+	// - Calls to get metadata about your Salesforce records.
+	// - Calls to get or refresh access tokens.
+	//
+	// The private calls are:
+	//
+	// - Calls to transfer your Salesforce records as part of a flow run.
 	UsePrivateLinkForMetadataAndAuthorization interface{} `field:"optional" json:"usePrivateLinkForMetadataAndAuthorization" yaml:"usePrivateLinkForMetadataAndAuthorization"`
 }
 

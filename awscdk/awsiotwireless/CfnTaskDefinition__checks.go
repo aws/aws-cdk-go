@@ -201,6 +201,8 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetAutoCreateTasksParameters(val i
 
 func (j *jsiiProxy_CfnTaskDefinition) validateSetLoRaWanUpdateGatewayTaskEntryParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty:
 		val := val.(*CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -212,11 +214,9 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetLoRaWanUpdateGatewayTaskEntryPa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -225,6 +225,8 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetLoRaWanUpdateGatewayTaskEntryPa
 
 func (j *jsiiProxy_CfnTaskDefinition) validateSetUpdateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty:
 		val := val.(*CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -236,11 +238,9 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetUpdateParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty; received %#v (a %T)", val, val)
 		}
 	}
 

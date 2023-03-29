@@ -59,21 +59,23 @@ importedFileSystem := efs.FileSystem_FromFileSystemAttributes(this, jsii.String(
 You can use both IAM identity policies and resource policies to control client access to Amazon EFS resources in a way that is scalable and optimized for cloud environments. Using IAM, you can permit clients to perform specific actions on a file system, including read-only, write, and root access.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-myFileSystemPolicy := NewPolicyDocument(map[string][]interface{}{
-	"statements": []interface{}{
-		NewPolicyStatement(map[string]interface{}{
-			"actions": []*string{
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
 				jsii.String("elasticfilesystem:ClientWrite"),
 				jsii.String("elasticfilesystem:ClientMount"),
 			},
-			"principals": []interface{}{
-				NewAccountRootPrincipal(),
+			Principals: []iPrincipal{
+				iam.NewAccountRootPrincipal(),
 			},
-			"resources": []*string{
+			Resources: []*string{
 				jsii.String("*"),
 			},
-			"conditions": map[string]map[string]*string{
+			Conditions: map[string]interface{}{
 				"Bool": map[string]*string{
 					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
 				},
@@ -86,6 +88,20 @@ fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSyste
 	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
 	FileSystemPolicy: myFileSystemPolicy,
 })
+```
+
+Alternatively, a resource policy can be added later using `addToResourcePolicy(statement)`. Note that this will not work with imported FileSystem.
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+
+var statement policyStatement
+
+fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
+	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
+})
+
+fileSystem.addToResourcePolicy(statement)
 ```
 
 ### Permissions

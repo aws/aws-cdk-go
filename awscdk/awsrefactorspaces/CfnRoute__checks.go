@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnRoute) validateSetApplicationIdentifierParameters(val *str
 
 func (j *jsiiProxy_CfnRoute) validateSetDefaultRouteParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRoute_DefaultRouteInputProperty:
 		val := val.(*CfnRoute_DefaultRouteInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnRoute) validateSetDefaultRouteParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRoute_DefaultRouteInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRoute_DefaultRouteInputProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -212,6 +212,14 @@ func (j *jsiiProxy_CfnRoute) validateSetDefaultRouteParameters(val interface{}) 
 }
 
 func (j *jsiiProxy_CfnRoute) validateSetEnvironmentIdentifierParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnRoute) validateSetRouteTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
@@ -229,6 +237,8 @@ func (j *jsiiProxy_CfnRoute) validateSetServiceIdentifierParameters(val *string)
 
 func (j *jsiiProxy_CfnRoute) validateSetUriPathRouteParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRoute_UriPathRouteInputProperty:
 		val := val.(*CfnRoute_UriPathRouteInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +250,9 @@ func (j *jsiiProxy_CfnRoute) validateSetUriPathRouteParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRoute_UriPathRouteInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRoute_UriPathRouteInputProperty; received %#v (a %T)", val, val)
 		}
 	}
 

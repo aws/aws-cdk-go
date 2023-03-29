@@ -195,6 +195,8 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupEgressParameters(va
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSecurityGroup_EgressProperty:
 				v := v.(*CfnSecurityGroup_EgressProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -206,11 +208,9 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupEgressParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSecurityGroup_EgressProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSecurityGroup_EgressProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -219,6 +219,8 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupEgressParameters(va
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSecurityGroup_EgressProperty:
 				v := v.(*CfnSecurityGroup_EgressProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -230,11 +232,9 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupEgressParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSecurityGroup_EgressProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSecurityGroup_EgressProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -255,6 +255,8 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupIngressParameters(v
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSecurityGroup_IngressProperty:
 				v := v.(*CfnSecurityGroup_IngressProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -266,11 +268,9 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupIngressParameters(v
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSecurityGroup_IngressProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSecurityGroup_IngressProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -279,6 +279,8 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupIngressParameters(v
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSecurityGroup_IngressProperty:
 				v := v.(*CfnSecurityGroup_IngressProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -290,11 +292,9 @@ func (j *jsiiProxy_CfnSecurityGroup) validateSetSecurityGroupIngressParameters(v
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSecurityGroup_IngressProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSecurityGroup_IngressProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

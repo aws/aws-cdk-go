@@ -181,6 +181,8 @@ func validateCfnEnvironment_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnEnvironment) validateSetFederationParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEnvironment_FederationParametersProperty:
 		val := val.(*CfnEnvironment_FederationParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnEnvironment) validateSetFederationParametersParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEnvironment_FederationParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEnvironment_FederationParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnEnvironment) validateSetNameParameters(val *string) error 
 
 func (j *jsiiProxy_CfnEnvironment) validateSetSuperuserParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEnvironment_SuperuserParametersProperty:
 		val := val.(*CfnEnvironment_SuperuserParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnEnvironment) validateSetSuperuserParametersParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEnvironment_SuperuserParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEnvironment_SuperuserParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -206,6 +206,8 @@ func (j *jsiiProxy_CfnRemediationConfiguration) validateSetConfigRuleNameParamet
 
 func (j *jsiiProxy_CfnRemediationConfiguration) validateSetExecutionControlsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRemediationConfiguration_ExecutionControlsProperty:
 		val := val.(*CfnRemediationConfiguration_ExecutionControlsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -217,11 +219,9 @@ func (j *jsiiProxy_CfnRemediationConfiguration) validateSetExecutionControlsPara
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRemediationConfiguration_ExecutionControlsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRemediationConfiguration_ExecutionControlsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

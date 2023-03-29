@@ -49,8 +49,8 @@ type IRepository interface {
 	//
 	// Can be used in `docker push/pull`.
 	//
-	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
-	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
+	//    ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
+	//    ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
 	RepositoryUriForTagOrDigest(tagOrDigest *string) *string
 	// The ARN of the repository.
 	RepositoryArn() *string

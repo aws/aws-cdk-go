@@ -206,6 +206,8 @@ func (j *jsiiProxy_CfnWorkGroup) validateSetRecursiveDeleteOptionParameters(val 
 
 func (j *jsiiProxy_CfnWorkGroup) validateSetWorkGroupConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWorkGroup_WorkGroupConfigurationProperty:
 		val := val.(*CfnWorkGroup_WorkGroupConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -217,11 +219,9 @@ func (j *jsiiProxy_CfnWorkGroup) validateSetWorkGroupConfigurationParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWorkGroup_WorkGroupConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkGroup_WorkGroupConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

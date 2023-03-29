@@ -21,9 +21,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnEnvironment := awscdk.Aws_refactorspaces.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &CfnEnvironmentProps{
-//   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	NetworkFabricType: jsii.String("networkFabricType"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -134,20 +136,20 @@ type CfnEnvironment interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -437,6 +439,9 @@ func (j *jsiiProxy_CfnEnvironment)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironment)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -445,6 +450,9 @@ func (j *jsiiProxy_CfnEnvironment)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironment)SetNetworkFabricType(val *string) {
+	if err := j.validateSetNetworkFabricTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkFabricType",

@@ -181,6 +181,8 @@ func validateCfnEmailIdentity_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnEmailIdentity) validateSetConfigurationSetAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEmailIdentity_ConfigurationSetAttributesProperty:
 		val := val.(*CfnEmailIdentity_ConfigurationSetAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetConfigurationSetAttributesParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEmailIdentity_ConfigurationSetAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEmailIdentity_ConfigurationSetAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetConfigurationSetAttributesParame
 
 func (j *jsiiProxy_CfnEmailIdentity) validateSetDkimAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEmailIdentity_DkimAttributesProperty:
 		val := val.(*CfnEmailIdentity_DkimAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetDkimAttributesParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEmailIdentity_DkimAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEmailIdentity_DkimAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetDkimAttributesParameters(val int
 
 func (j *jsiiProxy_CfnEmailIdentity) validateSetDkimSigningAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEmailIdentity_DkimSigningAttributesProperty:
 		val := val.(*CfnEmailIdentity_DkimSigningAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetDkimSigningAttributesParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEmailIdentity_DkimSigningAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEmailIdentity_DkimSigningAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -261,6 +261,8 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetEmailIdentityParameters(val *str
 
 func (j *jsiiProxy_CfnEmailIdentity) validateSetFeedbackAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEmailIdentity_FeedbackAttributesProperty:
 		val := val.(*CfnEmailIdentity_FeedbackAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -272,11 +274,9 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetFeedbackAttributesParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEmailIdentity_FeedbackAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEmailIdentity_FeedbackAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -285,6 +285,8 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetFeedbackAttributesParameters(val
 
 func (j *jsiiProxy_CfnEmailIdentity) validateSetMailFromAttributesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEmailIdentity_MailFromAttributesProperty:
 		val := val.(*CfnEmailIdentity_MailFromAttributesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -296,11 +298,9 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetMailFromAttributesParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEmailIdentity_MailFromAttributesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEmailIdentity_MailFromAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

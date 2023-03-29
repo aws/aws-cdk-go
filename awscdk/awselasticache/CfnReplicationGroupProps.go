@@ -352,6 +352,8 @@ type CfnReplicationGroupProps struct {
 	// When setting `TransitEncryptionEnabled` to `true` , you can set your `TransitEncryptionMode` to `preferred` in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis clients to use encrypted connections you can modify the value to `required` to allow encrypted connections only.
 	//
 	// Setting `TransitEncryptionMode` to `required` is a two-step process that requires you to first set the `TransitEncryptionMode` to `preferred` , after that you can set `TransitEncryptionMode` to `required` .
+	//
+	// This process will not trigger the replacement of the replication group.
 	TransitEncryptionMode *string `field:"optional" json:"transitEncryptionMode" yaml:"transitEncryptionMode"`
 	// The ID of user group to associate with the replication group.
 	UserGroupIds *[]*string `field:"optional" json:"userGroupIds" yaml:"userGroupIds"`

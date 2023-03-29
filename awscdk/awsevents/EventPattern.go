@@ -15,20 +15,20 @@ package awsevents
 // It is important to remember the following about event pattern matching:
 //
 // - For a pattern to match an event, the event must contain all the field names
-//    listed in the pattern. The field names must appear in the event with the
-//    same nesting structure.
+//   listed in the pattern. The field names must appear in the event with the
+//   same nesting structure.
 //
 // - Other fields of the event not mentioned in the pattern are ignored;
-//    effectively, there is a ``"*": "*"`` wildcard for fields not mentioned.
+//   effectively, there is a ``"*": "*"`` wildcard for fields not mentioned.
 //
 // - The matching is exact (character-by-character), without case-folding or any
-//    other string normalization.
+//   other string normalization.
 //
 // - The values being matched follow JSON rules: Strings enclosed in quotes,
-//    numbers, and the unquoted keywords true, false, and null.
+//   numbers, and the unquoted keywords true, false, and null.
 //
 // - Number matching is at the string representation level. For example, 300,
-//    300.0, and 3.0e2 are not considered equal.
+//   300.0, and 3.0e2 are not considered equal.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"

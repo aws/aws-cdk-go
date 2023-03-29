@@ -84,6 +84,22 @@ func (j *jsiiProxy_CfnApplication) validateSetApiGatewayProxyParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetEnvironmentIdentifierParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetProxyTypeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetVpcIdParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnApplicationParameters(scope constructs.Construct, id *string, props *CfnApplicationProps) error {
 	return nil
 }

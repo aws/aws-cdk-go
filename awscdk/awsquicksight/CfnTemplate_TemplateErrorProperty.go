@@ -11,6 +11,11 @@ package awsquicksight
 //   templateErrorProperty := &TemplateErrorProperty{
 //   	Message: jsii.String("message"),
 //   	Type: jsii.String("type"),
+//   	ViolatedEntities: []interface{}{
+//   		&EntityProperty{
+//   			Path: jsii.String("path"),
+//   		},
+//   	},
 //   }
 //
 type CfnTemplate_TemplateErrorProperty struct {
@@ -18,5 +23,7 @@ type CfnTemplate_TemplateErrorProperty struct {
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Type of error.
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// `CfnTemplate.TemplateErrorProperty.ViolatedEntities`.
+	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

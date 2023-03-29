@@ -64,7 +64,7 @@ type CfnBuild interface {
 	Node() constructs.Node
 	// The operating system that you built the game server binaries to run on.
 	//
-	// This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+	// This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system isn't specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value can't be changed later.
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -140,20 +140,20 @@ type CfnBuild interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//

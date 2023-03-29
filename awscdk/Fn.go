@@ -454,7 +454,7 @@ func Fn_ParseDomainName(url *string) *string {
 
 // The ``Ref`` intrinsic function returns the value of the specified parameter or resource.
 //
-// Note that it doesn't validate the logicalName, it mainly serves paremeter/resource reference defined in a ``CfnInclude`` template.
+// Note that it doesn't validate the logicalName, it mainly serves parameter/resource reference defined in a ``CfnInclude`` template.
 func Fn_Ref(logicalName *string) *string {
 	_init_.Initialize()
 
@@ -528,9 +528,9 @@ func Fn_Select(index *float64, array *[]*string) *string {
 // This brings the following restrictions:
 //
 // - You must use `Fn.select(i, list)` to pick elements out of the list (you must not use
-//    `list[i]`).
+//   `list[i]`).
 // - You cannot add elements to the list, remove elements from the list,
-//    combine two such lists together, or take a slice of the list.
+//   combine two such lists together, or take a slice of the list.
 // - You cannot pass the list to constructs that do any of the above.
 //
 // The only valid operation with such a tokenized list is to pass it unmodified to a

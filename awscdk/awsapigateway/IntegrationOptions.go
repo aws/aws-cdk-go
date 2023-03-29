@@ -134,7 +134,7 @@ type IntegrationOptions struct {
 	// the following snippet:
 	//
 	// ```
-	//    { "application/json": "{ \"statusCode\": 200 }" }
+	//   { "application/json": "{ \"statusCode\": 200 }" }
 	// ```.
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//

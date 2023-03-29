@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnUser) validateSetHomeDirectoryMappingsParameters(val inter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnUser_HomeDirectoryMapEntryProperty:
 				v := v.(*CfnUser_HomeDirectoryMapEntryProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnUser) validateSetHomeDirectoryMappingsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnUser_HomeDirectoryMapEntryProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnUser_HomeDirectoryMapEntryProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnUser) validateSetHomeDirectoryMappingsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnUser_HomeDirectoryMapEntryProperty:
 				v := v.(*CfnUser_HomeDirectoryMapEntryProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnUser) validateSetHomeDirectoryMappingsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnUser_HomeDirectoryMapEntryProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnUser_HomeDirectoryMapEntryProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -241,6 +241,8 @@ func (j *jsiiProxy_CfnUser) validateSetHomeDirectoryMappingsParameters(val inter
 
 func (j *jsiiProxy_CfnUser) validateSetPosixProfileParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUser_PosixProfileProperty:
 		val := val.(*CfnUser_PosixProfileProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -252,11 +254,9 @@ func (j *jsiiProxy_CfnUser) validateSetPosixProfileParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUser_PosixProfileProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUser_PosixProfileProperty; received %#v (a %T)", val, val)
 		}
 	}
 

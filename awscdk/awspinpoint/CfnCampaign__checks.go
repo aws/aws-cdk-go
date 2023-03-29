@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetAdditionalTreatmentsParameters(val in
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCampaign_WriteTreatmentResourceProperty:
 				v := v.(*CfnCampaign_WriteTreatmentResourceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetAdditionalTreatmentsParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCampaign_WriteTreatmentResourceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_WriteTreatmentResourceProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetAdditionalTreatmentsParameters(val in
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCampaign_WriteTreatmentResourceProperty:
 				v := v.(*CfnCampaign_WriteTreatmentResourceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetAdditionalTreatmentsParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCampaign_WriteTreatmentResourceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_WriteTreatmentResourceProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -249,6 +249,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetApplicationIdParameters(val *string) 
 
 func (j *jsiiProxy_CfnCampaign) validateSetCampaignHookParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_CampaignHookProperty:
 		val := val.(*CfnCampaign_CampaignHookProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -260,11 +262,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetCampaignHookParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_CampaignHookProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_CampaignHookProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -273,6 +273,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetCampaignHookParameters(val interface{
 
 func (j *jsiiProxy_CfnCampaign) validateSetCustomDeliveryConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_CustomDeliveryConfigurationProperty:
 		val := val.(*CfnCampaign_CustomDeliveryConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -284,11 +286,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetCustomDeliveryConfigurationParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_CustomDeliveryConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_CustomDeliveryConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -314,6 +314,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetIsPausedParameters(val interface{}) e
 
 func (j *jsiiProxy_CfnCampaign) validateSetLimitsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_LimitsProperty:
 		val := val.(*CfnCampaign_LimitsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -325,11 +327,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetLimitsParameters(val interface{}) err
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_LimitsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_LimitsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -338,6 +338,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetLimitsParameters(val interface{}) err
 
 func (j *jsiiProxy_CfnCampaign) validateSetMessageConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_MessageConfigurationProperty:
 		val := val.(*CfnCampaign_MessageConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -349,11 +351,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetMessageConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_MessageConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_MessageConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -373,6 +373,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetScheduleParameters(val interface{}) e
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_ScheduleProperty:
 		val := val.(*CfnCampaign_ScheduleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -384,11 +386,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetScheduleParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_ScheduleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_ScheduleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -405,6 +405,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetSegmentIdParameters(val *string) erro
 
 func (j *jsiiProxy_CfnCampaign) validateSetTemplateConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_TemplateConfigurationProperty:
 		val := val.(*CfnCampaign_TemplateConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -416,11 +418,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetTemplateConfigurationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_TemplateConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_TemplateConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnEventIntegration) validateSetEventFilterParameters(val int
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventIntegration_EventFilterProperty:
 		val := val.(*CfnEventIntegration_EventFilterProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnEventIntegration) validateSetEventFilterParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventIntegration_EventFilterProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventIntegration_EventFilterProperty; received %#v (a %T)", val, val)
 		}
 	}
 

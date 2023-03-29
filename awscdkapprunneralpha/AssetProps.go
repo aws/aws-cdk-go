@@ -21,6 +21,7 @@ import (
 //   		},
 //   		Asset: imageAsset,
 //   	}),
+//   	AutoDeploymentsEnabled: jsii.Boolean(true),
 //   })
 //
 // Experimental.

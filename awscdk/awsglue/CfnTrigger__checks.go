@@ -190,6 +190,8 @@ func (j *jsiiProxy_CfnTrigger) validateSetActionsParameters(val interface{}) err
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTrigger_ActionProperty:
 				v := v.(*CfnTrigger_ActionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -201,11 +203,9 @@ func (j *jsiiProxy_CfnTrigger) validateSetActionsParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTrigger_ActionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTrigger_ActionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -214,6 +214,8 @@ func (j *jsiiProxy_CfnTrigger) validateSetActionsParameters(val interface{}) err
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTrigger_ActionProperty:
 				v := v.(*CfnTrigger_ActionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -225,11 +227,9 @@ func (j *jsiiProxy_CfnTrigger) validateSetActionsParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTrigger_ActionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTrigger_ActionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -244,6 +244,8 @@ func (j *jsiiProxy_CfnTrigger) validateSetActionsParameters(val interface{}) err
 
 func (j *jsiiProxy_CfnTrigger) validateSetEventBatchingConditionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTrigger_EventBatchingConditionProperty:
 		val := val.(*CfnTrigger_EventBatchingConditionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -255,11 +257,9 @@ func (j *jsiiProxy_CfnTrigger) validateSetEventBatchingConditionParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTrigger_EventBatchingConditionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTrigger_EventBatchingConditionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -268,6 +268,8 @@ func (j *jsiiProxy_CfnTrigger) validateSetEventBatchingConditionParameters(val i
 
 func (j *jsiiProxy_CfnTrigger) validateSetPredicateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTrigger_PredicateProperty:
 		val := val.(*CfnTrigger_PredicateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -279,11 +281,9 @@ func (j *jsiiProxy_CfnTrigger) validateSetPredicateParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTrigger_PredicateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTrigger_PredicateProperty; received %#v (a %T)", val, val)
 		}
 	}
 

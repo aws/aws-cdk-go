@@ -45,5 +45,25 @@ const (
 	//
 	// Valid usage: SIGN_VERIFY.
 	KeySpec_ECC_SECG_P256K1 KeySpec = "ECC_SECG_P256K1"
+	// Hash-Based Message Authentication Code as defined in RFC 2104 using the message digest function SHA224.
+	//
+	// Valid usage: GENERATE_VERIFY_MAC.
+	KeySpec_HMAC_224 KeySpec = "HMAC_224"
+	// Hash-Based Message Authentication Code as defined in RFC 2104 using the message digest function SHA256.
+	//
+	// Valid usage: GENERATE_VERIFY_MAC.
+	KeySpec_HMAC_256 KeySpec = "HMAC_256"
+	// Hash-Based Message Authentication Code as defined in RFC 2104 using the message digest function SHA384.
+	//
+	// Valid usage: GENERATE_VERIFY_MAC.
+	KeySpec_HMAC_384 KeySpec = "HMAC_384"
+	// Hash-Based Message Authentication Code as defined in RFC 2104 using the message digest function SHA512.
+	//
+	// Valid usage: GENERATE_VERIFY_MAC.
+	KeySpec_HMAC_512 KeySpec = "HMAC_512"
+	// Elliptic curve key spec available only in China Regions.
+	//
+	// Valid usage: ENCRYPT_DECRYPT and SIGN_VERIFY.
+	KeySpec_SM2 KeySpec = "SM2"
 )
 

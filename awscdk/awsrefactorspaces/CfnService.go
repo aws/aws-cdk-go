@@ -22,15 +22,15 @@ import (
 //
 //   cfnService := awscdk.Aws_refactorspaces.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
 //   	ApplicationIdentifier: jsii.String("applicationIdentifier"),
+//   	EndpointType: jsii.String("endpointType"),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	EndpointType: jsii.String("endpointType"),
 //   	LambdaEndpoint: &LambdaEndpointInputProperty{
 //   		Arn: jsii.String("arn"),
 //   	},
-//   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -161,20 +161,20 @@ type CfnService interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -515,6 +515,9 @@ func (j *jsiiProxy_CfnService)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnService)SetEndpointType(val *string) {
+	if err := j.validateSetEndpointTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"endpointType",
@@ -545,6 +548,9 @@ func (j *jsiiProxy_CfnService)SetLambdaEndpoint(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnService)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",

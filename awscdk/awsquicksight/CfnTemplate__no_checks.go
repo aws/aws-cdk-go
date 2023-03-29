@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTemplate) validateSetAwsAccountIdParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnTemplate) validateSetDefinitionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTemplate) validateSetPermissionsParameters(val interface{}) error {
 	return nil
 }

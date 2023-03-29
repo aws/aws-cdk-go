@@ -181,6 +181,8 @@ func validateCfnConnectorDefinition_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnConnectorDefinition) validateSetInitialVersionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnectorDefinition_ConnectorDefinitionVersionProperty:
 		val := val.(*CfnConnectorDefinition_ConnectorDefinitionVersionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnConnectorDefinition) validateSetInitialVersionParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnectorDefinition_ConnectorDefinitionVersionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnectorDefinition_ConnectorDefinitionVersionProperty; received %#v (a %T)", val, val)
 		}
 	}
 

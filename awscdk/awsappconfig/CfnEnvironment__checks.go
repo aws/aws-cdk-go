@@ -195,6 +195,8 @@ func (j *jsiiProxy_CfnEnvironment) validateSetMonitorsParameters(val interface{}
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEnvironment_MonitorsProperty:
 				v := v.(*CfnEnvironment_MonitorsProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -206,11 +208,9 @@ func (j *jsiiProxy_CfnEnvironment) validateSetMonitorsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEnvironment_MonitorsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEnvironment_MonitorsProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -219,6 +219,8 @@ func (j *jsiiProxy_CfnEnvironment) validateSetMonitorsParameters(val interface{}
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEnvironment_MonitorsProperty:
 				v := v.(*CfnEnvironment_MonitorsProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -230,11 +232,9 @@ func (j *jsiiProxy_CfnEnvironment) validateSetMonitorsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEnvironment_MonitorsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEnvironment_MonitorsProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

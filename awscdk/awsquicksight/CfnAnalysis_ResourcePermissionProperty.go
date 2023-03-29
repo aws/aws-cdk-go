@@ -13,6 +13,9 @@ package awsquicksight
 //   		jsii.String("actions"),
 //   	},
 //   	Principal: jsii.String("principal"),
+//
+//   	// the properties below are optional
+//   	Resource: jsii.String("resource"),
 //   }
 //
 type CfnAnalysis_ResourcePermissionProperty struct {
@@ -24,5 +27,7 @@ type CfnAnalysis_ResourcePermissionProperty struct {
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
+	// `CfnAnalysis.ResourcePermissionProperty.Resource`.
+	Resource *string `field:"optional" json:"resource" yaml:"resource"`
 }
 

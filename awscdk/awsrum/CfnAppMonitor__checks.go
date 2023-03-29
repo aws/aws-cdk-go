@@ -181,6 +181,8 @@ func validateCfnAppMonitor_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnAppMonitor) validateSetAppMonitorConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAppMonitor_AppMonitorConfigurationProperty:
 		val := val.(*CfnAppMonitor_AppMonitorConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnAppMonitor) validateSetAppMonitorConfigurationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAppMonitor_AppMonitorConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppMonitor_AppMonitorConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnAppMonitor) validateSetAppMonitorConfigurationParameters(v
 
 func (j *jsiiProxy_CfnAppMonitor) validateSetCustomEventsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAppMonitor_CustomEventsProperty:
 		val := val.(*CfnAppMonitor_CustomEventsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnAppMonitor) validateSetCustomEventsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAppMonitor_CustomEventsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppMonitor_CustomEventsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

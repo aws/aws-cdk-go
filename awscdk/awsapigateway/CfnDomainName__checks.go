@@ -181,6 +181,8 @@ func validateCfnDomainName_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDomainName) validateSetEndpointConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomainName_EndpointConfigurationProperty:
 		val := val.(*CfnDomainName_EndpointConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDomainName) validateSetEndpointConfigurationParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomainName_EndpointConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomainName_EndpointConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnDomainName) validateSetEndpointConfigurationParameters(val
 
 func (j *jsiiProxy_CfnDomainName) validateSetMutualTlsAuthenticationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomainName_MutualTlsAuthenticationProperty:
 		val := val.(*CfnDomainName_MutualTlsAuthenticationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnDomainName) validateSetMutualTlsAuthenticationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomainName_MutualTlsAuthenticationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomainName_MutualTlsAuthenticationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

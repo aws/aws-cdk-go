@@ -232,6 +232,8 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnIdentityPool_CognitoIdentityProviderProperty:
 				v := v.(*CfnIdentityPool_CognitoIdentityProviderProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -243,11 +245,9 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnIdentityPool_CognitoIdentityProviderProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_CognitoIdentityProviderProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -256,6 +256,8 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnIdentityPool_CognitoIdentityProviderProperty:
 				v := v.(*CfnIdentityPool_CognitoIdentityProviderProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -267,11 +269,9 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnIdentityPool_CognitoIdentityProviderProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_CognitoIdentityProviderProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -286,6 +286,8 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 
 func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnIdentityPool_CognitoStreamsProperty:
 		val := val.(*CfnIdentityPool_CognitoStreamsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -297,11 +299,9 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIdentityPool_CognitoStreamsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_CognitoStreamsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -310,6 +310,8 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val inte
 
 func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnIdentityPool_PushSyncProperty:
 		val := val.(*CfnIdentityPool_PushSyncProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -321,11 +323,9 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIdentityPool_PushSyncProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_PushSyncProperty; received %#v (a %T)", val, val)
 		}
 	}
 

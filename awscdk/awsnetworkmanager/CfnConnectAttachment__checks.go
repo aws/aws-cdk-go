@@ -200,6 +200,8 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetOptionsParameters(val interf
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnectAttachment_ConnectAttachmentOptionsProperty:
 		val := val.(*CfnConnectAttachment_ConnectAttachmentOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -211,11 +213,9 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetOptionsParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnectAttachment_ConnectAttachmentOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnectAttachment_ConnectAttachmentOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

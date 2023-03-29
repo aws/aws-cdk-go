@@ -200,6 +200,8 @@ func (j *jsiiProxy_CfnPartition) validateSetPartitionInputParameters(val interfa
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPartition_PartitionInputProperty:
 		val := val.(*CfnPartition_PartitionInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -211,11 +213,9 @@ func (j *jsiiProxy_CfnPartition) validateSetPartitionInputParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPartition_PartitionInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPartition_PartitionInputProperty; received %#v (a %T)", val, val)
 		}
 	}
 

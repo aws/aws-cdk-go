@@ -83,8 +83,8 @@ type IBucket interface {
 	// as needed. For example, you can add a condition that will restrict access only
 	// to an IPv4 range like this:
 	//
-	//      const grant = bucket.grantPublicAccess();
-	//      grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+	//     const grant = bucket.grantPublicAccess();
+	//     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
 	//
 	// Returns: The `iam.PolicyStatement` object, which can be used to apply e.g. conditions.
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
@@ -129,7 +129,7 @@ type IBucket interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the `grantPutAcl` method.
-	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
+	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant
 	// Defines a CloudWatch event that triggers when something happens to this bucket.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
@@ -408,7 +408,7 @@ func (i *jsiiProxy_IBucket) GrantReadWrite(identity awsiam.IGrantable, objectsKe
 	return returns
 }
 
-func (i *jsiiProxy_IBucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
+func (i *jsiiProxy_IBucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant {
 	if err := i.validateGrantWriteParameters(identity); err != nil {
 		panic(err)
 	}
@@ -417,7 +417,7 @@ func (i *jsiiProxy_IBucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPat
 	_jsii_.Invoke(
 		i,
 		"grantWrite",
-		[]interface{}{identity, objectsKeyPattern},
+		[]interface{}{identity, objectsKeyPattern, allowedActionPatterns},
 		&returns,
 	)
 

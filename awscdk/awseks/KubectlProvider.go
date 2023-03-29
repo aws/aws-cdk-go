@@ -34,10 +34,10 @@ type KubectlProvider interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.account` when the stack is defined. This can
-	//     either be a concrete account (e.g. `585695031111`) or the
-	//     `Aws.ACCOUNT_ID` token.
+	//    either be a concrete account (e.g. `585695031111`) or the
+	//    `Aws.ACCOUNT_ID` token.
 	// 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
-	//     `{ "Ref": "AWS::AccountId" }` encoded as a string token.
+	//    `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
 	// attempt to parse it to implement your logic. If you do, you must first
@@ -102,10 +102,10 @@ type KubectlProvider interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.region` when the stack is defined. This can
-	//     either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
-	//     token.
+	//    either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
+	//    token.
 	// 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
-	//     `{ "Ref": "AWS::Region" }` encoded as a string token.
+	//    `{ "Ref": "AWS::Region" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
 	// attempt to parse it to implement your logic. If you do, you must first
@@ -186,8 +186,8 @@ type KubectlProvider interface {
 	//
 	// The result will be:
 	//
-	//    <path.join('')><md5(path.join('/')>
-	//      "human"      "hash"
+	//   <path.join('')><md5(path.join('/')>
+	//     "human"      "hash"
 	//
 	// If the "human" part of the ID exceeds 240 characters, we simply trim it so
 	// the total ID doesn't exceed CloudFormation's 255 character limit.
@@ -197,20 +197,20 @@ type KubectlProvider interface {
 	// Special cases:
 	//
 	// - If the path only contains a single component (i.e. it's a top-level
-	//    resource), we won't add the hash to it. The hash is not needed for
-	//    disamiguation and also, it allows for a more straightforward migration an
-	//    existing CloudFormation template to a CDK stack without logical ID changes
-	//    (or renames).
+	//   resource), we won't add the hash to it. The hash is not needed for
+	//   disambiguation and also, it allows for a more straightforward migration an
+	//   existing CloudFormation template to a CDK stack without logical ID changes
+	//   (or renames).
 	// - For aesthetic reasons, if the last components of the path are the same
-	//    (i.e. `L1/L2/Pipeline/Pipeline`), they will be de-duplicated to make the
-	//    resulting human portion of the ID more pleasing: `L1L2Pipeline<HASH>`
-	//    instead of `L1L2PipelinePipeline<HASH>`
+	//   (i.e. `L1/L2/Pipeline/Pipeline`), they will be de-duplicated to make the
+	//   resulting human portion of the ID more pleasing: `L1L2Pipeline<HASH>`
+	//   instead of `L1L2PipelinePipeline<HASH>`
 	// - If a component is named "Default" it will be omitted from the path. This
-	//    allows refactoring higher level abstractions around constructs without affecting
-	//    the IDs of already deployed resources.
+	//   allows refactoring higher level abstractions around constructs without affecting
+	//   the IDs of already deployed resources.
 	// - If a component is named "Resource" it will be omitted from the user-visible
-	//    path, but included in the hash. This reduces visual noise in the human readable
-	//    part of the identifier.
+	//   path, but included in the hash. This reduces visual noise in the human readable
+	//   part of the identifier.
 	AllocateLogicalId(cfnElement awscdk.CfnElement) *string
 	// Create a CloudFormation Export for a string list value.
 	//
@@ -264,11 +264,11 @@ type KubectlProvider interface {
 	// ### Deployment 1: break the relationship
 	//
 	// - Make sure `consumerStack` no longer references `bucket.bucketName` (maybe the consumer
-	//    stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
-	//    remove the Lambda Function altogether).
+	//   stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
+	//   remove the Lambda Function altogether).
 	// - In the `ProducerStack` class, call `this.exportValue(this.bucket.bucketName)`. This
-	//    will make sure the CloudFormation Export continues to exist while the relationship
-	//    between the two stacks is being broken.
+	//   will make sure the CloudFormation Export continues to exist while the relationship
+	//   between the two stacks is being broken.
 	// - Deploy (this will effectively only change the `consumerStack`, but it's safe to deploy both).
 	//
 	// ### Deployment 2: remove the bucket resource
@@ -287,7 +287,7 @@ type KubectlProvider interface {
 	//
 	// The ARN will be formatted as follows:
 	//
-	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
+	//   arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 	//
 	// The required ARN pieces that are omitted will be taken from the stack that
 	// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
@@ -346,6 +346,8 @@ type KubectlProvider interface {
 	ToJsonString(obj interface{}, space *float64) *string
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Convert an object, potentially containing tokens, to a YAML string.
+	ToYamlString(obj interface{}) *string
 }
 
 // The jsii proxy struct for KubectlProvider
@@ -973,6 +975,22 @@ func (k *jsiiProxy_KubectlProvider) ToString() *string {
 		k,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_KubectlProvider) ToYamlString(obj interface{}) *string {
+	if err := k.validateToYamlStringParameters(obj); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		k,
+		"toYamlString",
+		[]interface{}{obj},
 		&returns,
 	)
 

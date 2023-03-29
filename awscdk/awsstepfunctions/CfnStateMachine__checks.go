@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionParameters(val interfac
 
 func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionS3LocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStateMachine_S3LocationProperty:
 		val := val.(*CfnStateMachine_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionS3LocationParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStateMachine_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStateMachine_S3LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -230,6 +230,8 @@ func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionSubstitutionsParameters
 
 func (j *jsiiProxy_CfnStateMachine) validateSetLoggingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStateMachine_LoggingConfigurationProperty:
 		val := val.(*CfnStateMachine_LoggingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -241,11 +243,9 @@ func (j *jsiiProxy_CfnStateMachine) validateSetLoggingConfigurationParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStateMachine_LoggingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStateMachine_LoggingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -262,6 +262,8 @@ func (j *jsiiProxy_CfnStateMachine) validateSetRoleArnParameters(val *string) er
 
 func (j *jsiiProxy_CfnStateMachine) validateSetTracingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStateMachine_TracingConfigurationProperty:
 		val := val.(*CfnStateMachine_TracingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -273,11 +275,9 @@ func (j *jsiiProxy_CfnStateMachine) validateSetTracingConfigurationParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStateMachine_TracingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStateMachine_TracingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

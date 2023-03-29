@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) validateSetFileSystemPathParame
 
 func (j *jsiiProxy_CfnDataRepositoryAssociation) validateSetS3Parameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataRepositoryAssociation_S3Property:
 		val := val.(*CfnDataRepositoryAssociation_S3Property)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) validateSetS3Parameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataRepositoryAssociation_S3Property, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataRepositoryAssociation_S3Property; received %#v (a %T)", val, val)
 		}
 	}
 

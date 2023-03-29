@@ -41,7 +41,7 @@ func (a *jsiiProxy_Application) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateShareApplicationParameters(shareOptions *ShareOptions) error {
+func (a *jsiiProxy_Application) validateShareApplicationParameters(id *string, shareOptions *ShareOptions) error {
 	return nil
 }
 

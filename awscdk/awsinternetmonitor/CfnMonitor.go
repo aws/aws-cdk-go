@@ -23,8 +23,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMonitor := awscdk.Aws_internetmonitor.NewCfnMonitor(this, jsii.String("MyCfnMonitor"), &CfnMonitorProps{
-//   	MaxCityNetworksToMonitor: jsii.Number(123),
 //   	MonitorName: jsii.String("monitorName"),
+//
+//   	// the properties below are optional
+//   	MaxCityNetworksToMonitor: jsii.Number(123),
 //   	Resources: []*string{
 //   		jsii.String("resources"),
 //   	},
@@ -172,20 +174,20 @@ type CfnMonitor interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -525,6 +527,9 @@ func (j *jsiiProxy_CfnMonitor)SetMaxCityNetworksToMonitor(val *float64) {
 }
 
 func (j *jsiiProxy_CfnMonitor)SetMonitorName(val *string) {
+	if err := j.validateSetMonitorNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"monitorName",

@@ -195,61 +195,33 @@ func (j *jsiiProxy_CfnAnalysis) validateSetAwsAccountIdParameters(val *string) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnAnalysis) validateSetErrorsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnAnalysis) validateSetDefinitionParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
-	case *[]interface{}:
-		val := val.(*[]interface{})
-		for idx_97dfc6, v := range *val {
-			switch v.(type) {
-			case *CfnAnalysis_AnalysisErrorProperty:
-				v := v.(*CfnAnalysis_AnalysisErrorProperty)
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case CfnAnalysis_AnalysisErrorProperty:
-				v_ := v.(CfnAnalysis_AnalysisErrorProperty)
-				v := &v_
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case awscdk.IResolvable:
-				// ok
-			default:
-				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnalysis_AnalysisErrorProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
-				}
-			}
+	case *CfnAnalysis_AnalysisDefinitionProperty:
+		val := val.(*CfnAnalysis_AnalysisDefinitionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
 		}
-	case []interface{}:
-		val_ := val.([]interface{})
+	case CfnAnalysis_AnalysisDefinitionProperty:
+		val_ := val.(CfnAnalysis_AnalysisDefinitionProperty)
 		val := &val_
-		for idx_97dfc6, v := range *val {
-			switch v.(type) {
-			case *CfnAnalysis_AnalysisErrorProperty:
-				v := v.(*CfnAnalysis_AnalysisErrorProperty)
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case CfnAnalysis_AnalysisErrorProperty:
-				v_ := v.(CfnAnalysis_AnalysisErrorProperty)
-				v := &v_
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case awscdk.IResolvable:
-				// ok
-			default:
-				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnalysis_AnalysisErrorProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
-				}
-			}
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
 		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_AnalysisDefinitionProperty; received %#v (a %T)", val, val)
 		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnAnalysis) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil
@@ -257,6 +229,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetErrorsParameters(val interface{}) err
 
 func (j *jsiiProxy_CfnAnalysis) validateSetParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnalysis_ParametersProperty:
 		val := val.(*CfnAnalysis_ParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -268,11 +242,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetParametersParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnalysis_ParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -287,6 +259,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAnalysis_ResourcePermissionProperty:
 				v := v.(*CfnAnalysis_ResourcePermissionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -298,11 +272,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnalysis_ResourcePermissionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ResourcePermissionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -311,6 +283,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAnalysis_ResourcePermissionProperty:
 				v := v.(*CfnAnalysis_ResourcePermissionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -322,11 +296,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnalysis_ResourcePermissionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ResourcePermissionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -340,10 +312,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 }
 
 func (j *jsiiProxy_CfnAnalysis) validateSetSourceEntityParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnalysis_AnalysisSourceEntityProperty:
 		val := val.(*CfnAnalysis_AnalysisSourceEntityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -355,11 +326,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetSourceEntityParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnalysis_AnalysisSourceEntityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_AnalysisSourceEntityProperty; received %#v (a %T)", val, val)
 		}
 	}
 

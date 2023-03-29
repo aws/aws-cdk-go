@@ -20,7 +20,9 @@ package awsgamelift
 type CfnFleet_IpPermissionProperty struct {
 	// A starting value for a range of allowed port numbers.
 	//
-	// For fleets using Windows and Linux builds, only ports 1026-60000 are valid.
+	// For fleets using Linux builds, only ports `22` and `1026-60000` are valid.
+	//
+	// For fleets using Windows builds, only ports `1026-60000` are valid.
 	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// A range of allowed IP addresses.
 	//
@@ -30,9 +32,11 @@ type CfnFleet_IpPermissionProperty struct {
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// An ending value for a range of allowed port numbers.
 	//
-	// Port numbers are end-inclusive. This value must be higher than `FromPort` .
+	// Port numbers are end-inclusive. This value must be equal to or greater than `FromPort` .
 	//
-	// For fleets using Windows and Linux builds, only ports 1026-60000 are valid.
+	// For fleets using Linux builds, only ports `22` and `1026-60000` are valid.
+	//
+	// For fleets using Windows builds, only ports `1026-60000` are valid.
 	ToPort *float64 `field:"required" json:"toPort" yaml:"toPort"`
 }
 

@@ -9,7 +9,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (i *jsiiProxy_IAttributeGroup) validateShareAttributeGroupParameters(shareOptions *ShareOptions) error {
+func (i *jsiiProxy_IAttributeGroup) validateShareAttributeGroupParameters(id *string, shareOptions *ShareOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if shareOptions == nil {
 		return fmt.Errorf("parameter shareOptions is required, but nil was provided")
 	}

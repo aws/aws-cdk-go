@@ -29,7 +29,7 @@ type CfnBuildProps struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The operating system that you built the game server binaries to run on.
 	//
-	// This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+	// This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system isn't specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value can't be changed later.
 	OperatingSystem *string `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`
 	// Information indicating where your game build files are stored.
 	//

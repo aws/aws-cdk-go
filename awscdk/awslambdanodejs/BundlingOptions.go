@@ -87,12 +87,12 @@ type BundlingOptions struct {
 	//
 	// ```text
 	// new NodejsFunction(scope, id, {
-	//    ...
-	//    bundling: {
-	//      esbuildArgs: {
-	//        "--log-limit": "0",
-	//      }
-	//    }
+	//   ...
+	//   bundling: {
+	//     esbuildArgs: {
+	//       "--log-limit": "0",
+	//     }
+	//   }
 	// });
 	// ```.
 	EsbuildArgs *map[string]interface{} `field:"optional" json:"esbuildArgs" yaml:"esbuildArgs"`
@@ -155,16 +155,16 @@ type BundlingOptions struct {
 	//
 	// ```text
 	// {
-	//    outputs: {
-	//      [path: string]: {
-	//        bytes: number
-	//        inputs: {
-	//          [path: string]: { bytesInOutput: number }
-	//        }
-	//        imports: { path: string }[]
-	//        exports: string[]
-	//      }
-	//    }
+	//   outputs: {
+	//     [path: string]: {
+	//       bytes: number
+	//       inputs: {
+	//         [path: string]: { bytesInOutput: number }
+	//       }
+	//       imports: { path: string }[]
+	//       exports: string[]
+	//     }
+	//   }
 	// }
 	// ```
 	// This data can then be analyzed by other tools. For example,

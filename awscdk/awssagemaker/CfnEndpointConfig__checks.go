@@ -181,6 +181,8 @@ func validateCfnEndpointConfig_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnEndpointConfig) validateSetAsyncInferenceConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpointConfig_AsyncInferenceConfigProperty:
 		val := val.(*CfnEndpointConfig_AsyncInferenceConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetAsyncInferenceConfigParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpointConfig_AsyncInferenceConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_AsyncInferenceConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetAsyncInferenceConfigParameters(
 
 func (j *jsiiProxy_CfnEndpointConfig) validateSetDataCaptureConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpointConfig_DataCaptureConfigProperty:
 		val := val.(*CfnEndpointConfig_DataCaptureConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetDataCaptureConfigParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpointConfig_DataCaptureConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_DataCaptureConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetDataCaptureConfigParameters(val
 
 func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpointConfig_ExplainerConfigProperty:
 		val := val.(*CfnEndpointConfig_ExplainerConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpointConfig_ExplainerConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_ExplainerConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -262,6 +262,8 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(va
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEndpointConfig_ProductionVariantProperty:
 				v := v.(*CfnEndpointConfig_ProductionVariantProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -273,11 +275,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEndpointConfig_ProductionVariantProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_ProductionVariantProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -286,6 +286,8 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(va
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEndpointConfig_ProductionVariantProperty:
 				v := v.(*CfnEndpointConfig_ProductionVariantProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -297,11 +299,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEndpointConfig_ProductionVariantProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_ProductionVariantProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -322,6 +322,8 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetShadowProductionVariantsParamet
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEndpointConfig_ProductionVariantProperty:
 				v := v.(*CfnEndpointConfig_ProductionVariantProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -333,11 +335,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetShadowProductionVariantsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEndpointConfig_ProductionVariantProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_ProductionVariantProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -346,6 +346,8 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetShadowProductionVariantsParamet
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEndpointConfig_ProductionVariantProperty:
 				v := v.(*CfnEndpointConfig_ProductionVariantProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -357,11 +359,9 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetShadowProductionVariantsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEndpointConfig_ProductionVariantProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_ProductionVariantProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

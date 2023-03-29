@@ -94,9 +94,9 @@ func Stats_Percentile(percentile *float64) *string {
 // Percentile rank (PR) is the percentage of values that meet a fixed threshold.
 //
 // - If two numbers are given, they define the lower and upper bounds in absolute values,
-//    respectively.
+//   respectively.
 // - If one number is given, it defines the upper bound (the lower bound is assumed to
-//    be 0).
+//   be 0).
 //
 // For example, `percentileRank(300)` returns the percentage of data points that have a value of 300 or less.
 // `percentileRank(100, 2000)` returns the percentage of data points that have a value between 100 and 2000.
@@ -178,9 +178,9 @@ func Stats_Tm(p1 *float64, p2 *float64) *string {
 // Trimmed count (TC) is the number of data points in the chosen range for a trimmed mean statistic.
 //
 // - If two numbers are given, they define the lower and upper bounds in percentages,
-//    respectively.
+//   respectively.
 // - If one number is given, it defines the upper bound (the lower bound is assumed to
-//    be 0).
+//   be 0).
 //
 // For example, `tc(90)` returns the number of data points not including any
 // data points that fall in the highest 10% of the values. `tc(10, 90)`
@@ -211,9 +211,9 @@ func Stats_TrimmedCount(p1 *float64, p2 *float64) *string {
 // decimal places. The numbers are percentages.
 //
 // - If two numbers are given, they define the lower and upper bounds in percentages,
-//    respectively.
+//   respectively.
 // - If one number is given, it defines the upper bound (the lower bound is assumed to
-//    be 0).
+//   be 0).
 //
 // For example, `tm(90)` calculates the average after removing the 10% of data
 // points with the highest values; `tm(10, 90)` calculates the average after removing the
@@ -241,9 +241,9 @@ func Stats_TrimmedMean(p1 *float64, p2 *float64) *string {
 // It is equivalent to `(Trimmed Mean) * (Trimmed count)`.
 //
 // - If two numbers are given, they define the lower and upper bounds in percentages,
-//    respectively.
+//   respectively.
 // - If one number is given, it defines the upper bound (the lower bound is assumed to
-//    be 0).
+//   be 0).
 //
 // For example, `ts(90)` returns the sum of the data points not including any
 // data points that fall in the highest 10% of the values.  `ts(10, 90)`
@@ -295,9 +295,9 @@ func Stats_Ts(p1 *float64, p2 *float64) *string {
 // 100, up to 10 decimal places.
 //
 // - If two numbers are given, they define the lower and upper bounds in percentages,
-//    respectively.
+//   respectively.
 // - If one number is given, it defines the upper bound (the lower bound is assumed to
-//    be 0).
+//   be 0).
 //
 // For example, `tm(90)` calculates the average after removing the 10% of data
 // points with the highest values; `tm(10, 90)` calculates the average after removing the

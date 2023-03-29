@@ -135,6 +135,17 @@ func LogFormat_ACCOUNT_ID() LogFormat {
 	return returns
 }
 
+func LogFormat_ACTION() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ACTION",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_ALL_DEFAULT_FIELDS() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat
@@ -190,6 +201,17 @@ func LogFormat_DST_PORT() LogFormat {
 	return returns
 }
 
+func LogFormat_END_TIMESTAMP() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"END_TIMESTAMP",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_FLOW_DIRECTION() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat
@@ -201,12 +223,34 @@ func LogFormat_FLOW_DIRECTION() LogFormat {
 	return returns
 }
 
+func LogFormat_INSTANCE_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"INSTANCE_ID",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_INTERFACE_ID() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.LogFormat",
 		"INTERFACE_ID",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_LOG_STATUS() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"LOG_STATUS",
 		&returns,
 	)
 	return returns
@@ -311,6 +355,17 @@ func LogFormat_SRC_PORT() LogFormat {
 	return returns
 }
 
+func LogFormat_START_TIMESTAMP() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"START_TIMESTAMP",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_SUBLOCATION_ID() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat
@@ -333,6 +388,28 @@ func LogFormat_SUBLOCATION_TYPE() LogFormat {
 	return returns
 }
 
+func LogFormat_SUBNET_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"SUBNET_ID",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_TCP_FLAGS() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"TCP_FLAGS",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_TRAFFIC_PATH() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat
@@ -344,12 +421,34 @@ func LogFormat_TRAFFIC_PATH() LogFormat {
 	return returns
 }
 
+func LogFormat_TRAFFIC_TYPE() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"TRAFFIC_TYPE",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_VERSION() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.LogFormat",
 		"VERSION",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_VPC_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"VPC_ID",
 		&returns,
 	)
 	return returns

@@ -19,7 +19,7 @@ import (
 //
 // - Hide away the PredefinedMetric enum for target tracking policies.
 // - Don't expose all scaling methods (for example Dynamo tables don't support
-//    Step Scaling, so the Dynamo subclass won't expose this method).
+//   Step Scaling, so the Dynamo subclass won't expose this method).
 type BaseScalableAttribute interface {
 	constructs.Construct
 	// The tree node.

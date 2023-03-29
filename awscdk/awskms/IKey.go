@@ -23,6 +23,10 @@ type IKey interface {
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption and decryption permissions using this key to the given principal.
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant permissions to generating MACs to the given principal.
+	GrantGenerateMac(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant permissions to verifying MACs to the given principal.
+	GrantVerifyMac(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the key.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
@@ -128,6 +132,38 @@ func (i *jsiiProxy_IKey) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.G
 	_jsii_.Invoke(
 		i,
 		"grantEncryptDecrypt",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IKey) GrantGenerateMac(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantGenerateMacParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantGenerateMac",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IKey) GrantVerifyMac(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantVerifyMacParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantVerifyMac",
 		[]interface{}{grantee},
 		&returns,
 	)

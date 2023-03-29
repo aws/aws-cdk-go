@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnConnectorProfile) validateSetConnectionModeParameters(val 
 
 func (j *jsiiProxy_CfnConnectorProfile) validateSetConnectorProfileConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnectorProfile_ConnectorProfileConfigProperty:
 		val := val.(*CfnConnectorProfile_ConnectorProfileConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnConnectorProfile) validateSetConnectorProfileConfigParamet
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnectorProfile_ConnectorProfileConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnectorProfile_ConnectorProfileConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

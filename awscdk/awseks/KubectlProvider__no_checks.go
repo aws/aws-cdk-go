@@ -64,6 +64,10 @@ func (k *jsiiProxy_KubectlProvider) validateToJsonStringParameters(obj interface
 	return nil
 }
 
+func (k *jsiiProxy_KubectlProvider) validateToYamlStringParameters(obj interface{}) error {
+	return nil
+}
+
 func validateKubectlProvider_FromKubectlProviderAttributesParameters(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) error {
 	return nil
 }

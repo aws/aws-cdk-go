@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnInstance) validateSetBlockDeviceMappingsParameters(val int
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInstance_BlockDeviceMappingProperty:
 				v := v.(*CfnInstance_BlockDeviceMappingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnInstance) validateSetBlockDeviceMappingsParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInstance_BlockDeviceMappingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInstance_BlockDeviceMappingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnInstance) validateSetBlockDeviceMappingsParameters(val int
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInstance_BlockDeviceMappingProperty:
 				v := v.(*CfnInstance_BlockDeviceMappingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnInstance) validateSetBlockDeviceMappingsParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInstance_BlockDeviceMappingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInstance_BlockDeviceMappingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -299,6 +299,8 @@ func (j *jsiiProxy_CfnInstance) validateSetStackIdParameters(val *string) error 
 
 func (j *jsiiProxy_CfnInstance) validateSetTimeBasedAutoScalingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInstance_TimeBasedAutoScalingProperty:
 		val := val.(*CfnInstance_TimeBasedAutoScalingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -310,11 +312,9 @@ func (j *jsiiProxy_CfnInstance) validateSetTimeBasedAutoScalingParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInstance_TimeBasedAutoScalingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstance_TimeBasedAutoScalingProperty; received %#v (a %T)", val, val)
 		}
 	}
 

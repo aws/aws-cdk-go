@@ -30,7 +30,9 @@ package awsapigateway
 //   			"definitionsKey": jsonSchema_,
 //   		},
 //   		Dependencies: map[string]interface{}{
-//   			"dependenciesKey": jsonSchema_,
+//   			"dependenciesKey": []interface{}{
+//   				jsii.String("dependencies"),
+//   			},
 //   		},
 //   		Description: jsii.String("description"),
 //   		Enum: []interface{}{
@@ -93,10 +95,10 @@ type ModelProps struct {
 	// A name for the model.
 	//
 	// Important
-	//   If you specify a name, you cannot perform updates that
-	//   require replacement of this resource. You can perform
-	//   updates that require no or some interruption. If you
-	//   must replace the resource, specify a new name.
+	//  If you specify a name, you cannot perform updates that
+	//  require replacement of this resource. You can perform
+	//  updates that require no or some interruption. If you
+	//  must replace the resource, specify a new name.
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
 	// The rest API that this model is part of.
 	//

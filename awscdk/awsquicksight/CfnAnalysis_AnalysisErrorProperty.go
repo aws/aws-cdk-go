@@ -11,6 +11,11 @@ package awsquicksight
 //   analysisErrorProperty := &AnalysisErrorProperty{
 //   	Message: jsii.String("message"),
 //   	Type: jsii.String("type"),
+//   	ViolatedEntities: []interface{}{
+//   		&EntityProperty{
+//   			Path: jsii.String("path"),
+//   		},
+//   	},
 //   }
 //
 type CfnAnalysis_AnalysisErrorProperty struct {
@@ -18,5 +23,7 @@ type CfnAnalysis_AnalysisErrorProperty struct {
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// The type of the analysis error.
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// `CfnAnalysis.AnalysisErrorProperty.ViolatedEntities`.
+	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

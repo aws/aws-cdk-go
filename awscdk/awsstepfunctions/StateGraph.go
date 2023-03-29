@@ -19,9 +19,9 @@ import (
 // machines are constructed. In particular:
 //
 // - Every state object can only ever be in 1 StateGraph, and not inadvertently
-//    be used in two graphs.
+//   be used in two graphs.
 // - Every stateId must be unique across all states in the entire state
-//    machine.
+//   machine.
 //
 // All policy statements in all states in all substatemachines are bubbled so
 // that the top-level StateMachine instantiation can read them all and add

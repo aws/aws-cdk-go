@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnRoute) validateSetEnvironmentIdentifierParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnRoute) validateSetRouteTypeParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRoute) validateSetServiceIdentifierParameters(val *string) error {
 	return nil
 }

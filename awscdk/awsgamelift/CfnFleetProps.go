@@ -120,7 +120,9 @@ type CfnFleetProps struct {
 	InstanceRoleArn *string `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`
 	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
 	//
-	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2` . To create a fleet with instances in the home Region only, omit this parameter.
+	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2` . To create a fleet with instances in the home Region only, don't use this parameter.
+	//
+	// To use this parameter, Amazon GameLift requires you to use your home location in the request.
 	Locations interface{} `field:"optional" json:"locations" yaml:"locations"`
 	// The maximum number of instances that are allowed in the specified fleet location.
 	//

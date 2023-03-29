@@ -204,6 +204,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAssociatedRolesParameters(val inter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDBInstance_DBInstanceRoleProperty:
 				v := v.(*CfnDBInstance_DBInstanceRoleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -215,11 +217,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAssociatedRolesParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDBInstance_DBInstanceRoleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_DBInstanceRoleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -228,6 +228,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAssociatedRolesParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDBInstance_DBInstanceRoleProperty:
 				v := v.(*CfnDBInstance_DBInstanceRoleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -239,11 +241,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAssociatedRolesParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDBInstance_DBInstanceRoleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_DBInstanceRoleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -275,6 +275,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAutoMinorVersionUpgradeParameters(v
 
 func (j *jsiiProxy_CfnDBInstance) validateSetCertificateDetailsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDBInstance_CertificateDetailsProperty:
 		val := val.(*CfnDBInstance_CertificateDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -286,11 +288,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetCertificateDetailsParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBInstance_CertificateDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_CertificateDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -401,6 +401,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetEnablePerformanceInsightsParameters
 
 func (j *jsiiProxy_CfnDBInstance) validateSetEndpointParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDBInstance_EndpointProperty:
 		val := val.(*CfnDBInstance_EndpointProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -412,11 +414,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetEndpointParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBInstance_EndpointProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_EndpointProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -442,6 +442,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetManageMasterUserPasswordParameters(
 
 func (j *jsiiProxy_CfnDBInstance) validateSetMasterUserSecretParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDBInstance_MasterUserSecretProperty:
 		val := val.(*CfnDBInstance_MasterUserSecretProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -453,11 +455,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetMasterUserSecretParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBInstance_MasterUserSecretProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_MasterUserSecretProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -489,6 +489,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetProcessorFeaturesParameters(val int
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDBInstance_ProcessorFeatureProperty:
 				v := v.(*CfnDBInstance_ProcessorFeatureProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -500,11 +502,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetProcessorFeaturesParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDBInstance_ProcessorFeatureProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_ProcessorFeatureProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -513,6 +513,8 @@ func (j *jsiiProxy_CfnDBInstance) validateSetProcessorFeaturesParameters(val int
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDBInstance_ProcessorFeatureProperty:
 				v := v.(*CfnDBInstance_ProcessorFeatureProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -524,11 +526,9 @@ func (j *jsiiProxy_CfnDBInstance) validateSetProcessorFeaturesParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDBInstance_ProcessorFeatureProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDBInstance_ProcessorFeatureProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

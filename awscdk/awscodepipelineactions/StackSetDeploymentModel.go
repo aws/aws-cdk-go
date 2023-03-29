@@ -115,8 +115,8 @@ func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) 
 // const existingAdminRole = iam.Role.fromRoleName(this, 'AdminRole', 'AWSCloudFormationStackSetAdministrationRole');
 //
 // const deploymentModel = codepipeline_actions.StackSetDeploymentModel.selfManaged({
-//    // Use an existing Role. Leave this out to create a new Role.
-//    administrationRole: existingAdminRole,
+//   // Use an existing Role. Leave this out to create a new Role.
+//   administrationRole: existingAdminRole,
 // });
 // ```
 //

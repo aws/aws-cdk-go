@@ -22,11 +22,11 @@ import (
 type Expiration interface {
 	// Expiration value as a Date object.
 	Date() *time.Time
-	// Check if Exipiration expires after input.
+	// Check if Expiration expires after input.
 	IsAfter(t Duration) *bool
-	// Check if Exipiration expires before input.
+	// Check if Expiration expires before input.
 	IsBefore(t Duration) *bool
-	// Exipration Value in a formatted Unix Epoch Time in seconds.
+	// Expiration Value in a formatted Unix Epoch Time in seconds.
 	ToEpoch() *float64
 }
 

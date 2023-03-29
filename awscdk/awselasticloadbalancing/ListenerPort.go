@@ -14,11 +14,11 @@ import (
 // listener was just created on) for a given security group so that it can be
 // conveniently used just like any Connectable. E.g:
 //
-//     const listener = elb.addListener(...);
+//    const listener = elb.addListener(...);
 //
-//     listener.connections.allowDefaultPortFromAnyIPv4();
-//     // or
-//     instance.connections.allowToDefaultPort(listener);
+//    listener.connections.allowDefaultPortFromAnyIPv4();
+//    // or
+//    instance.connections.allowToDefaultPort(listener);
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

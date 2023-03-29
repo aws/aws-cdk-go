@@ -181,6 +181,8 @@ func validateCfnTopicRuleDestination_IsConstructParameters(x interface{}) error 
 
 func (j *jsiiProxy_CfnTopicRuleDestination) validateSetHttpUrlPropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty:
 		val := val.(*CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnTopicRuleDestination) validateSetHttpUrlPropertiesParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnTopicRuleDestination) validateSetHttpUrlPropertiesParamete
 
 func (j *jsiiProxy_CfnTopicRuleDestination) validateSetVpcPropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTopicRuleDestination_VpcDestinationPropertiesProperty:
 		val := val.(*CfnTopicRuleDestination_VpcDestinationPropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnTopicRuleDestination) validateSetVpcPropertiesParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTopicRuleDestination_VpcDestinationPropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTopicRuleDestination_VpcDestinationPropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnReferenceStore) validateSetNameParameters(val *string) err
 
 func (j *jsiiProxy_CfnReferenceStore) validateSetSseConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnReferenceStore_SseConfigProperty:
 		val := val.(*CfnReferenceStore_SseConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnReferenceStore) validateSetSseConfigParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnReferenceStore_SseConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnReferenceStore_SseConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

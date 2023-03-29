@@ -25,6 +25,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSources", GoGetter: "DataSources"},
 			_jsii_.MemberProperty{JsiiProperty: "enable", GoGetter: "Enable"},
+			_jsii_.MemberProperty{JsiiProperty: "features", GoGetter: "Features"},
 			_jsii_.MemberProperty{JsiiProperty: "findingPublishingFrequency", GoGetter: "FindingPublishingFrequency"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -76,6 +77,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNScanEc2InstanceWithFindingsConfigurationProperty",
 		reflect.TypeOf((*CfnDetector_CFNScanEc2InstanceWithFindingsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_guardduty.CfnDetector.FeatureAdditionalConfigurationProperty",
+		reflect.TypeOf((*CfnDetector_FeatureAdditionalConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_guardduty.CfnDetector.FeatureConfigurationsProperty",
+		reflect.TypeOf((*CfnDetector_FeatureConfigurationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_guardduty.CfnDetectorProps",

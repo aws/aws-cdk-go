@@ -61,6 +61,10 @@ func (i *jsiiProxy_IntegTestCaseStack) validateToJsonStringParameters(obj interf
 	return nil
 }
 
+func (i *jsiiProxy_IntegTestCaseStack) validateToYamlStringParameters(obj interface{}) error {
+	return nil
+}
+
 func validateIntegTestCaseStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

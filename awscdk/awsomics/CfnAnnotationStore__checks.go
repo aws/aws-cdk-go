@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetNameParameters(val *string) er
 
 func (j *jsiiProxy_CfnAnnotationStore) validateSetReferenceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnnotationStore_ReferenceItemProperty:
 		val := val.(*CfnAnnotationStore_ReferenceItemProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetReferenceParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnnotationStore_ReferenceItemProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnnotationStore_ReferenceItemProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetReferenceParameters(val interf
 
 func (j *jsiiProxy_CfnAnnotationStore) validateSetSseConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnnotationStore_SseConfigProperty:
 		val := val.(*CfnAnnotationStore_SseConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetSseConfigParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnnotationStore_SseConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnnotationStore_SseConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -245,6 +245,8 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetStoreFormatParameters(val *str
 
 func (j *jsiiProxy_CfnAnnotationStore) validateSetStoreOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnnotationStore_StoreOptionsProperty:
 		val := val.(*CfnAnnotationStore_StoreOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -256,11 +258,9 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetStoreOptionsParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnnotationStore_StoreOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnnotationStore_StoreOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnTestGridProject) validateSetNameParameters(val *string) er
 
 func (j *jsiiProxy_CfnTestGridProject) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTestGridProject_VpcConfigProperty:
 		val := val.(*CfnTestGridProject_VpcConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnTestGridProject) validateSetVpcConfigParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTestGridProject_VpcConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTestGridProject_VpcConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

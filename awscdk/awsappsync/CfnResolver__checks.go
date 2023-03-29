@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnResolver) validateSetApiIdParameters(val *string) error {
 
 func (j *jsiiProxy_CfnResolver) validateSetCachingConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnResolver_CachingConfigProperty:
 		val := val.(*CfnResolver_CachingConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnResolver) validateSetCachingConfigParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnResolver_CachingConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResolver_CachingConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnResolver) validateSetFieldNameParameters(val *string) erro
 
 func (j *jsiiProxy_CfnResolver) validateSetPipelineConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnResolver_PipelineConfigProperty:
 		val := val.(*CfnResolver_PipelineConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnResolver) validateSetPipelineConfigParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnResolver_PipelineConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResolver_PipelineConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -245,6 +245,8 @@ func (j *jsiiProxy_CfnResolver) validateSetPipelineConfigParameters(val interfac
 
 func (j *jsiiProxy_CfnResolver) validateSetRuntimeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnResolver_AppSyncRuntimeProperty:
 		val := val.(*CfnResolver_AppSyncRuntimeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -256,11 +258,9 @@ func (j *jsiiProxy_CfnResolver) validateSetRuntimeParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnResolver_AppSyncRuntimeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResolver_AppSyncRuntimeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -269,6 +269,8 @@ func (j *jsiiProxy_CfnResolver) validateSetRuntimeParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnResolver) validateSetSyncConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnResolver_SyncConfigProperty:
 		val := val.(*CfnResolver_SyncConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -280,11 +282,9 @@ func (j *jsiiProxy_CfnResolver) validateSetSyncConfigParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnResolver_SyncConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResolver_SyncConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

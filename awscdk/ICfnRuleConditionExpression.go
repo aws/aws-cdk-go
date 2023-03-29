@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Interface to specify certain functions as Service Catalog rule-specifc.
+// Interface to specify certain functions as Service Catalog rule-specific.
 //
 // These functions can only be used in ``Rules`` section of template.
 type ICfnRuleConditionExpression interface {

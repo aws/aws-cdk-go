@@ -31,12 +31,12 @@ type CustomResourceProps struct {
 	// ```ts
 	// // use the provider framework from aws-cdk/custom-resources:
 	// const provider = new customresources.Provider(this, 'ResourceProvider', {
-	//    onEventHandler,
-	//    isCompleteHandler, // optional
+	//   onEventHandler,
+	//   isCompleteHandler, // optional
 	// });
 	//
 	// new CustomResource(this, 'MyResource', {
-	//    serviceToken: provider.serviceToken,
+	//   serviceToken: provider.serviceToken,
 	// });
 	// ```
 	//
@@ -46,7 +46,7 @@ type CustomResourceProps struct {
 	// ```ts
 	// // invoke an AWS Lambda function when a lifecycle event occurs:
 	// new CustomResource(this, 'MyResource', {
-	//    serviceToken: myFunction.functionArn,
+	//   serviceToken: myFunction.functionArn,
 	// });
 	// ```
 	//
@@ -56,7 +56,7 @@ type CustomResourceProps struct {
 	// ```ts
 	// // publish lifecycle events to an SNS topic:
 	// new CustomResource(this, 'MyResource', {
-	//    serviceToken: myTopic.topicArn,
+	//   serviceToken: myTopic.topicArn,
 	// });
 	// ```.
 	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`

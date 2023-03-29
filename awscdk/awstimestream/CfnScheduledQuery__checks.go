@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetErrorReportConfigurationParamet
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScheduledQuery_ErrorReportConfigurationProperty:
 		val := val.(*CfnScheduledQuery_ErrorReportConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetErrorReportConfigurationParamet
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScheduledQuery_ErrorReportConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScheduledQuery_ErrorReportConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetNotificationConfigurationParame
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScheduledQuery_NotificationConfigurationProperty:
 		val := val.(*CfnScheduledQuery_NotificationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetNotificationConfigurationParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScheduledQuery_NotificationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScheduledQuery_NotificationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -246,6 +246,8 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetScheduleConfigurationParameters
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScheduledQuery_ScheduleConfigurationProperty:
 		val := val.(*CfnScheduledQuery_ScheduleConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -257,11 +259,9 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetScheduleConfigurationParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScheduledQuery_ScheduleConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScheduledQuery_ScheduleConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -278,6 +278,8 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetScheduledQueryExecutionRoleArnP
 
 func (j *jsiiProxy_CfnScheduledQuery) validateSetTargetConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScheduledQuery_TargetConfigurationProperty:
 		val := val.(*CfnScheduledQuery_TargetConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -289,11 +291,9 @@ func (j *jsiiProxy_CfnScheduledQuery) validateSetTargetConfigurationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScheduledQuery_TargetConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScheduledQuery_TargetConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

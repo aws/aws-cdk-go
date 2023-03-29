@@ -10,21 +10,23 @@ import (
 // Properties of EFS FileSystem.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   myFileSystemPolicy := NewPolicyDocument(map[string][]interface{}{
-//   	"statements": []interface{}{
-//   		NewPolicyStatement(map[string]interface{}{
-//   			"actions": []*string{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   	Statements: []policyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
 //   				jsii.String("elasticfilesystem:ClientWrite"),
 //   				jsii.String("elasticfilesystem:ClientMount"),
 //   			},
-//   			"principals": []interface{}{
-//   				NewAccountRootPrincipal(),
+//   			Principals: []iPrincipal{
+//   				iam.NewAccountRootPrincipal(),
 //   			},
-//   			"resources": []*string{
+//   			Resources: []*string{
 //   				jsii.String("*"),
 //   			},
-//   			"conditions": map[string]map[string]*string{
+//   			Conditions: map[string]interface{}{
 //   				"Bool": map[string]*string{
 //   					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
 //   				},

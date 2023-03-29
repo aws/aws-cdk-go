@@ -181,6 +181,8 @@ func validateCfnEndpoint_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnEndpoint) validateSetDocDbSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_DocDbSettingsProperty:
 		val := val.(*CfnEndpoint_DocDbSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetDocDbSettingsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_DocDbSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_DocDbSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetDocDbSettingsParameters(val interface
 
 func (j *jsiiProxy_CfnEndpoint) validateSetDynamoDbSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_DynamoDbSettingsProperty:
 		val := val.(*CfnEndpoint_DynamoDbSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetDynamoDbSettingsParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_DynamoDbSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_DynamoDbSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetDynamoDbSettingsParameters(val interf
 
 func (j *jsiiProxy_CfnEndpoint) validateSetElasticsearchSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_ElasticsearchSettingsProperty:
 		val := val.(*CfnEndpoint_ElasticsearchSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetElasticsearchSettingsParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_ElasticsearchSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_ElasticsearchSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -269,6 +269,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetEngineNameParameters(val *string) err
 
 func (j *jsiiProxy_CfnEndpoint) validateSetGcpMySqlSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_GcpMySQLSettingsProperty:
 		val := val.(*CfnEndpoint_GcpMySQLSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -280,11 +282,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetGcpMySqlSettingsParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_GcpMySQLSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_GcpMySQLSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -293,6 +293,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetGcpMySqlSettingsParameters(val interf
 
 func (j *jsiiProxy_CfnEndpoint) validateSetIbmDb2SettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_IbmDb2SettingsProperty:
 		val := val.(*CfnEndpoint_IbmDb2SettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -304,11 +306,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetIbmDb2SettingsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_IbmDb2SettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_IbmDb2SettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -317,6 +317,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetIbmDb2SettingsParameters(val interfac
 
 func (j *jsiiProxy_CfnEndpoint) validateSetKafkaSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_KafkaSettingsProperty:
 		val := val.(*CfnEndpoint_KafkaSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -328,11 +330,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetKafkaSettingsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_KafkaSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_KafkaSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -341,6 +341,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetKafkaSettingsParameters(val interface
 
 func (j *jsiiProxy_CfnEndpoint) validateSetKinesisSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_KinesisSettingsProperty:
 		val := val.(*CfnEndpoint_KinesisSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -352,11 +354,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetKinesisSettingsParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_KinesisSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_KinesisSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -365,6 +365,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetKinesisSettingsParameters(val interfa
 
 func (j *jsiiProxy_CfnEndpoint) validateSetMicrosoftSqlServerSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_MicrosoftSqlServerSettingsProperty:
 		val := val.(*CfnEndpoint_MicrosoftSqlServerSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -376,11 +378,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetMicrosoftSqlServerSettingsParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_MicrosoftSqlServerSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_MicrosoftSqlServerSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -389,6 +389,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetMicrosoftSqlServerSettingsParameters(
 
 func (j *jsiiProxy_CfnEndpoint) validateSetMongoDbSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_MongoDbSettingsProperty:
 		val := val.(*CfnEndpoint_MongoDbSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -400,11 +402,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetMongoDbSettingsParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_MongoDbSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_MongoDbSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -413,6 +413,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetMongoDbSettingsParameters(val interfa
 
 func (j *jsiiProxy_CfnEndpoint) validateSetMySqlSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_MySqlSettingsProperty:
 		val := val.(*CfnEndpoint_MySqlSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -424,11 +426,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetMySqlSettingsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_MySqlSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_MySqlSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -437,6 +437,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetMySqlSettingsParameters(val interface
 
 func (j *jsiiProxy_CfnEndpoint) validateSetNeptuneSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_NeptuneSettingsProperty:
 		val := val.(*CfnEndpoint_NeptuneSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -448,11 +450,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetNeptuneSettingsParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_NeptuneSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_NeptuneSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -461,6 +461,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetNeptuneSettingsParameters(val interfa
 
 func (j *jsiiProxy_CfnEndpoint) validateSetOracleSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_OracleSettingsProperty:
 		val := val.(*CfnEndpoint_OracleSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -472,11 +474,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetOracleSettingsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_OracleSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_OracleSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -485,6 +485,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetOracleSettingsParameters(val interfac
 
 func (j *jsiiProxy_CfnEndpoint) validateSetPostgreSqlSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_PostgreSqlSettingsProperty:
 		val := val.(*CfnEndpoint_PostgreSqlSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -496,11 +498,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetPostgreSqlSettingsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_PostgreSqlSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_PostgreSqlSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -509,6 +509,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetPostgreSqlSettingsParameters(val inte
 
 func (j *jsiiProxy_CfnEndpoint) validateSetRedisSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_RedisSettingsProperty:
 		val := val.(*CfnEndpoint_RedisSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -520,11 +522,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetRedisSettingsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_RedisSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_RedisSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -533,6 +533,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetRedisSettingsParameters(val interface
 
 func (j *jsiiProxy_CfnEndpoint) validateSetRedshiftSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_RedshiftSettingsProperty:
 		val := val.(*CfnEndpoint_RedshiftSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -544,11 +546,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetRedshiftSettingsParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_RedshiftSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_RedshiftSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -557,6 +557,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetRedshiftSettingsParameters(val interf
 
 func (j *jsiiProxy_CfnEndpoint) validateSetS3SettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_S3SettingsProperty:
 		val := val.(*CfnEndpoint_S3SettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -568,11 +570,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetS3SettingsParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_S3SettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_S3SettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -581,6 +581,8 @@ func (j *jsiiProxy_CfnEndpoint) validateSetS3SettingsParameters(val interface{})
 
 func (j *jsiiProxy_CfnEndpoint) validateSetSybaseSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEndpoint_SybaseSettingsProperty:
 		val := val.(*CfnEndpoint_SybaseSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -592,11 +594,9 @@ func (j *jsiiProxy_CfnEndpoint) validateSetSybaseSettingsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpoint_SybaseSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpoint_SybaseSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

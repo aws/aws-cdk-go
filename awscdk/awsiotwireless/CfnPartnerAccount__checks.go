@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetAccountLinkedParameters(val int
 
 func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPartnerAccount_SidewalkAccountInfoProperty:
 		val := val.(*CfnPartnerAccount_SidewalkAccountInfoProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPartnerAccount_SidewalkAccountInfoProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPartnerAccount_SidewalkAccountInfoProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkParameters(val interfac
 
 func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkResponseParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPartnerAccount_SidewalkAccountInfoWithFingerprintProperty:
 		val := val.(*CfnPartnerAccount_SidewalkAccountInfoWithFingerprintProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkResponseParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPartnerAccount_SidewalkAccountInfoWithFingerprintProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPartnerAccount_SidewalkAccountInfoWithFingerprintProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -246,6 +246,8 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkResponseParameters(val 
 
 func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkUpdateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPartnerAccount_SidewalkUpdateAccountProperty:
 		val := val.(*CfnPartnerAccount_SidewalkUpdateAccountProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -257,11 +259,9 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkUpdateParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPartnerAccount_SidewalkUpdateAccountProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPartnerAccount_SidewalkUpdateAccountProperty; received %#v (a %T)", val, val)
 		}
 	}
 

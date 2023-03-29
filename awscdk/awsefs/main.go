@@ -244,6 +244,7 @@ func init() {
 		reflect.TypeOf((*FileSystem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAccessPoint", GoMethod: "AddAccessPoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -296,6 +297,7 @@ func init() {
 		"aws-cdk-lib.aws_efs.IFileSystem",
 		reflect.TypeOf((*IFileSystem)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -309,7 +311,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IFileSystem{}
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicy)
 			return &j
 		},
 	)

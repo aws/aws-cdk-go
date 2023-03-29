@@ -14,7 +14,7 @@ type IAttributeGroup interface {
 	awscdk.IResource
 	// Share the attribute group resource with other IAM entities, accounts, or OUs.
 	// Experimental.
-	ShareAttributeGroup(shareOptions *ShareOptions)
+	ShareAttributeGroup(id *string, shareOptions *ShareOptions)
 	// The ARN of the attribute group.
 	// Experimental.
 	AttributeGroupArn() *string
@@ -28,14 +28,14 @@ type jsiiProxy_IAttributeGroup struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_IAttributeGroup) ShareAttributeGroup(shareOptions *ShareOptions) {
-	if err := i.validateShareAttributeGroupParameters(shareOptions); err != nil {
+func (i *jsiiProxy_IAttributeGroup) ShareAttributeGroup(id *string, shareOptions *ShareOptions) {
+	if err := i.validateShareAttributeGroupParameters(id, shareOptions); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		i,
 		"shareAttributeGroup",
-		[]interface{}{shareOptions},
+		[]interface{}{id, shareOptions},
 	)
 }
 

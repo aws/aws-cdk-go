@@ -14,10 +14,10 @@ import (
 // using the CLI's current credentials.
 //
 // - This synthesizer does not support deploying to accounts to which the CLI does not have
-//    credentials. It also does not support deploying using **CDK Pipelines**. For either of those
-//    features, use `DefaultStackSynthesizer`.
+//   credentials. It also does not support deploying using **CDK Pipelines**. For either of those
+//   features, use `DefaultStackSynthesizer`.
 // - This synthesizer requires an S3 bucket and ECR repository with well-known names. To
-//    not depend on those, use `LegacyStackSynthesizer`.
+//   not depend on those, use `LegacyStackSynthesizer`.
 //
 // Be aware that your CLI credentials must be valid for the duration of the
 // entire deployment. If you are using session credentials, make sure the
@@ -60,7 +60,7 @@ type CliCredentialsStackSynthesizer interface {
 	//
 	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
 	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
+	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
@@ -70,7 +70,7 @@ type CliCredentialsStackSynthesizer interface {
 	//
 	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
 	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
+	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation

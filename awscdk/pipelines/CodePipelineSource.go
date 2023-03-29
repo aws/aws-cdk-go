@@ -222,7 +222,7 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 //
 // ```ts
 // pipelines.CodePipelineSource.connection('owner/repo', 'main', {
-//    connectionArn: 'arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41', // Created using the AWS console
+//   connectionArn: 'arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41', // Created using the AWS console
 // });
 // ```
 //

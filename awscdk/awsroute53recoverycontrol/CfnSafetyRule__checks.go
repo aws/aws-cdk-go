@@ -181,6 +181,8 @@ func validateCfnSafetyRule_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnSafetyRule) validateSetAssertionRuleParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSafetyRule_AssertionRuleProperty:
 		val := val.(*CfnSafetyRule_AssertionRuleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnSafetyRule) validateSetAssertionRuleParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSafetyRule_AssertionRuleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSafetyRule_AssertionRuleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnSafetyRule) validateSetControlPanelArnParameters(val *stri
 
 func (j *jsiiProxy_CfnSafetyRule) validateSetGatingRuleParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSafetyRule_GatingRuleProperty:
 		val := val.(*CfnSafetyRule_GatingRuleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnSafetyRule) validateSetGatingRuleParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSafetyRule_GatingRuleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSafetyRule_GatingRuleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -248,6 +248,8 @@ func (j *jsiiProxy_CfnSafetyRule) validateSetRuleConfigParameters(val interface{
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSafetyRule_RuleConfigProperty:
 		val := val.(*CfnSafetyRule_RuleConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -259,11 +261,9 @@ func (j *jsiiProxy_CfnSafetyRule) validateSetRuleConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSafetyRule_RuleConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSafetyRule_RuleConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

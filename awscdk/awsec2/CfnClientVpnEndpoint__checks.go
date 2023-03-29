@@ -190,6 +190,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParamet
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnClientVpnEndpoint_ClientAuthenticationRequestProperty:
 				v := v.(*CfnClientVpnEndpoint_ClientAuthenticationRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -201,11 +203,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnClientVpnEndpoint_ClientAuthenticationRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_ClientAuthenticationRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -214,6 +214,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParamet
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnClientVpnEndpoint_ClientAuthenticationRequestProperty:
 				v := v.(*CfnClientVpnEndpoint_ClientAuthenticationRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -225,11 +227,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnClientVpnEndpoint_ClientAuthenticationRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_ClientAuthenticationRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -252,6 +252,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientCidrBlockParameters(va
 
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientConnectOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnClientVpnEndpoint_ClientConnectOptionsProperty:
 		val := val.(*CfnClientVpnEndpoint_ClientConnectOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -263,11 +265,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientConnectOptionsParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnClientVpnEndpoint_ClientConnectOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_ClientConnectOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -276,6 +276,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientConnectOptionsParamete
 
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientLoginBannerOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty:
 		val := val.(*CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -287,11 +289,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientLoginBannerOptionsPara
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -303,6 +303,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetConnectionLogOptionsParamete
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnClientVpnEndpoint_ConnectionLogOptionsProperty:
 		val := val.(*CfnClientVpnEndpoint_ConnectionLogOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -314,11 +316,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetConnectionLogOptionsParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnClientVpnEndpoint_ConnectionLogOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_ConnectionLogOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -358,6 +358,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnClientVpnEndpoint_TagSpecificationProperty:
 				v := v.(*CfnClientVpnEndpoint_TagSpecificationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -369,11 +371,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnClientVpnEndpoint_TagSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_TagSpecificationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -382,6 +382,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnClientVpnEndpoint_TagSpecificationProperty:
 				v := v.(*CfnClientVpnEndpoint_TagSpecificationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -393,11 +395,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnClientVpnEndpoint_TagSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_TagSpecificationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

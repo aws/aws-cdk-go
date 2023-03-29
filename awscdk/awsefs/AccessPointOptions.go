@@ -54,7 +54,7 @@ type AccessPointOptions struct {
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
-	// See: - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
+	// See:  - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
 	//
 	PosixUser *PosixUser `field:"optional" json:"posixUser" yaml:"posixUser"`
 }

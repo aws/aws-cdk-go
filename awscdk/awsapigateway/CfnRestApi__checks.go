@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnRestApi) validateSetBodyParameters(val interface{}) error 
 
 func (j *jsiiProxy_CfnRestApi) validateSetBodyS3LocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRestApi_S3LocationProperty:
 		val := val.(*CfnRestApi_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnRestApi) validateSetBodyS3LocationParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRestApi_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRestApi_S3LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -230,6 +230,8 @@ func (j *jsiiProxy_CfnRestApi) validateSetDisableExecuteApiEndpointParameters(va
 
 func (j *jsiiProxy_CfnRestApi) validateSetEndpointConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRestApi_EndpointConfigurationProperty:
 		val := val.(*CfnRestApi_EndpointConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -241,11 +243,9 @@ func (j *jsiiProxy_CfnRestApi) validateSetEndpointConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRestApi_EndpointConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRestApi_EndpointConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

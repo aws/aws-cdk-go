@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnSecurityConfiguration) validateSetEncryptionConfigurationP
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSecurityConfiguration_EncryptionConfigurationProperty:
 		val := val.(*CfnSecurityConfiguration_EncryptionConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnSecurityConfiguration) validateSetEncryptionConfigurationP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSecurityConfiguration_EncryptionConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSecurityConfiguration_EncryptionConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

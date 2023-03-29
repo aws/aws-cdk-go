@@ -64,7 +64,7 @@ type CfnDeployment interface {
 	SetConfigurationProfileId(val *string)
 	// The configuration version to deploy.
 	//
-	// If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label.
+	// If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.
 	ConfigurationVersion() *string
 	SetConfigurationVersion(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -161,20 +161,20 @@ type CfnDeployment interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//

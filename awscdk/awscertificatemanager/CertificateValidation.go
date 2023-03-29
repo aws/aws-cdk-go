@@ -110,11 +110,11 @@ func CertificateValidation_FromDnsMultiZone(hostedZones *map[string]awsroute53.I
 //
 // ACM will send validation emails to the following addresses:
 //
-//   admin@domain.com
-//   administrator@domain.com
-//   hostmaster@domain.com
-//   postmaster@domain.com
-//   webmaster@domain.com
+//  admin@domain.com
+//  administrator@domain.com
+//  hostmaster@domain.com
+//  postmaster@domain.com
+//  webmaster@domain.com
 //
 // For every domain that you register.
 func CertificateValidation_FromEmail(validationDomains *map[string]*string) CertificateValidation {

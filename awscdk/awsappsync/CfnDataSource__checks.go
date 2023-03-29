@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetApiIdParameters(val *string) error 
 
 func (j *jsiiProxy_CfnDataSource) validateSetDynamoDbConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_DynamoDBConfigProperty:
 		val := val.(*CfnDataSource_DynamoDBConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetDynamoDbConfigParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_DynamoDBConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_DynamoDBConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetDynamoDbConfigParameters(val interf
 
 func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_ElasticsearchConfigProperty:
 		val := val.(*CfnDataSource_ElasticsearchConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_ElasticsearchConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_ElasticsearchConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val i
 
 func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_EventBridgeConfigProperty:
 		val := val.(*CfnDataSource_EventBridgeConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_EventBridgeConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_EventBridgeConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -261,6 +261,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val int
 
 func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_HttpConfigProperty:
 		val := val.(*CfnDataSource_HttpConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -272,11 +274,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_HttpConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_HttpConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -285,6 +285,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{
 
 func (j *jsiiProxy_CfnDataSource) validateSetLambdaConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_LambdaConfigProperty:
 		val := val.(*CfnDataSource_LambdaConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -296,11 +298,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetLambdaConfigParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_LambdaConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_LambdaConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -317,6 +317,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnDataSource) validateSetOpenSearchServiceConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_OpenSearchServiceConfigProperty:
 		val := val.(*CfnDataSource_OpenSearchServiceConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -328,11 +330,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetOpenSearchServiceConfigParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_OpenSearchServiceConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_OpenSearchServiceConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -341,6 +341,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetOpenSearchServiceConfigParameters(v
 
 func (j *jsiiProxy_CfnDataSource) validateSetRelationalDatabaseConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_RelationalDatabaseConfigProperty:
 		val := val.(*CfnDataSource_RelationalDatabaseConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -352,11 +354,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetRelationalDatabaseConfigParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_RelationalDatabaseConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_RelationalDatabaseConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

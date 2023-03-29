@@ -239,6 +239,8 @@ func (j *jsiiProxy_CfnWorkspace) validateSetUserVolumeEncryptionEnabledParameter
 
 func (j *jsiiProxy_CfnWorkspace) validateSetWorkspacePropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWorkspace_WorkspacePropertiesProperty:
 		val := val.(*CfnWorkspace_WorkspacePropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -250,11 +252,9 @@ func (j *jsiiProxy_CfnWorkspace) validateSetWorkspacePropertiesParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWorkspace_WorkspacePropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkspace_WorkspacePropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

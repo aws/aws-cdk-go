@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetClusterNameParameters(v
 
 func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetOidcParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty:
 		val := val.(*CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetOidcParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

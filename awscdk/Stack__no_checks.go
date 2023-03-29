@@ -61,6 +61,10 @@ func (s *jsiiProxy_Stack) validateToJsonStringParameters(obj interface{}) error 
 	return nil
 }
 
+func (s *jsiiProxy_Stack) validateToYamlStringParameters(obj interface{}) error {
+	return nil
+}
+
 func validateStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

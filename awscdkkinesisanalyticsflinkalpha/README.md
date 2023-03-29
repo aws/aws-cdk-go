@@ -81,8 +81,8 @@ properties](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-propert
 var bucket bucket
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
-	PropertyGroups: &PropertyGroups{
-		FlinkApplicationProperties: map[string]*string{
+	PropertyGroups: map[string]map[string]*string{
+		"FlinkApplicationProperties": map[string]*string{
 			"inputStreamName": jsii.String("my-input-kinesis-stream"),
 			"outputStreamName": jsii.String("my-output-kinesis-stream"),
 		},

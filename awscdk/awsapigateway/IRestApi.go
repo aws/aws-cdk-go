@@ -30,7 +30,7 @@ type IRestApi interface {
 	// Represents the root resource ("/") of this API. Use it to define the API model:.
 	//
 	// api.root.addMethod('ANY', redirectToHomePage); // "ANY /"
-	//     api.root.addResource('friends').addMethod('GET', getFriendsHandler); // "GET /friends"
+	//    api.root.addResource('friends').addMethod('GET', getFriendsHandler); // "GET /friends"
 	Root() IResource
 }
 

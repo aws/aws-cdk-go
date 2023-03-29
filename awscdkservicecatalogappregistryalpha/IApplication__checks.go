@@ -59,7 +59,11 @@ func (i *jsiiProxy_IApplication) validateAssociateStackParameters(stack awscdk.S
 	return nil
 }
 
-func (i *jsiiProxy_IApplication) validateShareApplicationParameters(shareOptions *ShareOptions) error {
+func (i *jsiiProxy_IApplication) validateShareApplicationParameters(id *string, shareOptions *ShareOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if shareOptions == nil {
 		return fmt.Errorf("parameter shareOptions is required, but nil was provided")
 	}

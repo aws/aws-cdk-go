@@ -74,7 +74,7 @@ type AsgCapacityProviderProps struct {
 	// Scale-in protection will be automatically enabled on instances. When all non-daemon tasks are
 	// stopped on an instance, ECS initiates the scale-in process and turns off scale-in protection for the
 	// instance. The Auto Scaling Group can then terminate the instance. For more information see [Managed termination
-	//   protection](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-auto-scaling.html#managed-termination-protection)
+	//  protection](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-auto-scaling.html#managed-termination-protection)
 	// in the ECS Developer Guide.
 	//
 	// Managed scaling must also be enabled.

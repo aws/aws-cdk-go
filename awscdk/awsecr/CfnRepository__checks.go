@@ -181,6 +181,8 @@ func validateCfnRepository_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnRepository) validateSetEncryptionConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRepository_EncryptionConfigurationProperty:
 		val := val.(*CfnRepository_EncryptionConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnRepository) validateSetEncryptionConfigurationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRepository_EncryptionConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRepository_EncryptionConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnRepository) validateSetEncryptionConfigurationParameters(v
 
 func (j *jsiiProxy_CfnRepository) validateSetImageScanningConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRepository_ImageScanningConfigurationProperty:
 		val := val.(*CfnRepository_ImageScanningConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnRepository) validateSetImageScanningConfigurationParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRepository_ImageScanningConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRepository_ImageScanningConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnRepository) validateSetImageScanningConfigurationParameter
 
 func (j *jsiiProxy_CfnRepository) validateSetLifecyclePolicyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRepository_LifecyclePolicyProperty:
 		val := val.(*CfnRepository_LifecyclePolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnRepository) validateSetLifecyclePolicyParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRepository_LifecyclePolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRepository_LifecyclePolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 

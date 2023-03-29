@@ -150,6 +150,14 @@ func (s *jsiiProxy_Stack) validateToJsonStringParameters(obj interface{}) error 
 	return nil
 }
 
+func (s *jsiiProxy_Stack) validateToYamlStringParameters(obj interface{}) error {
+	if obj == nil {
+		return fmt.Errorf("parameter obj is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateStack_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

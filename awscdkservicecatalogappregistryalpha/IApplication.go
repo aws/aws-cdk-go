@@ -33,7 +33,7 @@ type IApplication interface {
 	AssociateStack(stack awscdk.Stack)
 	// Share this application with other IAM entities, accounts, or OUs.
 	// Experimental.
-	ShareApplication(shareOptions *ShareOptions)
+	ShareApplication(id *string, shareOptions *ShareOptions)
 	// The ARN of the application.
 	// Experimental.
 	ApplicationArn() *string
@@ -110,14 +110,14 @@ func (i *jsiiProxy_IApplication) AssociateStack(stack awscdk.Stack) {
 	)
 }
 
-func (i *jsiiProxy_IApplication) ShareApplication(shareOptions *ShareOptions) {
-	if err := i.validateShareApplicationParameters(shareOptions); err != nil {
+func (i *jsiiProxy_IApplication) ShareApplication(id *string, shareOptions *ShareOptions) {
+	if err := i.validateShareApplicationParameters(id, shareOptions); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		i,
 		"shareApplication",
-		[]interface{}{shareOptions},
+		[]interface{}{id, shareOptions},
 	)
 }
 

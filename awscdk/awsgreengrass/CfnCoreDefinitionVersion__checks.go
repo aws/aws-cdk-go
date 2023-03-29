@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) validateSetCoresParameters(val inte
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCoreDefinitionVersion_CoreProperty:
 				v := v.(*CfnCoreDefinitionVersion_CoreProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) validateSetCoresParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCoreDefinitionVersion_CoreProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCoreDefinitionVersion_CoreProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) validateSetCoresParameters(val inte
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCoreDefinitionVersion_CoreProperty:
 				v := v.(*CfnCoreDefinitionVersion_CoreProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) validateSetCoresParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCoreDefinitionVersion_CoreProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCoreDefinitionVersion_CoreProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnSchedule) validateSetFlexibleTimeWindowParameters(val inte
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSchedule_FlexibleTimeWindowProperty:
 		val := val.(*CfnSchedule_FlexibleTimeWindowProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnSchedule) validateSetFlexibleTimeWindowParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSchedule_FlexibleTimeWindowProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSchedule_FlexibleTimeWindowProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -219,6 +219,8 @@ func (j *jsiiProxy_CfnSchedule) validateSetTargetParameters(val interface{}) err
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSchedule_TargetProperty:
 		val := val.(*CfnSchedule_TargetProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -230,11 +232,9 @@ func (j *jsiiProxy_CfnSchedule) validateSetTargetParameters(val interface{}) err
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSchedule_TargetProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSchedule_TargetProperty; received %#v (a %T)", val, val)
 		}
 	}
 

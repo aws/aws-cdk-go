@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) validateSetDataCatalogEncry
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty:
 		val := val.(*CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) validateSetDataCatalogEncry
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

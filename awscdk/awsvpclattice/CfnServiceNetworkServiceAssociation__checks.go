@@ -181,6 +181,8 @@ func validateCfnServiceNetworkServiceAssociation_IsConstructParameters(x interfa
 
 func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) validateSetDnsEntryParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnServiceNetworkServiceAssociation_DnsEntryProperty:
 		val := val.(*CfnServiceNetworkServiceAssociation_DnsEntryProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnServiceNetworkServiceAssociation) validateSetDnsEntryParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnServiceNetworkServiceAssociation_DnsEntryProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServiceNetworkServiceAssociation_DnsEntryProperty; received %#v (a %T)", val, val)
 		}
 	}
 

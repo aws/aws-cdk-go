@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnProject) validateSetRoleArnParameters(val *string) error {
 
 func (j *jsiiProxy_CfnProject) validateSetSampleParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnProject_SampleProperty:
 		val := val.(*CfnProject_SampleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnProject) validateSetSampleParameters(val interface{}) erro
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnProject_SampleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnProject_SampleProperty; received %#v (a %T)", val, val)
 		}
 	}
 

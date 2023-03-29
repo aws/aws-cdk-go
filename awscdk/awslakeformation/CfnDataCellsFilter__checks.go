@@ -181,6 +181,8 @@ func validateCfnDataCellsFilter_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDataCellsFilter) validateSetColumnWildcardParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataCellsFilter_ColumnWildcardProperty:
 		val := val.(*CfnDataCellsFilter_ColumnWildcardProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDataCellsFilter) validateSetColumnWildcardParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataCellsFilter_ColumnWildcardProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataCellsFilter_ColumnWildcardProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnDataCellsFilter) validateSetNameParameters(val *string) er
 
 func (j *jsiiProxy_CfnDataCellsFilter) validateSetRowFilterParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataCellsFilter_RowFilterProperty:
 		val := val.(*CfnDataCellsFilter_RowFilterProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnDataCellsFilter) validateSetRowFilterParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataCellsFilter_RowFilterProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataCellsFilter_RowFilterProperty; received %#v (a %T)", val, val)
 		}
 	}
 

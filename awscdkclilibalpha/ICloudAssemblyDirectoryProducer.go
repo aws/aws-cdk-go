@@ -17,11 +17,11 @@ type ICloudAssemblyDirectoryProducer interface {
 	// Usually obtained similar to this:
 	// ```ts fixture=imports
 	// class MyProducer implements ICloudAssemblyDirectoryProducer {
-	//    async produce(context: Record<string, any>) {
-	//      const app = new cdk.App({ context });
-	//      // create stacks here
-	//      return app.synth().directory;
-	//    }
+	//   async produce(context: Record<string, any>) {
+	//     const app = new cdk.App({ context });
+	//     // create stacks here
+	//     return app.synth().directory;
+	//   }
 	// }
 	// ```.
 	// Experimental.

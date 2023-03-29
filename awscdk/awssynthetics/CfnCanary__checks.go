@@ -181,6 +181,8 @@ func validateCfnCanary_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnCanary) validateSetArtifactConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_ArtifactConfigProperty:
 		val := val.(*CfnCanary_ArtifactConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnCanary) validateSetArtifactConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_ArtifactConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_ArtifactConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,6 +216,8 @@ func (j *jsiiProxy_CfnCanary) validateSetCodeParameters(val interface{}) error {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_CodeProperty:
 		val := val.(*CfnCanary_CodeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -227,11 +229,9 @@ func (j *jsiiProxy_CfnCanary) validateSetCodeParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_CodeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_CodeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -273,6 +273,8 @@ func (j *jsiiProxy_CfnCanary) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnCanary) validateSetRunConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_RunConfigProperty:
 		val := val.(*CfnCanary_RunConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -284,11 +286,9 @@ func (j *jsiiProxy_CfnCanary) validateSetRunConfigParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_RunConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_RunConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -308,6 +308,8 @@ func (j *jsiiProxy_CfnCanary) validateSetScheduleParameters(val interface{}) err
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_ScheduleProperty:
 		val := val.(*CfnCanary_ScheduleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -319,11 +321,9 @@ func (j *jsiiProxy_CfnCanary) validateSetScheduleParameters(val interface{}) err
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_ScheduleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_ScheduleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -352,6 +352,8 @@ func (j *jsiiProxy_CfnCanary) validateSetStartCanaryAfterCreationParameters(val 
 
 func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_VisualReferenceProperty:
 		val := val.(*CfnCanary_VisualReferenceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -363,11 +365,9 @@ func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_VisualReferenceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_VisualReferenceProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -376,6 +376,8 @@ func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface
 
 func (j *jsiiProxy_CfnCanary) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_VPCConfigProperty:
 		val := val.(*CfnCanary_VPCConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -387,11 +389,9 @@ func (j *jsiiProxy_CfnCanary) validateSetVpcConfigParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_VPCConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_VPCConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

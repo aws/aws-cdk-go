@@ -181,6 +181,8 @@ func validateCfnWebACL_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnWebACL) validateSetCaptchaConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWebACL_CaptchaConfigProperty:
 		val := val.(*CfnWebACL_CaptchaConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetCaptchaConfigParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWebACL_CaptchaConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_CaptchaConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetCaptchaConfigParameters(val interface{}
 
 func (j *jsiiProxy_CfnWebACL) validateSetChallengeConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWebACL_ChallengeConfigProperty:
 		val := val.(*CfnWebACL_ChallengeConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetChallengeConfigParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWebACL_ChallengeConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_ChallengeConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -235,6 +235,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetCustomResponseBodiesParameters(val inte
 		val := val.(*map[string]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnWebACL_CustomResponseBodyProperty:
 				v := v.(*CfnWebACL_CustomResponseBodyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -246,11 +248,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetCustomResponseBodiesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnWebACL_CustomResponseBodyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_CustomResponseBodyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -259,6 +259,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetCustomResponseBodiesParameters(val inte
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnWebACL_CustomResponseBodyProperty:
 				v := v.(*CfnWebACL_CustomResponseBodyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -270,11 +272,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetCustomResponseBodiesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnWebACL_CustomResponseBodyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_CustomResponseBodyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -292,6 +292,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetDefaultActionParameters(val interface{}
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWebACL_DefaultActionProperty:
 		val := val.(*CfnWebACL_DefaultActionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -303,11 +305,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetDefaultActionParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWebACL_DefaultActionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_DefaultActionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -322,6 +322,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetRulesParameters(val interface{}) error 
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnWebACL_RuleProperty:
 				v := v.(*CfnWebACL_RuleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -333,11 +335,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetRulesParameters(val interface{}) error 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnWebACL_RuleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_RuleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -346,6 +346,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetRulesParameters(val interface{}) error 
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnWebACL_RuleProperty:
 				v := v.(*CfnWebACL_RuleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -357,11 +359,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetRulesParameters(val interface{}) error 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnWebACL_RuleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_RuleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -387,6 +387,8 @@ func (j *jsiiProxy_CfnWebACL) validateSetVisibilityConfigParameters(val interfac
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWebACL_VisibilityConfigProperty:
 		val := val.(*CfnWebACL_VisibilityConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -398,11 +400,9 @@ func (j *jsiiProxy_CfnWebACL) validateSetVisibilityConfigParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWebACL_VisibilityConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_VisibilityConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

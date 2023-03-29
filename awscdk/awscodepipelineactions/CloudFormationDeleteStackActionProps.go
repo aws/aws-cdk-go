@@ -110,10 +110,10 @@ type CloudFormationDeleteStackActionProps struct {
 	// This is especially useful when used in conjunction with the `parameterOverrides` property.
 	// For example, if you have:
 	//
-	//    parameterOverrides: {
-	//      'Param1': action1.outputArtifact.bucketName,
-	//      'Param2': action2.outputArtifact.objectKey,
-	//    }
+	//   parameterOverrides: {
+	//     'Param1': action1.outputArtifact.bucketName,
+	//     'Param2': action2.outputArtifact.objectKey,
+	//   }
 	//
 	// , if the output Artifacts of `action1` and `action2` were not used to
 	// set either the `templateConfiguration` or the `templatePath` properties,

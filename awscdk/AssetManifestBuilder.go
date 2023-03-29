@@ -10,7 +10,7 @@ import (
 
 // Build an asset manifest from assets added to a stack.
 //
-// This class does not need to be used by app builders; it is only nessary for building Stack Synthesizers.
+// This class does not need to be used by app builders; it is only necessary for building Stack Synthesizers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

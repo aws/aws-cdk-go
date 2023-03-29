@@ -181,6 +181,8 @@ func validateCfnPipe_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnPipe) validateSetEnrichmentParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPipe_PipeEnrichmentParametersProperty:
 		val := val.(*CfnPipe_PipeEnrichmentParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnPipe) validateSetEnrichmentParametersParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPipe_PipeEnrichmentParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPipe_PipeEnrichmentParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnPipe) validateSetSourceParameters(val *string) error {
 
 func (j *jsiiProxy_CfnPipe) validateSetSourceParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPipe_PipeSourceParametersProperty:
 		val := val.(*CfnPipe_PipeSourceParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnPipe) validateSetSourceParametersParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPipe_PipeSourceParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPipe_PipeSourceParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -253,6 +253,8 @@ func (j *jsiiProxy_CfnPipe) validateSetTargetParameters(val *string) error {
 
 func (j *jsiiProxy_CfnPipe) validateSetTargetParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPipe_PipeTargetParametersProperty:
 		val := val.(*CfnPipe_PipeTargetParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -264,11 +266,9 @@ func (j *jsiiProxy_CfnPipe) validateSetTargetParametersParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPipe_PipeTargetParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPipe_PipeTargetParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 

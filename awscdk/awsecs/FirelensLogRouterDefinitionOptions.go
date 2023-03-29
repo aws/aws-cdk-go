@@ -96,6 +96,7 @@ import (
 //   		},
 //   	},
 //   	Privileged: jsii.Boolean(false),
+//   	PseudoTerminal: jsii.Boolean(false),
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
 //   	Secrets: map[string]*secret{
 //   		"secretsKey": secret,
@@ -198,6 +199,13 @@ type FirelensLogRouterDefinitionOptions struct {
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
 	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
+	// When this parameter is true, a TTY is allocated.
+	//
+	// This parameter maps to Tty in the "Create a container section" of the
+	// Docker Remote API and the --tty option to `docker run`.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_pseudoterminal
+	//
+	PseudoTerminal *bool `field:"optional" json:"pseudoTerminal" yaml:"pseudoTerminal"`
 	// When this parameter is true, the container is given read-only access to its root file system.
 	ReadonlyRootFilesystem *bool `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.

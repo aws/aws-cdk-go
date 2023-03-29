@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnConnector) validateSetCapacityParameters(val interface{}) 
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnector_CapacityProperty:
 		val := val.(*CfnConnector_CapacityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnConnector) validateSetCapacityParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnector_CapacityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_CapacityProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -239,6 +239,8 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaClusterParameters(val interface
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnector_KafkaClusterProperty:
 		val := val.(*CfnConnector_KafkaClusterProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -250,11 +252,9 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaClusterParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnector_KafkaClusterProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_KafkaClusterProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -266,6 +266,8 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaClusterClientAuthenticationPara
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnector_KafkaClusterClientAuthenticationProperty:
 		val := val.(*CfnConnector_KafkaClusterClientAuthenticationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -277,11 +279,9 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaClusterClientAuthenticationPara
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnector_KafkaClusterClientAuthenticationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_KafkaClusterClientAuthenticationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -293,6 +293,8 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaClusterEncryptionInTransitParam
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnector_KafkaClusterEncryptionInTransitProperty:
 		val := val.(*CfnConnector_KafkaClusterEncryptionInTransitProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -304,11 +306,9 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaClusterEncryptionInTransitParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnector_KafkaClusterEncryptionInTransitProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_KafkaClusterEncryptionInTransitProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -325,6 +325,8 @@ func (j *jsiiProxy_CfnConnector) validateSetKafkaConnectVersionParameters(val *s
 
 func (j *jsiiProxy_CfnConnector) validateSetLogDeliveryParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnector_LogDeliveryProperty:
 		val := val.(*CfnConnector_LogDeliveryProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -336,11 +338,9 @@ func (j *jsiiProxy_CfnConnector) validateSetLogDeliveryParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnector_LogDeliveryProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_LogDeliveryProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -358,6 +358,8 @@ func (j *jsiiProxy_CfnConnector) validateSetPluginsParameters(val interface{}) e
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnConnector_PluginProperty:
 				v := v.(*CfnConnector_PluginProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -369,11 +371,9 @@ func (j *jsiiProxy_CfnConnector) validateSetPluginsParameters(val interface{}) e
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnConnector_PluginProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnConnector_PluginProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -382,6 +382,8 @@ func (j *jsiiProxy_CfnConnector) validateSetPluginsParameters(val interface{}) e
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnConnector_PluginProperty:
 				v := v.(*CfnConnector_PluginProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -393,11 +395,9 @@ func (j *jsiiProxy_CfnConnector) validateSetPluginsParameters(val interface{}) e
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnConnector_PluginProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnConnector_PluginProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -420,6 +420,8 @@ func (j *jsiiProxy_CfnConnector) validateSetServiceExecutionRoleArnParameters(va
 
 func (j *jsiiProxy_CfnConnector) validateSetWorkerConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConnector_WorkerConfigurationProperty:
 		val := val.(*CfnConnector_WorkerConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -431,11 +433,9 @@ func (j *jsiiProxy_CfnConnector) validateSetWorkerConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConnector_WorkerConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_WorkerConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -197,6 +197,8 @@ func (j *jsiiProxy_CfnPricingRule) validateSetScopeParameters(val *string) error
 
 func (j *jsiiProxy_CfnPricingRule) validateSetTieringParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPricingRule_TieringProperty:
 		val := val.(*CfnPricingRule_TieringProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -208,11 +210,9 @@ func (j *jsiiProxy_CfnPricingRule) validateSetTieringParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPricingRule_TieringProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPricingRule_TieringProperty; received %#v (a %T)", val, val)
 		}
 	}
 

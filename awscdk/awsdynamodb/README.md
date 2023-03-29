@@ -300,3 +300,18 @@ cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
 	Threshold: jsii.Number(1),
 })
 ```
+
+## Deletion Protection for Tables
+
+You can enable deletion protection for a table by setting the `deletionProtection` property to `true`.
+When deletion protection is enabled for a table, it cannot be deleted by anyone. By default, deletion protection is disabled.
+
+```go
+table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	DeletionProtection: jsii.Boolean(true),
+})
+```

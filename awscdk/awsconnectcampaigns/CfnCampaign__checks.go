@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetDialerConfigParameters(val interface{
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_DialerConfigProperty:
 		val := val.(*CfnCampaign_DialerConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetDialerConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_DialerConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_DialerConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -227,6 +227,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetOutboundCallConfigParameters(val inte
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_OutboundCallConfigProperty:
 		val := val.(*CfnCampaign_OutboundCallConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -238,11 +240,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetOutboundCallConfigParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_OutboundCallConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_OutboundCallConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

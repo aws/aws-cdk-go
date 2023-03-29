@@ -19,7 +19,7 @@ import (
 //
 // ```ts
 // new pipelines.CodeBuildStep('Synth', {
-//    commands: ['./build.sh'],
+//   commands: ['./build.sh'],
 // });
 // ```.
 //

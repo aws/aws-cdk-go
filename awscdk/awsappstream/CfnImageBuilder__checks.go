@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetAccessEndpointsParameters(val int
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnImageBuilder_AccessEndpointProperty:
 				v := v.(*CfnImageBuilder_AccessEndpointProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetAccessEndpointsParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnImageBuilder_AccessEndpointProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnImageBuilder_AccessEndpointProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetAccessEndpointsParameters(val int
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnImageBuilder_AccessEndpointProperty:
 				v := v.(*CfnImageBuilder_AccessEndpointProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetAccessEndpointsParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnImageBuilder_AccessEndpointProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnImageBuilder_AccessEndpointProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -241,6 +241,8 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetAccessEndpointsParameters(val int
 
 func (j *jsiiProxy_CfnImageBuilder) validateSetDomainJoinInfoParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImageBuilder_DomainJoinInfoProperty:
 		val := val.(*CfnImageBuilder_DomainJoinInfoProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -252,11 +254,9 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetDomainJoinInfoParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImageBuilder_DomainJoinInfoProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImageBuilder_DomainJoinInfoProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -298,6 +298,8 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetNameParameters(val *string) error
 
 func (j *jsiiProxy_CfnImageBuilder) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImageBuilder_VpcConfigProperty:
 		val := val.(*CfnImageBuilder_VpcConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -309,11 +311,9 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetVpcConfigParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImageBuilder_VpcConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImageBuilder_VpcConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

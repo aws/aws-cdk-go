@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetAllowedPublishersParameters(
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCodeSigningConfig_AllowedPublishersProperty:
 		val := val.(*CfnCodeSigningConfig_AllowedPublishersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetAllowedPublishersParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCodeSigningConfig_AllowedPublishersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCodeSigningConfig_AllowedPublishersProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetAllowedPublishersParameters(
 
 func (j *jsiiProxy_CfnCodeSigningConfig) validateSetCodeSigningPoliciesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCodeSigningConfig_CodeSigningPoliciesProperty:
 		val := val.(*CfnCodeSigningConfig_CodeSigningPoliciesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetCodeSigningPoliciesParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCodeSigningConfig_CodeSigningPoliciesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCodeSigningConfig_CodeSigningPoliciesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

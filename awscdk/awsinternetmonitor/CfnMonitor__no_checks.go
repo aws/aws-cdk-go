@@ -80,6 +80,10 @@ func validateCfnMonitor_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMonitor) validateSetMonitorNameParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnMonitorParameters(scope constructs.Construct, id *string, props *CfnMonitorProps) error {
 	return nil
 }

@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditCheckConfigurat
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty:
 		val := val.(*CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditCheckConfigurat
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,6 +216,8 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditCheckConfigurat
 
 func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditNotificationTargetConfigurationsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty:
 		val := val.(*CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -227,11 +229,9 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditNotificationTar
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -18,12 +18,12 @@ type ChannelProps struct {
 	// validate the signed JWT that is required for authorization.
 	// Experimental.
 	Authorized *bool `field:"optional" json:"authorized" yaml:"authorized"`
+	// A name for the channel.
+	// Experimental.
+	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
 	// Channel latency mode.
 	// Experimental.
 	LatencyMode LatencyMode `field:"optional" json:"latencyMode" yaml:"latencyMode"`
-	// Channel name.
-	// Experimental.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
 	// If you exceed the allowable resolution or bitrate, the stream will disconnect immediately.

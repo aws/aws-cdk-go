@@ -33,7 +33,7 @@ type CfnDeploymentProps struct {
 	ConfigurationProfileId *string `field:"required" json:"configurationProfileId" yaml:"configurationProfileId"`
 	// The configuration version to deploy.
 	//
-	// If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label.
+	// If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.
 	ConfigurationVersion *string `field:"required" json:"configurationVersion" yaml:"configurationVersion"`
 	// The deployment strategy ID.
 	DeploymentStrategyId *string `field:"required" json:"deploymentStrategyId" yaml:"deploymentStrategyId"`

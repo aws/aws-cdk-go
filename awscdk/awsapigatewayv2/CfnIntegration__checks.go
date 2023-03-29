@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnIntegration) validateSetResponseParametersParameters(val i
 
 func (j *jsiiProxy_CfnIntegration) validateSetTlsConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnIntegration_TlsConfigProperty:
 		val := val.(*CfnIntegration_TlsConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnIntegration) validateSetTlsConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIntegration_TlsConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIntegration_TlsConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

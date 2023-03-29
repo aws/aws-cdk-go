@@ -206,6 +206,8 @@ func (j *jsiiProxy_CfnMethod) validateSetHttpMethodParameters(val *string) error
 
 func (j *jsiiProxy_CfnMethod) validateSetIntegrationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnMethod_IntegrationProperty:
 		val := val.(*CfnMethod_IntegrationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -217,11 +219,9 @@ func (j *jsiiProxy_CfnMethod) validateSetIntegrationParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnMethod_IntegrationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMethod_IntegrationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -236,6 +236,8 @@ func (j *jsiiProxy_CfnMethod) validateSetMethodResponsesParameters(val interface
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnMethod_MethodResponseProperty:
 				v := v.(*CfnMethod_MethodResponseProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -247,11 +249,9 @@ func (j *jsiiProxy_CfnMethod) validateSetMethodResponsesParameters(val interface
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnMethod_MethodResponseProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnMethod_MethodResponseProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -260,6 +260,8 @@ func (j *jsiiProxy_CfnMethod) validateSetMethodResponsesParameters(val interface
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnMethod_MethodResponseProperty:
 				v := v.(*CfnMethod_MethodResponseProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -271,11 +273,9 @@ func (j *jsiiProxy_CfnMethod) validateSetMethodResponsesParameters(val interface
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnMethod_MethodResponseProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnMethod_MethodResponseProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

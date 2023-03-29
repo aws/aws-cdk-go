@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetInstanceArnParameters(va
 
 func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisFirehoseConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInstanceStorageConfig_KinesisFirehoseConfigProperty:
 		val := val.(*CfnInstanceStorageConfig_KinesisFirehoseConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisFirehoseConfigPar
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInstanceStorageConfig_KinesisFirehoseConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceStorageConfig_KinesisFirehoseConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisFirehoseConfigPar
 
 func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisStreamConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInstanceStorageConfig_KinesisStreamConfigProperty:
 		val := val.(*CfnInstanceStorageConfig_KinesisStreamConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisStreamConfigParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInstanceStorageConfig_KinesisStreamConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceStorageConfig_KinesisStreamConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisStreamConfigParam
 
 func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisVideoStreamConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInstanceStorageConfig_KinesisVideoStreamConfigProperty:
 		val := val.(*CfnInstanceStorageConfig_KinesisVideoStreamConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetKinesisVideoStreamConfig
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInstanceStorageConfig_KinesisVideoStreamConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceStorageConfig_KinesisVideoStreamConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -269,6 +269,8 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetResourceTypeParameters(v
 
 func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetS3ConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInstanceStorageConfig_S3ConfigProperty:
 		val := val.(*CfnInstanceStorageConfig_S3ConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -280,11 +282,9 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetS3ConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInstanceStorageConfig_S3ConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceStorageConfig_S3ConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -181,6 +181,8 @@ func validateCfnSimpleTable_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnSimpleTable) validateSetPrimaryKeyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSimpleTable_PrimaryKeyProperty:
 		val := val.(*CfnSimpleTable_PrimaryKeyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnSimpleTable) validateSetPrimaryKeyParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSimpleTable_PrimaryKeyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSimpleTable_PrimaryKeyProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnSimpleTable) validateSetPrimaryKeyParameters(val interface
 
 func (j *jsiiProxy_CfnSimpleTable) validateSetProvisionedThroughputParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSimpleTable_ProvisionedThroughputProperty:
 		val := val.(*CfnSimpleTable_ProvisionedThroughputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnSimpleTable) validateSetProvisionedThroughputParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSimpleTable_ProvisionedThroughputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSimpleTable_ProvisionedThroughputProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnSimpleTable) validateSetProvisionedThroughputParameters(va
 
 func (j *jsiiProxy_CfnSimpleTable) validateSetSseSpecificationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSimpleTable_SSESpecificationProperty:
 		val := val.(*CfnSimpleTable_SSESpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnSimpleTable) validateSetSseSpecificationParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSimpleTable_SSESpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSimpleTable_SSESpecificationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdDecisionServerUrlParam
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_AvailSuppressionProperty:
 		val := val.(*CfnPlaybackConfiguration_AvailSuppressionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_AvailSuppressionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_AvailSuppressionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParamete
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBumperParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_BumperProperty:
 		val := val.(*CfnPlaybackConfiguration_BumperProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBumperParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_BumperProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_BumperProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBumperParameters(val int
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetCdnConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_CdnConfigurationProperty:
 		val := val.(*CfnPlaybackConfiguration_CdnConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetCdnConfigurationParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_CdnConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_CdnConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -278,6 +278,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetConfigurationAliasesPara
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetDashConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_DashConfigurationProperty:
 		val := val.(*CfnPlaybackConfiguration_DashConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -289,11 +291,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetDashConfigurationParamet
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_DashConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_DashConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -302,6 +302,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetDashConfigurationParamet
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetHlsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_HlsConfigurationProperty:
 		val := val.(*CfnPlaybackConfiguration_HlsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -313,11 +315,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetHlsConfigurationParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_HlsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_HlsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -326,6 +326,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetHlsConfigurationParamete
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetLivePreRollConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_LivePreRollConfigurationProperty:
 		val := val.(*CfnPlaybackConfiguration_LivePreRollConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -337,11 +339,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetLivePreRollConfiguration
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_LivePreRollConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_LivePreRollConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -350,6 +350,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetLivePreRollConfiguration
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetManifestProcessingRulesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPlaybackConfiguration_ManifestProcessingRulesProperty:
 		val := val.(*CfnPlaybackConfiguration_ManifestProcessingRulesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -361,11 +363,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetManifestProcessingRulesP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPlaybackConfiguration_ManifestProcessingRulesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_ManifestProcessingRulesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -197,6 +197,8 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetPolicyTypeParameters(val *string
 
 func (j *jsiiProxy_CfnScalingPolicy) validateSetStepScalingPolicyConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScalingPolicy_StepScalingPolicyConfigurationProperty:
 		val := val.(*CfnScalingPolicy_StepScalingPolicyConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -208,11 +210,9 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepScalingPolicyConfigurationPa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScalingPolicy_StepScalingPolicyConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScalingPolicy_StepScalingPolicyConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepScalingPolicyConfigurationPa
 
 func (j *jsiiProxy_CfnScalingPolicy) validateSetTargetTrackingScalingPolicyConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty:
 		val := val.(*CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetTargetTrackingScalingPolicyConfi
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

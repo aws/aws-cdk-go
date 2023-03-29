@@ -737,6 +737,17 @@ func InterfaceVpcEndpointAwsService_CONNECT_APP_INTEGRATIONS() InterfaceVpcEndpo
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_CONNECT_CASES() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"CONNECT_CASES",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_CONNECT_CONNECT_CAMPAIGNS() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -924,6 +935,17 @@ func InterfaceVpcEndpointAwsService_ECS_TELEMETRY() InterfaceVpcEndpointAwsServi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_EKS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"EKS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_ELASTIC_BEANSTALK() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -941,6 +963,17 @@ func InterfaceVpcEndpointAwsService_ELASTIC_BEANSTALK_HEALTH() InterfaceVpcEndpo
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"ELASTIC_BEANSTALK_HEALTH",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_ELASTIC_DISASTER_RECOVERY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"ELASTIC_DISASTER_RECOVERY",
 		&returns,
 	)
 	return returns
@@ -1210,6 +1243,17 @@ func InterfaceVpcEndpointAwsService_GRAFANA() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_GRAFANA_WORKSPACE() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"GRAFANA_WORKSPACE",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_GROUNDSTATION() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1287,6 +1331,17 @@ func InterfaceVpcEndpointAwsService_IOT_CORE() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_IOT_CORE_DEVICE_ADVISOR() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"IOT_CORE_DEVICE_ADVISOR",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_IOT_CORE_FOR_LORAWAN() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1331,6 +1386,17 @@ func InterfaceVpcEndpointAwsService_IOT_LORAWAN_LNS() InterfaceVpcEndpointAwsSer
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_IOT_ROBORUNNER() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"IOT_ROBORUNNER",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_IOT_SITEWISE_API() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1370,6 +1436,28 @@ func InterfaceVpcEndpointAwsService_IOT_TWINMAKER_DATA() InterfaceVpcEndpointAws
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"IOT_TWINMAKER_DATA",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_KENDRA() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"KENDRA",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_KENDRA_RANKING() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"KENDRA_RANKING",
 		&returns,
 	)
 	return returns
@@ -1425,6 +1513,17 @@ func InterfaceVpcEndpointAwsService_KMS() InterfaceVpcEndpointAwsService {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"KMS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_KMS_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"KMS_FIPS",
 		&returns,
 	)
 	return returns
@@ -1617,6 +1716,61 @@ func InterfaceVpcEndpointAwsService_NIMBLE_STUDIO() InterfaceVpcEndpointAwsServi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_OMICS_ANALYTICS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"OMICS_ANALYTICS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_OMICS_CONTROL_STORAGE() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"OMICS_CONTROL_STORAGE",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_OMICS_STORAGE() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"OMICS_STORAGE",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_OMICS_TAGS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"OMICS_TAGS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_OMICS_WORKFLOWS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"OMICS_WORKFLOWS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_PANORAMA() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1634,6 +1788,28 @@ func InterfaceVpcEndpointAwsService_PINPOINT() InterfaceVpcEndpointAwsService {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"PINPOINT",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_POLLY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"POLLY",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_PRIVATE_5G() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"PRIVATE_5G",
 		&returns,
 	)
 	return returns
@@ -1793,6 +1969,17 @@ func InterfaceVpcEndpointAwsService_S3() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_S3_MULTI_REGION_ACCESS_POINTS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"S3_MULTI_REGION_ACCESS_POINTS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_S3_OUTPOSTS() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1821,6 +2008,17 @@ func InterfaceVpcEndpointAwsService_SAGEMAKER_FEATURESTORE_RUNTIME() InterfaceVp
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"SAGEMAKER_FEATURESTORE_RUNTIME",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_SAGEMAKER_METRICS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SAGEMAKER_METRICS",
 		&returns,
 	)
 	return returns

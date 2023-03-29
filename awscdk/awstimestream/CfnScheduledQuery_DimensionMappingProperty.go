@@ -14,7 +14,7 @@ package awstimestream
 //   }
 //
 type CfnScheduledQuery_DimensionMappingProperty struct {
-	// Type for the dimension.
+	// Type for the dimension: VARCHAR.
 	DimensionValueType *string `field:"required" json:"dimensionValueType" yaml:"dimensionValueType"`
 	// Column name from query result.
 	Name *string `field:"required" json:"name" yaml:"name"`

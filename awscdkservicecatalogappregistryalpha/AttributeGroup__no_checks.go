@@ -29,7 +29,7 @@ func (a *jsiiProxy_AttributeGroup) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (a *jsiiProxy_AttributeGroup) validateShareAttributeGroupParameters(shareOptions *ShareOptions) error {
+func (a *jsiiProxy_AttributeGroup) validateShareAttributeGroupParameters(id *string, shareOptions *ShareOptions) error {
 	return nil
 }
 

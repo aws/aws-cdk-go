@@ -56,7 +56,7 @@ type CfnJson interface {
 	Value() Reference
 	// Produce the Token's value at resolution time.
 	Resolve(_arg IResolveContext) interface{}
-	// This is required in case someone JSON.stringifys an object which refrences this object. Otherwise, we'll get a cyclic JSON reference.
+	// This is required in case someone JSON.stringifys an object which references this object. Otherwise, we'll get a cyclic JSON reference.
 	ToJSON() *string
 	// Returns a string representation of this construct.
 	ToString() *string

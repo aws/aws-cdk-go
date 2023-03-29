@@ -37,6 +37,14 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	AccessRole awsiam.IRole `field:"optional" json:"accessRole" yaml:"accessRole"`
+	// Specifies whether to enable continuous integration from the source repository.
+	//
+	// If true, continuous integration from the source repository is enabled for the App Runner service.
+	// Each repository change (including any source code commit or new image version) starts a deployment.
+	// By default, App Runner sets to false for a source image that uses an ECR Public repository or an ECR repository that's in an AWS account other than the one that the service is in.
+	// App Runner sets to true in all other cases (which currently include a source code repository or a source image using a same-account ECR repository).
+	// Experimental.
+	AutoDeploymentsEnabled *bool `field:"optional" json:"autoDeploymentsEnabled" yaml:"autoDeploymentsEnabled"`
 	// The number of CPU units reserved for each instance of your App Runner service.
 	// Experimental.
 	Cpu Cpu `field:"optional" json:"cpu" yaml:"cpu"`

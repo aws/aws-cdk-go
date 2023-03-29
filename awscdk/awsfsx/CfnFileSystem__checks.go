@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnFileSystem) validateSetFileSystemTypeParameters(val *strin
 
 func (j *jsiiProxy_CfnFileSystem) validateSetLustreConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFileSystem_LustreConfigurationProperty:
 		val := val.(*CfnFileSystem_LustreConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnFileSystem) validateSetLustreConfigurationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFileSystem_LustreConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFileSystem_LustreConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnFileSystem) validateSetLustreConfigurationParameters(val i
 
 func (j *jsiiProxy_CfnFileSystem) validateSetOntapConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFileSystem_OntapConfigurationProperty:
 		val := val.(*CfnFileSystem_OntapConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnFileSystem) validateSetOntapConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFileSystem_OntapConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFileSystem_OntapConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnFileSystem) validateSetOntapConfigurationParameters(val in
 
 func (j *jsiiProxy_CfnFileSystem) validateSetOpenZfsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFileSystem_OpenZFSConfigurationProperty:
 		val := val.(*CfnFileSystem_OpenZFSConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnFileSystem) validateSetOpenZfsConfigurationParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFileSystem_OpenZFSConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFileSystem_OpenZFSConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -269,6 +269,8 @@ func (j *jsiiProxy_CfnFileSystem) validateSetSubnetIdsParameters(val *[]*string)
 
 func (j *jsiiProxy_CfnFileSystem) validateSetWindowsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFileSystem_WindowsConfigurationProperty:
 		val := val.(*CfnFileSystem_WindowsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -280,11 +282,9 @@ func (j *jsiiProxy_CfnFileSystem) validateSetWindowsConfigurationParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFileSystem_WindowsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFileSystem_WindowsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

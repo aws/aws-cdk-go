@@ -46,6 +46,14 @@ import (
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The status of the Object Lambda Access Point alias.
+	//
+	// Valid Values: `PROVISIONING` | `READY` .
+	AttrAliasStatus() *string
+	// The alias name value of the Object Lambda Access Point.
+	//
+	// For example: `myolap-1a4n8yjrb3kda96f67zwrwiiuse1a--ol-s3` .
+	AttrAliasValue() *string
 	// Specifies the ARN for the Object Lambda Access Point.
 	AttrArn() *string
 	// The date and time when the specified Object Lambda Access Point was created.
@@ -143,20 +151,20 @@ type CfnAccessPoint interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -235,6 +243,26 @@ type CfnAccessPoint interface {
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnAccessPoint) AttrAliasStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAliasStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessPoint) AttrAliasValue() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAliasValue",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAccessPoint) AttrArn() *string {

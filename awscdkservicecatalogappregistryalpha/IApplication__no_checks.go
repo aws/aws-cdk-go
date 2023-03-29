@@ -25,7 +25,7 @@ func (i *jsiiProxy_IApplication) validateAssociateStackParameters(stack awscdk.S
 	return nil
 }
 
-func (i *jsiiProxy_IApplication) validateShareApplicationParameters(shareOptions *ShareOptions) error {
+func (i *jsiiProxy_IApplication) validateShareApplicationParameters(id *string, shareOptions *ShareOptions) error {
 	return nil
 }
 

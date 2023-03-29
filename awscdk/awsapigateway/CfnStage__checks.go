@@ -181,6 +181,8 @@ func validateCfnStage_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnStage) validateSetAccessLogSettingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStage_AccessLogSettingProperty:
 		val := val.(*CfnStage_AccessLogSettingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnStage) validateSetAccessLogSettingParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStage_AccessLogSettingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStage_AccessLogSettingProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnStage) validateSetCacheClusterEnabledParameters(val interf
 
 func (j *jsiiProxy_CfnStage) validateSetCanarySettingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStage_CanarySettingProperty:
 		val := val.(*CfnStage_CanarySettingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnStage) validateSetCanarySettingParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStage_CanarySettingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStage_CanarySettingProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -252,6 +252,8 @@ func (j *jsiiProxy_CfnStage) validateSetMethodSettingsParameters(val interface{}
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStage_MethodSettingProperty:
 				v := v.(*CfnStage_MethodSettingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -263,11 +265,9 @@ func (j *jsiiProxy_CfnStage) validateSetMethodSettingsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStage_MethodSettingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStage_MethodSettingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -276,6 +276,8 @@ func (j *jsiiProxy_CfnStage) validateSetMethodSettingsParameters(val interface{}
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStage_MethodSettingProperty:
 				v := v.(*CfnStage_MethodSettingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -287,11 +289,9 @@ func (j *jsiiProxy_CfnStage) validateSetMethodSettingsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStage_MethodSettingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStage_MethodSettingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

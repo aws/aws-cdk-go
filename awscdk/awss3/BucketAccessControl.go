@@ -16,9 +16,9 @@ package awss3
 //   	DestinationBucket: websiteBucket,
 //   	DestinationKeyPrefix: jsii.String("web/static"),
 //   	 // optional prefix in destination bucket
-//   	Metadata: &UserDefinedObjectMetadata{
-//   		A: jsii.String("1"),
-//   		B: jsii.String("2"),
+//   	Metadata: map[string]*string{
+//   		"A": jsii.String("1"),
+//   		"b": jsii.String("2"),
 //   	},
 //   	 // user-defined metadata
 //

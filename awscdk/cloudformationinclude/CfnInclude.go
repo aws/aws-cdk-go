@@ -89,9 +89,9 @@ type CfnInclude interface {
 	// The returned object will be of the proper underlying class;
 	// you can always cast it to the correct type in your code:
 	//
-	//      // assume the template contains an AWS::S3::Bucket with logical ID 'Bucket'
-	//      const cfnBucket = cfnTemplate.getResource('Bucket') as s3.CfnBucket;
-	//      // cfnBucket is of type s3.CfnBucket
+	//     // assume the template contains an AWS::S3::Bucket with logical ID 'Bucket'
+	//     const cfnBucket = cfnTemplate.getResource('Bucket') as s3.CfnBucket;
+	//     // cfnBucket is of type s3.CfnBucket
 	//
 	// If the template does not contain a resource with the given logical ID,
 	// an exception will be thrown.

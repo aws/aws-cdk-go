@@ -181,6 +181,8 @@ func validateCfnGroup_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnGroup) validateSetInsightsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGroup_InsightsConfigurationProperty:
 		val := val.(*CfnGroup_InsightsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnGroup) validateSetInsightsConfigurationParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGroup_InsightsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGroup_InsightsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

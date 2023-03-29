@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnBot) validateSetAutoBuildBotLocalesParameters(val interfac
 
 func (j *jsiiProxy_CfnBot) validateSetBotFileS3LocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBot_S3LocationProperty:
 		val := val.(*CfnBot_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnBot) validateSetBotFileS3LocationParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBot_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBot_S3LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -228,6 +228,8 @@ func (j *jsiiProxy_CfnBot) validateSetBotLocalesParameters(val interface{}) erro
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnBot_BotLocaleProperty:
 				v := v.(*CfnBot_BotLocaleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -239,11 +241,9 @@ func (j *jsiiProxy_CfnBot) validateSetBotLocalesParameters(val interface{}) erro
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnBot_BotLocaleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnBot_BotLocaleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -252,6 +252,8 @@ func (j *jsiiProxy_CfnBot) validateSetBotLocalesParameters(val interface{}) erro
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnBot_BotLocaleProperty:
 				v := v.(*CfnBot_BotLocaleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -263,11 +265,9 @@ func (j *jsiiProxy_CfnBot) validateSetBotLocalesParameters(val interface{}) erro
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnBot_BotLocaleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnBot_BotLocaleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -374,6 +374,8 @@ func (j *jsiiProxy_CfnBot) validateSetRoleArnParameters(val *string) error {
 
 func (j *jsiiProxy_CfnBot) validateSetTestBotAliasSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBot_TestBotAliasSettingsProperty:
 		val := val.(*CfnBot_TestBotAliasSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -385,11 +387,9 @@ func (j *jsiiProxy_CfnBot) validateSetTestBotAliasSettingsParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBot_TestBotAliasSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBot_TestBotAliasSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

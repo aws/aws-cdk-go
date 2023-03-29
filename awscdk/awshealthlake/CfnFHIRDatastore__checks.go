@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetDatastoreTypeVersionParameters(v
 
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetPreloadDataConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFHIRDatastore_PreloadDataConfigProperty:
 		val := val.(*CfnFHIRDatastore_PreloadDataConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetPreloadDataConfigParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFHIRDatastore_PreloadDataConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFHIRDatastore_PreloadDataConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetPreloadDataConfigParameters(val 
 
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetSseConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFHIRDatastore_SseConfigurationProperty:
 		val := val.(*CfnFHIRDatastore_SseConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetSseConfigurationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFHIRDatastore_SseConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFHIRDatastore_SseConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

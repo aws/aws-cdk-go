@@ -190,6 +190,8 @@ func (j *jsiiProxy_CfnFlow) validateSetDestinationFlowConfigListParameters(val i
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnFlow_DestinationFlowConfigProperty:
 				v := v.(*CfnFlow_DestinationFlowConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -201,11 +203,9 @@ func (j *jsiiProxy_CfnFlow) validateSetDestinationFlowConfigListParameters(val i
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFlow_DestinationFlowConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFlow_DestinationFlowConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -214,6 +214,8 @@ func (j *jsiiProxy_CfnFlow) validateSetDestinationFlowConfigListParameters(val i
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnFlow_DestinationFlowConfigProperty:
 				v := v.(*CfnFlow_DestinationFlowConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -225,11 +227,9 @@ func (j *jsiiProxy_CfnFlow) validateSetDestinationFlowConfigListParameters(val i
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFlow_DestinationFlowConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFlow_DestinationFlowConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -252,6 +252,8 @@ func (j *jsiiProxy_CfnFlow) validateSetFlowNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnFlow) validateSetMetadataCatalogConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlow_MetadataCatalogConfigProperty:
 		val := val.(*CfnFlow_MetadataCatalogConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -263,11 +265,9 @@ func (j *jsiiProxy_CfnFlow) validateSetMetadataCatalogConfigParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlow_MetadataCatalogConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlow_MetadataCatalogConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -279,6 +279,8 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFlowConfigParameters(val interface{
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlow_SourceFlowConfigProperty:
 		val := val.(*CfnFlow_SourceFlowConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -290,11 +292,9 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFlowConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlow_SourceFlowConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlow_SourceFlowConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -312,6 +312,8 @@ func (j *jsiiProxy_CfnFlow) validateSetTasksParameters(val interface{}) error {
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnFlow_TaskProperty:
 				v := v.(*CfnFlow_TaskProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -323,11 +325,9 @@ func (j *jsiiProxy_CfnFlow) validateSetTasksParameters(val interface{}) error {
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFlow_TaskProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFlow_TaskProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -336,6 +336,8 @@ func (j *jsiiProxy_CfnFlow) validateSetTasksParameters(val interface{}) error {
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnFlow_TaskProperty:
 				v := v.(*CfnFlow_TaskProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -347,11 +349,9 @@ func (j *jsiiProxy_CfnFlow) validateSetTasksParameters(val interface{}) error {
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFlow_TaskProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFlow_TaskProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -369,6 +369,8 @@ func (j *jsiiProxy_CfnFlow) validateSetTriggerConfigParameters(val interface{}) 
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlow_TriggerConfigProperty:
 		val := val.(*CfnFlow_TriggerConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -380,11 +382,9 @@ func (j *jsiiProxy_CfnFlow) validateSetTriggerConfigParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlow_TriggerConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlow_TriggerConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -27,6 +27,7 @@ import (
 //   	// the properties below are optional
 //   	BillingMode: awscdk.*Aws_dynamodb.BillingMode_PAY_PER_REQUEST,
 //   	ContributorInsightsEnabled: jsii.Boolean(false),
+//   	DeletionProtection: jsii.Boolean(false),
 //   	Encryption: awscdk.*Aws_dynamodb.TableEncryption_DEFAULT,
 //   	EncryptionKey: key,
 //   	PointInTimeRecovery: jsii.Boolean(false),
@@ -56,6 +57,8 @@ type TableOptions struct {
 	BillingMode BillingMode `field:"optional" json:"billingMode" yaml:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
 	ContributorInsightsEnabled *bool `field:"optional" json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
+	// Enables deletion protection for the table.
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.

@@ -181,6 +181,8 @@ func validateCfnResourceDataSync_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnResourceDataSync) validateSetS3DestinationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnResourceDataSync_S3DestinationProperty:
 		val := val.(*CfnResourceDataSync_S3DestinationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnResourceDataSync) validateSetS3DestinationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnResourceDataSync_S3DestinationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResourceDataSync_S3DestinationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnResourceDataSync) validateSetSyncNameParameters(val *strin
 
 func (j *jsiiProxy_CfnResourceDataSync) validateSetSyncSourceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnResourceDataSync_SyncSourceProperty:
 		val := val.(*CfnResourceDataSync_SyncSourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnResourceDataSync) validateSetSyncSourceParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnResourceDataSync_SyncSourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResourceDataSync_SyncSourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

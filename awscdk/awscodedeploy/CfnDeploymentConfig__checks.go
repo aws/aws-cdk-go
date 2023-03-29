@@ -181,6 +181,8 @@ func validateCfnDeploymentConfig_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDeploymentConfig) validateSetMinimumHealthyHostsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentConfig_MinimumHealthyHostsProperty:
 		val := val.(*CfnDeploymentConfig_MinimumHealthyHostsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDeploymentConfig) validateSetMinimumHealthyHostsParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentConfig_MinimumHealthyHostsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentConfig_MinimumHealthyHostsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnDeploymentConfig) validateSetMinimumHealthyHostsParameters
 
 func (j *jsiiProxy_CfnDeploymentConfig) validateSetTrafficRoutingConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentConfig_TrafficRoutingConfigProperty:
 		val := val.(*CfnDeploymentConfig_TrafficRoutingConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnDeploymentConfig) validateSetTrafficRoutingConfigParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentConfig_TrafficRoutingConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentConfig_TrafficRoutingConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

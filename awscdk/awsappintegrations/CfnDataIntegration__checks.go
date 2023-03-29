@@ -200,6 +200,8 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val i
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataIntegration_ScheduleConfigProperty:
 		val := val.(*CfnDataIntegration_ScheduleConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -211,11 +213,9 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataIntegration_ScheduleConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataIntegration_ScheduleConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

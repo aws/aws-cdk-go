@@ -37,10 +37,10 @@ type IntegrationProps struct {
 	// - If you specify HTTP for the `type` property, specify the API endpoint URL.
 	// - If you specify MOCK for the `type` property, don't specify this property.
 	// - If you specify AWS for the `type` property, specify an AWS service that
-	//    follows this form: `arn:partition:apigateway:region:subdomain.service|service:path|action/service_api.`
-	//    For example, a Lambda function URI follows this form:
-	//    arn:partition:apigateway:region:lambda:path/path. The path is usually in the
-	//    form /2015-03-31/functions/LambdaFunctionARN/invocations.
+	//   follows this form: `arn:partition:apigateway:region:subdomain.service|service:path|action/service_api.`
+	//   For example, a Lambda function URI follows this form:
+	//   arn:partition:apigateway:region:lambda:path/path. The path is usually in the
+	//   form /2015-03-31/functions/LambdaFunctionARN/invocations.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
 	Uri interface{} `field:"optional" json:"uri" yaml:"uri"`

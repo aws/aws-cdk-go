@@ -255,6 +255,8 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetLogDeliveryConfigurationsPara
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnReplicationGroup_LogDeliveryConfigurationRequestProperty:
 				v := v.(*CfnReplicationGroup_LogDeliveryConfigurationRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -266,11 +268,9 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetLogDeliveryConfigurationsPara
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnReplicationGroup_LogDeliveryConfigurationRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnReplicationGroup_LogDeliveryConfigurationRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -279,6 +279,8 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetLogDeliveryConfigurationsPara
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnReplicationGroup_LogDeliveryConfigurationRequestProperty:
 				v := v.(*CfnReplicationGroup_LogDeliveryConfigurationRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -290,11 +292,9 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetLogDeliveryConfigurationsPara
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnReplicationGroup_LogDeliveryConfigurationRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnReplicationGroup_LogDeliveryConfigurationRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -332,6 +332,8 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetNodeGroupConfigurationParamet
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnReplicationGroup_NodeGroupConfigurationProperty:
 				v := v.(*CfnReplicationGroup_NodeGroupConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -343,11 +345,9 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetNodeGroupConfigurationParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnReplicationGroup_NodeGroupConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnReplicationGroup_NodeGroupConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -356,6 +356,8 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetNodeGroupConfigurationParamet
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnReplicationGroup_NodeGroupConfigurationProperty:
 				v := v.(*CfnReplicationGroup_NodeGroupConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -367,11 +369,9 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetNodeGroupConfigurationParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnReplicationGroup_NodeGroupConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnReplicationGroup_NodeGroupConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

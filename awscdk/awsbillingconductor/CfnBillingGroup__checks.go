@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetAccountGroupingParameters(val int
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBillingGroup_AccountGroupingProperty:
 		val := val.(*CfnBillingGroup_AccountGroupingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetAccountGroupingParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBillingGroup_AccountGroupingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBillingGroup_AccountGroupingProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetComputationPreferenceParameters(v
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBillingGroup_ComputationPreferenceProperty:
 		val := val.(*CfnBillingGroup_ComputationPreferenceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetComputationPreferenceParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBillingGroup_ComputationPreferenceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBillingGroup_ComputationPreferenceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

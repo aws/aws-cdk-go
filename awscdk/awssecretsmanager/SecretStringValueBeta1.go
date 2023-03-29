@@ -46,7 +46,7 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // const user = new iam.User(this, 'User');
 // const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
 // const secret = new secretsmanager.Secret(this, 'Secret', {
-//  	secretStringValue: accessKey.secretAccessKey,
+// 	secretStringValue: accessKey.secretAccessKey,
 // });
 // ```
 //
@@ -56,9 +56,9 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // const user = new iam.User(this, 'User');
 // const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
 // const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(JSON.stringify({
-//    username: user.userName,
-//    database: 'foo',
-//    password: accessKey.secretAccessKey.unsafeUnwrap(),
+//   username: user.userName,
+//   database: 'foo',
+//   password: accessKey.secretAccessKey.unsafeUnwrap(),
 // }));
 // ```
 //

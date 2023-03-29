@@ -197,6 +197,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetNameParameters(val *string) erro
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetRenderingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnKnowledgeBase_RenderingConfigurationProperty:
 		val := val.(*CfnKnowledgeBase_RenderingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -208,11 +210,9 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetRenderingConfigurationParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnKnowledgeBase_RenderingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_RenderingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetRenderingConfigurationParameters
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetServerSideEncryptionConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty:
 		val := val.(*CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetServerSideEncryptionConfiguratio
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -245,6 +245,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetServerSideEncryptionConfiguratio
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetSourceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnKnowledgeBase_SourceConfigurationProperty:
 		val := val.(*CfnKnowledgeBase_SourceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -256,11 +258,9 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetSourceConfigurationParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnKnowledgeBase_SourceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_SourceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

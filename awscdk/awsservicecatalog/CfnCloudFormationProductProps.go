@@ -21,6 +21,7 @@ import (
 //   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   	Description: jsii.String("description"),
 //   	Distributor: jsii.String("distributor"),
+//   	ProductType: jsii.String("productType"),
 //   	ProvisioningArtifactParameters: []interface{}{
 //   		&ProvisioningArtifactPropertiesProperty{
 //   			Info: info,
@@ -29,6 +30,7 @@ import (
 //   			Description: jsii.String("description"),
 //   			DisableTemplateValidation: jsii.Boolean(false),
 //   			Name: jsii.String("name"),
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	ReplaceProvisioningArtifacts: jsii.Boolean(false),
@@ -69,6 +71,8 @@ type CfnCloudFormationProductProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The distributor of the product.
 	Distributor *string `field:"optional" json:"distributor" yaml:"distributor"`
+	// `AWS::ServiceCatalog::CloudFormationProduct.ProductType`.
+	ProductType *string `field:"optional" json:"productType" yaml:"productType"`
 	// The configuration of the provisioning artifact (also known as a version).
 	ProvisioningArtifactParameters interface{} `field:"optional" json:"provisioningArtifactParameters" yaml:"provisioningArtifactParameters"`
 	// This property is turned off by default.

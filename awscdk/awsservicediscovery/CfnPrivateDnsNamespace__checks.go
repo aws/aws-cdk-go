@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetNameParameters(val *string
 
 func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetPropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPrivateDnsNamespace_PropertiesProperty:
 		val := val.(*CfnPrivateDnsNamespace_PropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetPropertiesParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPrivateDnsNamespace_PropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPrivateDnsNamespace_PropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

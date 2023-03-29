@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnRecordingConfiguration) validateSetDestinationConfiguratio
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRecordingConfiguration_DestinationConfigurationProperty:
 		val := val.(*CfnRecordingConfiguration_DestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnRecordingConfiguration) validateSetDestinationConfiguratio
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRecordingConfiguration_DestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRecordingConfiguration_DestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnRecordingConfiguration) validateSetDestinationConfiguratio
 
 func (j *jsiiProxy_CfnRecordingConfiguration) validateSetThumbnailConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRecordingConfiguration_ThumbnailConfigurationProperty:
 		val := val.(*CfnRecordingConfiguration_ThumbnailConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnRecordingConfiguration) validateSetThumbnailConfigurationP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRecordingConfiguration_ThumbnailConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRecordingConfiguration_ThumbnailConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

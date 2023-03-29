@@ -84,11 +84,19 @@ func (j *jsiiProxy_CfnService) validateSetApplicationIdentifierParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetEndpointTypeParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetEnvironmentIdentifierParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnService) validateSetLambdaEndpointParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnService) validateSetNameParameters(val *string) error {
 	return nil
 }
 

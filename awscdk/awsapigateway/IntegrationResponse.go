@@ -30,11 +30,11 @@ type IntegrationResponse struct {
 	// Use the destination as the key and the source as the value:
 	//
 	// - The destination must be an existing response parameter in the
-	//    MethodResponse property.
+	//   MethodResponse property.
 	// - The source must be an existing method request parameter or a static
-	//    value. You must enclose static values in single quotation marks and
-	//    pre-encode these values based on the destination specified in the
-	//    request.
+	//   value. You must enclose static values in single quotation marks and
+	//   pre-encode these values based on the destination specified in the
+	//   request.
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
 	//
 	ResponseParameters *map[string]*string `field:"optional" json:"responseParameters" yaml:"responseParameters"`

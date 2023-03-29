@@ -214,6 +214,8 @@ func (j *jsiiProxy_CfnBackupVault) validateSetBackupVaultTagsParameters(val inte
 
 func (j *jsiiProxy_CfnBackupVault) validateSetLockConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBackupVault_LockConfigurationTypeProperty:
 		val := val.(*CfnBackupVault_LockConfigurationTypeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -225,11 +227,9 @@ func (j *jsiiProxy_CfnBackupVault) validateSetLockConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBackupVault_LockConfigurationTypeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBackupVault_LockConfigurationTypeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -238,6 +238,8 @@ func (j *jsiiProxy_CfnBackupVault) validateSetLockConfigurationParameters(val in
 
 func (j *jsiiProxy_CfnBackupVault) validateSetNotificationsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBackupVault_NotificationObjectTypeProperty:
 		val := val.(*CfnBackupVault_NotificationObjectTypeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -249,11 +251,9 @@ func (j *jsiiProxy_CfnBackupVault) validateSetNotificationsParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBackupVault_NotificationObjectTypeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBackupVault_NotificationObjectTypeProperty; received %#v (a %T)", val, val)
 		}
 	}
 

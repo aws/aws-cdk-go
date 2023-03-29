@@ -99,6 +99,22 @@ func (k *jsiiProxy_Key) validateGrantEncryptDecryptParameters(grantee awsiam.IGr
 	return nil
 }
 
+func (k *jsiiProxy_Key) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (k *jsiiProxy_Key) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateKey_FromCfnKeyParameters(cfnKey CfnKey) error {
 	if cfnKey == nil {
 		return fmt.Errorf("parameter cfnKey is required, but nil was provided")

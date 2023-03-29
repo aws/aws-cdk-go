@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnDevice) validateSetGlobalNetworkIdParameters(val *string) 
 
 func (j *jsiiProxy_CfnDevice) validateSetLocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDevice_LocationProperty:
 		val := val.(*CfnDevice_LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnDevice) validateSetLocationParameters(val interface{}) err
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDevice_LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDevice_LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

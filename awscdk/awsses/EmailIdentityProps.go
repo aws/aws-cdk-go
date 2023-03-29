@@ -38,9 +38,9 @@ type EmailIdentityProps struct {
 	//
 	// The MAIL FROM domain
 	// must meet the following criteria:
-	//    - It has to be a subdomain of the verified identity
-	//    - It can't be used to receive email
-	//    - It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback
+	//   - It has to be a subdomain of the verified identity
+	//   - It can't be used to receive email
+	//   - It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback
 	// forwarding emails.
 	MailFromDomain *string `field:"optional" json:"mailFromDomain" yaml:"mailFromDomain"`
 }

@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnAppImageConfig) validateSetAppImageConfigNameParameters(va
 
 func (j *jsiiProxy_CfnAppImageConfig) validateSetKernelGatewayImageConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAppImageConfig_KernelGatewayImageConfigProperty:
 		val := val.(*CfnAppImageConfig_KernelGatewayImageConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnAppImageConfig) validateSetKernelGatewayImageConfigParamet
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAppImageConfig_KernelGatewayImageConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppImageConfig_KernelGatewayImageConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

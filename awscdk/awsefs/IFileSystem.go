@@ -13,7 +13,7 @@ import (
 // Represents an Amazon EFS file system.
 type IFileSystem interface {
 	awsec2.IConnectable
-	awscdk.IResource
+	awsiam.IResourceWithPolicy
 	// Grant the actions defined in actions to the given grantee on this File System resource.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The ARN of the file system.
@@ -27,7 +27,7 @@ type IFileSystem interface {
 // The jsii proxy for IFileSystem
 type jsiiProxy_IFileSystem struct {
 	internal.Type__awsec2IConnectable
-	internal.Type__awscdkIResource
+	internal.Type__awsiamIResourceWithPolicy
 }
 
 func (i *jsiiProxy_IFileSystem) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
@@ -45,6 +45,22 @@ func (i *jsiiProxy_IFileSystem) Grant(grantee awsiam.IGrantable, actions ...*str
 		i,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IFileSystem) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		i,
+		"addToResourcePolicy",
+		[]interface{}{statement},
 		&returns,
 	)
 

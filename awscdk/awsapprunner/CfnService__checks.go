@@ -181,6 +181,8 @@ func validateCfnService_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnService) validateSetEncryptionConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnService_EncryptionConfigurationProperty:
 		val := val.(*CfnService_EncryptionConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnService) validateSetEncryptionConfigurationParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_EncryptionConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_EncryptionConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnService) validateSetEncryptionConfigurationParameters(val 
 
 func (j *jsiiProxy_CfnService) validateSetHealthCheckConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnService_HealthCheckConfigurationProperty:
 		val := val.(*CfnService_HealthCheckConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnService) validateSetHealthCheckConfigurationParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_HealthCheckConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_HealthCheckConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnService) validateSetHealthCheckConfigurationParameters(val
 
 func (j *jsiiProxy_CfnService) validateSetInstanceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnService_InstanceConfigurationProperty:
 		val := val.(*CfnService_InstanceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnService) validateSetInstanceConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_InstanceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_InstanceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -253,6 +253,8 @@ func (j *jsiiProxy_CfnService) validateSetInstanceConfigurationParameters(val in
 
 func (j *jsiiProxy_CfnService) validateSetNetworkConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnService_NetworkConfigurationProperty:
 		val := val.(*CfnService_NetworkConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -264,11 +266,9 @@ func (j *jsiiProxy_CfnService) validateSetNetworkConfigurationParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_NetworkConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_NetworkConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -277,6 +277,8 @@ func (j *jsiiProxy_CfnService) validateSetNetworkConfigurationParameters(val int
 
 func (j *jsiiProxy_CfnService) validateSetObservabilityConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnService_ServiceObservabilityConfigurationProperty:
 		val := val.(*CfnService_ServiceObservabilityConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -288,11 +290,9 @@ func (j *jsiiProxy_CfnService) validateSetObservabilityConfigurationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_ServiceObservabilityConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_ServiceObservabilityConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -304,6 +304,8 @@ func (j *jsiiProxy_CfnService) validateSetSourceConfigurationParameters(val inte
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnService_SourceConfigurationProperty:
 		val := val.(*CfnService_SourceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -315,11 +317,9 @@ func (j *jsiiProxy_CfnService) validateSetSourceConfigurationParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_SourceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_SourceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

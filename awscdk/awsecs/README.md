@@ -1474,3 +1474,18 @@ customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &
 	},
 })
 ```
+
+## Enable pseudo-terminal (TTY) allocation
+
+You can allocate a pseudo-terminal (TTY) for a container passing `pseudoTerminal` option while adding the container
+to the task definition.
+This maps to Tty option in the ["Create a container section"](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate)
+of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the --tty option to [`docker run`](https://docs.docker.com/engine/reference/commandline/run/).
+
+```go
+taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	PseudoTerminal: jsii.Boolean(true),
+})
+```

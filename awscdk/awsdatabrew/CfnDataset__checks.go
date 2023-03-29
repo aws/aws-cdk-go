@@ -181,6 +181,8 @@ func validateCfnDataset_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDataset) validateSetFormatOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataset_FormatOptionsProperty:
 		val := val.(*CfnDataset_FormatOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDataset) validateSetFormatOptionsParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataset_FormatOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataset_FormatOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnDataset) validateSetInputParameters(val interface{}) error
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataset_InputProperty:
 		val := val.(*CfnDataset_InputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnDataset) validateSetInputParameters(val interface{}) error
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataset_InputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataset_InputProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -240,6 +240,8 @@ func (j *jsiiProxy_CfnDataset) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnDataset) validateSetPathOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataset_PathOptionsProperty:
 		val := val.(*CfnDataset_PathOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -251,11 +253,9 @@ func (j *jsiiProxy_CfnDataset) validateSetPathOptionsParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataset_PathOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataset_PathOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

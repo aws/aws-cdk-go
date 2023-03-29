@@ -192,6 +192,8 @@ type CfnEventSourceMapping interface {
 	//
 	// The default value is -1,
 	// which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+	//
+	// > The minimum value that can be set is 60 seconds.
 	MaximumRecordAgeInSeconds() *float64
 	SetMaximumRecordAgeInSeconds(val *float64)
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries.
@@ -303,20 +305,20 @@ type CfnEventSourceMapping interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//

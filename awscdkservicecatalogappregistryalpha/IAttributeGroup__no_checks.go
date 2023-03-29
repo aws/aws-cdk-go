@@ -5,7 +5,7 @@ package awscdkservicecatalogappregistryalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IAttributeGroup) validateShareAttributeGroupParameters(shareOptions *ShareOptions) error {
+func (i *jsiiProxy_IAttributeGroup) validateShareAttributeGroupParameters(id *string, shareOptions *ShareOptions) error {
 	return nil
 }
 

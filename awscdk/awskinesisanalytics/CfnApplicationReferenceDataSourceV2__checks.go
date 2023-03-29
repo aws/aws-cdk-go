@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateSetReferenceData
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty:
 		val := val.(*CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateSetReferenceData
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -181,6 +181,8 @@ func validateCfnStudioComponent_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnStudioComponent) validateSetConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStudioComponent_StudioComponentConfigurationProperty:
 		val := val.(*CfnStudioComponent_StudioComponentConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStudioComponent_StudioComponentConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStudioComponent_StudioComponentConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetInitializationScriptsParameter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStudioComponent_StudioComponentInitializationScriptProperty:
 				v := v.(*CfnStudioComponent_StudioComponentInitializationScriptProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetInitializationScriptsParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStudioComponent_StudioComponentInitializationScriptProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStudioComponent_StudioComponentInitializationScriptProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -235,6 +235,8 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetInitializationScriptsParameter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStudioComponent_StudioComponentInitializationScriptProperty:
 				v := v.(*CfnStudioComponent_StudioComponentInitializationScriptProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -246,11 +248,9 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetInitializationScriptsParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStudioComponent_StudioComponentInitializationScriptProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStudioComponent_StudioComponentInitializationScriptProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -279,6 +279,8 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetScriptParametersParameters(val
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStudioComponent_ScriptParameterKeyValueProperty:
 				v := v.(*CfnStudioComponent_ScriptParameterKeyValueProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -290,11 +292,9 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetScriptParametersParameters(val
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStudioComponent_ScriptParameterKeyValueProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStudioComponent_ScriptParameterKeyValueProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -303,6 +303,8 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetScriptParametersParameters(val
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStudioComponent_ScriptParameterKeyValueProperty:
 				v := v.(*CfnStudioComponent_ScriptParameterKeyValueProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -314,11 +316,9 @@ func (j *jsiiProxy_CfnStudioComponent) validateSetScriptParametersParameters(val
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStudioComponent_ScriptParameterKeyValueProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStudioComponent_ScriptParameterKeyValueProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

@@ -17,5 +17,7 @@ const (
 	KeyUsage_ENCRYPT_DECRYPT KeyUsage = "ENCRYPT_DECRYPT"
 	// Signing and verification.
 	KeyUsage_SIGN_VERIFY KeyUsage = "SIGN_VERIFY"
+	// Generating and verifying MACs.
+	KeyUsage_GENERATE_VERIFY_MAC KeyUsage = "GENERATE_VERIFY_MAC"
 )
 

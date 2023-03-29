@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnAccessPolicy) validateSetAccessPolicyIdentityParameters(va
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccessPolicy_AccessPolicyIdentityProperty:
 		val := val.(*CfnAccessPolicy_AccessPolicyIdentityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnAccessPolicy) validateSetAccessPolicyIdentityParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccessPolicy_AccessPolicyIdentityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccessPolicy_AccessPolicyIdentityProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -219,6 +219,8 @@ func (j *jsiiProxy_CfnAccessPolicy) validateSetAccessPolicyResourceParameters(va
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccessPolicy_AccessPolicyResourceProperty:
 		val := val.(*CfnAccessPolicy_AccessPolicyResourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -230,11 +232,9 @@ func (j *jsiiProxy_CfnAccessPolicy) validateSetAccessPolicyResourceParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccessPolicy_AccessPolicyResourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccessPolicy_AccessPolicyResourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

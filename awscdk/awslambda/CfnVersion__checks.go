@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnVersion) validateSetFunctionNameParameters(val *string) er
 
 func (j *jsiiProxy_CfnVersion) validateSetProvisionedConcurrencyConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnVersion_ProvisionedConcurrencyConfigurationProperty:
 		val := val.(*CfnVersion_ProvisionedConcurrencyConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnVersion) validateSetProvisionedConcurrencyConfigParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnVersion_ProvisionedConcurrencyConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVersion_ProvisionedConcurrencyConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

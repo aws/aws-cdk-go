@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnFaq) validateSetS3PathParameters(val interface{}) error {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFaq_S3PathProperty:
 		val := val.(*CfnFaq_S3PathProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnFaq) validateSetS3PathParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFaq_S3PathProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFaq_S3PathProperty; received %#v (a %T)", val, val)
 		}
 	}
 

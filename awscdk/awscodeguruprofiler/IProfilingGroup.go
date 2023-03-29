@@ -15,14 +15,14 @@ type IProfilingGroup interface {
 	//
 	// This will grant the following permissions:
 	//
-	//   - codeguru-profiler:ConfigureAgent
+	//  - codeguru-profiler:ConfigureAgent
 	// - codeguru-profiler:PostAgentProfile.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
 	// This will grant the following permissions:
 	//
-	//   - codeguru-profiler:GetProfile
+	//  - codeguru-profiler:GetProfile
 	// - codeguru-profiler:DescribeProfilingGroup.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the profiling group.

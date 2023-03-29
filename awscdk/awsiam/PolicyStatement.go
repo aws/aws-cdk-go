@@ -8,40 +8,28 @@ import (
 // Represents a statement in an IAM policy document.
 //
 // Example:
-//   // Add gateway endpoints when creating the VPC
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	GatewayEndpoints: map[string]gatewayVpcEndpointOptions{
-//   		"S3": &gatewayVpcEndpointOptions{
-//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
-//   		},
+//   var postAuthFn function
+//
+//
+//   userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+//   	LambdaTriggers: &UserPoolTriggers{
+//   		PostAuthentication: postAuthFn,
 //   	},
 //   })
 //
-//   // Alternatively gateway endpoints can be added on the VPC
-//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &gatewayVpcEndpointOptions{
-//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
-//   })
-//
-//   // This allows to customize the endpoint policy
-//   dynamoDbEndpoint.AddToPolicy(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	 // Restrict to listing and describing tables
-//   	Principals: []iPrincipal{
-//   		iam.NewAnyPrincipal(),
-//   	},
-//   	Actions: []*string{
-//   		jsii.String("dynamodb:DescribeTable"),
-//   		jsii.String("dynamodb:ListTables"),
-//   	},
-//   	Resources: []*string{
-//   		jsii.String("*"),
+//   // provide permissions to describe the user pool scoped to the ARN the user pool
+//   postAuthFn.Role.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("userpool-policy"), &PolicyProps{
+//   	Statements: []policyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
+//   				jsii.String("cognito-idp:DescribeUserPool"),
+//   			},
+//   			Resources: []*string{
+//   				userpool.UserPoolArn,
+//   			},
+//   		}),
 //   	},
 //   }))
-//
-//   // Add an interface endpoint
-//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
-//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
-//   })
 //
 type PolicyStatement interface {
 	// The Actions added to this statement.

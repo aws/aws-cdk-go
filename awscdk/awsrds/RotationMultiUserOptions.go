@@ -37,13 +37,13 @@ type RotationMultiUserOptions struct {
 	// It must be a JSON string with the following format:
 	// ```
 	// {
-	//    "engine": <required: database engine>,
-	//    "host": <required: instance host name>,
-	//    "username": <required: username>,
-	//    "password": <required: password>,
-	//    "dbname": <optional: database name>,
-	//    "port": <optional: if not specified, default port will be used>,
-	//    "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
+	//   "engine": <required: database engine>,
+	//   "host": <required: instance host name>,
+	//   "username": <required: username>,
+	//   "password": <required: password>,
+	//   "dbname": <optional: database name>,
+	//   "port": <optional: if not specified, default port will be used>,
+	//   "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
 	// }
 	// ```.
 	Secret awssecretsmanager.ISecret `field:"required" json:"secret" yaml:"secret"`

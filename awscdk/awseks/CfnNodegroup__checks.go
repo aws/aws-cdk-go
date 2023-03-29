@@ -223,6 +223,8 @@ func (j *jsiiProxy_CfnNodegroup) validateSetLabelsParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnNodegroup) validateSetLaunchTemplateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnNodegroup_LaunchTemplateSpecificationProperty:
 		val := val.(*CfnNodegroup_LaunchTemplateSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -234,11 +236,9 @@ func (j *jsiiProxy_CfnNodegroup) validateSetLaunchTemplateParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNodegroup_LaunchTemplateSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_LaunchTemplateSpecificationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -255,6 +255,8 @@ func (j *jsiiProxy_CfnNodegroup) validateSetNodeRoleParameters(val *string) erro
 
 func (j *jsiiProxy_CfnNodegroup) validateSetRemoteAccessParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnNodegroup_RemoteAccessProperty:
 		val := val.(*CfnNodegroup_RemoteAccessProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -266,11 +268,9 @@ func (j *jsiiProxy_CfnNodegroup) validateSetRemoteAccessParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNodegroup_RemoteAccessProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_RemoteAccessProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -279,6 +279,8 @@ func (j *jsiiProxy_CfnNodegroup) validateSetRemoteAccessParameters(val interface
 
 func (j *jsiiProxy_CfnNodegroup) validateSetScalingConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnNodegroup_ScalingConfigProperty:
 		val := val.(*CfnNodegroup_ScalingConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -290,11 +292,9 @@ func (j *jsiiProxy_CfnNodegroup) validateSetScalingConfigParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNodegroup_ScalingConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_ScalingConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -317,6 +317,8 @@ func (j *jsiiProxy_CfnNodegroup) validateSetTaintsParameters(val interface{}) er
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnNodegroup_TaintProperty:
 				v := v.(*CfnNodegroup_TaintProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -328,11 +330,9 @@ func (j *jsiiProxy_CfnNodegroup) validateSetTaintsParameters(val interface{}) er
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnNodegroup_TaintProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_TaintProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -341,6 +341,8 @@ func (j *jsiiProxy_CfnNodegroup) validateSetTaintsParameters(val interface{}) er
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnNodegroup_TaintProperty:
 				v := v.(*CfnNodegroup_TaintProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -352,11 +354,9 @@ func (j *jsiiProxy_CfnNodegroup) validateSetTaintsParameters(val interface{}) er
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnNodegroup_TaintProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_TaintProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -371,6 +371,8 @@ func (j *jsiiProxy_CfnNodegroup) validateSetTaintsParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnNodegroup) validateSetUpdateConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnNodegroup_UpdateConfigProperty:
 		val := val.(*CfnNodegroup_UpdateConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -382,11 +384,9 @@ func (j *jsiiProxy_CfnNodegroup) validateSetUpdateConfigParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNodegroup_UpdateConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_UpdateConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

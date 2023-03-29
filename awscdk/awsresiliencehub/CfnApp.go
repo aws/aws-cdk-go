@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::ResilienceHub::App`.
 //
-// Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of AWS resources structured to prevent and recover AWS application disruptions. To describe a AWS Resilience Hub application, you provide an application name, resources from one or more–up to five– AWS CloudFormation stacks, and an appropriate resiliency policy.
+// Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of AWS resources structured to prevent and recover AWS application disruptions. To describe a AWS Resilience Hub application, you provide an application name, resources from one or more–up to 20– AWS CloudFormation stacks, and an appropriate resiliency policy.
 //
 // After you create an AWS Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).
 //
@@ -57,7 +57,172 @@ type CfnApp interface {
 	// Assessment execution schedule with 'Daily' or 'Disabled' values.
 	AppAssessmentSchedule() *string
 	SetAppAssessmentSchedule(val *string)
-	// A string containing a full AWS Resilience Hub app template body.
+	// A JSON string that provides information about your application structure.
+	//
+	// To learn more about the `appTemplateBody` template, see the sample template provided in the *Examples* section.
+	//
+	// The `appTemplateBody` JSON string has the following structure:
+	//
+	// - *`resources`*
+	//
+	// The list of logical resources that needs to be included in the AWS Resilience Hub application.
+	//
+	// Type: Array
+	//
+	// > Don't add the resources that you want to exclude.
+	//
+	// Each `resources` array item includes the following fields:
+	//
+	// - *`logicalResourceId`*
+	//
+	// The logical identifier of the resource.
+	//
+	// Type: Object
+	//
+	// Each `logicalResourceId` object includes the following fields:
+	//
+	// - `identifier`
+	//
+	// The identifier of the resource.
+	//
+	// Type: String
+	// - `logicalStackName`
+	//
+	// The name of the AWS CloudFormation stack this resource belongs to.
+	//
+	// Type: String
+	// - `resourceGroupName`
+	//
+	// The name of the resource group this resource belongs to.
+	//
+	// Type: String
+	// - `terraformSourceName`
+	//
+	// The name of the Terraform S3 state file this resource belongs to.
+	//
+	// Type: String
+	// - `eksSourceName`
+	//
+	// The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
+	//
+	// > This parameter accepts values in "eks-cluster/namespace" format.
+	//
+	// Type: String
+	// - *`type`*
+	//
+	// The type of resource.
+	//
+	// Type: string
+	// - *`name`*
+	//
+	// The name of the resource.
+	//
+	// Type: String
+	// - `additionalInfo`
+	//
+	// Additional configuration parameters for an AWS Resilience Hub application. If you want to implement `additionalInfo` through the AWS Resilience Hub console rather than using an API call, see [Configure the application configuration parameters](https://docs.aws.amazon.com//resilience-hub/latest/userguide/app-config-param.html) .
+	//
+	// > Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.
+	// >
+	// > Key: `"failover-regions"`
+	// >
+	// > Value: `"[{"region":"<REGION>", "accounts":[{"id":"<ACCOUNT_ID>"}]}]"`
+	// - *`appComponents`*
+	//
+	// The list of Application Components (AppComponent) that this resource belongs to. If an AppComponent is not part of the AWS Resilience Hub application, it will be added.
+	//
+	// Type: Array
+	//
+	// Each `appComponents` array item includes the following fields:
+	//
+	// - `name`
+	//
+	// The name of the AppComponent.
+	//
+	// Type: String
+	// - `type`
+	//
+	// The type of AppComponent. For more information about the types of AppComponent, see [Grouping resources in an AppComponent](https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html) .
+	//
+	// Type: String
+	// - `resourceNames`
+	//
+	// The list of included resources that are assigned to the AppComponent.
+	//
+	// Type: Array of strings
+	// - `additionalInfo`
+	//
+	// Additional configuration parameters for an AWS Resilience Hub application. If you want to implement `additionalInfo` through the AWS Resilience Hub console rather than using an API call, see [Configure the application configuration parameters](https://docs.aws.amazon.com//resilience-hub/latest/userguide/app-config-param.html) .
+	//
+	// > Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.
+	// >
+	// > Key: `"failover-regions"`
+	// >
+	// > Value: `"[{"region":"<REGION>", "accounts":[{"id":"<ACCOUNT_ID>"}]}]"`
+	// - *`excludedResources`*
+	//
+	// The list of logical resource identifiers to be excluded from the application.
+	//
+	// Type: Array
+	//
+	// > Don't add the resources that you want to include.
+	//
+	// Each `excludedResources` array item includes the following fields:
+	//
+	// - *`logicalResourceIds`*
+	//
+	// The logical identifier of the resource.
+	//
+	// Type: Object
+	//
+	// > You can configure only one of the following fields:
+	// >
+	// > - `logicalStackName`
+	// > - `resourceGroupName`
+	// > - `terraformSourceName`
+	// > - `eksSourceName`
+	//
+	// Each `logicalResourceIds` object includes the following fields:
+	//
+	// - `identifier`
+	//
+	// The identifier of the resource.
+	//
+	// Type: String
+	// - `logicalStackName`
+	//
+	// The name of the AWS CloudFormation stack this resource belongs to.
+	//
+	// Type: String
+	// - `resourceGroupName`
+	//
+	// The name of the resource group this resource belongs to.
+	//
+	// Type: String
+	// - `terraformSourceName`
+	//
+	// The name of the Terraform S3 state file this resource belongs to.
+	//
+	// Type: String
+	// - `eksSourceName`
+	//
+	// The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
+	//
+	// > This parameter accepts values in "eks-cluster/namespace" format.
+	//
+	// Type: String
+	// - *`version`*
+	//
+	// The AWS Resilience Hub application version.
+	// - `additionalInfo`
+	//
+	// Additional configuration parameters for an AWS Resilience Hub application. If you want to implement `additionalInfo` through the AWS Resilience Hub console rather than using an API call, see [Configure the application configuration parameters](https://docs.aws.amazon.com//resilience-hub/latest/userguide/app-config-param.html) .
+	//
+	// > Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.
+	// >
+	// > Key: `"failover-regions"`
+	// >
+	// > Value: `"[{"region":"<REGION>", "accounts":[{"id":"<ACCOUNT_ID>"}]}]"`.
 	AppTemplateBody() *string
 	SetAppTemplateBody(val *string)
 	// The Amazon Resource Name (ARN) of the app.
@@ -160,20 +325,20 @@ type CfnApp interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//

@@ -14,11 +14,11 @@ import (
 //
 // ```text
 // {
-//    // Run tests prior to bundling
-//    beforeBundling(inputDir: string, outputDir: string): string[] {
-//      return [`pytest`];
-//    }
-//    // ...
+//   // Run tests prior to bundling
+//   beforeBundling(inputDir: string, outputDir: string): string[] {
+//     return [`pytest`];
+//   }
+//   // ...
 // }
 // ```.
 // Experimental.

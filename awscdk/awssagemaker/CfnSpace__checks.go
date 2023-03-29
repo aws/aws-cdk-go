@@ -197,6 +197,8 @@ func (j *jsiiProxy_CfnSpace) validateSetSpaceNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnSpace) validateSetSpaceSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSpace_SpaceSettingsProperty:
 		val := val.(*CfnSpace_SpaceSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -208,11 +210,9 @@ func (j *jsiiProxy_CfnSpace) validateSetSpaceSettingsParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSpace_SpaceSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSpace_SpaceSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

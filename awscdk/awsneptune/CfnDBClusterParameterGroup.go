@@ -13,7 +13,7 @@ import (
 //
 // The `AWS::Neptune::DBClusterParameterGroup` resource creates a new Amazon Neptune DB cluster parameter group.
 //
-// > Applying a parameter group to a DB cluster might require instances to reboot, resulting in a database outage while the instances reboot.
+// > Applying a parameter group to a DB cluster might require instances to reboot, resulting in a database outage while the instances reboot. > If you provide a custom `DBClusterParameterGroup` that you associate with the `DBCluster` , it is best to specify an `EngineVersion` property in the `DBCluster` . That `EngineVersion` needs to be compatible with the value of the `Family` property in the `DBClusterParameterGroup` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -140,20 +140,20 @@ type CfnDBClusterParameterGroup interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//

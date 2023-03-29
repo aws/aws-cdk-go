@@ -30,7 +30,7 @@ type KinesisEventSourceProps struct {
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of:
-	//    * 1000 for `DynamoEventSource`
+	//   * 1000 for `DynamoEventSource`
 	// * 10000 for `KinesisEventSource`, `ManagedKafkaEventSource` and `SelfManagedKafkaEventSource`.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.

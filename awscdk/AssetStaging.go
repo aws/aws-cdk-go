@@ -116,11 +116,11 @@ type AssetStaging interface {
 	// A non-obvious directory layout may look like this:
 	//
 	// ```
-	//    CLOUD ASSEMBLY ROOT
-	//      +-- asset.12345abcdef/
-	//      +-- assembly-Stage
-	//            +-- MyStack.template.json
-	//            +-- MyStack.assets.json <- will contain { "path": "../asset.12345abcdef" }
+	//   CLOUD ASSEMBLY ROOT
+	//     +-- asset.12345abcdef/
+	//     +-- assembly-Stage
+	//           +-- MyStack.template.json
+	//           +-- MyStack.assets.json <- will contain { "path": "../asset.12345abcdef" }
 	// ```.
 	RelativeStagedPath(stack Stack) *string
 	// Returns a string representation of this construct.

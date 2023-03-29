@@ -24,6 +24,14 @@ func (f *jsiiProxy_FileSystem) validateAddAccessPointParameters(id *string, acce
 	return nil
 }
 
+func (f *jsiiProxy_FileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FileSystem) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -114,10 +114,10 @@ type BundlingOptions struct {
 	//
 	// ```ts
 	// new go.GoFunction(this, 'GoFunction', {
-	//    entry: 'app/cmd/api',
-	//    bundling: {
-	//      goProxies: [go.GoFunction.GOOGLE_GOPROXY, 'direct'],
-	//    },
+	//   entry: 'app/cmd/api',
+	//   bundling: {
+	//     goProxies: [go.GoFunction.GOOGLE_GOPROXY, 'direct'],
+	//   },
 	// });
 	// ```.
 	// Experimental.

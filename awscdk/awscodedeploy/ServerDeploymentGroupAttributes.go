@@ -11,7 +11,7 @@ package awscodedeploy
 //   	DeploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
 //   })
 //
-// See: ServerDeploymentGroup#import.
+// See: ServerDeploymentGroup# import.
 //
 type ServerDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy EC2/on-premise Application that this Deployment Group belongs to.

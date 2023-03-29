@@ -25,7 +25,7 @@ const (
 	BundlingOutput_NOT_ARCHIVED BundlingOutput = "NOT_ARCHIVED"
 	// If the bundling output directory contains a single archive file (zip or jar) it will be used as the bundle output as-is.
 	//
-	// Otherwise all the files in the bundling output directory will be zipped.
+	// Otherwise, all the files in the bundling output directory will be zipped.
 	BundlingOutput_AUTO_DISCOVER BundlingOutput = "AUTO_DISCOVER"
 )
 

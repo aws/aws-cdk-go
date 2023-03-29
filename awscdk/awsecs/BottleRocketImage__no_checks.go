@@ -8,6 +8,10 @@ func (b *jsiiProxy_BottleRocketImage) validateGetImageParameters(scope construct
 	return nil
 }
 
+func validateBottleRocketImage_IsBottleRocketImageParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewBottleRocketImageParameters(props *BottleRocketImageProps) error {
 	return nil
 }

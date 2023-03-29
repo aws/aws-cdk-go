@@ -49,8 +49,8 @@ type HelmChartOptions struct {
 	//
 	// For nested values use a nested dictionary. For example:
 	// values: {
-	//   installationCRDs: true,
-	//   webhook: { port: 9443 }
+	//  installationCRDs: true,
+	//  webhook: { port: 9443 }
 	// }.
 	Values *map[string]interface{} `field:"optional" json:"values" yaml:"values"`
 	// The chart version to install.

@@ -181,6 +181,8 @@ func validateCfnApplicationV2_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationV2_ApplicationConfigurationProperty:
 		val := val.(*CfnApplicationV2_ApplicationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationConfigurationParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationV2_ApplicationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationV2_ApplicationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationConfigurationParamete
 
 func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationMaintenanceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationV2_ApplicationMaintenanceConfigurationProperty:
 		val := val.(*CfnApplicationV2_ApplicationMaintenanceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationMaintenanceConfigurat
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationV2_ApplicationMaintenanceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationV2_ApplicationMaintenanceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationMaintenanceConfigurat
 
 func (j *jsiiProxy_CfnApplicationV2) validateSetRunConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationV2_RunConfigurationProperty:
 		val := val.(*CfnApplicationV2_RunConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetRunConfigurationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationV2_RunConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationV2_RunConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

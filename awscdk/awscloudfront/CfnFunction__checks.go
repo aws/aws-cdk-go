@@ -209,6 +209,8 @@ func (j *jsiiProxy_CfnFunction) validateSetFunctionConfigParameters(val interfac
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFunction_FunctionConfigProperty:
 		val := val.(*CfnFunction_FunctionConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -220,11 +222,9 @@ func (j *jsiiProxy_CfnFunction) validateSetFunctionConfigParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_FunctionConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_FunctionConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -233,6 +233,8 @@ func (j *jsiiProxy_CfnFunction) validateSetFunctionConfigParameters(val interfac
 
 func (j *jsiiProxy_CfnFunction) validateSetFunctionMetadataParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFunction_FunctionMetadataProperty:
 		val := val.(*CfnFunction_FunctionMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -244,11 +246,9 @@ func (j *jsiiProxy_CfnFunction) validateSetFunctionMetadataParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_FunctionMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_FunctionMetadataProperty; received %#v (a %T)", val, val)
 		}
 	}
 

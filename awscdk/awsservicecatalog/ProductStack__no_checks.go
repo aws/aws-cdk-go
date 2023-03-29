@@ -60,6 +60,10 @@ func (p *jsiiProxy_ProductStack) validateToJsonStringParameters(obj interface{})
 	return nil
 }
 
+func (p *jsiiProxy_ProductStack) validateToYamlStringParameters(obj interface{}) error {
+	return nil
+}
+
 func validateProductStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -203,6 +203,8 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetInstanceTypeConfigsParamet
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInstanceFleetConfig_InstanceTypeConfigProperty:
 				v := v.(*CfnInstanceFleetConfig_InstanceTypeConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -214,11 +216,9 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetInstanceTypeConfigsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInstanceFleetConfig_InstanceTypeConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInstanceFleetConfig_InstanceTypeConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -227,6 +227,8 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetInstanceTypeConfigsParamet
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInstanceFleetConfig_InstanceTypeConfigProperty:
 				v := v.(*CfnInstanceFleetConfig_InstanceTypeConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -238,11 +240,9 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetInstanceTypeConfigsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInstanceFleetConfig_InstanceTypeConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInstanceFleetConfig_InstanceTypeConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -257,6 +257,8 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetInstanceTypeConfigsParamet
 
 func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetLaunchSpecificationsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty:
 		val := val.(*CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -268,11 +270,9 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetLaunchSpecificationsParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

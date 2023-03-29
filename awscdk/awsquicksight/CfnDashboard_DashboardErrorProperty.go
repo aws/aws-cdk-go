@@ -11,6 +11,11 @@ package awsquicksight
 //   dashboardErrorProperty := &DashboardErrorProperty{
 //   	Message: jsii.String("message"),
 //   	Type: jsii.String("type"),
+//   	ViolatedEntities: []interface{}{
+//   		&EntityProperty{
+//   			Path: jsii.String("path"),
+//   		},
+//   	},
 //   }
 //
 type CfnDashboard_DashboardErrorProperty struct {
@@ -18,5 +23,7 @@ type CfnDashboard_DashboardErrorProperty struct {
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Type.
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// `CfnDashboard.DashboardErrorProperty.ViolatedEntities`.
+	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

@@ -182,8 +182,8 @@ type ClusterOptions struct {
 	//
 	// ```ts
 	// const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
-	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+	//   code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
+	//   compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
 	// });
 	// ```.
 	OnEventLayer awslambda.ILayerVersion `field:"optional" json:"onEventLayer" yaml:"onEventLayer"`

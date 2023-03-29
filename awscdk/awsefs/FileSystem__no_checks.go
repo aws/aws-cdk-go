@@ -8,6 +8,10 @@ func (f *jsiiProxy_FileSystem) validateAddAccessPointParameters(id *string, acce
 	return nil
 }
 
+func (f *jsiiProxy_FileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (f *jsiiProxy_FileSystem) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

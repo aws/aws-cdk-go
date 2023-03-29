@@ -181,6 +181,8 @@ func validateCfnRotationSchedule_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnRotationSchedule) validateSetHostedRotationLambdaParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRotationSchedule_HostedRotationLambdaProperty:
 		val := val.(*CfnRotationSchedule_HostedRotationLambdaProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetHostedRotationLambdaParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRotationSchedule_HostedRotationLambdaProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRotationSchedule_HostedRotationLambdaProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetRotateImmediatelyOnUpdatePara
 
 func (j *jsiiProxy_CfnRotationSchedule) validateSetRotationRulesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRotationSchedule_RotationRulesProperty:
 		val := val.(*CfnRotationSchedule_RotationRulesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetRotationRulesParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRotationSchedule_RotationRulesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRotationSchedule_RotationRulesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

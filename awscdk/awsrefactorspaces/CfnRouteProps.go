@@ -14,13 +14,13 @@ import (
 //   cfnRouteProps := &CfnRouteProps{
 //   	ApplicationIdentifier: jsii.String("applicationIdentifier"),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	RouteType: jsii.String("routeType"),
 //   	ServiceIdentifier: jsii.String("serviceIdentifier"),
 //
 //   	// the properties below are optional
 //   	DefaultRoute: &DefaultRouteInputProperty{
 //   		ActivationState: jsii.String("activationState"),
 //   	},
-//   	RouteType: jsii.String("routeType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -44,12 +44,12 @@ type CfnRouteProps struct {
 	ApplicationIdentifier *string `field:"required" json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// The unique identifier of the environment.
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	// The route type of the route.
+	RouteType *string `field:"required" json:"routeType" yaml:"routeType"`
 	// The unique identifier of the service.
 	ServiceIdentifier *string `field:"required" json:"serviceIdentifier" yaml:"serviceIdentifier"`
 	// Configuration for the default route type.
 	DefaultRoute interface{} `field:"optional" json:"defaultRoute" yaml:"defaultRoute"`
-	// The route type of the route.
-	RouteType *string `field:"optional" json:"routeType" yaml:"routeType"`
 	// The tags assigned to the route.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration for the URI path route type.

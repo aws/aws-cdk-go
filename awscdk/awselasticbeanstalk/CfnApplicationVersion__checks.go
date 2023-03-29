@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnApplicationVersion) validateSetSourceBundleParameters(val 
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationVersion_SourceBundleProperty:
 		val := val.(*CfnApplicationVersion_SourceBundleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnApplicationVersion) validateSetSourceBundleParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationVersion_SourceBundleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationVersion_SourceBundleProperty; received %#v (a %T)", val, val)
 		}
 	}
 

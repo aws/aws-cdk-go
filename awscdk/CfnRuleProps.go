@@ -9,17 +9,17 @@ package awscdk
 //
 // You can use the following rule-specific intrinsic functions to define rule conditions and assertions:
 //
-//   Fn::And
-//   Fn::Contains
-//   Fn::EachMemberEquals
-//   Fn::EachMemberIn
-//   Fn::Equals
-//   Fn::If
-//   Fn::Not
-//   Fn::Or
-//   Fn::RefAll
-//   Fn::ValueOf
-//   Fn::ValueOfAll
+//  Fn::And
+//  Fn::Contains
+//  Fn::EachMemberEquals
+//  Fn::EachMemberIn
+//  Fn::Equals
+//  Fn::If
+//  Fn::Not
+//  Fn::Or
+//  Fn::RefAll
+//  Fn::ValueOf
+//  Fn::ValueOfAll
 //
 // https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html
 //

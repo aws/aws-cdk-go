@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnLaunchTemplate) validateSetLaunchTemplateDataParameters(va
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnLaunchTemplate_LaunchTemplateDataProperty:
 		val := val.(*CfnLaunchTemplate_LaunchTemplateDataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnLaunchTemplate) validateSetLaunchTemplateDataParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnLaunchTemplate_LaunchTemplateDataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLaunchTemplate_LaunchTemplateDataProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -214,6 +214,8 @@ func (j *jsiiProxy_CfnLaunchTemplate) validateSetTagSpecificationsParameters(val
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty:
 				v := v.(*CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -225,11 +227,9 @@ func (j *jsiiProxy_CfnLaunchTemplate) validateSetTagSpecificationsParameters(val
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -238,6 +238,8 @@ func (j *jsiiProxy_CfnLaunchTemplate) validateSetTagSpecificationsParameters(val
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty:
 				v := v.(*CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -249,11 +251,9 @@ func (j *jsiiProxy_CfnLaunchTemplate) validateSetTagSpecificationsParameters(val
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

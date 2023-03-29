@@ -70,7 +70,11 @@ func (a *jsiiProxy_AttributeGroup) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (a *jsiiProxy_AttributeGroup) validateShareAttributeGroupParameters(shareOptions *ShareOptions) error {
+func (a *jsiiProxy_AttributeGroup) validateShareAttributeGroupParameters(id *string, shareOptions *ShareOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if shareOptions == nil {
 		return fmt.Errorf("parameter shareOptions is required, but nil was provided")
 	}

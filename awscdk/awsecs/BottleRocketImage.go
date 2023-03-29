@@ -61,6 +61,25 @@ func NewBottleRocketImage_Override(b BottleRocketImage, props *BottleRocketImage
 	)
 }
 
+// Return whether the given object is a BottleRocketImage.
+func BottleRocketImage_IsBottleRocketImage(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateBottleRocketImage_IsBottleRocketImageParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.BottleRocketImage",
+		"isBottleRocketImage",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (b *jsiiProxy_BottleRocketImage) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
 	if err := b.validateGetImageParameters(scope); err != nil {
 		panic(err)

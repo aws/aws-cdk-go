@@ -37,6 +37,18 @@ import (
 //   			Enable: jsii.Boolean(false),
 //   		},
 //   	},
+//   	Features: []interface{}{
+//   		&FeatureConfigurationsProperty{
+//   			AdditionalConfiguration: []interface{}{
+//   				&FeatureAdditionalConfigurationProperty{
+//   					Name: jsii.String("name"),
+//   					Status: jsii.String("status"),
+//   				},
+//   			},
+//   			Name: jsii.String("name"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	FindingPublishingFrequency: jsii.String("findingPublishingFrequency"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -64,6 +76,9 @@ type CfnDetector interface {
 	// Specifies whether the detector is to be enabled on creation.
 	Enable() interface{}
 	SetEnable(val interface{})
+	// `AWS::GuardDuty::Detector.Features`.
+	Features() interface{}
+	SetFeatures(val interface{})
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency() *string
 	SetFindingPublishingFrequency(val *string)
@@ -146,20 +161,20 @@ type CfnDetector interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -300,6 +315,16 @@ func (j *jsiiProxy_CfnDetector) Enable() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDetector) Features() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"features",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDetector) FindingPublishingFrequency() *string {
 	var returns *string
 	_jsii_.Get(
@@ -428,6 +453,17 @@ func (j *jsiiProxy_CfnDetector)SetEnable(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enable",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDetector)SetFeatures(val interface{}) {
+	if err := j.validateSetFeaturesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"features",
 		val,
 	)
 }

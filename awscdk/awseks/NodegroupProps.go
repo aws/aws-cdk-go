@@ -103,13 +103,13 @@ type NodegroupProps struct {
 	// running on the node.
 	ForceUpdate *bool `field:"optional" json:"forceUpdate" yaml:"forceUpdate"`
 	// The instance types to use for your node group.
-	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
+	// See:  - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
 	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// Launch template specification used for the nodegroup.
-	// See: - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
+	// See:  - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
 	LaunchTemplateSpec *LaunchTemplateSpec `field:"optional" json:"launchTemplateSpec" yaml:"launchTemplateSpec"`
 	// The maximum number of worker nodes that the managed node group can scale out to.

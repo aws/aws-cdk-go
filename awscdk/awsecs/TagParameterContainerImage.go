@@ -219,7 +219,7 @@ import (
 //   	image: pipelineStack.tagParameterContainerImage,
 //   })
 //
-// See: #tagParameterName.
+// See:  #tagParameterName.
 //
 type TagParameterContainerImage interface {
 	ContainerImage

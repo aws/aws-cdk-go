@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnPackage) validateSetPackageNameParameters(val *string) err
 
 func (j *jsiiProxy_CfnPackage) validateSetStorageLocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPackage_StorageLocationProperty:
 		val := val.(*CfnPackage_StorageLocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnPackage) validateSetStorageLocationParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPackage_StorageLocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPackage_StorageLocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

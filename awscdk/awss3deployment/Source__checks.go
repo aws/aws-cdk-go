@@ -59,3 +59,15 @@ func validateSource_JsonDataParameters(objectKey *string, obj interface{}) error
 	return nil
 }
 
+func validateSource_YamlDataParameters(objectKey *string, obj interface{}) error {
+	if objectKey == nil {
+		return fmt.Errorf("parameter objectKey is required, but nil was provided")
+	}
+
+	if obj == nil {
+		return fmt.Errorf("parameter obj is required, but nil was provided")
+	}
+
+	return nil
+}
+

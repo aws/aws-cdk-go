@@ -30,6 +30,18 @@ import (
 //   			Enable: jsii.Boolean(false),
 //   		},
 //   	},
+//   	Features: []interface{}{
+//   		&FeatureConfigurationsProperty{
+//   			AdditionalConfiguration: []interface{}{
+//   				&FeatureAdditionalConfigurationProperty{
+//   					Name: jsii.String("name"),
+//   					Status: jsii.String("status"),
+//   				},
+//   			},
+//   			Name: jsii.String("name"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	FindingPublishingFrequency: jsii.String("findingPublishingFrequency"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -44,6 +56,8 @@ type CfnDetectorProps struct {
 	Enable interface{} `field:"required" json:"enable" yaml:"enable"`
 	// Describes which data sources will be enabled for the detector.
 	DataSources interface{} `field:"optional" json:"dataSources" yaml:"dataSources"`
+	// `AWS::GuardDuty::Detector.Features`.
+	Features interface{} `field:"optional" json:"features" yaml:"features"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 	// The tags to be added to a new detector resource.

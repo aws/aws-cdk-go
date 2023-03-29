@@ -237,9 +237,9 @@ func Credentials_FromPassword(username *string, password awscdk.SecretValue) Cre
 // The Secret must be a JSON string with a ``username`` and ``password`` field:
 // ```
 // {
-//    ...
-//    "username": <required: username>,
-//    "password": <required: password>,
+//   ...
+//   "username": <required: username>,
+//   "password": <required: password>,
 // }
 // ```.
 func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) Credentials {

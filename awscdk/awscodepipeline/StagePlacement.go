@@ -22,7 +22,7 @@ package awscodepipeline
 //   	},
 //   })
 //
-// See: #justAfter.
+// See:  #justAfter.
 //
 type StagePlacement struct {
 	// Inserts the new Stage as a child of the given Stage (changing its current child Stage, if it had one).

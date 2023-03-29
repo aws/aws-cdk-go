@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDetector) validateSetEnableParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnDetector) validateSetFeaturesParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnDetectorParameters(scope constructs.Construct, id *string, props *CfnDetectorProps) error {
 	return nil
 }

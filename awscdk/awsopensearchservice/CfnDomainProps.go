@@ -90,8 +90,20 @@ import (
 //   	NodeToNodeEncryptionOptions: &NodeToNodeEncryptionOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	OffPeakWindowOptions: &OffPeakWindowOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		OffPeakWindow: &OffPeakWindowProperty{
+//   			WindowStartTime: &WindowStartTimeProperty{
+//   				Hours: jsii.Number(123),
+//   				Minutes: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	SnapshotOptions: &SnapshotOptionsProperty{
 //   		AutomatedSnapshotStartHour: jsii.Number(123),
+//   	},
+//   	SoftwareUpdateOptions: &SoftwareUpdateOptionsProperty{
+//   		AutoSoftwareUpdateEnabled: jsii.Boolean(false),
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -158,10 +170,14 @@ type CfnDomainProps struct {
 	//
 	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions interface{} `field:"optional" json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
+	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+	OffPeakWindowOptions interface{} `field:"optional" json:"offPeakWindowOptions" yaml:"offPeakWindowOptions"`
 	// *DEPRECATED* .
 	//
 	// The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions interface{} `field:"optional" json:"snapshotOptions" yaml:"snapshotOptions"`
+	// Options for configuring service software updates for a domain.
+	SoftwareUpdateOptions interface{} `field:"optional" json:"softwareUpdateOptions" yaml:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.

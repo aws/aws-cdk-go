@@ -181,6 +181,8 @@ func validateCfnSimulationApplication_IsConstructParameters(x interface{}) error
 
 func (j *jsiiProxy_CfnSimulationApplication) validateSetRenderingEngineParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSimulationApplication_RenderingEngineProperty:
 		val := val.(*CfnSimulationApplication_RenderingEngineProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetRenderingEngineParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSimulationApplication_RenderingEngineProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSimulationApplication_RenderingEngineProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetRobotSoftwareSuiteParame
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSimulationApplication_RobotSoftwareSuiteProperty:
 		val := val.(*CfnSimulationApplication_RobotSoftwareSuiteProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetRobotSoftwareSuiteParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSimulationApplication_RobotSoftwareSuiteProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSimulationApplication_RobotSoftwareSuiteProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -235,6 +235,8 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetSimulationSoftwareSuiteP
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSimulationApplication_SimulationSoftwareSuiteProperty:
 		val := val.(*CfnSimulationApplication_SimulationSoftwareSuiteProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -246,11 +248,9 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetSimulationSoftwareSuiteP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSimulationApplication_SimulationSoftwareSuiteProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSimulationApplication_SimulationSoftwareSuiteProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -265,6 +265,8 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetSourcesParameters(val in
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSimulationApplication_SourceConfigProperty:
 				v := v.(*CfnSimulationApplication_SourceConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -276,11 +278,9 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetSourcesParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSimulationApplication_SourceConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSimulationApplication_SourceConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -289,6 +289,8 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetSourcesParameters(val in
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnSimulationApplication_SourceConfigProperty:
 				v := v.(*CfnSimulationApplication_SourceConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -300,11 +302,9 @@ func (j *jsiiProxy_CfnSimulationApplication) validateSetSourcesParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnSimulationApplication_SourceConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnSimulationApplication_SourceConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

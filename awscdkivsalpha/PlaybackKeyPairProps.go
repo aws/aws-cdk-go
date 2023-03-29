@@ -18,6 +18,6 @@ type PlaybackKeyPairProps struct {
 	//
 	// The value does not need to be unique.
 	// Experimental.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	PlaybackKeyPairName *string `field:"optional" json:"playbackKeyPairName" yaml:"playbackKeyPairName"`
 }
 

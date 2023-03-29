@@ -7,23 +7,15 @@ import (
 // Properties for an Origin for an API Gateway REST API.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var api restApi
 //
-//   restApiOriginProps := &RestApiOriginProps{
-//   	ConnectionAttempts: jsii.Number(123),
-//   	ConnectionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   	CustomHeaders: map[string]*string{
-//   		"customHeadersKey": jsii.String("customHeaders"),
+//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewRestApiOrigin(api, &RestApiOriginProps{
+//   			OriginPath: jsii.String("/custom-origin-path"),
+//   		}),
 //   	},
-//   	KeepaliveTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	OriginId: jsii.String("originId"),
-//   	OriginShieldEnabled: jsii.Boolean(false),
-//   	OriginShieldRegion: jsii.String("originShieldRegion"),
-//   	ReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   }
+//   })
 //
 type RestApiOriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -46,6 +38,10 @@ type RestApiOriginProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+	//
+	// Must begin, but not end, with '/' (e.g., '/production/images').
+	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 180 seconds, inclusive.

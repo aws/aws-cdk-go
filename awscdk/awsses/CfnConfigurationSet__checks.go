@@ -181,6 +181,8 @@ func validateCfnConfigurationSet_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnConfigurationSet) validateSetDeliveryOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigurationSet_DeliveryOptionsProperty:
 		val := val.(*CfnConfigurationSet_DeliveryOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetDeliveryOptionsParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_DeliveryOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_DeliveryOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetDeliveryOptionsParameters(val
 
 func (j *jsiiProxy_CfnConfigurationSet) validateSetReputationOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigurationSet_ReputationOptionsProperty:
 		val := val.(*CfnConfigurationSet_ReputationOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetReputationOptionsParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_ReputationOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_ReputationOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetReputationOptionsParameters(v
 
 func (j *jsiiProxy_CfnConfigurationSet) validateSetSendingOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigurationSet_SendingOptionsProperty:
 		val := val.(*CfnConfigurationSet_SendingOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetSendingOptionsParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_SendingOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_SendingOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -253,6 +253,8 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetSendingOptionsParameters(val 
 
 func (j *jsiiProxy_CfnConfigurationSet) validateSetSuppressionOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigurationSet_SuppressionOptionsProperty:
 		val := val.(*CfnConfigurationSet_SuppressionOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -264,11 +266,9 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetSuppressionOptionsParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_SuppressionOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_SuppressionOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -277,6 +277,8 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetSuppressionOptionsParameters(
 
 func (j *jsiiProxy_CfnConfigurationSet) validateSetTrackingOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigurationSet_TrackingOptionsProperty:
 		val := val.(*CfnConfigurationSet_TrackingOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -288,11 +290,9 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetTrackingOptionsParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_TrackingOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_TrackingOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -301,6 +301,8 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetTrackingOptionsParameters(val
 
 func (j *jsiiProxy_CfnConfigurationSet) validateSetVdmOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigurationSet_VdmOptionsProperty:
 		val := val.(*CfnConfigurationSet_VdmOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -312,11 +314,9 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetVdmOptionsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_VdmOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_VdmOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

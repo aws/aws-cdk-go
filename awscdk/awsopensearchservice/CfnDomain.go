@@ -97,8 +97,20 @@ import (
 //   	NodeToNodeEncryptionOptions: &NodeToNodeEncryptionOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	OffPeakWindowOptions: &OffPeakWindowOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		OffPeakWindow: &OffPeakWindowProperty{
+//   			WindowStartTime: &WindowStartTimeProperty{
+//   				Hours: jsii.Number(123),
+//   				Minutes: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	SnapshotOptions: &SnapshotOptionsProperty{
 //   		AutomatedSnapshotStartHour: jsii.Number(123),
+//   	},
+//   	SoftwareUpdateOptions: &SoftwareUpdateOptionsProperty{
+//   		AutoSoftwareUpdateEnabled: jsii.Boolean(false),
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -237,6 +249,9 @@ type CfnDomain interface {
 	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions() interface{}
 	SetNodeToNodeEncryptionOptions(val interface{})
+	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+	OffPeakWindowOptions() interface{}
+	SetOffPeakWindowOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -247,6 +262,9 @@ type CfnDomain interface {
 	// The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions() interface{}
 	SetSnapshotOptions(val interface{})
+	// Options for configuring service software updates for a domain.
+	SoftwareUpdateOptions() interface{}
+	SetSoftwareUpdateOptions(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -312,20 +330,20 @@ type CfnDomain interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -716,6 +734,16 @@ func (j *jsiiProxy_CfnDomain) NodeToNodeEncryptionOptions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) OffPeakWindowOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"offPeakWindowOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -731,6 +759,16 @@ func (j *jsiiProxy_CfnDomain) SnapshotOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"snapshotOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) SoftwareUpdateOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"softwareUpdateOptions",
 		&returns,
 	)
 	return returns
@@ -942,6 +980,17 @@ func (j *jsiiProxy_CfnDomain)SetNodeToNodeEncryptionOptions(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDomain)SetOffPeakWindowOptions(val interface{}) {
+	if err := j.validateSetOffPeakWindowOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"offPeakWindowOptions",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomain)SetSnapshotOptions(val interface{}) {
 	if err := j.validateSetSnapshotOptionsParameters(val); err != nil {
 		panic(err)
@@ -949,6 +998,17 @@ func (j *jsiiProxy_CfnDomain)SetSnapshotOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"snapshotOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetSoftwareUpdateOptions(val interface{}) {
+	if err := j.validateSetSoftwareUpdateOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"softwareUpdateOptions",
 		val,
 	)
 }

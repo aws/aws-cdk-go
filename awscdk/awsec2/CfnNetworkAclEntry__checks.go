@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnNetworkAclEntry) validateSetEgressParameters(val interface
 
 func (j *jsiiProxy_CfnNetworkAclEntry) validateSetIcmpParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnNetworkAclEntry_IcmpProperty:
 		val := val.(*CfnNetworkAclEntry_IcmpProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnNetworkAclEntry) validateSetIcmpParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNetworkAclEntry_IcmpProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNetworkAclEntry_IcmpProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -230,6 +230,8 @@ func (j *jsiiProxy_CfnNetworkAclEntry) validateSetNetworkAclIdParameters(val *st
 
 func (j *jsiiProxy_CfnNetworkAclEntry) validateSetPortRangeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnNetworkAclEntry_PortRangeProperty:
 		val := val.(*CfnNetworkAclEntry_PortRangeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -241,11 +243,9 @@ func (j *jsiiProxy_CfnNetworkAclEntry) validateSetPortRangeParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNetworkAclEntry_PortRangeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNetworkAclEntry_PortRangeProperty; received %#v (a %T)", val, val)
 		}
 	}
 

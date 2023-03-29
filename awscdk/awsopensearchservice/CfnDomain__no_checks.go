@@ -120,7 +120,15 @@ func (j *jsiiProxy_CfnDomain) validateSetNodeToNodeEncryptionOptionsParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetOffPeakWindowOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetSnapshotOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetSoftwareUpdateOptionsParameters(val interface{}) error {
 	return nil
 }
 

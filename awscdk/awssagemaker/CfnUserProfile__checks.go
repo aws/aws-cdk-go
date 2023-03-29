@@ -197,6 +197,8 @@ func (j *jsiiProxy_CfnUserProfile) validateSetUserProfileNameParameters(val *str
 
 func (j *jsiiProxy_CfnUserProfile) validateSetUserSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserProfile_UserSettingsProperty:
 		val := val.(*CfnUserProfile_UserSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -208,11 +210,9 @@ func (j *jsiiProxy_CfnUserProfile) validateSetUserSettingsParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserProfile_UserSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserProfile_UserSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

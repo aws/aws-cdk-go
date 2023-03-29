@@ -9,7 +9,7 @@ package awscdk
 //
 // - The resource is removed from the template, so CloudFormation stops managing it;
 // - A change to the resource is made that requires it to be replaced, so CloudFormation stops
-//    managing it;
+//   managing it;
 // - The stack is deleted, so CloudFormation stops managing all resources in it.
 //
 // The Removal Policy applies to all above cases.

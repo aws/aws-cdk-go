@@ -162,6 +162,14 @@ func (k *jsiiProxy_KubectlProvider) validateToJsonStringParameters(obj interface
 	return nil
 }
 
+func (k *jsiiProxy_KubectlProvider) validateToYamlStringParameters(obj interface{}) error {
+	if obj == nil {
+		return fmt.Errorf("parameter obj is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateKubectlProvider_FromKubectlProviderAttributesParameters(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

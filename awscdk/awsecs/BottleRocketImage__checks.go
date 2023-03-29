@@ -18,6 +18,14 @@ func (b *jsiiProxy_BottleRocketImage) validateGetImageParameters(scope construct
 	return nil
 }
 
+func validateBottleRocketImage_IsBottleRocketImageParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewBottleRocketImageParameters(props *BottleRocketImageProps) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

@@ -181,6 +181,8 @@ func validateCfnGameServerGroup_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnGameServerGroup) validateSetAutoScalingPolicyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGameServerGroup_AutoScalingPolicyProperty:
 		val := val.(*CfnGameServerGroup_AutoScalingPolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetAutoScalingPolicyParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGameServerGroup_AutoScalingPolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_AutoScalingPolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnGameServerGroup_InstanceDefinitionProperty:
 				v := v.(*CfnGameServerGroup_InstanceDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGameServerGroup_InstanceDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_InstanceDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -246,6 +246,8 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnGameServerGroup_InstanceDefinitionProperty:
 				v := v.(*CfnGameServerGroup_InstanceDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -257,11 +259,9 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGameServerGroup_InstanceDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_InstanceDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -279,6 +279,8 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetLaunchTemplateParameters(val i
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGameServerGroup_LaunchTemplateProperty:
 		val := val.(*CfnGameServerGroup_LaunchTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -290,11 +292,9 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetLaunchTemplateParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGameServerGroup_LaunchTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_LaunchTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 

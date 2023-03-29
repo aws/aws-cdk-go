@@ -204,6 +204,8 @@ func (j *jsiiProxy_CfnApplication) validateSetComponentMonitoringSettingsParamet
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnApplication_ComponentMonitoringSettingProperty:
 				v := v.(*CfnApplication_ComponentMonitoringSettingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -215,11 +217,9 @@ func (j *jsiiProxy_CfnApplication) validateSetComponentMonitoringSettingsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnApplication_ComponentMonitoringSettingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnApplication_ComponentMonitoringSettingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -228,6 +228,8 @@ func (j *jsiiProxy_CfnApplication) validateSetComponentMonitoringSettingsParamet
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnApplication_ComponentMonitoringSettingProperty:
 				v := v.(*CfnApplication_ComponentMonitoringSettingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -239,11 +241,9 @@ func (j *jsiiProxy_CfnApplication) validateSetComponentMonitoringSettingsParamet
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnApplication_ComponentMonitoringSettingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnApplication_ComponentMonitoringSettingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -264,6 +264,8 @@ func (j *jsiiProxy_CfnApplication) validateSetCustomComponentsParameters(val int
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnApplication_CustomComponentProperty:
 				v := v.(*CfnApplication_CustomComponentProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -275,11 +277,9 @@ func (j *jsiiProxy_CfnApplication) validateSetCustomComponentsParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnApplication_CustomComponentProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnApplication_CustomComponentProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -288,6 +288,8 @@ func (j *jsiiProxy_CfnApplication) validateSetCustomComponentsParameters(val int
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnApplication_CustomComponentProperty:
 				v := v.(*CfnApplication_CustomComponentProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -299,11 +301,9 @@ func (j *jsiiProxy_CfnApplication) validateSetCustomComponentsParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnApplication_CustomComponentProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnApplication_CustomComponentProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -341,6 +341,8 @@ func (j *jsiiProxy_CfnApplication) validateSetLogPatternSetsParameters(val inter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnApplication_LogPatternSetProperty:
 				v := v.(*CfnApplication_LogPatternSetProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -352,11 +354,9 @@ func (j *jsiiProxy_CfnApplication) validateSetLogPatternSetsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnApplication_LogPatternSetProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnApplication_LogPatternSetProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -365,6 +365,8 @@ func (j *jsiiProxy_CfnApplication) validateSetLogPatternSetsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnApplication_LogPatternSetProperty:
 				v := v.(*CfnApplication_LogPatternSetProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -376,11 +378,9 @@ func (j *jsiiProxy_CfnApplication) validateSetLogPatternSetsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnApplication_LogPatternSetProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnApplication_LogPatternSetProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

@@ -181,6 +181,8 @@ func validateCfnDomainConfiguration_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDomainConfiguration) validateSetAuthorizerConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomainConfiguration_AuthorizerConfigProperty:
 		val := val.(*CfnDomainConfiguration_AuthorizerConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDomainConfiguration) validateSetAuthorizerConfigParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomainConfiguration_AuthorizerConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomainConfiguration_AuthorizerConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

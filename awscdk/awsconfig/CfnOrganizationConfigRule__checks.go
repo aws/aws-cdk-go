@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationConfigRuleN
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomPolicyRuleMetadataParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty:
 		val := val.(*CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomPolic
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomPolic
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomRuleMetadataParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty:
 		val := val.(*CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomRuleM
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomRuleM
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationManagedRuleMetadataParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty:
 		val := val.(*CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationManagedRule
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty; received %#v (a %T)", val, val)
 		}
 	}
 

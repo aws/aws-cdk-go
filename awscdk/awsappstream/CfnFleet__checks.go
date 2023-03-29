@@ -181,6 +181,8 @@ func validateCfnFleet_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnFleet) validateSetComputeCapacityParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFleet_ComputeCapacityProperty:
 		val := val.(*CfnFleet_ComputeCapacityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnFleet) validateSetComputeCapacityParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFleet_ComputeCapacityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_ComputeCapacityProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnFleet) validateSetComputeCapacityParameters(val interface{
 
 func (j *jsiiProxy_CfnFleet) validateSetDomainJoinInfoParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFleet_DomainJoinInfoProperty:
 		val := val.(*CfnFleet_DomainJoinInfoProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnFleet) validateSetDomainJoinInfoParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFleet_DomainJoinInfoProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_DomainJoinInfoProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -262,6 +262,8 @@ func (j *jsiiProxy_CfnFleet) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnFleet) validateSetSessionScriptS3LocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFleet_S3LocationProperty:
 		val := val.(*CfnFleet_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -273,11 +275,9 @@ func (j *jsiiProxy_CfnFleet) validateSetSessionScriptS3LocationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFleet_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_S3LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -286,6 +286,8 @@ func (j *jsiiProxy_CfnFleet) validateSetSessionScriptS3LocationParameters(val in
 
 func (j *jsiiProxy_CfnFleet) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFleet_VpcConfigProperty:
 		val := val.(*CfnFleet_VpcConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -297,11 +299,9 @@ func (j *jsiiProxy_CfnFleet) validateSetVpcConfigParameters(val interface{}) err
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFleet_VpcConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_VpcConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

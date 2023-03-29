@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetBoundingBoxRegionsOfInterestPa
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStreamProcessor_BoundingBoxProperty:
 				v := v.(*CfnStreamProcessor_BoundingBoxProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetBoundingBoxRegionsOfInterestPa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStreamProcessor_BoundingBoxProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_BoundingBoxProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetBoundingBoxRegionsOfInterestPa
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnStreamProcessor_BoundingBoxProperty:
 				v := v.(*CfnStreamProcessor_BoundingBoxProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetBoundingBoxRegionsOfInterestPa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnStreamProcessor_BoundingBoxProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_BoundingBoxProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -241,6 +241,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetBoundingBoxRegionsOfInterestPa
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetConnectedHomeSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_ConnectedHomeSettingsProperty:
 		val := val.(*CfnStreamProcessor_ConnectedHomeSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -252,11 +254,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetConnectedHomeSettingsParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_ConnectedHomeSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_ConnectedHomeSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -265,6 +265,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetConnectedHomeSettingsParameter
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetDataSharingPreferenceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_DataSharingPreferenceProperty:
 		val := val.(*CfnStreamProcessor_DataSharingPreferenceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -276,11 +278,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetDataSharingPreferenceParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_DataSharingPreferenceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_DataSharingPreferenceProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,6 +289,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetDataSharingPreferenceParameter
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetFaceSearchSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_FaceSearchSettingsProperty:
 		val := val.(*CfnStreamProcessor_FaceSearchSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -300,11 +302,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetFaceSearchSettingsParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_FaceSearchSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_FaceSearchSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -313,6 +313,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetFaceSearchSettingsParameters(v
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetKinesisDataStreamParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_KinesisDataStreamProperty:
 		val := val.(*CfnStreamProcessor_KinesisDataStreamProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -324,11 +326,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetKinesisDataStreamParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_KinesisDataStreamProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_KinesisDataStreamProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -340,6 +340,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetKinesisVideoStreamParameters(v
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_KinesisVideoStreamProperty:
 		val := val.(*CfnStreamProcessor_KinesisVideoStreamProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -351,11 +353,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetKinesisVideoStreamParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_KinesisVideoStreamProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_KinesisVideoStreamProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -364,6 +364,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetKinesisVideoStreamParameters(v
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetNotificationChannelParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_NotificationChannelProperty:
 		val := val.(*CfnStreamProcessor_NotificationChannelProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -375,11 +377,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetNotificationChannelParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_NotificationChannelProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_NotificationChannelProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -404,6 +404,8 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetRoleArnParameters(val *string)
 
 func (j *jsiiProxy_CfnStreamProcessor) validateSetS3DestinationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStreamProcessor_S3DestinationProperty:
 		val := val.(*CfnStreamProcessor_S3DestinationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -415,11 +417,9 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetS3DestinationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStreamProcessor_S3DestinationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStreamProcessor_S3DestinationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

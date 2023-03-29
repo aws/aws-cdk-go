@@ -160,11 +160,11 @@ func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions
 // somewhere.
 //
 // - Trying to grant permissions to a principal that does not admit adding to
-//    the principal policy while not providing a resource with a resource policy
-//    is an error.
+//   the principal policy while not providing a resource with a resource policy
+//   is an error.
 // - Trying to grant permissions to an absent principal (possible in the
-//    case of imported resources) leads to a warning being added to the
-//    resource construct.
+//   case of imported resources) leads to a warning being added to the
+//   resource construct.
 func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 	_init_.Initialize()
 

@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelCompositeModelsParameters
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAssetModel_AssetModelCompositeModelProperty:
 				v := v.(*CfnAssetModel_AssetModelCompositeModelProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelCompositeModelsParameters
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAssetModel_AssetModelCompositeModelProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAssetModel_AssetModelCompositeModelProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelCompositeModelsParameters
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAssetModel_AssetModelCompositeModelProperty:
 				v := v.(*CfnAssetModel_AssetModelCompositeModelProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelCompositeModelsParameters
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAssetModel_AssetModelCompositeModelProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAssetModel_AssetModelCompositeModelProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -247,6 +247,8 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelHierarchiesParameters(val
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAssetModel_AssetModelHierarchyProperty:
 				v := v.(*CfnAssetModel_AssetModelHierarchyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -258,11 +260,9 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelHierarchiesParameters(val
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAssetModel_AssetModelHierarchyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAssetModel_AssetModelHierarchyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -271,6 +271,8 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelHierarchiesParameters(val
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAssetModel_AssetModelHierarchyProperty:
 				v := v.(*CfnAssetModel_AssetModelHierarchyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -282,11 +284,9 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelHierarchiesParameters(val
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAssetModel_AssetModelHierarchyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAssetModel_AssetModelHierarchyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -315,6 +315,8 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelPropertiesParameters(val 
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAssetModel_AssetModelPropertyProperty:
 				v := v.(*CfnAssetModel_AssetModelPropertyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -326,11 +328,9 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelPropertiesParameters(val 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAssetModel_AssetModelPropertyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAssetModel_AssetModelPropertyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -339,6 +339,8 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelPropertiesParameters(val 
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAssetModel_AssetModelPropertyProperty:
 				v := v.(*CfnAssetModel_AssetModelPropertyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -350,11 +352,9 @@ func (j *jsiiProxy_CfnAssetModel) validateSetAssetModelPropertiesParameters(val 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAssetModel_AssetModelPropertyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAssetModel_AssetModelPropertyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

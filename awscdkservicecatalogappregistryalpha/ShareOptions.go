@@ -13,7 +13,8 @@ import (
 //   var myRole iRole
 //   var myUser iUser
 //
-//   application.shareApplication(&ShareOptions{
+//   application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
+//   	Name: jsii.String("MyShare"),
 //   	Accounts: []*string{
 //   		jsii.String("123456789012"),
 //   	},
@@ -30,6 +31,9 @@ import (
 //
 // Experimental.
 type ShareOptions struct {
+	// Name of the share.
+	// Experimental.
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of AWS accounts that the application will be shared with.
 	// Experimental.
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`

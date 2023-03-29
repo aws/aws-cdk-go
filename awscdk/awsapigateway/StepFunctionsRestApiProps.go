@@ -123,10 +123,10 @@ type StepFunctionsRestApiProps struct {
 	// The execution input will include a new key `authorizer`:
 	//
 	// {
-	//    "body": {},
-	//    "authorizer": {
-	//      "key": "value"
-	//    }
+	//   "body": {},
+	//   "authorizer": {
+	//     "key": "value"
+	//   }
 	// }.
 	Authorizer *bool `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Check if header is to be included inside the execution input.
@@ -134,11 +134,11 @@ type StepFunctionsRestApiProps struct {
 	// The execution input will include a new key `headers`:
 	//
 	// {
-	//    "body": {},
-	//    "headers": {
-	//       "header1": "value",
-	//       "header2": "value"
-	//    }
+	//   "body": {},
+	//   "headers": {
+	//      "header1": "value",
+	//      "header2": "value"
+	//   }
 	// }.
 	Headers *bool `field:"optional" json:"headers" yaml:"headers"`
 	// Check if path is to be included inside the execution input.
@@ -146,10 +146,10 @@ type StepFunctionsRestApiProps struct {
 	// The execution input will include a new key `path`:
 	//
 	// {
-	//    "body": {},
-	//    "path": {
-	//      "resourceName": "resourceValue"
-	//    }
+	//   "body": {},
+	//   "path": {
+	//     "resourceName": "resourceValue"
+	//   }
 	// }.
 	Path *bool `field:"optional" json:"path" yaml:"path"`
 	// Check if querystring is to be included inside the execution input.
@@ -157,10 +157,10 @@ type StepFunctionsRestApiProps struct {
 	// The execution input will include a new key `queryString`:
 	//
 	// {
-	//    "body": {},
-	//    "querystring": {
-	//      "key": "value"
-	//    }
+	//   "body": {},
+	//   "querystring": {
+	//     "key": "value"
+	//   }
 	// }.
 	Querystring *bool `field:"optional" json:"querystring" yaml:"querystring"`
 	// Which details of the incoming request must be passed onto the underlying state machine, such as, account id, user identity, request id, etc.
@@ -168,10 +168,10 @@ type StepFunctionsRestApiProps struct {
 	// The execution input will include a new key `requestContext`:
 	//
 	// {
-	//    "body": {},
-	//    "requestContext": {
-	//        "key": "value"
-	//    }
+	//   "body": {},
+	//   "requestContext": {
+	//       "key": "value"
+	//   }
 	// }.
 	RequestContext *RequestContext `field:"optional" json:"requestContext" yaml:"requestContext"`
 	// An IAM role that API Gateway will assume to start the execution of the state machine.

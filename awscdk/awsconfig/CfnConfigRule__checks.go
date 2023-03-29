@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnConfigRule) validateSetInputParametersParameters(val inter
 
 func (j *jsiiProxy_CfnConfigRule) validateSetScopeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigRule_ScopeProperty:
 		val := val.(*CfnConfigRule_ScopeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnConfigRule) validateSetScopeParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigRule_ScopeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigRule_ScopeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,6 +216,8 @@ func (j *jsiiProxy_CfnConfigRule) validateSetSourceParameters(val interface{}) e
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnConfigRule_SourceProperty:
 		val := val.(*CfnConfigRule_SourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -227,11 +229,9 @@ func (j *jsiiProxy_CfnConfigRule) validateSetSourceParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigRule_SourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigRule_SourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

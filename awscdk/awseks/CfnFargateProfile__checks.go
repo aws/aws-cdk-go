@@ -206,6 +206,8 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnFargateProfile_SelectorProperty:
 				v := v.(*CfnFargateProfile_SelectorProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -217,11 +219,9 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFargateProfile_SelectorProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFargateProfile_SelectorProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -230,6 +230,8 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnFargateProfile_SelectorProperty:
 				v := v.(*CfnFargateProfile_SelectorProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -241,11 +243,9 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFargateProfile_SelectorProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFargateProfile_SelectorProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

@@ -56,20 +56,20 @@ type VolumeProps struct {
 	// then the KMS key **must** have the following in its Key policy; otherwise, the Volume
 	// will fail to create.
 	//
-	//      {
-	//        "Effect": "Allow",
-	//        "Principal": { "AWS": "<arn for your account-user> ex: arn:aws:iam::00000000000:root" },
-	//        "Resource": "*",
-	//        "Action": [
-	//          "kms:DescribeKey",
-	//          "kms:GenerateDataKeyWithoutPlainText",
-	//        ],
-	//        "Condition": {
-	//          "StringEquals": {
-	//            "kms:ViaService": "ec2.<Region>.amazonaws.com", (eg: ec2.us-east-1.amazonaws.com)
-	//            "kms:CallerAccount": "0000000000" (your account ID)
-	//          }
-	//        }
+	//     {
+	//       "Effect": "Allow",
+	//       "Principal": { "AWS": "<arn for your account-user> ex: arn:aws:iam::00000000000:root" },
+	//       "Resource": "*",
+	//       "Action": [
+	//         "kms:DescribeKey",
+	//         "kms:GenerateDataKeyWithoutPlainText",
+	//       ],
+	//       "Condition": {
+	//         "StringEquals": {
+	//           "kms:ViaService": "ec2.<Region>.amazonaws.com", (eg: ec2.us-east-1.amazonaws.com)
+	//           "kms:CallerAccount": "0000000000" (your account ID)
+	//         }
+	//       }
 	// }.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.

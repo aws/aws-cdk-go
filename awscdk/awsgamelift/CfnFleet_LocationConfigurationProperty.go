@@ -1,7 +1,7 @@
 package awsgamelift
 
 
-// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+// A remote location where a multi-location fleet can deploy game servers for game hosting.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

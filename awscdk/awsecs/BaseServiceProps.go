@@ -115,7 +115,7 @@ type BaseServiceProps struct {
 	// The launch type on which to run your service.
 	//
 	// LaunchType will be omitted if capacity provider strategies are specified on the service.
-	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
+	// See:  - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
 	//
 	// Valid values are: LaunchType.ECS or LaunchType.FARGATE or LaunchType.EXTERNAL
 	//

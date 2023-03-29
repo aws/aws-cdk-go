@@ -48,7 +48,7 @@ type BucketProps struct {
 	// Only relevant when using KMS for encryption.
 	//
 	// - If not enabled, every object GET and PUT will cause an API call to KMS (with the
-	//    attendant cost implications of that).
+	//   attendant cost implications of that).
 	// - If enabled, S3 will use its own time-limited key instead.
 	//
 	// Only relevant, when Encryption is set to `BucketEncryption.KMS` or `BucketEncryption.KMS_MANAGED`.

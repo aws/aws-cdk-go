@@ -19,6 +19,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAliasStatus", GoGetter: "AttrAliasStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAliasValue", GoGetter: "AttrAliasValue"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationDate", GoGetter: "AttrCreationDate"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPolicyStatusIsPublic", GoGetter: "AttrPolicyStatusIsPublic"},
@@ -57,6 +59,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint.AliasProperty",
+		reflect.TypeOf((*CfnAccessPoint_AliasProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint.AwsLambdaProperty",

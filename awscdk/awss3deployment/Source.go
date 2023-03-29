@@ -12,11 +12,12 @@ import (
 //
 // Usage:
 //
-//      Source.bucket(bucket, key)
-//      Source.asset('/local/path/to/directory')
-//      Source.asset('/local/path/to/a/file.zip')
-//      Source.data('hello/world/file.txt', 'Hello, world!')
-//      Source.data('config.json', { baz: topic.topicArn })
+//     Source.bucket(bucket, key)
+//     Source.asset('/local/path/to/directory')
+//     Source.asset('/local/path/to/a/file.zip')
+//     Source.data('hello/world/file.txt', 'Hello, world!')
+//     Source.dataJson('config.json', { baz: topic.topicArn })
+//     Source.dataYaml('config.yaml', { baz: topic.topicArn })
 //
 // Example:
 //   var websiteBucket bucket
@@ -92,6 +93,7 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 // will get resolved only during deployment.
 //
 // To store a JSON object use `Source.jsonData()`.
+// To store YAML content use `Source.yamlData()`.
 func Source_Data(objectKey *string, data *string) ISource {
 	_init_.Initialize()
 
@@ -126,6 +128,28 @@ func Source_JsonData(objectKey *string, obj interface{}) ISource {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3_deployment.Source",
 		"jsonData",
+		[]interface{}{objectKey, obj},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deploys an object with the specified JSON object formatted as YAML into the bucket.
+//
+// The object can include deploy-time values (such as `snsTopic.topicArn`) that
+// will get resolved only during deployment.
+func Source_YamlData(objectKey *string, obj interface{}) ISource {
+	_init_.Initialize()
+
+	if err := validateSource_YamlDataParameters(objectKey, obj); err != nil {
+		panic(err)
+	}
+	var returns ISource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3_deployment.Source",
+		"yamlData",
 		[]interface{}{objectKey, obj},
 		&returns,
 	)

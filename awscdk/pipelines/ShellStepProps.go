@@ -40,11 +40,11 @@ type ShellStepProps struct {
 	//
 	// ```ts
 	// const script = new pipelines.ShellStep('MainScript', {
-	//    commands: ['npm ci','npm run build','npx cdk synth'],
-	//    input: pipelines.CodePipelineSource.gitHub('org/source1', 'main'),
-	//    additionalInputs: {
-	//      '../siblingdir': pipelines.CodePipelineSource.gitHub('org/source2', 'main'),
-	//    }
+	//   commands: ['npm ci','npm run build','npx cdk synth'],
+	//   input: pipelines.CodePipelineSource.gitHub('org/source1', 'main'),
+	//   additionalInputs: {
+	//     '../siblingdir': pipelines.CodePipelineSource.gitHub('org/source2', 'main'),
+	//   }
 	// });
 	// ```.
 	AdditionalInputs *map[string]IFileSetProducer `field:"optional" json:"additionalInputs" yaml:"additionalInputs"`

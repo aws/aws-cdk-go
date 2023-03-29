@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnDomain) validateSetAuthModeParameters(val *string) error {
 
 func (j *jsiiProxy_CfnDomain) validateSetDefaultSpaceSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_DefaultSpaceSettingsProperty:
 		val := val.(*CfnDomain_DefaultSpaceSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnDomain) validateSetDefaultSpaceSettingsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_DefaultSpaceSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_DefaultSpaceSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,6 +216,8 @@ func (j *jsiiProxy_CfnDomain) validateSetDefaultUserSettingsParameters(val inter
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_UserSettingsProperty:
 		val := val.(*CfnDomain_UserSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -227,11 +229,9 @@ func (j *jsiiProxy_CfnDomain) validateSetDefaultUserSettingsParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_UserSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_UserSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -248,6 +248,8 @@ func (j *jsiiProxy_CfnDomain) validateSetDomainNameParameters(val *string) error
 
 func (j *jsiiProxy_CfnDomain) validateSetDomainSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_DomainSettingsProperty:
 		val := val.(*CfnDomain_DomainSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -259,11 +261,9 @@ func (j *jsiiProxy_CfnDomain) validateSetDomainSettingsParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_DomainSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_DomainSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

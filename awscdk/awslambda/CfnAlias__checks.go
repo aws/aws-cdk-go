@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnAlias) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnAlias) validateSetProvisionedConcurrencyConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAlias_ProvisionedConcurrencyConfigurationProperty:
 		val := val.(*CfnAlias_ProvisionedConcurrencyConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnAlias) validateSetProvisionedConcurrencyConfigParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAlias_ProvisionedConcurrencyConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAlias_ProvisionedConcurrencyConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnAlias) validateSetProvisionedConcurrencyConfigParameters(v
 
 func (j *jsiiProxy_CfnAlias) validateSetRoutingConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAlias_AliasRoutingConfigurationProperty:
 		val := val.(*CfnAlias_AliasRoutingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnAlias) validateSetRoutingConfigParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAlias_AliasRoutingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAlias_AliasRoutingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

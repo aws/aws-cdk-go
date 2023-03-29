@@ -112,10 +112,10 @@ type CloudFormationDeployStackSetActionProps struct {
 	// The choices are:
 	//
 	// - Self Managed: you create IAM roles with the required permissions
-	//    in the administration account and all target accounts.
+	//   in the administration account and all target accounts.
 	// - Service Managed: only available if the account and target accounts
-	//    are part of an AWS Organization. The necessary roles will be created
-	//    for you.
+	//   are part of an AWS Organization. The necessary roles will be created
+	//   for you.
 	//
 	// If you want to deploy to all accounts that are a member of AWS
 	// Organizations Organizational Units (OUs), you must select Service Managed

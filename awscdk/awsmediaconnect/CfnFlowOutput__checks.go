@@ -181,6 +181,8 @@ func validateCfnFlowOutput_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnFlowOutput) validateSetEncryptionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlowOutput_EncryptionProperty:
 		val := val.(*CfnFlowOutput_EncryptionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetEncryptionParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlowOutput_EncryptionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowOutput_EncryptionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -221,6 +221,8 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetProtocolParameters(val *string) err
 
 func (j *jsiiProxy_CfnFlowOutput) validateSetVpcInterfaceAttachmentParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlowOutput_VpcInterfaceAttachmentProperty:
 		val := val.(*CfnFlowOutput_VpcInterfaceAttachmentProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -232,11 +234,9 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetVpcInterfaceAttachmentParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlowOutput_VpcInterfaceAttachmentProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowOutput_VpcInterfaceAttachmentProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -18,8 +18,8 @@ import (
 // ```ts
 // const handle = new ec2.InitServiceRestartHandle();
 // ec2.CloudFormationInit.fromElements(
-//    ec2.InitCommand.shellCommand('/usr/bin/custom-nginx-install.sh', { serviceRestartHandles: [handle] }),
-//    ec2.InitService.enable('nginx', { serviceRestartHandle: handle }),
+//   ec2.InitCommand.shellCommand('/usr/bin/custom-nginx-install.sh', { serviceRestartHandles: [handle] }),
+//   ec2.InitService.enable('nginx', { serviceRestartHandle: handle }),
 // );
 // ```.
 //

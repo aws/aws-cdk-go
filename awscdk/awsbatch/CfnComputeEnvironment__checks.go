@@ -181,6 +181,8 @@ func validateCfnComputeEnvironment_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnComputeEnvironment) validateSetComputeResourcesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnComputeEnvironment_ComputeResourcesProperty:
 		val := val.(*CfnComputeEnvironment_ComputeResourcesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetComputeResourcesParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnComputeEnvironment_ComputeResourcesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnComputeEnvironment_ComputeResourcesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetComputeResourcesParameters(
 
 func (j *jsiiProxy_CfnComputeEnvironment) validateSetEksConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnComputeEnvironment_EksConfigurationProperty:
 		val := val.(*CfnComputeEnvironment_EksConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetEksConfigurationParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnComputeEnvironment_EksConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnComputeEnvironment_EksConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -254,6 +254,8 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetTypeParameters(val *string)
 
 func (j *jsiiProxy_CfnComputeEnvironment) validateSetUpdatePolicyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnComputeEnvironment_UpdatePolicyProperty:
 		val := val.(*CfnComputeEnvironment_UpdatePolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -265,11 +267,9 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetUpdatePolicyParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnComputeEnvironment_UpdatePolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnComputeEnvironment_UpdatePolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -212,6 +212,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterObjectsParameters(val interf
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_ParameterObjectProperty:
 				v := v.(*CfnPipeline_ParameterObjectProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -223,11 +225,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterObjectsParameters(val interf
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_ParameterObjectProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_ParameterObjectProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -236,6 +236,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterObjectsParameters(val interf
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_ParameterObjectProperty:
 				v := v.(*CfnPipeline_ParameterObjectProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -247,11 +249,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterObjectsParameters(val interf
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_ParameterObjectProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_ParameterObjectProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -272,6 +272,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterValuesParameters(val interfa
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_ParameterValueProperty:
 				v := v.(*CfnPipeline_ParameterValueProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -283,11 +285,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterValuesParameters(val interfa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_ParameterValueProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_ParameterValueProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -296,6 +296,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterValuesParameters(val interfa
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_ParameterValueProperty:
 				v := v.(*CfnPipeline_ParameterValueProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -307,11 +309,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetParameterValuesParameters(val interfa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_ParameterValueProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_ParameterValueProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -332,6 +332,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineObjectsParameters(val interfa
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_PipelineObjectProperty:
 				v := v.(*CfnPipeline_PipelineObjectProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -343,11 +345,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineObjectsParameters(val interfa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_PipelineObjectProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_PipelineObjectProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -356,6 +356,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineObjectsParameters(val interfa
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_PipelineObjectProperty:
 				v := v.(*CfnPipeline_PipelineObjectProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -367,11 +369,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineObjectsParameters(val interfa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_PipelineObjectProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_PipelineObjectProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -392,6 +392,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val interface{
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_PipelineTagProperty:
 				v := v.(*CfnPipeline_PipelineTagProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -403,11 +405,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val interface{
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_PipelineTagProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_PipelineTagProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -416,6 +416,8 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val interface{
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnPipeline_PipelineTagProperty:
 				v := v.(*CfnPipeline_PipelineTagProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -427,11 +429,9 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val interface{
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnPipeline_PipelineTagProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_PipelineTagProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

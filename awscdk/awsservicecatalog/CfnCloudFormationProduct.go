@@ -28,6 +28,7 @@ import (
 //   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   	Description: jsii.String("description"),
 //   	Distributor: jsii.String("distributor"),
+//   	ProductType: jsii.String("productType"),
 //   	ProvisioningArtifactParameters: []interface{}{
 //   		&ProvisioningArtifactPropertiesProperty{
 //   			Info: info,
@@ -36,6 +37,7 @@ import (
 //   			Description: jsii.String("description"),
 //   			DisableTemplateValidation: jsii.Boolean(false),
 //   			Name: jsii.String("name"),
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	ReplaceProvisioningArtifacts: jsii.Boolean(false),
@@ -110,6 +112,9 @@ type CfnCloudFormationProduct interface {
 	// The owner of the product.
 	Owner() *string
 	SetOwner(val *string)
+	// `AWS::ServiceCatalog::CloudFormationProduct.ProductType`.
+	ProductType() *string
+	SetProductType(val *string)
 	// The configuration of the provisioning artifact (also known as a version).
 	ProvisioningArtifactParameters() interface{}
 	SetProvisioningArtifactParameters(val interface{})
@@ -199,20 +204,20 @@ type CfnCloudFormationProduct interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -433,6 +438,16 @@ func (j *jsiiProxy_CfnCloudFormationProduct) Owner() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCloudFormationProduct) ProductType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"productType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCloudFormationProduct) ProvisioningArtifactParameters() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -615,6 +630,14 @@ func (j *jsiiProxy_CfnCloudFormationProduct)SetOwner(val *string) {
 	_jsii_.Set(
 		j,
 		"owner",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCloudFormationProduct)SetProductType(val *string) {
+	_jsii_.Set(
+		j,
+		"productType",
 		val,
 	)
 }

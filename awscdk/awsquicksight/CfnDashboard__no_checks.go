@@ -92,6 +92,14 @@ func (j *jsiiProxy_CfnDashboard) validateSetDashboardPublishOptionsParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnDashboard) validateSetDefinitionParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDashboard) validateSetNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDashboard) validateSetParametersParameters(val interface{}) error {
 	return nil
 }

@@ -13,8 +13,8 @@ import (
 // This synthesizer:
 //
 // - Supports cross-account deployments (the CLI can have credentials to one
-//    account, and you can still deploy to another account by assuming roles with
-//    well-known names in the other account).
+//   account, and you can still deploy to another account by assuming roles with
+//   well-known names in the other account).
 // - Supports the **CDK Pipelines** library.
 //
 // Requires the environment to have been bootstrapped with Bootstrap Stack V2
@@ -57,7 +57,7 @@ type DefaultStackSynthesizer interface {
 	//
 	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
 	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
+	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
@@ -67,7 +67,7 @@ type DefaultStackSynthesizer interface {
 	//
 	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
 	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
+	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation

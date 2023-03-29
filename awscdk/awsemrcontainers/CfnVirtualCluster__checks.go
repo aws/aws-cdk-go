@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnVirtualCluster) validateSetContainerProviderParameters(val
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnVirtualCluster_ContainerProviderProperty:
 		val := val.(*CfnVirtualCluster_ContainerProviderProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnVirtualCluster) validateSetContainerProviderParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnVirtualCluster_ContainerProviderProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVirtualCluster_ContainerProviderProperty; received %#v (a %T)", val, val)
 		}
 	}
 

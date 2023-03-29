@@ -50,7 +50,7 @@ type FileAssetLocation struct {
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Like `s3ObjectUrl`, but not suitable for CloudFormation consumption.
 	//
-	// If there are placeholders in the S3 URL, they will be returned unreplaced
+	// If there are placeholders in the S3 URL, they will be returned un-replaced
 	// and un-evaluated.
 	S3ObjectUrlWithPlaceholders *string `field:"optional" json:"s3ObjectUrlWithPlaceholders" yaml:"s3ObjectUrlWithPlaceholders"`
 }

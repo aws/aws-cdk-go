@@ -10,6 +10,8 @@ package awswisdom
 //
 //   appIntegrationsConfigurationProperty := &AppIntegrationsConfigurationProperty{
 //   	AppIntegrationArn: jsii.String("appIntegrationArn"),
+//
+//   	// the properties below are optional
 //   	ObjectFields: []*string{
 //   		jsii.String("objectFields"),
 //   	},
@@ -32,6 +34,6 @@ type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
 	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
 	//
 	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
-	ObjectFields *[]*string `field:"required" json:"objectFields" yaml:"objectFields"`
+	ObjectFields *[]*string `field:"optional" json:"objectFields" yaml:"objectFields"`
 }
 

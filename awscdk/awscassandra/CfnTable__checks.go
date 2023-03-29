@@ -181,6 +181,8 @@ func validateCfnTable_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnTable) validateSetBillingModeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTable_BillingModeProperty:
 		val := val.(*CfnTable_BillingModeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnTable) validateSetBillingModeParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTable_BillingModeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTable_BillingModeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -228,6 +228,8 @@ func (j *jsiiProxy_CfnTable) validateSetClusteringKeyColumnsParameters(val inter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTable_ClusteringKeyColumnProperty:
 				v := v.(*CfnTable_ClusteringKeyColumnProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -239,11 +241,9 @@ func (j *jsiiProxy_CfnTable) validateSetClusteringKeyColumnsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTable_ClusteringKeyColumnProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTable_ClusteringKeyColumnProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -252,6 +252,8 @@ func (j *jsiiProxy_CfnTable) validateSetClusteringKeyColumnsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTable_ClusteringKeyColumnProperty:
 				v := v.(*CfnTable_ClusteringKeyColumnProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -263,11 +265,9 @@ func (j *jsiiProxy_CfnTable) validateSetClusteringKeyColumnsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTable_ClusteringKeyColumnProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTable_ClusteringKeyColumnProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -282,6 +282,8 @@ func (j *jsiiProxy_CfnTable) validateSetClusteringKeyColumnsParameters(val inter
 
 func (j *jsiiProxy_CfnTable) validateSetEncryptionSpecificationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnTable_EncryptionSpecificationProperty:
 		val := val.(*CfnTable_EncryptionSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -293,11 +295,9 @@ func (j *jsiiProxy_CfnTable) validateSetEncryptionSpecificationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTable_EncryptionSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTable_EncryptionSpecificationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -323,6 +323,8 @@ func (j *jsiiProxy_CfnTable) validateSetPartitionKeyColumnsParameters(val interf
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTable_ColumnProperty:
 				v := v.(*CfnTable_ColumnProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -334,11 +336,9 @@ func (j *jsiiProxy_CfnTable) validateSetPartitionKeyColumnsParameters(val interf
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTable_ColumnProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTable_ColumnProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -347,6 +347,8 @@ func (j *jsiiProxy_CfnTable) validateSetPartitionKeyColumnsParameters(val interf
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTable_ColumnProperty:
 				v := v.(*CfnTable_ColumnProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -358,11 +360,9 @@ func (j *jsiiProxy_CfnTable) validateSetPartitionKeyColumnsParameters(val interf
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTable_ColumnProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTable_ColumnProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -400,6 +400,8 @@ func (j *jsiiProxy_CfnTable) validateSetRegularColumnsParameters(val interface{}
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTable_ColumnProperty:
 				v := v.(*CfnTable_ColumnProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -411,11 +413,9 @@ func (j *jsiiProxy_CfnTable) validateSetRegularColumnsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTable_ColumnProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTable_ColumnProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -424,6 +424,8 @@ func (j *jsiiProxy_CfnTable) validateSetRegularColumnsParameters(val interface{}
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnTable_ColumnProperty:
 				v := v.(*CfnTable_ColumnProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -435,11 +437,9 @@ func (j *jsiiProxy_CfnTable) validateSetRegularColumnsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTable_ColumnProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTable_ColumnProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

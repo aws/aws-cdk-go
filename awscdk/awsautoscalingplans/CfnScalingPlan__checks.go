@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetApplicationSourceParameters(val in
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScalingPlan_ApplicationSourceProperty:
 		val := val.(*CfnScalingPlan_ApplicationSourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetApplicationSourceParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScalingPlan_ApplicationSourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScalingPlan_ApplicationSourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +217,8 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetScalingInstructionsParameters(val 
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnScalingPlan_ScalingInstructionProperty:
 				v := v.(*CfnScalingPlan_ScalingInstructionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -228,11 +230,9 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetScalingInstructionsParameters(val 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnScalingPlan_ScalingInstructionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnScalingPlan_ScalingInstructionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -241,6 +241,8 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetScalingInstructionsParameters(val 
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnScalingPlan_ScalingInstructionProperty:
 				v := v.(*CfnScalingPlan_ScalingInstructionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -252,11 +254,9 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetScalingInstructionsParameters(val 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnScalingPlan_ScalingInstructionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnScalingPlan_ScalingInstructionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

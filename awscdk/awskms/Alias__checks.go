@@ -91,6 +91,22 @@ func (a *jsiiProxy_Alias) validateGrantEncryptDecryptParameters(grantee awsiam.I
 	return nil
 }
 
+func (a *jsiiProxy_Alias) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_Alias) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateAlias_FromAliasAttributesParameters(scope constructs.Construct, id *string, attrs *AliasAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

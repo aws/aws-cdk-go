@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetActionsParameters(val inter
 		val := val.(*map[string]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnExperimentTemplate_ExperimentTemplateActionProperty:
 				v := v.(*CfnExperimentTemplate_ExperimentTemplateActionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetActionsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateActionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateActionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetActionsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnExperimentTemplate_ExperimentTemplateActionProperty:
 				v := v.(*CfnExperimentTemplate_ExperimentTemplateActionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetActionsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateActionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateActionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -249,6 +249,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetDescriptionParameters(val *
 
 func (j *jsiiProxy_CfnExperimentTemplate) validateSetLogConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty:
 		val := val.(*CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -260,11 +262,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetLogConfigurationParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -290,6 +290,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetStopConditionsParameters(va
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnExperimentTemplate_ExperimentTemplateStopConditionProperty:
 				v := v.(*CfnExperimentTemplate_ExperimentTemplateStopConditionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -301,11 +303,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetStopConditionsParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateStopConditionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateStopConditionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -314,6 +314,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetStopConditionsParameters(va
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnExperimentTemplate_ExperimentTemplateStopConditionProperty:
 				v := v.(*CfnExperimentTemplate_ExperimentTemplateStopConditionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -325,11 +327,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetStopConditionsParameters(va
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateStopConditionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateStopConditionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -353,6 +353,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetTargetsParameters(val inter
 		val := val.(*map[string]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnExperimentTemplate_ExperimentTemplateTargetProperty:
 				v := v.(*CfnExperimentTemplate_ExperimentTemplateTargetProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -364,11 +366,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetTargetsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateTargetProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateTargetProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -377,6 +377,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetTargetsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnExperimentTemplate_ExperimentTemplateTargetProperty:
 				v := v.(*CfnExperimentTemplate_ExperimentTemplateTargetProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -388,11 +390,9 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetTargetsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnExperimentTemplate_ExperimentTemplateTargetProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateTargetProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

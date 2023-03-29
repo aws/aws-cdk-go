@@ -41,15 +41,15 @@ type BuildProps struct {
 	// to have Read access to a specific key content into a specific S3 bucket.
 	// Below an example of required permission:
 	// {
-	//   "Version": "2012-10-17",
-	//   "Statement": [{
-	//         "Effect": "Allow",
-	//         "Action": [
-	//             "s3:GetObject",
-	//             "s3:GetObjectVersion"
-	//         ],
-	//         "Resource": "arn:aws:s3:::bucket-name/object-name"
-	//   }]
+	//  "Version": "2012-10-17",
+	//  "Statement": [{
+	//        "Effect": "Allow",
+	//        "Action": [
+	//            "s3:GetObject",
+	//            "s3:GetObjectVersion"
+	//        ],
+	//        "Resource": "arn:aws:s3:::bucket-name/object-name"
+	//  }]
 	// }.
 	// See: https://docs.aws.amazon.com/gamelift/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-access-storage-loc
 	//

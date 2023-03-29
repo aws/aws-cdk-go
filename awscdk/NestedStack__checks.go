@@ -162,6 +162,14 @@ func (n *jsiiProxy_NestedStack) validateToJsonStringParameters(obj interface{}) 
 	return nil
 }
 
+func (n *jsiiProxy_NestedStack) validateToYamlStringParameters(obj interface{}) error {
+	if obj == nil {
+		return fmt.Errorf("parameter obj is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNestedStack_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

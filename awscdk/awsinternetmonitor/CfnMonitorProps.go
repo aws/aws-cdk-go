@@ -12,8 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMonitorProps := &CfnMonitorProps{
-//   	MaxCityNetworksToMonitor: jsii.Number(123),
 //   	MonitorName: jsii.String("monitorName"),
+//
+//   	// the properties below are optional
+//   	MaxCityNetworksToMonitor: jsii.Number(123),
 //   	Resources: []*string{
 //   		jsii.String("resources"),
 //   	},
@@ -33,16 +35,16 @@ import (
 //   }
 //
 type CfnMonitorProps struct {
+	// The name of the monitor.
+	//
+	// A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+	MonitorName *string `field:"required" json:"monitorName" yaml:"monitorName"`
 	// The maximum number of city-networks to monitor for your resources.
 	//
 	// A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
 	//
 	// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
 	MaxCityNetworksToMonitor *float64 `field:"optional" json:"maxCityNetworksToMonitor" yaml:"maxCityNetworksToMonitor"`
-	// The name of the monitor.
-	//
-	// A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
-	MonitorName *string `field:"optional" json:"monitorName" yaml:"monitorName"`
 	// The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs).
 	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// The resources to add to a monitor, which you provide as a set of Amazon Resource Names (ARNs).

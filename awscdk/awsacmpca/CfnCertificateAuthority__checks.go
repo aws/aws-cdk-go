@@ -181,6 +181,8 @@ func validateCfnCertificateAuthority_IsConstructParameters(x interface{}) error 
 
 func (j *jsiiProxy_CfnCertificateAuthority) validateSetCsrExtensionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCertificateAuthority_CsrExtensionsProperty:
 		val := val.(*CfnCertificateAuthority_CsrExtensionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetCsrExtensionsParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCertificateAuthority_CsrExtensionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCertificateAuthority_CsrExtensionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetKeyAlgorithmParameters(va
 
 func (j *jsiiProxy_CfnCertificateAuthority) validateSetRevocationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCertificateAuthority_RevocationConfigurationProperty:
 		val := val.(*CfnCertificateAuthority_RevocationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetRevocationConfigurationPa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCertificateAuthority_RevocationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCertificateAuthority_RevocationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -248,6 +248,8 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetSubjectParameters(val int
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCertificateAuthority_SubjectProperty:
 		val := val.(*CfnCertificateAuthority_SubjectProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -259,11 +261,9 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetSubjectParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCertificateAuthority_SubjectProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCertificateAuthority_SubjectProperty; received %#v (a %T)", val, val)
 		}
 	}
 

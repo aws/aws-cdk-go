@@ -19,7 +19,7 @@ import (
 //   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
 //   	SnapshotIdentifier: jsii.String("my-snapshot"),
 //   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   		Version: rds.PostgresEngineVersion_VER_12_3(),
+//   		Version: rds.PostgresEngineVersion_VER_15_2(),
 //   	}),
 //   	// optional, defaults to m5.large
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),

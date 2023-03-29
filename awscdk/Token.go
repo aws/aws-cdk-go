@@ -134,7 +134,7 @@ func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenC
 // - `obj` is either an encoded number or list
 //
 // This does NOT recurse into lists or objects to see if they
-// containing resolvables.
+// contain resolvables.
 func Token_IsUnresolved(obj interface{}) *bool {
 	_init_.Initialize()
 

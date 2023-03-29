@@ -24,15 +24,15 @@ type RotationMultiUserOptions struct {
 	// It must be a JSON string with the following format:
 	// ```
 	// {
-	//    "engine": <required: must be set to 'mongo'>,
-	//    "host": <required: instance host name>,
-	//    "username": <required: username>,
-	//    "password": <required: password>,
-	//    "dbname": <optional: database name>,
-	//    "port": <optional: if not specified, default port 27017 will be used>,
-	//    "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
-	//    "ssl": <optional: if not specified, defaults to false. This must be true if being used for DocumentDB rotations
-	//           where the cluster has TLS enabled>
+	//   "engine": <required: must be set to 'mongo'>,
+	//   "host": <required: instance host name>,
+	//   "username": <required: username>,
+	//   "password": <required: password>,
+	//   "dbname": <optional: database name>,
+	//   "port": <optional: if not specified, default port 27017 will be used>,
+	//   "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
+	//   "ssl": <optional: if not specified, defaults to false. This must be true if being used for DocumentDB rotations
+	//          where the cluster has TLS enabled>
 	// }
 	// ```.
 	Secret awssecretsmanager.ISecret `field:"required" json:"secret" yaml:"secret"`

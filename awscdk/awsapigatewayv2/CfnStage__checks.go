@@ -181,6 +181,8 @@ func validateCfnStage_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnStage) validateSetAccessLogSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStage_AccessLogSettingsProperty:
 		val := val.(*CfnStage_AccessLogSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnStage) validateSetAccessLogSettingsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStage_AccessLogSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStage_AccessLogSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -230,6 +230,8 @@ func (j *jsiiProxy_CfnStage) validateSetAutoDeployParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnStage) validateSetDefaultRouteSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStage_RouteSettingsProperty:
 		val := val.(*CfnStage_RouteSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -241,11 +243,9 @@ func (j *jsiiProxy_CfnStage) validateSetDefaultRouteSettingsParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStage_RouteSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStage_RouteSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

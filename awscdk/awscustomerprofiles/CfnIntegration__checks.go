@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnIntegration) validateSetDomainNameParameters(val *string) 
 
 func (j *jsiiProxy_CfnIntegration) validateSetFlowDefinitionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnIntegration_FlowDefinitionProperty:
 		val := val.(*CfnIntegration_FlowDefinitionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnIntegration) validateSetFlowDefinitionParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIntegration_FlowDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIntegration_FlowDefinitionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -219,6 +219,8 @@ func (j *jsiiProxy_CfnIntegration) validateSetObjectTypeNamesParameters(val inte
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnIntegration_ObjectTypeMappingProperty:
 				v := v.(*CfnIntegration_ObjectTypeMappingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -230,11 +232,9 @@ func (j *jsiiProxy_CfnIntegration) validateSetObjectTypeNamesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnIntegration_ObjectTypeMappingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnIntegration_ObjectTypeMappingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -243,6 +243,8 @@ func (j *jsiiProxy_CfnIntegration) validateSetObjectTypeNamesParameters(val inte
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnIntegration_ObjectTypeMappingProperty:
 				v := v.(*CfnIntegration_ObjectTypeMappingProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -254,11 +256,9 @@ func (j *jsiiProxy_CfnIntegration) validateSetObjectTypeNamesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnIntegration_ObjectTypeMappingProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnIntegration_ObjectTypeMappingProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

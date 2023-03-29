@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnBranch) validateSetAppIdParameters(val *string) error {
 
 func (j *jsiiProxy_CfnBranch) validateSetBasicAuthConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBranch_BasicAuthConfigProperty:
 		val := val.(*CfnBranch_BasicAuthConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnBranch) validateSetBasicAuthConfigParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBranch_BasicAuthConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBranch_BasicAuthConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -278,6 +278,8 @@ func (j *jsiiProxy_CfnBranch) validateSetEnvironmentVariablesParameters(val inte
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnBranch_EnvironmentVariableProperty:
 				v := v.(*CfnBranch_EnvironmentVariableProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -289,11 +291,9 @@ func (j *jsiiProxy_CfnBranch) validateSetEnvironmentVariablesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnBranch_EnvironmentVariableProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnBranch_EnvironmentVariableProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -302,6 +302,8 @@ func (j *jsiiProxy_CfnBranch) validateSetEnvironmentVariablesParameters(val inte
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnBranch_EnvironmentVariableProperty:
 				v := v.(*CfnBranch_EnvironmentVariableProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -313,11 +315,9 @@ func (j *jsiiProxy_CfnBranch) validateSetEnvironmentVariablesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnBranch_EnvironmentVariableProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnBranch_EnvironmentVariableProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

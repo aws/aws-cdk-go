@@ -22,7 +22,7 @@ package awscognito
 //   	},
 //   })
 //
-// See: - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
+// See:  - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 //
 type OAuthFlows struct {
 	// Initiate an authorization code grant flow, which provides an authorization code as the response.

@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetPolicyStatusParameters(val interfa
 
 func (j *jsiiProxy_CfnAccessPoint) validateSetPublicAccessBlockConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccessPoint_PublicAccessBlockConfigurationProperty:
 		val := val.(*CfnAccessPoint_PublicAccessBlockConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetPublicAccessBlockConfigurationPara
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccessPoint_PublicAccessBlockConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccessPoint_PublicAccessBlockConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetPublicAccessBlockConfigurationPara
 
 func (j *jsiiProxy_CfnAccessPoint) validateSetVpcConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAccessPoint_VpcConfigurationProperty:
 		val := val.(*CfnAccessPoint_VpcConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetVpcConfigurationParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccessPoint_VpcConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccessPoint_VpcConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

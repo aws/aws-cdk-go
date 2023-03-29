@@ -198,6 +198,8 @@ func (j *jsiiProxy_CfnImage) validateSetEnhancedImageMetadataEnabledParameters(v
 
 func (j *jsiiProxy_CfnImage) validateSetImageScanningConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImage_ImageScanningConfigurationProperty:
 		val := val.(*CfnImage_ImageScanningConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -209,11 +211,9 @@ func (j *jsiiProxy_CfnImage) validateSetImageScanningConfigurationParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImage_ImageScanningConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImage_ImageScanningConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnImage) validateSetImageScanningConfigurationParameters(val
 
 func (j *jsiiProxy_CfnImage) validateSetImageTestsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImage_ImageTestsConfigurationProperty:
 		val := val.(*CfnImage_ImageTestsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnImage) validateSetImageTestsConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImage_ImageTestsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImage_ImageTestsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

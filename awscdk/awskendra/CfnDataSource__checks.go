@@ -181,6 +181,8 @@ func validateCfnDataSource_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDataSource) validateSetCustomDocumentEnrichmentConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_CustomDocumentEnrichmentConfigurationProperty:
 		val := val.(*CfnDataSource_CustomDocumentEnrichmentConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetCustomDocumentEnrichmentConfigurati
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_CustomDocumentEnrichmentConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_CustomDocumentEnrichmentConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetCustomDocumentEnrichmentConfigurati
 
 func (j *jsiiProxy_CfnDataSource) validateSetDataSourceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_DataSourceConfigurationProperty:
 		val := val.(*CfnDataSource_DataSourceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetDataSourceConfigurationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_DataSourceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_DataSourceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

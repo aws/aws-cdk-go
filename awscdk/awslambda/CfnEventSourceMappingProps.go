@@ -138,6 +138,8 @@ type CfnEventSourceMappingProps struct {
 	//
 	// The default value is -1,
 	// which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+	//
+	// > The minimum value that can be set is 60 seconds.
 	MaximumRecordAgeInSeconds *float64 `field:"optional" json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries.
 	//

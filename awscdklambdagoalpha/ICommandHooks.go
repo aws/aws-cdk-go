@@ -14,11 +14,11 @@ import (
 //
 // ```text
 // {
-//    // Run tests prior to bundling
-//    beforeBundling(inputDir: string, outputDir: string): string[] {
-//      return [`go test -mod=vendor ./...`];
-//    }
-//    // ...
+//   // Run tests prior to bundling
+//   beforeBundling(inputDir: string, outputDir: string): string[] {
+//     return [`go test -mod=vendor ./...`];
+//   }
+//   // ...
 // }
 // ```.
 // Experimental.

@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnApp) validateSetDomainIdParameters(val *string) error {
 
 func (j *jsiiProxy_CfnApp) validateSetResourceSpecParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApp_ResourceSpecProperty:
 		val := val.(*CfnApp_ResourceSpecProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnApp) validateSetResourceSpecParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApp_ResourceSpecProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApp_ResourceSpecProperty; received %#v (a %T)", val, val)
 		}
 	}
 

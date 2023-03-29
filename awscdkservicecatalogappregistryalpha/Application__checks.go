@@ -98,7 +98,11 @@ func (a *jsiiProxy_Application) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateShareApplicationParameters(shareOptions *ShareOptions) error {
+func (a *jsiiProxy_Application) validateShareApplicationParameters(id *string, shareOptions *ShareOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if shareOptions == nil {
 		return fmt.Errorf("parameter shareOptions is required, but nil was provided")
 	}

@@ -181,6 +181,8 @@ func validateCfnUserPoolRiskConfigurationAttachment_IsConstructParameters(x inte
 
 func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetAccountTakeoverRiskConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty:
 		val := val.(*CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetAccountTak
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetClientIdPa
 
 func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetCompromisedCredentialsRiskConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty:
 		val := val.(*CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetCompromise
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetCompromise
 
 func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetRiskExceptionConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty:
 		val := val.(*CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetRiskExcept
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -67,7 +67,9 @@ apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
 })
 ```
 
-To create a `Service` from local docker image asset directory  built and pushed to Amazon ECR:
+To create a `Service` from local docker image asset directory built and pushed to Amazon ECR:
+
+You can specify whether to enable continuous integration from the source repository with the `autoDeploymentsEnabled` flag.
 
 ```go
 import assets "github.com/aws/aws-cdk-go/awscdk"
@@ -83,6 +85,7 @@ apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
 		},
 		Asset: imageAsset,
 	}),
+	AutoDeploymentsEnabled: jsii.Boolean(true),
 })
 ```
 

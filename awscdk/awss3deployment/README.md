@@ -84,6 +84,8 @@ The following source types are supported for bucket deployments:
   (supports [deploy-time values](#data-with-deploy-time-values))
 * JSON data: `s3deploy.Source.jsonData('object-key.json', { json: 'object' })`
   (supports [deploy-time values](#data-with-deploy-time-values))
+* YAML data: `s3deploy.Source.yamlData('object-key.yaml', { yaml: 'object' })`
+  (supports [deploy-time values](#data-with-deploy-time-values))
 
 To create a source from a single file, you can pass `AssetOptions` to exclude
 all but a single file:
@@ -270,9 +272,9 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeployme
 	DestinationBucket: websiteBucket,
 	DestinationKeyPrefix: jsii.String("web/static"),
 	 // optional prefix in destination bucket
-	Metadata: &UserDefinedObjectMetadata{
-		A: jsii.String("1"),
-		B: jsii.String("2"),
+	Metadata: map[string]*string{
+		"A": jsii.String("1"),
+		"b": jsii.String("2"),
 	},
 	 // user-defined metadata
 
@@ -361,7 +363,7 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithEfsStorage"), &Bucke
 
 ## Data with deploy-time values
 
-The content passed to `Source.data()` or `Source.jsonData()` can include
+The content passed to `Source.data()`, `Source.jsonData()`, or `Source.yamlData()` can include
 references that will get resolved only during deployment.
 
 For example:

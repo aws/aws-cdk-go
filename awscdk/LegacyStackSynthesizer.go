@@ -14,12 +14,12 @@ import (
 // asset, and use the CLI's current credentials to deploy the stack.
 //
 // - It does not support cross-account deployment (the CLI must have credentials
-//    to the account you are trying to deploy to).
+//   to the account you are trying to deploy to).
 // - It cannot be used with **CDK Pipelines**. To deploy using CDK Pipelines,
-//    you must use the `DefaultStackSynthesizer`.
+//   you must use the `DefaultStackSynthesizer`.
 // - Each asset will take up a CloudFormation Parameter in your template. Keep in
-//    mind that there is a maximum of 200 parameters in a CloudFormation template.
-//    To use determinstic asset locations instead, use `CliCredentialsStackSynthesizer`.
+//   mind that there is a maximum of 200 parameters in a CloudFormation template.
+//   To use deterministic asset locations instead, use `CliCredentialsStackSynthesizer`.
 //
 // Be aware that your CLI credentials must be valid for the duration of the
 // entire deployment. If you are using session credentials, make sure the
@@ -55,7 +55,7 @@ type LegacyStackSynthesizer interface {
 	//
 	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
 	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
+	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
@@ -65,7 +65,7 @@ type LegacyStackSynthesizer interface {
 	//
 	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
 	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
+	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation

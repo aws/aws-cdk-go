@@ -70,11 +70,11 @@ type ApplyCloudFormationInitOptions struct {
 	// UserData, so that if the config changes, the UserData changes.
 	//
 	// - If the EC2 instance is instance-store backed or
-	//    `userDataCausesReplacement` is set, this will cause the instance to be
-	//    replaced and the new configuration to be applied.
+	//   `userDataCausesReplacement` is set, this will cause the instance to be
+	//   replaced and the new configuration to be applied.
 	// - If the instance is EBS-backed and `userDataCausesReplacement` is not
-	//    set, the change of UserData will make the instance restart but not be
-	//    replaced, and the configuration will not be applied automatically.
+	//   set, the change of UserData will make the instance restart but not be
+	//   replaced, and the configuration will not be applied automatically.
 	//
 	// If `false`, no hash will be embedded, and if the CloudFormation Init
 	// config changes nothing will happen to the running instance. If a

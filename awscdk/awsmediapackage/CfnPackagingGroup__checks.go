@@ -181,6 +181,8 @@ func validateCfnPackagingGroup_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnPackagingGroup) validateSetAuthorizationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPackagingGroup_AuthorizationProperty:
 		val := val.(*CfnPackagingGroup_AuthorizationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnPackagingGroup) validateSetAuthorizationParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPackagingGroup_AuthorizationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPackagingGroup_AuthorizationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnPackagingGroup) validateSetAuthorizationParameters(val int
 
 func (j *jsiiProxy_CfnPackagingGroup) validateSetEgressAccessLogsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPackagingGroup_LogConfigurationProperty:
 		val := val.(*CfnPackagingGroup_LogConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnPackagingGroup) validateSetEgressAccessLogsParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPackagingGroup_LogConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPackagingGroup_LogConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

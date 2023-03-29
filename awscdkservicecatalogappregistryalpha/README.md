@@ -320,7 +320,8 @@ var application application
 var myRole iRole
 var myUser iUser
 
-application.shareApplication(&ShareOptions{
+application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
+	Name: jsii.String("MyShare"),
 	Accounts: []*string{
 		jsii.String("123456789012"),
 	},
@@ -342,7 +343,8 @@ E.g., sharing an application with multiple accounts and allowing the accounts to
 import iam "github.com/aws/aws-cdk-go/awscdk"
 var application application
 
-application.shareApplication(&ShareOptions{
+application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
+	Name: jsii.String("MyShare"),
 	Accounts: []*string{
 		jsii.String("123456789012"),
 		jsii.String("234567890123"),
@@ -359,7 +361,8 @@ var attributeGroup attributeGroup
 var myRole iRole
 var myUser iUser
 
-attributeGroup.shareAttributeGroup(&ShareOptions{
+attributeGroup.shareAttributeGroup(jsii.String("MyShareId"), &ShareOptions{
+	Name: jsii.String("MyShare"),
 	Accounts: []*string{
 		jsii.String("123456789012"),
 	},
@@ -381,7 +384,8 @@ E.g., sharing an application with multiple accounts and allowing the accounts to
 import iam "github.com/aws/aws-cdk-go/awscdk"
 var attributeGroup attributeGroup
 
-attributeGroup.shareAttributeGroup(&ShareOptions{
+attributeGroup.shareAttributeGroup(jsii.String("MyShareId"), &ShareOptions{
+	Name: jsii.String("MyShare"),
 	Accounts: []*string{
 		jsii.String("123456789012"),
 		jsii.String("234567890123"),

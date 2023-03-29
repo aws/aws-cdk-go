@@ -104,7 +104,7 @@ type BucketDeploymentProps struct {
 	// User-defined object metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#UserMetadata
 	//
-	Metadata *UserDefinedObjectMetadata `field:"optional" json:"metadata" yaml:"metadata"`
+	Metadata *map[string]*string `field:"optional" json:"metadata" yaml:"metadata"`
 	// If this is set to false, files in the destination bucket that do not exist in the asset, will NOT be deleted during deployment (create/update).
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
 	//

@@ -122,8 +122,8 @@ func MachineImage_GenericWindows(amiMap *map[string]*string, props *GenericWindo
 //
 // ```ts
 // ec2.MachineImage.latestAmazonLinux({
-//    // Use Amazon Linux 2
-//    generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
+//   // Use Amazon Linux 2
+//   generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
 // })
 // ```.
 func MachineImage_LatestAmazonLinux(props *AmazonLinuxImageProps) IMachineImage {

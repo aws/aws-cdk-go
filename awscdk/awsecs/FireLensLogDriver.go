@@ -7,7 +7,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
+// FireLens enables you to use task definition parameters to route logs to an AWS service  or AWS Partner Network (APN) destination for log storage and analytics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -13,15 +13,15 @@ import (
 //
 //   cfnServiceProps := &CfnServiceProps{
 //   	ApplicationIdentifier: jsii.String("applicationIdentifier"),
+//   	EndpointType: jsii.String("endpointType"),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	EndpointType: jsii.String("endpointType"),
 //   	LambdaEndpoint: &LambdaEndpointInputProperty{
 //   		Arn: jsii.String("arn"),
 //   	},
-//   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -40,16 +40,16 @@ import (
 type CfnServiceProps struct {
 	// The unique identifier of the application.
 	ApplicationIdentifier *string `field:"required" json:"applicationIdentifier" yaml:"applicationIdentifier"`
+	// The endpoint type of the service.
+	EndpointType *string `field:"required" json:"endpointType" yaml:"endpointType"`
 	// The unique identifier of the environment.
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	// The name of the service.
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the service.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The endpoint type of the service.
-	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// A summary of the configuration for the AWS Lambda endpoint type.
 	LambdaEndpoint interface{} `field:"optional" json:"lambdaEndpoint" yaml:"lambdaEndpoint"`
-	// The name of the service.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags assigned to the service.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The summary of the configuration for the URL endpoint type.

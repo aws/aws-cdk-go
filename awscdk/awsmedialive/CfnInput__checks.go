@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnInput) validateSetDestinationsParameters(val interface{}) 
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_InputDestinationRequestProperty:
 				v := v.(*CfnInput_InputDestinationRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnInput) validateSetDestinationsParameters(val interface{}) 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_InputDestinationRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputDestinationRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnInput) validateSetDestinationsParameters(val interface{}) 
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_InputDestinationRequestProperty:
 				v := v.(*CfnInput_InputDestinationRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnInput) validateSetDestinationsParameters(val interface{}) 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_InputDestinationRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputDestinationRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -247,6 +247,8 @@ func (j *jsiiProxy_CfnInput) validateSetInputDevicesParameters(val interface{}) 
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_InputDeviceSettingsProperty:
 				v := v.(*CfnInput_InputDeviceSettingsProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -258,11 +260,9 @@ func (j *jsiiProxy_CfnInput) validateSetInputDevicesParameters(val interface{}) 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_InputDeviceSettingsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputDeviceSettingsProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -271,6 +271,8 @@ func (j *jsiiProxy_CfnInput) validateSetInputDevicesParameters(val interface{}) 
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_InputDeviceSettingsProperty:
 				v := v.(*CfnInput_InputDeviceSettingsProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -282,11 +284,9 @@ func (j *jsiiProxy_CfnInput) validateSetInputDevicesParameters(val interface{}) 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_InputDeviceSettingsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputDeviceSettingsProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -307,6 +307,8 @@ func (j *jsiiProxy_CfnInput) validateSetMediaConnectFlowsParameters(val interfac
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_MediaConnectFlowRequestProperty:
 				v := v.(*CfnInput_MediaConnectFlowRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -318,11 +320,9 @@ func (j *jsiiProxy_CfnInput) validateSetMediaConnectFlowsParameters(val interfac
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_MediaConnectFlowRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_MediaConnectFlowRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -331,6 +331,8 @@ func (j *jsiiProxy_CfnInput) validateSetMediaConnectFlowsParameters(val interfac
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_MediaConnectFlowRequestProperty:
 				v := v.(*CfnInput_MediaConnectFlowRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -342,11 +344,9 @@ func (j *jsiiProxy_CfnInput) validateSetMediaConnectFlowsParameters(val interfac
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_MediaConnectFlowRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_MediaConnectFlowRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -367,6 +367,8 @@ func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_InputSourceRequestProperty:
 				v := v.(*CfnInput_InputSourceRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -378,11 +380,9 @@ func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_InputSourceRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputSourceRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -391,6 +391,8 @@ func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnInput_InputSourceRequestProperty:
 				v := v.(*CfnInput_InputSourceRequestProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -402,11 +404,9 @@ func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnInput_InputSourceRequestProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputSourceRequestProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -421,6 +421,8 @@ func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error
 
 func (j *jsiiProxy_CfnInput) validateSetVpcParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInput_InputVpcRequestProperty:
 		val := val.(*CfnInput_InputVpcRequestProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -432,11 +434,9 @@ func (j *jsiiProxy_CfnInput) validateSetVpcParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInput_InputVpcRequestProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInput_InputVpcRequestProperty; received %#v (a %T)", val, val)
 		}
 	}
 

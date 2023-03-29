@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnModelCard) validateSetContentParameters(val interface{}) e
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelCard_ContentProperty:
 		val := val.(*CfnModelCard_ContentProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnModelCard) validateSetContentParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelCard_ContentProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelCard_ContentProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnModelCard) validateSetContentParameters(val interface{}) e
 
 func (j *jsiiProxy_CfnModelCard) validateSetCreatedByParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelCard_UserContextProperty:
 		val := val.(*CfnModelCard_UserContextProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnModelCard) validateSetCreatedByParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelCard_UserContextProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelCard_UserContextProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -232,6 +232,8 @@ func (j *jsiiProxy_CfnModelCard) validateSetCreatedByParameters(val interface{})
 
 func (j *jsiiProxy_CfnModelCard) validateSetLastModifiedByParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelCard_UserContextProperty:
 		val := val.(*CfnModelCard_UserContextProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -243,11 +245,9 @@ func (j *jsiiProxy_CfnModelCard) validateSetLastModifiedByParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelCard_UserContextProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelCard_UserContextProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -272,6 +272,8 @@ func (j *jsiiProxy_CfnModelCard) validateSetModelCardStatusParameters(val *strin
 
 func (j *jsiiProxy_CfnModelCard) validateSetSecurityConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelCard_SecurityConfigProperty:
 		val := val.(*CfnModelCard_SecurityConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -283,11 +285,9 @@ func (j *jsiiProxy_CfnModelCard) validateSetSecurityConfigParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelCard_SecurityConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelCard_SecurityConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

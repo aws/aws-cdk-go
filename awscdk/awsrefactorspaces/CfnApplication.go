@@ -21,20 +21,22 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnApplication := awscdk.Aws_refactorspaces.NewCfnApplication(this, jsii.String("MyCfnApplication"), &CfnApplicationProps{
+//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	Name: jsii.String("name"),
+//   	ProxyType: jsii.String("proxyType"),
+//   	VpcId: jsii.String("vpcId"),
+//
+//   	// the properties below are optional
 //   	ApiGatewayProxy: &ApiGatewayProxyInputProperty{
 //   		EndpointType: jsii.String("endpointType"),
 //   		StageName: jsii.String("stageName"),
 //   	},
-//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
-//   	Name: jsii.String("name"),
-//   	ProxyType: jsii.String("proxyType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	VpcId: jsii.String("vpcId"),
 //   })
 //
 type CfnApplication interface {
@@ -157,20 +159,20 @@ type CfnApplication interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -533,6 +535,9 @@ func (j *jsiiProxy_CfnApplication)SetApiGatewayProxy(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnApplication)SetEnvironmentIdentifier(val *string) {
+	if err := j.validateSetEnvironmentIdentifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"environmentIdentifier",
@@ -541,6 +546,9 @@ func (j *jsiiProxy_CfnApplication)SetEnvironmentIdentifier(val *string) {
 }
 
 func (j *jsiiProxy_CfnApplication)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -549,6 +557,9 @@ func (j *jsiiProxy_CfnApplication)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnApplication)SetProxyType(val *string) {
+	if err := j.validateSetProxyTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"proxyType",
@@ -557,6 +568,9 @@ func (j *jsiiProxy_CfnApplication)SetProxyType(val *string) {
 }
 
 func (j *jsiiProxy_CfnApplication)SetVpcId(val *string) {
+	if err := j.validateSetVpcIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"vpcId",

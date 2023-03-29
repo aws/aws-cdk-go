@@ -181,6 +181,8 @@ func validateCfnJobDefinition_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnJobDefinition) validateSetContainerPropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnJobDefinition_ContainerPropertiesProperty:
 		val := val.(*CfnJobDefinition_ContainerPropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetContainerPropertiesParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobDefinition_ContainerPropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnJobDefinition_ContainerPropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetContainerPropertiesParameters(va
 
 func (j *jsiiProxy_CfnJobDefinition) validateSetEksPropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnJobDefinition_EksPropertiesProperty:
 		val := val.(*CfnJobDefinition_EksPropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetEksPropertiesParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobDefinition_EksPropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnJobDefinition_EksPropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetEksPropertiesParameters(val inte
 
 func (j *jsiiProxy_CfnJobDefinition) validateSetNodePropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnJobDefinition_NodePropertiesProperty:
 		val := val.(*CfnJobDefinition_NodePropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetNodePropertiesParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobDefinition_NodePropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnJobDefinition_NodePropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -278,6 +278,8 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetPropagateTagsParameters(val inte
 
 func (j *jsiiProxy_CfnJobDefinition) validateSetRetryStrategyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnJobDefinition_RetryStrategyProperty:
 		val := val.(*CfnJobDefinition_RetryStrategyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -289,11 +291,9 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetRetryStrategyParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobDefinition_RetryStrategyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnJobDefinition_RetryStrategyProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -302,6 +302,8 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetRetryStrategyParameters(val inte
 
 func (j *jsiiProxy_CfnJobDefinition) validateSetTimeoutParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnJobDefinition_TimeoutProperty:
 		val := val.(*CfnJobDefinition_TimeoutProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -313,11 +315,9 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetTimeoutParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobDefinition_TimeoutProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnJobDefinition_TimeoutProperty; received %#v (a %T)", val, val)
 		}
 	}
 

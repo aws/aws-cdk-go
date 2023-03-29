@@ -187,6 +187,8 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAdditionalAuthenticationProvidersPa
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnGraphQLApi_AdditionalAuthenticationProviderProperty:
 				v := v.(*CfnGraphQLApi_AdditionalAuthenticationProviderProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,11 +200,9 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAdditionalAuthenticationProvidersPa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGraphQLApi_AdditionalAuthenticationProviderProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_AdditionalAuthenticationProviderProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAdditionalAuthenticationProvidersPa
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnGraphQLApi_AdditionalAuthenticationProviderProperty:
 				v := v.(*CfnGraphQLApi_AdditionalAuthenticationProviderProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAdditionalAuthenticationProvidersPa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGraphQLApi_AdditionalAuthenticationProviderProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_AdditionalAuthenticationProviderProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -249,6 +249,8 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAuthenticationTypeParameters(val *s
 
 func (j *jsiiProxy_CfnGraphQLApi) validateSetLambdaAuthorizerConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGraphQLApi_LambdaAuthorizerConfigProperty:
 		val := val.(*CfnGraphQLApi_LambdaAuthorizerConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -260,11 +262,9 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetLambdaAuthorizerConfigParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGraphQLApi_LambdaAuthorizerConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_LambdaAuthorizerConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -273,6 +273,8 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetLambdaAuthorizerConfigParameters(va
 
 func (j *jsiiProxy_CfnGraphQLApi) validateSetLogConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGraphQLApi_LogConfigProperty:
 		val := val.(*CfnGraphQLApi_LogConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -284,11 +286,9 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetLogConfigParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGraphQLApi_LogConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_LogConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -305,6 +305,8 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnGraphQLApi) validateSetOpenIdConnectConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGraphQLApi_OpenIDConnectConfigProperty:
 		val := val.(*CfnGraphQLApi_OpenIDConnectConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -316,11 +318,9 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetOpenIdConnectConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGraphQLApi_OpenIDConnectConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_OpenIDConnectConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -329,6 +329,8 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetOpenIdConnectConfigParameters(val i
 
 func (j *jsiiProxy_CfnGraphQLApi) validateSetUserPoolConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnGraphQLApi_UserPoolConfigProperty:
 		val := val.(*CfnGraphQLApi_UserPoolConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -340,11 +342,9 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetUserPoolConfigParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGraphQLApi_UserPoolConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_UserPoolConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

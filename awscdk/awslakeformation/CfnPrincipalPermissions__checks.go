@@ -200,6 +200,8 @@ func (j *jsiiProxy_CfnPrincipalPermissions) validateSetPrincipalParameters(val i
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPrincipalPermissions_DataLakePrincipalProperty:
 		val := val.(*CfnPrincipalPermissions_DataLakePrincipalProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -211,11 +213,9 @@ func (j *jsiiProxy_CfnPrincipalPermissions) validateSetPrincipalParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPrincipalPermissions_DataLakePrincipalProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPrincipalPermissions_DataLakePrincipalProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -227,6 +227,8 @@ func (j *jsiiProxy_CfnPrincipalPermissions) validateSetResourceParameters(val in
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPrincipalPermissions_ResourceProperty:
 		val := val.(*CfnPrincipalPermissions_ResourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -238,11 +240,9 @@ func (j *jsiiProxy_CfnPrincipalPermissions) validateSetResourceParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPrincipalPermissions_ResourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPrincipalPermissions_ResourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

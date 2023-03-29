@@ -24,6 +24,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantDecrypt", GoMethod: "GrantDecrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncrypt", GoMethod: "GrantEncrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncryptDecrypt", GoMethod: "GrantEncryptDecrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "grantGenerateMac", GoMethod: "GrantGenerateMac"},
+			_jsii_.MemberMethod{JsiiMethod: "grantVerifyMac", GoMethod: "GrantVerifyMac"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -219,6 +221,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantDecrypt", GoMethod: "GrantDecrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncrypt", GoMethod: "GrantEncrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncryptDecrypt", GoMethod: "GrantEncryptDecrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "grantGenerateMac", GoMethod: "GrantGenerateMac"},
+			_jsii_.MemberMethod{JsiiMethod: "grantVerifyMac", GoMethod: "GrantVerifyMac"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -242,6 +246,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantDecrypt", GoMethod: "GrantDecrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncrypt", GoMethod: "GrantEncrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncryptDecrypt", GoMethod: "GrantEncryptDecrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "grantGenerateMac", GoMethod: "GrantGenerateMac"},
+			_jsii_.MemberMethod{JsiiMethod: "grantVerifyMac", GoMethod: "GrantVerifyMac"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -269,6 +275,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantDecrypt", GoMethod: "GrantDecrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncrypt", GoMethod: "GrantEncrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncryptDecrypt", GoMethod: "GrantEncryptDecrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "grantGenerateMac", GoMethod: "GrantGenerateMac"},
+			_jsii_.MemberMethod{JsiiMethod: "grantVerifyMac", GoMethod: "GrantVerifyMac"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -305,6 +313,11 @@ func init() {
 			"ECC_NIST_P384": KeySpec_ECC_NIST_P384,
 			"ECC_NIST_P521": KeySpec_ECC_NIST_P521,
 			"ECC_SECG_P256K1": KeySpec_ECC_SECG_P256K1,
+			"HMAC_224": KeySpec_HMAC_224,
+			"HMAC_256": KeySpec_HMAC_256,
+			"HMAC_384": KeySpec_HMAC_384,
+			"HMAC_512": KeySpec_HMAC_512,
+			"SM2": KeySpec_SM2,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -313,6 +326,7 @@ func init() {
 		map[string]interface{}{
 			"ENCRYPT_DECRYPT": KeyUsage_ENCRYPT_DECRYPT,
 			"SIGN_VERIFY": KeyUsage_SIGN_VERIFY,
+			"GENERATE_VERIFY_MAC": KeyUsage_GENERATE_VERIFY_MAC,
 		},
 	)
 	_jsii_.RegisterClass(

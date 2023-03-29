@@ -181,6 +181,8 @@ func validateCfnCertificate_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnCertificate) validateSetApiPassthroughParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCertificate_ApiPassthroughProperty:
 		val := val.(*CfnCertificate_ApiPassthroughProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnCertificate) validateSetApiPassthroughParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCertificate_ApiPassthroughProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCertificate_ApiPassthroughProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -232,6 +232,8 @@ func (j *jsiiProxy_CfnCertificate) validateSetValidityParameters(val interface{}
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCertificate_ValidityProperty:
 		val := val.(*CfnCertificate_ValidityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -243,11 +245,9 @@ func (j *jsiiProxy_CfnCertificate) validateSetValidityParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCertificate_ValidityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCertificate_ValidityProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -256,6 +256,8 @@ func (j *jsiiProxy_CfnCertificate) validateSetValidityParameters(val interface{}
 
 func (j *jsiiProxy_CfnCertificate) validateSetValidityNotBeforeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCertificate_ValidityProperty:
 		val := val.(*CfnCertificate_ValidityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -267,11 +269,9 @@ func (j *jsiiProxy_CfnCertificate) validateSetValidityNotBeforeParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCertificate_ValidityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCertificate_ValidityProperty; received %#v (a %T)", val, val)
 		}
 	}
 

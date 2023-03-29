@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnBucket) validateSetBucketNameParameters(val *string) error
 
 func (j *jsiiProxy_CfnBucket) validateSetLifecycleConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnBucket_LifecycleConfigurationProperty:
 		val := val.(*CfnBucket_LifecycleConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnBucket) validateSetLifecycleConfigurationParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnBucket_LifecycleConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBucket_LifecycleConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

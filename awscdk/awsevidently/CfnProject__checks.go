@@ -181,6 +181,8 @@ func validateCfnProject_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnProject) validateSetAppConfigResourceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnProject_AppConfigResourceObjectProperty:
 		val := val.(*CfnProject_AppConfigResourceObjectProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnProject) validateSetAppConfigResourceParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnProject_AppConfigResourceObjectProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnProject_AppConfigResourceObjectProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnProject) validateSetAppConfigResourceParameters(val interf
 
 func (j *jsiiProxy_CfnProject) validateSetDataDeliveryParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnProject_DataDeliveryObjectProperty:
 		val := val.(*CfnProject_DataDeliveryObjectProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnProject) validateSetDataDeliveryParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnProject_DataDeliveryObjectProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnProject_DataDeliveryObjectProperty; received %#v (a %T)", val, val)
 		}
 	}
 

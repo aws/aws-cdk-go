@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetApiIdParameters(val
 
 func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetIntegrationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApiGatewayManagedOverrides_IntegrationOverridesProperty:
 		val := val.(*CfnApiGatewayManagedOverrides_IntegrationOverridesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetIntegrationParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApiGatewayManagedOverrides_IntegrationOverridesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApiGatewayManagedOverrides_IntegrationOverridesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetIntegrationParamete
 
 func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetRouteParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApiGatewayManagedOverrides_RouteOverridesProperty:
 		val := val.(*CfnApiGatewayManagedOverrides_RouteOverridesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetRouteParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApiGatewayManagedOverrides_RouteOverridesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApiGatewayManagedOverrides_RouteOverridesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,6 +237,8 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetRouteParameters(val
 
 func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetStageParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApiGatewayManagedOverrides_StageOverridesProperty:
 		val := val.(*CfnApiGatewayManagedOverrides_StageOverridesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,11 +250,9 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetStageParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApiGatewayManagedOverrides_StageOverridesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApiGatewayManagedOverrides_StageOverridesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

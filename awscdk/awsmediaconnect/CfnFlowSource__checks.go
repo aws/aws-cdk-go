@@ -181,6 +181,8 @@ func validateCfnFlowSource_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnFlowSource) validateSetDecryptionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlowSource_EncryptionProperty:
 		val := val.(*CfnFlowSource_EncryptionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnFlowSource) validateSetDecryptionParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlowSource_EncryptionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowSource_EncryptionProperty; received %#v (a %T)", val, val)
 		}
 	}
 

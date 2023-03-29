@@ -40,6 +40,14 @@ func (a *jsiiProxy_Alias) validateGrantEncryptDecryptParameters(grantee awsiam.I
 	return nil
 }
 
+func (a *jsiiProxy_Alias) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (a *jsiiProxy_Alias) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func validateAlias_FromAliasAttributesParameters(scope constructs.Construct, id *string, attrs *AliasAttributes) error {
 	return nil
 }

@@ -19,6 +19,11 @@ package awsquicksight
 //   		&DashboardErrorProperty{
 //   			Message: jsii.String("message"),
 //   			Type: jsii.String("type"),
+//   			ViolatedEntities: []interface{}{
+//   				&EntityProperty{
+//   					Path: jsii.String("path"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Sheets: []interface{}{

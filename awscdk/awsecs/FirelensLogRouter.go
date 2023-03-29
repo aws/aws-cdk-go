@@ -102,6 +102,7 @@ import (
 //   		},
 //   	},
 //   	Privileged: jsii.Boolean(false),
+//   	PseudoTerminal: jsii.Boolean(false),
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
 //   	Secrets: map[string]*secret{
 //   		"secretsKey": secret,
@@ -126,6 +127,8 @@ type FirelensLogRouter interface {
 	ContainerName() *string
 	// The port the container will listen on.
 	ContainerPort() *float64
+	// The number of cpu units reserved for the container.
+	Cpu() *float64
 	// The environment files for this container.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
 	// Specifies whether the container will be marked essential.
@@ -160,6 +163,8 @@ type FirelensLogRouter interface {
 	// Port mappings allow containers to access ports
 	// on the host container instance to send or receive traffic.
 	PortMappings() *[]*PortMapping
+	// Specifies whether a TTY must be allocated for this container.
+	PseudoTerminal() *bool
 	// Whether this container definition references a specific JSON field of a secret stored in Secrets Manager.
 	ReferencesSecretJsonField() *bool
 	// The name of the task definition that includes this container definition.
@@ -235,6 +240,16 @@ func (j *jsiiProxy_FirelensLogRouter) ContainerPort() *float64 {
 	_jsii_.Get(
 		j,
 		"containerPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FirelensLogRouter) Cpu() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"cpu",
 		&returns,
 	)
 	return returns
@@ -345,6 +360,16 @@ func (j *jsiiProxy_FirelensLogRouter) PortMappings() *[]*PortMapping {
 	_jsii_.Get(
 		j,
 		"portMappings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FirelensLogRouter) PseudoTerminal() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"pseudoTerminal",
 		&returns,
 	)
 	return returns

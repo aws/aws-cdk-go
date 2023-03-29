@@ -197,6 +197,8 @@ func (j *jsiiProxy_CfnFlywheel) validateSetDataLakeS3UriParameters(val *string) 
 
 func (j *jsiiProxy_CfnFlywheel) validateSetDataSecurityConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlywheel_DataSecurityConfigProperty:
 		val := val.(*CfnFlywheel_DataSecurityConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -208,11 +210,9 @@ func (j *jsiiProxy_CfnFlywheel) validateSetDataSecurityConfigParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlywheel_DataSecurityConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlywheel_DataSecurityConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnFlywheel) validateSetFlywheelNameParameters(val *string) e
 
 func (j *jsiiProxy_CfnFlywheel) validateSetTaskConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnFlywheel_TaskConfigProperty:
 		val := val.(*CfnFlywheel_TaskConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnFlywheel) validateSetTaskConfigParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFlywheel_TaskConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlywheel_TaskConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

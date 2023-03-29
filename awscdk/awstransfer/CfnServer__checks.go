@@ -181,6 +181,8 @@ func validateCfnServer_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnServer) validateSetEndpointDetailsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnServer_EndpointDetailsProperty:
 		val := val.(*CfnServer_EndpointDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnServer) validateSetEndpointDetailsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnServer_EndpointDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServer_EndpointDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -205,6 +205,8 @@ func (j *jsiiProxy_CfnServer) validateSetEndpointDetailsParameters(val interface
 
 func (j *jsiiProxy_CfnServer) validateSetIdentityProviderDetailsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnServer_IdentityProviderDetailsProperty:
 		val := val.(*CfnServer_IdentityProviderDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -216,11 +218,9 @@ func (j *jsiiProxy_CfnServer) validateSetIdentityProviderDetailsParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnServer_IdentityProviderDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServer_IdentityProviderDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -229,6 +229,8 @@ func (j *jsiiProxy_CfnServer) validateSetIdentityProviderDetailsParameters(val i
 
 func (j *jsiiProxy_CfnServer) validateSetProtocolDetailsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnServer_ProtocolDetailsProperty:
 		val := val.(*CfnServer_ProtocolDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -240,11 +242,9 @@ func (j *jsiiProxy_CfnServer) validateSetProtocolDetailsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnServer_ProtocolDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServer_ProtocolDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -253,6 +253,8 @@ func (j *jsiiProxy_CfnServer) validateSetProtocolDetailsParameters(val interface
 
 func (j *jsiiProxy_CfnServer) validateSetWorkflowDetailsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnServer_WorkflowDetailsProperty:
 		val := val.(*CfnServer_WorkflowDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -264,11 +266,9 @@ func (j *jsiiProxy_CfnServer) validateSetWorkflowDetailsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnServer_WorkflowDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServer_WorkflowDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

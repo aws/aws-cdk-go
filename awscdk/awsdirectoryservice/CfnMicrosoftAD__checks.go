@@ -234,6 +234,8 @@ func (j *jsiiProxy_CfnMicrosoftAD) validateSetVpcSettingsParameters(val interfac
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnMicrosoftAD_VpcSettingsProperty:
 		val := val.(*CfnMicrosoftAD_VpcSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -245,11 +247,9 @@ func (j *jsiiProxy_CfnMicrosoftAD) validateSetVpcSettingsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnMicrosoftAD_VpcSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMicrosoftAD_VpcSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

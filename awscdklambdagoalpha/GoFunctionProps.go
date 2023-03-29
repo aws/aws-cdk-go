@@ -222,21 +222,21 @@ type GoFunctionProps struct {
 	//
 	// For example, if you provide the entry as:
 	//
-	//      entry: 'my-lambda-app/cmd/api'
+	//     entry: 'my-lambda-app/cmd/api'
 	//
 	// Then the `go build` command would be:
 	//
-	//      `go build ./cmd/api`
+	//     `go build ./cmd/api`
 	//
 	// If a path to a file is provided then it will use the filepath in the build command.
 	//
 	// For example, if you provide the entry as:
 	//
-	//      entry: 'my-lambda-app/cmd/api/main.go'
+	//     entry: 'my-lambda-app/cmd/api/main.go'
 	//
 	// Then the `go build` command would be:
 	//
-	//      `go build ./cmd/api/main.go`
+	//     `go build ./cmd/api/main.go`
 	// Experimental.
 	Entry *string `field:"required" json:"entry" yaml:"entry"`
 	// Bundling options.

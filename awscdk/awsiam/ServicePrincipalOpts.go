@@ -30,14 +30,14 @@ type ServicePrincipalOpts struct {
 	// flag is set or not:
 	//
 	// - If the flag is set, the input service principal is assumed to be of the form `SERVICE.amazonaws.com`.
-	//    That value will always be returned, unless the given region is an opt-in region and the service
-	//    principal is rendered in a stack in a different region, in which case `SERVICE.REGION.amazonaws.com`
-	//    will be rendered. Under this regime, there is no downside to always specifying the region property:
-	//    it will be rendered only if necessary.
+	//   That value will always be returned, unless the given region is an opt-in region and the service
+	//   principal is rendered in a stack in a different region, in which case `SERVICE.REGION.amazonaws.com`
+	//   will be rendered. Under this regime, there is no downside to always specifying the region property:
+	//   it will be rendered only if necessary.
 	// - If the flag is not set, the service principal will resolve to a single principal
-	//    whose name comes from the `@aws-cdk/region-info` package, using the region to override
-	//    the stack region. If there is no entry for this service principal in the database,, the input
-	//    service name is returned literally. This is legacy behavior and is not recommended.
+	//   whose name comes from the `@aws-cdk/region-info` package, using the region to override
+	//   the stack region. If there is no entry for this service principal in the database,, the input
+	//   service name is returned literally. This is legacy behavior and is not recommended.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

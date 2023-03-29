@@ -42,7 +42,7 @@ type JobProps struct {
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Enables the collection of metrics for job profiling.
-	// See: `--enable-metrics` at https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	// See:  `--enable-metrics` at https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
 	EnableProfilingMetrics *bool `field:"optional" json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`

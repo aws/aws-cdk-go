@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateSetCloudWatchL
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty:
 		val := val.(*CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateSetCloudWatchL
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty; received %#v (a %T)", val, val)
 		}
 	}
 

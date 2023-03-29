@@ -181,6 +181,8 @@ func validateCfnInfrastructureConfiguration_IsConstructParameters(x interface{})
 
 func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetInstanceMetadataOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty:
 		val := val.(*CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetInstanceMetadataOp
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,6 +213,8 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetInstanceProfileNam
 
 func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetLoggingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnInfrastructureConfiguration_LoggingProperty:
 		val := val.(*CfnInfrastructureConfiguration_LoggingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,11 +226,9 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetLoggingParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnInfrastructureConfiguration_LoggingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInfrastructureConfiguration_LoggingProperty; received %#v (a %T)", val, val)
 		}
 	}
 

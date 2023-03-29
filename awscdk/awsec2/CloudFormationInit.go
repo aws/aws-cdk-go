@@ -51,11 +51,11 @@ type CloudFormationInit interface {
 	// This method does the following:
 	//
 	// - Renders the `AWS::CloudFormation::Init` object to the given resource's
-	//    metadata, potentially adding a `AWS::CloudFormation::Authentication` object
-	//    next to it if required.
+	//   metadata, potentially adding a `AWS::CloudFormation::Authentication` object
+	//   next to it if required.
 	// - Updates the instance role policy to be able to call the APIs required for
-	//    `cfn-init` and `cfn-signal` to work, and potentially add permissions to download
-	//    referenced asset and bucket resources.
+	//   `cfn-init` and `cfn-signal` to work, and potentially add permissions to download
+	//   referenced asset and bucket resources.
 	// - Updates the given UserData with commands to execute the `cfn-init` script.
 	Attach(attachedResource awscdk.CfnResource, attachOptions *AttachInitOptions)
 }

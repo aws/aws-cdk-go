@@ -181,6 +181,8 @@ func validateCfnMonitoringSchedule_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnMonitoringSchedule) validateSetLastMonitoringExecutionSummaryParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnMonitoringSchedule_MonitoringExecutionSummaryProperty:
 		val := val.(*CfnMonitoringSchedule_MonitoringExecutionSummaryProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnMonitoringSchedule) validateSetLastMonitoringExecutionSumm
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnMonitoringSchedule_MonitoringExecutionSummaryProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMonitoringSchedule_MonitoringExecutionSummaryProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -208,6 +208,8 @@ func (j *jsiiProxy_CfnMonitoringSchedule) validateSetMonitoringScheduleConfigPar
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnMonitoringSchedule_MonitoringScheduleConfigProperty:
 		val := val.(*CfnMonitoringSchedule_MonitoringScheduleConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -219,11 +221,9 @@ func (j *jsiiProxy_CfnMonitoringSchedule) validateSetMonitoringScheduleConfigPar
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnMonitoringSchedule_MonitoringScheduleConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMonitoringSchedule_MonitoringScheduleConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

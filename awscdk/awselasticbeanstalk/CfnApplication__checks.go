@@ -181,6 +181,8 @@ func validateCfnApplication_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnApplication) validateSetResourceLifecycleConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplication_ApplicationResourceLifecycleConfigProperty:
 		val := val.(*CfnApplication_ApplicationResourceLifecycleConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnApplication) validateSetResourceLifecycleConfigParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplication_ApplicationResourceLifecycleConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_ApplicationResourceLifecycleConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

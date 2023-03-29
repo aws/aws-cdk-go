@@ -181,6 +181,8 @@ func validateCfnDBProxyTargetGroup_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDBProxyTargetGroup) validateSetConnectionPoolConfigurationInfoParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty:
 		val := val.(*CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) validateSetConnectionPoolConfiguration
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty; received %#v (a %T)", val, val)
 		}
 	}
 

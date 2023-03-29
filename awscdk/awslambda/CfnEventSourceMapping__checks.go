@@ -181,6 +181,8 @@ func validateCfnEventSourceMapping_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetAmazonManagedKafkaEventSourceConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_AmazonManagedKafkaEventSourceConfigProperty:
 		val := val.(*CfnEventSourceMapping_AmazonManagedKafkaEventSourceConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetAmazonManagedKafkaEventSour
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_AmazonManagedKafkaEventSourceConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_AmazonManagedKafkaEventSourceConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,6 +222,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetBisectBatchOnFunctionErrorP
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetDestinationConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_DestinationConfigProperty:
 		val := val.(*CfnEventSourceMapping_DestinationConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -233,11 +235,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetDestinationConfigParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_DestinationConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_DestinationConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -246,6 +246,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetDestinationConfigParameters
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetDocumentDbEventSourceConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_DocumentDBEventSourceConfigProperty:
 		val := val.(*CfnEventSourceMapping_DocumentDBEventSourceConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -257,11 +259,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetDocumentDbEventSourceConfig
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_DocumentDBEventSourceConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_DocumentDBEventSourceConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -287,6 +287,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetEnabledParameters(val inter
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetFilterCriteriaParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_FilterCriteriaProperty:
 		val := val.(*CfnEventSourceMapping_FilterCriteriaProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -298,11 +300,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFilterCriteriaParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_FilterCriteriaProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_FilterCriteriaProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -319,6 +319,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val 
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_ScalingConfigProperty:
 		val := val.(*CfnEventSourceMapping_ScalingConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -330,11 +332,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_ScalingConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_ScalingConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -343,6 +343,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedEventSourceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_SelfManagedEventSourceProperty:
 		val := val.(*CfnEventSourceMapping_SelfManagedEventSourceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -354,11 +356,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedEventSourceParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_SelfManagedEventSourceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_SelfManagedEventSourceProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -367,6 +367,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedEventSourceParam
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedKafkaEventSourceConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnEventSourceMapping_SelfManagedKafkaEventSourceConfigProperty:
 		val := val.(*CfnEventSourceMapping_SelfManagedKafkaEventSourceConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -378,11 +380,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedKafkaEventSource
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_SelfManagedKafkaEventSourceConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_SelfManagedKafkaEventSourceConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -397,6 +397,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSourceAccessConfigurationsP
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEventSourceMapping_SourceAccessConfigurationProperty:
 				v := v.(*CfnEventSourceMapping_SourceAccessConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -408,11 +410,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSourceAccessConfigurationsP
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEventSourceMapping_SourceAccessConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_SourceAccessConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -421,6 +421,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSourceAccessConfigurationsP
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnEventSourceMapping_SourceAccessConfigurationProperty:
 				v := v.(*CfnEventSourceMapping_SourceAccessConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -432,11 +434,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSourceAccessConfigurationsP
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEventSourceMapping_SourceAccessConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_SourceAccessConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

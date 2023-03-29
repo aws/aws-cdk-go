@@ -189,6 +189,8 @@ func (j *jsiiProxy_CfnWirelessDevice) validateSetDestinationNameParameters(val *
 
 func (j *jsiiProxy_CfnWirelessDevice) validateSetLoRaWanParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnWirelessDevice_LoRaWANDeviceProperty:
 		val := val.(*CfnWirelessDevice_LoRaWANDeviceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -200,11 +202,9 @@ func (j *jsiiProxy_CfnWirelessDevice) validateSetLoRaWanParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWirelessDevice_LoRaWANDeviceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWirelessDevice_LoRaWANDeviceProperty; received %#v (a %T)", val, val)
 		}
 	}
 

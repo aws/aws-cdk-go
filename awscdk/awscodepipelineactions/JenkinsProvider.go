@@ -17,7 +17,7 @@ import (
 //   	Version: jsii.String("2"),
 //   })
 //
-// See: #import.
+// See:  #import.
 //
 type JenkinsProvider interface {
 	BaseJenkinsProvider

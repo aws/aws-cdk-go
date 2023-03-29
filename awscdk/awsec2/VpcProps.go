@@ -120,23 +120,23 @@ type VpcProps struct {
 	//
 	// ```ts
 	// new ec2.Vpc(this, 'VPC', {
-	//    subnetConfiguration: [
-	//       {
-	//         cidrMask: 24,
-	//         name: 'ingress',
-	//         subnetType: ec2.SubnetType.PUBLIC,
-	//       },
-	//       {
-	//         cidrMask: 24,
-	//         name: 'application',
-	//         subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
-	//       },
-	//       {
-	//         cidrMask: 28,
-	//         name: 'rds',
-	//         subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
-	//       }
-	//    ]
+	//   subnetConfiguration: [
+	//      {
+	//        cidrMask: 24,
+	//        name: 'ingress',
+	//        subnetType: ec2.SubnetType.PUBLIC,
+	//      },
+	//      {
+	//        cidrMask: 24,
+	//        name: 'application',
+	//        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
+	//      },
+	//      {
+	//        cidrMask: 28,
+	//        name: 'rds',
+	//        subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
+	//      }
+	//   ]
 	// });
 	// ```.
 	SubnetConfiguration *[]*SubnetConfiguration `field:"optional" json:"subnetConfiguration" yaml:"subnetConfiguration"`

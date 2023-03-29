@@ -163,3 +163,22 @@ Enabling this feature flag comes at a risk for existing Redshift columns, as the
   }
 }
 ```
+
+* `@aws-cdk/aws-stepfunctions-tasks:enableEmrServicePolicyV2`
+
+Enable this feature flag to use the `AmazonEMRServicePolicy_v2` managed policies for the EMR service role.
+
+This is a feature flag as the old behavior will be deprecated, but some resources may require manual
+intervention since they might not have the appropriate tags propagated automatically.
+
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-stepfunctions-tasks:enableEmrServicePolicyV2": true
+  }
+}
+```

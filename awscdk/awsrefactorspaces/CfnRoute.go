@@ -50,13 +50,13 @@ import (
 //   cfnRoute := awscdk.Aws_refactorspaces.NewCfnRoute(this, jsii.String("MyCfnRoute"), &CfnRouteProps{
 //   	ApplicationIdentifier: jsii.String("applicationIdentifier"),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	RouteType: jsii.String("routeType"),
 //   	ServiceIdentifier: jsii.String("serviceIdentifier"),
 //
 //   	// the properties below are optional
 //   	DefaultRoute: &DefaultRouteInputProperty{
 //   		ActivationState: jsii.String("activationState"),
 //   	},
-//   	RouteType: jsii.String("routeType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -186,20 +186,20 @@ type CfnRoute interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -544,6 +544,9 @@ func (j *jsiiProxy_CfnRoute)SetEnvironmentIdentifier(val *string) {
 }
 
 func (j *jsiiProxy_CfnRoute)SetRouteType(val *string) {
+	if err := j.validateSetRouteTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"routeType",

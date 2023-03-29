@@ -181,6 +181,8 @@ func validateCfnDirectoryConfig_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDirectoryConfig) validateSetCertificateBasedAuthPropertiesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDirectoryConfig_CertificateBasedAuthPropertiesProperty:
 		val := val.(*CfnDirectoryConfig_CertificateBasedAuthPropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnDirectoryConfig) validateSetCertificateBasedAuthProperties
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDirectoryConfig_CertificateBasedAuthPropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDirectoryConfig_CertificateBasedAuthPropertiesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -224,6 +224,8 @@ func (j *jsiiProxy_CfnDirectoryConfig) validateSetServiceAccountCredentialsParam
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDirectoryConfig_ServiceAccountCredentialsProperty:
 		val := val.(*CfnDirectoryConfig_ServiceAccountCredentialsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -235,11 +237,9 @@ func (j *jsiiProxy_CfnDirectoryConfig) validateSetServiceAccountCredentialsParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDirectoryConfig_ServiceAccountCredentialsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDirectoryConfig_ServiceAccountCredentialsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

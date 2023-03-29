@@ -22,13 +22,13 @@ import (
 // declare const api: apigateway.RestApi;
 //
 // new tasks.CallApiGatewayRestApiEndpoint(this, 'Endpoint', {
-//    api,
-//    stageName: 'Stage',
-//    method: tasks.HttpMethod.PUT,
-//    integrationPattern: sfn.IntegrationPattern.WAIT_FOR_TASK_TOKEN,
-//    headers: sfn.TaskInput.fromObject({
-//      TaskToken: sfn.JsonPath.array(sfn.JsonPath.taskToken),
-//    }),
+//   api,
+//   stageName: 'Stage',
+//   method: tasks.HttpMethod.PUT,
+//   integrationPattern: sfn.IntegrationPattern.WAIT_FOR_TASK_TOKEN,
+//   headers: sfn.TaskInput.fromObject({
+//     TaskToken: sfn.JsonPath.array(sfn.JsonPath.taskToken),
+//   }),
 // });
 // ```.
 //

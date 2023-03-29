@@ -80,17 +80,17 @@ type IProject interface {
 	// You can filter specific build status events using an event
 	// pattern filter on the `build-status` detail field:
 	//
-	//     const rule = project.onStateChange('OnBuildStarted', { target });
-	//     rule.addEventPattern({
-	//       detail: {
-	//         'build-status': [
-	//           "IN_PROGRESS",
-	//           "SUCCEEDED",
-	//           "FAILED",
-	//           "STOPPED"
-	//         ]
-	//       }
-	//     });
+	//    const rule = project.onStateChange('OnBuildStarted', { target });
+	//    rule.addEventPattern({
+	//      detail: {
+	//        'build-status': [
+	//          "IN_PROGRESS",
+	//          "SUCCEEDED",
+	//          "FAILED",
+	//          "STOPPED"
+	//        ]
+	//      }
+	//    });
 	//
 	// You can also use the methods `onBuildFailed` and `onBuildSucceeded` to define rules for
 	// these specific state changes.

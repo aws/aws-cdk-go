@@ -231,7 +231,7 @@ type AddCapacityOptions struct {
 	//
 	// ```ts
 	// const machineImage = ecs.EcsOptimizedImage.amazonLinux2(ecs.AmiHardwareType.STANDARD, {
-	//    cachedInContext: true,
+	//   cachedInContext: true,
 	// });
 	// ```
 	//

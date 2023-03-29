@@ -12,7 +12,7 @@ import (
 //
 // Generally, a principal looks like:
 //
-//      { '<TYPE>': ['ID', 'ID', ...] }
+//     { '<TYPE>': ['ID', 'ID', ...] }
 //
 // And this is also the type of the field `principalJson`.  However, there is a
 // special type of principal that is just the string '*', which is treated

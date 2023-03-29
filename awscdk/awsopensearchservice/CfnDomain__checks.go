@@ -206,6 +206,8 @@ func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface
 
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedSecurityOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_AdvancedSecurityOptionsInputProperty:
 		val := val.(*CfnDomain_AdvancedSecurityOptionsInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -217,11 +219,9 @@ func (j *jsiiProxy_CfnDomain) validateSetAdvancedSecurityOptionsParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_AdvancedSecurityOptionsInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_AdvancedSecurityOptionsInputProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -230,6 +230,8 @@ func (j *jsiiProxy_CfnDomain) validateSetAdvancedSecurityOptionsParameters(val i
 
 func (j *jsiiProxy_CfnDomain) validateSetClusterConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_ClusterConfigProperty:
 		val := val.(*CfnDomain_ClusterConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -241,11 +243,9 @@ func (j *jsiiProxy_CfnDomain) validateSetClusterConfigParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_ClusterConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_ClusterConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -254,6 +254,8 @@ func (j *jsiiProxy_CfnDomain) validateSetClusterConfigParameters(val interface{}
 
 func (j *jsiiProxy_CfnDomain) validateSetCognitoOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_CognitoOptionsProperty:
 		val := val.(*CfnDomain_CognitoOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -265,11 +267,9 @@ func (j *jsiiProxy_CfnDomain) validateSetCognitoOptionsParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_CognitoOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_CognitoOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -278,6 +278,8 @@ func (j *jsiiProxy_CfnDomain) validateSetCognitoOptionsParameters(val interface{
 
 func (j *jsiiProxy_CfnDomain) validateSetDomainEndpointOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_DomainEndpointOptionsProperty:
 		val := val.(*CfnDomain_DomainEndpointOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -289,11 +291,9 @@ func (j *jsiiProxy_CfnDomain) validateSetDomainEndpointOptionsParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_DomainEndpointOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_DomainEndpointOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -302,6 +302,8 @@ func (j *jsiiProxy_CfnDomain) validateSetDomainEndpointOptionsParameters(val int
 
 func (j *jsiiProxy_CfnDomain) validateSetEbsOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_EBSOptionsProperty:
 		val := val.(*CfnDomain_EBSOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -313,11 +315,9 @@ func (j *jsiiProxy_CfnDomain) validateSetEbsOptionsParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_EBSOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_EBSOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -326,6 +326,8 @@ func (j *jsiiProxy_CfnDomain) validateSetEbsOptionsParameters(val interface{}) e
 
 func (j *jsiiProxy_CfnDomain) validateSetEncryptionAtRestOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_EncryptionAtRestOptionsProperty:
 		val := val.(*CfnDomain_EncryptionAtRestOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -337,11 +339,9 @@ func (j *jsiiProxy_CfnDomain) validateSetEncryptionAtRestOptionsParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_EncryptionAtRestOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_EncryptionAtRestOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -356,6 +356,8 @@ func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val inte
 		val := val.(*map[string]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDomain_LogPublishingOptionProperty:
 				v := v.(*CfnDomain_LogPublishingOptionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -367,11 +369,9 @@ func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDomain_LogPublishingOptionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDomain_LogPublishingOptionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -380,6 +380,8 @@ func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val inte
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDomain_LogPublishingOptionProperty:
 				v := v.(*CfnDomain_LogPublishingOptionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -391,11 +393,9 @@ func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDomain_LogPublishingOptionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDomain_LogPublishingOptionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -410,6 +410,8 @@ func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val inte
 
 func (j *jsiiProxy_CfnDomain) validateSetNodeToNodeEncryptionOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_NodeToNodeEncryptionOptionsProperty:
 		val := val.(*CfnDomain_NodeToNodeEncryptionOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -421,11 +423,33 @@ func (j *jsiiProxy_CfnDomain) validateSetNodeToNodeEncryptionOptionsParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_NodeToNodeEncryptionOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_NodeToNodeEncryptionOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetOffPeakWindowOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_OffPeakWindowOptionsProperty:
+		val := val.(*CfnDomain_OffPeakWindowOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_OffPeakWindowOptionsProperty:
+		val_ := val.(CfnDomain_OffPeakWindowOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_OffPeakWindowOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -434,6 +458,8 @@ func (j *jsiiProxy_CfnDomain) validateSetNodeToNodeEncryptionOptionsParameters(v
 
 func (j *jsiiProxy_CfnDomain) validateSetSnapshotOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_SnapshotOptionsProperty:
 		val := val.(*CfnDomain_SnapshotOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -445,11 +471,33 @@ func (j *jsiiProxy_CfnDomain) validateSetSnapshotOptionsParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_SnapshotOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_SnapshotOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetSoftwareUpdateOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_SoftwareUpdateOptionsProperty:
+		val := val.(*CfnDomain_SoftwareUpdateOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_SoftwareUpdateOptionsProperty:
+		val_ := val.(CfnDomain_SoftwareUpdateOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_SoftwareUpdateOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -458,6 +506,8 @@ func (j *jsiiProxy_CfnDomain) validateSetSnapshotOptionsParameters(val interface
 
 func (j *jsiiProxy_CfnDomain) validateSetVpcOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDomain_VPCOptionsProperty:
 		val := val.(*CfnDomain_VPCOptionsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -469,11 +519,9 @@ func (j *jsiiProxy_CfnDomain) validateSetVpcOptionsParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_VPCOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_VPCOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

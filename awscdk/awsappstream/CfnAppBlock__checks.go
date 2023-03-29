@@ -192,6 +192,8 @@ func (j *jsiiProxy_CfnAppBlock) validateSetSetupScriptDetailsParameters(val inte
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAppBlock_ScriptDetailsProperty:
 		val := val.(*CfnAppBlock_ScriptDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -203,11 +205,9 @@ func (j *jsiiProxy_CfnAppBlock) validateSetSetupScriptDetailsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAppBlock_ScriptDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppBlock_ScriptDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -219,6 +219,8 @@ func (j *jsiiProxy_CfnAppBlock) validateSetSourceS3LocationParameters(val interf
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAppBlock_S3LocationProperty:
 		val := val.(*CfnAppBlock_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -230,11 +232,9 @@ func (j *jsiiProxy_CfnAppBlock) validateSetSourceS3LocationParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAppBlock_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppBlock_S3LocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

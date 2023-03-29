@@ -203,6 +203,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetRedactedFieldsParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoggingConfiguration_FieldToMatchProperty:
 				v := v.(*CfnLoggingConfiguration_FieldToMatchProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -214,11 +216,9 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetRedactedFieldsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoggingConfiguration_FieldToMatchProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoggingConfiguration_FieldToMatchProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -227,6 +227,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetRedactedFieldsParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoggingConfiguration_FieldToMatchProperty:
 				v := v.(*CfnLoggingConfiguration_FieldToMatchProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -238,11 +240,9 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetRedactedFieldsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoggingConfiguration_FieldToMatchProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoggingConfiguration_FieldToMatchProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

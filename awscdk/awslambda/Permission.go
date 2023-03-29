@@ -27,8 +27,8 @@ type Permission struct {
 	//
 	// - a valid AWS service principal, such as `s3.amazonaws.com` or `sns.amazonaws.com`
 	// - an AWS account ID for cross-account permissions. For example, you might want
-	//    to allow a custom application in another AWS account to push events to
-	//    Lambda by invoking your function.
+	//   to allow a custom application in another AWS account to push events to
+	//   Lambda by invoking your function.
 	// - an AWS organization principal to grant permissions to an entire organization.
 	//
 	// The principal can be an AccountPrincipal, an ArnPrincipal, a ServicePrincipal,

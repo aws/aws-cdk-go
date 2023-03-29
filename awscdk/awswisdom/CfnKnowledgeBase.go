@@ -33,6 +33,8 @@ import (
 //   	SourceConfiguration: &SourceConfigurationProperty{
 //   		AppIntegrations: &AppIntegrationsConfigurationProperty{
 //   			AppIntegrationArn: jsii.String("appIntegrationArn"),
+//
+//   			// the properties below are optional
 //   			ObjectFields: []*string{
 //   				jsii.String("objectFields"),
 //   			},
@@ -159,20 +161,20 @@ type CfnKnowledgeBase interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//

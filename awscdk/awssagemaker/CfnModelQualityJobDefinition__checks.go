@@ -184,6 +184,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetJobResourcesParamete
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_MonitoringResourcesProperty:
 		val := val.(*CfnModelQualityJobDefinition_MonitoringResourcesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -195,11 +197,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetJobResourcesParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_MonitoringResourcesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_MonitoringResourcesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,6 +211,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityAppSpeci
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty:
 		val := val.(*CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -222,11 +224,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityAppSpeci
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -235,6 +235,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityAppSpeci
 
 func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityBaselineConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty:
 		val := val.(*CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -246,11 +248,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityBaseline
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -262,6 +262,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityJobInput
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_ModelQualityJobInputProperty:
 		val := val.(*CfnModelQualityJobDefinition_ModelQualityJobInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -273,11 +275,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityJobInput
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_ModelQualityJobInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_ModelQualityJobInputProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,6 +289,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityJobOutpu
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_MonitoringOutputConfigProperty:
 		val := val.(*CfnModelQualityJobDefinition_MonitoringOutputConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -300,11 +302,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityJobOutpu
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_MonitoringOutputConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_MonitoringOutputConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -313,6 +313,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetModelQualityJobOutpu
 
 func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetNetworkConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_NetworkConfigProperty:
 		val := val.(*CfnModelQualityJobDefinition_NetworkConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -324,11 +326,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetNetworkConfigParamet
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_NetworkConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_NetworkConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -345,6 +345,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetRoleArnParameters(va
 
 func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetStoppingConditionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnModelQualityJobDefinition_StoppingConditionProperty:
 		val := val.(*CfnModelQualityJobDefinition_StoppingConditionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -356,11 +358,9 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) validateSetStoppingConditionPar
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelQualityJobDefinition_StoppingConditionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelQualityJobDefinition_StoppingConditionProperty; received %#v (a %T)", val, val)
 		}
 	}
 

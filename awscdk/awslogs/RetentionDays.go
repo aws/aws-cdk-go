@@ -32,7 +32,7 @@ package awslogs
 //   // Exporting logs from an instance
 //   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 //   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   		Version: rds.PostgresEngineVersion_VER_12_3(),
+//   		Version: rds.PostgresEngineVersion_VER_15_2(),
 //   	}),
 //   	Vpc: Vpc,
 //   	CloudwatchLogsExports: []*string{

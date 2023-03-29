@@ -181,6 +181,8 @@ func validateCfnExecutionPlan_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnExecutionPlan) validateSetCapacityUnitsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnExecutionPlan_CapacityUnitsConfigurationProperty:
 		val := val.(*CfnExecutionPlan_CapacityUnitsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -192,11 +194,9 @@ func (j *jsiiProxy_CfnExecutionPlan) validateSetCapacityUnitsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnExecutionPlan_CapacityUnitsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnExecutionPlan_CapacityUnitsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
