@@ -13,8 +13,8 @@ The following JavaScript example defines a directory asset which is archived as
 a .zip file and uploaded to S3 during deployment.
 
 ```go
-asset := assets.NewAsset(this, jsii.String("SampleAsset"), &AssetProps{
-	Path: path.join(__dirname, jsii.String("sample-asset-directory")),
+asset := assets.NewAsset(this, jsii.String("SampleAsset"), &assetProps{
+	path: path.join(__dirname, jsii.String("sample-asset-directory")),
 })
 ```
 
@@ -22,8 +22,8 @@ The following JavaScript example defines a file asset, which is uploaded as-is
 to an S3 bucket during deployment.
 
 ```go
-asset := assets.NewAsset(this, jsii.String("SampleAsset"), &AssetProps{
-	Path: path.join(__dirname, jsii.String("file-asset.txt")),
+asset := assets.NewAsset(this, jsii.String("SampleAsset"), &assetProps{
+	path: path.join(__dirname, jsii.String("file-asset.txt")),
 })
 ```
 
@@ -39,21 +39,21 @@ asset := assets.NewAsset(this, jsii.String("SampleAsset"), &AssetProps{
 In the following example, the various asset attributes are exported as stack outputs:
 
 ```go
-asset := assets.NewAsset(this, jsii.String("SampleAsset"), &AssetProps{
-	Path: path.join(__dirname, jsii.String("sample-asset-directory")),
+asset := assets.NewAsset(this, jsii.String("SampleAsset"), &assetProps{
+	path: path.join(__dirname, jsii.String("sample-asset-directory")),
 })
 
-cdk.NewCfnOutput(this, jsii.String("S3BucketName"), &CfnOutputProps{
-	Value: asset.S3BucketName,
+cdk.NewCfnOutput(this, jsii.String("S3BucketName"), &cfnOutputProps{
+	value: asset.s3BucketName,
 })
-cdk.NewCfnOutput(this, jsii.String("S3ObjectKey"), &CfnOutputProps{
-	Value: asset.S3ObjectKey,
+cdk.NewCfnOutput(this, jsii.String("S3ObjectKey"), &cfnOutputProps{
+	value: asset.s3ObjectKey,
 })
-cdk.NewCfnOutput(this, jsii.String("S3HttpURL"), &CfnOutputProps{
-	Value: asset.HttpUrl,
+cdk.NewCfnOutput(this, jsii.String("S3HttpURL"), &cfnOutputProps{
+	value: asset.httpUrl,
 })
-cdk.NewCfnOutput(this, jsii.String("S3ObjectURL"), &CfnOutputProps{
-	Value: asset.S3ObjectUrl,
+cdk.NewCfnOutput(this, jsii.String("S3ObjectURL"), &cfnOutputProps{
+	value: asset.s3ObjectUrl,
 })
 ```
 
@@ -66,7 +66,7 @@ The following example grants an IAM group read permissions on an asset:
 
 ```go
 group := iam.NewGroup(this, jsii.String("MyUserGroup"))
-asset.GrantRead(group)
+asset.grantRead(group)
 ```
 
 ## How does it work
@@ -100,18 +100,16 @@ be zipped and uploaded to S3 as the asset.
 The following example uses custom asset bundling to convert a markdown file to html:
 
 ```go
-asset := assets.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
-	Path: path.join(__dirname, jsii.String("markdown-asset")),
+asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
+	path: path.join(__dirname, jsii.String("markdown-asset")),
 	 // /asset-input and working directory in the container
-	Bundling: &BundlingOptions{
-		Image: awscdk.DockerImage_FromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
+	bundling: &bundlingOptions{
+		image: awscdk.DockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
 		 // Build an image
-		Command: []*string{
+		command: []*string{
 			jsii.String("sh"),
 			jsii.String("-c"),
-			jsii.String(`
-			            markdown index.md > /asset-output/index.html
-			          `),
+			jsii.String("\n            markdown index.md > /asset-output/index.html\n          "),
 		},
 	},
 })
@@ -142,17 +140,17 @@ func (this *myBundle) tryBundle(outputDir *string, options bundlingOptions) *boo
 	return jsii.Boolean(false)
 }
 
-assets.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
-	Path: jsii.String("/path/to/asset"),
-	Bundling: &bundlingOptions{
-		Local: NewMyBundle(),
+assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
+	path: jsii.String("/path/to/asset"),
+	bundling: &bundlingOptions{
+		local: NewMyBundle(),
 		// Docker bundling fallback
-		Image: awscdk.DockerImage_FromRegistry(jsii.String("alpine")),
-		Entrypoint: []*string{
+		image: awscdk.DockerImage.fromRegistry(jsii.String("alpine")),
+		entrypoint: []*string{
 			jsii.String("/bin/sh"),
 			jsii.String("-c"),
 		},
-		Command: []*string{
+		command: []*string{
 			jsii.String("bundle"),
 		},
 	},
@@ -170,45 +168,20 @@ is the default behavior for `bundling.outputType` (`BundlingOutput.AUTO_DISCOVER
 Use `BundlingOutput.NOT_ARCHIVED` if the bundling output must always be zipped:
 
 ```go
-asset := assets.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
-	Path: jsii.String("/path/to/asset"),
-	Bundling: &BundlingOptions{
-		Image: awscdk.DockerImage_FromRegistry(jsii.String("alpine")),
-		Command: []*string{
+asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
+	path: jsii.String("/path/to/asset"),
+	bundling: &bundlingOptions{
+		image: awscdk.DockerImage.fromRegistry(jsii.String("alpine")),
+		command: []*string{
 			jsii.String("command-that-produces-an-archive.sh"),
 		},
-		OutputType: awscdk.BundlingOutput_NOT_ARCHIVED,
+		outputType: awscdk.BundlingOutput_NOT_ARCHIVED,
 	},
 })
 ```
 
 Use `BundlingOutput.ARCHIVED` if the bundling output contains a single archive file and
 you don't want it to be zipped.
-
-### Docker options
-
-Depending on your build environment, you may need to pass certain docker options to the `docker run` command that bundles assets.
-This can be done using [BundlingOptions](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.BundlingOptions.html) properties.
-
-Some optional properties to pass to the docker bundling
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-asset := assets.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
-	Path: jsii.String("/path/to/asset"),
-	Bundling: &BundlingOptions{
-		Image: ambda.runtime_PYTHON_3_9_BundlingImage,
-		Command: []*string{
-			jsii.String("bash"),
-			jsii.String("-c"),
-			jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
-		},
-		SecurityOpt: jsii.String("no-new-privileges:true"),
-		 // https://docs.docker.com/engine/reference/commandline/run/#optional-security-options---security-opt
-		Network: jsii.String("host"),
-	},
-})
-```
 
 ## CloudFormation Resource Metadata
 

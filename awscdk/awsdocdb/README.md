@@ -9,19 +9,19 @@ your instances will be launched privately or publicly:
 ```go
 var vpc vpc
 
-cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	MasterUser: &Login{
-		Username: jsii.String("myuser"),
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	masterUser: &login{
+		username: jsii.String("myuser"),
 		 // NOTE: 'admin' is reserved by DocumentDB
-		ExcludeCharacters: jsii.String("\"@/:"),
+		excludeCharacters: jsii.String("\"@/:"),
 		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
-		SecretName: jsii.String("/myapp/mydocdb/masteruser"),
+		secretName: jsii.String("/myapp/mydocdb/masteruser"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PUBLIC,
 	},
-	Vpc: Vpc,
+	vpc: vpc,
 })
 ```
 
@@ -37,7 +37,7 @@ you don't need to specify the port:
 ```go
 var cluster databaseCluster
 
-cluster.Connections.AllowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
+cluster.connections.allowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
 ```
 
 The endpoints to access your database cluster will be available as the `.clusterEndpoint` and `.clusterReadEndpoint`
@@ -46,7 +46,7 @@ attributes:
 ```go
 var cluster databaseCluster
 
-writeAddress := cluster.ClusterEndpoint.SocketAddress
+writeAddress := cluster.clusterEndpoint.socketAddress
 ```
 
 If you have existing security groups you would like to add to the cluster, use the `addSecurityGroups` method. Security
@@ -57,10 +57,10 @@ var vpc vpc
 var cluster databaseCluster
 
 
-securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
-	Vpc: Vpc,
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &securityGroupProps{
+	vpc: vpc,
 })
-cluster.AddSecurityGroups(securityGroup)
+cluster.addSecurityGroups(securityGroup)
 ```
 
 ## Deletion protection
@@ -70,16 +70,16 @@ Deletion protection can be enabled on an Amazon DocumentDB cluster to prevent ac
 ```go
 var vpc vpc
 
-cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	MasterUser: &Login{
-		Username: jsii.String("myuser"),
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	masterUser: &login{
+		username: jsii.String("myuser"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PUBLIC,
 	},
-	Vpc: Vpc,
-	DeletionProtection: jsii.Boolean(true),
+	vpc: vpc,
+	deletionProtection: jsii.Boolean(true),
 })
 ```
 
@@ -90,20 +90,20 @@ When the master password is generated and stored in AWS Secrets Manager, it can 
 ```go
 var cluster databaseCluster
 
-cluster.AddRotationSingleUser()
+cluster.addRotationSingleUser()
 ```
 
 ```go
-cluster := docdb.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
-	MasterUser: &Login{
-		Username: jsii.String("docdb"),
+cluster := docdb.NewDatabaseCluster(stack, jsii.String("Database"), &databaseClusterProps{
+	masterUser: &login{
+		username: jsii.String("docdb"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R5, ec2.InstanceSize_LARGE),
-	Vpc: Vpc,
-	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	vpc: vpc,
+	removalPolicy: cdk.removalPolicy_DESTROY,
 })
 
-cluster.AddRotationSingleUser()
+cluster.addRotationSingleUser()
 ```
 
 The multi user rotation scheme is also available:
@@ -115,8 +115,8 @@ var myImportedSecret secret
 var cluster databaseCluster
 
 
-cluster.AddRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
-	Secret: myImportedSecret,
+cluster.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
+	secret: myImportedSecret,
 })
 ```
 
@@ -125,22 +125,22 @@ It's also possible to create user credentials together with the cluster and add 
 ```go
 var cluster databaseCluster
 
-myUserSecret := docdb.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &DatabaseSecretProps{
-	Username: jsii.String("myuser"),
-	MasterSecret: cluster.Secret,
+myUserSecret := docdb.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
+	username: jsii.String("myuser"),
+	masterSecret: cluster.secret,
 })
 myUserSecretAttached := myUserSecret.attach(cluster) // Adds DB connections information in the secret
 
-cluster.AddRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
+cluster.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
 	 // Add rotation using the multi user scheme
-	Secret: myUserSecretAttached,
+	secret: myUserSecretAttached,
 })
 ```
 
 **Note**: This user must be created manually in the database using the master credentials.
 The rotation will start as soon as this user exists.
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters.
 
 ## Audit and profiler Logs
 
@@ -158,42 +158,21 @@ var myLogsPublishingRole role
 var vpc vpc
 
 
-cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	MasterUser: &Login{
-		Username: jsii.String("myuser"),
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	masterUser: &login{
+		username: jsii.String("myuser"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PUBLIC,
 	},
-	Vpc: Vpc,
-	ExportProfilerLogsToCloudWatch: jsii.Boolean(true),
+	vpc: vpc,
+	exportProfilerLogsToCloudWatch: jsii.Boolean(true),
 	 // Enable sending profiler logs
-	ExportAuditLogsToCloudWatch: jsii.Boolean(true),
+	exportAuditLogsToCloudWatch: jsii.Boolean(true),
 	 // Enable sending audit logs
-	CloudWatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
+	cloudWatchLogsRetention: logs.retentionDays_THREE_MONTHS,
 	 // Optional - default is to never expire logs
-	CloudWatchLogsRetentionRole: myLogsPublishingRole,
-})
-```
-
-## Enable Performance Insights
-
-By enabling this feature it will be cascaded and enabled in all instances inside the cluster:
-
-```go
-var vpc vpc
-
-
-cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	MasterUser: &Login{
-		Username: jsii.String("myuser"),
-	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
-	},
-	Vpc: Vpc,
-	EnablePerformanceInsights: jsii.Boolean(true),
+	cloudWatchLogsRetentionRole: myLogsPublishingRole,
 })
 ```

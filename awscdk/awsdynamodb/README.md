@@ -3,10 +3,10 @@
 Here is a minimal deployable DynamoDB table definition:
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
 })
 ```
@@ -20,16 +20,14 @@ existing table:
 ```go
 var user user
 
-table := dynamodb.Table_FromTableArn(this, jsii.String("ImportedTable"), jsii.String("arn:aws:dynamodb:us-east-1:111111111:table/my-table"))
+table := dynamodb.table.fromTableArn(this, jsii.String("ImportedTable"), jsii.String("arn:aws:dynamodb:us-east-1:111111111:table/my-table"))
 // now you can just call methods on the table
-table.GrantReadWriteData(user)
+table.grantReadWriteData(user)
 ```
 
 If you intend to use the `tableStreamArn` (including indirectly, for example by creating an
 `@aws-cdk/aws-lambda-event-source.DynamoEventSource` on the imported table), you *must* use the
 `Table.fromTableAttributes` method and the `tableStreamArn` property *must* be populated.
-
-In order to grant permissions to indexes on imported tables you can either set `grantIndexPermissions` to `true`, or you can provide the indexes via the `globalIndexes` or `localIndexes` properties. This will enable `grant*` methods to also grant permissions to *all* table indexes.
 
 ## Keys
 
@@ -44,12 +42,12 @@ DynamoDB supports two billing modes:
 * PAY_PER_REQUEST - on-demand pricing and scaling. You only pay for what you use and there is no read and write capacity for the table or its global secondary indexes.
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	BillingMode: dynamodb.BillingMode_PAY_PER_REQUEST,
+	billingMode: dynamodb.billingMode_PAY_PER_REQUEST,
 })
 ```
 
@@ -64,12 +62,12 @@ DynamoDB supports two table classes:
 * STANDARD_INFREQUENT_ACCESS - optimized for tables where storage is the dominant cost.
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
+	tableClass: dynamodb.tableClass_STANDARD_INFREQUENT_ACCESS,
 })
 ```
 
@@ -86,29 +84,29 @@ times of the day:
 Auto-scaling is only relevant for tables with the billing mode, PROVISIONED.
 
 ```go
-readScaling := table.AutoScaleReadCapacity(&EnableScalingProps{
-	MinCapacity: jsii.Number(1),
-	MaxCapacity: jsii.Number(50),
+readScaling := table.autoScaleReadCapacity(&enableScalingProps{
+	minCapacity: jsii.Number(1),
+	maxCapacity: jsii.Number(50),
 })
 
-readScaling.ScaleOnUtilization(&UtilizationScalingProps{
-	TargetUtilizationPercent: jsii.Number(50),
+readScaling.scaleOnUtilization(&utilizationScalingProps{
+	targetUtilizationPercent: jsii.Number(50),
 })
 
-readScaling.ScaleOnSchedule(jsii.String("ScaleUpInTheMorning"), &ScalingSchedule{
-	Schedule: appscaling.Schedule_Cron(&CronOptions{
-		Hour: jsii.String("8"),
-		Minute: jsii.String("0"),
+readScaling.scaleOnSchedule(jsii.String("ScaleUpInTheMorning"), &scalingSchedule{
+	schedule: appscaling.schedule.cron(&cronOptions{
+		hour: jsii.String("8"),
+		minute: jsii.String("0"),
 	}),
-	MinCapacity: jsii.Number(20),
+	minCapacity: jsii.Number(20),
 })
 
-readScaling.ScaleOnSchedule(jsii.String("ScaleDownAtNight"), &ScalingSchedule{
-	Schedule: appscaling.Schedule_*Cron(&CronOptions{
-		Hour: jsii.String("20"),
-		Minute: jsii.String("0"),
+readScaling.scaleOnSchedule(jsii.String("ScaleDownAtNight"), &scalingSchedule{
+	schedule: appscaling.*schedule.cron(&cronOptions{
+		hour: jsii.String("20"),
+		minute: jsii.String("0"),
 	}),
-	MaxCapacity: jsii.Number(20),
+	maxCapacity: jsii.Number(20),
 })
 ```
 
@@ -121,12 +119,12 @@ https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure
 You can create DynamoDB Global Tables by setting the `replicationRegions` property on a `Table`:
 
 ```go
-globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+globalTable := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	ReplicationRegions: []*string{
+	replicationRegions: []*string{
 		jsii.String("us-east-1"),
 		jsii.String("us-east-2"),
 		jsii.String("us-west-2"),
@@ -142,24 +140,24 @@ If you want to use `PROVISIONED`,
 you have to make sure write auto-scaling is enabled for that Table:
 
 ```go
-globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+globalTable := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	ReplicationRegions: []*string{
+	replicationRegions: []*string{
 		jsii.String("us-east-1"),
 		jsii.String("us-east-2"),
 		jsii.String("us-west-2"),
 	},
-	BillingMode: dynamodb.BillingMode_PROVISIONED,
+	billingMode: dynamodb.billingMode_PROVISIONED,
 })
 
-globalTable.AutoScaleWriteCapacity(&EnableScalingProps{
-	MinCapacity: jsii.Number(1),
-	MaxCapacity: jsii.Number(10),
-}).ScaleOnUtilization(&UtilizationScalingProps{
-	TargetUtilizationPercent: jsii.Number(75),
+globalTable.autoScaleWriteCapacity(&enableScalingProps{
+	minCapacity: jsii.Number(1),
+	maxCapacity: jsii.Number(10),
+}).scaleOnUtilization(&utilizationScalingProps{
+	targetUtilizationPercent: jsii.Number(75),
 })
 ```
 
@@ -167,24 +165,19 @@ When adding a replica region for a large table, you might want to increase the
 timeout for the replication operation:
 
 ```go
-globalTable := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+globalTable := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	ReplicationRegions: []*string{
+	replicationRegions: []*string{
 		jsii.String("us-east-1"),
 		jsii.String("us-east-2"),
 		jsii.String("us-west-2"),
 	},
-	ReplicationTimeout: awscdk.Duration_Hours(jsii.Number(2)),
+	replicationTimeout: awscdk.Duration.hours(jsii.Number(2)),
 })
 ```
-
-A maximum of 10 tables with replication can be added to a stack without a limit increase for
-[managed policies attached to an IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entities).
-This is because more than 10 managed policies will be attached to the DynamoDB service replication role - one policy per replication table.
-Consider splitting your tables across multiple stacks if your reach this limit.
 
 ## Encryption
 
@@ -197,16 +190,16 @@ All user data stored in Amazon DynamoDB is fully encrypted at rest. When creatin
 Creating a Table encrypted with a customer managed CMK:
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("MyTable"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
+	encryption: dynamodb.tableEncryption_CUSTOMER_MANAGED,
 })
 
 // You can access the CMK that was added to the stack on your behalf by the Table construct via:
-tableEncryptionKey := table.EncryptionKey
+tableEncryptionKey := table.encryptionKey
 ```
 
 You can also supply your own key:
@@ -215,28 +208,28 @@ You can also supply your own key:
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
 
-encryptionKey := kms.NewKey(this, jsii.String("Key"), &KeyProps{
-	EnableKeyRotation: jsii.Boolean(true),
+encryptionKey := kms.NewKey(this, jsii.String("Key"), &keyProps{
+	enableKeyRotation: jsii.Boolean(true),
 })
-table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("MyTable"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	Encryption: dynamodb.TableEncryption_CUSTOMER_MANAGED,
-	EncryptionKey: EncryptionKey,
+	encryption: dynamodb.tableEncryption_CUSTOMER_MANAGED,
+	encryptionKey: encryptionKey,
 })
 ```
 
 In order to use the AWS managed CMK instead, change the code to:
 
 ```go
-table := dynamodb.NewTable(this, jsii.String("MyTable"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("MyTable"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	Encryption: dynamodb.TableEncryption_AWS_MANAGED,
+	encryption: dynamodb.tableEncryption_AWS_MANAGED,
 })
 ```
 
@@ -247,9 +240,9 @@ To get the partition key and sort key of the table or indexes you have configure
 ```go
 var table table
 
-schema := table.Schema()
-partitionKey := schema.PartitionKey
-sortKey := schema.SortKey
+schema := table.schema()
+partitionKey := schema.partitionKey
+sortKey := schema.sortKey
 ```
 
 ## Kinesis Stream
@@ -262,56 +255,11 @@ import kinesis "github.com/aws/aws-cdk-go/awscdk"
 
 stream := kinesis.NewStream(this, jsii.String("Stream"))
 
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
+table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+	partitionKey: &attribute{
+		name: jsii.String("id"),
+		type: dynamodb.attributeType_STRING,
 	},
-	KinesisStream: stream,
-})
-```
-
-## Alarm metrics
-
-Alarms can be configured on the DynamoDB table to captured metric data
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-
-
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-})
-
-metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-	Operations: []operation{
-		dynamodb.*operation_PUT_ITEM,
-	},
-	Period: awscdk.Duration_Minutes(jsii.Number(1)),
-})
-
-cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
-	Metric: metric,
-	EvaluationPeriods: jsii.Number(1),
-	Threshold: jsii.Number(1),
-})
-```
-
-## Deletion Protection for Tables
-
-You can enable deletion protection for a table by setting the `deletionProtection` property to `true`.
-When deletion protection is enabled for a table, it cannot be deleted by anyone. By default, deletion protection is disabled.
-
-```go
-table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-	PartitionKey: &Attribute{
-		Name: jsii.String("id"),
-		Type: dynamodb.AttributeType_STRING,
-	},
-	DeletionProtection: jsii.Boolean(true),
+	kinesisStream: stream,
 })
 ```

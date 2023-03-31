@@ -18,39 +18,39 @@ supports API calls, creates a service in that namespace, and
 registers an instance to it:
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 
 app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 
-namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &HttpNamespaceProps{
-	Name: jsii.String("MyHTTPNamespace"),
+namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &httpNamespaceProps{
+	name: jsii.String("covfefe"),
 })
 
-service1 := namespace.CreateService(jsii.String("NonIpService"), &BaseServiceProps{
-	Description: jsii.String("service registering non-ip instances"),
+service1 := namespace.createService(jsii.String("NonIpService"), &baseServiceProps{
+	description: jsii.String("service registering non-ip instances"),
 })
 
-service1.RegisterNonIpInstance(jsii.String("NonIpInstance"), &NonIpInstanceBaseProps{
-	CustomAttributes: map[string]*string{
+service1.registerNonIpInstance(jsii.String("NonIpInstance"), &nonIpInstanceBaseProps{
+	customAttributes: map[string]*string{
 		"arn": jsii.String("arn:aws:s3:::mybucket"),
 	},
 })
 
-service2 := namespace.CreateService(jsii.String("IpService"), &BaseServiceProps{
-	Description: jsii.String("service registering ip instances"),
-	HealthCheck: &HealthCheckConfig{
-		Type: servicediscovery.HealthCheckType_HTTP,
-		ResourcePath: jsii.String("/check"),
+service2 := namespace.createService(jsii.String("IpService"), &baseServiceProps{
+	description: jsii.String("service registering ip instances"),
+	healthCheck: &healthCheckConfig{
+		type: servicediscovery.healthCheckType_HTTP,
+		resourcePath: jsii.String("/check"),
 	},
 })
 
-service2.RegisterIpInstance(jsii.String("IpInstance"), &IpInstanceBaseProps{
-	Ipv4: jsii.String("54.239.25.192"),
+service2.registerIpInstance(jsii.String("IpInstance"), &ipInstanceBaseProps{
+	ipv4: jsii.String("54.239.25.192"),
 })
 
-app.Synth()
+app.synth()
 ```
 
 ## Private DNS Namespace Example
@@ -58,53 +58,40 @@ app.Synth()
 The following example creates an AWS Cloud Map namespace that
 supports both API calls and DNS queries within a vpc, creates a
 service in that namespace, and registers a loadbalancer as an
-instance.
-
-A secondary service is also configured which only supports API based discovery, a
-non ip based resource is registered to this service:
+instance:
 
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import elbv2 "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 
 app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 
-vpc := ec2.NewVpc(stack, jsii.String("Vpc"), &VpcProps{
-	MaxAzs: jsii.Number(2),
+vpc := ec2.NewVpc(stack, jsii.String("Vpc"), &vpcProps{
+	maxAzs: jsii.Number(2),
 })
 
-namespace := servicediscovery.NewPrivateDnsNamespace(stack, jsii.String("Namespace"), &PrivateDnsNamespaceProps{
-	Name: jsii.String("boobar.com"),
-	Vpc: Vpc,
+namespace := servicediscovery.NewPrivateDnsNamespace(stack, jsii.String("Namespace"), &privateDnsNamespaceProps{
+	name: jsii.String("boobar.com"),
+	vpc: vpc,
 })
 
-service := namespace.CreateService(jsii.String("Service"), &DnsServiceProps{
-	DnsRecordType: servicediscovery.DnsRecordType_A_AAAA,
-	DnsTtl: cdk.Duration_Seconds(jsii.Number(30)),
-	LoadBalancer: jsii.Boolean(true),
+service := namespace.createService(jsii.String("Service"), &dnsServiceProps{
+	dnsRecordType: servicediscovery.dnsRecordType_A_AAAA,
+	dnsTtl: cdk.duration.seconds(jsii.Number(30)),
+	loadBalancer: jsii.Boolean(true),
 })
 
-loadbalancer := elbv2.NewApplicationLoadBalancer(stack, jsii.String("LB"), &ApplicationLoadBalancerProps{
-	Vpc: Vpc,
-	InternetFacing: jsii.Boolean(true),
+loadbalancer := elbv2.NewApplicationLoadBalancer(stack, jsii.String("LB"), &applicationLoadBalancerProps{
+	vpc: vpc,
+	internetFacing: jsii.Boolean(true),
 })
 
-service.RegisterLoadBalancer(jsii.String("Loadbalancer"), loadbalancer)
+service.registerLoadBalancer(jsii.String("Loadbalancer"), loadbalancer)
 
-arnService := namespace.CreateService(jsii.String("ArnService"), &DnsServiceProps{
-	DiscoveryType: servicediscovery.DiscoveryType_API,
-})
-
-arnService.RegisterNonIpInstance(jsii.String("NonIpInstance"), &NonIpInstanceBaseProps{
-	CustomAttributes: map[string]*string{
-		"arn": jsii.String("arn://"),
-	},
-})
-
-app.Synth()
+app.synth()
 ```
 
 ## Public DNS Namespace Example
@@ -114,57 +101,57 @@ supports both API calls and public DNS queries, creates a service in
 that namespace, and registers an IP instance:
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 
 app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 
-namespace := servicediscovery.NewPublicDnsNamespace(stack, jsii.String("Namespace"), &PublicDnsNamespaceProps{
-	Name: jsii.String("foobar.com"),
+namespace := servicediscovery.NewPublicDnsNamespace(stack, jsii.String("Namespace"), &publicDnsNamespaceProps{
+	name: jsii.String("foobar.com"),
 })
 
-service := namespace.CreateService(jsii.String("Service"), &DnsServiceProps{
-	Name: jsii.String("foo"),
-	DnsRecordType: servicediscovery.DnsRecordType_A,
-	DnsTtl: cdk.Duration_Seconds(jsii.Number(30)),
-	HealthCheck: &HealthCheckConfig{
-		Type: servicediscovery.HealthCheckType_HTTPS,
-		ResourcePath: jsii.String("/healthcheck"),
-		FailureThreshold: jsii.Number(2),
+service := namespace.createService(jsii.String("Service"), &dnsServiceProps{
+	name: jsii.String("foo"),
+	dnsRecordType: servicediscovery.dnsRecordType_A,
+	dnsTtl: cdk.duration.seconds(jsii.Number(30)),
+	healthCheck: &healthCheckConfig{
+		type: servicediscovery.healthCheckType_HTTPS,
+		resourcePath: jsii.String("/healthcheck"),
+		failureThreshold: jsii.Number(2),
 	},
 })
 
-service.RegisterIpInstance(jsii.String("IpInstance"), &IpInstanceBaseProps{
-	Ipv4: jsii.String("54.239.25.192"),
-	Port: jsii.Number(443),
+service.registerIpInstance(jsii.String("IpInstance"), &ipInstanceBaseProps{
+	ipv4: jsii.String("54.239.25.192"),
+	port: jsii.Number(443),
 })
 
-app.Synth()
+app.synth()
 ```
 
 For DNS namespaces, you can also register instances to services with CNAME records:
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 
 app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 
-namespace := servicediscovery.NewPublicDnsNamespace(stack, jsii.String("Namespace"), &PublicDnsNamespaceProps{
-	Name: jsii.String("foobar.com"),
+namespace := servicediscovery.NewPublicDnsNamespace(stack, jsii.String("Namespace"), &publicDnsNamespaceProps{
+	name: jsii.String("foobar.com"),
 })
 
-service := namespace.CreateService(jsii.String("Service"), &DnsServiceProps{
-	Name: jsii.String("foo"),
-	DnsRecordType: servicediscovery.DnsRecordType_CNAME,
-	DnsTtl: cdk.Duration_Seconds(jsii.Number(30)),
+service := namespace.createService(jsii.String("Service"), &dnsServiceProps{
+	name: jsii.String("foo"),
+	dnsRecordType: servicediscovery.dnsRecordType_CNAME,
+	dnsTtl: cdk.duration.seconds(jsii.Number(30)),
 })
 
-service.RegisterCnameInstance(jsii.String("CnameInstance"), &CnameInstanceBaseProps{
-	InstanceCname: jsii.String("service.pizza"),
+service.registerCnameInstance(jsii.String("CnameInstance"), &cnameInstanceBaseProps{
+	instanceCname: jsii.String("service.pizza"),
 })
 
-app.Synth()
+app.synth()
 ```

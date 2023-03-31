@@ -13,19 +13,19 @@ your instances will be launched privately or publicly:
 ```go
 var vpc vpc
 
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
 	}),
-	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
 	 // Optional - will default to 'admin' username and generated password
-	InstanceProps: &InstanceProps{
+	instanceProps: &instanceProps{
 		// optional , defaults to t3.medium
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
-		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
+		vpcSubnets: &subnetSelection{
+			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 		},
-		Vpc: *Vpc,
+		vpc: vpc,
 	},
 })
 ```
@@ -34,7 +34,7 @@ If there isn't a constant for the exact version you want to use,
 all of the `Version` classes have a static `of` method that can be used to create an arbitrary version.
 
 ```go
-customEngineVersion := rds.AuroraMysqlEngineVersion_Of(jsii.String("5.7.mysql_aurora.2.08.1"))
+customEngineVersion := rds.auroraMysqlEngineVersion.of(jsii.String("5.7.mysql_aurora.2.08.1"))
 ```
 
 By default, the master password will be generated and stored in AWS Secrets Manager with auto-generated description.
@@ -42,85 +42,42 @@ By default, the master password will be generated and stored in AWS Secrets Mana
 Your cluster will be empty by default. To add a default database upon construction, specify the
 `defaultDatabaseName` attribute.
 
-To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
-
-```go
-var vpc vpc
-// VPC and subnets must have IPv6 CIDR blocks
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_02_1(),
-	}),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
-		PubliclyAccessible: jsii.Boolean(false),
-	},
-	NetworkType: rds.NetworkType_DUAL,
-})
-```
-
-For more information about dual-stack mode, see [Working with a DB cluster in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
-
 Use `DatabaseClusterFromSnapshot` to create a cluster from a snapshot:
 
 ```go
 var vpc vpc
 
-rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClusterFromSnapshotProps{
-	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{
-		Version: rds.AuroraEngineVersion_VER_1_22_2(),
+rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &databaseClusterFromSnapshotProps{
+	engine: rds.databaseClusterEngine.aurora(&auroraClusterEngineProps{
+		version: rds.auroraEngineVersion_VER_1_22_2(),
 	}),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
+	instanceProps: &instanceProps{
+		vpc: vpc,
 	},
-	SnapshotIdentifier: jsii.String("mySnapshot"),
-})
-```
-
-### Updating the database instances in a cluster
-
-Database cluster instances may be updated in bulk or on a rolling basis.
-
-An update to all instances in a cluster may cause significant downtime. To reduce the downtime, set the `instanceUpdateBehavior` property in `DatabaseClusterBaseProps` to `InstanceUpdateBehavior.ROLLING`. This adds a dependency between each instance so the update is performed on only one instance at a time.
-
-Use `InstanceUpdateBehavior.BULK` to update all instances at once.
-
-```go
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
-	}),
-	Instances: jsii.Number(2),
-	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-		Vpc: *Vpc,
-	},
-	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
+	snapshotIdentifier: jsii.String("mySnapshot"),
 })
 ```
 
 ## Starting an instance database
 
-To set up an instance database, define a `DatabaseInstance`. You must
+To set up a instance database, define a `DatabaseInstance`. You must
 always launch a database in a VPC. Use the `vpcSubnets` attribute to control whether
 your instances will be launched privately or publicly:
 
 ```go
 var vpc vpc
 
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
 	// optional, defaults to m5.large
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("syscdk")),
+	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE3, ec2.instanceSize_SMALL),
+	credentials: rds.credentials.fromGeneratedSecret(jsii.String("syscdk")),
 	 // Optional - will default to 'admin' username and generated password
-	Vpc: Vpc,
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+	vpc: vpc,
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
 })
 ```
@@ -129,7 +86,7 @@ If there isn't a constant for the exact engine version you want to use,
 all of the `Version` classes have a static `of` method that can be used to create an arbitrary version.
 
 ```go
-customEngineVersion := rds.OracleEngineVersion_Of(jsii.String("19.0.0.0.ru-2020-04.rur-2020-04.r1"), jsii.String("19"))
+customEngineVersion := rds.oracleEngineVersion.of(jsii.String("19.0.0.0.ru-2020-04.rur-2020-04.r1"), jsii.String("19"))
 ```
 
 By default, the master password will be generated and stored in AWS Secrets Manager.
@@ -142,33 +99,16 @@ Example for max storage configuration:
 ```go
 var vpc vpc
 
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+		version: rds.postgresEngineVersion_VER_12_3(),
 	}),
 	// optional, defaults to m5.large
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
-	Vpc: Vpc,
-	MaxAllocatedStorage: jsii.Number(200),
+	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
+	vpc: vpc,
+	maxAllocatedStorage: jsii.Number(200),
 })
 ```
-
-To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
-
-```go
-var vpc vpc
-// VPC and subnets must have IPv6 CIDR blocks
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
-	}),
-	Vpc: Vpc,
-	NetworkType: rds.NetworkType_DUAL,
-	PubliclyAccessible: jsii.Boolean(false),
-})
-```
-
-For more information about dual-stack mode, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
 
 Use `DatabaseInstanceFromSnapshot` and `DatabaseInstanceReadReplica` to create an instance from snapshot or
 a source database respectively:
@@ -178,19 +118,19 @@ var vpc vpc
 
 var sourceInstance databaseInstance
 
-rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
-	SnapshotIdentifier: jsii.String("my-snapshot"),
-	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
+rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &databaseInstanceFromSnapshotProps{
+	snapshotIdentifier: jsii.String("my-snapshot"),
+	engine: rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+		version: rds.postgresEngineVersion_VER_12_3(),
 	}),
 	// optional, defaults to m5.large
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
-	Vpc: Vpc,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_LARGE),
+	vpc: vpc,
 })
-rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &DatabaseInstanceReadReplicaProps{
-	SourceDatabaseInstance: sourceInstance,
-	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
-	Vpc: Vpc,
+rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &databaseInstanceReadReplicaProps{
+	sourceDatabaseInstance: sourceInstance,
+	instanceType: ec2.*instanceType.of(ec2.*instanceClass_BURSTABLE2, ec2.*instanceSize_LARGE),
+	vpc: vpc,
 })
 ```
 
@@ -202,90 +142,90 @@ Creating a "production" Oracle database instance with option and parameter group
 
 ```go
 // Set open cursors with parameter group
-parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &ParameterGroupProps{
-	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &parameterGroupProps{
+	engine: rds.databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	Parameters: map[string]*string{
+	parameters: map[string]*string{
 		"open_cursors": jsii.String("2500"),
 	},
 })
 
-optionGroup := rds.NewOptionGroup(this, jsii.String("OptionGroup"), &OptionGroupProps{
-	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+optionGroup := rds.NewOptionGroup(this, jsii.String("OptionGroup"), &optionGroupProps{
+	engine: rds.*databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.*oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	Configurations: []optionConfiguration{
+	configurations: []optionConfiguration{
 		&optionConfiguration{
-			Name: jsii.String("LOCATOR"),
+			name: jsii.String("LOCATOR"),
 		},
 		&optionConfiguration{
-			Name: jsii.String("OEM"),
-			Port: jsii.Number(1158),
-			Vpc: *Vpc,
+			name: jsii.String("OEM"),
+			port: jsii.Number(1158),
+			vpc: vpc,
 		},
 	},
 })
 
 // Allow connections to OEM
-optionGroup.OptionConnections.oEM.Connections.AllowDefaultPortFromAnyIpv4()
+optionGroup.optionConnections.oEM.connections.allowDefaultPortFromAnyIpv4()
 
 // Database instance with production values
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.*databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.*oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	LicenseModel: rds.LicenseModel_BRING_YOUR_OWN_LICENSE,
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_MEDIUM),
-	MultiAz: jsii.Boolean(true),
-	StorageType: rds.StorageType_IO1,
-	Credentials: rds.Credentials_FromUsername(jsii.String("syscdk")),
-	Vpc: Vpc,
-	DatabaseName: jsii.String("ORCL"),
-	StorageEncrypted: jsii.Boolean(true),
-	BackupRetention: cdk.Duration_Days(jsii.Number(7)),
-	MonitoringInterval: cdk.Duration_Seconds(jsii.Number(60)),
-	EnablePerformanceInsights: jsii.Boolean(true),
-	CloudwatchLogsExports: []*string{
+	licenseModel: rds.licenseModel_BRING_YOUR_OWN_LICENSE,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE3, ec2.instanceSize_MEDIUM),
+	multiAz: jsii.Boolean(true),
+	storageType: rds.storageType_IO1,
+	credentials: rds.credentials.fromUsername(jsii.String("syscdk")),
+	vpc: vpc,
+	databaseName: jsii.String("ORCL"),
+	storageEncrypted: jsii.Boolean(true),
+	backupRetention: cdk.duration.days(jsii.Number(7)),
+	monitoringInterval: cdk.*duration.seconds(jsii.Number(60)),
+	enablePerformanceInsights: jsii.Boolean(true),
+	cloudwatchLogsExports: []*string{
 		jsii.String("trace"),
 		jsii.String("audit"),
 		jsii.String("alert"),
 		jsii.String("listener"),
 	},
-	CloudwatchLogsRetention: logs.RetentionDays_ONE_MONTH,
-	AutoMinorVersionUpgrade: jsii.Boolean(true),
+	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
+	autoMinorVersionUpgrade: jsii.Boolean(true),
 	 // required to be true if LOCATOR is used in the option group
-	OptionGroup: OptionGroup,
-	ParameterGroup: ParameterGroup,
-	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+	optionGroup: optionGroup,
+	parameterGroup: parameterGroup,
+	removalPolicy: awscdk.RemovalPolicy_DESTROY,
 })
 
 // Allow connections on default port from any IPV4
-instance.connections.AllowDefaultPortFromAnyIpv4()
+instance.connections.allowDefaultPortFromAnyIpv4()
 
 // Rotate the master user password every 30 days
 instance.addRotationSingleUser()
 
 // Add alarm for high CPU
 // Add alarm for high CPU
-cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
-	Metric: instance.metricCPUUtilization(),
-	Threshold: jsii.Number(90),
-	EvaluationPeriods: jsii.Number(1),
+cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &alarmProps{
+	metric: instance.metricCPUUtilization(),
+	threshold: jsii.Number(90),
+	evaluationPeriods: jsii.Number(1),
 })
 
 // Trigger Lambda function on instance availability events
-fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
-	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+fn := lambda.NewFunction(this, jsii.String("Function"), &functionProps{
+	code: lambda.code.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
+	handler: jsii.String("index.handler"),
+	runtime: lambda.runtime_NODEJS_14_X(),
 })
 
-availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
-	Target: targets.NewLambdaFunction(fn),
+availabilityRule := instance.onEvent(jsii.String("Availability"), &onEventOptions{
+	target: targets.NewLambdaFunction(fn),
 })
-availabilityRule.AddEventPattern(&EventPattern{
-	Detail: map[string]interface{}{
+availabilityRule.addEventPattern(&eventPattern{
+	detail: map[string]interface{}{
 		"EventCategories": []interface{}{
 			jsii.String("availability"),
 		},
@@ -297,122 +237,94 @@ Add XMLDB and OEM with option group
 
 ```go
 // Set open cursors with parameter group
-parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &ParameterGroupProps{
-	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &parameterGroupProps{
+	engine: rds.databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	Parameters: map[string]*string{
+	parameters: map[string]*string{
 		"open_cursors": jsii.String("2500"),
 	},
 })
 
-optionGroup := rds.NewOptionGroup(this, jsii.String("OptionGroup"), &OptionGroupProps{
-	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+optionGroup := rds.NewOptionGroup(this, jsii.String("OptionGroup"), &optionGroupProps{
+	engine: rds.*databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.*oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	Configurations: []optionConfiguration{
+	configurations: []optionConfiguration{
 		&optionConfiguration{
-			Name: jsii.String("LOCATOR"),
+			name: jsii.String("LOCATOR"),
 		},
 		&optionConfiguration{
-			Name: jsii.String("OEM"),
-			Port: jsii.Number(1158),
-			Vpc: *Vpc,
+			name: jsii.String("OEM"),
+			port: jsii.Number(1158),
+			vpc: vpc,
 		},
 	},
 })
 
 // Allow connections to OEM
-optionGroup.OptionConnections.oEM.Connections.AllowDefaultPortFromAnyIpv4()
+optionGroup.optionConnections.oEM.connections.allowDefaultPortFromAnyIpv4()
 
 // Database instance with production values
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.*databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.*oracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	LicenseModel: rds.LicenseModel_BRING_YOUR_OWN_LICENSE,
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_MEDIUM),
-	MultiAz: jsii.Boolean(true),
-	StorageType: rds.StorageType_IO1,
-	Credentials: rds.Credentials_FromUsername(jsii.String("syscdk")),
-	Vpc: Vpc,
-	DatabaseName: jsii.String("ORCL"),
-	StorageEncrypted: jsii.Boolean(true),
-	BackupRetention: cdk.Duration_Days(jsii.Number(7)),
-	MonitoringInterval: cdk.Duration_Seconds(jsii.Number(60)),
-	EnablePerformanceInsights: jsii.Boolean(true),
-	CloudwatchLogsExports: []*string{
+	licenseModel: rds.licenseModel_BRING_YOUR_OWN_LICENSE,
+	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE3, ec2.instanceSize_MEDIUM),
+	multiAz: jsii.Boolean(true),
+	storageType: rds.storageType_IO1,
+	credentials: rds.credentials.fromUsername(jsii.String("syscdk")),
+	vpc: vpc,
+	databaseName: jsii.String("ORCL"),
+	storageEncrypted: jsii.Boolean(true),
+	backupRetention: cdk.duration.days(jsii.Number(7)),
+	monitoringInterval: cdk.*duration.seconds(jsii.Number(60)),
+	enablePerformanceInsights: jsii.Boolean(true),
+	cloudwatchLogsExports: []*string{
 		jsii.String("trace"),
 		jsii.String("audit"),
 		jsii.String("alert"),
 		jsii.String("listener"),
 	},
-	CloudwatchLogsRetention: logs.RetentionDays_ONE_MONTH,
-	AutoMinorVersionUpgrade: jsii.Boolean(true),
+	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
+	autoMinorVersionUpgrade: jsii.Boolean(true),
 	 // required to be true if LOCATOR is used in the option group
-	OptionGroup: OptionGroup,
-	ParameterGroup: ParameterGroup,
-	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+	optionGroup: optionGroup,
+	parameterGroup: parameterGroup,
+	removalPolicy: awscdk.RemovalPolicy_DESTROY,
 })
 
 // Allow connections on default port from any IPV4
-instance.connections.AllowDefaultPortFromAnyIpv4()
+instance.connections.allowDefaultPortFromAnyIpv4()
 
 // Rotate the master user password every 30 days
 instance.addRotationSingleUser()
 
 // Add alarm for high CPU
 // Add alarm for high CPU
-cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
-	Metric: instance.metricCPUUtilization(),
-	Threshold: jsii.Number(90),
-	EvaluationPeriods: jsii.Number(1),
+cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &alarmProps{
+	metric: instance.metricCPUUtilization(),
+	threshold: jsii.Number(90),
+	evaluationPeriods: jsii.Number(1),
 })
 
 // Trigger Lambda function on instance availability events
-fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
-	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+fn := lambda.NewFunction(this, jsii.String("Function"), &functionProps{
+	code: lambda.code.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
+	handler: jsii.String("index.handler"),
+	runtime: lambda.runtime_NODEJS_14_X(),
 })
 
-availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
-	Target: targets.NewLambdaFunction(fn),
+availabilityRule := instance.onEvent(jsii.String("Availability"), &onEventOptions{
+	target: targets.NewLambdaFunction(fn),
 })
-availabilityRule.AddEventPattern(&EventPattern{
-	Detail: map[string]interface{}{
+availabilityRule.addEventPattern(&eventPattern{
+	detail: map[string]interface{}{
 		"EventCategories": []interface{}{
 			jsii.String("availability"),
 		},
 	},
-})
-```
-
-Use the `storageType` property to specify the [type of storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html)
-to use for the instance:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-
-iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: mysqlEngineVersion_VER_8_0_30,
-	}),
-	Vpc: Vpc,
-	StorageType: rds.StorageType_IO1,
-	Iops: jsii.Number(5000),
-})
-
-gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
-		Version: *mysqlEngineVersion_VER_8_0_30,
-	}),
-	Vpc: Vpc,
-	AllocatedStorage: jsii.Number(500),
-	StorageType: rds.StorageType_GP3,
-	StorageThroughput: jsii.Number(500),
 })
 ```
 
@@ -429,27 +341,27 @@ var vpc vpc
 
 // Setting public accessibility for DB instance
 // Setting public accessibility for DB instance
-rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_19(),
+rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
+		version: rds.mysqlEngineVersion_VER_8_0_19(),
 	}),
-	Vpc: Vpc,
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+	vpc: vpc,
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
-	PubliclyAccessible: jsii.Boolean(true),
+	publiclyAccessible: jsii.Boolean(true),
 })
 
 // Setting public accessibility for DB cluster
 // Setting public accessibility for DB cluster
-rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA(),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
-		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine_AURORA(),
+	instanceProps: &instanceProps{
+		vpc: vpc,
+		vpcSubnets: &subnetSelection{
+			subnetType: ec2.*subnetType_PRIVATE_WITH_NAT,
 		},
-		PubliclyAccessible: jsii.Boolean(true),
+		publiclyAccessible: jsii.Boolean(true),
 	},
 })
 ```
@@ -463,8 +375,8 @@ method:
 var instance databaseInstance
 var fn function
 
-rule := instance.OnEvent(jsii.String("InstanceEvent"), &OnEventOptions{
-	Target: targets.NewLambdaFunction(fn),
+rule := instance.onEvent(jsii.String("InstanceEvent"), &onEventOptions{
+	target: targets.NewLambdaFunction(fn),
 })
 ```
 
@@ -478,26 +390,26 @@ The following examples use a `DatabaseInstance`, but the same usage is applicabl
 ```go
 var vpc vpc
 
-engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_15_2(),
+engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+	version: rds.postgresEngineVersion_VER_12_3(),
 })
-rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &DatabaseInstanceProps{
-	Engine: Engine,
-	Vpc: Vpc,
-	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres")),
-})
-
-rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsernameAndPassword"), &DatabaseInstanceProps{
-	Engine: Engine,
-	Vpc: Vpc,
-	Credentials: rds.Credentials_FromPassword(jsii.String("postgres"), awscdk.SecretValue_SsmSecure(jsii.String("/dbPassword"), jsii.String("1"))),
+rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &databaseInstanceProps{
+	engine: engine,
+	vpc: vpc,
+	credentials: rds.credentials.fromGeneratedSecret(jsii.String("postgres")),
 })
 
-mySecret := secretsmanager.Secret_FromSecretName(this, jsii.String("DBSecret"), jsii.String("myDBLoginInfo"))
-rds.NewDatabaseInstance(this, jsii.String("InstanceWithSecretLogin"), &DatabaseInstanceProps{
-	Engine: Engine,
-	Vpc: Vpc,
-	Credentials: rds.Credentials_FromSecret(mySecret),
+rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsernameAndPassword"), &databaseInstanceProps{
+	engine: engine,
+	vpc: vpc,
+	credentials: rds.*credentials.fromPassword(jsii.String("postgres"), awscdk.SecretValue.ssmSecure(jsii.String("/dbPassword"), jsii.String("1"))),
+})
+
+mySecret := secretsmanager.secret.fromSecretName(this, jsii.String("DBSecret"), jsii.String("myDBLoginInfo"))
+rds.NewDatabaseInstance(this, jsii.String("InstanceWithSecretLogin"), &databaseInstanceProps{
+	engine: engine,
+	vpc: vpc,
+	credentials: rds.*credentials.fromSecret(mySecret),
 })
 ```
 
@@ -506,24 +418,24 @@ Secrets generated by `fromGeneratedSecret()` can be customized:
 ```go
 var vpc vpc
 
-engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_15_2(),
+engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+	version: rds.postgresEngineVersion_VER_12_3(),
 })
 myKey := kms.NewKey(this, jsii.String("MyKey"))
 
-rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &DatabaseInstanceProps{
-	Engine: Engine,
-	Vpc: Vpc,
-	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres"), &CredentialsBaseOptions{
-		SecretName: jsii.String("my-cool-name"),
-		EncryptionKey: myKey,
-		ExcludeCharacters: jsii.String("!&*^#@()"),
-		ReplicaRegions: []replicaRegion{
+rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &databaseInstanceProps{
+	engine: engine,
+	vpc: vpc,
+	credentials: rds.credentials.fromGeneratedSecret(jsii.String("postgres"), &credentialsBaseOptions{
+		secretName: jsii.String("my-cool-name"),
+		encryptionKey: myKey,
+		excludeCharacters: jsii.String("!&*^#@()"),
+		replicaRegions: []replicaRegion{
 			&replicaRegion{
-				Region: jsii.String("eu-west-1"),
+				region: jsii.String("eu-west-1"),
 			},
 			&replicaRegion{
-				Region: jsii.String("eu-west-2"),
+				region: jsii.String("eu-west-2"),
 			},
 		},
 	}),
@@ -537,24 +449,24 @@ As noted above, Databases created with `DatabaseInstanceFromSnapshot` or `Server
 ```go
 var vpc vpc
 
-engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_15_2(),
+engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+	version: rds.postgresEngineVersion_VER_12_3(),
 })
 myKey := kms.NewKey(this, jsii.String("MyKey"))
 
-rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &DatabaseInstanceFromSnapshotProps{
-	Engine: Engine,
-	Vpc: Vpc,
-	SnapshotIdentifier: jsii.String("mySnapshot"),
-	Credentials: rds.SnapshotCredentials_FromGeneratedSecret(jsii.String("username"), &SnapshotCredentialsFromGeneratedPasswordOptions{
-		EncryptionKey: myKey,
-		ExcludeCharacters: jsii.String("!&*^#@()"),
-		ReplicaRegions: []replicaRegion{
+rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &databaseInstanceFromSnapshotProps{
+	engine: engine,
+	vpc: vpc,
+	snapshotIdentifier: jsii.String("mySnapshot"),
+	credentials: rds.snapshotCredentials.fromGeneratedSecret(jsii.String("username"), &snapshotCredentialsFromGeneratedPasswordOptions{
+		encryptionKey: myKey,
+		excludeCharacters: jsii.String("!&*^#@()"),
+		replicaRegions: []replicaRegion{
 			&replicaRegion{
-				Region: jsii.String("eu-west-1"),
+				region: jsii.String("eu-west-1"),
 			},
 			&replicaRegion{
-				Region: jsii.String("eu-west-2"),
+				region: jsii.String("eu-west-2"),
 			},
 		},
 	}),
@@ -569,7 +481,7 @@ a default port, so you don't need to specify the port:
 ```go
 var cluster databaseCluster
 
-cluster.Connections.AllowFromAnyIpv4(ec2.Port_AllTraffic(), jsii.String("Open to the world"))
+cluster.connections.allowFromAnyIpv4(ec2.port.allTraffic(), jsii.String("Open to the world"))
 ```
 
 The endpoints to access your database cluster will be available as the `.clusterEndpoint` and `.readerEndpoint`
@@ -578,7 +490,7 @@ attributes:
 ```go
 var cluster databaseCluster
 
-writeAddress := cluster.ClusterEndpoint.SocketAddress
+writeAddress := cluster.clusterEndpoint.socketAddress
 ```
 
 For an instance database:
@@ -586,7 +498,7 @@ For an instance database:
 ```go
 var instance databaseInstance
 
-address := instance.InstanceEndpoint.SocketAddress
+address := instance.instanceEndpoint.socketAddress
 ```
 
 ## Rotating credentials
@@ -597,44 +509,24 @@ When the master password is generated and stored in AWS Secrets Manager, it can 
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
 var instance databaseInstance
-var mySecurityGroup securityGroup
 
-instance.addRotationSingleUser(&RotationSingleUserOptions{
-	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
+instance.addRotationSingleUser(&rotationSingleUserOptions{
+	automaticallyAfter: cdk.duration.days(jsii.Number(7)),
 	 // defaults to 30 days
-	ExcludeCharacters: jsii.String("!@#$%^&*"),
-	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
-	SecurityGroup: mySecurityGroup,
+	excludeCharacters: jsii.String("!@#$%^&*"),
 })
 ```
 
 ```go
-cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA(),
-	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-		Vpc: *Vpc,
+cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine_AURORA(),
+	instanceProps: &instanceProps{
+		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE3, ec2.instanceSize_SMALL),
+		vpc: vpc,
 	},
 })
 
 cluster.addRotationSingleUser()
-
-clusterWithCustomRotationOptions := rds.NewDatabaseCluster(stack, jsii.String("CustomRotationOptions"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA(),
-	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-		Vpc: *Vpc,
-	},
-})
-clusterWithCustomRotationOptions.addRotationSingleUser(&RotationSingleUserOptions{
-	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
-	ExcludeCharacters: jsii.String("!@#$%^&*"),
-	SecurityGroup: SecurityGroup,
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-	},
-	Endpoint: endpoint,
-})
 ```
 
 The multi user rotation scheme is also available:
@@ -643,8 +535,8 @@ The multi user rotation scheme is also available:
 var instance databaseInstance
 var myImportedSecret databaseSecret
 
-instance.addRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
-	Secret: myImportedSecret,
+instance.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
+	secret: myImportedSecret,
 })
 ```
 
@@ -653,18 +545,18 @@ It's also possible to create user credentials together with the instance/cluster
 ```go
 var instance databaseInstance
 
-myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &DatabaseSecretProps{
-	Username: jsii.String("myuser"),
-	SecretName: jsii.String("my-user-secret"),
+myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
+	username: jsii.String("myuser"),
+	secretName: jsii.String("my-user-secret"),
 	 // optional, defaults to a CloudFormation-generated name
-	MasterSecret: instance.Secret,
-	ExcludeCharacters: jsii.String("{}[]()'\"/\\"),
+	masterSecret: instance.secret,
+	excludeCharacters: jsii.String("{}[]()'\"/\\"),
 })
 myUserSecretAttached := myUserSecret.attach(instance) // Adds DB connections information in the secret
 
-instance.addRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
+instance.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
 	 // Add rotation using the multi user scheme
-	Secret: myUserSecretAttached,
+	secret: myUserSecretAttached,
 })
 ```
 
@@ -681,16 +573,16 @@ var instance databaseInstance
 var myEndpoint interfaceVpcEndpoint
 
 
-instance.addRotationSingleUser(&RotationSingleUserOptions{
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+instance.addRotationSingleUser(&rotationSingleUserOptions{
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
 	 // Place rotation Lambda in private subnets
-	Endpoint: myEndpoint,
+	endpoint: myEndpoint,
 })
 ```
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
 
 ## IAM Authentication
 
@@ -705,17 +597,17 @@ The following example shows enabling IAM authentication for a database instance 
 ```go
 var vpc vpc
 
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_19(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
+		version: rds.mysqlEngineVersion_VER_8_0_19(),
 	}),
-	Vpc: Vpc,
-	IamAuthentication: jsii.Boolean(true),
+	vpc: vpc,
+	iamAuthentication: jsii.Boolean(true),
 })
-role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
-	AssumedBy: iam.NewAccountPrincipal(this.Account),
+role := iam.NewRole(this, jsii.String("DBRole"), &roleProps{
+	assumedBy: iam.NewAccountPrincipal(this.account),
 })
-instance.GrantConnect(role)
+instance.grantConnect(role)
 ```
 
 The following example shows granting connection access for RDS Proxy to an IAM role.
@@ -723,25 +615,25 @@ The following example shows granting connection access for RDS Proxy to an IAM r
 ```go
 var vpc vpc
 
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA(),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine_AURORA(),
+	instanceProps: &instanceProps{
+		vpc: vpc,
 	},
 })
 
-proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
-	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-	Secrets: []iSecret{
-		cluster.Secret,
+proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &databaseProxyProps{
+	proxyTarget: rds.proxyTarget.fromCluster(cluster),
+	secrets: []iSecret{
+		cluster.secret,
 	},
-	Vpc: Vpc,
+	vpc: vpc,
 })
 
-role := iam.NewRole(this, jsii.String("DBProxyRole"), &RoleProps{
-	AssumedBy: iam.NewAccountPrincipal(this.Account),
+role := iam.NewRole(this, jsii.String("DBProxyRole"), &roleProps{
+	assumedBy: iam.NewAccountPrincipal(this.account),
 })
-proxy.GrantConnect(role, jsii.String("admin"))
+proxy.grantConnect(role, jsii.String("admin"))
 ```
 
 **Note**: In addition to the setup above, a database user will need to be created to support IAM auth.
@@ -759,20 +651,20 @@ Directory Services.
 ```go
 var vpc vpc
 
-role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
-	ManagedPolicies: []iManagedPolicy{
-		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
+role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
+	managedPolicies: []iManagedPolicy{
+		iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
 	},
 })
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_19(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
+		version: rds.mysqlEngineVersion_VER_8_0_19(),
 	}),
-	Vpc: Vpc,
-	Domain: jsii.String("d-????????"),
+	vpc: vpc,
+	domain: jsii.String("d-????????"),
 	 // The ID of the domain for the instance to join.
-	DomainRole: role,
+	domainRole: role,
 })
 ```
 
@@ -797,9 +689,9 @@ dbConnections := instance.metricDatabaseConnections()
 cpuUtilization := cluster.metricCPUUtilization()
 
 // The average amount of time taken per disk I/O operation (average over 1 minute)
-readLatency := instance.metric(jsii.String("ReadLatency"), &MetricOptions{
-	Statistic: jsii.String("Average"),
-	Period: awscdk.Duration_Seconds(jsii.Number(60)),
+readLatency := instance.metric(jsii.String("ReadLatency"), &metricOptions{
+	statistic: jsii.String("Average"),
+	period: awscdk.Duration.seconds(jsii.Number(60)),
 })
 ```
 
@@ -824,21 +716,21 @@ You can read more about loading data to (or from) S3 here:
 The following snippet sets up a database cluster with different S3 buckets where the data is imported and exported -
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc
 
 importBucket := s3.NewBucket(this, jsii.String("importbucket"))
 exportBucket := s3.NewBucket(this, jsii.String("exportbucket"))
-rds.NewDatabaseCluster(this, jsii.String("dbcluster"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA(),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
+rds.NewDatabaseCluster(this, jsii.String("dbcluster"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine_AURORA(),
+	instanceProps: &instanceProps{
+		vpc: vpc,
 	},
-	S3ImportBuckets: []iBucket{
+	s3ImportBuckets: []iBucket{
 		importBucket,
 	},
-	S3ExportBuckets: []*iBucket{
+	s3ExportBuckets: []*iBucket{
 		exportBucket,
 	},
 })
@@ -858,11 +750,11 @@ var secrets []secret
 var dbInstance databaseInstance
 
 
-proxy := dbInstance.AddProxy(jsii.String("proxy"), &DatabaseProxyOptions{
-	BorrowTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
-	MaxConnectionsPercent: jsii.Number(50),
-	Secrets: Secrets,
-	Vpc: Vpc,
+proxy := dbInstance.addProxy(jsii.String("proxy"), &databaseProxyOptions{
+	borrowTimeout: awscdk.Duration.seconds(jsii.Number(30)),
+	maxConnectionsPercent: jsii.Number(50),
+	secrets: secrets,
+	vpc: vpc,
 })
 ```
 
@@ -879,32 +771,32 @@ var vpc vpc
 
 
 // Exporting logs from a cluster
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{
-		Version: rds.AuroraEngineVersion_VER_1_17_9(),
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine.aurora(&auroraClusterEngineProps{
+		version: rds.auroraEngineVersion_VER_1_17_9(),
 	}),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
+	instanceProps: &instanceProps{
+		vpc: vpc,
 	},
-	CloudwatchLogsExports: []*string{
+	cloudwatchLogsExports: []*string{
 		jsii.String("error"),
 		jsii.String("general"),
 		jsii.String("slowquery"),
 		jsii.String("audit"),
 	},
 	 // Export all available MySQL-based logs
-	CloudwatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
+	cloudwatchLogsRetention: logs.retentionDays_THREE_MONTHS,
 	 // Optional - default is to never expire logs
-	CloudwatchLogsRetentionRole: myLogsPublishingRole,
+	cloudwatchLogsRetentionRole: myLogsPublishingRole,
 })
 
 // Exporting logs from an instance
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+		version: rds.postgresEngineVersion_VER_12_3(),
 	}),
-	Vpc: Vpc,
-	CloudwatchLogsExports: []*string{
+	vpc: vpc,
+	cloudwatchLogsExports: []*string{
 		jsii.String("postgresql"),
 	},
 })
@@ -921,16 +813,16 @@ var vpc vpc
 var securityGroup securityGroup
 
 
-rds.NewOptionGroup(this, jsii.String("Options"), &OptionGroupProps{
-	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
-		Version: rds.OracleEngineVersion_VER_19(),
+rds.NewOptionGroup(this, jsii.String("Options"), &optionGroupProps{
+	engine: rds.databaseInstanceEngine.oracleSe2(&oracleSe2InstanceEngineProps{
+		version: rds.oracleEngineVersion_VER_19(),
 	}),
-	Configurations: []optionConfiguration{
+	configurations: []optionConfiguration{
 		&optionConfiguration{
-			Name: jsii.String("OEM"),
-			Port: jsii.Number(5500),
-			Vpc: *Vpc,
-			SecurityGroups: []iSecurityGroup{
+			name: jsii.String("OEM"),
+			port: jsii.Number(5500),
+			vpc: vpc,
+			securityGroups: []iSecurityGroup{
 				securityGroup,
 			},
 		},
@@ -951,19 +843,19 @@ You can create your own parameter group for your cluster or instance and associa
 var vpc vpc
 
 
-parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &ParameterGroupProps{
-	Engine: rds.DatabaseInstanceEngine_SqlServerEe(&SqlServerEeInstanceEngineProps{
-		Version: rds.SqlServerEngineVersion_VER_11(),
+parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &parameterGroupProps{
+	engine: rds.databaseInstanceEngine.sqlServerEe(&sqlServerEeInstanceEngineProps{
+		version: rds.sqlServerEngineVersion_VER_11(),
 	}),
-	Parameters: map[string]*string{
+	parameters: map[string]*string{
 		"locks": jsii.String("100"),
 	},
 })
 
-rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_SQL_SERVER_EE(),
-	Vpc: Vpc,
-	ParameterGroup: ParameterGroup,
+rds.NewDatabaseInstance(this, jsii.String("Database"), &databaseInstanceProps{
+	engine: rds.*databaseInstanceEngine_SQL_SERVER_EE(),
+	vpc: vpc,
+	parameterGroup: parameterGroup,
 })
 ```
 
@@ -974,12 +866,12 @@ You can use this if you do not want to reuse the parameter group instance for di
 var vpc vpc
 
 
-rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_SqlServerEe(&SqlServerEeInstanceEngineProps{
-		Version: rds.SqlServerEngineVersion_VER_11(),
+rds.NewDatabaseInstance(this, jsii.String("Database"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine.sqlServerEe(&sqlServerEeInstanceEngineProps{
+		version: rds.sqlServerEngineVersion_VER_11(),
 	}),
-	Vpc: Vpc,
-	Parameters: map[string]*string{
+	vpc: vpc,
+	parameters: map[string]*string{
 		"locks": jsii.String("100"),
 	},
 })
@@ -1002,18 +894,16 @@ automatically scale the database cluster seamlessly based on the workload.
 var vpc vpc
 
 
-cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
-	CopyTagsToSnapshot: jsii.Boolean(true),
-	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
-	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
-	Vpc: Vpc,
-	Scaling: &ServerlessScalingOptions{
-		AutoPause: awscdk.Duration_Minutes(jsii.Number(10)),
+cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
+	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
+	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+	vpc: vpc,
+	scaling: &serverlessScalingOptions{
+		autoPause: awscdk.Duration.minutes(jsii.Number(10)),
 		 // default is to pause after 5 minutes of idle time
-		MinCapacity: rds.AuroraCapacityUnit_ACU_8,
+		minCapacity: rds.auroraCapacityUnit_ACU_8,
 		 // default is 2 Aurora capacity units (ACUs)
-		MaxCapacity: rds.AuroraCapacityUnit_ACU_32,
+		maxCapacity: rds.*auroraCapacityUnit_ACU_32,
 	},
 })
 ```
@@ -1042,10 +932,10 @@ Use `ServerlessClusterFromSnapshot` to create a serverless cluster from a snapsh
 ```go
 var vpc vpc
 
-rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &ServerlessClusterFromSnapshotProps{
-	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
-	Vpc: Vpc,
-	SnapshotIdentifier: jsii.String("mySnapshot"),
+rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &serverlessClusterFromSnapshotProps{
+	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
+	vpc: vpc,
+	snapshotIdentifier: jsii.String("mySnapshot"),
 })
 ```
 
@@ -1061,17 +951,17 @@ var vpc vpc
 var code code
 
 
-cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
-	Vpc: Vpc,
+cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
+	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
+	vpc: vpc,
 	 // this parameter is optional for serverless Clusters
-	EnableDataApi: jsii.Boolean(true),
+	enableDataApi: jsii.Boolean(true),
 })
-fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
-	Code: Code,
-	Environment: map[string]*string{
+fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("index.handler"),
+	code: code,
+	environment: map[string]*string{
 		"CLUSTER_ARN": cluster.clusterArn,
 		"SECRET_ARN": cluster.secret.secretArn,
 	},

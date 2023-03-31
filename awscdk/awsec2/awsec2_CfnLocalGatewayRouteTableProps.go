@@ -1,0 +1,35 @@
+package awsec2
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk"
+)
+
+// Properties for defining a `CfnLocalGatewayRouteTable`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocalGatewayRouteTableProps := &cfnLocalGatewayRouteTableProps{
+//   	localGatewayId: jsii.String("localGatewayId"),
+//
+//   	// the properties below are optional
+//   	mode: jsii.String("mode"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+type CfnLocalGatewayRouteTableProps struct {
+	// The ID of the local gateway.
+	LocalGatewayId *string `field:"required" json:"localGatewayId" yaml:"localGatewayId"`
+	// The mode of the local gateway route table.
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
+	// The tags assigned to the local gateway route table.
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

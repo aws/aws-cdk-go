@@ -36,16 +36,16 @@ Resources:
 It can be included in a CDK application with the following code:
 
 ```go
-cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &CfnIncludeProps{
-	TemplateFile: jsii.String("my-template.json"),
+cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &cfnIncludeProps{
+	templateFile: jsii.String("my-template.json"),
 })
 ```
 
 Or, if your template uses YAML:
 
 ```go
-cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &CfnIncludeProps{
-	TemplateFile: jsii.String("my-template.yaml"),
+cfnTemplate := cfn_inc.NewCfnInclude(this, jsii.String("Template"), &cfnIncludeProps{
+	templateFile: jsii.String("my-template.yaml"),
 })
 ```
 
@@ -61,6 +61,10 @@ radio buttons on the bottom pane.
 This will add all resources from `my-template.json` / `my-template.yaml` into the CDK application,
 preserving their original logical IDs from the template file.
 
+Note that this including process will *not* execute any
+[CloudFormation transforms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) -
+including the [Serverless transform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html).
+
 Any resource from the included template can be retrieved by referring to it by its logical ID from the template.
 If you know the class of the CDK object that corresponds to that resource,
 you can cast the returned object to the correct type:
@@ -68,7 +72,7 @@ you can cast the returned object to the correct type:
 ```go
 var cfnTemplate cfnInclude
 
-cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
+cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
 ```
 
 Note that any resources not present in the latest version of the CloudFormation schema
@@ -83,8 +87,8 @@ for example, the name of the bucket can be changed:
 ```go
 var cfnTemplate cfnInclude
 
-cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
-cfnBucket.BucketName = "my-bucket-name"
+cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
+cfnBucket.bucketName = "my-bucket-name"
 ```
 
 You can also refer to the resource when defining other constructs,
@@ -95,55 +99,22 @@ for example:
 ```go
 var cfnTemplate cfnInclude
 
-cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
+cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
 
-role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-	AssumedBy: iam.NewAnyPrincipal(),
+role := iam.NewRole(this, jsii.String("Role"), &roleProps{
+	assumedBy: iam.NewAnyPrincipal(),
 })
-role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
+role.addToPolicy(iam.NewPolicyStatement(&policyStatementProps{
+	actions: []*string{
 		jsii.String("s3:*"),
 	},
-	Resources: []*string{
-		cfnBucket.AttrArn,
+	resources: []*string{
+		cfnBucket.attrArn,
 	},
 }))
 ```
 
-## Migrating templates that use Transforms
-
-You can use this module to migrate templates that use
-[CloudFormation transforms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) -
-including the [Serverless transform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html).
-
-The CDK including process does not execute Transforms,
-and the `cdk diff` command by default compares against the original
-(meaning, unprocessed) template.
-So, if you're downloading the template to include from the CloudFormation AWS Console,
-make sure to download the unprocessed template
-(the "View processed template" checkbox is left **unchecked**, which is the default):
-
-![unprocessed template in the CloudFormation AWS Console](doc-images/unprocessed-template.png)
-
-However, certain unprocessed templates can fail when used with the `CfnInclude` class.
-The most common reason for the failure is that the unprocessed template can contain cycles between resources,
-which get removed after the Transform is processed,
-but is not allowed when being included (as pure CloudFormation does not permit cycles). To enable cycle processing behavior similar
-to cloudformation, set `allowCyclicalReferences` of CfnIncludeProps to true.
-
-When that happens, you should instead download the processed template from the CloudFormation AWS Console
-(make sure the "View processed template" checkbox is **checked** in that case):
-
-![processed template in the CloudFormation AWS Console](doc-images/processed-template.png)
-
-When you include that processed template in your CDK application,
-running `cdk diff` will now show a lot of differences with the deployed Stack,
-because `cdk diff` uses the unprocessed template by default.
-To alleviate that problem, you can pass the `--processed` switch to `cdk diff`,
-which will make the diff command compare against the processed template of the deployed Stack,
-which will give more precise results in this case.
-
-## Converting L1 resources to L2
+### Converting L1 resources to L2
 
 The resources the `getResource` method returns are what the CDK calls
 [Layer 1 resources](https://docs.aws.amazon.com/cdk/latest/guide/cfn_layer.html#cfn_layer_cfn)
@@ -152,7 +123,7 @@ However, in many places in the Construct Library,
 the CDK requires so-called Layer 2 resources, like `IBucket`.
 There are two ways of going from an L1 to an L2 resource.
 
-### Using`fromCfn*()` methods
+#### Using`fromCfn*()` methods
 
 This is the preferred method of converting an L1 resource to an L2.
 It works by invoking a static method of the class of the L2 resource
@@ -163,8 +134,8 @@ and passing the L1 instance as an argument:
 ```go
 var cfnTemplate cfnInclude
 
-cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(cfnKey)
-key := kms.Key_FromCfnKey(cfnKey)
+cfnKey := cfnTemplate.getResource(jsii.String("Key")).(cfnKey)
+key := kms.key.fromCfnKey(cfnKey)
 ```
 
 This returns an instance of the `kms.IKey` type that can be passed anywhere in the CDK an `IKey` is expected.
@@ -217,7 +188,7 @@ and would throw an exception.
 
 In those cases, you need the use the second method of converting an L1 to an L2.
 
-### Using `from*Name/Arn/Attributes()` methods
+#### Using `from*Name/Arn/Attributes()` methods
 
 If the resource you need does not have a `fromCfn*()` method,
 or if it does, but it throws an exception for your particular L1,
@@ -236,17 +207,17 @@ var privateCfnSubnet2 cfnSubnet
 
 
 // using from*Name()
-cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
-bucket := s3.Bucket_FromBucketName(this, jsii.String("L2Bucket"), cfnBucket.ref)
+cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
+bucket := s3.bucket.fromBucketName(this, jsii.String("L2Bucket"), cfnBucket.ref)
 
 // using from*Arn()
-cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(cfnKey)
-key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.AttrArn)
-cfnVpc := cfnTemplate.GetResource(jsii.String("Vpc")).(cfnVPC)
-vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("L2Vpc"), &VpcAttributes{
-	VpcId: cfnVpc.ref,
-	AvailabilityZones: core.Fn_GetAzs(),
-	PrivateSubnetIds: []*string{
+cfnKey := cfnTemplate.getResource(jsii.String("Key")).(cfnKey)
+key := kms.key.fromKeyArn(this, jsii.String("L2Key"), cfnKey.attrArn)
+cfnVpc := cfnTemplate.getResource(jsii.String("Vpc")).(cfnVPC)
+vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("L2Vpc"), &vpcAttributes{
+	vpcId: cfnVpc.ref,
+	availabilityZones: core.fn.getAzs(),
+	privateSubnetIds: []*string{
 		privateCfnSubnet1.ref,
 		privateCfnSubnet2.ref,
 	},
@@ -270,7 +241,7 @@ you can also retrieve and mutate all other template elements:
   ```go
   var cfnTemplate cfnInclude
 
-  param := cfnTemplate.GetParameter(jsii.String("MyParameter"))
+  param := cfnTemplate.getParameter(jsii.String("MyParameter"))
 
   // mutating the parameter
   param.default = "MyDefault"
@@ -280,20 +251,20 @@ you can also retrieve and mutate all other template elements:
   ```go
   var cfnTemplate cfnInclude
 
-  condition := cfnTemplate.GetCondition(jsii.String("MyCondition"))
+  condition := cfnTemplate.getCondition(jsii.String("MyCondition"))
 
   // mutating the condition
-  condition.Expression = core.Fn_ConditionEquals(jsii.Number(1), jsii.Number(2))
+  condition.expression = core.fn.conditionEquals(jsii.Number(1), jsii.Number(2))
   ```
 * [Mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html):
 
   ```go
   var cfnTemplate cfnInclude
 
-  mapping := cfnTemplate.GetMapping(jsii.String("MyMapping"))
+  mapping := cfnTemplate.getMapping(jsii.String("MyMapping"))
 
   // mutating the mapping
-  mapping.SetValue(jsii.String("my-region"), jsii.String("AMI"), jsii.String("ami-04681a1dbd79675a5"))
+  mapping.setValue(jsii.String("my-region"), jsii.String("AMI"), jsii.String("ami-04681a1dbd79675a5"))
   ```
 * [Service Catalog template Rules](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html):
 
@@ -303,8 +274,8 @@ you can also retrieve and mutate all other template elements:
   // mutating the rule
   var myParameter cfnParameter
 
-  rule := cfnTemplate.GetRule(jsii.String("MyRule"))
-  rule.AddAssertion(core.Fn_ConditionContains([]*string{
+  rule := cfnTemplate.getRule(jsii.String("MyRule"))
+  rule.addAssertion(core.fn.conditionContains([]*string{
   	jsii.String("m1.small"),
   }, myParameter.valueAsString), jsii.String("MyParameter has to be m1.small"))
   ```
@@ -316,8 +287,8 @@ you can also retrieve and mutate all other template elements:
   // mutating the output
   var cfnBucket cfnBucket
 
-  output := cfnTemplate.GetOutput(jsii.String("MyOutput"))
-  output.value = cfnBucket.AttrArn
+  output := cfnTemplate.getOutput(jsii.String("MyOutput"))
+  output.value = cfnBucket.attrArn
   ```
 * [Hooks for blue-green deployments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html):
 
@@ -327,9 +298,9 @@ you can also retrieve and mutate all other template elements:
   // mutating the hook
   var myRole role
 
-  hook := cfnTemplate.GetHook(jsii.String("MyOutput"))
+  hook := cfnTemplate.getHook(jsii.String("MyOutput"))
   codeDeployHook := hook.(cfnCodeDeployBlueGreenHook)
-  codeDeployHook.serviceRole = myRole.RoleArn
+  codeDeployHook.serviceRole = myRole.roleArn
   ```
 
 ## Parameter replacement
@@ -339,9 +310,9 @@ you may want to remove them in favor of build-time values.
 You can do that using the `parameters` property:
 
 ```go
-cfn_inc.NewCfnInclude(this, jsii.String("includeTemplate"), &CfnIncludeProps{
-	TemplateFile: jsii.String("path/to/my/template"),
-	Parameters: map[string]interface{}{
+cfn_inc.NewCfnInclude(this, jsii.String("includeTemplate"), &cfnIncludeProps{
+	templateFile: jsii.String("path/to/my/template"),
+	parameters: map[string]interface{}{
 		"MyParam": jsii.String("my-value"),
 	},
 })
@@ -385,9 +356,9 @@ You can include both the parent stack,
 and the nested stack in your CDK application as follows:
 
 ```go
-parentTemplate := cfn_inc.NewCfnInclude(this, jsii.String("ParentStack"), &CfnIncludeProps{
-	TemplateFile: jsii.String("path/to/my-parent-template.json"),
-	LoadNestedStacks: map[string]cfnIncludeProps{
+parentTemplate := cfn_inc.NewCfnInclude(this, jsii.String("ParentStack"), &cfnIncludeProps{
+	templateFile: jsii.String("path/to/my-parent-template.json"),
+	loadNestedStacks: map[string]*cfnIncludeProps{
 		"ChildStack": &cfnIncludeProps{
 			"templateFile": jsii.String("path/to/my-nested-template.json"),
 		},
@@ -409,9 +380,9 @@ The included nested stack can be accessed with the `getNestedStack` method:
 var parentTemplate cfnInclude
 
 
-includedChildStack := parentTemplate.GetNestedStack(jsii.String("ChildStack"))
-childStack := includedChildStack.Stack
-childTemplate := includedChildStack.IncludedTemplate
+includedChildStack := parentTemplate.getNestedStack(jsii.String("ChildStack"))
+childStack := includedChildStack.stack
+childTemplate := includedChildStack.includedTemplate
 ```
 
 Now you can reference resources from `ChildStack`,
@@ -421,21 +392,21 @@ and modify them like any other included template:
 var childTemplate cfnInclude
 
 
-cfnBucket := childTemplate.GetResource(jsii.String("MyBucket")).(cfnBucket)
-cfnBucket.BucketName = "my-new-bucket-name"
+cfnBucket := childTemplate.getResource(jsii.String("MyBucket")).(cfnBucket)
+cfnBucket.bucketName = "my-new-bucket-name"
 
-role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
-	AssumedBy: iam.NewAccountRootPrincipal(),
+role := iam.NewRole(this, jsii.String("MyRole"), &roleProps{
+	assumedBy: iam.NewAccountRootPrincipal(),
 })
 
-role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
+role.addToPolicy(iam.NewPolicyStatement(&policyStatementProps{
+	actions: []*string{
 		jsii.String("s3:GetObject*"),
 		jsii.String("s3:GetBucket*"),
 		jsii.String("s3:List*"),
 	},
-	Resources: []*string{
-		cfnBucket.AttrArn,
+	resources: []*string{
+		cfnBucket.attrArn,
 	},
 }))
 ```
@@ -446,8 +417,8 @@ instead of doing it on construction:
 ```go
 var parentTemplate cfnInclude
 
-includedChildStack := parentTemplate.LoadNestedStack(jsii.String("ChildTemplate"), &CfnIncludeProps{
-	TemplateFile: jsii.String("path/to/my-nested-template.json"),
+includedChildStack := parentTemplate.loadNestedStack(jsii.String("ChildTemplate"), &cfnIncludeProps{
+	templateFile: jsii.String("path/to/my-nested-template.json"),
 })
 ```
 
@@ -473,9 +444,9 @@ func NewMyConstruct(scope construct, id *string) *MyConstruct {
 
 	// include a template inside the Construct
 	// include a template inside the Construct
-	cfn_inc.NewCfnInclude(this, jsii.String("MyConstruct"), &CfnIncludeProps{
-		TemplateFile: path.join(__dirname, jsii.String("my-template.json")),
-		PreserveLogicalIds: jsii.Boolean(false),
+	cfn_inc.NewCfnInclude(this, jsii.String("MyConstruct"), &cfnIncludeProps{
+		templateFile: path.join(__dirname, jsii.String("my-template.json")),
+		preserveLogicalIds: jsii.Boolean(false),
 	})
 	return this
 }
