@@ -74,25 +74,25 @@ var cpuUtilization metric
 
 
 capacity.scaleOnMetric(jsii.String("ScaleToCPU"), &basicStepScalingPolicyProps{
-	metric: cpuUtilization,
-	scalingSteps: []scalingInterval{
+	Metric: cpuUtilization,
+	ScalingSteps: []scalingInterval{
 		&scalingInterval{
-			upper: jsii.Number(10),
-			change: -jsii.Number(1),
+			Upper: jsii.Number(10),
+			Change: -jsii.Number(1),
 		},
 		&scalingInterval{
-			lower: jsii.Number(50),
-			change: +jsii.Number(1),
+			Lower: jsii.Number(50),
+			Change: +jsii.Number(1),
 		},
 		&scalingInterval{
-			lower: jsii.Number(70),
-			change: +jsii.Number(3),
+			Lower: jsii.Number(70),
+			Change: +jsii.Number(3),
 		},
 	},
 
 	// Change this to AdjustmentType.PercentChangeInCapacity to interpret the
 	// 'change' numbers before as percentages instead of capacity counts.
-	adjustmentType: appscaling.adjustmentType_CHANGE_IN_CAPACITY,
+	AdjustmentType: appscaling.AdjustmentType_CHANGE_IN_CAPACITY,
 })
 ```
 
@@ -113,30 +113,30 @@ var cpuUtilization metric
 
 
 capacity.scaleOnMetric(jsii.String("ScaleToCPUWithMultipleDatapoints"), &basicStepScalingPolicyProps{
-	metric: cpuUtilization,
-	scalingSteps: []scalingInterval{
+	Metric: cpuUtilization,
+	ScalingSteps: []scalingInterval{
 		&scalingInterval{
-			upper: jsii.Number(10),
-			change: -jsii.Number(1),
+			Upper: jsii.Number(10),
+			Change: -jsii.Number(1),
 		},
 		&scalingInterval{
-			lower: jsii.Number(50),
-			change: +jsii.Number(1),
+			Lower: jsii.Number(50),
+			Change: +jsii.Number(1),
 		},
 		&scalingInterval{
-			lower: jsii.Number(70),
-			change: +jsii.Number(3),
+			Lower: jsii.Number(70),
+			Change: +jsii.Number(3),
 		},
 	},
 
 	// if the cpuUtilization metric has a period of 1 minute, then data points
 	// in the last 10 minutes will be evaluated
-	evaluationPeriods: jsii.Number(10),
+	EvaluationPeriods: jsii.Number(10),
 
 	// Only trigger a scaling action when 6 datapoints out of the last 10 are
 	// breaching. If this is left unspecified, then ALL datapoints in the
 	// evaluation period must be breaching to trigger a scaling action
-	datapointsToAlarm: jsii.Number(6),
+	DatapointsToAlarm: jsii.Number(6),
 })
 ```
 
@@ -157,12 +157,12 @@ import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 var table table
 
 
-readCapacity := table.autoScaleReadCapacity(&enableScalingProps{
-	minCapacity: jsii.Number(10),
-	maxCapacity: jsii.Number(1000),
+readCapacity := table.AutoScaleReadCapacity(&EnableScalingProps{
+	MinCapacity: jsii.Number(10),
+	MaxCapacity: jsii.Number(1000),
 })
-readCapacity.scaleOnUtilization(&utilizationScalingProps{
-	targetUtilizationPercent: jsii.Number(60),
+readCapacity.ScaleOnUtilization(&UtilizationScalingProps{
+	TargetUtilizationPercent: jsii.Number(60),
 })
 ```
 
@@ -200,19 +200,19 @@ capacity := resource.autoScaleCapacity(&caps{
 })
 
 capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
-	schedule: appscaling.schedule.cron(&cronOptions{
-		hour: jsii.String("8"),
-		minute: jsii.String("0"),
+	Schedule: appscaling.Schedule_Cron(&CronOptions{
+		Hour: jsii.String("8"),
+		Minute: jsii.String("0"),
 	}),
-	minCapacity: jsii.Number(20),
+	MinCapacity: jsii.Number(20),
 })
 
 capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
-	schedule: appscaling.*schedule.cron(&cronOptions{
-		hour: jsii.String("20"),
-		minute: jsii.String("0"),
+	Schedule: appscaling.Schedule_*Cron(&CronOptions{
+		Hour: jsii.String("20"),
+		Minute: jsii.String("0"),
 	}),
-	minCapacity: jsii.Number(1),
+	MinCapacity: jsii.Number(1),
 })
 ```
 
@@ -221,48 +221,48 @@ capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedul
 ### Lambda Provisioned Concurrency Auto Scaling
 
 ```go
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var code code
 
 
-handler := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_PYTHON_3_7(),
-	handler: jsii.String("index.handler"),
-	code: code,
+handler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_7(),
+	Handler: jsii.String("index.handler"),
+	Code: Code,
 
-	reservedConcurrentExecutions: jsii.Number(2),
+	ReservedConcurrentExecutions: jsii.Number(2),
 })
 
 fnVer := handler.currentVersion
 
-target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &scalableTargetProps{
-	serviceNamespace: appscaling.serviceNamespace_LAMBDA,
-	maxCapacity: jsii.Number(100),
-	minCapacity: jsii.Number(10),
-	resourceId: fmt.Sprintf("function:%v:%v", handler.functionName, fnVer.version),
-	scalableDimension: jsii.String("lambda:function:ProvisionedConcurrency"),
+target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &ScalableTargetProps{
+	ServiceNamespace: appscaling.ServiceNamespace_LAMBDA,
+	MaxCapacity: jsii.Number(100),
+	MinCapacity: jsii.Number(10),
+	ResourceId: fmt.Sprintf("function:%v:%v", handler.FunctionName, fnVer.Version),
+	ScalableDimension: jsii.String("lambda:function:ProvisionedConcurrency"),
 })
 
-target.scaleToTrackMetric(jsii.String("PceTracking"), &basicTargetTrackingScalingPolicyProps{
-	targetValue: jsii.Number(0.9),
-	predefinedMetric: appscaling.predefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
+target.ScaleToTrackMetric(jsii.String("PceTracking"), &BasicTargetTrackingScalingPolicyProps{
+	TargetValue: jsii.Number(0.9),
+	PredefinedMetric: appscaling.PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
 })
 ```
 
 ### ElastiCache Redis shards scaling with target value
 
 ```go
-shardsScalableTarget := appscaling.NewScalableTarget(this, jsii.String("ElastiCacheRedisShardsScalableTarget"), &scalableTargetProps{
-	serviceNamespace: appscaling.serviceNamespace_ELASTICACHE,
-	scalableDimension: jsii.String("elasticache:replication-group:NodeGroups"),
-	minCapacity: jsii.Number(2),
-	maxCapacity: jsii.Number(10),
-	resourceId: jsii.String("replication-group/main-cluster"),
+shardsScalableTarget := appscaling.NewScalableTarget(this, jsii.String("ElastiCacheRedisShardsScalableTarget"), &ScalableTargetProps{
+	ServiceNamespace: appscaling.ServiceNamespace_ELASTICACHE,
+	ScalableDimension: jsii.String("elasticache:replication-group:NodeGroups"),
+	MinCapacity: jsii.Number(2),
+	MaxCapacity: jsii.Number(10),
+	ResourceId: jsii.String("replication-group/main-cluster"),
 })
 
-shardsScalableTarget.scaleToTrackMetric(jsii.String("ElastiCacheRedisShardsCPUUtilization"), &basicTargetTrackingScalingPolicyProps{
-	targetValue: jsii.Number(20),
-	predefinedMetric: appscaling.predefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION,
+shardsScalableTarget.ScaleToTrackMetric(jsii.String("ElastiCacheRedisShardsCPUUtilization"), &BasicTargetTrackingScalingPolicyProps{
+	TargetValue: jsii.Number(20),
+	PredefinedMetric: appscaling.PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION,
 })
 ```

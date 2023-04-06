@@ -11,23 +11,24 @@ This library contains Route53 Alias Record targets for:
   var restApi lambdaRestApi
 
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewApiGateway(restApi)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewApiGateway(restApi)),
   })
   ```
 * API Gateway V2 custom domains
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 
   var zone hostedZone
-  var domainName domainName
+  var domainName apigwv2.DomainName
 
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewApiGatewayv2DomainProperties(domainName.regionalDomainName, domainName.regionalHostedZoneId)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.regionalDomainName, domainName.regionalHostedZoneId)),
   })
   ```
 * CloudFront distributions
@@ -39,9 +40,9 @@ This library contains Route53 Alias Record targets for:
   var distribution cloudFrontWebDistribution
 
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewCloudFrontTarget(distribution)),
   })
   ```
 * ELBv2 load balancers
@@ -53,9 +54,9 @@ This library contains Route53 Alias Record targets for:
   var lb applicationLoadBalancer
 
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewLoadBalancerTarget(lb)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewLoadBalancerTarget(lb)),
   })
   ```
 * Classic load balancers
@@ -67,9 +68,9 @@ This library contains Route53 Alias Record targets for:
   var lb loadBalancer
 
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewClassicLoadBalancerTarget(lb)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewClassicLoadBalancerTarget(lb)),
   })
   ```
 
@@ -86,9 +87,9 @@ For example, if the Amazon-provided DNS for the load balancer is `ALB-xxxxxxx.us
   var accelerator accelerator
 
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewGlobalAcceleratorTarget(accelerator)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewGlobalAcceleratorTarget(accelerator)),
   })
   ```
 
@@ -106,9 +107,9 @@ var zone hostedZone
 var interfaceVpcEndpoint interfaceVpcEndpoint
 
 
-route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-	zone: zone,
-	target: route53.recordTarget.fromAlias(targets.NewInterfaceVpcEndpointTarget(interfaceVpcEndpoint)),
+route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+	Zone: Zone,
+	Target: route53.RecordTarget_FromAlias(targets.NewInterfaceVpcEndpointTarget(interfaceVpcEndpoint)),
 })
 ```
 
@@ -124,26 +125,26 @@ import s3 "github.com/aws/aws-cdk-go/awscdk"
 recordName := "www"
 domainName := "example.com"
 
-bucketWebsite := s3.NewBucket(this, jsii.String("BucketWebsite"), &bucketProps{
-	bucketName: []*string{
+bucketWebsite := s3.NewBucket(this, jsii.String("BucketWebsite"), &BucketProps{
+	BucketName: []*string{
 		recordName,
 		domainName,
 	}.join(jsii.String(".")),
 	 // www.example.com
-	publicReadAccess: jsii.Boolean(true),
-	websiteIndexDocument: jsii.String("index.html"),
+	PublicReadAccess: jsii.Boolean(true),
+	WebsiteIndexDocument: jsii.String("index.html"),
 })
 
-zone := route53.hostedZone.fromLookup(this, jsii.String("Zone"), &hostedZoneProviderProps{
-	domainName: jsii.String(domainName),
+zone := route53.HostedZone_FromLookup(this, jsii.String("Zone"), &HostedZoneProviderProps{
+	DomainName: jsii.String(DomainName),
 }) // example.com
 
  // example.com
-route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-	zone: zone,
-	recordName: jsii.String(recordName),
+route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+	Zone: Zone,
+	RecordName: jsii.String(RecordName),
 	 // www
-	target: route53.recordTarget.fromAlias(targets.NewBucketWebsiteTarget(bucketWebsite)),
+	Target: route53.RecordTarget_FromAlias(targets.NewBucketWebsiteTarget(bucketWebsite)),
 })
 ```
 
@@ -155,9 +156,9 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
   var zone hostedZone
   var domain userPoolDomain
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewUserPoolDomainTarget(domain)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewUserPoolDomainTarget(domain)),
   })
   ```
 * Route 53 record
@@ -166,9 +167,9 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
   var zone hostedZone
   var record aRecord
 
-  route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-  	zone: zone,
-  	target: route53.recordTarget.fromAlias(targets.NewRoute53RecordTarget(record)),
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewRoute53RecordTarget(record)),
   })
   ```
 * Elastic Beanstalk environment:
@@ -180,9 +181,9 @@ var zone hostedZone
 var ebsEnvironmentUrl string
 
 
-route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-	zone: zone,
-	target: route53.recordTarget.fromAlias(targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl)),
+route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+	Zone: Zone,
+	Target: route53.RecordTarget_FromAlias(targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl)),
 })
 ```
 

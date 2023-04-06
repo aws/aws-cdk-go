@@ -27,7 +27,7 @@ EventBridge.
 
 ## Event retry policy and using dead-letter queues
 
-The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup and SQSQueue targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
+The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup, SQSQueue, SNSTopic and ECSTask targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
 Use [escape hatches](https://docs.aws.amazon.com/cdk/latest/guide/cfn_layer.html) for the other target types.
 
 ## Invoke a Lambda function
@@ -39,18 +39,18 @@ triggered for every events from `aws.ec2` source. You can optionally attach a
 [dead letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html).
 
 ```go
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
-fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromInline(jsii.String("exports.handler = handler.toString()")),
+fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 })
 
-rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
-	eventPattern: &eventPattern{
-		source: []*string{
+rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+	EventPattern: &EventPattern{
+		Source: []*string{
 			jsii.String("aws.ec2"),
 		},
 	},
@@ -58,12 +58,12 @@ rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
 
 queue := sqs.NewQueue(this, jsii.String("Queue"))
 
-rule.addTarget(targets.NewLambdaFunction(fn, &lambdaFunctionProps{
-	deadLetterQueue: queue,
+rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
+	DeadLetterQueue: queue,
 	 // Optional: add a dead letter queue
-	maxEventAge: cdk.duration.hours(jsii.Number(2)),
+	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
 	 // Optional: set the maxEventAge retry policy
-	retryAttempts: jsii.Number(2),
+	RetryAttempts: jsii.Number(2),
 }))
 ```
 
@@ -78,19 +78,56 @@ Every events sent from the `aws.ec2` source will be sent to the CloudWatch LogGr
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
 
-logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"), &logGroupProps{
-	logGroupName: jsii.String("MyLogGroup"),
+logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"), &LogGroupProps{
+	LogGroupName: jsii.String("MyLogGroup"),
 })
 
-rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
-	eventPattern: &eventPattern{
-		source: []*string{
+rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+	EventPattern: &EventPattern{
+		Source: []*string{
 			jsii.String("aws.ec2"),
 		},
 	},
 })
 
-rule.addTarget(targets.NewCloudWatchLogGroup(logGroup))
+rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup))
+```
+
+A rule target input can also be specified to modify the event that is sent to the log group.
+Unlike other event targets, CloudWatchLogs requires a specific input template format.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import logs "github.com/aws/aws-cdk-go/awscdk"
+var logGroup logGroup
+var rule rule
+
+
+rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
+	LogEvent: targets.LogGroupTargetInput(map[string]interface{}{
+		"timestamp": events.EventField.from(jsii.String("$.time")),
+		"message": events.EventField.from(jsii.String("$.detail-type")),
+	}),
+}))
+```
+
+If you want to use static values to overwrite the `message` make sure that you provide a `string`
+value.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import logs "github.com/aws/aws-cdk-go/awscdk"
+var logGroup logGroup
+var rule rule
+
+
+rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
+	LogEvent: targets.LogGroupTargetInput(map[string]*string{
+		"message": JSON.stringify(map[string]*string{
+			"CustomField": jsii.String("CustomValue"),
+		}),
+	}),
+}))
 ```
 
 ## Start a CodeBuild build
@@ -102,28 +139,28 @@ on commit to the master branch. You can optionally attach a
 [dead letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html).
 
 ```go
-import codebuild "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
 
 
-repo := codecommit.NewRepository(this, jsii.String("MyRepo"), &repositoryProps{
-	repositoryName: jsii.String("aws-cdk-codebuild-events"),
+repo := codecommit.NewRepository(this, jsii.String("MyRepo"), &RepositoryProps{
+	RepositoryName: jsii.String("aws-cdk-codebuild-events"),
 })
 
-project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-	source: codebuild.source.codeCommit(&codeCommitSourceProps{
-		repository: repo,
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	Source: codebuild.Source_CodeCommit(&CodeCommitSourceProps{
+		Repository: repo,
 	}),
 })
 
 deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 
 // trigger a build when a commit is pushed to the repo
-onCommitRule := repo.onCommit(jsii.String("OnCommit"), &onCommitOptions{
-	target: targets.NewCodeBuildProject(project, &codeBuildProjectProps{
-		deadLetterQueue: deadLetterQueue,
+onCommitRule := repo.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
+	Target: targets.NewCodeBuildProject(project, &CodeBuildProjectProps{
+		DeadLetterQueue: deadLetterQueue,
 	}),
-	branches: []*string{
+	Branches: []*string{
 		jsii.String("master"),
 	},
 })
@@ -141,11 +178,11 @@ import codepipeline "github.com/aws/aws-cdk-go/awscdk"
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("Pipeline"))
 
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.expression(jsii.String("rate(1 hour)")),
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Expression(jsii.String("rate(1 hour)")),
 })
 
-rule.addTarget(targets.NewCodePipeline(pipeline))
+rule.AddTarget(targets.NewCodePipeline(pipeline))
 ```
 
 ## Start a StepFunctions state machine
@@ -159,31 +196,31 @@ You can optionally attach a
 to the target.
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
-import sfn "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.rate(cdk.duration.minutes(jsii.Number(1))),
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 })
 
 dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 
-role := iam.NewRole(this, jsii.String("Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("events.amazonaws.com")),
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("events.amazonaws.com")),
 })
-stateMachine := sfn.NewStateMachine(this, jsii.String("SM"), &stateMachineProps{
-	definition: sfn.NewWait(this, jsii.String("Hello"), &waitProps{
-		time: sfn.waitTime.duration(cdk.*duration.seconds(jsii.Number(10))),
+stateMachine := sfn.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
+	Definition: sfn.NewWait(this, jsii.String("Hello"), &WaitProps{
+		Time: sfn.WaitTime_Duration(cdk.Duration_Seconds(jsii.Number(10))),
 	}),
 })
 
-rule.addTarget(targets.NewSfnStateMachine(stateMachine, &sfnStateMachineProps{
-	input: events.ruleTargetInput.fromObject(map[string]*string{
+rule.AddTarget(targets.NewSfnStateMachine(stateMachine, &SfnStateMachineProps{
+	Input: events.RuleTargetInput_FromObject(map[string]*string{
 		"SomeParam": jsii.String("SomeValue"),
 	}),
-	deadLetterQueue: dlq,
-	role: role,
+	DeadLetterQueue: dlq,
+	Role: role,
 }))
 ```
 
@@ -198,40 +235,41 @@ You can optionally attach a
 to the target.
 
 ```go
-import batch "github.com/aws/aws-cdk-go/awscdk"
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), &jobQueueProps{
-	computeEnvironments: []jobQueueComputeEnvironment{
-		&jobQueueComputeEnvironment{
-			computeEnvironment: batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), &computeEnvironmentProps{
-				managed: jsii.Boolean(false),
+jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), map[string][]map[string]interface{}{
+	"computeEnvironments": []map[string]interface{}{
+		map[string]interface{}{
+			"computeEnvironment": batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
+				"managed": jsii.Boolean(false),
 			}),
-			order: jsii.Number(1),
+			"order": jsii.Number(1),
 		},
 	},
 })
 
-jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), &jobDefinitionProps{
-	container: &jobDefinitionContainer{
-		image: awscdk.ContainerImage.fromRegistry(jsii.String("test-repo")),
+jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), map[string]map[string]repositoryImage{
+	"container": map[string]repositoryImage{
+		"image": awscdk.ContainerImage_fromRegistry(jsii.String("test-repo")),
 	},
 })
 
 queue := sqs.NewQueue(this, jsii.String("Queue"))
 
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.rate(cdk.duration.hours(jsii.Number(1))),
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 })
 
-rule.addTarget(targets.NewBatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &batchJobProps{
-	deadLetterQueue: queue,
-	event: events.ruleTargetInput.fromObject(map[string]*string{
+rule.AddTarget(targets.NewBatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
+	DeadLetterQueue: queue,
+	Event: events.RuleTargetInput_FromObject(map[string]*string{
 		"SomeParam": jsii.String("SomeValue"),
 	}),
-	retryAttempts: jsii.Number(2),
-	maxEventAge: cdk.*duration.hours(jsii.Number(2)),
+	RetryAttempts: jsii.Number(2),
+	MaxEventAge: cdk.Duration_*Hours(jsii.Number(2)),
 }))
 ```
 
@@ -243,40 +281,40 @@ The code snippet below creates a Api Gateway REST API that is invoked every hour
 
 ```go
 import api "github.com/aws/aws-cdk-go/awscdk"
-import lambda "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.rate(cdk.duration.minutes(jsii.Number(1))),
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 })
 
-fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
-	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
-	code: lambda.code.fromInline(jsii.String("exports.handler = e => {}")),
+fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Code: lambda.Code_FromInline(jsii.String("exports.handler = e => {}")),
 })
 
-restApi := api.NewLambdaRestApi(this, jsii.String("MyRestAPI"), &lambdaRestApiProps{
-	handler: fn,
+restApi := api.NewLambdaRestApi(this, jsii.String("MyRestAPI"), &LambdaRestApiProps{
+	Handler: fn,
 })
 
 dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 
-rule.addTarget(
-targets.NewApiGateway(restApi, &apiGatewayProps{
-	path: jsii.String("/*/test"),
-	method: jsii.String("GET"),
-	stage: jsii.String("prod"),
-	pathParameterValues: []*string{
+rule.AddTarget(
+targets.NewApiGateway(restApi, &ApiGatewayProps{
+	Path: jsii.String("/*/test"),
+	Method: jsii.String("GET"),
+	Stage: jsii.String("prod"),
+	PathParameterValues: []*string{
 		jsii.String("path-value"),
 	},
-	headerParameters: map[string]*string{
+	HeaderParameters: map[string]*string{
 		"Header1": jsii.String("header1"),
 	},
-	queryStringParameters: map[string]*string{
+	QueryStringParameters: map[string]*string{
 		"QueryParam1": jsii.String("query-param-1"),
 	},
-	deadLetterQueue: dlq,
+	DeadLetterQueue: dlq,
 }))
 ```
 
@@ -288,20 +326,20 @@ create an `events.Connection` and `events.ApiDestination` as well.
 The code snippet below creates an external destination that is invoked every hour.
 
 ```go
-connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
-	description: jsii.String("Connection with API Key x-api-key"),
+connection := events.NewConnection(this, jsii.String("Connection"), &ConnectionProps{
+	Authorization: events.Authorization_ApiKey(jsii.String("x-api-key"), awscdk.SecretValue_SecretsManager(jsii.String("ApiSecretName"))),
+	Description: jsii.String("Connection with API Key x-api-key"),
 })
 
-destination := events.NewApiDestination(this, jsii.String("Destination"), &apiDestinationProps{
-	connection: connection,
-	endpoint: jsii.String("https://example.com"),
-	description: jsii.String("Calling example.com with API key x-api-key"),
+destination := events.NewApiDestination(this, jsii.String("Destination"), &ApiDestinationProps{
+	Connection: Connection,
+	Endpoint: jsii.String("https://example.com"),
+	Description: jsii.String("Calling example.com with API key x-api-key"),
 })
 
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.rate(cdk.duration.minutes(jsii.Number(1))),
-	targets: []iRuleTarget{
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
+	Targets: []iRuleTarget{
 		targets.NewApiDestination(destination),
 	},
 })
@@ -314,9 +352,9 @@ Use the `EventBus` target to route event to a different EventBus.
 The code snippet below creates the scheduled event rule that route events to an imported event bus.
 
 ```go
-rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
-	schedule: events.schedule.expression(jsii.String("rate(1 minute)")),
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Expression(jsii.String("rate(1 minute)")),
 })
 
-rule.addTarget(targets.NewEventBus(events.eventBus.fromEventBusArn(this, jsii.String("External"), jsii.String("arn:aws:events:eu-west-1:999999999999:event-bus/test-bus"))))
+rule.AddTarget(targets.NewEventBus(events.EventBus_FromEventBusArn(this, jsii.String("External"), jsii.String("arn:aws:events:eu-west-1:999999999999:event-bus/test-bus"))))
 ```

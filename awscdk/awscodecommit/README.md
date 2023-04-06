@@ -8,9 +8,9 @@ see the [AWS CodeCommit documentation](https://docs.aws.amazon.com/codecommit).
 To add a CodeCommit Repository to your stack:
 
 ```go
-repo := codecommit.NewRepository(this, jsii.String("Repository"), &repositoryProps{
-	repositoryName: jsii.String("MyRepositoryName"),
-	description: jsii.String("Some description."),
+repo := codecommit.NewRepository(this, jsii.String("Repository"), &RepositoryProps{
+	RepositoryName: jsii.String("MyRepositoryName"),
+	Description: jsii.String("Some description."),
 })
 ```
 
@@ -24,7 +24,7 @@ var repo repository
 
 
 // trigger is established for all repository actions on all branches by default.
-repo.notify(jsii.String("arn:aws:sns:*:123456789012:my_topic"))
+repo.Notify(jsii.String("arn:aws:sns:*:123456789012:my_topic"))
 ```
 
 ## Add initial commit
@@ -35,9 +35,9 @@ It provides methods for loading code from a directory, `.zip` file and from a pr
 Example:
 
 ```go
-repo := codecommit.NewRepository(this, jsii.String("Repository"), &repositoryProps{
-	repositoryName: jsii.String("MyRepositoryName"),
-	code: codecommit.code.fromDirectory(path.join(__dirname, jsii.String("directory/")), jsii.String("develop")),
+repo := codecommit.NewRepository(this, jsii.String("Repository"), &RepositoryProps{
+	RepositoryName: jsii.String("MyRepositoryName"),
+	Code: codecommit.Code_FromDirectory(path.join(__dirname, jsii.String("directory/")), jsii.String("develop")),
 })
 ```
 
@@ -49,24 +49,24 @@ and invoke targets as a result:
 
 ```go
 import sns "github.com/aws/aws-cdk-go/awscdk"
-import targets "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var repo repository
 var project pipelineProject
 var myTopic topic
 
 
-// starts a CodeBuild project when a commit is pushed to the "master" branch of the repo
-repo.onCommit(jsii.String("CommitToMaster"), &onCommitOptions{
-	target: targets.NewCodeBuildProject(project),
-	branches: []*string{
-		jsii.String("master"),
+// starts a CodeBuild project when a commit is pushed to the "main" branch of the repo
+repo.onCommit(jsii.String("CommitToMain"), &OnCommitOptions{
+	Target: targets.NewCodeBuildProject(project),
+	Branches: []*string{
+		jsii.String("main"),
 	},
 })
 
 // publishes a message to an Amazon SNS topic when a comment is made on a pull request
-rule := repo.onCommentOnPullRequest(jsii.String("CommentOnPullRequest"), &onEventOptions{
-	target: targets.NewSnsTopic(myTopic),
+rule := repo.onCommentOnPullRequest(jsii.String("CommentOnPullRequest"), &OnEventOptions{
+	Target: targets.NewSnsTopic(myTopic),
 })
 ```
 
@@ -80,10 +80,10 @@ import chatbot "github.com/aws/aws-cdk-go/awscdk"
 
 var repository repository
 
-target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
-	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
-	slackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
-	slackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
+target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
+	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
+	SlackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
+	SlackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
 })
 rule := repository.notifyOnPullRequestCreated(jsii.String("NotifyOnPullRequestCreated"), target)
 ```

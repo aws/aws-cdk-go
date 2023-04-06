@@ -28,13 +28,13 @@ that's not exposed using a convenience method on the CDK construct.
 For example:
 
 ```go
-hostedZone := route53.NewHostedZone(this, jsii.String("MyHostedZone"), &hostedZoneProps{
-	zoneName: jsii.String("example.org"),
+hostedZone := route53.NewHostedZone(this, jsii.String("MyHostedZone"), &HostedZoneProps{
+	ZoneName: jsii.String("example.org"),
 })
-metric := cloudwatch.NewMetric(&metricProps{
-	namespace: jsii.String("AWS/Route53"),
-	metricName: jsii.String("DNSQueries"),
-	dimensionsMap: map[string]*string{
+metric := cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
 		"HostedZoneId": hostedZone.hostedZoneId,
 	},
 })
@@ -46,10 +46,10 @@ If you want to reference a metric that is not yet exposed by an existing constru
 you can instantiate a `Metric` object to represent it. For example:
 
 ```go
-metric := cloudwatch.NewMetric(&metricProps{
-	namespace: jsii.String("MyNamespace"),
-	metricName: jsii.String("MyMetric"),
-	dimensionsMap: map[string]*string{
+metric := cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("MyNamespace"),
+	MetricName: jsii.String("MyMetric"),
+	DimensionsMap: map[string]*string{
 		"ProcessingStep": jsii.String("Download"),
 	},
 })
@@ -64,11 +64,11 @@ For example, a math expression that sums two other metrics looks like this:
 var fn function
 
 
-allProblems := cloudwatch.NewMathExpression(&mathExpressionProps{
-	expression: jsii.String("errors + throttles"),
-	usingMetrics: map[string]iMetric{
+allProblems := cloudwatch.NewMathExpression(&MathExpressionProps{
+	Expression: jsii.String("errors + throttles"),
+	UsingMetrics: map[string]iMetric{
 		"errors": fn.metricErrors(),
-		"faults": fn.metricThrottles(),
+		"throttles": fn.metricThrottles(),
 	},
 })
 ```
@@ -81,9 +81,9 @@ var fn function
 var allProblems mathExpression
 
 
-problemPercentage := cloudwatch.NewMathExpression(&mathExpressionProps{
-	expression: jsii.String("(problems / invocations) * 100"),
-	usingMetrics: map[string]iMetric{
+problemPercentage := cloudwatch.NewMathExpression(&MathExpressionProps{
+	Expression: jsii.String("(problems / invocations) * 100"),
+	UsingMetrics: map[string]iMetric{
 		"problems": allProblems,
 		"invocations": fn.metricInvocations(),
 	},
@@ -97,14 +97,14 @@ search expression returns all CPUUtilization metrics that it finds, with the
 graph showing the Average statistic with an aggregation period of 5 minutes:
 
 ```go
-cpuUtilization := cloudwatch.NewMathExpression(&mathExpressionProps{
-	expression: jsii.String("SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 300)"),
+cpuUtilization := cloudwatch.NewMathExpression(&MathExpressionProps{
+	Expression: jsii.String("SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 300)"),
 
 	// Specifying '' as the label suppresses the default behavior
 	// of using the expression as metric label. This is especially appropriate
 	// when using expressions that return multiple time series (like SEARCH()
 	// or METRICS()), to show the labels of the retrieved metrics only.
-	label: jsii.String(""),
+	Label: jsii.String(""),
 })
 ```
 
@@ -129,15 +129,18 @@ to the metric function call:
 var fn function
 
 
-minuteErrorRate := fn.metricErrors(&metricOptions{
-	statistic: jsii.String("avg"),
-	period: awscdk.Duration.minutes(jsii.Number(1)),
-	label: jsii.String("Lambda failure rate"),
+minuteErrorRate := fn.metricErrors(&MetricOptions{
+	Statistic: cloudwatch.Stats_AVERAGE(),
+	Period: awscdk.Duration_Minutes(jsii.Number(1)),
+	Label: jsii.String("Lambda failure rate"),
 })
 ```
 
-This function also allows changing the metric label or color (which will be
-useful when embedding them in graphs, see below).
+The `statistic` field accepts a `string`; the `cloudwatch.Stats` object has a
+number of predefined factory functions that help you constructs strings that are
+appropriate for CloudWatch. The `metricErrors` function also allows changing the
+metric label or color, which will be useful when embedding them in graphs (see
+below).
 
 > Rates versus Sums
 >
@@ -157,6 +160,61 @@ useful when embedding them in graphs, see below).
 > happen to know the Metric you want to alarm on makes sense as a rate
 > (`Average`) you can always choose to change the statistic.
 
+### Available Aggregation Statistics
+
+For your metrics aggregation, you can use the following statistics:
+
+| Statistic                |    Short format     |                 Long format                  | Factory name         |
+| ------------------------ | :-----------------: | :------------------------------------------: | -------------------- |
+| SampleCount (n)          |         ❌          |                      ❌                      | `Stats.SAMPLE_COUNT` |
+| Average (avg)            |         ❌          |                      ❌                      | `Stats.AVERAGE`      |
+| Sum                      |         ❌          |                      ❌                      | `Stats.SUM`          |
+| Minimum (min)            |         ❌          |                      ❌                      | `Stats.MINIMUM`      |
+| Maximum (max)            |         ❌          |                      ❌                      | `Stats.MAXIMUM`      |
+| Interquartile mean (IQM) |         ❌          |                      ❌                      | `Stats.IQM`          |
+| Percentile (p)           |        `p99`        |                      ❌                      | `Stats.p(99)`        |
+| Winsorized mean (WM)     | `wm99` = `WM(:99%)` | `WM(x:y) \| WM(x%:y%) \| WM(x%:) \| WM(:y%)` | `Stats.wm(10, 90)`   |
+| Trimmed count (TC)       | `tc99` = `TC(:99%)` | `TC(x:y) \| TC(x%:y%) \| TC(x%:) \| TC(:y%)` | `Stats.tc(10, 90)`   |
+| Trimmed sum (TS)         | `ts99` = `TS(:99%)` | `TS(x:y) \| TS(x%:y%) \| TS(x%:) \| TS(:y%)` | `Stats.ts(10, 90)`   |
+| Percentile rank (PR)     |         ❌          |        `PR(x:y) \| PR(x:) \| PR(:y)`         | `Stats.pr(10, 5000)` |
+
+The most common values are provided in the `cloudwatch.Stats` class. You can provide any string if your statistic is not in the class.
+
+Read more at [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
+		"HostedZoneId": hostedZone.hostedZoneId,
+	},
+	Statistic: cloudwatch.Stats_SAMPLE_COUNT(),
+	Period: cloudwatch.duration_Minutes(jsii.Number(5)),
+})
+
+cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
+		"HostedZoneId": hostedZone.hostedZoneId,
+	},
+	Statistic: cloudwatch.Stats_P(jsii.Number(99)),
+	Period: cloudwatch.*duration_*Minutes(jsii.Number(5)),
+})
+
+cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
+		"HostedZoneId": hostedZone.hostedZoneId,
+	},
+	Statistic: jsii.String("TS(7.5%:90%)"),
+	Period: cloudwatch.*duration_*Minutes(jsii.Number(5)),
+})
+```
+
 ### Labels
 
 Metric labels are displayed in the legend of graphs that include the metrics.
@@ -169,12 +227,12 @@ in the legend. For example, if you use:
 var fn function
 
 
-minuteErrorRate := fn.metricErrors(&metricOptions{
-	statistic: jsii.String("sum"),
-	period: awscdk.Duration.hours(jsii.Number(1)),
+minuteErrorRate := fn.metricErrors(&MetricOptions{
+	Statistic: cloudwatch.Stats_SUM(),
+	Period: awscdk.Duration_Hours(jsii.Number(1)),
 
 	// Show the maximum hourly error count in the legend
-	label: jsii.String("[max: ${MAX}] Lambda failure rate"),
+	Label: jsii.String("[max: ${MAX}] Lambda failure rate"),
 })
 ```
 
@@ -194,10 +252,10 @@ object, passing the `Metric` object to set the alarm on:
 var fn function
 
 
-cloudwatch.NewAlarm(this, jsii.String("Alarm"), &alarmProps{
-	metric: fn.metricErrors(),
-	threshold: jsii.Number(100),
-	evaluationPeriods: jsii.Number(2),
+cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+	Metric: fn.metricErrors(),
+	Threshold: jsii.Number(100),
+	EvaluationPeriods: jsii.Number(2),
 })
 ```
 
@@ -207,9 +265,9 @@ Alternatively, you can call `metric.createAlarm()`:
 var fn function
 
 
-fn.metricErrors().createAlarm(this, jsii.String("Alarm"), &createAlarmOptions{
-	threshold: jsii.Number(100),
-	evaluationPeriods: jsii.Number(2),
+fn.metricErrors().CreateAlarm(this, jsii.String("Alarm"), &CreateAlarmOptions{
+	Threshold: jsii.Number(100),
+	EvaluationPeriods: jsii.Number(2),
 })
 ```
 
@@ -218,7 +276,7 @@ The most important properties to set while creating an Alarms are:
 * `threshold`: the value to compare the metric against.
 * `comparisonOperator`: the comparison operation to use, defaults to `metric >= threshold`.
 * `evaluationPeriods`: how many consecutive periods the metric has to be
-  breaching the the threshold for the alarm to trigger.
+  breaching the threshold for the alarm to trigger.
 
 To create a cross-account alarm, make sure you have enabled [cross-account functionality](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html) in CloudWatch. Then, set the `account` property in the `Metric` object either manually or via the `metric.attachTo()` method.
 
@@ -234,7 +292,7 @@ var alarm alarm
 
 
 topic := sns.NewTopic(this, jsii.String("Topic"))
-alarm.addAlarmAction(cw_actions.NewSnsAction(topic))
+alarm.AddAlarmAction(cw_actions.NewSnsAction(topic))
 ```
 
 #### Notification formats
@@ -270,12 +328,38 @@ var alarm3 alarm
 var alarm4 alarm
 
 
-alarmRule := cloudwatch.alarmRule.anyOf(cloudwatch.alarmRule.allOf(cloudwatch.alarmRule.anyOf(alarm1, cloudwatch.alarmRule.fromAlarm(alarm2, cloudwatch.alarmState_OK), alarm3), cloudwatch.alarmRule.not(cloudwatch.alarmRule.fromAlarm(alarm4, cloudwatch.alarmState_INSUFFICIENT_DATA))), cloudwatch.alarmRule.fromBoolean(jsii.Boolean(false)))
+alarmRule := cloudwatch.AlarmRule_AnyOf(cloudwatch.AlarmRule_AllOf(cloudwatch.AlarmRule_AnyOf(alarm1, cloudwatch.AlarmRule_FromAlarm(alarm2, cloudwatch.AlarmState_OK), alarm3), cloudwatch.AlarmRule_Not(cloudwatch.AlarmRule_FromAlarm(alarm4, cloudwatch.AlarmState_INSUFFICIENT_DATA))), cloudwatch.AlarmRule_FromBoolean(jsii.Boolean(false)))
 
-cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &compositeAlarmProps{
-	alarmRule: alarmRule,
+cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &CompositeAlarmProps{
+	AlarmRule: AlarmRule,
 })
 ```
+
+#### Actions Suppressor
+
+If you want to disable actions of a Composite Alarm based on a certain condition, you can use [Actions Suppression](https://www.amazonaws.cn/en/new/2022/amazon-cloudwatch-supports-composite-alarm-actions-suppression/).
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var childAlarm1 alarm
+var childAlarm2 alarm
+var onAlarmAction iAlarmAction
+var onOkAction iAlarmAction
+var actionsSuppressor alarm
+
+
+alarmRule := cloudwatch.AlarmRule_AnyOf(alarm1, alarm2)
+
+myCompositeAlarm := cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &CompositeAlarmProps{
+	AlarmRule: AlarmRule,
+	ActionsSuppressor: ActionsSuppressor,
+})
+myCompositeAlarm.addAlarmActions(onAlarmAction)
+myComposireAlarm.addOkAction(onOkAction)
+```
+
+In the provided example, if `actionsSuppressor` is in `ALARM` state, `onAlarmAction` won't be triggered even if `myCompositeAlarm` goes into `ALARM` state.
+Similar, if `actionsSuppressor` is in `ALARM` state and `myCompositeAlarm` goes from `ALARM` into `OK` state, `onOkAction` won't be triggered.
 
 ### A note on units
 
@@ -323,18 +407,18 @@ var executionCountMetric metric
 var errorCountMetric metric
 
 
-dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
-	title: jsii.String("Executions vs error rate"),
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
+	Title: jsii.String("Executions vs error rate"),
 
-	left: []iMetric{
+	Left: []iMetric{
 		executionCountMetric,
 	},
 
-	right: []*iMetric{
-		errorCountMetric.with(&metricOptions{
-			statistic: jsii.String("average"),
-			label: jsii.String("Error rate"),
-			color: cloudwatch.color_GREEN(),
+	Right: []*iMetric{
+		errorCountMetric.With(&MetricOptions{
+			Statistic: cloudwatch.Stats_AVERAGE(),
+			Label: jsii.String("Error rate"),
+			Color: cloudwatch.Color_GREEN(),
 		}),
 	},
 }))
@@ -348,19 +432,19 @@ Graph widgets can also display annotations attached to the left or the right y-a
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 	// ...
 
-	leftAnnotations: []horizontalAnnotation{
+	LeftAnnotations: []horizontalAnnotation{
 		&horizontalAnnotation{
-			value: jsii.Number(1800),
-			label: awscdk.Duration.minutes(jsii.Number(30)).toHumanString(),
-			color: cloudwatch.color_RED(),
+			Value: jsii.Number(1800),
+			Label: awscdk.Duration_Minutes(jsii.Number(30)).ToHumanString(),
+			Color: cloudwatch.Color_RED(),
 		},
 		&horizontalAnnotation{
-			value: jsii.Number(3600),
-			label: jsii.String("1 hour"),
-			color: jsii.String("#2ca02c"),
+			Value: jsii.Number(3600),
+			Label: jsii.String("1 hour"),
+			Color: jsii.String("#2ca02c"),
 		},
 	},
 }))
@@ -372,10 +456,10 @@ The graph legend can be adjusted from the default position at bottom of the widg
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 	// ...
 
-	legendPosition: cloudwatch.legendPosition_RIGHT,
+	LegendPosition: cloudwatch.LegendPosition_RIGHT,
 }))
 ```
 
@@ -385,10 +469,10 @@ The graph can publish live data within the last minute that has not been fully a
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 	// ...
 
-	liveData: jsii.Boolean(true),
+	LiveData: jsii.Boolean(true),
 }))
 ```
 
@@ -398,10 +482,31 @@ The graph view can be changed from default 'timeSeries' to 'bar' or 'pie'.
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 	// ...
 
-	view: cloudwatch.graphWidgetView_BAR,
+	View: cloudwatch.GraphWidgetView_BAR,
+}))
+```
+
+### Gauge widget
+
+Gauge graph requires the max and min value of the left Y axis, if no value is informed the limits will be from 0 to 100.
+
+```go
+var dashboard dashboard
+var errorAlarm alarm
+var gaugeMetric metric
+
+
+dashboard.AddWidgets(cloudwatch.NewGaugeWidget(&GaugeWidgetProps{
+	Metrics: []iMetric{
+		gaugeMetric,
+	},
+	LeftYAxis: &YAxisProps{
+		Min: jsii.Number(0),
+		Max: jsii.Number(1000),
+	},
 }))
 ```
 
@@ -414,9 +519,9 @@ var dashboard dashboard
 var errorAlarm alarm
 
 
-dashboard.addWidgets(cloudwatch.NewAlarmWidget(&alarmWidgetProps{
-	title: jsii.String("Errors"),
-	alarm: errorAlarm,
+dashboard.AddWidgets(cloudwatch.NewAlarmWidget(&AlarmWidgetProps{
+	Title: jsii.String("Errors"),
+	Alarm: errorAlarm,
 }))
 ```
 
@@ -431,8 +536,8 @@ var visitorCount metric
 var purchaseCount metric
 
 
-dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
-	metrics: []iMetric{
+dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
+	Metrics: []iMetric{
 		visitorCount,
 		purchaseCount,
 	},
@@ -445,11 +550,25 @@ Show as many digits as can fit, before rounding.
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
-	metrics: []iMetric{
+dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
+	Metrics: []iMetric{
 	},
 
-	fullPrecision: jsii.Boolean(true),
+	FullPrecision: jsii.Boolean(true),
+}))
+```
+
+Sparkline allows you to glance the trend of a metric by displaying a simplified linegraph below the value. You can't use `sparkline: true` together with `setPeriodToTimeRange: true`
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
+	Metrics: []iMetric{
+	},
+
+	Sparkline: jsii.Boolean(true),
 }))
 ```
 
@@ -462,8 +581,21 @@ to your dashboard:
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewTextWidget(&textWidgetProps{
-	markdown: jsii.String("# Key Performance Indicators"),
+dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
+	Markdown: jsii.String("# Key Performance Indicators"),
+}))
+```
+
+Optionally set the TextWidget background to be transparent
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
+	Markdown: jsii.String("# Key Performance Indicators"),
+	Background: textWidgetBackground_TRANSPARENT,
 }))
 ```
 
@@ -477,9 +609,9 @@ var dashboard dashboard
 var errorAlarm alarm
 
 
-dashboard.addWidgets(
-cloudwatch.NewAlarmStatusWidget(&alarmStatusWidgetProps{
-	alarms: []iAlarm{
+dashboard.AddWidgets(
+cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
+	Alarms: []iAlarm{
 		errorAlarm,
 	},
 }))
@@ -492,13 +624,13 @@ var dashboard dashboard
 var errorAlarm alarm
 
 
-dashboard.addWidgets(cloudwatch.NewAlarmStatusWidget(&alarmStatusWidgetProps{
-	title: jsii.String("Errors"),
-	alarms: []iAlarm{
+dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
+	Title: jsii.String("Errors"),
+	Alarms: []iAlarm{
 		errorAlarm,
 	},
-	sortBy: cloudwatch.alarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,
-	states: []alarmState{
+	SortBy: cloudwatch.AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,
+	States: []alarmState{
 		cloudwatch.*alarmState_ALARM,
 	},
 }))
@@ -512,13 +644,13 @@ A `LogQueryWidget` shows the results of a query from Logs Insights:
 var dashboard dashboard
 
 
-dashboard.addWidgets(cloudwatch.NewLogQueryWidget(&logQueryWidgetProps{
-	logGroupNames: []*string{
+dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
+	LogGroupNames: []*string{
 		jsii.String("my-log-group"),
 	},
-	view: cloudwatch.logQueryVisualizationType_TABLE,
+	View: cloudwatch.LogQueryVisualizationType_TABLE,
 	// The lines will be automatically combined using '\n|'.
-	queryLines: []*string{
+	QueryLines: []*string{
 		jsii.String("fields @message"),
 		jsii.String("filter @message like /Error/"),
 	},
@@ -534,11 +666,11 @@ var dashboard dashboard
 
 
 // Import or create a lambda function
-fn := lambda.function.fromFunctionArn(dashboard, jsii.String("Function"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:MyFn"))
+fn := lambda.Function_FromFunctionArn(dashboard, jsii.String("Function"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:MyFn"))
 
-dashboard.addWidgets(cloudwatch.NewCustomWidget(&customWidgetProps{
-	functionArn: fn.functionArn,
-	title: jsii.String("My lambda baked widget"),
+dashboard.AddWidgets(cloudwatch.NewCustomWidget(&CustomWidgetProps{
+	FunctionArn: fn.FunctionArn,
+	Title: jsii.String("My lambda baked widget"),
 }))
 ```
 
@@ -563,3 +695,54 @@ you can use the following widgets to pack widgets together in different ways:
 * `Column`: stack two or more widgets vertically.
 * `Row`: lay out two or more widgets horizontally.
 * `Spacer`: take up empty space
+
+### Column widget
+
+A column widget contains other widgets and they will be laid out in a
+vertical column. Widgets will be put one after another in order.
+
+```go
+var widgetA iWidget
+var widgetB iWidget
+
+
+cloudwatch.NewColumn(widgetA, widgetB)
+```
+
+You can add a widget after object instantiation with the method
+`addWidget()`. Each new widget will be put at the bottom of the column.
+
+### Row widget
+
+A row widget contains other widgets and they will be laid out in a
+horizontal row. Widgets will be put one after another in order.
+If the total width of the row exceeds the max width of the grid of 24
+columns, the row will wrap automatically and adapt its height.
+
+```go
+var widgetA iWidget
+var widgetB iWidget
+
+
+cloudwatch.NewRow(widgetA, widgetB)
+```
+
+You can add a widget after object instantiation with the method
+`addWidget()`.
+
+### Interval duration for dashboard
+
+Interval duration for metrics in dashboard. You can specify `defaultInterval` with
+the relative time(eg. 7 days) as `cdk.Duration.days(7)`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import cw "github.com/aws/aws-cdk-go/awscdk"
+
+
+dashboard := cw.NewDashboard(stack, jsii.String("Dash"), &DashboardProps{
+	DefaultInterval: cdk.duration_Days(jsii.Number(7)),
+})
+```
+
+Here, the dashboard would show the metrics for the last 7 days.

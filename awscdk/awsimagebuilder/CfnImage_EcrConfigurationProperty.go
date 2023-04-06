@@ -1,0 +1,28 @@
+package awsimagebuilder
+
+
+// Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   ecrConfigurationProperty := &EcrConfigurationProperty{
+//   	ContainerTags: []*string{
+//   		jsii.String("containerTags"),
+//   	},
+//   	RepositoryName: jsii.String("repositoryName"),
+//   }
+//
+type CfnImage_EcrConfigurationProperty struct {
+	// Tags for Image Builder to apply to the output container image that &INS;
+	//
+	// scans. Tags can help you identify and manage your scanned images.
+	ContainerTags *[]*string `field:"optional" json:"containerTags" yaml:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+	//
+	// The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named `image-builder-image-scanning-repository` for vulnerability scans of your output container images.
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
+}
+
