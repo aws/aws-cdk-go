@@ -1489,3 +1489,22 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 	PseudoTerminal: jsii.Boolean(true),
 })
 ```
+
+## Specify a container ulimit
+
+You can specify a container `ulimits` by specifying them in the `ulimits` option while adding the container
+to the task definition.
+
+```go
+taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	Ulimits: []ulimit{
+		&ulimit{
+			HardLimit: jsii.Number(128),
+			Name: ecs.UlimitName_RSS,
+			SoftLimit: jsii.Number(128),
+		},
+	},
+})
+```

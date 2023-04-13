@@ -5,6 +5,10 @@ package awscdkbatchalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvironment IComputeEnvironment, order *float64) error {
+	return nil
+}
+
 func (j *jsiiProxy_JobQueue) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -50,7 +50,15 @@ type CfnWorkflow_WorkflowStepProperty struct {
 	//
 	// Consists of the Lambda function's name, target, and timeout (in seconds).
 	CustomStepDetails interface{} `field:"optional" json:"customStepDetails" yaml:"customStepDetails"`
-	// `CfnWorkflow.WorkflowStepProperty.DecryptStepDetails`.
+	// Details for a step that decrypts an encrypted file.
+	//
+	// Consists of the following values:
+	//
+	// - A descriptive name
+	// - An Amazon S3 or Amazon Elastic File System (Amazon EFS) location for the source file to decrypt.
+	// - An S3 or Amazon EFS location for the destination of the file decryption.
+	// - A flag that indicates whether to overwrite an existing file of the same name. The default is `FALSE` .
+	// - The type of encryption that's used. Currently, only PGP encryption is supported.
 	DecryptStepDetails interface{} `field:"optional" json:"decryptStepDetails" yaml:"decryptStepDetails"`
 	// Details for a step that deletes the file.
 	DeleteStepDetails interface{} `field:"optional" json:"deleteStepDetails" yaml:"deleteStepDetails"`

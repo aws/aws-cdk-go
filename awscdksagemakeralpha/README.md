@@ -119,6 +119,20 @@ repository := ecr.Repository_FromRepositoryName(this, jsii.String("Repository"),
 image := sagemaker.ContainerImage_FromEcrRepository(repository, jsii.String("tag"))
 ```
 
+#### DLC Image
+
+Reference a deep learning container image:
+
+```go
+import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+
+
+repositoryName := "huggingface-pytorch-training"
+tag := "1.13.1-transformers4.26.0-gpu-py39-cu117-ubuntu20.04"
+
+image := sagemaker.ContainerImage_FromDlc(repositoryName, tag)
+```
+
 ### Model Artifacts
 
 If you choose to decouple your model artifacts from your inference code (as is natural given

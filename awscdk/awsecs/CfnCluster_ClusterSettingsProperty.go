@@ -18,11 +18,11 @@ package awsecs
 type CfnCluster_ClusterSettingsProperty struct {
 	// The name of the cluster setting.
 	//
-	// The only supported value is `containerInsights` .
+	// The value is `containerInsights` .
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The value to set for the cluster setting.
+	// The value to set for the cluster setting. The supported values are `enabled` and `disabled` .
 	//
-	// The supported values are `enabled` and `disabled` . If `enabled` is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be off unless the `containerInsights` account setting is turned on. If a cluster value is specified, it will override the `containerInsights` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html) .
+	// If you set `name` to `containerInsights` and `value` to `enabled` , CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the `containerInsights` account setting is turned on. If a cluster value is specified, it will override the `containerInsights` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html) .
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

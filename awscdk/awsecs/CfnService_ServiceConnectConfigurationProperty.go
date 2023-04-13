@@ -55,7 +55,7 @@ type CfnService_ServiceConnectConfigurationProperty struct {
 	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// The namespace name or full Amazon Resource Name (ARN) of the AWS Cloud Map namespace for use with Service Connect.
 	//
-	// The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about AWS Cloud Map , see [Working with Services](https://docs.aws.amazon.com/) in the *AWS Cloud Map Developer Guide* .
+	// The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about AWS Cloud Map , see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *AWS Cloud Map Developer Guide* .
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The list of Service Connect service objects.
 	//

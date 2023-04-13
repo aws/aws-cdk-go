@@ -45,7 +45,7 @@ type CfnLaunchTemplate_PlacementProperty struct {
 	PartitionNumber *float64 `field:"optional" json:"partitionNumber" yaml:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain *string `field:"optional" json:"spreadDomain" yaml:"spreadDomain"`
-	// The tenancy of the instance (if the instance is running in a VPC).
+	// The tenancy of the instance.
 	//
 	// An instance with a tenancy of dedicated runs on single-tenant hardware.
 	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`

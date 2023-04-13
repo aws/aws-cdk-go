@@ -41,13 +41,13 @@ package awssagemaker
 //   }
 //
 type CfnDomain_DefaultSpaceSettingsProperty struct {
-	// The execution role for the space.
+	// The ARN of the execution role for the space.
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The JupyterServer app settings.
 	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The KernelGateway app settings.
 	KernelGatewayAppSettings interface{} `field:"optional" json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
-	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+	// The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

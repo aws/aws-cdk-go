@@ -45,6 +45,7 @@ import (
 //   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
 //   		},
 //   	}),
+//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/userguide/launch_types.html#launch-type-ec2

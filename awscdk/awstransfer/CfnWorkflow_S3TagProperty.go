@@ -1,6 +1,8 @@
 package awstransfer
 
 
+// Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awstransfer
 //   }
 //
 type CfnWorkflow_S3TagProperty struct {
-	// `CfnWorkflow.S3TagProperty.Key`.
+	// The name assigned to the tag that you create.
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnWorkflow.S3TagProperty.Value`.
+	// The value that corresponds to the key.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

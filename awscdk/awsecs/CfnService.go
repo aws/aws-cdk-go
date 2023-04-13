@@ -196,9 +196,9 @@ type CfnService interface {
 	// For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide* .
 	EnableEcsManagedTags() interface{}
 	SetEnableEcsManagedTags(val interface{})
-	// Determines whether the execute command functionality is enabled for the service.
+	// Determines whether the execute command functionality is turned on for the service.
 	//
-	// If `true` , the execute command functionality is enabled for all containers in tasks as part of the service.
+	// If `true` , the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
@@ -321,6 +321,8 @@ type CfnService interface {
 	// If a `revision` isn't specified, the latest `ACTIVE` revision is used.
 	//
 	// A task definition must be specified if the service uses either the `ECS` or `CODE_DEPLOY` deployment controllers.
+	//
+	// For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) .
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
 	// Deprecated.

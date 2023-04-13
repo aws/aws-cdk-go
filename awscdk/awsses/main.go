@@ -666,10 +666,24 @@ func init() {
 		"aws-cdk-lib.aws_ses.CfnVdmAttributesProps",
 		reflect.TypeOf((*CfnVdmAttributesProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CloudWatchDimension",
+		reflect.TypeOf((*CloudWatchDimension)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.CloudWatchDimensionSource",
+		reflect.TypeOf((*CloudWatchDimensionSource)(nil)).Elem(),
+		map[string]interface{}{
+			"EMAIL_HEADER": CloudWatchDimensionSource_EMAIL_HEADER,
+			"LINK_TAG": CloudWatchDimensionSource_LINK_TAG,
+			"MESSAGE_TAG": CloudWatchDimensionSource_MESSAGE_TAG,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.ConfigurationSet",
 		reflect.TypeOf((*ConfigurationSet)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addEventDestination", GoMethod: "AddEventDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "configurationSetName", GoGetter: "ConfigurationSetName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -687,6 +701,36 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationSet)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestination",
+		reflect.TypeOf((*ConfigurationSetEventDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "configurationSetEventDestinationId", GoGetter: "ConfigurationSetEventDestinationId"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ConfigurationSetEventDestination{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationSetEventDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestinationOptions",
+		reflect.TypeOf((*ConfigurationSetEventDestinationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestinationProps",
+		reflect.TypeOf((*ConfigurationSetEventDestinationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.ConfigurationSetProps",
@@ -803,6 +847,33 @@ func init() {
 		"aws-cdk-lib.aws_ses.EmailIdentityProps",
 		reflect.TypeOf((*EmailIdentityProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.EmailSendingEvent",
+		reflect.TypeOf((*EmailSendingEvent)(nil)).Elem(),
+		map[string]interface{}{
+			"SEND": EmailSendingEvent_SEND,
+			"REJECT": EmailSendingEvent_REJECT,
+			"BOUNCE": EmailSendingEvent_BOUNCE,
+			"COMPLAINT": EmailSendingEvent_COMPLAINT,
+			"DELIVERY": EmailSendingEvent_DELIVERY,
+			"OPEN": EmailSendingEvent_OPEN,
+			"CLICK": EmailSendingEvent_CLICK,
+			"RENDERING_FAILURE": EmailSendingEvent_RENDERING_FAILURE,
+			"DELIVERY_DELAY": EmailSendingEvent_DELIVERY_DELAY,
+			"SUBSCRIPTION": EmailSendingEvent_SUBSCRIPTION,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.EventDestination",
+		reflect.TypeOf((*EventDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dimensions", GoGetter: "Dimensions"},
+			_jsii_.MemberProperty{JsiiProperty: "topic", GoGetter: "Topic"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EventDestination{}
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ses.IConfigurationSet",
 		reflect.TypeOf((*IConfigurationSet)(nil)).Elem(),
@@ -815,6 +886,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IConfigurationSet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ses.IConfigurationSetEventDestination",
+		reflect.TypeOf((*IConfigurationSetEventDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "configurationSetEventDestinationId", GoGetter: "ConfigurationSetEventDestinationId"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConfigurationSetEventDestination{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

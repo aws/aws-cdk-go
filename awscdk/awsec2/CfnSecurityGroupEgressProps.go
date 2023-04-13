@@ -47,7 +47,7 @@ type CfnSecurityGroupEgressProps struct {
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// [EC2-VPC only] The prefix list IDs for an AWS service.
+	// The prefix list IDs for an AWS service.
 	//
 	// This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 	//

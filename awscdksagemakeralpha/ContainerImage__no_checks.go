@@ -13,6 +13,10 @@ func validateContainerImage_FromAssetParameters(directory *string, options *awse
 	return nil
 }
 
+func validateContainerImage_FromDlcParameters(repositoryName *string, tag *string) error {
+	return nil
+}
+
 func validateContainerImage_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	return nil
 }

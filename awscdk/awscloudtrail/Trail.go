@@ -16,11 +16,7 @@ import (
 //
 // import { CloudTrail } from '@aws-cdk/aws-cloudtrail'
 //
-// const cloudTrail = new CloudTrail(this, 'MyTrail');
-//
-// NOTE the above example creates an UNENCRYPTED bucket by default,
-// If you are required to use an Encrypted bucket you can supply a preconfigured bucket
-// via TrailProps.
+// const cloudTrail = new CloudTrail(this, 'MyTrail');.
 //
 // Example:
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"

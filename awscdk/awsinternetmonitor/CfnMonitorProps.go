@@ -41,7 +41,9 @@ type CfnMonitorProps struct {
 	MonitorName *string `field:"required" json:"monitorName" yaml:"monitorName"`
 	// The maximum number of city-networks to monitor for your resources.
 	//
-	// A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+	// A city-network is the location (city) where clients access your application resources from and the ASN, typically an internet service provider, that clients access the resources through.
+	//
+	// The city-network maximum that you choose sets a cap on the total that *can* be included when Internet Monitor monitors traffic with your monitor. You only pay for the number of city-networks that are actually monitored, not this maximum limit, and you can change the maximum at any time, by updating your monitor.
 	//
 	// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
 	MaxCityNetworksToMonitor *float64 `field:"optional" json:"maxCityNetworksToMonitor" yaml:"maxCityNetworksToMonitor"`
@@ -53,7 +55,9 @@ type CfnMonitorProps struct {
 	//
 	// > If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
 	ResourcesToAdd *[]*string `field:"optional" json:"resourcesToAdd" yaml:"resourcesToAdd"`
-	// The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// The resources to remove from a monitor.
+	//
+	// Provide the resources as a set of Amazon Resource Names (ARNs).
 	ResourcesToRemove *[]*string `field:"optional" json:"resourcesToRemove" yaml:"resourcesToRemove"`
 	// The status of a monitor.
 	//

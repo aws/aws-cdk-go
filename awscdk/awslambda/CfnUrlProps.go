@@ -48,7 +48,10 @@ type CfnUrlProps struct {
 	TargetFunctionArn *string `field:"required" json:"targetFunctionArn" yaml:"targetFunctionArn"`
 	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
 	Cors interface{} `field:"optional" json:"cors" yaml:"cors"`
-	// `AWS::Lambda::Url.InvokeMode`.
+	// Use one of the following options:.
+	//
+	// - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+	// - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 20 MB, however, you can [request a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) .
 	InvokeMode *string `field:"optional" json:"invokeMode" yaml:"invokeMode"`
 	// The alias name.
 	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`

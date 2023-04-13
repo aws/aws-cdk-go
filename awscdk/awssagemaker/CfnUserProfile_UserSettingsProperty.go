@@ -64,7 +64,7 @@ type CfnUserProfile_UserSettingsProperty struct {
 	//
 	// Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly` .
 	//
-	// Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly` .
+	// Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly` , unless specified as part of the `DefaultUserSettings` for the domain.
 	//
 	// Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`

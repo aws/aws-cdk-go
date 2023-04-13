@@ -62,17 +62,17 @@ type CfnSecurityGroup_IngressProperty struct {
 	//
 	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
-	// [EC2-VPC only] The ID of a prefix list.
+	// The ID of a prefix list.
 	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
-	// [EC2-Classic, default VPC] The name of the source security group.
+	// [Default VPC] The name of the source security group.
 	//
-	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	// You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
-	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
+	// For security groups in a nondefault VPC, you must specify the group ID.
 	SourceSecurityGroupName *string `field:"optional" json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//

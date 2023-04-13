@@ -70,7 +70,7 @@ package awsgrafana
 type CfnWorkspaceProps struct {
 	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
 	//
-	// If this is `ORGANIZATION` , the `workspaceOrganizationalUnits` parameter specifies which organizational units the workspace can access.
+	// If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType *string `field:"optional" json:"accountAccessType" yaml:"accountAccessType"`
 	// Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center (successor to AWS Single Sign-On) , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
 	AuthenticationProviders *[]*string `field:"optional" json:"authenticationProviders" yaml:"authenticationProviders"`

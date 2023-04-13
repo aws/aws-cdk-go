@@ -541,7 +541,6 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.TableEncryption",
 		reflect.TypeOf((*TableEncryption)(nil)).Elem(),
 		map[string]interface{}{
-			"UNENCRYPTED": TableEncryption_UNENCRYPTED,
 			"S3_MANAGED": TableEncryption_S3_MANAGED,
 			"KMS": TableEncryption_KMS,
 			"KMS_MANAGED": TableEncryption_KMS_MANAGED,

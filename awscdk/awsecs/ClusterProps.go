@@ -43,6 +43,7 @@ import (
 //   		},
 //   	},
 //   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
+//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 type ClusterProps struct {

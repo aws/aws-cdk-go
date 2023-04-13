@@ -12,6 +12,9 @@ import (
 // Experimental.
 type IAttributeGroup interface {
 	awscdk.IResource
+	// Associate an application with attribute group If the attribute group is already associated, it will ignore duplicate request.
+	// Experimental.
+	AssociateWith(application IApplication)
 	// Share the attribute group resource with other IAM entities, accounts, or OUs.
 	// Experimental.
 	ShareAttributeGroup(id *string, shareOptions *ShareOptions)
@@ -26,6 +29,17 @@ type IAttributeGroup interface {
 // The jsii proxy for IAttributeGroup
 type jsiiProxy_IAttributeGroup struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IAttributeGroup) AssociateWith(application IApplication) {
+	if err := i.validateAssociateWithParameters(application); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"associateWith",
+		[]interface{}{application},
+	)
 }
 
 func (i *jsiiProxy_IAttributeGroup) ShareAttributeGroup(id *string, shareOptions *ShareOptions) {

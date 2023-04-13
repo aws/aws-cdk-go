@@ -1,6 +1,8 @@
 package awstransfer
 
 
+// Specifies the location for the file that's being processed.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,9 +20,9 @@ package awstransfer
 //   }
 //
 type CfnWorkflow_InputFileLocationProperty struct {
-	// `CfnWorkflow.InputFileLocationProperty.EfsFileLocation`.
+	// Specifies the details for the Amazon Elastic File System (Amazon EFS) file that's being decrypted.
 	EfsFileLocation interface{} `field:"optional" json:"efsFileLocation" yaml:"efsFileLocation"`
-	// `CfnWorkflow.InputFileLocationProperty.S3FileLocation`.
+	// Specifies the details for the Amazon S3 file that's being copied or decrypted.
 	S3FileLocation interface{} `field:"optional" json:"s3FileLocation" yaml:"s3FileLocation"`
 }
 

@@ -84,7 +84,9 @@ type CfnWebACL_FieldToMatchProperty struct {
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `Body` object configuration.
+	// A limited amount of the request body is forwarded to AWS WAF for inspection by the underlying host service. For regional resources, the limit is 8 KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16 KB (16,384 kilobytes). For CloudFront distributions, you can increase the limit in the web ACL's `AssociationConfig` , for additional processing fees.
+	//
+	// For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// Inspect the request cookies.
 	//
@@ -102,7 +104,9 @@ type CfnWebACL_FieldToMatchProperty struct {
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
+	// A limited amount of the request body is forwarded to AWS WAF for inspection by the underlying host service. For regional resources, the limit is 8 KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16 KB (16,384 kilobytes). For CloudFront distributions, you can increase the limit in the web ACL's `AssociationConfig` , for additional processing fees.
+	//
+	// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//

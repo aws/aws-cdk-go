@@ -150,7 +150,7 @@ type CfnDBCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the port that the database engine is listening on.
+	// `AWS::Neptune::DBCluster.Port`.
 	Port() *float64
 	SetPort(val *float64)
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .

@@ -1,6 +1,8 @@
 package awstransfer
 
 
+// Specifies the details for the Amazon S3 location for an input file to a workflow.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,11 @@ package awstransfer
 //   }
 //
 type CfnWorkflow_S3InputFileLocationProperty struct {
-	// `CfnWorkflow.S3InputFileLocationProperty.Bucket`.
+	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
-	// `CfnWorkflow.S3InputFileLocationProperty.Key`.
+	// The name assigned to the file when it was created in Amazon S3.
+	//
+	// You use the object key to retrieve the object.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 

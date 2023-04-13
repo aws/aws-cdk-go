@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single Suricata rules specification, for use in a stateful rule group.
 //
-// Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/rules/intro.html#) .
+// Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.iorules/intro.html#) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,6 +44,9 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
 	//
 	// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
+	// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	//
+	// `REJECT` isn't currently available for use with IMAP and FTP protocols.
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// The stateful inspection criteria for this rule, used to inspect traffic flows.
 	Header interface{} `field:"required" json:"header" yaml:"header"`

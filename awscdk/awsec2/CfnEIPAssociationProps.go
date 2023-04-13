@@ -17,25 +17,23 @@ package awsec2
 //   }
 //
 type CfnEIPAssociationProps struct {
-	// [EC2-VPC] The allocation ID.
+	// The allocation ID.
 	//
-	// This is required for EC2-VPC.
+	// This is required.
 	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
-	// [EC2-Classic] The Elastic IP address to associate with the instance.
-	//
-	// This is required for EC2-Classic.
+	// Deprecated.
 	Eip *string `field:"optional" json:"eip" yaml:"eip"`
 	// The ID of the instance.
 	//
-	// The instance must have exactly one attached network interface. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. For EC2-Classic, you must specify an instance ID and the instance must be in the running state.
+	// The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
-	// [EC2-VPC] The ID of the network interface.
+	// The ID of the network interface.
 	//
 	// If the instance has more than one network interface, you must specify a network interface ID.
 	//
-	// For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
+	// You can specify either the instance ID or the network interface ID, but not both.
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
-	// [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address.
+	// The primary or secondary private IP address to associate with the Elastic IP address.
 	//
 	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`

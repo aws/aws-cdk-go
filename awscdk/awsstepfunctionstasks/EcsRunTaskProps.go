@@ -47,6 +47,7 @@ import (
 //   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
 //   		},
 //   	}),
+//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 type EcsRunTaskProps struct {
@@ -121,6 +122,12 @@ type EcsRunTaskProps struct {
 	//
 	// Specify the container to use and the overrides to apply.
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
+	// Specifies whether to propagate the tags from the task definition to the task.
+	//
+	// An error will be received if you specify the SERVICE option when running a task.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-propagateTags
+	//
+	PropagatedTagSource awsecs.PropagatedTagSource `field:"optional" json:"propagatedTagSource" yaml:"propagatedTagSource"`
 	// The revision number of ECS task definiton family.
 	RevisionNumber *float64 `field:"optional" json:"revisionNumber" yaml:"revisionNumber"`
 	// Existing security groups to use for the tasks.

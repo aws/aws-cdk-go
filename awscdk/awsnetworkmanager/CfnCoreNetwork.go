@@ -79,7 +79,7 @@ type CfnCoreNetwork interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policy-changesets.html) .
+	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) .
 	//
 	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
 	PolicyDocument() interface{}

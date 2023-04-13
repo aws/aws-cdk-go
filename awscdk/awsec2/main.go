@@ -6144,6 +6144,25 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ec2.IPlacementGroup",
+		reflect.TypeOf((*IPlacementGroup)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "partitions", GoGetter: "Partitions"},
+			_jsii_.MemberProperty{JsiiProperty: "placementGroupName", GoGetter: "PlacementGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "spreadLevel", GoGetter: "SpreadLevel"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPlacementGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ec2.IPrivateSubnet",
 		reflect.TypeOf((*IPrivateSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -7215,6 +7234,52 @@ func init() {
 		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_Peer{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.PlacementGroup",
+		reflect.TypeOf((*PlacementGroup)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "partitions", GoGetter: "Partitions"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "placementGroupName", GoGetter: "PlacementGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "spreadLevel", GoGetter: "SpreadLevel"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PlacementGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPlacementGroup)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.PlacementGroupProps",
+		reflect.TypeOf((*PlacementGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.PlacementGroupSpreadLevel",
+		reflect.TypeOf((*PlacementGroupSpreadLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"HOST": PlacementGroupSpreadLevel_HOST,
+			"RACK": PlacementGroupSpreadLevel_RACK,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.PlacementGroupStrategy",
+		reflect.TypeOf((*PlacementGroupStrategy)(nil)).Elem(),
+		map[string]interface{}{
+			"CLUSTER": PlacementGroupStrategy_CLUSTER,
+			"PARTITION": PlacementGroupStrategy_PARTITION,
+			"SPREAD": PlacementGroupStrategy_SPREAD,
 		},
 	)
 	_jsii_.RegisterClass(

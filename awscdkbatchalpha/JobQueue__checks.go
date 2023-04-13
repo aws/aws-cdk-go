@@ -12,6 +12,18 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvironment IComputeEnvironment, order *float64) error {
+	if computeEnvironment == nil {
+		return fmt.Errorf("parameter computeEnvironment is required, but nil was provided")
+	}
+
+	if order == nil {
+		return fmt.Errorf("parameter order is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_JobQueue) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
@@ -92,9 +104,6 @@ func validateNewJobQueueParameters(scope constructs.Construct, id *string, props
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

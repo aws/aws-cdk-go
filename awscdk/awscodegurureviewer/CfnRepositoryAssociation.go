@@ -48,7 +48,7 @@ type CfnRepositoryAssociation interface {
 	AttrAssociationArn() *string
 	// The name of the bucket.
 	//
-	// This is required for your S3Bucket repositoryThe name must start with the prefix, `codeguru-reviewer-*` .
+	// This is required for your S3Bucket repository. The name must start with the prefix `codeguru-reviewer-*` .
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.

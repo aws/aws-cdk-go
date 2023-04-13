@@ -55,36 +55,30 @@ type CfnSecurityGroupIngressProps struct {
 	// Use this for ICMP and any protocol that uses ports.
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The ID of the security group.
-	//
-	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-	//
-	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
 	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 	// The name of the security group.
 	//
 	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
 	//
-	// Constraints for EC2-Classic: ASCII characters
-	//
-	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
-	// [EC2-VPC only] The ID of a prefix list.
+	// The ID of a prefix list.
 	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
 	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
-	// [EC2-Classic, default VPC] The name of the source security group.
+	// [Default VPC] The name of the source security group.
 	//
-	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	// You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
-	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
+	// For security groups in a nondefault VPC, you must specify the group ID.
 	SourceSecurityGroupName *string `field:"optional" json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
 	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
-	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
+	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId *string `field:"optional" json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	//

@@ -3,6 +3,7 @@ package pipelines
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Properties for a `CodePipeline`.
@@ -35,6 +36,8 @@ type CodePipelineProps struct {
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
 	Synth IFileSetProducer `field:"required" json:"synth" yaml:"synth"`
+	// An existing S3 Bucket to use for storing the pipeline's artifact.
+	ArtifactBucket awss3.IBucket `field:"optional" json:"artifactBucket" yaml:"artifactBucket"`
 	// Additional customizations to apply to the asset publishing CodeBuild projects.
 	AssetPublishingCodeBuildDefaults *CodeBuildOptions `field:"optional" json:"assetPublishingCodeBuildDefaults" yaml:"assetPublishingCodeBuildDefaults"`
 	// CDK CLI version to use in self-mutation and asset publishing steps.

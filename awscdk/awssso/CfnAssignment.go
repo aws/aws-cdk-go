@@ -78,7 +78,7 @@ type CfnAssignment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).
+	// TargetID is an AWS account identifier, (For example, 123456789012).
 	TargetId() *string
 	SetTargetId(val *string)
 	// The entity type for which the assignment will be created.

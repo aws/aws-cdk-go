@@ -40,7 +40,9 @@ type CfnProfile interface {
 	// The `As2Id` is the *AS2-name* , as defined in the [RFC 4130](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc4130) . For inbound transfers, this is the `AS2-From` header for the AS2 messages sent from the partner. For outbound connectors, this is the `AS2-To` header for the AS2 messages sent to the partner using the `StartFileTransfer` API operation. This ID cannot include spaces.
 	As2Id() *string
 	SetAs2Id(val *string)
+	// The Amazon Resource Name associated with the profile, in the form `arn:aws:transfer:region:account-id:profile/profile-id/` .
 	AttrArn() *string
+	// The unique identifier for the AS2 profile, returned after the API call succeeds.
 	AttrProfileId() *string
 	// An array of identifiers for the imported certificates.
 	//

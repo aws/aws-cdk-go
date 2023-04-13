@@ -12,7 +12,7 @@ package awsstepfunctions
 //   createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &EvaluateExpressionProps{
 //   	// Note: this is a string inside a string.
 //   	Expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   	ResultPath: jsii.String("$.message"),
 //   })
 //

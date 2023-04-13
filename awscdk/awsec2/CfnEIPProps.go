@@ -22,11 +22,7 @@ import (
 //   })
 //
 type CfnEIPProps struct {
-	// Indicates whether the Elastic IP address is for use with instances in a VPC or instance in EC2-Classic.
-	//
-	// Default: If the Region supports EC2-Classic, the default is `standard` . Otherwise, the default is `vpc` .
-	//
-	// Use when allocating an address for use with a VPC if the Region supports EC2-Classic.
+	// The network ( `vpc` ).
 	//
 	// If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`

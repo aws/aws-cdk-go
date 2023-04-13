@@ -139,6 +139,7 @@ func init() {
 		reflect.TypeOf((*IAttributeGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "associateWith", GoMethod: "AssociateWith"},
 			_jsii_.MemberProperty{JsiiProperty: "attributeGroupArn", GoGetter: "AttributeGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attributeGroupId", GoGetter: "AttributeGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

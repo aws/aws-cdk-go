@@ -52,9 +52,7 @@ type CfnEC2Fleet_PlacementProperty struct {
 	PartitionNumber *float64 `field:"optional" json:"partitionNumber" yaml:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain *string `field:"optional" json:"spreadDomain" yaml:"spreadDomain"`
-	// The tenancy of the instance (if the instance is running in a VPC).
-	//
-	// An instance with a tenancy of `dedicated` runs on single-tenant hardware.
+	// The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
 	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`

@@ -87,7 +87,7 @@ type CfnDBClusterProps struct {
 	IamAuthEnabled interface{} `field:"optional" json:"iamAuthEnabled" yaml:"iamAuthEnabled"`
 	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// Specifies the port that the database engine is listening on.
+	// `AWS::Neptune::DBCluster.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .
 	//

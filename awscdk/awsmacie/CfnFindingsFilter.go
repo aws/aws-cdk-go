@@ -56,7 +56,6 @@ type CfnFindingsFilter interface {
 	SetAction(val *string)
 	// The Amazon Resource Name (ARN) of the findings filter.
 	AttrArn() *string
-	// An array of `FindingsFilterListItem` objects, one for each findings filter that's associated with the account.
 	AttrFindingsFilterListItems() awscdk.IResolvable
 	// The unique identifier for the findings filter.
 	AttrId() *string

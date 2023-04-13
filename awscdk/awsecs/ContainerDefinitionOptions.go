@@ -138,6 +138,8 @@ type ContainerDefinitionOptions struct {
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
 	SystemControls *[]*SystemControl `field:"optional" json:"systemControls" yaml:"systemControls"`
+	// An array of ulimits to set in the container.
+	Ulimits *[]*Ulimit `field:"optional" json:"ulimits" yaml:"ulimits"`
 	// The user name to use inside the container.
 	User *string `field:"optional" json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.

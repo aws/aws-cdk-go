@@ -13,21 +13,12 @@ import (
 // Constructs for types of container images.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
-//   import "github.com/aws-samples/dummy/path"
+//   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//   import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
 //
-//   image := sagemaker.ContainerImage_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
-//   modelData := sagemaker.ModelData_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
-//
-//   model := sagemaker.NewModel(this, jsii.String("PrimaryContainerModel"), &ModelProps{
-//   	Containers: []containerDefinition{
-//   		&containerDefinition{
-//   			Image: image,
-//   			ModelData: modelData,
-//   		},
-//   	},
-//   })
+//   repository := ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("repo"))
+//   image := sagemaker.ContainerImage_FromEcrRepository(repository, jsii.String("tag"))
 //
 // Experimental.
 type ContainerImage interface {
@@ -66,6 +57,26 @@ func ContainerImage_FromAsset(directory *string, options *awsecrassets.DockerIma
 		"@aws-cdk/aws-sagemaker-alpha.ContainerImage",
 		"fromAsset",
 		[]interface{}{directory, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference an AWS Deep Learning Container image.
+// Experimental.
+func ContainerImage_FromDlc(repositoryName *string, tag *string, accountId *string) ContainerImage {
+	_init_.Initialize()
+
+	if err := validateContainerImage_FromDlcParameters(repositoryName, tag); err != nil {
+		panic(err)
+	}
+	var returns ContainerImage
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-sagemaker-alpha.ContainerImage",
+		"fromDlc",
+		[]interface{}{repositoryName, tag, accountId},
 		&returns,
 	)
 

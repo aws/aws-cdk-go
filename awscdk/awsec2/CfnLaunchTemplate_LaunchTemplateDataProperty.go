@@ -342,9 +342,9 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The placement for the instance.
 	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
-	// The options for the instance hostname.
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled.
 	//
-	// The default values are inherited from the subnet.
+	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	PrivateDnsNameOptions interface{} `field:"optional" json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	//

@@ -15,7 +15,13 @@ package awss3
 type BucketEncryption string
 
 const (
-	// Objects in the bucket are not encrypted.
+	// Previous option.
+	//
+	// Buckets can not be unencrypted now.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html
+	//
+	// Deprecated: S3 applies server-side encryption with SSE-S3 for every bucket
+	// that default encryption is not configured.
 	BucketEncryption_UNENCRYPTED BucketEncryption = "UNENCRYPTED"
 	// Server-side KMS encryption with a master key managed by KMS.
 	BucketEncryption_KMS_MANAGED BucketEncryption = "KMS_MANAGED"

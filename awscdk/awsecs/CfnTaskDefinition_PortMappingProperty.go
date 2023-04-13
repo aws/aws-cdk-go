@@ -68,7 +68,7 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	// If you specify a `containerPortRange` , leave this field empty and the value of the `hostPort` is set as follows:
 	//
 	// - For containers in a task with the `awsvpc` network mode, the `hostPort` is set to the same value as the `containerPort` . This is a static mapping strategy.
-	// - For containers in a task with the `bridge` network mode, the Amazon ECS agent finds open ports on the host and automaticaly binds them to the container ports. This is a dynamic mapping strategy.
+	// - For containers in a task with the `bridge` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
 	//
 	// If you use containers in a task with the `awsvpc` or `host` network mode, the `hostPort` can either be left blank or set to the same value as the `containerPort` .
 	//

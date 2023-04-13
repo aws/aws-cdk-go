@@ -5,50 +5,42 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-// Properties for creating a new Compute Environment.
+// Props common to all ComputeEnvironments.
 //
 // Example:
-//   var vpc vpc
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import batch_alpha "github.com/aws/aws-cdk-go/awscdkbatchalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &ComputeEnvironmentProps{
-//   	ComputeResources: &ComputeResources{
-//   		Image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
-//   			generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-//   		}),
-//   		Vpc: *Vpc,
-//   	},
-//   })
+//   var role role
+//
+//   computeEnvironmentProps := &ComputeEnvironmentProps{
+//   	ComputeEnvironmentName: jsii.String("computeEnvironmentName"),
+//   	Enabled: jsii.Boolean(false),
+//   	ServiceRole: role,
+//   }
 //
 // Experimental.
 type ComputeEnvironmentProps struct {
-	// A name for the compute environment.
-	//
-	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+	// The name of the ComputeEnvironment.
 	// Experimental.
 	ComputeEnvironmentName *string `field:"optional" json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
-	// The details of the required compute resources for the managed compute environment.
+	// Whether or not this ComputeEnvironment can accept jobs from a Queue.
 	//
-	// If specified, and this is an unmanaged compute environment, will throw an error.
+	// Enabled ComputeEnvironments can accept jobs from a Queue and
+	// can scale instances up or down.
+	// Disabled ComputeEnvironments cannot accept jobs from a Queue or
+	// scale instances up or down.
 	//
-	// By default, AWS Batch managed compute environments use a recent, approved version of the
-	// Amazon ECS-optimized AMI for compute resources.
-	// Experimental.
-	ComputeResources *ComputeResources `field:"optional" json:"computeResources" yaml:"computeResources"`
-	// The state of the compute environment.
+	// If you change a ComputeEnvironment from enabled to disabled while it is executing jobs,
+	// Jobs in the `STARTED` or `RUNNING` states will not
+	// be interrupted. As jobs complete, the ComputeEnvironment will scale instances down to `minvCpus`.
 	//
-	// If the state is set to true, then the compute
-	// environment accepts jobs from a queue and can scale out automatically based on queues.
+	// To ensure you aren't billed for unused capacity, set `minvCpus` to `0`.
 	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
-	// Determines if AWS should manage the allocation of compute resources for processing jobs.
-	//
-	// If set to false, then you are in charge of providing the compute resource details.
-	// Experimental.
-	Managed *bool `field:"optional" json:"managed" yaml:"managed"`
-	// The IAM role used by Batch to make calls to other AWS services on your behalf for managing the resources that you use with the service.
-	//
-	// By default, this role is created for you using
-	// the AWS managed service policy for Batch.
+	// The role Batch uses to perform actions on your behalf in your account, such as provision instances to run your jobs.
 	// Experimental.
 	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 }

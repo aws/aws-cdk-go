@@ -100,7 +100,7 @@ type CfnNatGateway interface {
 	Ref() *string
 	// Secondary EIP allocation IDs.
 	//
-	// For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide* .
+	// For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide* .
 	SecondaryAllocationIds() *[]*string
 	SetSecondaryAllocationIds(val *[]*string)
 	// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.

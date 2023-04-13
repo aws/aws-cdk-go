@@ -60,17 +60,13 @@ type CfnSecurityGroupProps struct {
 	//
 	// Constraints: Up to 255 characters in length
 	//
-	// Constraints for EC2-Classic: ASCII characters
-	//
-	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 	GroupDescription *string `field:"required" json:"groupDescription" yaml:"groupDescription"`
 	// The name of the security group.
 	//
 	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
 	//
-	// Constraints for EC2-Classic: ASCII characters
-	//
-	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// [VPC only] The outbound rules associated with the security group.
 	//

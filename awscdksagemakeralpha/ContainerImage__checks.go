@@ -37,6 +37,18 @@ func validateContainerImage_FromAssetParameters(directory *string, options *awse
 	return nil
 }
 
+func validateContainerImage_FromDlcParameters(repositoryName *string, tag *string) error {
+	if repositoryName == nil {
+		return fmt.Errorf("parameter repositoryName is required, but nil was provided")
+	}
+
+	if tag == nil {
+		return fmt.Errorf("parameter tag is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateContainerImage_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	if repository == nil {
 		return fmt.Errorf("parameter repository is required, but nil was provided")

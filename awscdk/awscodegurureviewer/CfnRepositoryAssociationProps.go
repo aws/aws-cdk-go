@@ -39,7 +39,7 @@ type CfnRepositoryAssociationProps struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of the bucket.
 	//
-	// This is required for your S3Bucket repositoryThe name must start with the prefix, `codeguru-reviewer-*` .
+	// This is required for your S3Bucket repository. The name must start with the prefix `codeguru-reviewer-*` .
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	//

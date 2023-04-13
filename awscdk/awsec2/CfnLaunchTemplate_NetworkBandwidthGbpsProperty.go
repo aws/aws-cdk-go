@@ -22,7 +22,7 @@ type CfnLaunchTemplate_NetworkBandwidthGbpsProperty struct {
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of network bandwidth, in Gbps.
 	//
-	// To specify no minimum limit, omit this parameter.
+	// If this parameter is not specified, there is no minimum limit.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

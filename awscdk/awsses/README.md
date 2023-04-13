@@ -145,6 +145,19 @@ ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSet
 })
 ```
 
+Use `addEventDestination()` to publish email sending events to Amazon SNS or Amazon CloudWatch:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var myConfigurationSet configurationSet
+var myTopic ses.Topic
+
+
+myConfigurationSet.AddEventDestination(jsii.String("ToSns"), &ConfigurationSetEventDestinationOptions{
+	Destination: ses.EventDestination_SnsTopic(myTopic),
+})
+```
+
 ### Email identity
 
 In Amazon SES, a verified identity is a domain or email address that you use to send or receive email. Before you

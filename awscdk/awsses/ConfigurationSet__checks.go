@@ -11,6 +11,21 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (c *jsiiProxy_ConfigurationSet) validateAddEventDestinationParameters(id *string, options *ConfigurationSetEventDestinationOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_ConfigurationSet) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -256,13 +256,13 @@ type CfnInstanceProps struct {
 	//
 	// Default: `m1.small`
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
-	// [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.
+	// The number of IPv6 addresses to associate with the primary network interface.
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 	//
 	// You cannot specify this option and the network interfaces option in the same request.
 	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
-	// [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+	// The IPv6 addresses from the range of the subnet to associate with the primary network interface.
 	//
 	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 	//
@@ -296,7 +296,7 @@ type CfnInstanceProps struct {
 	PlacementGroupName *string `field:"optional" json:"placementGroupName" yaml:"placementGroupName"`
 	// The options for the instance hostname.
 	PrivateDnsNameOptions interface{} `field:"optional" json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
-	// [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+	// The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
 	//
 	// Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 	//
@@ -318,9 +318,7 @@ type CfnInstanceProps struct {
 	//
 	// If you specify a network interface, you must specify any security groups as part of the network interface.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// [EC2-Classic, default VPC] The names of the security groups.
-	//
-	// For a nondefault VPC, you must use security group IDs instead.
+	// [Default VPC] The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
 	//
 	// You cannot specify this option and the network interfaces option in the same request. The list can contain both the name of existing Amazon EC2 security groups or references to AWS::EC2::SecurityGroup resources created in the template.
 	//
@@ -334,7 +332,7 @@ type CfnInstanceProps struct {
 	//
 	// > You can currently associate only one document with an instance.
 	SsmAssociations interface{} `field:"optional" json:"ssmAssociations" yaml:"ssmAssociations"`
-	// [EC2-VPC] The ID of the subnet to launch the instance into.
+	// The ID of the subnet to launch the instance into.
 	//
 	// If you specify a network interface, you must specify any subnets as part of the network interface.
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
@@ -342,7 +340,7 @@ type CfnInstanceProps struct {
 	//
 	// These tags are not applied to the EBS volumes, such as the root volume, unless [PropagateTagsToVolumeOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-propagatetagstovolumeoncreation) is `true` .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The tenancy of the instance (if the instance is running in a VPC).
+	// The tenancy of the instance.
 	//
 	// An instance with a tenancy of `dedicated` runs on single-tenant hardware.
 	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`

@@ -12,16 +12,14 @@ import (
 // An image from an Amazon ECR repository.
 //
 // Example:
-//   dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &JobDefinitionProps{
-//   	Container: &JobDefinitionContainer{
-//   		Image: ecs.EcrImage_FromRegistry(jsii.String("docker/whalesay")),
-//   		Secrets: map[string]secret{
-//   			"PASSWORD": ecs.*secret_fromSecretsManager(dbSecret, jsii.String("password")),
-//   		},
-//   	},
-//   })
+//   var dockerImageAsset dockerImageAsset
+//
+//   ecrImage := awscdk.Aws_ecs.EcrImage_FromDockerImageAsset(dockerImageAsset)
 //
 type EcrImage interface {
 	ContainerImage

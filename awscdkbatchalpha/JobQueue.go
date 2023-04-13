@@ -10,29 +10,47 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Batch Job Queue.
+// JobQueues can receive Jobs, which are removed from the queue when sent to the linked ComputeEnvironment(s) to be executed.
 //
-// Defines a batch job queue to define how submitted batch jobs
-// should be ran based on specified batch compute environments.
+// Jobs exit the queue in FIFO order unless a `SchedulingPolicy` is linked.
 //
 // Example:
-//   var computeEnvironment computeEnvironment
+//   var vpc iVpc
 //
-//   jobQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	ComputeEnvironments: []jobQueueComputeEnvironment{
-//   		&jobQueueComputeEnvironment{
-//   			// Defines a collection of compute resources to handle assigned batch jobs
-//   			ComputeEnvironment: *ComputeEnvironment,
-//   			// Order determines the allocation order for jobs (i.e. Lower means higher preference for job assignment)
-//   			Order: jsii.Number(1),
-//   		},
-//   	},
+//   sharedComputeEnv := batch.NewFargateComputeEnvironment(this, jsii.String("spotEnv"), &FargateComputeEnvironmentProps{
+//   	Vpc: Vpc,
+//   	Spot: jsii.Boolean(true),
 //   })
+//   lowPriorityQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//   	Priority: jsii.Number(1),
+//   })
+//   highPriorityQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+//   	Priority: jsii.Number(10),
+//   })
+//   lowPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
+//   highPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
 //
 // Experimental.
 type JobQueue interface {
 	awscdk.Resource
 	IJobQueue
+	// The set of compute environments mapped to a job queue and their order relative to each other.
+	//
+	// The job scheduler uses this parameter to determine which compute environment runs a specific job.
+	// Compute environments must be in the VALID state before you can associate them with a job queue.
+	// You can associate up to three compute environments with a job queue.
+	// All of the compute environments must be either EC2 (EC2 or SPOT) or Fargate (FARGATE or FARGATE_SPOT);
+	// EC2 and Fargate compute environments can't be mixed.
+	//
+	// *Note*: All compute environments that are associated with a job queue must share the same architecture.
+	// AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
+	// Experimental.
+	ComputeEnvironments() *[]*OrderedComputeEnvironment
+	// If the job queue is enabled, it is able to accept jobs.
+	//
+	// Otherwise, new jobs can't be added to the queue, but jobs already in the queue can finish.
+	// Experimental.
+	Enabled() *bool
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -43,12 +61,13 @@ type JobQueue interface {
 	// that might be different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The ARN of this batch job queue.
+	// The ARN of this job queue.
 	// Experimental.
 	JobQueueArn() *string
-	// A name for the job queue.
+	// The name of the job queue.
 	//
-	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+	// It can be up to 128 letters long.
+	// It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	// Experimental.
 	JobQueueName() *string
 	// The tree node.
@@ -63,9 +82,26 @@ type JobQueue interface {
 	//   cross-environment scenarios.
 	// Experimental.
 	PhysicalName() *string
+	// The priority of the job queue.
+	//
+	// Job queues with a higher priority are evaluated first when associated with the same compute environment.
+	// Priority is determined in descending order.
+	// For example, a job queue with a priority value of 10 is given scheduling preference over a job queue with a priority value of 1.
+	// Experimental.
+	Priority() *float64
+	// The SchedulingPolicy for this JobQueue.
+	//
+	// Instructs the Scheduler how to schedule different jobs.
+	// Experimental.
+	SchedulingPolicy() ISchedulingPolicy
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// Add a `ComputeEnvironment` to this Queue.
+	//
+	// The Queue will prefer lower-order `ComputeEnvironment`s.
+	// Experimental.
+	AddComputeEnvironment(computeEnvironment IComputeEnvironment, order *float64)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -103,6 +139,26 @@ type JobQueue interface {
 type jsiiProxy_JobQueue struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IJobQueue
+}
+
+func (j *jsiiProxy_JobQueue) ComputeEnvironments() *[]*OrderedComputeEnvironment {
+	var returns *[]*OrderedComputeEnvironment
+	_jsii_.Get(
+		j,
+		"computeEnvironments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_JobQueue) Enabled() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"enabled",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_JobQueue) Env() *awscdk.ResourceEnvironment {
@@ -155,6 +211,26 @@ func (j *jsiiProxy_JobQueue) PhysicalName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_JobQueue) Priority() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"priority",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_JobQueue) SchedulingPolicy() ISchedulingPolicy {
+	var returns ISchedulingPolicy
+	_jsii_.Get(
+		j,
+		"schedulingPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_JobQueue) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -195,7 +271,7 @@ func NewJobQueue_Override(j JobQueue, scope constructs.Construct, id *string, pr
 	)
 }
 
-// Fetches an existing batch job queue by its amazon resource name.
+// refer to an existing JobQueue by its arn.
 // Experimental.
 func JobQueue_FromJobQueueArn(scope constructs.Construct, id *string, jobQueueArn *string) IJobQueue {
 	_init_.Initialize()
@@ -289,6 +365,17 @@ func JobQueue_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (j *jsiiProxy_JobQueue) AddComputeEnvironment(computeEnvironment IComputeEnvironment, order *float64) {
+	if err := j.validateAddComputeEnvironmentParameters(computeEnvironment, order); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		j,
+		"addComputeEnvironment",
+		[]interface{}{computeEnvironment, order},
+	)
 }
 
 func (j *jsiiProxy_JobQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

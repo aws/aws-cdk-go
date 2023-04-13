@@ -1,6 +1,10 @@
 package awstransfer
 
 
+// Details for a step that creates one or more tags.
+//
+// You specify one or more tags. Each tag contains a key-value pair.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,11 +22,14 @@ package awstransfer
 //   }
 //
 type CfnWorkflow_TagStepDetailsProperty struct {
-	// `CfnWorkflow.TagStepDetailsProperty.Name`.
+	// The name of the step, used as an identifier.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnWorkflow.TagStepDetailsProperty.SourceFileLocation`.
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow.
+	//
+	// - To use the previous file as the input, enter `${previous.file}` . In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value.
+	// - To use the originally uploaded file location as input for this step, enter `${original.file}` .
 	SourceFileLocation *string `field:"optional" json:"sourceFileLocation" yaml:"sourceFileLocation"`
-	// `CfnWorkflow.TagStepDetailsProperty.Tags`.
+	// Array that contains from 1 to 10 key/value pairs.
 	Tags *[]*CfnWorkflow_S3TagProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

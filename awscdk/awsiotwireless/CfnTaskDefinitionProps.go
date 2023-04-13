@@ -58,7 +58,7 @@ import (
 type CfnTaskDefinitionProps struct {
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version.
 	//
-	// If `false` , the task must be created by calling `CreateWirelessGatewayTask` .
+	// If `false` , the task must me created by calling `CreateWirelessGatewayTask` .
 	AutoCreateTasks interface{} `field:"required" json:"autoCreateTasks" yaml:"autoCreateTasks"`
 	// `AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry`.
 	LoRaWanUpdateGatewayTaskEntry interface{} `field:"optional" json:"loRaWanUpdateGatewayTaskEntry" yaml:"loRaWanUpdateGatewayTaskEntry"`

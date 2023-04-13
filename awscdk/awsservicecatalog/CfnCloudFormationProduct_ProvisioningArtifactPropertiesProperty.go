@@ -43,7 +43,8 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	//
 	// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
 	// - `MARKETPLACE_AMI` - AWS Marketplace AMI
-	// - `MARKETPLACE_CAR` - AWS Marketplace Clusters and AWS Resources.
+	// - `MARKETPLACE_CAR` - AWS Marketplace Clusters and AWS Resources
+	// - `TERRAFORM_OPEN_SOURCE` - Terraform open source configuration file.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

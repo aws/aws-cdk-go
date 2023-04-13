@@ -36,7 +36,7 @@ type CfnTaskDefinition_EFSVolumeConfigurationProperty struct {
 	RootDirectory *string `field:"optional" json:"rootDirectory" yaml:"rootDirectory"`
 	// Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
 	//
-	// Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide* .
+	// Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide* .
 	TransitEncryption *string `field:"optional" json:"transitEncryption" yaml:"transitEncryption"`
 	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
 	//

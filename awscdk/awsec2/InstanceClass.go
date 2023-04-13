@@ -10,29 +10,23 @@ package awsec2
 // 'R4' means.
 //
 // Example:
-//   var build build
+//   var vpc vpc
 //
-//
-//   fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
-//   	FleetName: jsii.String("test-fleet"),
-//   	Content: build,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
-//   	RuntimeConfiguration: &RuntimeConfiguration{
-//   		ServerProcesses: []serverProcess{
-//   			&serverProcess{
-//   				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
-//   			},
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+//   	 // Optional - will default to 'admin' username and generated password
+//   	InstanceProps: &InstanceProps{
+//   		// optional , defaults to t3.medium
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
+//   		VpcSubnets: &SubnetSelection{
+//   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   		},
-//   	},
-//   	IngressRules: []ingressRule{
-//   		&ingressRule{
-//   			Source: gamelift.Peer_AnyIpv4(),
-//   			Port: gamelift.Port_TcpRange(jsii.Number(100), jsii.Number(200)),
-//   		},
+//   		Vpc: *Vpc,
 //   	},
 //   })
-//   // Allowing a specific CIDR for port 1111 on UDP Protocol
-//   fleet.AddIngressRule(gamelift.Peer_Ipv4(jsii.String("1.2.3.4/32")), gamelift.Port_Udp(jsii.Number(1111)))
 //
 type InstanceClass string
 

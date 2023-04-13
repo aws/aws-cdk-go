@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::EC2::SecurityGroupEgress`.
 //
-// [EC2-VPC only] Adds the specified egress rules to a security group for use with a VPC.
+// Adds the specified egress rules to a security group.
 //
 // An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.
 //
@@ -77,7 +77,7 @@ type CfnSecurityGroupEgress interface {
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description() *string
 	SetDescription(val *string)
-	// [EC2-VPC only] The prefix list IDs for an AWS service.
+	// The prefix list IDs for an AWS service.
 	//
 	// This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 	//

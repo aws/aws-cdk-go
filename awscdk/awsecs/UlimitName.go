@@ -2,6 +2,20 @@ package awsecs
 
 
 // Type of resource to set a limit on.
+//
+// Example:
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+//   	Ulimits: []ulimit{
+//   		&ulimit{
+//   			HardLimit: jsii.Number(128),
+//   			Name: ecs.UlimitName_RSS,
+//   			SoftLimit: jsii.Number(128),
+//   		},
+//   	},
+//   })
+//
 type UlimitName string
 
 const (

@@ -1,6 +1,6 @@
 # Amazon S3 Construct Library
 
-Define an unencrypted S3 bucket.
+Define an S3 bucket.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.

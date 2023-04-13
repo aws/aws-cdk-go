@@ -27,7 +27,7 @@ type CfnCluster_ServiceConnectDefaultsProperty struct {
 	//
 	// If you update the service with an empty string `""` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in AWS Cloud Map and must be deleted separately.
 	//
-	// For more information about AWS Cloud Map , see [Working with Services](https://docs.aws.amazon.com/) in the *AWS Cloud Map Developer Guide* .
+	// For more information about AWS Cloud Map , see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *AWS Cloud Map Developer Guide* .
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 

@@ -32,7 +32,7 @@ type CfnCoreNetworkProps struct {
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The description of a core network.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policy-changesets.html) .
+	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) .
 	//
 	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
 	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`

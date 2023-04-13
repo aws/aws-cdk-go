@@ -30,7 +30,7 @@ type CfnAssignmentProps struct {
 	PrincipalId *string `field:"required" json:"principalId" yaml:"principalId"`
 	// The entity type for which the assignment will be created.
 	PrincipalType *string `field:"required" json:"principalType" yaml:"principalType"`
-	// TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).
+	// TargetID is an AWS account identifier, (For example, 123456789012).
 	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
 	// The entity type for which the assignment will be created.
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`

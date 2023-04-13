@@ -26,8 +26,6 @@ package awscdkgluealpha
 type TableEncryption string
 
 const (
-	// Experimental.
-	TableEncryption_UNENCRYPTED TableEncryption = "UNENCRYPTED"
 	// Server side encryption (SSE) with an Amazon S3-managed key.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html
 	//

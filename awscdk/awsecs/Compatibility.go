@@ -41,6 +41,7 @@ package awsecs
 //   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
 //   		},
 //   	}),
+//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 type Compatibility string

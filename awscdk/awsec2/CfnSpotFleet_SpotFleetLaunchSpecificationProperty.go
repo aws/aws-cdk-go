@@ -206,9 +206,7 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	//
 	// Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
 	RamdiskId *string `field:"optional" json:"ramdiskId" yaml:"ramdiskId"`
-	// One or more security groups.
-	//
-	// When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+	// The security groups.
 	SecurityGroups interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//

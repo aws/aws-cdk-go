@@ -107,7 +107,7 @@ convertToSeconds := tasks.NewEvaluateExpression(this, jsii.String("Convert to se
 createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &EvaluateExpressionProps{
 	// Note: this is a string inside a string.
 	Expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
+	Runtime: lambda.Runtime_NODEJS_16_X(),
 	ResultPath: jsii.String("$.message"),
 })
 
@@ -509,6 +509,7 @@ runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
 			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
 		},
 	}),
+	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 })
 ```
 
@@ -565,6 +566,7 @@ runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps
 		},
 	},
 	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
+	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 })
 ```
 

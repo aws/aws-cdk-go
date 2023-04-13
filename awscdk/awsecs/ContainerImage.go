@@ -12,29 +12,25 @@ import (
 // Constructs for types of container images.
 //
 // Example:
-//   var cluster cluster
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import efs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
-//   	Cluster: Cluster,
-//   	MemoryLimitMiB: jsii.Number(1024),
-//   	DesiredCount: jsii.Number(1),
-//   	Cpu: jsii.Number(512),
-//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	},
-//   })
+//   var myFileSystem iFileSystem
 //
-//   scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
-//   	MinCapacity: jsii.Number(1),
-//   	MaxCapacity: jsii.Number(20),
-//   })
 //
-//   scalableTarget.ScaleOnCpuUtilization(jsii.String("CpuScaling"), &CpuUtilizationScalingProps{
-//   	TargetUtilizationPercent: jsii.Number(50),
-//   })
-//
-//   scalableTarget.ScaleOnMemoryUtilization(jsii.String("MemoryScaling"), &MemoryUtilizationScalingProps{
-//   	TargetUtilizationPercent: jsii.Number(50),
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   		Volumes: []ecsVolume{
+//   			batch.*ecsVolume_Efs(&EfsVolumeOptions{
+//   				Name: jsii.String("myVolume"),
+//   				FileSystem: myFileSystem,
+//   				ContainerPath: jsii.String("/Volumes/myVolume"),
+//   			}),
+//   		},
+//   	}),
 //   })
 //
 type ContainerImage interface {

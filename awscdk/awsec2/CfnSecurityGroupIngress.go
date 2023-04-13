@@ -86,19 +86,13 @@ type CfnSecurityGroupIngress interface {
 	FromPort() *float64
 	SetFromPort(val *float64)
 	// The ID of the security group.
-	//
-	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-	//
-	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
 	GroupId() *string
 	SetGroupId(val *string)
 	// The name of the security group.
 	//
 	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
 	//
-	// Constraints for EC2-Classic: ASCII characters
-	//
-	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 	GroupName() *string
 	SetGroupName(val *string)
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
@@ -123,7 +117,7 @@ type CfnSecurityGroupIngress interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// [EC2-VPC only] The ID of a prefix list.
+	// The ID of a prefix list.
 	SourcePrefixListId() *string
 	SetSourcePrefixListId(val *string)
 	// The ID of the security group.
@@ -131,18 +125,18 @@ type CfnSecurityGroupIngress interface {
 	// You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
 	SourceSecurityGroupId() *string
 	SetSourceSecurityGroupId(val *string)
-	// [EC2-Classic, default VPC] The name of the source security group.
+	// [Default VPC] The name of the source security group.
 	//
-	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	// You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
-	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
+	// For security groups in a nondefault VPC, you must specify the group ID.
 	SourceSecurityGroupName() *string
 	SetSourceSecurityGroupName(val *string)
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
 	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
-	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
+	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId() *string
 	SetSourceSecurityGroupOwnerId(val *string)
 	// The stack in which this element is defined.

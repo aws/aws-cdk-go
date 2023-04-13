@@ -82,7 +82,7 @@ type CfnWorkspace interface {
 	awscdk.IInspectable
 	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
 	//
-	// If this is `ORGANIZATION` , the `workspaceOrganizationalUnits` parameter specifies which organizational units the workspace can access.
+	// If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType() *string
 	SetAccountAccessType(val *string)
 	// The date that the workspace was created.

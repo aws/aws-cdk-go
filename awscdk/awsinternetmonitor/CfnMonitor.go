@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::InternetMonitor::Monitor`.
 //
-// The `AWS::InternetMonitor::Monitor` resource is an Internet Monitor resource type that contains information about how you create a monitor in Amazon CloudWatch Internet Monitor. A monitor in Internet Monitor provides visibility into performance and availability between your applications hosted on AWS and your end users, using a traffic profile that it creates based on the application resources that you add: Virtual Private Clouds (VPCs), Amazon CloudFront distributions, or WorkSpaces directories.
+// The `AWS::InternetMonitor::Monitor` resource contains information about how you create a monitor in Amazon CloudWatch Internet Monitor. A monitor in Internet Monitor provides visibility into performance and availability between your applications hosted on AWS and your end users, using a traffic profile that it creates based on the application resources that you add: Virtual Private Clouds (VPCs), Amazon CloudFront distributions, or WorkSpaces directories.
 //
-// Internet Monitor also alerts you to internet issues that impact your application in the city-networks (geographies and networks) where your end users use it. With Internet Monitor, you can quickly pinpoint the locations and providers that are affected, so that you can address the issue.
+// Internet Monitor also alerts you to internet issues that impact your application in the city-networks (locations and ASNs, typically internet service providers or ISPs) where your end users use it. With Internet Monitor, you can quickly pinpoint the locations and ASNs that are affected, so that you can address the issue.
 //
 // For more information, see [Using Amazon CloudWatch Internet Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html) in the *Amazon CloudWatch User Guide* .
 //
@@ -81,7 +81,9 @@ type CfnMonitor interface {
 	LogicalId() *string
 	// The maximum number of city-networks to monitor for your resources.
 	//
-	// A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+	// A city-network is the location (city) where clients access your application resources from and the ASN, typically an internet service provider, that clients access the resources through.
+	//
+	// The city-network maximum that you choose sets a cap on the total that *can* be included when Internet Monitor monitors traffic with your monitor. You only pay for the number of city-networks that are actually monitored, not this maximum limit, and you can change the maximum at any time, by updating your monitor.
 	//
 	// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
 	MaxCityNetworksToMonitor() *float64
@@ -108,7 +110,9 @@ type CfnMonitor interface {
 	// > If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
 	ResourcesToAdd() *[]*string
 	SetResourcesToAdd(val *[]*string)
-	// The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// The resources to remove from a monitor.
+	//
+	// Provide the resources as a set of Amazon Resource Names (ARNs).
 	ResourcesToRemove() *[]*string
 	SetResourcesToRemove(val *[]*string)
 	// The stack in which this element is defined.

@@ -1,6 +1,8 @@
 package awsssmincidents
 
 
+// Details about the PagerDuty service where the response plan creates an incident.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

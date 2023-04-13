@@ -115,6 +115,13 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Ulimits: []ulimit{
+//   		&ulimit{
+//   			HardLimit: jsii.Number(123),
+//   			Name: awscdk.*Aws_ecs.UlimitName_CORE,
+//   			SoftLimit: jsii.Number(123),
+//   		},
+//   	},
 //   	User: jsii.String("user"),
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   })

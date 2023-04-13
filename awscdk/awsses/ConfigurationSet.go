@@ -48,6 +48,8 @@ type ConfigurationSet interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Adds an event destination to this configuration set.
+	AddEventDestination(id *string, options *ConfigurationSetEventDestinationOptions) ConfigurationSetEventDestination
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -246,6 +248,22 @@ func ConfigurationSet_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_ses.ConfigurationSet",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConfigurationSet) AddEventDestination(id *string, options *ConfigurationSetEventDestinationOptions) ConfigurationSetEventDestination {
+	if err := c.validateAddEventDestinationParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns ConfigurationSetEventDestination
+
+	_jsii_.Invoke(
+		c,
+		"addEventDestination",
+		[]interface{}{id, options},
 		&returns,
 	)
 
