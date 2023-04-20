@@ -128,7 +128,6 @@ customRule := config.NewCustomRule(this, jsii.String("Custom"), &CustomRuleProps
 Guard which contains the logic that evaluates whether your AWS resources comply with the rule.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 samplePolicyText := `
 # This rule checks if point in time recovery (PITR) is enabled on active Amazon DynamoDB tables
 let status = ['ACTIVE']
@@ -146,7 +145,7 @@ rule checkcompliance when
 }
 `
 
-config.NewCustomPolicy(stack, jsii.String("Custom"), &CustomPolicyProps{
+config.NewCustomPolicy(this, jsii.String("Custom"), &CustomPolicyProps{
 	PolicyText: samplePolicyText,
 	EnableDebugLog: jsii.Boolean(true),
 	RuleScope: config.RuleScope_FromResources([]resourceType{

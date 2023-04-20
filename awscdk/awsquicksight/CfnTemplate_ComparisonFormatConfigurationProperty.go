@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The format of the comparison.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -55,9 +51,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ComparisonFormatConfigurationProperty struct {
-	// The number display format.
+	// `CfnTemplate.ComparisonFormatConfigurationProperty.NumberDisplayFormatConfiguration`.
 	NumberDisplayFormatConfiguration interface{} `field:"optional" json:"numberDisplayFormatConfiguration" yaml:"numberDisplayFormatConfiguration"`
-	// The percentage display format.
+	// `CfnTemplate.ComparisonFormatConfigurationProperty.PercentageDisplayFormatConfiguration`.
 	PercentageDisplayFormatConfiguration interface{} `field:"optional" json:"percentageDisplayFormatConfiguration" yaml:"percentageDisplayFormatConfiguration"`
 }
 

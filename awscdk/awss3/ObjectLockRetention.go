@@ -10,17 +10,16 @@ import (
 // The default retention settings for an S3 Object Lock configuration.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Configure for governance mode with a duration of 7 years
 //   // Configure for governance mode with a duration of 7 years
 //   s3.NewBucket(this, jsii.String("Bucket1"), &BucketProps{
-//   	ObjectLockDefaultRetention: s3.ObjectLockRetention_Governance(cdk.Duration_Days(jsii.Number(7 * 365))),
+//   	ObjectLockDefaultRetention: s3.ObjectLockRetention_Governance(awscdk.Duration_Days(jsii.Number(7 * 365))),
 //   })
 //
 //   // Configure for compliance mode with a duration of 1 year
 //   // Configure for compliance mode with a duration of 1 year
 //   s3.NewBucket(this, jsii.String("Bucket2"), &BucketProps{
-//   	ObjectLockDefaultRetention: s3.ObjectLockRetention_Compliance(cdk.Duration_*Days(jsii.Number(365))),
+//   	ObjectLockDefaultRetention: s3.ObjectLockRetention_Compliance(awscdk.Duration_*Days(jsii.Number(365))),
 //   })
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html

@@ -10,7 +10,6 @@ import (
 // Used to generate header matching methods.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //

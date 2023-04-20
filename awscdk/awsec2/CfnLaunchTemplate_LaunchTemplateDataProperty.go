@@ -350,9 +350,9 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	RamDiskId *string `field:"optional" json:"ramDiskId" yaml:"ramDiskId"`
-	// One or more security group IDs.
+	// The IDs of the security groups.
 	//
-	// You can create a security group using [CreateSecurityGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html) . You cannot specify both a security group ID and security name in the same request.
+	// You can specify the IDs of existing security groups and references to resources created by the stack template.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// One or more security group names.
 	//

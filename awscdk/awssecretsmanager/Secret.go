@@ -15,12 +15,12 @@ import (
 //
 // Example:
 //   var stack stack
-//   user := iam.NewUser(stack, jsii.String("User"))
-//   accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &AccessKeyProps{
+//   user := iam.NewUser(this, jsii.String("User"))
+//   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
 //   	User: User,
 //   })
 //
-//   secretsmanager.NewSecret(stack, jsii.String("Secret"), &SecretProps{
+//   secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
 //   	SecretObjectValue: map[string]secretValue{
 //   		"username": awscdk.SecretValue_unsafePlainText(user.userName),
 //   		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),

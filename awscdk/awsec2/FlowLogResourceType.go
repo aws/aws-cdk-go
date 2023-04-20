@@ -8,7 +8,6 @@ import (
 // The type of resource to create the flow log for.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //

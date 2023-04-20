@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of the `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -81,15 +79,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_GaugeChartOptionsProperty struct {
-	// The arc configuration of a `GaugeChartVisual` .
+	// `CfnTemplate.GaugeChartOptionsProperty.Arc`.
 	Arc interface{} `field:"optional" json:"arc" yaml:"arc"`
-	// The arc axis configuration of a `GaugeChartVisual` .
+	// `CfnTemplate.GaugeChartOptionsProperty.ArcAxis`.
 	ArcAxis interface{} `field:"optional" json:"arcAxis" yaml:"arcAxis"`
-	// The comparison configuration of a `GaugeChartVisual` .
+	// `CfnTemplate.GaugeChartOptionsProperty.Comparison`.
 	Comparison interface{} `field:"optional" json:"comparison" yaml:"comparison"`
-	// The options that determine the primary value display type.
+	// `CfnTemplate.GaugeChartOptionsProperty.PrimaryValueDisplayType`.
 	PrimaryValueDisplayType *string `field:"optional" json:"primaryValueDisplayType" yaml:"primaryValueDisplayType"`
-	// The options that determine the primary value font configuration.
+	// `CfnTemplate.GaugeChartOptionsProperty.PrimaryValueFontConfiguration`.
 	PrimaryValueFontConfiguration interface{} `field:"optional" json:"primaryValueFontConfiguration" yaml:"primaryValueFontConfiguration"`
 }
 

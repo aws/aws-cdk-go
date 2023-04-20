@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A list of filter configurations.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,13 +17,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilterListConfigurationProperty struct {
-	// The match operator that is used to determine if a filter should be applied.
+	// `CfnTemplate.FilterListConfigurationProperty.MatchOperator`.
 	MatchOperator *string `field:"required" json:"matchOperator" yaml:"matchOperator"`
-	// The list of category values for the filter.
+	// `CfnTemplate.FilterListConfigurationProperty.CategoryValues`.
 	CategoryValues *[]*string `field:"optional" json:"categoryValues" yaml:"categoryValues"`
-	// Select all of the values. Null is not the assigned value of select all.
-	//
-	// - `FILTER_ALL_VALUES`.
+	// `CfnTemplate.FilterListConfigurationProperty.SelectAllOptions`.
 	SelectAllOptions *string `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
 }
 

@@ -12,7 +12,6 @@ import (
 // Define a new AppMesh mesh.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // This is the ARN for the mesh from different AWS IAM account ID.
 //   // Ensure mesh is properly shared with your account. For more details, see: https://github.com/aws/aws-cdk/issues/15404
 //   arn := "arn:aws:appmesh:us-east-1:123456789012:mesh/testMesh"

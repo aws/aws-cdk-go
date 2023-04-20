@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The label configuration of a reference line.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -97,24 +95,17 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ReferenceLineLabelConfigurationProperty struct {
-	// The custom label configuration of the label in a reference line.
+	// `CfnTemplate.ReferenceLineLabelConfigurationProperty.CustomLabelConfiguration`.
 	CustomLabelConfiguration interface{} `field:"optional" json:"customLabelConfiguration" yaml:"customLabelConfiguration"`
-	// The font color configuration of the label in a reference line.
+	// `CfnTemplate.ReferenceLineLabelConfigurationProperty.FontColor`.
 	FontColor *string `field:"optional" json:"fontColor" yaml:"fontColor"`
-	// The font configuration of the label in a reference line.
+	// `CfnTemplate.ReferenceLineLabelConfigurationProperty.FontConfiguration`.
 	FontConfiguration interface{} `field:"optional" json:"fontConfiguration" yaml:"fontConfiguration"`
-	// The horizontal position configuration of the label in a reference line. Choose one of the following options:.
-	//
-	// - `LEFT`
-	// - `CENTER`
-	// - `RIGHT`.
+	// `CfnTemplate.ReferenceLineLabelConfigurationProperty.HorizontalPosition`.
 	HorizontalPosition *string `field:"optional" json:"horizontalPosition" yaml:"horizontalPosition"`
-	// The value label configuration of the label in a reference line.
+	// `CfnTemplate.ReferenceLineLabelConfigurationProperty.ValueLabelConfiguration`.
 	ValueLabelConfiguration interface{} `field:"optional" json:"valueLabelConfiguration" yaml:"valueLabelConfiguration"`
-	// The vertical position configuration of the label in a reference line. Choose one of the following options:.
-	//
-	// - `ABOVE`
-	// - `BELOW`.
+	// `CfnTemplate.ReferenceLineLabelConfigurationProperty.VerticalPosition`.
 	VerticalPosition *string `field:"optional" json:"verticalPosition" yaml:"verticalPosition"`
 }
 

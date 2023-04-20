@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A custom action defined on a visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -78,22 +76,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_VisualCustomActionProperty struct {
-	// A list of `VisualCustomActionOperations` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// `CfnTemplate.VisualCustomActionProperty.ActionOperations`.
 	ActionOperations interface{} `field:"required" json:"actionOperations" yaml:"actionOperations"`
-	// The ID of the `VisualCustomAction` .
+	// `CfnTemplate.VisualCustomActionProperty.CustomActionId`.
 	CustomActionId *string `field:"required" json:"customActionId" yaml:"customActionId"`
-	// The name of the `VisualCustomAction` .
+	// `CfnTemplate.VisualCustomActionProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The trigger of the `VisualCustomAction` .
-	//
-	// Valid values are defined as follows:
-	//
-	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
-	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+	// `CfnTemplate.VisualCustomActionProperty.Trigger`.
 	Trigger *string `field:"required" json:"trigger" yaml:"trigger"`
-	// The status of the `VisualCustomAction` .
+	// `CfnTemplate.VisualCustomActionProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

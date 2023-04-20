@@ -12,19 +12,21 @@ import (
 // Define an ApplicationListener.
 //
 // Example:
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 //
-//   var alb applicationLoadBalancer
+//   var lb applicationLoadBalancer
 //
-//   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
 //   })
-//   targetGroup := listener.AddTargets(jsii.String("Fleet"), &AddApplicationTargetsProps{
+//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
 //   	Port: jsii.Number(80),
 //   })
 //
-//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-//   	LoadBalancer: codedeploy.LoadBalancer_Application(targetGroup),
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
+//   		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("myKey"), jsii.String("myValue")),
+//   	}),
 //   })
 //
 type ApplicationListener interface {

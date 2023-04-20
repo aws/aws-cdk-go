@@ -2,7 +2,6 @@ package awsec2
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
 //   	VpnConnections: map[string]vpnConnectionOptions{
 //   		"dynamic": &vpnConnectionOptions{

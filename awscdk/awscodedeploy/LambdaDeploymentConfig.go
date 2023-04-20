@@ -11,13 +11,12 @@ import (
 // A custom Deployment Configuration for a Lambda Deployment Group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var application lambdaApplication
 //   var alias alias
 //   config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
-//   	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
-//   		"interval": cdk.Duration_minutes(jsii.Number(15)),
-//   		"percentage": jsii.Number(5),
+//   	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
+//   		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
+//   		Percentage: jsii.Number(5),
 //   	}),
 //   })
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{

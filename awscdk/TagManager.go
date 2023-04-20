@@ -14,22 +14,23 @@ import (
 // value that will resolve to the tags at synthesis time.
 //
 // Example:
-//   import * as cdk from '@aws-cdk/core';
+//   type myConstruct struct {
+//   	resource
+//   	tags
+//   }
 //
-//   class MyConstruct extends cdk.Resource implements cdk.ITaggable {
-//     public readonly tags = new cdk.TagManager(cdk.TagType.KEY_VALUE, 'Whatever::The::Type');
+//   func newMyConstruct(scope construct, id *string) *myConstruct {
+//   	this := &myConstruct{}
+//   	newResource_Override(this, scope, id)
 //
-//     constructor(scope: cdk.Construct, id: string) {
-//       super(scope, id);
-//
-//       new cdk.CfnResource(this, 'Resource', {
-//         type: 'Whatever::The::Type',
-//         properties: {
-//           // ...
-//           Tags: this.tags.renderedTags,
-//         },
-//       });
-//     }
+//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
+//   		Type: jsii.String("Whatever::The::Type"),
+//   		Properties: map[string]interface{}{
+//   			// ...
+//   			"Tags": this.tags.renderedTags,
+//   		},
+//   	})
+//   	return this
 //   }
 //
 type TagManager interface {

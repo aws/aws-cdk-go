@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options for the canvas of a section-based layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,7 +20,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SectionBasedLayoutCanvasSizeOptionsProperty struct {
-	// The options for a paper canvas of a section-based layout.
+	// `CfnAnalysis.SectionBasedLayoutCanvasSizeOptionsProperty.PaperCanvasSizeOptions`.
 	PaperCanvasSizeOptions interface{} `field:"optional" json:"paperCanvasSizeOptions" yaml:"paperCanvasSizeOptions"`
 }
 

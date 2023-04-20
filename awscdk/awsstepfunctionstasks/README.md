@@ -179,13 +179,12 @@ tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &CallApiGa
 The `CallApiGatewayHttpApiEndpoint` calls the HTTP API endpoint.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
+import apigatewayv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
 
 httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 
 invokeTask := tasks.NewCallApiGatewayHttpApiEndpoint(this, jsii.String("Call HTTP API"), &CallApiGatewayHttpApiEndpointProps{
-	ApiId: httpApi.apiId,
+	ApiId: httpApi.ApiId,
 	ApiStack: awscdk.*stack_Of(httpApi),
 	Method: tasks.HttpMethod_GET,
 })
@@ -324,15 +323,15 @@ The [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_Submit
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import batch "github.com/aws/aws-cdk-go/awscdk"
+import batch "github.com/aws/aws-cdk-go/awscdkbatchalpha"
 var batchJobDefinition batch.JobDefinition
-var batchQueue batch.JobQueue
+var batchQueue jobQueue
 
 
 task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{
 	JobDefinitionArn: batchJobDefinition.jobDefinitionArn,
 	JobName: jsii.String("MyJob"),
-	JobQueueArn: batchQueue.jobQueueArn,
+	JobQueueArn: batchQueue.JobQueueArn,
 })
 ```
 

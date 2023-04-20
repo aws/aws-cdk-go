@@ -3,7 +3,9 @@ package awssagemaker
 
 // Use this to specify the AWS Key Management Service (KMS) Key ID, or `KMSKeyId` , for at rest data encryption.
 //
-// You can turn `OnlineStore` on or off by specifying the `EnableOnlineStore` flag at General Assembly; the default value is `False` .
+// You can turn `OnlineStore` on or off by specifying the `EnableOnlineStore` flag at General Assembly.
+//
+// The default value is `False` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

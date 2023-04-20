@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The range options for the data zoom scroll bar.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,7 +14,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_VisibleRangeOptionsProperty struct {
-	// The percent range in the visible range.
+	// `CfnAnalysis.VisibleRangeOptionsProperty.PercentRange`.
 	PercentRange interface{} `field:"optional" json:"percentRange" yaml:"percentRange"`
 }
 

@@ -1,8 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Describes the configuration for the form's style.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,11 +22,11 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FormStyleProperty struct {
-	// The spacing for the horizontal gap.
+	// `CfnForm.FormStyleProperty.HorizontalGap`.
 	HorizontalGap interface{} `field:"optional" json:"horizontalGap" yaml:"horizontalGap"`
-	// The size of the outer padding for the form.
+	// `CfnForm.FormStyleProperty.OuterPadding`.
 	OuterPadding interface{} `field:"optional" json:"outerPadding" yaml:"outerPadding"`
-	// The spacing for the vertical gap.
+	// `CfnForm.FormStyleProperty.VerticalGap`.
 	VerticalGap interface{} `field:"optional" json:"verticalGap" yaml:"verticalGap"`
 }
 

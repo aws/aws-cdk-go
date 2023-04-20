@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The comparison display configuration of a KPI or gauge chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -56,13 +54,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ComparisonConfigurationProperty struct {
-	// The format of the comparison.
+	// `CfnDashboard.ComparisonConfigurationProperty.ComparisonFormat`.
 	ComparisonFormat interface{} `field:"optional" json:"comparisonFormat" yaml:"comparisonFormat"`
-	// The method of the comparison. Choose from the following options:.
-	//
-	// - `DIFFERENCE`
-	// - `PERCENT_DIFFERENCE`
-	// - `PERCENT`.
+	// `CfnDashboard.ComparisonConfigurationProperty.ComparisonMethod`.
 	ComparisonMethod *string `field:"optional" json:"comparisonMethod" yaml:"comparisonMethod"`
 }
 

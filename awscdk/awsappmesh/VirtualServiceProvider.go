@@ -10,7 +10,6 @@ import (
 // Represents the properties needed to define the provider for a VirtualService.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //

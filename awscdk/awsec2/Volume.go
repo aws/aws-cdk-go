@@ -14,7 +14,6 @@ import (
 // Creates a new EBS Volume in AWS EC2.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instance instance
 //   var role role
 //

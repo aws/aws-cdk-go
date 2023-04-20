@@ -7,7 +7,6 @@ package awsappmesh
 // Also used to specify the IP version that a sidecar Envoy uses when sending traffic to a local application.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &MeshProps{
 //   	MeshName: jsii.String("myAwsMesh"),
 //   	ServiceDiscovery: &MeshServiceDiscovery{

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The selected field options for the pivot table field options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableFieldOptionProperty struct {
-	// The field ID of the pivot table field.
+	// `CfnDashboard.PivotTableFieldOptionProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The custom label of the pivot table field.
+	// `CfnDashboard.PivotTableFieldOptionProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The visibility of the pivot table field.
+	// `CfnDashboard.PivotTableFieldOptionProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

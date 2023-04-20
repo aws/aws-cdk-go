@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -78,15 +76,15 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_LineChartSortConfigurationProperty struct {
-	// The limit on the number of categories that are displayed in a line chart.
+	// `CfnAnalysis.LineChartSortConfigurationProperty.CategoryItemsLimitConfiguration`.
 	CategoryItemsLimitConfiguration interface{} `field:"optional" json:"categoryItemsLimitConfiguration" yaml:"categoryItemsLimitConfiguration"`
-	// The sort configuration of the category fields.
+	// `CfnAnalysis.LineChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
-	// The limit on the number of lines that are displayed in a line chart.
+	// `CfnAnalysis.LineChartSortConfigurationProperty.ColorItemsLimitConfiguration`.
 	ColorItemsLimitConfiguration interface{} `field:"optional" json:"colorItemsLimitConfiguration" yaml:"colorItemsLimitConfiguration"`
-	// The limit on the number of small multiples panels that are displayed.
+	// `CfnAnalysis.LineChartSortConfigurationProperty.SmallMultiplesLimitConfiguration`.
 	SmallMultiplesLimitConfiguration interface{} `field:"optional" json:"smallMultiplesLimitConfiguration" yaml:"smallMultiplesLimitConfiguration"`
-	// The sort configuration of the small multiples field.
+	// `CfnAnalysis.LineChartSortConfigurationProperty.SmallMultiplesSort`.
 	SmallMultiplesSort interface{} `field:"optional" json:"smallMultiplesSort" yaml:"smallMultiplesSort"`
 }
 

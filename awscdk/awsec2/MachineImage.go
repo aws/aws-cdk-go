@@ -126,6 +126,7 @@ func MachineImage_GenericWindows(amiMap *map[string]*string, props *GenericWindo
 //   generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
 // })
 // ```.
+// Deprecated: use MachineImage.latestAmazonLinux2 instead
 func MachineImage_LatestAmazonLinux(props *AmazonLinuxImageProps) IMachineImage {
 	_init_.Initialize()
 
@@ -137,6 +138,78 @@ func MachineImage_LatestAmazonLinux(props *AmazonLinuxImageProps) IMachineImage 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.MachineImage",
 		"latestAmazonLinux",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// An Amazon Linux 2 image that is automatically kept up-to-date.
+//
+// This Machine Image automatically updates to the latest version on every
+// deployment. Be aware this will cause your instances to be replaced when a
+// new version of the image becomes available. Do not store stateful information
+// on the instance if you are using this image.
+func MachineImage_LatestAmazonLinux2(props *AmazonLinux2ImageSsmParameterProps) IMachineImage {
+	_init_.Initialize()
+
+	if err := validateMachineImage_LatestAmazonLinux2Parameters(props); err != nil {
+		panic(err)
+	}
+	var returns IMachineImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.MachineImage",
+		"latestAmazonLinux2",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// An Amazon Linux 2022 image that is automatically kept up-to-date.
+//
+// This Machine Image automatically updates to the latest version on every
+// deployment. Be aware this will cause your instances to be replaced when a
+// new version of the image becomes available. Do not store stateful information
+// on the instance if you are using this image.
+func MachineImage_LatestAmazonLinux2022(props *AmazonLinux2022ImageSsmParameterProps) IMachineImage {
+	_init_.Initialize()
+
+	if err := validateMachineImage_LatestAmazonLinux2022Parameters(props); err != nil {
+		panic(err)
+	}
+	var returns IMachineImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.MachineImage",
+		"latestAmazonLinux2022",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// An Amazon Linux 2023 image that is automatically kept up-to-date.
+//
+// This Machine Image automatically updates to the latest version on every
+// deployment. Be aware this will cause your instances to be replaced when a
+// new version of the image becomes available. Do not store stateful information
+// on the instance if you are using this image.
+func MachineImage_LatestAmazonLinux2023(props *AmazonLinux2023ImageSsmParameterProps) IMachineImage {
+	_init_.Initialize()
+
+	if err := validateMachineImage_LatestAmazonLinux2023Parameters(props); err != nil {
+		panic(err)
+	}
+	var returns IMachineImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.MachineImage",
+		"latestAmazonLinux2023",
 		[]interface{}{props},
 		&returns,
 	)

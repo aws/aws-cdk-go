@@ -10,7 +10,6 @@ import (
 // Used to generate host name matching methods.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //

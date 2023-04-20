@@ -8,7 +8,6 @@ package awscdk
 // which language is used for the handler.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,

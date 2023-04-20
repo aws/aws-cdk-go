@@ -110,9 +110,7 @@ type CfnFleet interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The type of compute resource used to host your game servers.
-	//
-	// You can use your own compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed Amazon GameLift.
+	// `AWS::GameLift::Fleet.ComputeType`.
 	ComputeType() *string
 	SetComputeType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

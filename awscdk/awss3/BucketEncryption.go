@@ -4,7 +4,6 @@ package awss3
 // What kind of server-side encryption to apply to this bucket.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &BucketProps{
 //   	Encryption: s3.BucketEncryption_KMS,
 //   })

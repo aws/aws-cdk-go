@@ -10,7 +10,6 @@ import (
 // Configuration for Envoy Access logs for mesh endpoints.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
@@ -25,10 +24,10 @@ import (
 //   			Port: jsii.Number(8081),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
-//   				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 //   				 // minimum
 //   				Path: jsii.String("/health-check-path"),
-//   				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 //   				 // minimum
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),

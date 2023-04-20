@@ -4,7 +4,6 @@ package awsec2
 // Options for InitCommand.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   handle := ec2.NewInitServiceRestartHandle()
 //   ec2.CloudFormationInit_FromElements(ec2.InitCommand_ShellCommand(jsii.String("/usr/bin/custom-nginx-install.sh"), &InitCommandOptions{
 //   	ServiceRestartHandles: []initServiceRestartHandle{

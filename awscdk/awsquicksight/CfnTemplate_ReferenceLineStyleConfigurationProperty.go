@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The style configuration of the reference line.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,13 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ReferenceLineStyleConfigurationProperty struct {
-	// The hex color of the reference line.
+	// `CfnTemplate.ReferenceLineStyleConfigurationProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
-	// The pattern type of the line style. Choose one of the following options:.
-	//
-	// - `SOLID`
-	// - `DASHED`
-	// - `DOTTED`.
+	// `CfnTemplate.ReferenceLineStyleConfigurationProperty.Pattern`.
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options for data bars.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DataBarsOptionsProperty struct {
-	// The field ID for the data bars options.
+	// `CfnTemplate.DataBarsOptionsProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The color of the negative data bar.
+	// `CfnTemplate.DataBarsOptionsProperty.NegativeColor`.
 	NegativeColor *string `field:"optional" json:"negativeColor" yaml:"negativeColor"`
-	// The color of the positive data bar.
+	// `CfnTemplate.DataBarsOptionsProperty.PositiveColor`.
 	PositiveColor *string `field:"optional" json:"positiveColor" yaml:"positiveColor"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field options for a table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -56,9 +54,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableFieldOptionsProperty struct {
-	// The order of field IDs of the field options for a table visual.
+	// `CfnTemplate.TableFieldOptionsProperty.Order`.
 	Order *[]*string `field:"optional" json:"order" yaml:"order"`
-	// The selected field options for the table field options.
+	// `CfnTemplate.TableFieldOptionsProperty.SelectedFieldOptions`.
 	SelectedFieldOptions interface{} `field:"optional" json:"selectedFieldOptions" yaml:"selectedFieldOptions"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The subtotal options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -194,19 +192,19 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_SubtotalOptionsProperty struct {
-	// The custom label string for the subtotal cells.
+	// `CfnTemplate.SubtotalOptionsProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The field level (all, custom, last) for the subtotal cells.
+	// `CfnTemplate.SubtotalOptionsProperty.FieldLevel`.
 	FieldLevel *string `field:"optional" json:"fieldLevel" yaml:"fieldLevel"`
-	// The optional configuration of subtotal cells.
+	// `CfnTemplate.SubtotalOptionsProperty.FieldLevelOptions`.
 	FieldLevelOptions interface{} `field:"optional" json:"fieldLevelOptions" yaml:"fieldLevelOptions"`
-	// The cell styling options for the subtotals of header cells.
+	// `CfnTemplate.SubtotalOptionsProperty.MetricHeaderCellStyle`.
 	MetricHeaderCellStyle interface{} `field:"optional" json:"metricHeaderCellStyle" yaml:"metricHeaderCellStyle"`
-	// The cell styling options for the subtotal cells.
+	// `CfnTemplate.SubtotalOptionsProperty.TotalCellStyle`.
 	TotalCellStyle interface{} `field:"optional" json:"totalCellStyle" yaml:"totalCellStyle"`
-	// The visibility configuration for the subtotal cells.
+	// `CfnTemplate.SubtotalOptionsProperty.TotalsVisibility`.
 	TotalsVisibility *string `field:"optional" json:"totalsVisibility" yaml:"totalsVisibility"`
-	// The cell styling options for the subtotals of value cells.
+	// `CfnTemplate.SubtotalOptionsProperty.ValueCellStyle`.
 	ValueCellStyle interface{} `field:"optional" json:"valueCellStyle" yaml:"valueCellStyle"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A list of selectable values that are used in a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ParameterSelectableValuesProperty struct {
-	// The column identifier that fetches values from the data set.
+	// `CfnAnalysis.ParameterSelectableValuesProperty.LinkToDataSetColumn`.
 	LinkToDataSetColumn interface{} `field:"optional" json:"linkToDataSetColumn" yaml:"linkToDataSetColumn"`
-	// The values that are used in `ParameterSelectableValues` .
+	// `CfnAnalysis.ParameterSelectableValuesProperty.Values`.
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

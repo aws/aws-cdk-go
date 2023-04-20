@@ -150,8 +150,6 @@ With Application Load Balancer or Network Load Balancer,
 you provide a Target Group as the load balancer:
 
 ```go
-import elbv2 "github.com/aws/aws-cdk-go/awscdk"
-
 var alb applicationLoadBalancer
 
 listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
@@ -333,13 +331,12 @@ you can do so with the LambdaDeploymentConfig construct,
 letting you specify precisely how fast a new function version is deployed.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var application lambdaApplication
 var alias alias
 config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
-	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
-		"interval": cdk.Duration_minutes(jsii.Number(15)),
-		"percentage": jsii.Number(5),
+	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
+		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
+		Percentage: jsii.Number(5),
 	}),
 })
 deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
@@ -352,11 +349,10 @@ deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGr
 You can specify a custom name for your deployment config, but if you do you will not be able to update the interval/percentage through CDK.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
-	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
-		"interval": cdk.Duration_minutes(jsii.Number(15)),
-		"percentage": jsii.Number(5),
+	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
+		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
+		Percentage: jsii.Number(5),
 	}),
 	DeploymentConfigName: jsii.String("MyDeploymentConfig"),
 })
@@ -403,24 +399,23 @@ monitor, and validate before shifting 100% of traffic to the new version.
 To create a new CodeDeploy Deployment Group that deploys to an ECS service:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var myApplication ecsApplication
-var cluster ecs.Cluster
-var taskDefinition ecs.FargateTaskDefinition
-var blueTargetGroup elbv2.ITargetGroup
-var greenTargetGroup elbv2.ITargetGroup
-var listener elbv2.IApplicationListener
+var cluster cluster
+var taskDefinition fargateTaskDefinition
+var blueTargetGroup iTargetGroup
+var greenTargetGroup iTargetGroup
+var listener iApplicationListener
 
 
-service := ecs.NewFargateService(this, jsii.String("Service"), map[string]interface{}{
-	"cluster": cluster,
-	"taskDefinition": taskDefinition,
-	"deploymentController": map[string]interface{}{
-		"type": ecs.DeploymentControllerType_CODE_DEPLOY,
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DeploymentController: &DeploymentController{
+		Type: ecs.DeploymentControllerType_CODE_DEPLOY,
 	},
 })
 
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	Service: Service,
 	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
 		BlueTargetGroup: *BlueTargetGroup,
@@ -458,45 +453,49 @@ as well as alarms set for the number HTTP 5xx responses seen in each of the blue
 and green target groups.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
+
+var service fargateService
+var blueTargetGroup applicationTargetGroup
+var greenTargetGroup applicationTargetGroup
+var listener iApplicationListener
 
 
 // Alarm on the number of unhealthy ECS tasks in each target group
-blueUnhealthyHosts := cloudwatch.NewAlarm(stack, jsii.String("BlueUnhealthyHosts"), &AlarmProps{
-	AlarmName: jsii.String(stack.stackName + "-Unhealthy-Hosts-Blue"),
-	Metric: blueTargetGroup.metricUnhealthyHostCount(),
+blueUnhealthyHosts := cloudwatch.NewAlarm(this, jsii.String("BlueUnhealthyHosts"), &AlarmProps{
+	AlarmName: jsii.String(awscdk.stack_Of(this).stackName + "-Unhealthy-Hosts-Blue"),
+	Metric: blueTargetGroup.MetricUnhealthyHostCount(),
 	Threshold: jsii.Number(1),
 	EvaluationPeriods: jsii.Number(2),
 })
 
-greenUnhealthyHosts := cloudwatch.NewAlarm(stack, jsii.String("GreenUnhealthyHosts"), &AlarmProps{
-	AlarmName: jsii.String(stack.stackName + "-Unhealthy-Hosts-Green"),
-	Metric: greenTargetGroup.metricUnhealthyHostCount(),
+greenUnhealthyHosts := cloudwatch.NewAlarm(this, jsii.String("GreenUnhealthyHosts"), &AlarmProps{
+	AlarmName: jsii.String(awscdk.stack_Of(this).stackName + "-Unhealthy-Hosts-Green"),
+	Metric: greenTargetGroup.*MetricUnhealthyHostCount(),
 	Threshold: jsii.Number(1),
 	EvaluationPeriods: jsii.Number(2),
 })
 
 // Alarm on the number of HTTP 5xx responses returned by each target group
-blueApiFailure := cloudwatch.NewAlarm(stack, jsii.String("Blue5xx"), &AlarmProps{
-	AlarmName: jsii.String(stack.stackName + "-Http-5xx-Blue"),
-	Metric: blueTargetGroup.metricHttpCodeTarget(elbv2.httpCodeTarget_TARGET_5XX_COUNT, map[string]interface{}{
-		"period": cdk.Duration_minutes(jsii.Number(1)),
+blueApiFailure := cloudwatch.NewAlarm(this, jsii.String("Blue5xx"), &AlarmProps{
+	AlarmName: jsii.String(awscdk.stack_Of(this).stackName + "-Http-5xx-Blue"),
+	Metric: blueTargetGroup.MetricHttpCodeTarget(elbv2.HttpCodeTarget_TARGET_5XX_COUNT, &MetricOptions{
+		Period: awscdk.Duration_Minutes(jsii.Number(1)),
 	}),
 	Threshold: jsii.Number(1),
 	EvaluationPeriods: jsii.Number(1),
 })
 
-greenApiFailure := cloudwatch.NewAlarm(stack, jsii.String("Green5xx"), &AlarmProps{
-	AlarmName: jsii.String(stack.stackName + "-Http-5xx-Green"),
-	Metric: greenTargetGroup.metricHttpCodeTarget(elbv2.*httpCodeTarget_TARGET_5XX_COUNT, map[string]interface{}{
-		"period": cdk.Duration_minutes(jsii.Number(1)),
+greenApiFailure := cloudwatch.NewAlarm(this, jsii.String("Green5xx"), &AlarmProps{
+	AlarmName: jsii.String(awscdk.stack_Of(this).stackName + "-Http-5xx-Green"),
+	Metric: greenTargetGroup.*MetricHttpCodeTarget(elbv2.HttpCodeTarget_TARGET_5XX_COUNT, &MetricOptions{
+		Period: awscdk.Duration_*Minutes(jsii.Number(1)),
 	}),
 	Threshold: jsii.Number(1),
 	EvaluationPeriods: jsii.Number(1),
 })
 
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	// CodeDeploy will monitor these alarms during a deployment and automatically roll back
 	Alarms: []iAlarm{
 		blueUnhealthyHosts,
@@ -528,16 +527,15 @@ During a blue-green deployment, CodeDeploy can then shift 100% of test traffic o
 task set/target group prior to shifting any production traffic during the deployment.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var myApplication ecsApplication
-var service ecs.FargateService
-var blueTargetGroup elbv2.ITargetGroup
-var greenTargetGroup elbv2.ITargetGroup
-var listener elbv2.IApplicationListener
-var testListener elbv2.IApplicationListener
+var service fargateService
+var blueTargetGroup iTargetGroup
+var greenTargetGroup iTargetGroup
+var listener iApplicationListener
+var testListener iApplicationListener
 
 
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	Service: Service,
 	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
 		BlueTargetGroup: *BlueTargetGroup,
@@ -569,8 +567,14 @@ If the ContinueDeployment API is not called within the approval wait time period
 deployment and can automatically roll back the deployment.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+var service fargateService
+var blueTargetGroup iTargetGroup
+var greenTargetGroup iTargetGroup
+var listener iApplicationListener
+var testListener iApplicationListener
+
+
+codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	AutoRollback: &AutoRollbackConfig{
 		// CodeDeploy will automatically roll back if the 8-hour approval period times out and the deployment stops
 		StoppedDeployment: jsii.Boolean(true),
@@ -595,8 +599,19 @@ is complete in order to let the deployment "bake" a while. During this bake time
 CloudWatch alarms specified for the deployment group and will automatically roll back if those alarms go into a failed state.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var service fargateService
+var blueTargetGroup iTargetGroup
+var greenTargetGroup iTargetGroup
+var listener iApplicationListener
+var blueUnhealthyHosts alarm
+var greenUnhealthyHosts alarm
+var blueApiFailure alarm
+var greenApiFailure alarm
+
+
+codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	Service: Service,
 	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
 		BlueTargetGroup: *BlueTargetGroup,
@@ -644,11 +659,10 @@ you can do so with the EcsDeploymentConfig construct,
 letting you specify precisely how fast an ECS service is deployed.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &EcsDeploymentConfigProps{
-	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
-		"interval": cdk.Duration_minutes(jsii.Number(15)),
-		"percentage": jsii.Number(5),
+	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
+		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
+		Percentage: jsii.Number(5),
 	}),
 })
 ```
@@ -656,11 +670,10 @@ codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &EcsDeploym
 You can specify a custom name for your deployment config, but if you do you will not be able to update the interval/percentage through CDK.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 config := codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &EcsDeploymentConfigProps{
-	TrafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
-		"interval": cdk.Duration_minutes(jsii.Number(15)),
-		"percentage": jsii.Number(5),
+	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
+		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
+		Percentage: jsii.Number(5),
 	}),
 	DeploymentConfigName: jsii.String("MyDeploymentConfig"),
 })
@@ -679,9 +692,8 @@ deploymentConfig := codedeploy.EcsDeploymentConfig_FromEcsDeploymentConfigName(t
 An experimental construct is available on the Construct Hub called [@cdklabs/cdk-ecs-codedeploy](https://constructs.dev/packages/@cdklabs/cdk-ecs-codedeploy) that manages ECS CodeDeploy deployments.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var deploymentGroup codeDeploy.IEcsDeploymentGroup
-var taskDefinition ecs.ITaskDefinition
+var deploymentGroup iEcsDeploymentGroup
+var taskDefinition iTaskDefinition
 
 
 NewEcsDeployment(map[string]interface{}{
@@ -697,7 +709,10 @@ NewEcsDeployment(map[string]interface{}{
 The deployment will use the AutoRollbackConfig for the EcsDeploymentGroup unless it is overridden in the deployment:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var deploymentGroup iEcsDeploymentGroup
+var taskDefinition iTaskDefinition
+
+
 NewEcsDeployment(map[string]interface{}{
 	"deploymentGroup": deploymentGroup,
 	"targetService": map[string]interface{}{
@@ -716,7 +731,10 @@ NewEcsDeployment(map[string]interface{}{
 By default, the CodeDeploy Deployment will timeout after 30 minutes. The timeout value can be overridden:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var deploymentGroup iEcsDeploymentGroup
+var taskDefinition iTaskDefinition
+
+
 NewEcsDeployment(map[string]interface{}{
 	"deploymentGroup": deploymentGroup,
 	"targetService": map[string]interface{}{

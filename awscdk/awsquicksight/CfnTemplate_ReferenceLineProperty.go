@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The reference line visual display options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -134,16 +132,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ReferenceLineProperty struct {
-	// The data configuration of the reference line.
+	// `CfnTemplate.ReferenceLineProperty.DataConfiguration`.
 	DataConfiguration interface{} `field:"required" json:"dataConfiguration" yaml:"dataConfiguration"`
-	// The label configuration of the reference line.
+	// `CfnTemplate.ReferenceLineProperty.LabelConfiguration`.
 	LabelConfiguration interface{} `field:"optional" json:"labelConfiguration" yaml:"labelConfiguration"`
-	// The status of the reference line. Choose one of the following options:.
-	//
-	// - `ENABLE`
-	// - `DISABLE`.
+	// `CfnTemplate.ReferenceLineProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// The style configuration of the reference line.
+	// `CfnTemplate.ReferenceLineProperty.StyleConfiguration`.
 	StyleConfiguration interface{} `field:"optional" json:"styleConfiguration" yaml:"styleConfiguration"`
 }
 

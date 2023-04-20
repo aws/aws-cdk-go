@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The optional configuration of subtotals cells.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableFieldSubtotalOptionsProperty struct {
-	// The field ID of the subtotal options.
+	// `CfnDashboard.PivotTableFieldSubtotalOptionsProperty.FieldId`.
 	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
 }
 

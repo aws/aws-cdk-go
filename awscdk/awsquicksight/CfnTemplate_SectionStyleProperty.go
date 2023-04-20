@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that style a section.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,13 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_SectionStyleProperty struct {
-	// The height of a section.
-	//
-	// Heights can only be defined for header and footer sections. The default height margin is 0.5 inches.
+	// `CfnTemplate.SectionStyleProperty.Height`.
 	Height *string `field:"optional" json:"height" yaml:"height"`
-	// The spacing between section content and its top, bottom, left, and right edges.
-	//
-	// There is no padding by default.
+	// `CfnTemplate.SectionStyleProperty.Padding`.
 	Padding interface{} `field:"optional" json:"padding" yaml:"padding"`
 }
 

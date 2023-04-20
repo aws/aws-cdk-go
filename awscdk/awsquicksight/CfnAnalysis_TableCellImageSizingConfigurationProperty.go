@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sizing options for the table image configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_TableCellImageSizingConfigurationProperty struct {
-	// The cell scaling configuration of the sizing options for the table image configuration.
+	// `CfnAnalysis.TableCellImageSizingConfigurationProperty.TableCellImageScalingConfiguration`.
 	TableCellImageScalingConfiguration *string `field:"optional" json:"tableCellImageScalingConfiguration" yaml:"tableCellImageScalingConfiguration"`
 }
 

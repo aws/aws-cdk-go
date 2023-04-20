@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the color scale that is applied to the visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,11 +23,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ColorScaleProperty struct {
-	// Determines the color fill type.
+	// `CfnTemplate.ColorScaleProperty.ColorFillType`.
 	ColorFillType *string `field:"required" json:"colorFillType" yaml:"colorFillType"`
-	// Determines the list of colors that are applied to the visual.
+	// `CfnTemplate.ColorScaleProperty.Colors`.
 	Colors interface{} `field:"required" json:"colors" yaml:"colors"`
-	// Determines the color that is applied to null values.
+	// `CfnTemplate.ColorScaleProperty.NullValueColor`.
 	NullValueColor interface{} `field:"optional" json:"nullValueColor" yaml:"nullValueColor"`
 }
 

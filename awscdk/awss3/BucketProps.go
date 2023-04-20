@@ -7,7 +7,6 @@ import (
 )
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceBucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	Versioned: jsii.Boolean(true),
 //   })

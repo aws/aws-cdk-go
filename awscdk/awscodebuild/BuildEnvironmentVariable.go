@@ -2,7 +2,6 @@ package awscodebuild
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // later:
 //   var project pipelineProject
 //   sourceOutput := codepipeline.NewArtifact()

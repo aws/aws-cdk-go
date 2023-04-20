@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The table calculation measure field for pivot tables.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CalculatedMeasureFieldProperty struct {
-	// The expression in the table calculation.
+	// `CfnDashboard.CalculatedMeasureFieldProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// The custom field ID.
+	// `CfnDashboard.CalculatedMeasureFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 }
 

@@ -308,11 +308,10 @@ func NewRole_Override(r Role, scope constructs.Construct, id *string, props *Rol
 // in `usePrecreatedRoles`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var app app
 //
-//   role_CustomizeRoles(app, map[string]map[string]*string{
-//   	"usePrecreatedRoles": map[string]*string{
+//   iam.Role_CustomizeRoles(app, &CustomizeRolesOptions{
+//   	UsePrecreatedRoles: map[string]*string{
 //   		"ConstructPath/To/Role": jsii.String("my-precreated-role-name"),
 //   	},
 //   })

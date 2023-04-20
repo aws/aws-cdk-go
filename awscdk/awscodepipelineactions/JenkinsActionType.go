@@ -7,7 +7,6 @@ package awscodepipelineactions
 // must be separately registered for each type.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var jenkinsProvider jenkinsProvider
 //
 //   buildAction := codepipeline_actions.NewJenkinsAction(&JenkinsActionProps{

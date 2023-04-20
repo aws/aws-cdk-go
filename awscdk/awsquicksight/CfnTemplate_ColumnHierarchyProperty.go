@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The option that determines the hierarchy of the fields for a visual element.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -126,15 +124,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ColumnHierarchyProperty struct {
-	// The option that determines the hierarchy of any `DateTime` fields.
+	// `CfnTemplate.ColumnHierarchyProperty.DateTimeHierarchy`.
 	DateTimeHierarchy interface{} `field:"optional" json:"dateTimeHierarchy" yaml:"dateTimeHierarchy"`
-	// The option that determines the hierarchy of the fields that are built within a visual's field wells.
-	//
-	// These fields can't be duplicated to other visuals.
+	// `CfnTemplate.ColumnHierarchyProperty.ExplicitHierarchy`.
 	ExplicitHierarchy interface{} `field:"optional" json:"explicitHierarchy" yaml:"explicitHierarchy"`
-	// The option that determines the hierarchy of the fields that are defined during data preparation.
-	//
-	// These fields are available to use in any analysis that uses the data source.
+	// `CfnTemplate.ColumnHierarchyProperty.PredefinedHierarchy`.
 	PredefinedHierarchy interface{} `field:"optional" json:"predefinedHierarchy" yaml:"predefinedHierarchy"`
 }
 

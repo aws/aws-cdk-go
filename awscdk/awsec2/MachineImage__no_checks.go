@@ -20,6 +20,18 @@ func validateMachineImage_LatestAmazonLinuxParameters(props *AmazonLinuxImagePro
 	return nil
 }
 
+func validateMachineImage_LatestAmazonLinux2Parameters(props *AmazonLinux2ImageSsmParameterProps) error {
+	return nil
+}
+
+func validateMachineImage_LatestAmazonLinux2022Parameters(props *AmazonLinux2022ImageSsmParameterProps) error {
+	return nil
+}
+
+func validateMachineImage_LatestAmazonLinux2023Parameters(props *AmazonLinux2023ImageSsmParameterProps) error {
+	return nil
+}
+
 func validateMachineImage_LatestWindowsParameters(version WindowsVersion, props *WindowsImageProps) error {
 	return nil
 }

@@ -5,7 +5,6 @@ package awscdk
 // Rounding behaviour when converting between units of `Size`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   awscdk.Size_Mebibytes(jsii.Number(2)).ToKibibytes() // yields 2048
 //   awscdk.Size_Kibibytes(jsii.Number(2050)).ToMebibytes(&SizeConversionOptions{
 //   	Rounding: awscdk.SizeRoundingBehavior_FLOOR,

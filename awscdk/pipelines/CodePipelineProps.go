@@ -9,7 +9,6 @@ import (
 // Properties for a `CodePipeline`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var codePipeline pipeline
 //
 //

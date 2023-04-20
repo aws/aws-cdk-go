@@ -11,16 +11,11 @@ import (
 // A Construct that contains a Service Catalog product stack with its previous deployments maintained.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//
 //   type s3BucketProduct struct {
 //   	productStack
 //   }
 //
-//   func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
+//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
 //   	this := &s3BucketProduct{}
 //   	servicecatalog.NewProductStack_Override(this, scope, id)
 //

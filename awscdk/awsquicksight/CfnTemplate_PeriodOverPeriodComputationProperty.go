@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The period over period computation configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -506,13 +504,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PeriodOverPeriodComputationProperty struct {
-	// The ID for a computation.
+	// `CfnTemplate.PeriodOverPeriodComputationProperty.ComputationId`.
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The time field that is used in a computation.
+	// `CfnTemplate.PeriodOverPeriodComputationProperty.Time`.
 	Time interface{} `field:"required" json:"time" yaml:"time"`
-	// The name of a computation.
+	// `CfnTemplate.PeriodOverPeriodComputationProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The value field that is used in a computation.
+	// `CfnTemplate.PeriodOverPeriodComputationProperty.Value`.
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

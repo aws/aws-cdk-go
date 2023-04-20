@@ -8,7 +8,6 @@ import (
 // Properties of an EBS Volume.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instance instance
 //   var role role
 //

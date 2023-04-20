@@ -559,8 +559,6 @@ Tasks are executed using the State Machine's execution role. In some cases, e.g.
 This can be achieved by providing the optional `credentials` property which allows using a fixed role or a json expression to resolve the role at runtime from the task's inputs.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import iam "github.com/aws/aws-cdk-go/awscdk"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 var submitLambda function
@@ -913,7 +911,7 @@ In addition, the StateMachine can be imported via the `StateMachine.fromStateMac
 ```go
 app := awscdk.NewApp()
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-sfn.StateMachine_FromStateMachineArn(stack, jsii.String("ViaArnImportedStateMachine"), jsii.String("arn:aws:states:us-east-1:123456789012:stateMachine:StateMachine2E01A3A5-N5TJppzoevKQ"))
+sfn.StateMachine_FromStateMachineArn(this, jsii.String("ViaArnImportedStateMachine"), jsii.String("arn:aws:states:us-east-1:123456789012:stateMachine:StateMachine2E01A3A5-N5TJppzoevKQ"))
 
-sfn.StateMachine_FromStateMachineName(stack, jsii.String("ViaResourceNameImportedStateMachine"), jsii.String("StateMachine2E01A3A5-N5TJppzoevKQ"))
+sfn.StateMachine_FromStateMachineName(this, jsii.String("ViaResourceNameImportedStateMachine"), jsii.String("StateMachine2E01A3A5-N5TJppzoevKQ"))
 ```

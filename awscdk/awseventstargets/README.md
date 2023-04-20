@@ -61,7 +61,7 @@ queue := sqs.NewQueue(this, jsii.String("Queue"))
 rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
 	DeadLetterQueue: queue,
 	 // Optional: add a dead letter queue
-	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
+	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
 	 // Optional: set the maxEventAge retry policy
 	RetryAttempts: jsii.Number(2),
 }))
@@ -97,16 +97,15 @@ A rule target input can also be specified to modify the event that is sent to th
 Unlike other event targets, CloudWatchLogs requires a specific input template format.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import logs "github.com/aws/aws-cdk-go/awscdk"
 var logGroup logGroup
 var rule rule
 
 
 rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-	LogEvent: targets.LogGroupTargetInput(map[string]interface{}{
-		"timestamp": events.EventField.from(jsii.String("$.time")),
-		"message": events.EventField.from(jsii.String("$.detail-type")),
+	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
+		Timestamp: events.EventField_FromPath(jsii.String("$.time")),
+		Message: events.EventField_*FromPath(jsii.String("$.detail-type")),
 	}),
 }))
 ```
@@ -115,15 +114,14 @@ If you want to use static values to overwrite the `message` make sure that you p
 value.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import logs "github.com/aws/aws-cdk-go/awscdk"
 var logGroup logGroup
 var rule rule
 
 
 rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-	LogEvent: targets.LogGroupTargetInput(map[string]*string{
-		"message": JSON.stringify(map[string]*string{
+	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
+		Message: jSON.stringify(map[string]*string{
 			"CustomField": jsii.String("CustomValue"),
 		}),
 	}),
@@ -201,7 +199,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
 })
 
 dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
@@ -211,7 +209,7 @@ role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 })
 stateMachine := sfn.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
 	Definition: sfn.NewWait(this, jsii.String("Hello"), &WaitProps{
-		Time: sfn.WaitTime_Duration(cdk.Duration_Seconds(jsii.Number(10))),
+		Time: sfn.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
 	}),
 })
 
@@ -236,17 +234,17 @@ to the target.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkbatchalpha"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), map[string][]map[string]interface{}{
-	"computeEnvironments": []map[string]interface{}{
-		map[string]interface{}{
-			"computeEnvironment": batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
+jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), &JobQueueProps{
+	ComputeEnvironments: []orderedComputeEnvironment{
+		&orderedComputeEnvironment{
+			ComputeEnvironment: batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
 				"managed": jsii.Boolean(false),
 			}),
-			"order": jsii.Number(1),
+			Order: jsii.Number(1),
 		},
 	},
 })
@@ -260,16 +258,16 @@ jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), map[string]m
 queue := sqs.NewQueue(this, jsii.String("Queue"))
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
 })
 
-rule.AddTarget(targets.NewBatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
+rule.AddTarget(targets.NewBatchJob(jobQueue.JobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
 	DeadLetterQueue: queue,
 	Event: events.RuleTargetInput_FromObject(map[string]*string{
 		"SomeParam": jsii.String("SomeValue"),
 	}),
 	RetryAttempts: jsii.Number(2),
-	MaxEventAge: cdk.Duration_*Hours(jsii.Number(2)),
+	MaxEventAge: awscdk.Duration_*Hours(jsii.Number(2)),
 }))
 ```
 
@@ -285,7 +283,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
 })
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
@@ -338,7 +336,7 @@ destination := events.NewApiDestination(this, jsii.String("Destination"), &ApiDe
 })
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
 	Targets: []iRuleTarget{
 		targets.NewApiDestination(destination),
 	},
@@ -357,4 +355,45 @@ rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 })
 
 rule.AddTarget(targets.NewEventBus(events.EventBus_FromEventBusArn(this, jsii.String("External"), jsii.String("arn:aws:events:eu-west-1:999999999999:event-bus/test-bus"))))
+```
+
+## Run an ECS Task
+
+Use the `EcsTask` target to run an ECS Task.
+
+The code snippet below creates a scheduled event rule that will run the task described in `taskDefinition` every hour.
+
+### Tagging Tasks
+
+By default, ECS tasks run from EventBridge targets will not have tags applied to
+them. You can set the `propagateTags` field to propagate the tags set on the task
+definition to the task initialized by the event trigger.
+
+If you want to set tags independent of those applied to the TaskDefinition, you
+can use the `tags` array. Both of these fields can be used together or separately
+to set tags on the triggered task.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import ecs "github.com/aws-samples/dummy/awscdkawsecs"
+var cluster ecs.ICluster
+var taskDefinition ecs.TaskDefinition
+
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(
+targets.NewEcsTask(&EcsTaskProps{
+	Cluster: cluster,
+	TaskDefinition: taskDefinition,
+	PropagateTags: ecs.propagatedTagSource_TASK_DEFINITION,
+	Tags: []tag{
+		&tag{
+			Key: jsii.String("my-tag"),
+			Value: jsii.String("my-tag-value"),
+		},
+	},
+}))
 ```

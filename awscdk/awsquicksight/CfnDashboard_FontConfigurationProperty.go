@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Configures the display properties of the given text.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,15 +19,15 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FontConfigurationProperty struct {
-	// Determines the color of the text.
+	// `CfnDashboard.FontConfigurationProperty.FontColor`.
 	FontColor *string `field:"optional" json:"fontColor" yaml:"fontColor"`
-	// Determines the appearance of decorative lines on the text.
+	// `CfnDashboard.FontConfigurationProperty.FontDecoration`.
 	FontDecoration *string `field:"optional" json:"fontDecoration" yaml:"fontDecoration"`
-	// The option that determines the text display size.
+	// `CfnDashboard.FontConfigurationProperty.FontSize`.
 	FontSize interface{} `field:"optional" json:"fontSize" yaml:"fontSize"`
-	// Determines the text display face that is inherited by the given font family.
+	// `CfnDashboard.FontConfigurationProperty.FontStyle`.
 	FontStyle *string `field:"optional" json:"fontStyle" yaml:"fontStyle"`
-	// The option that determines the text display weight, or boldness.
+	// `CfnDashboard.FontConfigurationProperty.FontWeight`.
 	FontWeight interface{} `field:"optional" json:"fontWeight" yaml:"fontWeight"`
 }
 

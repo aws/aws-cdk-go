@@ -19,7 +19,6 @@ import (
 // To cover Instances already associated with Launch Templates, use `LaunchTemplateImdsAspect`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   aspect := ec2.NewInstanceRequireImdsv2Aspect()
 //   awscdk.Aspects_Of(this).Add(aspect)
 //

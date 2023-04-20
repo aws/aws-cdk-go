@@ -4,9 +4,10 @@ package awsfsx
 // The different auto import policies which are allowed.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var vpc vpc
-//   var bucket s3.Bucket
+//   var bucket bucket
 //
 //
 //   lustreConfiguration := map[string]interface{}{

@@ -4,7 +4,6 @@ package awsappmesh
 // The properties used when creating a new VirtualRouter.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var infraStack stack
 //   var appStack stack
 //

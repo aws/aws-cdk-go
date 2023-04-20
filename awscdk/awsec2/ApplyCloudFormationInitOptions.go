@@ -7,7 +7,6 @@ import (
 // Options for applying CloudFormation init to an instance or instance group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage

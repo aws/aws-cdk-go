@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control to display a dropdown list with buttons that are used to select a single value.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -58,19 +56,19 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ParameterDropDownControlProperty struct {
-	// The ID of the `ParameterDropDownControl` .
+	// `CfnAnalysis.ParameterDropDownControlProperty.ParameterControlId`.
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
-	// The source parameter name of the `ParameterDropDownControl` .
+	// `CfnAnalysis.ParameterDropDownControlProperty.SourceParameterName`.
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
-	// The title of the `ParameterDropDownControl` .
+	// `CfnAnalysis.ParameterDropDownControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+	// `CfnAnalysis.ParameterDropDownControlProperty.CascadingControlConfiguration`.
 	CascadingControlConfiguration interface{} `field:"optional" json:"cascadingControlConfiguration" yaml:"cascadingControlConfiguration"`
-	// The display options of a control.
+	// `CfnAnalysis.ParameterDropDownControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
-	// A list of selectable values that are used in a control.
+	// `CfnAnalysis.ParameterDropDownControlProperty.SelectableValues`.
 	SelectableValues interface{} `field:"optional" json:"selectableValues" yaml:"selectableValues"`
-	// The type parameter name of the `ParameterDropDownControl` .
+	// `CfnAnalysis.ParameterDropDownControlProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

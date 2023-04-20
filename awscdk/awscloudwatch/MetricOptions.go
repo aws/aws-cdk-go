@@ -7,21 +7,25 @@ import (
 // Properties of a metric that can be changed.
 //
 // Example:
-//   var matchmakingRuleSet matchmakingRuleSet
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // Alarm that triggers when the per-second average of not placed matches exceed 10%
-//   ruleEvaluationRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
-//   	Expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
+//   var deliveryStream deliveryStream
+//
+//
+//   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
+//   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
+//   	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
 //   	UsingMetrics: map[string]iMetric{
-//   		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
+//   		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
 //   			"statistic": cloudwatch.Statistic_SUM,
 //   		}),
-//   		"ruleEvaluationsFailed": matchmakingRuleSet.metric(jsii.String("ruleEvaluationsFailed")),
+//   		"bytePerSecLimit": deliveryStream.metric(jsii.String("BytesPerSecondLimit")),
 //   	},
 //   })
+//
 //   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: ruleEvaluationRatio,
-//   	Threshold: jsii.Number(0.1),
+//   	Metric: incomingBytesPercentOfLimit,
+//   	Threshold: jsii.Number(0.9),
 //   	EvaluationPeriods: jsii.Number(3),
 //   })
 //

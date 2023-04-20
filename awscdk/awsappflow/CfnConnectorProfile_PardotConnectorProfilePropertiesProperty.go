@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The connector-specific profile properties required when using Salesforce Pardot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_PardotConnectorProfilePropertiesProperty struct {
-	// The business unit id of Salesforce Pardot instance.
+	// `CfnConnectorProfile.PardotConnectorProfilePropertiesProperty.BusinessUnitId`.
 	BusinessUnitId *string `field:"required" json:"businessUnitId" yaml:"businessUnitId"`
-	// The location of the Salesforce Pardot resource.
+	// `CfnConnectorProfile.PardotConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `field:"optional" json:"instanceUrl" yaml:"instanceUrl"`
-	// Indicates whether the connector profile applies to a sandbox or production environment.
+	// `CfnConnectorProfile.PardotConnectorProfilePropertiesProperty.IsSandboxEnvironment`.
 	IsSandboxEnvironment interface{} `field:"optional" json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
 }
 

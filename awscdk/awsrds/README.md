@@ -392,13 +392,12 @@ Use the `storageType` property to specify the [type of storage](https://docs.aws
 to use for the instance:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
 iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: mysqlEngineVersion_VER_8_0_30,
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
 	}),
 	Vpc: Vpc,
 	StorageType: rds.StorageType_IO1,
@@ -407,7 +406,7 @@ iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &Data
 
 gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
-		Version: *mysqlEngineVersion_VER_8_0_30,
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
 	}),
 	Vpc: Vpc,
 	AllocatedStorage: jsii.Number(500),
@@ -600,7 +599,7 @@ var instance databaseInstance
 var mySecurityGroup securityGroup
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
-	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
+	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
 	 // defaults to 30 days
 	ExcludeCharacters: jsii.String("!@#$%^&*"),
 	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"

@@ -4,7 +4,6 @@ package awsdynamodb
 // Data types for attributes within a table.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //
@@ -22,7 +21,7 @@ package awsdynamodb
 //   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
 //   })
 //
-//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
+//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
 //   	Metric: metric,
 //   	EvaluationPeriods: jsii.Number(1),
 //   	Threshold: jsii.Number(1),

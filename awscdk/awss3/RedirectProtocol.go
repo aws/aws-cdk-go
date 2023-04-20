@@ -4,7 +4,6 @@ package awss3
 // All http request methods.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &BucketProps{
 //   	WebsiteRoutingRules: []routingRule{
 //   		&routingRule{

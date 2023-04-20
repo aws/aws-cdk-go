@@ -24,7 +24,6 @@ import (
 // ```.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //

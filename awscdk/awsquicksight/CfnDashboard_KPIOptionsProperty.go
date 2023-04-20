@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -90,19 +88,19 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_KPIOptionsProperty struct {
-	// The comparison configuration of a KPI visual.
+	// `CfnDashboard.KPIOptionsProperty.Comparison`.
 	Comparison interface{} `field:"optional" json:"comparison" yaml:"comparison"`
-	// The options that determine the primary value display type.
+	// `CfnDashboard.KPIOptionsProperty.PrimaryValueDisplayType`.
 	PrimaryValueDisplayType *string `field:"optional" json:"primaryValueDisplayType" yaml:"primaryValueDisplayType"`
-	// The options that determine the primary value font configuration.
+	// `CfnDashboard.KPIOptionsProperty.PrimaryValueFontConfiguration`.
 	PrimaryValueFontConfiguration interface{} `field:"optional" json:"primaryValueFontConfiguration" yaml:"primaryValueFontConfiguration"`
-	// The options that determine the presentation of the progress bar of a KPI visual.
+	// `CfnDashboard.KPIOptionsProperty.ProgressBar`.
 	ProgressBar interface{} `field:"optional" json:"progressBar" yaml:"progressBar"`
-	// The options that determine the presentation of the secondary value of a KPI visual.
+	// `CfnDashboard.KPIOptionsProperty.SecondaryValue`.
 	SecondaryValue interface{} `field:"optional" json:"secondaryValue" yaml:"secondaryValue"`
-	// The options that determine the secondary value font configuration.
+	// `CfnDashboard.KPIOptionsProperty.SecondaryValueFontConfiguration`.
 	SecondaryValueFontConfiguration interface{} `field:"optional" json:"secondaryValueFontConfiguration" yaml:"secondaryValueFontConfiguration"`
-	// The options that determine the presentation of trend arrows in a KPI visual.
+	// `CfnDashboard.KPIOptionsProperty.TrendArrows`.
 	TrendArrows interface{} `field:"optional" json:"trendArrows" yaml:"trendArrows"`
 }
 

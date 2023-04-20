@@ -4,19 +4,30 @@ package awsecs
 // The deployment controller type to use for the service.
 //
 // Example:
+//   var myApplication ecsApplication
 //   var cluster cluster
+//   var taskDefinition fargateTaskDefinition
+//   var blueTargetGroup iTargetGroup
+//   var greenTargetGroup iTargetGroup
+//   var listener iApplicationListener
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
+//
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
-//   	MemoryLimitMiB: jsii.Number(1024),
-//   	DesiredCount: jsii.Number(1),
-//   	Cpu: jsii.Number(512),
-//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	},
+//   	TaskDefinition: TaskDefinition,
 //   	DeploymentController: &DeploymentController{
 //   		Type: ecs.DeploymentControllerType_CODE_DEPLOY,
 //   	},
+//   })
+//
+//   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+//   	Service: Service,
+//   	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
+//   		BlueTargetGroup: *BlueTargetGroup,
+//   		GreenTargetGroup: *GreenTargetGroup,
+//   		Listener: *Listener,
+//   	},
+//   	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 //   })
 //
 type DeploymentControllerType string

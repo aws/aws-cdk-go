@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting of a `FilledMapVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,7 +43,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilledMapConditionalFormattingProperty struct {
-	// Conditional formatting options of a `FilledMapVisual` .
+	// `CfnAnalysis.FilledMapConditionalFormattingProperty.ConditionalFormattingOptions`.
 	ConditionalFormattingOptions interface{} `field:"required" json:"conditionalFormattingOptions" yaml:"conditionalFormattingOptions"`
 }
 

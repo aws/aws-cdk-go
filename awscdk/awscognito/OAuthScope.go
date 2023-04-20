@@ -9,19 +9,40 @@ import (
 //
 // Example:
 //   pool := cognito.NewUserPool(this, jsii.String("Pool"))
-//   pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+//
+//   readOnlyScope := cognito.NewResourceServerScope(&ResourceServerScopeProps{
+//   	ScopeName: jsii.String("read"),
+//   	ScopeDescription: jsii.String("Read-only access"),
+//   })
+//   fullAccessScope := cognito.NewResourceServerScope(&ResourceServerScopeProps{
+//   	ScopeName: jsii.String("*"),
+//   	ScopeDescription: jsii.String("Full access"),
+//   })
+//
+//   userServer := pool.addResourceServer(jsii.String("ResourceServer"), &UserPoolResourceServerOptions{
+//   	Identifier: jsii.String("users"),
+//   	Scopes: []resourceServerScope{
+//   		readOnlyScope,
+//   		fullAccessScope,
+//   	},
+//   })
+//
+//   readOnlyClient := pool.addClient(jsii.String("read-only-client"), &UserPoolClientOptions{
+//   	// ...
 //   	OAuth: &OAuthSettings{
-//   		Flows: &OAuthFlows{
-//   			AuthorizationCodeGrant: jsii.Boolean(true),
-//   		},
+//   		// ...
 //   		Scopes: []oAuthScope{
-//   			cognito.*oAuthScope_OPENID(),
+//   			cognito.*oAuthScope_ResourceServer(userServer, readOnlyScope),
 //   		},
-//   		CallbackUrls: []*string{
-//   			jsii.String("https://my-app-domain.com/welcome"),
-//   		},
-//   		LogoutUrls: []*string{
-//   			jsii.String("https://my-app-domain.com/signin"),
+//   	},
+//   })
+//
+//   fullAccessClient := pool.addClient(jsii.String("full-access-client"), &UserPoolClientOptions{
+//   	// ...
+//   	OAuth: &OAuthSettings{
+//   		// ...
+//   		Scopes: []*oAuthScope{
+//   			cognito.*oAuthScope_*ResourceServer(userServer, fullAccessScope),
 //   		},
 //   	},
 //   })

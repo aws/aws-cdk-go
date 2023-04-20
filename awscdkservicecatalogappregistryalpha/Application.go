@@ -84,14 +84,6 @@ type Application interface {
 	// A stack can only be associated with one application.
 	// Experimental.
 	AssociateApplicationWithStack(stack awscdk.Stack)
-	// Associate an attribute group with application If the attribute group is already associated, it will ignore duplicate request.
-	// Deprecated: Use `AttributeGroup.associateWith` instead.
-	AssociateAttributeGroup(attributeGroup IAttributeGroup)
-	// Associate a stack with the application If the resource is already associated, it will ignore duplicate request.
-	//
-	// A stack can only be associated with one application.
-	// Deprecated: Use `associateApplicationWithStack` instead.
-	AssociateStack(stack awscdk.Stack)
 	// Experimental.
 	GeneratePhysicalName() *string
 	// Create a unique id.
@@ -379,28 +371,6 @@ func (a *jsiiProxy_Application) AssociateApplicationWithStack(stack awscdk.Stack
 	_jsii_.InvokeVoid(
 		a,
 		"associateApplicationWithStack",
-		[]interface{}{stack},
-	)
-}
-
-func (a *jsiiProxy_Application) AssociateAttributeGroup(attributeGroup IAttributeGroup) {
-	if err := a.validateAssociateAttributeGroupParameters(attributeGroup); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		a,
-		"associateAttributeGroup",
-		[]interface{}{attributeGroup},
-	)
-}
-
-func (a *jsiiProxy_Application) AssociateStack(stack awscdk.Stack) {
-	if err := a.validateAssociateStackParameters(stack); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		a,
-		"associateStack",
 		[]interface{}{stack},
 	)
 }

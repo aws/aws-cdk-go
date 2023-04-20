@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The logarithmic axis scale setup.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_AxisLogarithmicScaleProperty struct {
-	// The base setup of a logarithmic axis scale.
+	// `CfnDashboard.AxisLogarithmicScaleProperty.Base`.
 	Base *float64 `field:"optional" json:"base" yaml:"base"`
 }
 

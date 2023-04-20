@@ -4,19 +4,18 @@ package awsssm
 // Properties needed to create a StringList SSM Parameter.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
+//   // Grant read access to some Role
+//   var role iRole
 //   // Create a new SSM Parameter holding a String
-//   param := ssm.NewStringParameter(stack, jsii.String("StringParameter"), &StringParameterProps{
+//   param := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{
 //   	// description: 'Some user-friendly description',
 //   	// name: 'ParameterName',
 //   	StringValue: jsii.String("Initial parameter value"),
 //   })
-//
-//   // Grant read access to some Role
 //   param.grantRead(role)
 //
 //   // Create a new SSM Parameter holding a StringList
-//   listParameter := ssm.NewStringListParameter(stack, jsii.String("StringListParameter"), &StringListParameterProps{
+//   listParameter := ssm.NewStringListParameter(this, jsii.String("StringListParameter"), &StringListParameterProps{
 //   	// description: 'Some user-friendly description',
 //   	// name: 'ParameterName',
 //   	StringListValue: []*string{

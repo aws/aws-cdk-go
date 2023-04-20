@@ -12,7 +12,6 @@ import (
 // A CodePipeline source action for the CodeStar Connections source, which allows connecting to GitHub and BitBucket.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&CodeStarConnectionsSourceActionProps{
 //   	ActionName: jsii.String("BitBucket_Source"),

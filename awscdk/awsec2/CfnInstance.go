@@ -402,7 +402,9 @@ type CfnInstance interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The IDs of the security groups. You can create a security group using [CreateSecurityGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html) .
+	// The IDs of the security groups.
+	//
+	// You can specify the IDs of existing security groups and references to resources created by the stack template.
 	//
 	// If you specify a network interface, you must specify any security groups as part of the network interface.
 	SecurityGroupIds() *[]*string

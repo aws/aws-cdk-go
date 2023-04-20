@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The optional configuration of totals cells in a `PivotTableVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -190,19 +188,19 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTotalOptionsProperty struct {
-	// The custom label string for the total cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The cell styling options for the total of header cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.MetricHeaderCellStyle`.
 	MetricHeaderCellStyle interface{} `field:"optional" json:"metricHeaderCellStyle" yaml:"metricHeaderCellStyle"`
-	// The placement (start, end) for the total cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.Placement`.
 	Placement *string `field:"optional" json:"placement" yaml:"placement"`
-	// The scroll status (pinned, scrolled) for the total cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.ScrollStatus`.
 	ScrollStatus *string `field:"optional" json:"scrollStatus" yaml:"scrollStatus"`
-	// The cell styling options for the total cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.TotalCellStyle`.
 	TotalCellStyle interface{} `field:"optional" json:"totalCellStyle" yaml:"totalCellStyle"`
-	// The visibility configuration for the total cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.TotalsVisibility`.
 	TotalsVisibility *string `field:"optional" json:"totalsVisibility" yaml:"totalsVisibility"`
-	// The cell styling options for the totals of value cells.
+	// `CfnDashboard.PivotTotalOptionsProperty.ValueCellStyle`.
 	ValueCellStyle interface{} `field:"optional" json:"valueCellStyle" yaml:"valueCellStyle"`
 }
 

@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a `FunnelChartVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -510,7 +506,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FunnelChartFieldWellsProperty struct {
-	// The field well configuration of a `FunnelChartVisual` .
+	// `CfnAnalysis.FunnelChartFieldWellsProperty.FunnelChartAggregatedFieldWells`.
 	FunnelChartAggregatedFieldWells interface{} `field:"optional" json:"funnelChartAggregatedFieldWells" yaml:"funnelChartAggregatedFieldWells"`
 }
 

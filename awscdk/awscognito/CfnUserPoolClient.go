@@ -16,61 +16,69 @@ import (
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnUserPoolClient := awscdk.Aws_cognito.NewCfnUserPoolClient(this, jsii.String("MyCfnUserPoolClient"), &CfnUserPoolClientProps{
-//   	UserPoolId: jsii.String("userPoolId"),
+//   var vpc vpc
+//   var certificate certificate
 //
-//   	// the properties below are optional
-//   	AccessTokenValidity: jsii.Number(123),
-//   	AllowedOAuthFlows: []*string{
-//   		jsii.String("allowedOAuthFlows"),
+//
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
+//   })
+//
+//   userPool := awscdk.Aws_cognito.NewUserPool(this, jsii.String("UserPool"))
+//   userPoolClient := awscdk.Aws_cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
+//   	UserPool: UserPool,
+//
+//   	// Required minimal configuration for use with an ELB
+//   	GenerateSecret: jsii.Boolean(true),
+//   	AuthFlows: &AuthFlow{
+//   		UserPassword: jsii.Boolean(true),
 //   	},
-//   	AllowedOAuthFlowsUserPoolClient: jsii.Boolean(false),
-//   	AllowedOAuthScopes: []*string{
-//   		jsii.String("allowedOAuthScopes"),
+//   	OAuth: &OAuthSettings{
+//   		Flows: &OAuthFlows{
+//   			AuthorizationCodeGrant: jsii.Boolean(true),
+//   		},
+//   		Scopes: []oAuthScope{
+//   			awscdk.*Aws_cognito.*oAuthScope_EMAIL(),
+//   		},
+//   		CallbackUrls: []*string{
+//   			fmt.Sprintf("https://%v/oauth2/idpresponse", lb.LoadBalancerDnsName),
+//   		},
 //   	},
-//   	AnalyticsConfiguration: &AnalyticsConfigurationProperty{
-//   		ApplicationArn: jsii.String("applicationArn"),
-//   		ApplicationId: jsii.String("applicationId"),
-//   		ExternalId: jsii.String("externalId"),
-//   		RoleArn: jsii.String("roleArn"),
-//   		UserDataShared: jsii.Boolean(false),
+//   })
+//   cfnClient := userPoolClient.Node.defaultChild.(cfnUserPoolClient)
+//   cfnClient.AddPropertyOverride(jsii.String("RefreshTokenValidity"), jsii.Number(1))
+//   cfnClient.AddPropertyOverride(jsii.String("SupportedIdentityProviders"), []interface{}{
+//   	jsii.String("COGNITO"),
+//   })
+//
+//   userPoolDomain := awscdk.Aws_cognito.NewUserPoolDomain(this, jsii.String("Domain"), &UserPoolDomainProps{
+//   	UserPool: UserPool,
+//   	CognitoDomain: &CognitoDomainOptions{
+//   		DomainPrefix: jsii.String("test-cdk-prefix"),
 //   	},
-//   	AuthSessionValidity: jsii.Number(123),
-//   	CallbackUrLs: []*string{
-//   		jsii.String("callbackUrLs"),
+//   })
+//
+//   lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(443),
+//   	Certificates: []iListenerCertificate{
+//   		certificate,
 //   	},
-//   	ClientName: jsii.String("clientName"),
-//   	DefaultRedirectUri: jsii.String("defaultRedirectUri"),
-//   	EnablePropagateAdditionalUserContextData: jsii.Boolean(false),
-//   	EnableTokenRevocation: jsii.Boolean(false),
-//   	ExplicitAuthFlows: []*string{
-//   		jsii.String("explicitAuthFlows"),
-//   	},
-//   	GenerateSecret: jsii.Boolean(false),
-//   	IdTokenValidity: jsii.Number(123),
-//   	LogoutUrLs: []*string{
-//   		jsii.String("logoutUrLs"),
-//   	},
-//   	PreventUserExistenceErrors: jsii.String("preventUserExistenceErrors"),
-//   	ReadAttributes: []*string{
-//   		jsii.String("readAttributes"),
-//   	},
-//   	RefreshTokenValidity: jsii.Number(123),
-//   	SupportedIdentityProviders: []*string{
-//   		jsii.String("supportedIdentityProviders"),
-//   	},
-//   	TokenValidityUnits: &TokenValidityUnitsProperty{
-//   		AccessToken: jsii.String("accessToken"),
-//   		IdToken: jsii.String("idToken"),
-//   		RefreshToken: jsii.String("refreshToken"),
-//   	},
-//   	WriteAttributes: []*string{
-//   		jsii.String("writeAttributes"),
-//   	},
+//   	DefaultAction: actions.NewAuthenticateCognitoAction(&AuthenticateCognitoActionProps{
+//   		UserPool: *UserPool,
+//   		UserPoolClient: *UserPoolClient,
+//   		UserPoolDomain: *UserPoolDomain,
+//   		Next: elbv2.ListenerAction_FixedResponse(jsii.Number(200), &FixedResponseOptions{
+//   			ContentType: jsii.String("text/plain"),
+//   			MessageBody: jsii.String("Authenticated"),
+//   		}),
+//   	}),
+//   })
+//
+//   awscdk.NewCfnOutput(this, jsii.String("DNS"), &CfnOutputProps{
+//   	Value: lb.*LoadBalancerDnsName,
 //   })
 //
 type CfnUserPoolClient interface {

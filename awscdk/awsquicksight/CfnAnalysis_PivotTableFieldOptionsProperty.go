@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field options for a pivot table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,9 +32,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PivotTableFieldOptionsProperty struct {
-	// The data path options for the pivot table field options.
+	// `CfnAnalysis.PivotTableFieldOptionsProperty.DataPathOptions`.
 	DataPathOptions interface{} `field:"optional" json:"dataPathOptions" yaml:"dataPathOptions"`
-	// The selected field options for the pivot table field options.
+	// `CfnAnalysis.PivotTableFieldOptionsProperty.SelectedFieldOptions`.
 	SelectedFieldOptions interface{} `field:"optional" json:"selectedFieldOptions" yaml:"selectedFieldOptions"`
 }
 

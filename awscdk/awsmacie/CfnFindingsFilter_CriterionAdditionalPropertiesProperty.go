@@ -1,6 +1,10 @@
 package awsmacie
 
 
+// Specifies a condition that defines the property, operator, and one or more values to use in a findings filter.
+//
+// A *findings filter* , also referred to as a *filter rule* , is a set of custom criteria that specifies which findings to include or exclude from the results of a query for findings. You can also configure a findings filter to suppress (automatically archive) findings that match the filter's criteria. For more information, see [Filtering findings](https://docs.aws.amazon.com/macie/latest/user/findings-filter-overview.html) in the *Amazon Macie User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,17 +24,21 @@ package awsmacie
 //   }
 //
 type CfnFindingsFilter_CriterionAdditionalPropertiesProperty struct {
-	// `CfnFindingsFilter.CriterionAdditionalPropertiesProperty.eq`.
+	// The value for the specified property matches (equals) the specified value.
+	//
+	// If you specify multiple values, Amazon Macie uses OR logic to join the values.
 	Eq *[]*string `field:"optional" json:"eq" yaml:"eq"`
-	// `CfnFindingsFilter.CriterionAdditionalPropertiesProperty.gt`.
+	// The value for the specified property is greater than the specified value.
 	Gt *float64 `field:"optional" json:"gt" yaml:"gt"`
-	// `CfnFindingsFilter.CriterionAdditionalPropertiesProperty.gte`.
+	// The value for the specified property is greater than or equal to the specified value.
 	Gte *float64 `field:"optional" json:"gte" yaml:"gte"`
-	// `CfnFindingsFilter.CriterionAdditionalPropertiesProperty.lt`.
+	// The value for the specified property is less than the specified value.
 	Lt *float64 `field:"optional" json:"lt" yaml:"lt"`
-	// `CfnFindingsFilter.CriterionAdditionalPropertiesProperty.lte`.
+	// The value for the specified property is less than or equal to the specified value.
 	Lte *float64 `field:"optional" json:"lte" yaml:"lte"`
-	// `CfnFindingsFilter.CriterionAdditionalPropertiesProperty.neq`.
+	// The value for the specified property doesn't match (doesn't equal) the specified value.
+	//
+	// If you specify multiple values, Amazon Macie uses OR logic to join the values.
 	Neq *[]*string `field:"optional" json:"neq" yaml:"neq"`
 }
 

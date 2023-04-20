@@ -14,13 +14,48 @@ import (
 // useful steps to add to your Pipeline.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   // Step A will depend on step B and step B will depend on step C
-//   orderedSteps := pipelines.Step_Sequence([]step{
-//   	pipelines.NewManualApprovalStep(jsii.String("A")),
-//   	pipelines.NewManualApprovalStep(jsii.String("B")),
-//   	pipelines.NewManualApprovalStep(jsii.String("C")),
-//   })
+//   type myJenkinsStep struct {
+//   	step
+//   }
+//
+//   func newMyJenkinsStep(provider jenkinsProvider, input fileSet) *myJenkinsStep {
+//   	this := &myJenkinsStep{}
+//   	pipelines.NewStep_Override(this, jsii.String("MyJenkinsStep"))
+//
+//   	// This is necessary if your step accepts parameters, like environment variables,
+//   	// that may contain outputs from other steps. It doesn't matter what the
+//   	// structure is, as long as it contains the values that may contain outputs.
+//   	this.DiscoverReferencedOutputs(map[string]map[string]interface{}{
+//   		"env": map[string]interface{}{
+//   		},
+//   	})
+//   	return this
+//   }
+//
+//   func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
+//
+//   	// This is where you control what type of Action gets added to the
+//   	// CodePipeline
+//   	*stage.AddAction(cpactions.NewJenkinsAction(&JenkinsActionProps{
+//   		// Copy 'actionName' and 'runOrder' from the options
+//   		ActionName: options.ActionName,
+//   		RunOrder: options.RunOrder,
+//
+//   		// Jenkins-specific configuration
+//   		Type: cpactions.JenkinsActionType_TEST,
+//   		JenkinsProvider: this.provider,
+//   		ProjectName: jsii.String("MyJenkinsProject"),
+//
+//   		// Translate the FileSet into a codepipeline.Artifact
+//   		Inputs: []artifact{
+//   			options.Artifacts.ToCodePipeline(this.input),
+//   		},
+//   	}))
+//
+//   	return &codePipelineActionFactoryResult{
+//   		RunOrdersConsumed: jsii.Number(1),
+//   	}
+//   }
 //
 type Step interface {
 	IFileSetProducer

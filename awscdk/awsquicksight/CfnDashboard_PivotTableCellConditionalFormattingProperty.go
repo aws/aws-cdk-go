@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The cell conditional formatting option for a pivot table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -85,11 +83,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableCellConditionalFormattingProperty struct {
-	// The field ID of the cell for conditional formatting.
+	// `CfnDashboard.PivotTableCellConditionalFormattingProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The scope of the cell for conditional formatting.
+	// `CfnDashboard.PivotTableCellConditionalFormattingProperty.Scope`.
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
-	// The text format of the cell for conditional formatting.
+	// `CfnDashboard.PivotTableCellConditionalFormattingProperty.TextFormat`.
 	TextFormat interface{} `field:"optional" json:"textFormat" yaml:"textFormat"`
 }
 

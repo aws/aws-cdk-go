@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Formatting configuration for gradient color.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,9 +22,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ConditionalFormattingGradientColorProperty struct {
-	// Determines the color.
+	// `CfnAnalysis.ConditionalFormattingGradientColorProperty.Color`.
 	Color interface{} `field:"required" json:"color" yaml:"color"`
-	// The expression that determines the formatting configuration for gradient color.
+	// `CfnAnalysis.ConditionalFormattingGradientColorProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 }
 

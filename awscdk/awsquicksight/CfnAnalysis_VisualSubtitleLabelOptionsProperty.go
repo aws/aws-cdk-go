@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The subtitle label options for a visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_VisualSubtitleLabelOptionsProperty struct {
-	// The long text format of the subtitle label, such as plain text or rich text.
+	// `CfnAnalysis.VisualSubtitleLabelOptionsProperty.FormatText`.
 	FormatText interface{} `field:"optional" json:"formatText" yaml:"formatText"`
-	// The visibility of the subtitle label.
+	// `CfnAnalysis.VisualSubtitleLabelOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

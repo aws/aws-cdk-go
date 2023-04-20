@@ -12,7 +12,6 @@ import (
 // A Service Catalog Cloudformation Product.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //

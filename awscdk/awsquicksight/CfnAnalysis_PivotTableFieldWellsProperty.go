@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field wells for a pivot table visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -753,7 +749,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PivotTableFieldWellsProperty struct {
-	// The aggregated field well for the pivot table.
+	// `CfnAnalysis.PivotTableFieldWellsProperty.PivotTableAggregatedFieldWells`.
 	PivotTableAggregatedFieldWells interface{} `field:"optional" json:"pivotTableAggregatedFieldWells" yaml:"pivotTableAggregatedFieldWells"`
 }
 

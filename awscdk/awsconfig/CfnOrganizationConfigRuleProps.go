@@ -74,9 +74,7 @@ type CfnOrganizationConfigRuleProps struct {
 	OrganizationConfigRuleName *string `field:"required" json:"organizationConfigRuleName" yaml:"organizationConfigRuleName"`
 	// A comma-separated list of accounts excluded from organization AWS Config rule.
 	ExcludedAccounts *[]*string `field:"optional" json:"excludedAccounts" yaml:"excludedAccounts"`
-	// An object that specifies metadata for your organization's AWS Config Custom Policy rule.
-	//
-	// The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of AWS resource, and organization trigger types that initiate AWS Config to evaluate AWS resources against a rule.
+	// `AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata`.
 	OrganizationCustomPolicyRuleMetadata interface{} `field:"optional" json:"organizationCustomPolicyRuleMetadata" yaml:"organizationCustomPolicyRuleMetadata"`
 	// An `OrganizationCustomRuleMetadata` object.
 	OrganizationCustomRuleMetadata interface{} `field:"optional" json:"organizationCustomRuleMetadata" yaml:"organizationCustomRuleMetadata"`

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a word cloud visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,9 +41,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_WordCloudSortConfigurationProperty struct {
-	// The limit on the number of groups that are displayed in a word cloud.
+	// `CfnAnalysis.WordCloudSortConfigurationProperty.CategoryItemsLimit`.
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
-	// The sort configuration of group by fields.
+	// `CfnAnalysis.WordCloudSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
 }
 

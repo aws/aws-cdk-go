@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The contribution analysis visual display for a line, pie, or bar chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ContributionAnalysisDefaultProperty struct {
-	// The dimensions columns that are used in the contribution analysis, usually a list of `ColumnIdentifiers` .
+	// `CfnTemplate.ContributionAnalysisDefaultProperty.ContributorDimensions`.
 	ContributorDimensions interface{} `field:"required" json:"contributorDimensions" yaml:"contributorDimensions"`
-	// The measure field that is used in the contribution analysis.
+	// `CfnTemplate.ContributionAnalysisDefaultProperty.MeasureFieldId`.
 	MeasureFieldId *string `field:"required" json:"measureFieldId" yaml:"measureFieldId"`
 }
 

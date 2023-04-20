@@ -11,16 +11,15 @@ import (
 // Represents a field in the event pattern.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //   var logGroup logGroup
 //   var rule rule
 //
 //
 //   rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-//   	LogEvent: targets.LogGroupTargetInput(map[string]interface{}{
-//   		"timestamp": events.EventField.from(jsii.String("$.time")),
-//   		"message": events.EventField.from(jsii.String("$.detail-type")),
+//   	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
+//   		Timestamp: events.EventField_FromPath(jsii.String("$.time")),
+//   		Message: events.EventField_*FromPath(jsii.String("$.detail-type")),
 //   	}),
 //   }))
 //

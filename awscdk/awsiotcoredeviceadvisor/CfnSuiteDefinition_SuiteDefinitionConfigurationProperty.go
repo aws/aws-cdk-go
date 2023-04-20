@@ -1,8 +1,6 @@
 package awsiotcoredeviceadvisor
 
 
-// Gets the suite definition configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,21 +22,15 @@ package awsiotcoredeviceadvisor
 //   }
 //
 type CfnSuiteDefinition_SuiteDefinitionConfigurationProperty struct {
-	// Gets the device permission ARN.
-	//
-	// This is a required parameter.
+	// `CfnSuiteDefinition.SuiteDefinitionConfigurationProperty.DevicePermissionRoleArn`.
 	DevicePermissionRoleArn *string `field:"required" json:"devicePermissionRoleArn" yaml:"devicePermissionRoleArn"`
-	// Gets the test suite root group.
-	//
-	// This is a required parameter.
+	// `CfnSuiteDefinition.SuiteDefinitionConfigurationProperty.RootGroup`.
 	RootGroup *string `field:"required" json:"rootGroup" yaml:"rootGroup"`
-	// Gets the devices configured.
+	// `CfnSuiteDefinition.SuiteDefinitionConfigurationProperty.Devices`.
 	Devices interface{} `field:"optional" json:"devices" yaml:"devices"`
-	// Gets the tests intended for qualification in a suite.
+	// `CfnSuiteDefinition.SuiteDefinitionConfigurationProperty.IntendedForQualification`.
 	IntendedForQualification interface{} `field:"optional" json:"intendedForQualification" yaml:"intendedForQualification"`
-	// Gets the suite definition name.
-	//
-	// This is a required parameter.
+	// `CfnSuiteDefinition.SuiteDefinitionConfigurationProperty.SuiteDefinitionName`.
 	SuiteDefinitionName *string `field:"optional" json:"suiteDefinitionName" yaml:"suiteDefinitionName"`
 }
 

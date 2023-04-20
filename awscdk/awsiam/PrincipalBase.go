@@ -8,7 +8,6 @@ import (
 // Base class for policy principals.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   tagParam := awscdk.NewCfnParameter(this, jsii.String("TagName"))
 //
 //   stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &CfnJsonProps{

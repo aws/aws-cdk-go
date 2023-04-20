@@ -12,7 +12,6 @@ import (
 // A interface VPC endpoint.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //

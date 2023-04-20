@@ -4,7 +4,9 @@ package awselasticloadbalancingv2
 // How the load balancer handles requests that might pose a security risk to your application.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc vpc
+//
+//
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(true),
@@ -13,7 +15,7 @@ package awselasticloadbalancingv2
 //   	Http2Enabled: jsii.Boolean(false),
 //
 //   	// The idle timeout value, in seconds
-//   	IdleTimeout: cdk.duration_Seconds(jsii.Number(1000)),
+//   	IdleTimeout: awscdk.Duration_Seconds(jsii.Number(1000)),
 //
 //   	// Whether HTTP headers with header fields thatare not valid
 //   	// are removed by the load balancer (true), or routed to targets

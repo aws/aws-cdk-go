@@ -902,7 +902,7 @@ import (
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The unique ID of the Amplify app associated with the component.
+	// `AWS::AmplifyUIBuilder::Component.AppId`.
 	AppId() *string
 	SetAppId(val *string)
 	// The unique ID of the component.
@@ -934,7 +934,7 @@ type CfnComponent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The name of the backend environment that is a part of the Amplify app.
+	// `AWS::AmplifyUIBuilder::Component.EnvironmentName`.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
 	// Describes the events that can be raised on the component.
@@ -972,7 +972,7 @@ type CfnComponent interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The schema version of the component when it was imported.
+	// `AWS::AmplifyUIBuilder::Component.SchemaVersion`.
 	SchemaVersion() *string
 	SetSchemaVersion(val *string)
 	// The unique ID of the component in its original source system, such as Figma.

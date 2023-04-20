@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control from a date filter that is used to specify date and time.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,18 +34,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilterDateTimePickerControlProperty struct {
-	// The ID of the `FilterDateTimePickerControl` .
+	// `CfnTemplate.FilterDateTimePickerControlProperty.FilterControlId`.
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
-	// The source filter ID of the `FilterDateTimePickerControl` .
+	// `CfnTemplate.FilterDateTimePickerControlProperty.SourceFilterId`.
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
-	// The title of the `FilterDateTimePickerControl` .
+	// `CfnTemplate.FilterDateTimePickerControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnTemplate.FilterDateTimePickerControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
-	// The date time picker type of a `FilterDateTimePickerControl` . Choose one of the following options:.
-	//
-	// - `SINGLE_VALUED` : The filter condition is a fixed date.
-	// - `DATE_RANGE` : The filter condition is a date time range.
+	// `CfnTemplate.FilterDateTimePickerControlProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

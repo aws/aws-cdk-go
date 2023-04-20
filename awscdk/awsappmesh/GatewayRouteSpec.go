@@ -10,7 +10,6 @@ import (
 // Used to generate specs with different protocols for a GatewayRoute.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //

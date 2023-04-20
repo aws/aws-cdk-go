@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of a line series in the visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,9 +22,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_LineChartSeriesSettingsProperty struct {
-	// Line styles options for a line series in `LineChartVisual` .
+	// `CfnTemplate.LineChartSeriesSettingsProperty.LineStyleSettings`.
 	LineStyleSettings interface{} `field:"optional" json:"lineStyleSettings" yaml:"lineStyleSettings"`
-	// Marker styles options for a line series in `LineChartVisual` .
+	// `CfnTemplate.LineChartSeriesSettingsProperty.MarkerStyleSettings`.
 	MarkerStyleSettings interface{} `field:"optional" json:"markerStyleSettings" yaml:"markerStyleSettings"`
 }
 

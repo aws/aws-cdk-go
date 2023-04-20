@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The numeric equality type drill down filter.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_CategoryDrillDownFilterProperty struct {
-	// A list of the string inputs that are the values of the category drill down filter.
+	// `CfnTemplate.CategoryDrillDownFilterProperty.CategoryValues`.
 	CategoryValues *[]*string `field:"required" json:"categoryValues" yaml:"categoryValues"`
-	// The column that the filter is applied to.
+	// `CfnTemplate.CategoryDrillDownFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 }
 

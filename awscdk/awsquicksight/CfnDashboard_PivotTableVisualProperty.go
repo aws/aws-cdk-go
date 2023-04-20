@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A pivot table.
-//
-// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1968,19 +1964,17 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableVisualProperty struct {
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	// `CfnDashboard.PivotTableVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnDashboard.PivotTableVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
-	// The configuration settings of the visual.
+	// `CfnDashboard.PivotTableVisualProperty.ChartConfiguration`.
 	ChartConfiguration interface{} `field:"optional" json:"chartConfiguration" yaml:"chartConfiguration"`
-	// The conditional formatting for a `PivotTableVisual` .
+	// `CfnDashboard.PivotTableVisualProperty.ConditionalFormatting`.
 	ConditionalFormatting interface{} `field:"optional" json:"conditionalFormatting" yaml:"conditionalFormatting"`
-	// The subtitle that is displayed on the visual.
+	// `CfnDashboard.PivotTableVisualProperty.Subtitle`.
 	Subtitle interface{} `field:"optional" json:"subtitle" yaml:"subtitle"`
-	// The title that is displayed on the visual.
+	// `CfnDashboard.PivotTableVisualProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

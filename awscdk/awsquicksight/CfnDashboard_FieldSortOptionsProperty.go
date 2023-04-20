@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field sort options in a chart configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,9 +33,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FieldSortOptionsProperty struct {
-	// The sort configuration for a column that is not used in a field well.
+	// `CfnDashboard.FieldSortOptionsProperty.ColumnSort`.
 	ColumnSort interface{} `field:"optional" json:"columnSort" yaml:"columnSort"`
-	// The sort configuration for a field in a field well.
+	// `CfnDashboard.FieldSortOptionsProperty.FieldSort`.
 	FieldSort interface{} `field:"optional" json:"fieldSort" yaml:"fieldSort"`
 }
 

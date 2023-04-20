@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,7 +29,7 @@ package awsquicksight
 type CfnDashboard_CustomValuesConfigurationProperty struct {
 	// `CfnDashboard.CustomValuesConfigurationProperty.CustomValues`.
 	CustomValues interface{} `field:"required" json:"customValues" yaml:"customValues"`
-	// Includes the null value in custom action parameter values.
+	// `CfnDashboard.CustomValuesConfigurationProperty.IncludeNullValue`.
 	IncludeNullValue interface{} `field:"optional" json:"includeNullValue" yaml:"includeNullValue"`
 }
 

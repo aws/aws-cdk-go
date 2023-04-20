@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The calculated field of an analysis.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +13,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CalculatedFieldProperty struct {
-	// The data set that is used in this calculated field.
+	// `CfnDashboard.CalculatedFieldProperty.DataSetIdentifier`.
 	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
-	// The expression of the calculated field.
+	// `CfnDashboard.CalculatedFieldProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// The name of the calculated field.
+	// `CfnDashboard.CalculatedFieldProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

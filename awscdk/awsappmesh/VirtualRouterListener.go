@@ -10,7 +10,6 @@ import (
 // Represents the properties needed to define listeners for a VirtualRouter.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //   router := mesh.addVirtualRouter(jsii.String("router"), &VirtualRouterBaseProps{

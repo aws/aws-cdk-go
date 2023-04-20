@@ -177,7 +177,7 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific credentials required when using Marketo.
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
-	// The connector-specific credentials required when using Salesforce Pardot.
+	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.Pardot`.
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// The connector-specific credentials required when using Amazon Redshift.
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`

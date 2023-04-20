@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of the arc of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,7 +32,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GaugeChartArcConditionalFormattingProperty struct {
-	// The conditional formatting of the arc foreground color.
+	// `CfnDashboard.GaugeChartArcConditionalFormattingProperty.ForegroundColor`.
 	ForegroundColor interface{} `field:"optional" json:"foregroundColor" yaml:"foregroundColor"`
 }
 

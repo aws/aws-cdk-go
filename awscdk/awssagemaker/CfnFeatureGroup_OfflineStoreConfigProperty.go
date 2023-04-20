@@ -38,6 +38,8 @@ type CfnFeatureGroup_OfflineStoreConfigProperty struct {
 	// Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` .
 	//
 	// If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
+	//
+	// The default value is `False` .
 	DisableGlueTableCreation interface{} `field:"optional" json:"disableGlueTableCreation" yaml:"disableGlueTableCreation"`
 	// `CfnFeatureGroup.OfflineStoreConfigProperty.TableFormat`.
 	TableFormat *string `field:"optional" json:"tableFormat" yaml:"tableFormat"`

@@ -5,7 +5,6 @@ package awscdk
 // Initialization properties for `CustomResourceProvider`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
@@ -39,7 +38,6 @@ type CustomResourceProviderProps struct {
 	// objects like you will see in the rest of the CDK.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	//   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 	//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,

@@ -4,7 +4,6 @@ package awsappmesh
 // Supported values for matching routes based on the HTTP request method.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //

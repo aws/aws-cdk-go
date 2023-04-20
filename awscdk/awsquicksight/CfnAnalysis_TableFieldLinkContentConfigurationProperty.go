@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The URL content (text, icon) for the table link configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,9 +29,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_TableFieldLinkContentConfigurationProperty struct {
-	// The custom icon content for the table link content configuration.
+	// `CfnAnalysis.TableFieldLinkContentConfigurationProperty.CustomIconContent`.
 	CustomIconContent interface{} `field:"optional" json:"customIconContent" yaml:"customIconContent"`
-	// The custom text content (value, font configuration) for the table link content configuration.
+	// `CfnAnalysis.TableFieldLinkContentConfigurationProperty.CustomTextContent`.
 	CustomTextContent interface{} `field:"optional" json:"customTextContent" yaml:"customTextContent"`
 }
 

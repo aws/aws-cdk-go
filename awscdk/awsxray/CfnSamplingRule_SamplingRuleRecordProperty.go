@@ -1,8 +1,6 @@
 package awsxray
 
 
-// A [SamplingRule](https://docs.aws.amazon.com//xray/latest/api/API_SamplingRule.html) and its metadata.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,11 +29,11 @@ package awsxray
 //   }
 //
 type CfnSamplingRule_SamplingRuleRecordProperty struct {
-	// When the rule was created, in Unix time seconds.
+	// `CfnSamplingRule.SamplingRuleRecordProperty.CreatedAt`.
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
-	// When the rule was last modified, in Unix time seconds.
+	// `CfnSamplingRule.SamplingRuleRecordProperty.ModifiedAt`.
 	ModifiedAt *string `field:"optional" json:"modifiedAt" yaml:"modifiedAt"`
-	// The sampling rule.
+	// `CfnSamplingRule.SamplingRuleRecordProperty.SamplingRule`.
 	SamplingRule interface{} `field:"optional" json:"samplingRule" yaml:"samplingRule"`
 }
 

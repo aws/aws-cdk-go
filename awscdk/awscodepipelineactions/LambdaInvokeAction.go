@@ -12,39 +12,17 @@ import (
 // CodePipeline invoke Action that is provided by an AWS Lambda function.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   // later:
-//   var project pipelineProject
-//   lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
-//   	ActionName: jsii.String("Lambda"),
-//   	Lambda: lambda.NewFunction(this, jsii.String("Func"), &FunctionProps{
-//   		Runtime: lambda.Runtime_NODEJS_14_X(),
-//   		Handler: jsii.String("index.handler"),
-//   		Code: lambda.Code_FromInline(jsii.String(`
-//   		        const AWS = require('aws-sdk');
+//   var fn function
 //
-//   		        exports.handler = async function(event, context) {
-//   		            const codepipeline = new AWS.CodePipeline();
-//   		            await codepipeline.putJobSuccessResult({
-//   		                jobId: event['CodePipeline.job'].id,
-//   		                outputVariables: {
-//   		                    MY_VAR: "some value",
-//   		                },
-//   		            }).promise();
-//   		        }
-//   		    `)),
-//   	}),
-//   	VariablesNamespace: jsii.String("MyNamespace"),
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+//   	ActionName: jsii.String("Lambda"),
+//   	Lambda: fn,
 //   })
-//   sourceOutput := codepipeline.NewArtifact()
-//   codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
-//   	ActionName: jsii.String("CodeBuild"),
-//   	Project: Project,
-//   	Input: sourceOutput,
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"MyVar": &buildEnvironmentVariable{
-//   			"value": lambdaInvokeAction.variable(jsii.String("MY_VAR")),
-//   		},
+//   pipeline.AddStage(&StageOptions{
+//   	StageName: jsii.String("Lambda"),
+//   	Actions: []iAction{
+//   		lambdaAction,
 //   	},
 //   })
 //

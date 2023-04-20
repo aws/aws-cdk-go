@@ -99,7 +99,7 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// Specifies the information that is required for querying Marketo.
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
-	// Specifies the information that is required for querying Salesforce Pardot.
+	// `CfnFlow.SourceConnectorPropertiesProperty.Pardot`.
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// Specifies the information that is required for querying Amazon S3.
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`

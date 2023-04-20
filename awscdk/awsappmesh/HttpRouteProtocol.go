@@ -4,7 +4,6 @@ package awsappmesh
 // Supported :scheme options for HTTP2.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //

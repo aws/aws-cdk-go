@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a sankey diagram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -832,11 +830,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SankeyDiagramChartConfigurationProperty struct {
-	// The data label configuration of a sankey diagram.
+	// `CfnDashboard.SankeyDiagramChartConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field well configuration of a sankey diagram.
+	// `CfnDashboard.SankeyDiagramChartConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The sort configuration of a sankey diagram.
+	// `CfnDashboard.SankeyDiagramChartConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
 }
 

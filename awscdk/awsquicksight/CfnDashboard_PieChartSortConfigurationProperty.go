@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a pie chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -74,13 +72,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PieChartSortConfigurationProperty struct {
-	// The limit on the number of categories that are displayed in a pie chart.
+	// `CfnDashboard.PieChartSortConfigurationProperty.CategoryItemsLimit`.
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
-	// The sort configuration of the category fields.
+	// `CfnDashboard.PieChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
-	// The limit on the number of small multiples panels that are displayed.
+	// `CfnDashboard.PieChartSortConfigurationProperty.SmallMultiplesLimitConfiguration`.
 	SmallMultiplesLimitConfiguration interface{} `field:"optional" json:"smallMultiplesLimitConfiguration" yaml:"smallMultiplesLimitConfiguration"`
-	// The sort configuration of the small multiples field.
+	// `CfnDashboard.PieChartSortConfigurationProperty.SmallMultiplesSort`.
 	SmallMultiplesSort interface{} `field:"optional" json:"smallMultiplesSort" yaml:"smallMultiplesSort"`
 }
 

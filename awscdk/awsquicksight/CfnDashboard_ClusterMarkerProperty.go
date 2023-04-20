@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The cluster marker that is a part of the cluster marker configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ClusterMarkerProperty struct {
-	// The simple cluster marker of the cluster marker.
+	// `CfnDashboard.ClusterMarkerProperty.SimpleClusterMarker`.
 	SimpleClusterMarker interface{} `field:"optional" json:"simpleClusterMarker" yaml:"simpleClusterMarker"`
 }
 

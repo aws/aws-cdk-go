@@ -11,22 +11,15 @@ import (
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var cfnTemplate cfnInclude
 //
-//   var destinationBucket bucket
+//   // mutating the rule
+//   var myParameter cfnParameter
 //
-//
-//   myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
-//   	Sources: []iSource{
-//   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
-//   	},
-//   	DestinationBucket: DestinationBucket,
-//   	Extract: jsii.Boolean(false),
-//   })
-//
-//   cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &CfnOutputProps{
-//   	Value: cdk.Fn_Select(jsii.Number(0), myBucketDeployment.objectKeys),
-//   })
+//   rule := cfnTemplate.GetRule(jsii.String("MyRule"))
+//   rule.AddAssertion(core.Fn_ConditionContains([]*string{
+//   	jsii.String("m1.small"),
+//   }, myParameter.valueAsString), jsii.String("MyParameter has to be m1.small"))
 //
 type Fn interface {
 }

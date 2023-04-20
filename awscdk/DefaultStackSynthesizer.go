@@ -23,7 +23,6 @@ import (
 // to support all features expected by this synthesizer.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   NewMyStack(app, jsii.String("MyStack"), &stackProps{
 //   	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
 //   		FileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),

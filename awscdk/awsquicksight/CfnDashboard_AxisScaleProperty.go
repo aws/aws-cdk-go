@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The scale setup options for a numeric axis display.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_AxisScaleProperty struct {
-	// The linear axis scale setup.
+	// `CfnDashboard.AxisScaleProperty.Linear`.
 	Linear interface{} `field:"optional" json:"linear" yaml:"linear"`
-	// The logarithmic axis scale setup.
+	// `CfnDashboard.AxisScaleProperty.Logarithmic`.
 	Logarithmic interface{} `field:"optional" json:"logarithmic" yaml:"logarithmic"`
 }
 

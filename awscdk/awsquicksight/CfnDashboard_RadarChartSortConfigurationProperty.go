@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a `RadarChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -74,13 +72,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_RadarChartSortConfigurationProperty struct {
-	// The category items limit for a radar chart.
+	// `CfnDashboard.RadarChartSortConfigurationProperty.CategoryItemsLimit`.
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
-	// The category sort options of a radar chart.
+	// `CfnDashboard.RadarChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
-	// The color items limit of a radar chart.
+	// `CfnDashboard.RadarChartSortConfigurationProperty.ColorItemsLimit`.
 	ColorItemsLimit interface{} `field:"optional" json:"colorItemsLimit" yaml:"colorItemsLimit"`
-	// The color sort configuration of a radar chart.
+	// `CfnDashboard.RadarChartSortConfigurationProperty.ColorSort`.
 	ColorSort interface{} `field:"optional" json:"colorSort" yaml:"colorSort"`
 }
 

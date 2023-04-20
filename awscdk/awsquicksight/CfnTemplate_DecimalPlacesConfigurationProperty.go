@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The option that determines the decimal places configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DecimalPlacesConfigurationProperty struct {
-	// The values of the decimal places.
+	// `CfnTemplate.DecimalPlacesConfigurationProperty.DecimalPlaces`.
 	DecimalPlaces *float64 `field:"required" json:"decimalPlaces" yaml:"decimalPlaces"`
 }
 

@@ -314,7 +314,9 @@ type CfnInstanceProps struct {
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [PV-GRUB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide* .
 	RamdiskId *string `field:"optional" json:"ramdiskId" yaml:"ramdiskId"`
-	// The IDs of the security groups. You can create a security group using [CreateSecurityGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html) .
+	// The IDs of the security groups.
+	//
+	// You can specify the IDs of existing security groups and references to resources created by the stack template.
 	//
 	// If you specify a network interface, you must specify any security groups as part of the network interface.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`

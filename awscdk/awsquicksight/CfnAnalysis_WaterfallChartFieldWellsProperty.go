@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a waterfall visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -751,7 +749,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_WaterfallChartFieldWellsProperty struct {
-	// The field well configuration of a waterfall visual.
+	// `CfnAnalysis.WaterfallChartFieldWellsProperty.WaterfallChartAggregatedFieldWells`.
 	WaterfallChartAggregatedFieldWells interface{} `field:"optional" json:"waterfallChartAggregatedFieldWells" yaml:"waterfallChartAggregatedFieldWells"`
 }
 

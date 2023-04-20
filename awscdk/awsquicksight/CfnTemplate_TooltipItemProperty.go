@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The tooltip.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,9 +37,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TooltipItemProperty struct {
-	// The tooltip item for the columns that are not part of a field well.
+	// `CfnTemplate.TooltipItemProperty.ColumnTooltipItem`.
 	ColumnTooltipItem interface{} `field:"optional" json:"columnTooltipItem" yaml:"columnTooltipItem"`
-	// The tooltip item for the fields.
+	// `CfnTemplate.TooltipItemProperty.FieldTooltipItem`.
 	FieldTooltipItem interface{} `field:"optional" json:"fieldTooltipItem" yaml:"fieldTooltipItem"`
 }
 

@@ -67,7 +67,9 @@ type CfnVolume interface {
 	// By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	AutoEnableIo() interface{}
 	SetAutoEnableIo(val interface{})
-	// The Availability Zone in which to create the volume.
+	// The ID of the Availability Zone in which to create the volume.
+	//
+	// For example, `us-east-1a` .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Options for this resource, such as condition, update policy etc.

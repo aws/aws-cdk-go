@@ -15,7 +15,6 @@ import (
 // Provides a CodeCommit Repository.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var project pipelineProject
 //
 //   repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &RepositoryProps{

@@ -40,9 +40,11 @@ type CfnContactProps struct {
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
 	// The full name of the contact or escalation plan.
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
-	// Refers to the type of contact.
+	// Refers to the type of contact:.
 	//
-	// A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION` .
+	// - `PERSONAL` : A single, individual contact.
+	// - `ESCALATION` : An escalation plan.
+	// - `ONCALL_SCHEDULE` : An on-call schedule.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A list of stages.
 	//

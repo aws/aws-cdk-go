@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The maximum label of a data path label.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_MaximumLabelTypeProperty struct {
-	// The visibility of the maximum label.
+	// `CfnTemplate.MaximumLabelTypeProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

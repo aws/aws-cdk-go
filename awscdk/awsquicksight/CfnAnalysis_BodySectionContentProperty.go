@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of content in a body section.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -52,7 +50,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_BodySectionContentProperty struct {
-	// The layout configuration of a body section.
+	// `CfnAnalysis.BodySectionContentProperty.Layout`.
 	Layout interface{} `field:"optional" json:"layout" yaml:"layout"`
 }
 

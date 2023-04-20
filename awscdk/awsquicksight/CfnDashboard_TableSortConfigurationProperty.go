@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration for a `TableVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,9 +41,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableSortConfigurationProperty struct {
-	// The pagination configuration (page size, page number) for the table.
+	// `CfnDashboard.TableSortConfigurationProperty.PaginationConfiguration`.
 	PaginationConfiguration interface{} `field:"optional" json:"paginationConfiguration" yaml:"paginationConfiguration"`
-	// The field sort options for rows in the table.
+	// `CfnDashboard.TableSortConfigurationProperty.RowSort`.
 	RowSort interface{} `field:"optional" json:"rowSort" yaml:"rowSort"`
 }
 

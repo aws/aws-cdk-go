@@ -12,14 +12,24 @@ import (
 // Define a user pool domain.
 //
 // Example:
-//   import cognito "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var zone hostedZone
-//   var domain userPoolDomain
-//
-//   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
-//   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewUserPoolDomainTarget(domain)),
+//   userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &UserPoolProps{
+//   })
+//   client := userpool.addClient(jsii.String("Client"), &UserPoolClientOptions{
+//   	// ...
+//   	OAuth: &OAuthSettings{
+//   		Flows: &OAuthFlows{
+//   			ImplicitCodeGrant: jsii.Boolean(true),
+//   		},
+//   		CallbackUrls: []*string{
+//   			jsii.String("https://myapp.com/home"),
+//   			jsii.String("https://myapp.com/users"),
+//   		},
+//   	},
+//   })
+//   domain := userpool.addDomain(jsii.String("Domain"), &UserPoolDomainOptions{
+//   })
+//   signInUrl := domain.SignInUrl(client, &SignInUrlOptions{
+//   	RedirectUri: jsii.String("https://myapp.com/home"),
 //   })
 //
 type UserPoolDomain interface {

@@ -1,8 +1,6 @@
 package awsfrauddetector
 
 
-// The model.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsfrauddetector
 //   }
 //
 type CfnDetector_ModelProperty struct {
-	// The ARN of the model.
+	// `CfnDetector.ModelProperty.Arn`.
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 

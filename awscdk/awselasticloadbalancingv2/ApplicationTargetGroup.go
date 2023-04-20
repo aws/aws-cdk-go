@@ -13,8 +13,6 @@ import (
 // Define an Application Target Group.
 //
 // Example:
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var alb applicationLoadBalancer
 //
 //   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{

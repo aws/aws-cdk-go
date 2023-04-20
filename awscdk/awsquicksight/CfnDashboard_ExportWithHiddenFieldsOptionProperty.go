@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines whether or not hidden fields are visible on exported dashbaords.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ExportWithHiddenFieldsOptionProperty struct {
-	// The status of the export with hidden fields options.
+	// `CfnDashboard.ExportWithHiddenFieldsOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

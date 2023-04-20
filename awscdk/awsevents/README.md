@@ -94,7 +94,6 @@ onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
 To define a pattern, use the matcher API, which provides a number of factory methods to declare different logical predicates. For example, to match all S3 events for objects larger than 1024 bytes, stored using one of the storage classes Glacier, Glacier IR or Deep Archive and coming from any region other than the AWS GovCloud ones:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
 	EventPattern: &EventPattern{
 		Detail: map[string]interface{}{
@@ -106,7 +105,7 @@ rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
 			// 'OR' condition
 			"source-storage-class": events.Match_anyOf(events.Match_prefix(jsii.String("GLACIER")), events.Match_exactString(jsii.String("DEEP_ARCHIVE"))),
 		},
-		Detailtype: events.Match_EqualsIgnoreCase(jsii.String("object created")),
+		DetailType: events.Match_EqualsIgnoreCase(jsii.String("object created")),
 
 		// If you prefer, you can use a low level array of strings, as directly consumed by EventBridge
 		Source: []*string{

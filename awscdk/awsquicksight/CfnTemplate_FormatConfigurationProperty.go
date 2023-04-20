@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The formatting configuration for all types of field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -220,11 +218,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FormatConfigurationProperty struct {
-	// Formatting configuration for `DateTime` fields.
+	// `CfnTemplate.FormatConfigurationProperty.DateTimeFormatConfiguration`.
 	DateTimeFormatConfiguration interface{} `field:"optional" json:"dateTimeFormatConfiguration" yaml:"dateTimeFormatConfiguration"`
-	// Formatting configuration for number fields.
+	// `CfnTemplate.FormatConfigurationProperty.NumberFormatConfiguration`.
 	NumberFormatConfiguration interface{} `field:"optional" json:"numberFormatConfiguration" yaml:"numberFormatConfiguration"`
-	// Formatting configuration for string fields.
+	// `CfnTemplate.FormatConfigurationProperty.StringFormatConfiguration`.
 	StringFormatConfiguration interface{} `field:"optional" json:"stringFormatConfiguration" yaml:"stringFormatConfiguration"`
 }
 

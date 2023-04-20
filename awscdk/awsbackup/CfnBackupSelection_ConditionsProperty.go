@@ -1,10 +1,6 @@
 package awsbackup
 
 
-// Contains information about which resources to include or exclude from a backup plan using their tags.
-//
-// Conditions are case sensitive.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -38,19 +34,13 @@ package awsbackup
 //   }
 //
 type CfnBackupSelection_ConditionsProperty struct {
-	// Filters the values of your tagged resources for only those resources that you tagged with the same value.
-	//
-	// Also called "exact matching."
+	// `CfnBackupSelection.ConditionsProperty.StringEquals`.
 	StringEquals interface{} `field:"optional" json:"stringEquals" yaml:"stringEquals"`
-	// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (*) anywhere in the string.
-	//
-	// For example, "prod*" or "*rod*" matches the tag value "production".
+	// `CfnBackupSelection.ConditionsProperty.StringLike`.
 	StringLike interface{} `field:"optional" json:"stringLike" yaml:"stringLike"`
-	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value.
-	//
-	// Also called "negated matching."
+	// `CfnBackupSelection.ConditionsProperty.StringNotEquals`.
 	StringNotEquals interface{} `field:"optional" json:"stringNotEquals" yaml:"stringNotEquals"`
-	// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (*) anywhere in the string.
+	// `CfnBackupSelection.ConditionsProperty.StringNotLike`.
 	StringNotLike interface{} `field:"optional" json:"stringNotLike" yaml:"stringNotLike"`
 }
 

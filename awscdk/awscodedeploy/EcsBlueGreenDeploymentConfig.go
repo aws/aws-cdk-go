@@ -8,24 +8,23 @@ import (
 // Specify how the deployment behaves and how traffic is routed to the ECS service during a blue-green ECS deployment.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myApplication ecsApplication
-//   var cluster ecs.Cluster
-//   var taskDefinition ecs.FargateTaskDefinition
-//   var blueTargetGroup elbv2.ITargetGroup
-//   var greenTargetGroup elbv2.ITargetGroup
-//   var listener elbv2.IApplicationListener
+//   var cluster cluster
+//   var taskDefinition fargateTaskDefinition
+//   var blueTargetGroup iTargetGroup
+//   var greenTargetGroup iTargetGroup
+//   var listener iApplicationListener
 //
 //
-//   service := ecs.NewFargateService(this, jsii.String("Service"), map[string]interface{}{
-//   	"cluster": cluster,
-//   	"taskDefinition": taskDefinition,
-//   	"deploymentController": map[string]interface{}{
-//   		"type": ecs.DeploymentControllerType_CODE_DEPLOY,
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	DeploymentController: &DeploymentController{
+//   		Type: ecs.DeploymentControllerType_CODE_DEPLOY,
 //   	},
 //   })
 //
-//   codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+//   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 //   	Service: Service,
 //   	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
 //   		BlueTargetGroup: *BlueTargetGroup,

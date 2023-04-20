@@ -12,12 +12,11 @@ import (
 // A CloudWatch dashboard.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cw "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   dashboard := cw.NewDashboard(stack, jsii.String("Dash"), &DashboardProps{
-//   	DefaultInterval: cdk.duration_Days(jsii.Number(7)),
+//   dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
+//   	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
 //   })
 //
 type Dashboard interface {

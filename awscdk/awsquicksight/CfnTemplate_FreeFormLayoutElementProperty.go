@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// An element within a free-form layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,31 +42,29 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FreeFormLayoutElementProperty struct {
-	// A unique identifier for an element within a free-form layout.
+	// `CfnTemplate.FreeFormLayoutElementProperty.ElementId`.
 	ElementId *string `field:"required" json:"elementId" yaml:"elementId"`
-	// The type of element.
+	// `CfnTemplate.FreeFormLayoutElementProperty.ElementType`.
 	ElementType *string `field:"required" json:"elementType" yaml:"elementType"`
-	// The height of an element within a free-form layout.
+	// `CfnTemplate.FreeFormLayoutElementProperty.Height`.
 	Height *string `field:"required" json:"height" yaml:"height"`
-	// The width of an element within a free-form layout.
+	// `CfnTemplate.FreeFormLayoutElementProperty.Width`.
 	Width *string `field:"required" json:"width" yaml:"width"`
-	// The x-axis coordinate of the element.
+	// `CfnTemplate.FreeFormLayoutElementProperty.XAxisLocation`.
 	XAxisLocation *string `field:"required" json:"xAxisLocation" yaml:"xAxisLocation"`
-	// The y-axis coordinate of the element.
+	// `CfnTemplate.FreeFormLayoutElementProperty.YAxisLocation`.
 	YAxisLocation *string `field:"required" json:"yAxisLocation" yaml:"yAxisLocation"`
-	// The background style configuration of a free-form layout element.
+	// `CfnTemplate.FreeFormLayoutElementProperty.BackgroundStyle`.
 	BackgroundStyle interface{} `field:"optional" json:"backgroundStyle" yaml:"backgroundStyle"`
-	// The border style configuration of a free-form layout element.
+	// `CfnTemplate.FreeFormLayoutElementProperty.BorderStyle`.
 	BorderStyle interface{} `field:"optional" json:"borderStyle" yaml:"borderStyle"`
-	// The loading animation configuration of a free-form layout element.
+	// `CfnTemplate.FreeFormLayoutElementProperty.LoadingAnimation`.
 	LoadingAnimation interface{} `field:"optional" json:"loadingAnimation" yaml:"loadingAnimation"`
-	// The rendering rules that determine when an element should be displayed within a free-form layout.
+	// `CfnTemplate.FreeFormLayoutElementProperty.RenderingRules`.
 	RenderingRules interface{} `field:"optional" json:"renderingRules" yaml:"renderingRules"`
-	// The border style configuration of a free-form layout element.
-	//
-	// This border style is used when the element is selected.
+	// `CfnTemplate.FreeFormLayoutElementProperty.SelectedBorderStyle`.
 	SelectedBorderStyle interface{} `field:"optional" json:"selectedBorderStyle" yaml:"selectedBorderStyle"`
-	// The visibility of an element within a free-form layout.
+	// `CfnTemplate.FreeFormLayoutElementProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

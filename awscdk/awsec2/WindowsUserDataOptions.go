@@ -4,13 +4,9 @@ package awsec2
 // Options when constructing UserData for Windows.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   windowsUserDataOptions := &WindowsUserDataOptions{
-//   	Persist: jsii.Boolean(false),
-//   }
+//   windowsUserData := ec2.UserData_ForWindows(&WindowsUserDataOptions{
+//   	Persist: jsii.Boolean(true),
+//   })
 //
 type WindowsUserDataOptions struct {
 	// Set to true to set this userdata to persist through an instance reboot;

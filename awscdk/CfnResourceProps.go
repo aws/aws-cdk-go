@@ -3,11 +3,24 @@ package awscdk
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   resourceA := awscdk.NewCfnResource(this, jsii.String("ResourceA"), resourceProps)
-//   resourceB := awscdk.NewCfnResource(this, jsii.String("ResourceB"), resourceProps)
+//   type myConstruct struct {
+//   	resource
+//   	tags
+//   }
 //
-//   resourceB.AddDependency(resourceA)
+//   func newMyConstruct(scope construct, id *string) *myConstruct {
+//   	this := &myConstruct{}
+//   	newResource_Override(this, scope, id)
+//
+//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
+//   		Type: jsii.String("Whatever::The::Type"),
+//   		Properties: map[string]interface{}{
+//   			// ...
+//   			"Tags": this.tags.renderedTags,
+//   		},
+//   	})
+//   	return this
+//   }
 //
 type CfnResourceProps struct {
 	// CloudFormation resource type (e.g. `AWS::S3::Bucket`).

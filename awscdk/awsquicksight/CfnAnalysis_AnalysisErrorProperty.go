@@ -23,7 +23,7 @@ type CfnAnalysis_AnalysisErrorProperty struct {
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// The type of the analysis error.
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// Lists the violated entities that caused the analysis error.
+	// `CfnAnalysis.AnalysisErrorProperty.ViolatedEntities`.
 	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A radar chart visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1236,19 +1234,17 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_RadarChartVisualProperty struct {
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	// `CfnTemplate.RadarChartVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnTemplate.RadarChartVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
-	// The configuration settings of the visual.
+	// `CfnTemplate.RadarChartVisualProperty.ChartConfiguration`.
 	ChartConfiguration interface{} `field:"optional" json:"chartConfiguration" yaml:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
+	// `CfnTemplate.RadarChartVisualProperty.ColumnHierarchies`.
 	ColumnHierarchies interface{} `field:"optional" json:"columnHierarchies" yaml:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
+	// `CfnTemplate.RadarChartVisualProperty.Subtitle`.
 	Subtitle interface{} `field:"optional" json:"subtitle" yaml:"subtitle"`
-	// The title that is displayed on the visual.
+	// `CfnTemplate.RadarChartVisualProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

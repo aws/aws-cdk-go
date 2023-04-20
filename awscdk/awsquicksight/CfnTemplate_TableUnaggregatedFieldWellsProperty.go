@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The unaggregated field well for the table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -233,9 +231,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableUnaggregatedFieldWellsProperty struct {
-	// The values field well for a pivot table.
-	//
-	// Values are unaggregated for an unaggregated table.
+	// `CfnTemplate.TableUnaggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

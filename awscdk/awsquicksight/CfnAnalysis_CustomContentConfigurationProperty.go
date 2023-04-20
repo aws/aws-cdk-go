@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a `CustomContentVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,15 +13,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_CustomContentConfigurationProperty struct {
-	// The content type of the custom content visual.
-	//
-	// You can use this to have the visual render as an image.
+	// `CfnAnalysis.CustomContentConfigurationProperty.ContentType`.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
-	// The input URL that links to the custom content that you want in the custom visual.
+	// `CfnAnalysis.CustomContentConfigurationProperty.ContentUrl`.
 	ContentUrl *string `field:"optional" json:"contentUrl" yaml:"contentUrl"`
-	// The sizing options for the size of the custom content visual.
-	//
-	// This structure is required when the `ContentType` of the visual is `'IMAGE'` .
+	// `CfnAnalysis.CustomContentConfigurationProperty.ImageScaling`.
 	ImageScaling *string `field:"optional" json:"imageScaling" yaml:"imageScaling"`
 }
 

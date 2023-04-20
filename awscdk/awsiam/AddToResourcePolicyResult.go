@@ -7,7 +7,6 @@ import (
 // Result of calling addToResourcePolicy.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.Bucket_FromBucketName(this, jsii.String("existingBucket"), jsii.String("bucket-name"))
 //
 //   // No policy statement will be added to the resource

@@ -89,9 +89,11 @@ type DockerImageAssetOptions struct {
 	// Docker BuildKit must be enabled to use build secrets.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
-	//   {
-	//   	"MY_SECRET"dockerBuildSecret_FromSrc(jsii.String("file.txt"))
+	//   import "github.com/aws/aws-cdk-go/awscdk"
+	//
+	//
+	//   buildSecrets := map[string]*string{
+	//   	"MY_SECRET": awscdk.DockerBuildSecret_fromSrc(jsii.String("file.txt")),
 	//   }
 	//
 	// See: https://docs.docker.com/build/buildkit/

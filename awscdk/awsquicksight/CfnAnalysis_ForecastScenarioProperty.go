@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The forecast scenario of a forecast in the line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +19,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ForecastScenarioProperty struct {
-	// The what-if analysis forecast setup with the target date.
+	// `CfnAnalysis.ForecastScenarioProperty.WhatIfPointScenario`.
 	WhatIfPointScenario interface{} `field:"optional" json:"whatIfPointScenario" yaml:"whatIfPointScenario"`
-	// The what-if analysis forecast setup with the date range.
+	// `CfnAnalysis.ForecastScenarioProperty.WhatIfRangeScenario`.
 	WhatIfRangeScenario interface{} `field:"optional" json:"whatIfRangeScenario" yaml:"whatIfRangeScenario"`
 }
 

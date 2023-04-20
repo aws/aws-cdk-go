@@ -7,7 +7,6 @@ import (
 // Represents timeouts for GRPC protocols.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -23,8 +22,8 @@ import (
 //   			ServiceName: jsii.String("my-service.default.svc.cluster.local"),
 //   		},
 //   		Timeout: &GrpcTimeout{
-//   			Idle: cdk.Duration_Seconds(jsii.Number(2)),
-//   			PerRequest: cdk.Duration_*Seconds(jsii.Number(1)),
+//   			Idle: awscdk.Duration_Seconds(jsii.Number(2)),
+//   			PerRequest: awscdk.Duration_*Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })

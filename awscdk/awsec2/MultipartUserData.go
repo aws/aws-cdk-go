@@ -13,7 +13,6 @@ import (
 // [Specifying Multiple User Data Blocks Using a MIME Multi Part Archive](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#multi-part_user_data)
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bootHookConf := ec2.UserData_ForLinux()
 //   bootHookConf.AddCommands(jsii.String("cloud-init-per once docker_options echo 'OPTIONS=\"${OPTIONS} --storage-opt dm.basesize=40G\"' >> /etc/sysconfig/docker"))
 //

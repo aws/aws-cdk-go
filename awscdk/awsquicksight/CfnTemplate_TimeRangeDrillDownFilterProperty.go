@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The time range drill down filter.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,13 +17,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TimeRangeDrillDownFilterProperty struct {
-	// The column that the filter is applied to.
+	// `CfnTemplate.TimeRangeDrillDownFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The maximum value for the filter value range.
+	// `CfnTemplate.TimeRangeDrillDownFilterProperty.RangeMaximum`.
 	RangeMaximum *string `field:"required" json:"rangeMaximum" yaml:"rangeMaximum"`
-	// The minimum value for the filter value range.
+	// `CfnTemplate.TimeRangeDrillDownFilterProperty.RangeMinimum`.
 	RangeMinimum *string `field:"required" json:"rangeMinimum" yaml:"rangeMinimum"`
-	// The level of time precision that is used to aggregate `DateTime` values.
+	// `CfnTemplate.TimeRangeDrillDownFilterProperty.TimeGranularity`.
 	TimeGranularity *string `field:"required" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

@@ -28,9 +28,7 @@ type CfnLifecyclePolicy_ParametersProperty struct {
 	//
 	// The default is `false` . If you specify `true` , then the root volumes attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
 	ExcludeBootVolume interface{} `field:"optional" json:"excludeBootVolume" yaml:"excludeBootVolume"`
-	// *[Snapshot policies that target instances only]* The tags used to identify data (non-root) volumes to exclude from multi-volume snapshot sets.
-	//
-	// If you create a snapshot lifecycle policy that targets instances and you specify tags for this parameter, then data volumes with the specified tags that are attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
+	// `CfnLifecyclePolicy.ParametersProperty.ExcludeDataVolumeTags`.
 	ExcludeDataVolumeTags interface{} `field:"optional" json:"excludeDataVolumeTags" yaml:"excludeDataVolumeTags"`
 	// *[AMI policies only]* Indicates whether targeted instances are rebooted when the lifecycle policy runs.
 	//

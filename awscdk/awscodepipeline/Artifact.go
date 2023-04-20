@@ -12,7 +12,6 @@ import (
 // Artifacts can be used as input by some actions.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // later:
 //   var project pipelineProject
 //   lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{

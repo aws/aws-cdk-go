@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a heat map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -74,13 +72,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_HeatMapSortConfigurationProperty struct {
-	// The limit on the number of columns that are displayed in a heat map.
+	// `CfnDashboard.HeatMapSortConfigurationProperty.HeatMapColumnItemsLimitConfiguration`.
 	HeatMapColumnItemsLimitConfiguration interface{} `field:"optional" json:"heatMapColumnItemsLimitConfiguration" yaml:"heatMapColumnItemsLimitConfiguration"`
-	// The column sort configuration for heat map for columns that aren't a part of a field well.
+	// `CfnDashboard.HeatMapSortConfigurationProperty.HeatMapColumnSort`.
 	HeatMapColumnSort interface{} `field:"optional" json:"heatMapColumnSort" yaml:"heatMapColumnSort"`
-	// The limit on the number of rows that are displayed in a heat map.
+	// `CfnDashboard.HeatMapSortConfigurationProperty.HeatMapRowItemsLimitConfiguration`.
 	HeatMapRowItemsLimitConfiguration interface{} `field:"optional" json:"heatMapRowItemsLimitConfiguration" yaml:"heatMapRowItemsLimitConfiguration"`
-	// The field sort configuration of the rows fields.
+	// `CfnDashboard.HeatMapSortConfigurationProperty.HeatMapRowSort`.
 	HeatMapRowSort interface{} `field:"optional" json:"heatMapRowSort" yaml:"heatMapRowSort"`
 }
 

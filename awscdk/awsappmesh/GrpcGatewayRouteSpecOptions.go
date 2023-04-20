@@ -4,7 +4,6 @@ package awsappmesh
 // Properties specific for a gRPC GatewayRoute.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //

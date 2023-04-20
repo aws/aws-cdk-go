@@ -4,7 +4,6 @@ package awsappmesh
 // The properties applied to the VirtualService being defined.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //

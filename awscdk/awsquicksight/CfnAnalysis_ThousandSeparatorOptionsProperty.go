@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the thousands separator configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ThousandSeparatorOptionsProperty struct {
-	// Determines the thousands separator symbol.
+	// `CfnAnalysis.ThousandSeparatorOptionsProperty.Symbol`.
 	Symbol *string `field:"optional" json:"symbol" yaml:"symbol"`
-	// Determines the visibility of the thousands separator.
+	// `CfnAnalysis.ThousandSeparatorOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

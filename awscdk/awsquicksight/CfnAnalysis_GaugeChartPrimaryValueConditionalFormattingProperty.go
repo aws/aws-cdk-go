@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting for the primary value of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -55,9 +53,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_GaugeChartPrimaryValueConditionalFormattingProperty struct {
-	// The conditional formatting of the primary value icon.
+	// `CfnAnalysis.GaugeChartPrimaryValueConditionalFormattingProperty.Icon`.
 	Icon interface{} `field:"optional" json:"icon" yaml:"icon"`
-	// The conditional formatting of the primary value text color.
+	// `CfnAnalysis.GaugeChartPrimaryValueConditionalFormattingProperty.TextColor`.
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

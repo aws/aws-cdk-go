@@ -4,7 +4,6 @@ package awsappmesh
 // Properties for Mesh Service Discovery.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &MeshProps{
 //   	MeshName: jsii.String("myAwsMesh"),
 //   	ServiceDiscovery: &MeshServiceDiscovery{

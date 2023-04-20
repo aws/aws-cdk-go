@@ -40,10 +40,13 @@ This example defines an Amazon EKS cluster with the following configuration:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-// provisiong a cluster
+import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv25"
+
+
+// provisioning a cluster
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_25(),
-	KubectlLayer: NewKubectlV25Layer(this, jsii.String("kubectl")),
+	KubectlLayer: awscdklambdalayerkubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
 })
 
 // apply a kubernetes manifest to the cluster
@@ -721,12 +724,12 @@ version, you will need to use one of the `@aws-cdk/lambda-layer-kubectl-vXY` pac
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdklib/lambdalayerkubectlv25"
+import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv25"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_25(),
-	KubectlLayer: awscdkliblambdalayerkubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
+	KubectlLayer: awscdklambdalayerkubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -1273,13 +1276,15 @@ cluster.addHelmChart(jsii.String("test-chart"), &HelmChartOptions{
 Nested values passed to the `values` parameter should be provided as a nested dictionary:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-cluster.addHelmChart(jsii.String("ExternalSecretsOperator"), map[string]interface{}{
-	"chart": jsii.String("external-secrets"),
-	"release": jsii.String("external-secrets"),
-	"repository": jsii.String("https://charts.external-secrets.io"),
-	"namespace": jsii.String("external-secrets"),
-	"values": map[string]interface{}{
+var cluster cluster
+
+
+cluster.addHelmChart(jsii.String("ExternalSecretsOperator"), &HelmChartOptions{
+	Chart: jsii.String("external-secrets"),
+	Release: jsii.String("external-secrets"),
+	Repository: jsii.String("https://charts.external-secrets.io"),
+	Namespace: jsii.String("external-secrets"),
+	Values: map[string]interface{}{
 		"installCRDs": jsii.Boolean(true),
 		"webhook": map[string]*f64{
 			"port": jsii.Number(9443),
@@ -1366,12 +1371,12 @@ To get started, add the following dependencies to your `package.json` file:
 ```json
 "dependencies": {
   "cdk8s": "^2.0.0",
-  "cdk8s-plus-22": "^2.0.0-rc.30",
+  "cdk8s-plus-25": "^2.0.0",
   "constructs": "^10.0.0"
 }
 ```
 
-Note that here we are using `cdk8s-plus-22` as we are targeting Kubernetes version 1.22.0. If you operate a different kubernetes version, you should
+Note that here we are using `cdk8s-plus-25` as we are targeting Kubernetes version 1.25.0. If you operate a different kubernetes version, you should
 use the corresponding `cdk8s-plus-XX` library.
 See [Select the appropriate cdk8s+ library](https://cdk8s.io/docs/latest/plus/#i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using)
 for more details.
@@ -1388,7 +1393,7 @@ In this example we create a chart that accepts an `s3.Bucket` and passes its nam
 import "github.com/aws/aws-cdk-go/awscdk"
 import constructs "github.com/aws/constructs-go/constructs"
 import cdk8s "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
-import "github.com/aws-samples/dummy/cdk8splus22"
+import "github.com/aws-samples/dummy/cdk8splus25"
 
 type myChartProps struct {
 	bucket bucket
@@ -1438,14 +1443,14 @@ cluster.addCdk8sChart(jsii.String("my-chart"), myChart)
 #### Custom CDK8s Constructs
 
 You can also compose a few stock `cdk8s+` constructs into your own custom construct. However, since mixing scopes between `aws-cdk` and `cdk8s` is currently not supported, the `Construct` class
-you'll need to use is the one from the [`constructs`](https://github.com/aws/constructs) module, and not from `@aws-cdk/core` like you normally would.
+you'll need to use is the one from the [`constructs`](https://github.com/aws/constructs) module, and not from `aws-cdk-lib` like you normally would.
 This is why we used `new cdk8s.App()` as the scope of the chart above.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 import constructs "github.com/aws/constructs-go/constructs"
 import "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
-import "github.com/aws-samples/dummy/cdk8splus21"
+import "github.com/aws-samples/dummy/cdk8splus25"
 
 type loadBalancedWebService struct {
 	port *f64

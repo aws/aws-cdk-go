@@ -102,7 +102,10 @@ in order to access the cross stack/region certificate.
 > **This feature is currently experimental**
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
+var app app
+
+
 stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-east-1"),
@@ -121,14 +124,14 @@ stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
 	CrossRegionReferences: jsii.Boolean(true),
 })
 
-cloudfront.NewDistribution(stack2, jsii.String("Distribution"), map[string]interface{}{
-	"defaultBehavior": map[string]interface{}{
-		"origin": origins.NewHttpOrigin(jsii.String("example.com")),
+awscdk.Aws_cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: awscdk.Aws_cloudfront_origins.NewHttpOrigin(jsii.String("example.com")),
 	},
-	"domainNames": []*string{
+	DomainNames: []*string{
 		jsii.String("dev.example.com"),
 	},
-	"certificate": cert,
+	Certificate: cert,
 })
 ```
 

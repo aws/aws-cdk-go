@@ -1,6 +1,8 @@
 package awsec2
 
 
+// Available storage options for Amazon Linux images Only applies to Amazon Linux & Amazon Linux 2.
+//
 // Example:
 //   // Pick a Windows edition to use
 //   windows := ec2.NewWindowsImage(ec2.WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE)

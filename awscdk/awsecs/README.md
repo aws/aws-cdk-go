@@ -805,22 +805,22 @@ The feature flag changes behavior for the entire CDK project. Therefore it is no
 declare const cluster: ecs.Cluster;
 
 // Import service from EC2 service attributes
-const service = ecs.Ec2Service.fromEc2ServiceAttributes(stack, 'EcsService', {
+const service = ecs.Ec2Service.fromEc2ServiceAttributes(this, 'EcsService', {
   serviceArn: 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service',
   cluster,
 });
 
 // Import service from EC2 service ARN
-const service = ecs.Ec2Service.fromEc2ServiceArn(stack, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
+const service = ecs.Ec2Service.fromEc2ServiceArn(this, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
 
 // Import service from Fargate service attributes
-const service = ecs.FargateService.fromFargateServiceAttributes(stack, 'EcsService', {
+const service = ecs.FargateService.fromFargateServiceAttributes(this, 'EcsService', {
   serviceArn: 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service',
   cluster,
 });
 
 // Import service from Fargate service ARN
-const service = ecs.FargateService.fromFargateServiceArn(stack, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
+const service = ecs.FargateService.fromFargateServiceArn(this, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
 ```
 
 ## Task Auto-Scaling
@@ -1254,11 +1254,10 @@ For more information visit https://docs.aws.amazon.com/AmazonECS/latest/develope
 When the service does not have a capacity provider strategy, the cluster's default capacity provider strategy will be used. Default Capacity Provider Strategy can be added by using the method `addDefaultCapacityProviderStrategy`. A capacity provider strategy cannot contain a mix of EC2 Autoscaling Group capacity providers and Fargate providers.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var capacityProvider ecs.CapacityProvider
+var capacityProvider asgCapacityProvider
 
 
-cluster := ecs.NewCluster(stack, jsii.String("EcsCluster"), &ClusterProps{
+cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 	EnableFargateCapacityProviders: jsii.Boolean(true),
 })
 cluster.AddAsgCapacityProvider(capacityProvider)
@@ -1277,18 +1276,17 @@ cluster.AddDefaultCapacityProviderStrategy([]capacityProviderStrategy{
 ```
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var capacityProvider ecs.CapacityProvider
+var capacityProvider asgCapacityProvider
 
 
-cluster := ecs.NewCluster(stack, jsii.String("EcsCluster"), &ClusterProps{
+cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 	EnableFargateCapacityProviders: jsii.Boolean(true),
 })
 cluster.AddAsgCapacityProvider(capacityProvider)
 
 cluster.AddDefaultCapacityProviderStrategy([]capacityProviderStrategy{
 	&capacityProviderStrategy{
-		CapacityProvider: capacityProvider.capacityProviderName,
+		CapacityProvider: capacityProvider.CapacityProviderName,
 	},
 })
 ```
@@ -1405,18 +1403,17 @@ To enable Service Connect, you must have created a CloudMap namespace. The CDK c
 or you can specify a custom namespace. You must also have created a named port mapping on at least one container in your Task Definition.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var cluster cluster
 var taskDefinition taskDefinition
-var container containerDefinition
+var containerOptions containerDefinitionOptions
 
+
+container := taskDefinition.AddContainer(jsii.String("MyContainer"), containerOptions)
 
 container.AddPortMappings(&PortMapping{
 	Name: jsii.String("api"),
 	ContainerPort: jsii.Number(8080),
 })
-
-taskDefinition.AddContainer(container)
 
 cluster.AddDefaultCloudMapNamespace(&CloudMapNamespaceOptions{
 	Name: jsii.String("local"),
@@ -1443,7 +1440,10 @@ be routed to the container's port 8080.
 To opt a service into using service connect without advertising a port, simply call the 'enableServiceConnect' method on an initialized service.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var cluster cluster
+var taskDefinition taskDefinition
+
+
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
@@ -1454,13 +1454,16 @@ service.EnableServiceConnect()
 Service Connect also allows custom logging, Service Discovery name, and configuration of the port where service connect traffic is received.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var cluster cluster
+var taskDefinition taskDefinition
+
+
 customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	ServiceConnectConfiguration: &ServiceConnectProps{
-		LogDriver: ecs.LogDrivers.awslogs(map[string]*string{
-			"streamPrefix": jsii.String("sc-traffic"),
+		LogDriver: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
+			StreamPrefix: jsii.String("sc-traffic"),
 		}),
 		Services: []serviceConnectService{
 			&serviceConnectService{

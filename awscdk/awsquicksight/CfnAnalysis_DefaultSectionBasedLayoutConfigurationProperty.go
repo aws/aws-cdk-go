@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the default settings for a section-based layout configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,7 +22,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_DefaultSectionBasedLayoutConfigurationProperty struct {
-	// Determines the screen canvas size options for a section-based layout.
+	// `CfnAnalysis.DefaultSectionBasedLayoutConfigurationProperty.CanvasSizeOptions`.
 	CanvasSizeOptions interface{} `field:"required" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`
 }
 

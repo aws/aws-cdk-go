@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Options that determine the layout and display options of a chart's small multiples.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,15 +37,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SmallMultiplesOptionsProperty struct {
-	// Sets the maximum number of visible columns to display in the grid of small multiples panels.
-	//
-	// The default is `Auto` , which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.
+	// `CfnDashboard.SmallMultiplesOptionsProperty.MaxVisibleColumns`.
 	MaxVisibleColumns *float64 `field:"optional" json:"maxVisibleColumns" yaml:"maxVisibleColumns"`
-	// Sets the maximum number of visible rows to display in the grid of small multiples panels.
-	//
-	// The default value is `Auto` , which automatically adjusts the rows in the grid to fit the overall layout and size of the given chart.
+	// `CfnDashboard.SmallMultiplesOptionsProperty.MaxVisibleRows`.
 	MaxVisibleRows *float64 `field:"optional" json:"maxVisibleRows" yaml:"maxVisibleRows"`
-	// Configures the display options for each small multiples panel.
+	// `CfnDashboard.SmallMultiplesOptionsProperty.PanelConfiguration`.
 	PanelConfiguration interface{} `field:"optional" json:"panelConfiguration" yaml:"panelConfiguration"`
 }
 

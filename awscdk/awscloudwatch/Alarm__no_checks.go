@@ -20,6 +20,10 @@ func validateAlarm_FromAlarmArnParameters(scope constructs.Construct, id *string
 	return nil
 }
 
+func validateAlarm_FromAlarmNameParameters(scope constructs.Construct, id *string, alarmName *string) error {
+	return nil
+}
+
 func validateAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }

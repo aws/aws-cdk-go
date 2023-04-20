@@ -8,7 +8,6 @@ import (
 // A package to be installed during cfn-init time.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage

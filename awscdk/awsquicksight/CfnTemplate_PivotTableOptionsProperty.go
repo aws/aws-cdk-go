@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The table options for a pivot table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -254,23 +252,23 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PivotTableOptionsProperty struct {
-	// The table cell style of cells.
+	// `CfnTemplate.PivotTableOptionsProperty.CellStyle`.
 	CellStyle interface{} `field:"optional" json:"cellStyle" yaml:"cellStyle"`
-	// The table cell style of the column header.
+	// `CfnTemplate.PivotTableOptionsProperty.ColumnHeaderStyle`.
 	ColumnHeaderStyle interface{} `field:"optional" json:"columnHeaderStyle" yaml:"columnHeaderStyle"`
-	// The visibility of the column names.
+	// `CfnTemplate.PivotTableOptionsProperty.ColumnNamesVisibility`.
 	ColumnNamesVisibility *string `field:"optional" json:"columnNamesVisibility" yaml:"columnNamesVisibility"`
-	// The metric placement (row, column) options.
+	// `CfnTemplate.PivotTableOptionsProperty.MetricPlacement`.
 	MetricPlacement *string `field:"optional" json:"metricPlacement" yaml:"metricPlacement"`
-	// The row alternate color options (widget status, row alternate colors).
+	// `CfnTemplate.PivotTableOptionsProperty.RowAlternateColorOptions`.
 	RowAlternateColorOptions interface{} `field:"optional" json:"rowAlternateColorOptions" yaml:"rowAlternateColorOptions"`
-	// The table cell style of row field names.
+	// `CfnTemplate.PivotTableOptionsProperty.RowFieldNamesStyle`.
 	RowFieldNamesStyle interface{} `field:"optional" json:"rowFieldNamesStyle" yaml:"rowFieldNamesStyle"`
-	// The table cell style of the row headers.
+	// `CfnTemplate.PivotTableOptionsProperty.RowHeaderStyle`.
 	RowHeaderStyle interface{} `field:"optional" json:"rowHeaderStyle" yaml:"rowHeaderStyle"`
-	// The visibility of the single metric options.
+	// `CfnTemplate.PivotTableOptionsProperty.SingleMetricVisibility`.
 	SingleMetricVisibility *string `field:"optional" json:"singleMetricVisibility" yaml:"singleMetricVisibility"`
-	// Determines the visibility of the pivot table.
+	// `CfnTemplate.PivotTableOptionsProperty.ToggleButtonsVisibility`.
 	ToggleButtonsVisibility *string `field:"optional" json:"toggleButtonsVisibility" yaml:"toggleButtonsVisibility"`
 }
 

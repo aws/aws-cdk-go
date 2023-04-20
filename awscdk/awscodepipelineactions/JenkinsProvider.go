@@ -10,7 +10,6 @@ import (
 // A class representing Jenkins providers.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   jenkinsProvider := codepipeline_actions.NewJenkinsProvider(this, jsii.String("JenkinsProvider"), &JenkinsProviderProps{
 //   	ProviderName: jsii.String("MyJenkinsProvider"),
 //   	ServerUrl: jsii.String("http://my-jenkins.com:8080"),

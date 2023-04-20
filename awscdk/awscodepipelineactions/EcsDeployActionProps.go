@@ -10,7 +10,6 @@ import (
 // Construction properties of `EcsDeployAction`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service fargateService

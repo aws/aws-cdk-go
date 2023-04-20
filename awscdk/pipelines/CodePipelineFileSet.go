@@ -13,7 +13,6 @@ import (
 // add the end of an existing CodePipeline, which should be very rare.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var codePipeline pipeline
 //
 //

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the default settings for a paginated layout configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,7 +24,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DefaultPaginatedLayoutConfigurationProperty struct {
-	// The options that determine the default settings for a section-based layout configuration.
+	// `CfnTemplate.DefaultPaginatedLayoutConfigurationProperty.SectionBased`.
 	SectionBased interface{} `field:"optional" json:"sectionBased" yaml:"sectionBased"`
 }
 

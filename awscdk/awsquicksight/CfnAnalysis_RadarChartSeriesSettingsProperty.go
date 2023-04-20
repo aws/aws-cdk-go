@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The series settings of a radar chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_RadarChartSeriesSettingsProperty struct {
-	// The area style settings of a radar chart.
+	// `CfnAnalysis.RadarChartSeriesSettingsProperty.AreaStyleSettings`.
 	AreaStyleSettings interface{} `field:"optional" json:"areaStyleSettings" yaml:"areaStyleSettings"`
 }
 

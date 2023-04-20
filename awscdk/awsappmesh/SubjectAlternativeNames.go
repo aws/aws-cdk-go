@@ -10,7 +10,6 @@ import (
 // Used to generate Subject Alternative Names Matchers.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of adding parameters in action.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,7 +35,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SetParameterValueConfigurationProperty struct {
-	// The destination parameter name of the `SetParameterValueConfiguration` .
+	// `CfnAnalysis.SetParameterValueConfigurationProperty.DestinationParameterName`.
 	DestinationParameterName *string `field:"required" json:"destinationParameterName" yaml:"destinationParameterName"`
 	// `CfnAnalysis.SetParameterValueConfigurationProperty.Value`.
 	Value interface{} `field:"required" json:"value" yaml:"value"`

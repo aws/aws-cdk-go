@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The forecast properties setup of a forecast in the line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,20 +16,17 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TimeBasedForecastPropertiesProperty struct {
-	// The lower boundary setup of a forecast computation.
+	// `CfnDashboard.TimeBasedForecastPropertiesProperty.LowerBoundary`.
 	LowerBoundary *float64 `field:"optional" json:"lowerBoundary" yaml:"lowerBoundary"`
-	// The periods backward setup of a forecast computation.
+	// `CfnDashboard.TimeBasedForecastPropertiesProperty.PeriodsBackward`.
 	PeriodsBackward *float64 `field:"optional" json:"periodsBackward" yaml:"periodsBackward"`
-	// The periods forward setup of a forecast computation.
+	// `CfnDashboard.TimeBasedForecastPropertiesProperty.PeriodsForward`.
 	PeriodsForward *float64 `field:"optional" json:"periodsForward" yaml:"periodsForward"`
-	// The prediction interval setup of a forecast computation.
+	// `CfnDashboard.TimeBasedForecastPropertiesProperty.PredictionInterval`.
 	PredictionInterval *float64 `field:"optional" json:"predictionInterval" yaml:"predictionInterval"`
-	// The seasonality setup of a forecast computation. Choose one of the following options:.
-	//
-	// - `NULL` : The input is set to `NULL` .
-	// - `NON_NULL` : The input is set to a custom value.
+	// `CfnDashboard.TimeBasedForecastPropertiesProperty.Seasonality`.
 	Seasonality *float64 `field:"optional" json:"seasonality" yaml:"seasonality"`
-	// The upper boundary setup of a forecast computation.
+	// `CfnDashboard.TimeBasedForecastPropertiesProperty.UpperBoundary`.
 	UpperBoundary *float64 `field:"optional" json:"upperBoundary" yaml:"upperBoundary"`
 }
 

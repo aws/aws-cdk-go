@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field well configuration of a `RadarChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,11 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_RadarChartAggregatedFieldWellsProperty struct {
-	// The aggregated field well categories of a radar chart.
+	// `CfnTemplate.RadarChartAggregatedFieldWellsProperty.Category`.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
-	// The color that are assigned to the aggregated field wells of a radar chart.
+	// `CfnTemplate.RadarChartAggregatedFieldWellsProperty.Color`.
 	Color interface{} `field:"optional" json:"color" yaml:"color"`
-	// The values that are assigned to the aggregated field wells of a radar chart.
+	// `CfnTemplate.RadarChartAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

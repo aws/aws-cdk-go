@@ -1,8 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Describes the call to action button configuration for the form.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -40,13 +38,13 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FormCTAProperty struct {
-	// Displays a cancel button.
+	// `CfnForm.FormCTAProperty.Cancel`.
 	Cancel interface{} `field:"optional" json:"cancel" yaml:"cancel"`
-	// Displays a clear button.
+	// `CfnForm.FormCTAProperty.Clear`.
 	Clear interface{} `field:"optional" json:"clear" yaml:"clear"`
-	// The position of the button.
+	// `CfnForm.FormCTAProperty.Position`.
 	Position *string `field:"optional" json:"position" yaml:"position"`
-	// Displays a submit button.
+	// `CfnForm.FormCTAProperty.Submit`.
 	Submit interface{} `field:"optional" json:"submit" yaml:"submit"`
 }
 

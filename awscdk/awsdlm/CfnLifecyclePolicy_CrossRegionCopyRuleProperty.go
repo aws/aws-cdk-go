@@ -39,7 +39,7 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	CmkArn *string `field:"optional" json:"cmkArn" yaml:"cmkArn"`
 	// Indicates whether to copy all user-defined tags from the source snapshot or AMI to the cross-Region copy.
 	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
-	// *[AMI policies only]* The AMI deprecation rule for cross-Region AMI copies created by the rule.
+	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.DeprecateRule`.
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
 	// The retention rule that indicates how long the cross-Region snapshot or AMI copies are to be retained in the destination Region.
 	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`

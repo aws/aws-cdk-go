@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The layout configuration of a section.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -50,7 +48,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SectionLayoutConfigurationProperty struct {
-	// The free-form layout configuration of a section.
+	// `CfnAnalysis.SectionLayoutConfigurationProperty.FreeFormLayout`.
 	FreeFormLayout interface{} `field:"required" json:"freeFormLayout" yaml:"freeFormLayout"`
 }
 

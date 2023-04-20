@@ -128,9 +128,8 @@ The build spec can be provided from a number of different sources
 You can specify a specific filename that exists within the project's source artifact to use as the buildspec.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
-	BuildSpec: codebuild.BuildSpec.fromSourceFileName(jsii.String("my-buildspec.yml")),
+	BuildSpec: codebuild.BuildSpec_FromSourceFilename(jsii.String("my-buildspec.yml")),
 	Source: codebuild.Source_GitHub(&GitHubSourceProps{
 		Owner: jsii.String("awslabs"),
 		Repo: jsii.String("aws-cdk"),
@@ -481,7 +480,7 @@ Example:
 ```go
 codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 	Environment: &BuildEnvironment{
-		BuildImage: codebuild.LinuxBuildImage_STANDARD_6_0(),
+		BuildImage: codebuild.LinuxBuildImage_STANDARD_7_0(),
 	},
 	SsmSessionPermissions: jsii.Boolean(true),
 	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{

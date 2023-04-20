@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The label options for a chart axis.
-//
-// You must specify the field that the label is targeted to.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,11 +29,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_AxisLabelOptionsProperty struct {
-	// The options that indicate which field the label belongs to.
+	// `CfnTemplate.AxisLabelOptionsProperty.ApplyTo`.
 	ApplyTo interface{} `field:"optional" json:"applyTo" yaml:"applyTo"`
-	// The text for the axis label.
+	// `CfnTemplate.AxisLabelOptionsProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The font configuration of the axis label.
+	// `CfnTemplate.AxisLabelOptionsProperty.FontConfiguration`.
 	FontConfiguration interface{} `field:"optional" json:"fontConfiguration" yaml:"fontConfiguration"`
 }
 

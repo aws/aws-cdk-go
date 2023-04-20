@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a `TableVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1016,19 +1014,19 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableConfigurationProperty struct {
-	// The field options for a table visual.
+	// `CfnDashboard.TableConfigurationProperty.FieldOptions`.
 	FieldOptions interface{} `field:"optional" json:"fieldOptions" yaml:"fieldOptions"`
-	// The field wells of the visual.
+	// `CfnDashboard.TableConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The paginated report options for a table visual.
+	// `CfnDashboard.TableConfigurationProperty.PaginatedReportOptions`.
 	PaginatedReportOptions interface{} `field:"optional" json:"paginatedReportOptions" yaml:"paginatedReportOptions"`
-	// The sort configuration for a `TableVisual` .
+	// `CfnDashboard.TableConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// A collection of inline visualizations to display within a chart.
+	// `CfnDashboard.TableConfigurationProperty.TableInlineVisualizations`.
 	TableInlineVisualizations interface{} `field:"optional" json:"tableInlineVisualizations" yaml:"tableInlineVisualizations"`
-	// The table options for a table visual.
+	// `CfnDashboard.TableConfigurationProperty.TableOptions`.
 	TableOptions interface{} `field:"optional" json:"tableOptions" yaml:"tableOptions"`
-	// The total options for a table visual.
+	// `CfnDashboard.TableConfigurationProperty.TotalOptions`.
 	TotalOptions interface{} `field:"optional" json:"totalOptions" yaml:"totalOptions"`
 }
 

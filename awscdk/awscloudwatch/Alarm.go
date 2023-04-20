@@ -306,6 +306,25 @@ func Alarm_FromAlarmArn(scope constructs.Construct, id *string, alarmArn *string
 	return returns
 }
 
+// Import an existing CloudWatch alarm provided an Name.
+func Alarm_FromAlarmName(scope constructs.Construct, id *string, alarmName *string) IAlarm {
+	_init_.Initialize()
+
+	if err := validateAlarm_FromAlarmNameParameters(scope, id, alarmName); err != nil {
+		panic(err)
+	}
+	var returns IAlarm
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.Alarm",
+		"fromAlarmName",
+		[]interface{}{scope, id, alarmName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

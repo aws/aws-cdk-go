@@ -17,13 +17,15 @@ import (
 // BucketResource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   NewBucket(*scope, jsii.String("Bucket"), map[string]interface{}{
-//   	"blockPublicAccess": BlockPublicAccess_BLOCK_ALL,
-//   	"encryption": BucketEncryption_S3_MANAGED,
-//   	"enforceSSL": jsii.Boolean(true),
-//   	"versioned": jsii.Boolean(true),
-//   	"removalPolicy": RemovalPolicy_RETAIN,
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   s3.NewBucket(*scope, jsii.String("Bucket"), &BucketProps{
+//   	BlockPublicAccess: s3.BlockPublicAccess_BLOCK_ALL(),
+//   	Encryption: s3.BucketEncryption_S3_MANAGED,
+//   	EnforceSSL: jsii.Boolean(true),
+//   	Versioned: jsii.Boolean(true),
+//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   })
 //
 type Bucket interface {

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The measure (metric) type field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -259,13 +257,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_MeasureFieldProperty struct {
-	// The calculated measure field only used in pivot tables.
+	// `CfnTemplate.MeasureFieldProperty.CalculatedMeasureField`.
 	CalculatedMeasureField interface{} `field:"optional" json:"calculatedMeasureField" yaml:"calculatedMeasureField"`
-	// The measure type field with categorical type columns.
+	// `CfnTemplate.MeasureFieldProperty.CategoricalMeasureField`.
 	CategoricalMeasureField interface{} `field:"optional" json:"categoricalMeasureField" yaml:"categoricalMeasureField"`
-	// The measure type field with date type columns.
+	// `CfnTemplate.MeasureFieldProperty.DateMeasureField`.
 	DateMeasureField interface{} `field:"optional" json:"dateMeasureField" yaml:"dateMeasureField"`
-	// The measure type field with numerical type columns.
+	// `CfnTemplate.MeasureFieldProperty.NumericalMeasureField`.
 	NumericalMeasureField interface{} `field:"optional" json:"numericalMeasureField" yaml:"numericalMeasureField"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a `ComboChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -74,13 +72,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ComboChartSortConfigurationProperty struct {
-	// The item limit configuration for the category field well of a combo chart.
+	// `CfnDashboard.ComboChartSortConfigurationProperty.CategoryItemsLimit`.
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
-	// The sort configuration of the category field well in a combo chart.
+	// `CfnDashboard.ComboChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
-	// The item limit configuration of the color field well in a combo chart.
+	// `CfnDashboard.ComboChartSortConfigurationProperty.ColorItemsLimit`.
 	ColorItemsLimit interface{} `field:"optional" json:"colorItemsLimit" yaml:"colorItemsLimit"`
-	// The sort configuration of the color field well in a combo chart.
+	// `CfnDashboard.ComboChartSortConfigurationProperty.ColorSort`.
 	ColorSort interface{} `field:"optional" json:"colorSort" yaml:"colorSort"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The data field series item configuration of a line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,13 +29,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DataFieldSeriesItemProperty struct {
-	// The axis that you are binding the field to.
+	// `CfnDashboard.DataFieldSeriesItemProperty.AxisBinding`.
 	AxisBinding *string `field:"required" json:"axisBinding" yaml:"axisBinding"`
-	// The field ID of the field that you are setting the axis binding to.
+	// `CfnDashboard.DataFieldSeriesItemProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The field value of the field that you are setting the axis binding to.
+	// `CfnDashboard.DataFieldSeriesItemProperty.FieldValue`.
 	FieldValue *string `field:"optional" json:"fieldValue" yaml:"fieldValue"`
-	// The options that determine the presentation of line series associated to the field.
+	// `CfnDashboard.DataFieldSeriesItemProperty.Settings`.
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
 }
 

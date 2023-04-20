@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting options of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -81,9 +79,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_KPIConditionalFormattingOptionProperty struct {
-	// The conditional formatting for the primary value of a KPI visual.
+	// `CfnAnalysis.KPIConditionalFormattingOptionProperty.PrimaryValue`.
 	PrimaryValue interface{} `field:"optional" json:"primaryValue" yaml:"primaryValue"`
-	// The conditional formatting for the progress bar of a KPI visual.
+	// `CfnAnalysis.KPIConditionalFormattingOptionProperty.ProgressBar`.
 	ProgressBar interface{} `field:"optional" json:"progressBar" yaml:"progressBar"`
 }
 

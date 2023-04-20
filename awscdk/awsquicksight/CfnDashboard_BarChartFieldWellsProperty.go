@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field wells of a `BarChartVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -996,7 +992,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_BarChartFieldWellsProperty struct {
-	// The aggregated field wells of a bar chart.
+	// `CfnDashboard.BarChartFieldWellsProperty.BarChartAggregatedFieldWells`.
 	BarChartAggregatedFieldWells interface{} `field:"optional" json:"barChartAggregatedFieldWells" yaml:"barChartAggregatedFieldWells"`
 }
 

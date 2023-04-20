@@ -1,10 +1,6 @@
 package awscodedeploy
 
 
-// Information about two target groups and how traffic is routed during an Amazon ECS deployment.
-//
-// An optional test traffic route can be specified.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,15 +25,11 @@ package awscodedeploy
 //   }
 //
 type CfnDeploymentGroup_TargetGroupPairInfoProperty struct {
-	// The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
+	// `CfnDeploymentGroup.TargetGroupPairInfoProperty.ProdTrafficRoute`.
 	ProdTrafficRoute interface{} `field:"optional" json:"prodTrafficRoute" yaml:"prodTrafficRoute"`
-	// One pair of target groups.
-	//
-	// One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
+	// `CfnDeploymentGroup.TargetGroupPairInfoProperty.TargetGroups`.
 	TargetGroups interface{} `field:"optional" json:"targetGroups" yaml:"targetGroups"`
-	// An optional path used by a load balancer to route test traffic after an Amazon ECS deployment.
-	//
-	// Validation can occur while test traffic is served during a deployment.
+	// `CfnDeploymentGroup.TargetGroupPairInfoProperty.TestTrafficRoute`.
 	TestTrafficRoute interface{} `field:"optional" json:"testTrafficRoute" yaml:"testTrafficRoute"`
 }
 

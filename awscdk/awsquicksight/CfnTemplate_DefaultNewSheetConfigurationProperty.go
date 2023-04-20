@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for default new sheet settings.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -48,11 +46,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DefaultNewSheetConfigurationProperty struct {
-	// The options that determine the default settings for interactive layout configuration.
+	// `CfnTemplate.DefaultNewSheetConfigurationProperty.InteractiveLayoutConfiguration`.
 	InteractiveLayoutConfiguration interface{} `field:"optional" json:"interactiveLayoutConfiguration" yaml:"interactiveLayoutConfiguration"`
-	// The options that determine the default settings for a paginated layout configuration.
+	// `CfnTemplate.DefaultNewSheetConfigurationProperty.PaginatedLayoutConfiguration`.
 	PaginatedLayoutConfiguration interface{} `field:"optional" json:"paginatedLayoutConfiguration" yaml:"paginatedLayoutConfiguration"`
-	// The option that determines the sheet content type.
+	// `CfnTemplate.DefaultNewSheetConfigurationProperty.SheetContentType`.
 	SheetContentType *string `field:"optional" json:"sheetContentType" yaml:"sheetContentType"`
 }
 

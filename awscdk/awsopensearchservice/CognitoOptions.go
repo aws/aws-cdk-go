@@ -7,7 +7,6 @@ import (
 // Configures Amazon OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
 //   	CognitoDashboardsAuth: &CognitoOptions{
 //   		IdentityPoolId: jsii.String("test-identity-pool-id"),

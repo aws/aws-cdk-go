@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of an insight visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -4994,9 +4992,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_InsightConfigurationProperty struct {
-	// The computations configurations of the insight visual.
+	// `CfnDashboard.InsightConfigurationProperty.Computations`.
 	Computations interface{} `field:"optional" json:"computations" yaml:"computations"`
-	// The custom narrative of the insight visual.
+	// `CfnDashboard.InsightConfigurationProperty.CustomNarrative`.
 	CustomNarrative interface{} `field:"optional" json:"customNarrative" yaml:"customNarrative"`
 }
 

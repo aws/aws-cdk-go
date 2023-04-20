@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of the secondary value of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SecondaryValueOptionsProperty struct {
-	// Determines the visibility of the secondary value.
+	// `CfnDashboard.SecondaryValueOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

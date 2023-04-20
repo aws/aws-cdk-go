@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the gradient stop configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_GradientStopProperty struct {
-	// Determines gradient offset value.
+	// `CfnAnalysis.GradientStopProperty.GradientOffset`.
 	GradientOffset *float64 `field:"required" json:"gradientOffset" yaml:"gradientOffset"`
-	// Determines the color.
+	// `CfnAnalysis.GradientStopProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
-	// Determines the data value.
+	// `CfnAnalysis.GradientStopProperty.DataValue`.
 	DataValue *float64 `field:"optional" json:"dataValue" yaml:"dataValue"`
 }
 

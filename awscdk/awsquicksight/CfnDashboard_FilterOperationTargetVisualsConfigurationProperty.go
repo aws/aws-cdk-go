@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The configuration of target visuals that you want to be filtered.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,7 +16,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FilterOperationTargetVisualsConfigurationProperty struct {
-	// The configuration of the same-sheet target visuals that you want to be filtered.
+	// `CfnDashboard.FilterOperationTargetVisualsConfigurationProperty.SameSheetTargetVisualConfiguration`.
 	SameSheetTargetVisualConfiguration interface{} `field:"optional" json:"sameSheetTargetVisualConfiguration" yaml:"sameSheetTargetVisualConfiguration"`
 }
 

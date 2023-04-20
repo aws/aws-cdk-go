@@ -4,17 +4,17 @@ package awseventstargets
 // Options used when creating a target input template.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
 //
-//   var message interface{}
-//   var timestamp interface{}
 //
-//   logGroupTargetInputOptions := &LogGroupTargetInputOptions{
-//   	Message: message,
-//   	Timestamp: timestamp,
-//   }
+//   rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
+//   	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
+//   		Timestamp: events.EventField_FromPath(jsii.String("$.time")),
+//   		Message: events.EventField_*FromPath(jsii.String("$.detail-type")),
+//   	}),
+//   }))
 //
 type LogGroupTargetInputOptions struct {
 	// The value provided here will be used in the Log "message" field.

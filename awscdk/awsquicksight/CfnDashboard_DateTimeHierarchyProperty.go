@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The option that determines the hierarchy of any `DateTime` fields.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,9 +42,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DateTimeHierarchyProperty struct {
-	// The hierarchy ID of the `DateTime` hierarchy.
+	// `CfnDashboard.DateTimeHierarchyProperty.HierarchyId`.
 	HierarchyId *string `field:"required" json:"hierarchyId" yaml:"hierarchyId"`
-	// The option that determines the drill down filters for the `DateTime` hierarchy.
+	// `CfnDashboard.DateTimeHierarchyProperty.DrillDownFilters`.
 	DrillDownFilters interface{} `field:"optional" json:"drillDownFilters" yaml:"drillDownFilters"`
 }
 

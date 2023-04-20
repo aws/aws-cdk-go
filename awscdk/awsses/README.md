@@ -148,9 +148,8 @@ ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSet
 Use `addEventDestination()` to publish email sending events to Amazon SNS or Amazon CloudWatch:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var myConfigurationSet configurationSet
-var myTopic ses.Topic
+var myTopic topic
 
 
 myConfigurationSet.AddEventDestination(jsii.String("ToSns"), &ConfigurationSetEventDestinationOptions{
@@ -168,11 +167,10 @@ helps prevent unauthorized use.
 To verify an identity for a hosted zone, you create an `EmailIdentity`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var myHostedZone iPublicHostedZone
 
 
-identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
 	Identity: ses.Identity_PublicHostedZone(myHostedZone),
 	MailFromDomain: jsii.String("mail.cdk.dev"),
 })
@@ -185,16 +183,15 @@ You can instead configure DKIM authentication by using your own public-private k
 as [Bring Your Own DKIM (BYODKIM)](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-bring-your-own.html):
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var myHostedZone iPublicHostedZone
 
 
-ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
 	Identity: ses.Identity_PublicHostedZone(myHostedZone),
-	DkimIdentity: dkimIdentity_ByoDkim(map[string]interface{}{
-		"privateKey": SecretValue_secretsManager(jsii.String("dkim-private-key")),
-		"publicKey": jsii.String("...base64-encoded-public-key..."),
-		"selector": jsii.String("selector"),
+	DkimIdentity: ses.DkimIdentity_ByoDkim(&ByoDkimOptions{
+		PrivateKey: awscdk.SecretValue_SecretsManager(jsii.String("dkim-private-key")),
+		PublicKey: jsii.String("...base64-encoded-public-key..."),
+		Selector: jsii.String("selector"),
 	}),
 })
 ```
@@ -208,8 +205,7 @@ When using `publicHostedZone()` for the identity, all necessary Amazon Route 53 
 When working with `domain()`, records must be created manually:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
 	Identity: ses.Identity_Domain(jsii.String("cdk.dev")),
 })
 

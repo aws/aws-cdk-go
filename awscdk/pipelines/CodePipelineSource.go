@@ -17,7 +17,6 @@ import (
 // of sources that CodePipeline supports.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Access the CommitId of a GitHub source in the synth
 //   source := pipelines.CodePipelineSource_GitHub(jsii.String("owner/repo"), jsii.String("main"))
 //
@@ -79,7 +78,6 @@ type CodePipelineSource interface {
 	// If these suffice, you don't need to use this method for the synth step.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Access the CommitId of a GitHub source in the synth
 	//   source := pipelines.CodePipelineSource_GitHub(jsii.String("owner/repo"), jsii.String("main"))
 	//
@@ -184,7 +182,6 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 // `codeBuildCloneOutput`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var repository iRepository
 //
 //   pipelines.CodePipelineSource_CodeCommit(repository, jsii.String("main"))
@@ -251,7 +248,6 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 // Returns an ECR source.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var repository iRepository
 //
 //   pipelines.CodePipelineSource_Ecr(repository, &ECRSourceOptions{
@@ -322,7 +318,6 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 // Returns an S3 source.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var bucket bucket
 //
 //   pipelines.CodePipelineSource_S3(bucket, jsii.String("path/to/file.zip"))

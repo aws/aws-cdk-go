@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The date configuration of the filter.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,11 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_AnchorDateConfigurationProperty struct {
-	// The options for the date configuration. Choose one of the options below:.
-	//
-	// - `NOW`.
+	// `CfnAnalysis.AnchorDateConfigurationProperty.AnchorOption`.
 	AnchorOption *string `field:"optional" json:"anchorOption" yaml:"anchorOption"`
-	// The name of the parameter that is used for the anchor date configuration.
+	// `CfnAnalysis.AnchorDateConfigurationProperty.ParameterName`.
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
 }
 

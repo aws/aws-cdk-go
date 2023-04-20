@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field well for the pivot table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,17 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableAggregatedFieldWellsProperty struct {
-	// The columns field well for a pivot table.
-	//
-	// Values are grouped by columns fields.
+	// `CfnDashboard.PivotTableAggregatedFieldWellsProperty.Columns`.
 	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
-	// The rows field well for a pivot table.
-	//
-	// Values are grouped by rows fields.
+	// `CfnDashboard.PivotTableAggregatedFieldWellsProperty.Rows`.
 	Rows interface{} `field:"optional" json:"rows" yaml:"rows"`
-	// The values field well for a pivot table.
-	//
-	// Values are aggregated based on rows and columns fields.
+	// `CfnDashboard.PivotTableAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

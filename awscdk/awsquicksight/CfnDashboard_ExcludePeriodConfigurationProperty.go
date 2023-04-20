@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,14 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ExcludePeriodConfigurationProperty struct {
-	// The amount or number of the exclude period.
+	// `CfnDashboard.ExcludePeriodConfigurationProperty.Amount`.
 	Amount *float64 `field:"required" json:"amount" yaml:"amount"`
-	// The granularity or unit (day, month, year) of the exclude period.
+	// `CfnDashboard.ExcludePeriodConfigurationProperty.Granularity`.
 	Granularity *string `field:"required" json:"granularity" yaml:"granularity"`
-	// The status of the exclude period. Choose from the following options:.
-	//
-	// - `ENABLED`
-	// - `DISABLED`.
+	// `CfnDashboard.ExcludePeriodConfigurationProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

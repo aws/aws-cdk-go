@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort by field for the field sort options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,11 +42,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableSortByProperty struct {
-	// The column sort (field id, direction) for the pivot table sort by options.
+	// `CfnDashboard.PivotTableSortByProperty.Column`.
 	Column interface{} `field:"optional" json:"column" yaml:"column"`
-	// The data path sort (data path value, direction) for the pivot table sort by options.
+	// `CfnDashboard.PivotTableSortByProperty.DataPath`.
 	DataPath interface{} `field:"optional" json:"dataPath" yaml:"dataPath"`
-	// The field sort (field id, direction) for the pivot table sort by options.
+	// `CfnDashboard.PivotTableSortByProperty.Field`.
 	Field interface{} `field:"optional" json:"field" yaml:"field"`
 }
 

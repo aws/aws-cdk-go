@@ -7,7 +7,6 @@ import (
 // Construction properties for a `ShellStep`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var codePipeline pipeline
 //
 //

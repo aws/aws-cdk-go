@@ -91,9 +91,11 @@ type CfnContact interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Refers to the type of contact.
+	// Refers to the type of contact:.
 	//
-	// A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION` .
+	// - `PERSONAL` : A single, individual contact.
+	// - `ESCALATION` : An escalation plan.
+	// - `ONCALL_SCHEDULE` : An on-call schedule.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

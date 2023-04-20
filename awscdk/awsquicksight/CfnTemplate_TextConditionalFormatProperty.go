@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting for the text.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -77,11 +75,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TextConditionalFormatProperty struct {
-	// The conditional formatting for the text background color.
+	// `CfnTemplate.TextConditionalFormatProperty.BackgroundColor`.
 	BackgroundColor interface{} `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
-	// The conditional formatting for the icon.
+	// `CfnTemplate.TextConditionalFormatProperty.Icon`.
 	Icon interface{} `field:"optional" json:"icon" yaml:"icon"`
-	// The conditional formatting for the text color.
+	// `CfnTemplate.TextConditionalFormatProperty.TextColor`.
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

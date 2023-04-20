@@ -14,7 +14,6 @@ import (
 // required to call the Grant factory functions.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instance instance
 //   var volume volume
 //

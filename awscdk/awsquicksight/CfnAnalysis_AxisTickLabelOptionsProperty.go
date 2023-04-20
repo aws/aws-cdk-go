@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The tick label options of an axis.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -28,9 +26,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_AxisTickLabelOptionsProperty struct {
-	// Determines whether or not the axis ticks are visible.
+	// `CfnAnalysis.AxisTickLabelOptionsProperty.LabelOptions`.
 	LabelOptions interface{} `field:"optional" json:"labelOptions" yaml:"labelOptions"`
-	// The rotation angle of the axis tick labels.
+	// `CfnAnalysis.AxisTickLabelOptionsProperty.RotationAngle`.
 	RotationAngle *float64 `field:"optional" json:"rotationAngle" yaml:"rotationAngle"`
 }
 

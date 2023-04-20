@@ -96,9 +96,11 @@ type CfnRestApiProps struct {
 	//
 	// For `overwrite` , the new API definition replaces the existing one. The existing API identifier remains unchanged.
 	//
-	// For `merge` , the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. Use `merge` to define top-level `RestApi` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
+	// For `merge` , the new API definition is merged with the existing API.
 	//
-	// If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is `overwrite` . Otherwise, the default value is `merge` .
+	// If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is `overwrite` . For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API.
+	//
+	// Use the default mode to define top-level `RestApi` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The name of the RestApi.
 	Name *string `field:"optional" json:"name" yaml:"name"`

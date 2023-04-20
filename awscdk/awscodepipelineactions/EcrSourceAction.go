@@ -16,7 +16,6 @@ import (
 // captures the ECR event.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var ecrRepository repository

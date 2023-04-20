@@ -4,7 +4,6 @@ package awsec2
 // Properties that reference an external Vpc.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("VPC"), &VpcAttributes{
 //   	VpcId: jsii.String("vpc-1234"),
 //   	AvailabilityZones: []*string{

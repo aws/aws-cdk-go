@@ -4,7 +4,6 @@ package awss3
 // Specifies a redirect behavior of all requests to a website endpoint of a bucket.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &BucketProps{
 //   	WebsiteRedirect: &RedirectTarget{
 //   		HostName: jsii.String("www.example.com"),

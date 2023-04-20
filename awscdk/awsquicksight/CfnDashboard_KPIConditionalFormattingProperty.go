@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -85,7 +83,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_KPIConditionalFormattingProperty struct {
-	// The conditional formatting options of a KPI visual.
+	// `CfnDashboard.KPIConditionalFormattingProperty.ConditionalFormattingOptions`.
 	ConditionalFormattingOptions interface{} `field:"optional" json:"conditionalFormattingOptions" yaml:"conditionalFormattingOptions"`
 }
 

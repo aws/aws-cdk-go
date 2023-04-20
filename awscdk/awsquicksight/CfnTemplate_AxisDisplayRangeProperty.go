@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The range setup of a numeric axis display range.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_AxisDisplayRangeProperty struct {
-	// The data-driven setup of an axis display range.
+	// `CfnTemplate.AxisDisplayRangeProperty.DataDriven`.
 	DataDriven interface{} `field:"optional" json:"dataDriven" yaml:"dataDriven"`
-	// The minimum and maximum setup of an axis display range.
+	// `CfnTemplate.AxisDisplayRangeProperty.MinMax`.
 	MinMax interface{} `field:"optional" json:"minMax" yaml:"minMax"`
 }
 

@@ -9,19 +9,16 @@ import (
 // Construction properties for `ServerDeploymentGroup`.
 //
 // Example:
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import elb "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var alb applicationLoadBalancer
+//   var lb loadBalancer
 //
-//   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   targetGroup := listener.AddTargets(jsii.String("Fleet"), &AddApplicationTargetsProps{
-//   	Port: jsii.Number(80),
+//   lb.AddListener(&LoadBalancerListener{
+//   	ExternalPort: jsii.Number(80),
 //   })
 //
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-//   	LoadBalancer: codedeploy.LoadBalancer_Application(targetGroup),
+//   	LoadBalancer: codedeploy.LoadBalancer_Classic(lb),
 //   })
 //
 type ServerDeploymentGroupProps struct {

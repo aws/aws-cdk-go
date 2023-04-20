@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Conditional formatting options of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -81,9 +79,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_GaugeChartConditionalFormattingOptionProperty struct {
-	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+	// `CfnTemplate.GaugeChartConditionalFormattingOptionProperty.Arc`.
 	Arc interface{} `field:"optional" json:"arc" yaml:"arc"`
-	// The conditional formatting for the primary value of a `GaugeChartVisual` .
+	// `CfnTemplate.GaugeChartConditionalFormattingOptionProperty.PrimaryValue`.
 	PrimaryValue interface{} `field:"optional" json:"primaryValue" yaml:"primaryValue"`
 }
 

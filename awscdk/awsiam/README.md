@@ -180,13 +180,13 @@ property, like shown below:
 var app app
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
 	UsePrecreatedRoles: map[string]*string{
 		"MyStack/MyRole": jsii.String("my-precreated-role-name"),
 	},
 })
 
-iam.NewRole(stack, jsii.String("MyRole"), &RoleProps{
+iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
 })
 ```
@@ -201,13 +201,13 @@ var app app
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
 iam.Role_CustomizeRoles(stack)
 
-fn := lambda.NewFunction(stack, jsii.String("MyLambda"), &FunctionProps{
+fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("foo")),
 	Handler: jsii.String("index.handler"),
 	Runtime: lambda.Runtime_NODEJS_14_X(),
 })
 
-bucket := s3.NewBucket(stack, jsii.String("Bucket"))
+bucket := s3.NewBucket(this, jsii.String("Bucket"))
 bucket.GrantRead(fn)
 ```
 
@@ -259,7 +259,7 @@ come back and update the `customizeRoles` with the role name.
 var app app
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
 	UsePrecreatedRoles: map[string]*string{
 		"MyStack/MyLambda/ServiceRole": jsii.String("my-role-name"),
 	},
@@ -276,7 +276,7 @@ It is also possible to generate the report *without* preventing the role/policy 
 ```go
 var stack stack
 
-iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
 	PreventSynthesis: jsii.Boolean(false),
 })
 ```
@@ -788,8 +788,8 @@ group := iam.Group_FromGroupName(this, jsii.String("MyImportedGroupByName"), jsi
 To add a user to a group (both for a new and imported user/group):
 
 ```go
-user := iam.NewUser(this, jsii.String("MyUser")) // or User.fromUserName(stack, 'User', 'johnsmith');
-group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(stack, 'Group', 'arn:aws:iam::account-id:group/group-name');
+user := iam.NewUser(this, jsii.String("MyUser")) // or User.fromUserName(this, 'User', 'johnsmith');
+group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(this, 'Group', 'arn:aws:iam::account-id:group/group-name');
 
 user.AddToGroup(group)
 // or

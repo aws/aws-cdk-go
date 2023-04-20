@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the default settings for interactive layout configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,9 +27,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DefaultInteractiveLayoutConfigurationProperty struct {
-	// The options that determine the default settings of a free-form layout configuration.
+	// `CfnDashboard.DefaultInteractiveLayoutConfigurationProperty.FreeForm`.
 	FreeForm interface{} `field:"optional" json:"freeForm" yaml:"freeForm"`
-	// The options that determine the default settings for a grid layout configuration.
+	// `CfnDashboard.DefaultInteractiveLayoutConfigurationProperty.Grid`.
 	Grid interface{} `field:"optional" json:"grid" yaml:"grid"`
 }
 

@@ -43,7 +43,7 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	InforNexus *string `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The operation to be performed on the provided Marketo source fields.
 	Marketo *string `field:"optional" json:"marketo" yaml:"marketo"`
-	// The operation to be performed on the provided Salesforce Pardot source fields.
+	// `CfnFlow.ConnectorOperatorProperty.Pardot`.
 	Pardot *string `field:"optional" json:"pardot" yaml:"pardot"`
 	// The operation to be performed on the provided Amazon S3 source fields.
 	S3 *string `field:"optional" json:"s3" yaml:"s3"`

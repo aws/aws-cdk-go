@@ -8,7 +8,6 @@ import (
 // Properties for a `PermissionsBroadeningCheck`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline codePipeline
 //
 //   stage := NewMyApplicationStage(this, jsii.String("MyApplication"))

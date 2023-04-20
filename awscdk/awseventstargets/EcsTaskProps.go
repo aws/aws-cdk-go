@@ -11,31 +11,28 @@ import (
 // Properties to define an ECS Event Task.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var role role
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import ecs "github.com/aws-samples/dummy/awscdkawsecs"
+//   var cluster ecs.ICluster
+//   var taskDefinition ecs.TaskDefinition
 //
 //
-//   ecsTaskTarget := awscdk.NewEcsTask(&EcsTaskProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	Role: Role,
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
-//   	Schedule: awscdk.Schedule_Cron(&CronOptions{
-//   		Minute: jsii.String("0"),
-//   		Hour: jsii.String("4"),
-//   	}),
-//   	Targets: []iRuleTarget{
-//   		ecsTaskTarget,
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: cluster,
+//   	TaskDefinition: taskDefinition,
+//   	PropagateTags: ecs.propagatedTagSource_TASK_DEFINITION,
+//   	Tags: []tag{
+//   		&tag{
+//   			Key: jsii.String("my-tag"),
+//   			Value: jsii.String("my-tag-value"),
+//   		},
 //   	},
-//   })
+//   }))
 //
 type EcsTaskProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -69,6 +66,10 @@ type EcsTaskProps struct {
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 	//
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// Specifies whether to propagate the tags from the task definition to the task.
+	//
+	// If no value is specified, the tags are not propagated.
+	PropagateTags awsecs.PropagatedTagSource `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// Existing IAM role to run the ECS task.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Existing security groups to use for the task's ENIs.
@@ -79,6 +80,10 @@ type EcsTaskProps struct {
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
+	// The metadata that you apply to the task to help you categorize and organize them.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	Tags *[]*Tag `field:"optional" json:"tags" yaml:"tags"`
 	// How many tasks should be started when this event is triggered.
 	TaskCount *float64 `field:"optional" json:"taskCount" yaml:"taskCount"`
 }

@@ -14,30 +14,53 @@ import (
 // Lambda code from a local directory.
 //
 // Example:
-//   // Lambda function containing logic that evaluates compliance with the rule.
-//   evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
-//   	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-//   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
-//   })
+//   type myStack struct {
+//   	stack
+//   }
 //
-//   // A custom rule that runs on configuration changes of EC2 instances
-//   customRule := config.NewCustomRule(this, jsii.String("Custom"), &CustomRuleProps{
-//   	ConfigurationChanges: jsii.Boolean(true),
-//   	LambdaFunction: evalComplianceFn,
-//   	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_INSTANCE()),
-//   })
+//   func newMyStack(scope construct, id *string) *myStack {
+//   	this := &myStack{}
+//   	newStack_Override(this, scope, id)
 //
-//   // A rule to detect stack drifts
-//   driftRule := config.NewCloudFormationStackDriftDetectionCheck(this, jsii.String("Drift"))
+//   	authorizerFn := lambda.NewFunction(this, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+//   		Runtime: lambda.Runtime_NODEJS_14_X(),
+//   		Handler: jsii.String("index.handler"),
+//   		Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
+//   	})
 //
-//   // Topic to which compliance notification events will be published
-//   complianceTopic := sns.NewTopic(this, jsii.String("ComplianceTopic"))
+//   	authorizer := awscdk.NewTokenAuthorizer(this, jsii.String("MyAuthorizer"), &TokenAuthorizerProps{
+//   		Handler: authorizerFn,
+//   	})
 //
-//   // Send notification on compliance change events
-//   driftRule.onComplianceChange(jsii.String("ComplianceChange"), &OnEventOptions{
-//   	Target: targets.NewSnsTopic(complianceTopic),
-//   })
+//   	restapi := awscdk.NewRestApi(this, jsii.String("MyRestApi"), &RestApiProps{
+//   		CloudWatchRole: jsii.Boolean(true),
+//   		DefaultMethodOptions: &MethodOptions{
+//   			Authorizer: *Authorizer,
+//   		},
+//   		DefaultCorsPreflightOptions: &CorsOptions{
+//   			AllowOrigins: awscdk.Cors_ALL_ORIGINS(),
+//   		},
+//   	})
+//
+//   	restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+//   		IntegrationResponses: []integrationResponse{
+//   			&integrationResponse{
+//   				StatusCode: jsii.String("200"),
+//   			},
+//   		},
+//   		PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+//   		RequestTemplates: map[string]*string{
+//   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
+//   		},
+//   	}), &MethodOptions{
+//   		MethodResponses: []methodResponse{
+//   			&methodResponse{
+//   				StatusCode: jsii.String("200"),
+//   			},
+//   		},
+//   	})
+//   	return this
+//   }
 //
 type AssetCode interface {
 	Code

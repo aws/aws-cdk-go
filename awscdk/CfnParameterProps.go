@@ -3,7 +3,6 @@ package awscdk
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   awscdk.NewCfnParameter(this, jsii.String("MyParameter"), &CfnParameterProps{
 //   	Type: jsii.String("Number"),
 //   	Default: jsii.Number(1337),

@@ -58,9 +58,7 @@ type CfnDBInstanceProps struct {
 	//
 	// Example: `mydbinstance`.
 	DbInstanceIdentifier *string `field:"optional" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
-	// A value that indicates whether to enable Performance Insights for the DB Instance.
-	//
-	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) .
+	// `AWS::DocDB::DBInstance.EnablePerformanceInsights`.
 	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//

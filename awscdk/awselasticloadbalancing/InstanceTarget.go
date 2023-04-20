@@ -10,17 +10,21 @@ import (
 // An EC2 instance that is the target for load balancing.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc iVpc
+//
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,
 //   })
+//
 //   // instance to add as the target for load balancer.
-//   instance := NewInstance(stack, jsii.String("targetInstance"), map[string]interface{}{
-//   	"vpc": vpc,
-//   	"instanceType": InstanceType_of(InstanceClass_BURSTABLE2, InstanceSize_MICRO),
-//   	"machineImage": NewAmazonLinuxImage(),
+//   instance := ec2.NewInstance(this, jsii.String("targetInstance"), &InstanceProps{
+//   	Vpc: vpc,
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+//   	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
+//   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
+//   	}),
 //   })
-//   lb.AddTarget(elb.InstanceTarget(instance))
+//   lb.AddTarget(elb.NewInstanceTarget(instance))
 //
 type InstanceTarget interface {
 	ILoadBalancerTarget

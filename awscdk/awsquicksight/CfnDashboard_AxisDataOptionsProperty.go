@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The data options for an axis.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,9 +33,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_AxisDataOptionsProperty struct {
-	// The options for an axis with a date field.
+	// `CfnDashboard.AxisDataOptionsProperty.DateAxisOptions`.
 	DateAxisOptions interface{} `field:"optional" json:"dateAxisOptions" yaml:"dateAxisOptions"`
-	// The options for an axis with a numeric field.
+	// `CfnDashboard.AxisDataOptionsProperty.NumericAxisOptions`.
 	NumericAxisOptions interface{} `field:"optional" json:"numericAxisOptions" yaml:"numericAxisOptions"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control to display a text box that is used to enter a single entry.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,13 +35,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilterTextFieldControlProperty struct {
-	// The ID of the `FilterTextFieldControl` .
+	// `CfnTemplate.FilterTextFieldControlProperty.FilterControlId`.
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
-	// The source filter ID of the `FilterTextFieldControl` .
+	// `CfnTemplate.FilterTextFieldControlProperty.SourceFilterId`.
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
-	// The title of the `FilterTextFieldControl` .
+	// `CfnTemplate.FilterTextFieldControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnTemplate.FilterTextFieldControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

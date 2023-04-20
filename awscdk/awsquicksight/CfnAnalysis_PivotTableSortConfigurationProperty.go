@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration for a `PivotTableVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -51,7 +49,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PivotTableSortConfigurationProperty struct {
-	// The field sort options for a pivot table sort configuration.
+	// `CfnAnalysis.PivotTableSortConfigurationProperty.FieldSortOptions`.
 	FieldSortOptions interface{} `field:"optional" json:"fieldSortOptions" yaml:"fieldSortOptions"`
 }
 

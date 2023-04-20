@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field wells of a bar chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -992,15 +990,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_BarChartAggregatedFieldWellsProperty struct {
-	// The category (y-axis) field well of a bar chart.
+	// `CfnAnalysis.BarChartAggregatedFieldWellsProperty.Category`.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
-	// The color (group/color) field well of a bar chart.
+	// `CfnAnalysis.BarChartAggregatedFieldWellsProperty.Colors`.
 	Colors interface{} `field:"optional" json:"colors" yaml:"colors"`
-	// The small multiples field well of a bar chart.
+	// `CfnAnalysis.BarChartAggregatedFieldWellsProperty.SmallMultiples`.
 	SmallMultiples interface{} `field:"optional" json:"smallMultiples" yaml:"smallMultiples"`
-	// The value field wells of a bar chart.
-	//
-	// Values are aggregated by category.
+	// `CfnAnalysis.BarChartAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a heat map.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -753,7 +749,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_HeatMapFieldWellsProperty struct {
-	// The aggregated field wells of a heat map.
+	// `CfnDashboard.HeatMapFieldWellsProperty.HeatMapAggregatedFieldWells`.
 	HeatMapAggregatedFieldWells interface{} `field:"optional" json:"heatMapAggregatedFieldWells" yaml:"heatMapAggregatedFieldWells"`
 }
 

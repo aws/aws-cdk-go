@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The growth rate computation configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -507,15 +505,15 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_GrowthRateComputationProperty struct {
-	// The ID for a computation.
+	// `CfnAnalysis.GrowthRateComputationProperty.ComputationId`.
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The time field that is used in a computation.
+	// `CfnAnalysis.GrowthRateComputationProperty.Time`.
 	Time interface{} `field:"required" json:"time" yaml:"time"`
-	// The name of a computation.
+	// `CfnAnalysis.GrowthRateComputationProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The period size setup of a growth rate computation.
+	// `CfnAnalysis.GrowthRateComputationProperty.PeriodSize`.
 	PeriodSize *float64 `field:"optional" json:"periodSize" yaml:"periodSize"`
-	// The value field that is used in a computation.
+	// `CfnAnalysis.GrowthRateComputationProperty.Value`.
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

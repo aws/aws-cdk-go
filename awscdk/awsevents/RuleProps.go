@@ -7,23 +7,32 @@ import (
 // Properties for defining an EventBridge Rule.
 //
 // Example:
-//   connection := events.NewConnection(this, jsii.String("Connection"), &ConnectionProps{
-//   	Authorization: events.Authorization_ApiKey(jsii.String("x-api-key"), awscdk.SecretValue_SecretsManager(jsii.String("ApiSecretName"))),
-//   	Description: jsii.String("Connection with API Key x-api-key"),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 //   })
 //
-//   destination := events.NewApiDestination(this, jsii.String("Destination"), &ApiDestinationProps{
-//   	Connection: Connection,
-//   	Endpoint: jsii.String("https://example.com"),
-//   	Description: jsii.String("Calling example.com with API key x-api-key"),
-//   })
-//
-//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
-//   	Targets: []iRuleTarget{
-//   		targets.NewApiDestination(destination),
+//   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+//   	EventPattern: &EventPattern{
+//   		Source: []*string{
+//   			jsii.String("aws.ec2"),
+//   		},
 //   	},
 //   })
+//
+//   queue := sqs.NewQueue(this, jsii.String("Queue"))
+//
+//   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
+//   	DeadLetterQueue: queue,
+//   	 // Optional: add a dead letter queue
+//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
+//   	 // Optional: set the maxEventAge retry policy
+//   	RetryAttempts: jsii.Number(2),
+//   }))
 //
 type RuleProps struct {
 	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).

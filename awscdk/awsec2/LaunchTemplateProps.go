@@ -7,14 +7,11 @@ import (
 // Properties of a LaunchTemplate.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //
 //   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-//   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-//   	}),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 //   	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
 //   		Vpc: vpc,
 //   	}),
@@ -100,7 +97,6 @@ type LaunchTemplateProps struct {
 	// The role must be assumable by the service principal `ec2.amazonaws.com`:
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
 	//   	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 	//   })

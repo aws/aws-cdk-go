@@ -48,9 +48,9 @@ type CfnThemeProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of key-value pairs that defines the properties of the theme.
 	Values interface{} `field:"required" json:"values" yaml:"values"`
-	// The unique ID for the Amplify app associated with the theme.
+	// `AWS::AmplifyUIBuilder::Theme.AppId`.
 	AppId *string `field:"optional" json:"appId" yaml:"appId"`
-	// The name of the backend environment that is a part of the Amplify app.
+	// `AWS::AmplifyUIBuilder::Theme.EnvironmentName`.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// Describes the properties that can be overriden to customize a theme.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`

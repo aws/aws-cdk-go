@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options for the axis label.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -67,17 +65,17 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_AxisDisplayOptionsProperty struct {
-	// Determines whether or not the axis line is visible.
+	// `CfnAnalysis.AxisDisplayOptionsProperty.AxisLineVisibility`.
 	AxisLineVisibility *string `field:"optional" json:"axisLineVisibility" yaml:"axisLineVisibility"`
-	// The offset value that determines the starting placement of the axis within a visual's bounds.
+	// `CfnAnalysis.AxisDisplayOptionsProperty.AxisOffset`.
 	AxisOffset *string `field:"optional" json:"axisOffset" yaml:"axisOffset"`
-	// The data options for an axis.
+	// `CfnAnalysis.AxisDisplayOptionsProperty.DataOptions`.
 	DataOptions interface{} `field:"optional" json:"dataOptions" yaml:"dataOptions"`
-	// Determines whether or not the grid line is visible.
+	// `CfnAnalysis.AxisDisplayOptionsProperty.GridLineVisibility`.
 	GridLineVisibility *string `field:"optional" json:"gridLineVisibility" yaml:"gridLineVisibility"`
-	// The scroll bar options for an axis.
+	// `CfnAnalysis.AxisDisplayOptionsProperty.ScrollbarOptions`.
 	ScrollbarOptions interface{} `field:"optional" json:"scrollbarOptions" yaml:"scrollbarOptions"`
-	// The tick label options of an axis.
+	// `CfnAnalysis.AxisDisplayOptionsProperty.TickLabelOptions`.
 	TickLabelOptions interface{} `field:"optional" json:"tickLabelOptions" yaml:"tickLabelOptions"`
 }
 

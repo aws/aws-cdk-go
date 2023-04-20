@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options for an axis with a numeric field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,9 +28,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_NumericAxisOptionsProperty struct {
-	// The range setup of a numeric axis.
+	// `CfnTemplate.NumericAxisOptionsProperty.Range`.
 	Range interface{} `field:"optional" json:"range" yaml:"range"`
-	// The scale setup of a numeric axis.
+	// `CfnTemplate.NumericAxisOptionsProperty.Scale`.
 	Scale interface{} `field:"optional" json:"scale" yaml:"scale"`
 }
 

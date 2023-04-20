@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Custom icon options for an icon set.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ConditionalFormattingCustomIconOptionsProperty struct {
-	// Determines the type of icon.
+	// `CfnTemplate.ConditionalFormattingCustomIconOptionsProperty.Icon`.
 	Icon *string `field:"optional" json:"icon" yaml:"icon"`
-	// Determines the Unicode icon type.
+	// `CfnTemplate.ConditionalFormattingCustomIconOptionsProperty.UnicodeIcon`.
 	UnicodeIcon *string `field:"optional" json:"unicodeIcon" yaml:"unicodeIcon"`
 }
 

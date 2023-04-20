@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The formatting configuration for the icon.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,9 +29,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ConditionalFormattingIconProperty struct {
-	// Determines the custom condition for an icon set.
+	// `CfnAnalysis.ConditionalFormattingIconProperty.CustomCondition`.
 	CustomCondition interface{} `field:"optional" json:"customCondition" yaml:"customCondition"`
-	// Formatting configuration for icon set.
+	// `CfnAnalysis.ConditionalFormattingIconProperty.IconSet`.
 	IconSet interface{} `field:"optional" json:"iconSet" yaml:"iconSet"`
 }
 

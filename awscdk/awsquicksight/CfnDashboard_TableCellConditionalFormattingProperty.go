@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The cell conditional formatting option for a table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -82,9 +80,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableCellConditionalFormattingProperty struct {
-	// The field ID of the cell for conditional formatting.
+	// `CfnDashboard.TableCellConditionalFormattingProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The text format of the cell for conditional formatting.
+	// `CfnDashboard.TableCellConditionalFormattingProperty.TextFormat`.
 	TextFormat interface{} `field:"optional" json:"textFormat" yaml:"textFormat"`
 }
 

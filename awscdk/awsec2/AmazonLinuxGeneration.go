@@ -28,5 +28,7 @@ const (
 	AmazonLinuxGeneration_AMAZON_LINUX_2 AmazonLinuxGeneration = "AMAZON_LINUX_2"
 	// Amazon Linux 2022.
 	AmazonLinuxGeneration_AMAZON_LINUX_2022 AmazonLinuxGeneration = "AMAZON_LINUX_2022"
+	// Amazon Linux 2023.
+	AmazonLinuxGeneration_AMAZON_LINUX_2023 AmazonLinuxGeneration = "AMAZON_LINUX_2023"
 )
 

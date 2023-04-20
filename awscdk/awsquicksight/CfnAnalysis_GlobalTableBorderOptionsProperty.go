@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the border options for a table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -49,9 +47,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_GlobalTableBorderOptionsProperty struct {
-	// Determines the options for side specific border.
+	// `CfnAnalysis.GlobalTableBorderOptionsProperty.SideSpecificBorder`.
 	SideSpecificBorder interface{} `field:"optional" json:"sideSpecificBorder" yaml:"sideSpecificBorder"`
-	// Determines the options for uniform border.
+	// `CfnAnalysis.GlobalTableBorderOptionsProperty.UniformBorder`.
 	UniformBorder interface{} `field:"optional" json:"uniformBorder" yaml:"uniformBorder"`
 }
 

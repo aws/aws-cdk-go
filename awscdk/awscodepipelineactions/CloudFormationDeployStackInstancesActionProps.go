@@ -7,7 +7,6 @@ import (
 // Properties for the CloudFormationDeployStackInstancesAction.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //

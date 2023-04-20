@@ -10,17 +10,17 @@ import (
 // The base class for log drivers.
 //
 // Example:
+//   var secret secret
+//
+//
 //   // Create a Task Definition for the container to start
 //   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
 //   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
 //   	MemoryLimitMiB: jsii.Number(256),
-//   	Logging: ecs.LogDrivers_Firelens(&FireLensLogDriverProps{
-//   		Options: map[string]*string{
-//   			"Name": jsii.String("firehose"),
-//   			"region": jsii.String("us-west-2"),
-//   			"delivery_stream": jsii.String("my-stream"),
-//   		},
+//   	Logging: ecs.LogDrivers_Splunk(&SplunkLogDriverProps{
+//   		SecretToken: secret,
+//   		Url: jsii.String("my-splunk-url"),
 //   	}),
 //   })
 //

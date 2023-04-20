@@ -49,25 +49,25 @@ package awsquicksight
 type CfnDashboard_DashboardPublishOptionsProperty struct {
 	// Ad hoc (one-time) filtering option.
 	AdHocFilteringOption interface{} `field:"optional" json:"adHocFilteringOption" yaml:"adHocFilteringOption"`
-	// The drill-down options of data points in a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.DataPointDrillUpDownOption`.
 	DataPointDrillUpDownOption interface{} `field:"optional" json:"dataPointDrillUpDownOption" yaml:"dataPointDrillUpDownOption"`
-	// The data point menu label options of a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.DataPointMenuLabelOption`.
 	DataPointMenuLabelOption interface{} `field:"optional" json:"dataPointMenuLabelOption" yaml:"dataPointMenuLabelOption"`
-	// The data point tool tip options of a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.DataPointTooltipOption`.
 	DataPointTooltipOption interface{} `field:"optional" json:"dataPointTooltipOption" yaml:"dataPointTooltipOption"`
 	// Export to .csv option.
 	ExportToCsvOption interface{} `field:"optional" json:"exportToCsvOption" yaml:"exportToCsvOption"`
-	// Determines if hidden fields are exported with a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.ExportWithHiddenFieldsOption`.
 	ExportWithHiddenFieldsOption interface{} `field:"optional" json:"exportWithHiddenFieldsOption" yaml:"exportWithHiddenFieldsOption"`
 	// Sheet controls option.
 	SheetControlsOption interface{} `field:"optional" json:"sheetControlsOption" yaml:"sheetControlsOption"`
-	// The sheet layout maximization options of a dashbaord.
+	// `CfnDashboard.DashboardPublishOptionsProperty.SheetLayoutElementMaximizationOption`.
 	SheetLayoutElementMaximizationOption interface{} `field:"optional" json:"sheetLayoutElementMaximizationOption" yaml:"sheetLayoutElementMaximizationOption"`
-	// The axis sort options of a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.VisualAxisSortOption`.
 	VisualAxisSortOption interface{} `field:"optional" json:"visualAxisSortOption" yaml:"visualAxisSortOption"`
-	// The menu options of a visual in a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.VisualMenuOption`.
 	VisualMenuOption interface{} `field:"optional" json:"visualMenuOption" yaml:"visualMenuOption"`
-	// The visual publish options of a visual in a dashboard.
+	// `CfnDashboard.DashboardPublishOptionsProperty.VisualPublishOptions`.
 	VisualPublishOptions interface{} `field:"optional" json:"visualPublishOptions" yaml:"visualPublishOptions"`
 }
 

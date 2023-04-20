@@ -4,7 +4,6 @@ package awss3
 // Inventory version support.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &BucketProps{

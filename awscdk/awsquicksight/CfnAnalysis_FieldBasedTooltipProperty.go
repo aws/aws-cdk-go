@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The setup for the detailed tooltip.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,14 +43,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FieldBasedTooltipProperty struct {
-	// The visibility of `Show aggregations` .
+	// `CfnAnalysis.FieldBasedTooltipProperty.AggregationVisibility`.
 	AggregationVisibility *string `field:"optional" json:"aggregationVisibility" yaml:"aggregationVisibility"`
-	// The fields configuration in the tooltip.
+	// `CfnAnalysis.FieldBasedTooltipProperty.TooltipFields`.
 	TooltipFields interface{} `field:"optional" json:"tooltipFields" yaml:"tooltipFields"`
-	// The type for the >tooltip title. Choose one of the following options:.
-	//
-	// - `NONE` : Doesn't use the primary value as the title.
-	// - `PRIMARY_VALUE` : Uses primary value as the title.
+	// `CfnAnalysis.FieldBasedTooltipProperty.TooltipTitleType`.
 	TooltipTitleType *string `field:"optional" json:"tooltipTitleType" yaml:"tooltipTitleType"`
 }
 

@@ -11,7 +11,6 @@ import (
 // Extract an archive into a directory.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //

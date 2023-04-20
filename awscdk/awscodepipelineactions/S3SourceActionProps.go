@@ -9,7 +9,6 @@ import (
 // Construction properties of the `S3SourceAction S3 source Action`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
@@ -62,7 +61,6 @@ type S3SourceActionProps struct {
 	// The key within the S3 bucket that stores the source code.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "path/to/file.zip"
 	//
 	BucketKey *string `field:"required" json:"bucketKey" yaml:"bucketKey"`

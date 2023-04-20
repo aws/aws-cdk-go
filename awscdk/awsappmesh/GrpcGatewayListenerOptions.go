@@ -4,7 +4,6 @@ package awsappmesh
 // Represents the properties needed to define GRPC Listeners for a VirtualGateway.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh

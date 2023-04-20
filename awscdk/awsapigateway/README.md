@@ -939,53 +939,53 @@ books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("h
 A full working example is shown below.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import path "github.com/aws-samples/dummy/path"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws-samples/dummy/lib"
+type myStack struct {
+	stack
+}
 
+func newMyStack(scope construct, id *string) *myStack {
+	this := &myStack{}
+	newStack_Override(this, scope, id)
 
-app := awscdk.NewApp()
-stack := awscdk.Newstack(app, jsii.String("TokenAuthorizerInteg"))
+	authorizerFn := lambda.NewFunction(this, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Handler: jsii.String("index.handler"),
+		Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
+	})
 
-authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
-	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
-})
+	authorizer := awscdk.NewTokenAuthorizer(this, jsii.String("MyAuthorizer"), &TokenAuthorizerProps{
+		Handler: authorizerFn,
+	})
 
-authorizer := lib.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), map[string]function{
-	"handler": authorizerFn,
-})
-
-restapi := lib.NewRestApi(stack, jsii.String("MyRestApi"), map[string]interface{}{
-	"cloudWatchRole": jsii.Boolean(true),
-	"defaultMethodOptions": map[string]interface{}{
-		"authorizer": authorizer,
-	},
-	"defaultCorsPreflightOptions": map[string]interface{}{
-		"allowOrigins": lib.Cors_ALL_ORIGINS,
-	},
-})
-
-restapi.root.addMethod(jsii.String("ANY"), lib.NewMockIntegration(map[string]interface{}{
-	"integrationResponses": []map[string]*string{
-		map[string]*string{
-			"statusCode": jsii.String("200"),
+	restapi := awscdk.NewRestApi(this, jsii.String("MyRestApi"), &RestApiProps{
+		CloudWatchRole: jsii.Boolean(true),
+		DefaultMethodOptions: &MethodOptions{
+			Authorizer: *Authorizer,
 		},
-	},
-	"passthroughBehavior": lib.PassthroughBehavior_NEVER,
-	"requestTemplates": map[string]*string{
-		"application/json": jsii.String("{ \"statusCode\": 200 }"),
-	},
-}), map[string][]map[string]*string{
-	"methodResponses": []map[string]*string{
-		map[string]*string{
-			"statusCode": jsii.String("200"),
+		DefaultCorsPreflightOptions: &CorsOptions{
+			AllowOrigins: awscdk.Cors_ALL_ORIGINS(),
 		},
-	},
-})
+	})
+
+	restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+		IntegrationResponses: []integrationResponse{
+			&integrationResponse{
+				StatusCode: jsii.String("200"),
+			},
+		},
+		PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+		RequestTemplates: map[string]*string{
+			"application/json": jsii.String("{ \"statusCode\": 200 }"),
+		},
+	}), &MethodOptions{
+		MethodResponses: []methodResponse{
+			&methodResponse{
+				StatusCode: jsii.String("200"),
+			},
+		},
+	})
+	return this
+}
 ```
 
 By default, the `TokenAuthorizer` looks for the authorization token in the request header with the key 'Authorization'. This can,

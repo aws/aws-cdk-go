@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The option that determines the hierarchy of the fields that are defined during data preparation.
-//
-// These fields are available to use in any analysis that uses the data source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -52,11 +48,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PredefinedHierarchyProperty struct {
-	// The list of columns that define the predefined hierarchy.
+	// `CfnDashboard.PredefinedHierarchyProperty.Columns`.
 	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
-	// The hierarchy ID of the predefined hierarchy.
+	// `CfnDashboard.PredefinedHierarchyProperty.HierarchyId`.
 	HierarchyId *string `field:"required" json:"hierarchyId" yaml:"hierarchyId"`
-	// The option that determines the drill down filters for the predefined hierarchy.
+	// `CfnDashboard.PredefinedHierarchyProperty.DrillDownFilters`.
 	DrillDownFilters interface{} `field:"optional" json:"drillDownFilters" yaml:"drillDownFilters"`
 }
 

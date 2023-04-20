@@ -28,12 +28,10 @@ According to the kind of project you are developing:
 You can use a classic import to get access to each service namespaces:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
-
 app := awscdk.NewApp()
-stack := awscdk.Newstack(app, jsii.String("TestStack"))
+stack := awscdk.NewStack(app, jsii.String("TestStack"))
 
 awscdk.Aws_s3.NewBucket(stack, jsii.String("TestBucket"))
 ```
@@ -43,13 +41,11 @@ awscdk.Aws_s3.NewBucket(stack, jsii.String("TestBucket"))
 Alternatively, you can use "barrel" imports:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-
 
 app := awscdk.NewApp()
-stack := awscdk.Newstack(app, jsii.String("TestStack"))
+stack := awscdk.NewStack(app, jsii.String("TestStack"))
 
 awscdk.NewBucket(stack, jsii.String("TestBucket"))
 ```
@@ -121,7 +117,6 @@ Each of these synthesizers takes configuration arguments. To configure
 a stack with a synthesizer, pass it as one of its properties:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 NewMyStack(app, jsii.String("MyStack"), &stackProps{
 	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
 		FileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
@@ -143,7 +138,6 @@ For example, assume that you have a load balancer configuration that you use for
 The following example will define a single top-level stack that contains two nested stacks: each one with a single Amazon S3 bucket:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 type myNestedStack struct {
 	nestedStack
 }
@@ -187,7 +181,6 @@ which defines an Amazon S3 bucket. Then it defines a second stack, `stack2`,
 which takes the bucket from stack1 as a constructor property.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 prod := map[string]*string{
 	"account": jsii.String("123456789012"),
 	"region": jsii.String("us-east-1"),
@@ -223,7 +216,6 @@ enabled it is possible to do something like creating a CloudFront distribution i
 an ACM certificate in `us-east-1`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
 	Env: &Environment{
 		Region: jsii.String("us-east-1"),
@@ -309,7 +301,6 @@ An instance of Duration is constructed by using one of the static factory
 methods on it:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.Duration_Seconds(jsii.Number(300)) // 5 minutes
 awscdk.Duration_Minutes(jsii.Number(5)) // 5 minutes
 awscdk.Duration_Hours(jsii.Number(1)) // 1 hour
@@ -320,7 +311,6 @@ awscdk.Duration_Parse(jsii.String("PT5M"))
 Durations can be added or subtracted together:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.Duration_Minutes(jsii.Number(1)).Plus(awscdk.Duration_Seconds(jsii.Number(60))) // 2 minutes
 awscdk.Duration_Minutes(jsii.Number(5)).Minus(awscdk.Duration_Seconds(jsii.Number(10)))
 ```
@@ -333,7 +323,6 @@ To make specification of digital storage quantities unambiguous, a class called
 An instance of `Size` is initialized through one of its static factory methods:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.Size_Kibibytes(jsii.Number(200)) // 200 KiB
 awscdk.Size_Mebibytes(jsii.Number(5)) // 5 MiB
 awscdk.Size_Gibibytes(jsii.Number(40)) // 40 GiB
@@ -346,7 +335,6 @@ By default, conversion to a higher unit will fail if the conversion does not pro
 a whole number. This can be overridden by unsetting `integral` property.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.Size_Mebibytes(jsii.Number(2)).ToKibibytes() // yields 2048
 awscdk.Size_Kibibytes(jsii.Number(2050)).ToMebibytes(&SizeConversionOptions{
 	Rounding: awscdk.SizeRoundingBehavior_FLOOR,
@@ -362,7 +350,6 @@ a password or an access key) will take a parameter of type `SecretValue`.
 The best practice is to store secrets in AWS Secrets Manager and reference them using `SecretValue.secretsManager`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 secret := awscdk.SecretValue_SecretsManager(jsii.String("secretId"), &SecretsManagerSecretOptions{
 	JsonField: jsii.String("password"),
 	 // optional: key of a JSON field to retrieve (defaults to all content),
@@ -407,7 +394,6 @@ this purpose.
 use the region and account of the stack you're calling it on:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var stack stack
 
 
@@ -426,7 +412,6 @@ but in case of a deploy-time value be aware that the result will be another
 deploy-time value which cannot be inspected in the CDK application.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var stack stack
 
 
@@ -468,7 +453,6 @@ following creates a single object that represents a dependency on two
 constructs, `constructB` and `constructC`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Declare the dependable object
 bAndC := constructs.NewDependencyGroup()
 bAndC.Add(constructB)
@@ -521,7 +505,6 @@ of arbitrarily many custom resource definitions. A single definition looks like
 this:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCustomResource(this, jsii.String("MyMagicalResource"), &CustomResourceProps{
 	ResourceType: jsii.String("Custom::MyCustomResource"),
 	 // must start with 'Custom::'
@@ -576,7 +559,6 @@ Here is a basic pattern for defining stack singletons in the CDK. The following
 examples ensures that only a single SNS topic is defined:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 func getOrCreate(scope *construct) topic {
 	stack := awscdk.stack_Of(*scope)
 	uniqueid := "GloballyUniqueIdForSingleton" // For example, a UUID from `uuidgen`
@@ -604,7 +586,6 @@ CloudFormation service.
 Set `serviceToken` to `topic.topicArn`  in order to use this provider:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 topic := sns.NewTopic(this, jsii.String("MyProvider"))
 
 awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
@@ -625,7 +606,6 @@ response to the CloudFormation service and handle various error cases.
 Set `serviceToken` to `lambda.functionArn` to use this provider:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 fn := lambda.NewFunction(this, jsii.String("MyProvider"), functionProps)
 
 awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
@@ -650,7 +630,6 @@ The provider has a built-in singleton method which uses the resource type as a
 stack-unique identifier and returns the service token:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
@@ -726,8 +705,8 @@ exports.handler = async (e) => {
 `sum.ts`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdkcore"
+import "github.com/aws/constructs-go/constructs"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 type sumProps struct {
 	lhs *f64
@@ -735,30 +714,30 @@ type sumProps struct {
 }
 
 type Sum struct {
-	Construct
+	construct
 	result *f64
 }result *f64
 
-func NewSum(scope Construct, id *string, props sumProps) *Sum {
+func NewSum(scope construct, id *string, props sumProps) *Sum {
 	this := &Sum{}
 	newConstruct_Override(this, scope, id)
 
 	resourceType := "Custom::Sum"
-	serviceToken := awscdkcore.CustomResourceProvider_GetOrCreate(this, resourceType, map[string]interface{}{
-		"codeDirectory": fmt.Sprintf("%v/sum-handler", __dirname),
-		"runtime": awscdkcore.CustomResourceProviderRuntime_NODEJS_14_X,
+	serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, resourceType, &CustomResourceProviderProps{
+		CodeDirectory: fmt.Sprintf("%v/sum-handler", __dirname),
+		Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
 	})
 
-	resource := awscdkcore.NewCustomResource(this, jsii.String("Resource"), map[string]interface{}{
-		"resourceType": resourceType,
-		"serviceToken": serviceToken,
-		"properties": map[string]*f64{
-			"lhs": *props.lhs,
-			"rhs": *props.rhs,
+	resource := awscdk.NewCustomResource(this, jsii.String("Resource"), &CustomResourceProps{
+		ResourceType: resourceType,
+		ServiceToken: serviceToken,
+		Properties: map[string]interface{}{
+			"lhs": props.lhs,
+			"rhs": props.rhs,
 		},
 	})
 
-	this.result = awscdkcore.Token_AsNumber(resource.getAtt(jsii.String("Result")))
+	this.result = awscdk.Token_AsNumber(resource.GetAtt(jsii.String("Result")))
 	return this
 }
 ```
@@ -766,7 +745,6 @@ func NewSum(scope Construct, id *string, props sumProps) *Sum {
 Usage will look like this:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sum := NewSum(this, jsii.String("MySum"), &sumProps{
 	lhs: jsii.Number(40),
 	rhs: jsii.Number(2),
@@ -780,7 +758,6 @@ To access the ARN of the provider's AWS Lambda function role, use the `getOrCrea
 built-in singleton method:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
@@ -794,7 +771,6 @@ This role ARN can then be used in resource-based IAM policies.
 To add IAM policy statements to this role, use `addToRolePolicy()`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
@@ -823,7 +799,6 @@ allows implementing providers that can take up to two hours to stabilize.
 Set `serviceToken` to `provider.serviceToken` to use this type of provider:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 provider := customresources.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 	OnEventHandler: OnEventHandler,
 	IsCompleteHandler: IsCompleteHandler,
@@ -848,7 +823,6 @@ CloudFormation [stack outputs](https://docs.aws.amazon.com/AWSCloudFormation/lat
 the `CfnOutput` class:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCfnOutput(this, jsii.String("OutputName"), &CfnOutputProps{
 	Value: myBucket.BucketName,
 	Description: jsii.String("The name of an S3 bucket"),
@@ -869,7 +843,6 @@ stack to the AWS CDK).
 Template parameters can be added to a stack by using the `CfnParameter` class:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCfnParameter(this, jsii.String("MyParameter"), &CfnParameterProps{
 	Type: jsii.String("Number"),
 	Default: jsii.Number(1337),
@@ -882,7 +855,6 @@ placeholder tokens for the real value (`Token.isUnresolved()` would return `true
 for those):
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 param := awscdk.NewCfnParameter(this, jsii.String("ParameterName"), &CfnParameterProps{
 })
 
@@ -907,7 +879,6 @@ instead, which guarantees the values produced are qualifying the designated
 stack, which is essential in cases where resources are shared cross-stack:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // "this" is the current construct
 stack := awscdk.stack_Of(this)
 
@@ -923,7 +894,6 @@ attributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-p
 accessing those through the `cfnOptions` property:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
 })
 // -or-
@@ -941,7 +911,6 @@ Resource dependencies (the `DependsOn` attribute) is modified using the
 `cfnResource.addDependency` method:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 resourceA := awscdk.NewCfnResource(this, jsii.String("ResourceA"), resourceProps)
 resourceB := awscdk.NewCfnResource(this, jsii.String("ResourceB"), resourceProps)
 
@@ -959,17 +928,16 @@ a property of the creationPolicy on the resource options. Setting it to true wil
 resources that depend on the fleet resource.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-fleet := NewCfnFleet(stack, jsii.String("Fleet"), map[string]interface{}{
-	"instanceType": jsii.String("stream.standard.small"),
-	"name": jsii.String("Fleet"),
-	"computeCapacity": map[string]*f64{
-		"desiredInstances": jsii.Number(1),
+fleet := appstream.NewCfnFleet(this, jsii.String("Fleet"), &CfnFleetProps{
+	InstanceType: jsii.String("stream.standard.small"),
+	Name: jsii.String("Fleet"),
+	ComputeCapacity: &ComputeCapacityProperty{
+		DesiredInstances: jsii.Number(1),
 	},
-	"imageName": jsii.String("AppStream-AmazonLinux2-09-21-2022"),
+	ImageName: jsii.String("AppStream-AmazonLinux2-09-21-2022"),
 })
-fleet.cfnOptions.creationPolicy = map[string]*bool{
-	"startFleet": jsii.Boolean(true),
+fleet.CfnOptions.CreationPolicy = &CfnCreationPolicy{
+	StartFleet: jsii.Boolean(true),
 }
 ```
 
@@ -983,10 +951,14 @@ The format of the timeout is `PT#H#M#S`. In the example below AWS Cloudformation
 `CREATE_COMPLETE`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-resource.cfnOptions.resourceSignal = map[string]interface{}{
-	"count": jsii.Number(3),
-	"timeout": jsii.String("PR15M"),
+var resource cfnResource
+
+
+resource.CfnOptions.CreationPolicy = &CfnCreationPolicy{
+	ResourceSignal: &CfnResourceSignal{
+		Count: jsii.Number(3),
+		Timeout: jsii.String("PR15M"),
+	},
 }
 ```
 
@@ -997,7 +969,6 @@ can be accessed from the `Fn` class, which provides type-safe methods for each
 intrinsic function as well as condition expressions:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var myObjectOrArray interface{}
 var myArray interface{}
 
@@ -1023,7 +994,6 @@ needs to be expressed with un-resolved values, it is necessary to use
 CloudFormation conditions by means of the `CfnCondition` class:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 environmentParameter := awscdk.NewCfnParameter(this, jsii.String("Environment"))
 isProd := awscdk.NewCfnCondition(this, jsii.String("IsProduction"), &CfnConditionProps{
 	Expression: awscdk.Fn_ConditionEquals(jsii.String("Production"), environmentParameter),
@@ -1045,7 +1015,6 @@ CloudFormation [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/U
 `CfnMappings` class:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &CfnMappingProps{
 	Mapping: map[string]map[string]interface{}{
 		"us-east-1": map[string]interface{}{
@@ -1081,7 +1050,6 @@ call to `findInMap` will be able to resolve the value during synthesis and simpl
 `'US East (Ohio)'`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &CfnMappingProps{
 	Mapping: map[string]map[string]interface{}{
 		"us-east-1": map[string]interface{}{
@@ -1102,7 +1070,6 @@ since the top-level key is an unresolved token. The call to `findInMap` will ret
 `{ "Fn::FindInMap": [ "RegionTable", { "Ref": "AWS::Region" }, "regionName" ] }`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var regionTable cfnMapping
 
 
@@ -1116,7 +1083,6 @@ for SSM parameters (including secure strings) and Secrets Manager. Encoding such
 references is done using the `CfnDynamicReference` class:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCfnDynamicReference(awscdk.CfnDynamicReferenceService_SECRETS_MANAGER, jsii.String("secret-id:secret-string:json-key:version-stage:version-id"))
 ```
 
@@ -1127,7 +1093,6 @@ CloudFormation templates support a number of options, including which Macros or
 configured using the `stack.templateOptions` property:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 stack := awscdk.Newstack(app, jsii.String("StackName"))
 
 stack.TemplateOptions.Description = "This will appear in the AWS console"
@@ -1145,7 +1110,6 @@ The `CfnResource` class allows emitting arbitrary entries in the
 [Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html) section of the CloudFormation template.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCfnResource(this, jsii.String("ResourceId"), &cfnResourceProps{
 	Type: jsii.String("AWS::S3::Bucket"),
 	Properties: map[string]interface{}{
@@ -1165,7 +1129,6 @@ include fragments of an existing template verbatim in the synthesized template.
 This can be achieved using the `CfnInclude` class.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewCfnInclude(this, jsii.String("ID"), &cfnIncludeProps{
 	template: map[string]map[string]map[string]interface{}{
 		"Resources": map[string]map[string]interface{}{
@@ -1190,7 +1153,6 @@ nested stacks belonging to that stack as well. You can enable termination protec
 on a stack by setting the `terminationProtection` prop to `true`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
 	TerminationProtection: jsii.Boolean(true),
 })
@@ -1203,7 +1165,6 @@ By default, termination protection is disabled.
 You can add a description of the stack in the same way as `StackProps`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
 	Description: jsii.String("This is a description."),
 })
@@ -1223,7 +1184,6 @@ The following example defines an IAM role which can only be assumed by
 principals that are tagged with a specific tag.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 tagParam := awscdk.NewCfnParameter(this, jsii.String("TagName"))
 
 stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &CfnJsonProps{
@@ -1276,7 +1236,6 @@ top take precedence over those below).
 ### Examples of setting context
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewApp(&AppProps{
 	Context: map[string]interface{}{
 		"@aws-cdk/core:newStyleStackSynthesis": jsii.Boolean(true),
@@ -1285,13 +1244,11 @@ awscdk.NewApp(&AppProps{
 ```
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 app := awscdk.NewApp()
 app.Node.SetContext(jsii.String("@aws-cdk/core:newStyleStackSynthesis"), jsii.Boolean(true))
 ```
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.NewApp(&AppProps{
 	PostCliContext: map[string]interface{}{
 		"@aws-cdk/core:newStyleStackSynthesis": jsii.Boolean(true),
@@ -1338,12 +1295,8 @@ to all roles within a specific construct scope. The most common use case would
 be to apply a permissions boundary at the `Stage` level.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var app app
-
-
 prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
-	PermissionsBoundary: permissionsBoundary_FromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary")),
+	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary")),
 })
 ```
 
@@ -1374,11 +1327,10 @@ To use one or more validation plugins in your application, use the
 `policyValidationBeta1` property of `Stage`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // globally for the entire app (an app is a stage)
 app := awscdk.NewApp(&AppProps{
 	PolicyValidationBeta1: []iPolicyValidationPluginBeta1{
-		// These hypothetical classes implement IValidationPlugin:
+		// These hypothetical classes implement IPolicyValidationPluginBeta1:
 		NewThirdPartyPluginX(),
 		NewThirdPartyPluginY(),
 	},
@@ -1387,7 +1339,7 @@ app := awscdk.NewApp(&AppProps{
 // only apply to a particular stage
 prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
 	PolicyValidationBeta1: []*iPolicyValidationPluginBeta1{
-		...,
+		NewThirdPartyPluginX(),
 	},
 })
 ```
@@ -1408,7 +1360,6 @@ report in JSON format, enable it using the `@aws-cdk/core:validationReportJson`
 context passing it directly to the application:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 app := awscdk.NewApp(&AppProps{
 	Context: map[string]interface{}{
 		"@aws-cdk/core:validationReportJson": jsii.Boolean(true),
@@ -1428,35 +1379,40 @@ the standard output.
 ### For plugin authors
 
 The communication protocol between the CDK core module and your policy tool is
-defined by the `IValidationPluginBeta1` interface. To create a new plugin you must
+defined by the `IPolicyValidationPluginBeta1` interface. To create a new plugin you must
 write a class that implements this interface. There are two things you need to
 implement: the plugin name (by overriding the `name` property), and the
 `validate()` method.
 
-The framework will call `validate()`, passing an `IValidationContextBeta1` object.
+The framework will call `validate()`, passing an `IPolicyValidationContextBeta1` object.
 The location of the templates to be validated is given by `templatePaths`. The
-plugin should return an instance of `ValidationPluginReportBeta1`. This object
+plugin should return an instance of `PolicyValidationPluginReportBeta1`. This object
 represents the report that the user wil receive at the end of the synthesis.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-validate(context, validationContextBeta1)validationReportBeta1{
+type myPlugin struct {
+	name
+}
+
+func (this *myPlugin) validate(context iPolicyValidationContextBeta1) policyValidationPluginReportBeta1 {
 	// First read the templates using context.templatePaths...
 
 	// ...then perform the validation, and then compose and return the report.
 	// Using hard-coded values here for better clarity:
-	return map[string]interface{}{
-		"success": jsii.Boolean(false),
-		"violations": []map[string]interface{}{
-			map[string]interface{}{
-				"ruleName": jsii.String("CKV_AWS_117"),
-				"recommendation": jsii.String("Ensure that AWS Lambda function is configured inside a VPC"),
-				"fix": jsii.String("https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1"),
-				"violatingResources": []map[string]*string{
-					map[string]*string{
-						"resourceName": jsii.String("MyFunction3BAA72D1"),
-						"templatePath": jsii.String("/home/johndoe/myapp/cdk.out/MyService.template.json"),
-						"locations": jsii.String("Properties/VpcConfig"),
+	return &policyValidationPluginReportBeta1{
+		Success: jsii.Boolean(false),
+		Violations: []policyViolationBeta1{
+			&policyViolationBeta1{
+				RuleName: jsii.String("CKV_AWS_117"),
+				Description: jsii.String("Ensure that AWS Lambda function is configured inside a VPC"),
+				Fix: jsii.String("https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1"),
+				ViolatingResources: []policyViolatingResourceBeta1{
+					&policyViolatingResourceBeta1{
+						ResourceLogicalId: jsii.String("MyFunction3BAA72D1"),
+						TemplatePath: jsii.String("/home/johndoe/myapp/cdk.out/MyService.template.json"),
+						Locations: []*string{
+							jsii.String("Properties/VpcConfig"),
+						},
 					},
 				},
 			},

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The tooltip item for the columns that are not part of a field well.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,13 +28,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ColumnTooltipItemProperty struct {
-	// The target column of the tooltip item.
+	// `CfnDashboard.ColumnTooltipItemProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The aggregation function of the column tooltip item.
+	// `CfnDashboard.ColumnTooltipItemProperty.Aggregation`.
 	Aggregation interface{} `field:"optional" json:"aggregation" yaml:"aggregation"`
-	// The label of the tooltip item.
+	// `CfnDashboard.ColumnTooltipItemProperty.Label`.
 	Label *string `field:"optional" json:"label" yaml:"label"`
-	// The visibility of the tooltip item.
+	// `CfnDashboard.ColumnTooltipItemProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

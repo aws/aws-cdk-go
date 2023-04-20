@@ -10,15 +10,11 @@ import (
 // Use a self hosted Kafka installation as a streaming source for AWS Lambda.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
-//
-//   // (Optional) The secret containing the root CA certificate that your Kafka brokers use for TLS encryption
-//   var encryption secret
 //
 //   var myFunction function
 //
@@ -32,7 +28,7 @@ import (
 //   topic := "some-cool-topic"
 //
 //   // (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
-//   var consumerGroupId string
+//   consumerGroupId := "my-consumer-group-id"
 //   myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
 //   	BootstrapServers: bootstrapServers,
 //   	Topic: topic,
@@ -41,7 +37,6 @@ import (
 //   	BatchSize: jsii.Number(100),
 //   	 // default
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
-//   	Encryption: encryption,
 //   }))
 //
 type SelfManagedKafkaEventSource interface {

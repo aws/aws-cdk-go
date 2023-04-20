@@ -4,7 +4,6 @@ package awsec2
 // Options for CloudFormationInit.withConfigSets.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage

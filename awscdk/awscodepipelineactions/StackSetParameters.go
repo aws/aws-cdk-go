@@ -10,7 +10,6 @@ import (
 // Base parameters for the StackSet.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   parameters := codepipeline_actions.StackSetParameters_FromLiteral(map[string]*string{
 //   	"BucketName": jsii.String("my-bucket"),
 //   	"Asset1": jsii.String("true"),
@@ -94,7 +93,6 @@ func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPa
 // parameter values unmanaged.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   parameters := codepipeline_actions.StackSetParameters_FromLiteral(map[string]*string{
 //   	"BucketName": jsii.String("my-bucket"),
 //   	"Asset1": jsii.String("true"),

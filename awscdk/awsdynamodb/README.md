@@ -276,7 +276,6 @@ table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 Alarms can be configured on the DynamoDB table to captured metric data
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
 
@@ -294,7 +293,7 @@ metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
 	Period: awscdk.Duration_Minutes(jsii.Number(1)),
 })
 
-cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
+cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
 	Metric: metric,
 	EvaluationPeriods: jsii.Number(1),
 	Threshold: jsii.Number(1),

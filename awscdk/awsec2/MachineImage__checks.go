@@ -52,6 +52,30 @@ func validateMachineImage_LatestAmazonLinuxParameters(props *AmazonLinuxImagePro
 	return nil
 }
 
+func validateMachineImage_LatestAmazonLinux2Parameters(props *AmazonLinux2ImageSsmParameterProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateMachineImage_LatestAmazonLinux2022Parameters(props *AmazonLinux2022ImageSsmParameterProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateMachineImage_LatestAmazonLinux2023Parameters(props *AmazonLinux2023ImageSsmParameterProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateMachineImage_LatestWindowsParameters(version WindowsVersion, props *WindowsImageProps) error {
 	if version == "" {
 		return fmt.Errorf("parameter version is required, but nil was provided")

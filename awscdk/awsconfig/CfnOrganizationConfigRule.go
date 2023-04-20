@@ -123,9 +123,7 @@ type CfnOrganizationConfigRule interface {
 	// The name that you assign to organization AWS Config rule.
 	OrganizationConfigRuleName() *string
 	SetOrganizationConfigRuleName(val *string)
-	// An object that specifies metadata for your organization's AWS Config Custom Policy rule.
-	//
-	// The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of AWS resource, and organization trigger types that initiate AWS Config to evaluate AWS resources against a rule.
+	// `AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata`.
 	OrganizationCustomPolicyRuleMetadata() interface{}
 	SetOrganizationCustomPolicyRuleMetadata(val interface{})
 	// An `OrganizationCustomRuleMetadata` object.

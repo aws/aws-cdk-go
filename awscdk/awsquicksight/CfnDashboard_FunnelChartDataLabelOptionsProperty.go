@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of the data labels.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,21 +27,19 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FunnelChartDataLabelOptionsProperty struct {
-	// The visibility of the category labels within the data labels.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.CategoryLabelVisibility`.
 	CategoryLabelVisibility *string `field:"optional" json:"categoryLabelVisibility" yaml:"categoryLabelVisibility"`
-	// The color of the data label text.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.LabelColor`.
 	LabelColor *string `field:"optional" json:"labelColor" yaml:"labelColor"`
-	// The font configuration for the data labels.
-	//
-	// Only the `FontSize` attribute of the font configuration is used for data labels.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.LabelFontConfiguration`.
 	LabelFontConfiguration interface{} `field:"optional" json:"labelFontConfiguration" yaml:"labelFontConfiguration"`
-	// Determines the style of the metric labels.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.MeasureDataLabelStyle`.
 	MeasureDataLabelStyle *string `field:"optional" json:"measureDataLabelStyle" yaml:"measureDataLabelStyle"`
-	// The visibility of the measure labels within the data labels.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.MeasureLabelVisibility`.
 	MeasureLabelVisibility *string `field:"optional" json:"measureLabelVisibility" yaml:"measureLabelVisibility"`
-	// Determines the positioning of the data label relative to a section of the funnel.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.Position`.
 	Position *string `field:"optional" json:"position" yaml:"position"`
-	// The visibility option that determines if data labels are displayed.
+	// `CfnDashboard.FunnelChartDataLabelOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

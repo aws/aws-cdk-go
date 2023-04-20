@@ -11,7 +11,6 @@ import (
 // to be deployment engine agnostic.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var codePipeline pipeline
 //
 //

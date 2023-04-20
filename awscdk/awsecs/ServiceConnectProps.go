@@ -4,18 +4,17 @@ package awsecs
 // Interface for Service Connect configuration.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var container containerDefinition
+//   var containerOptions containerDefinitionOptions
 //
+//
+//   container := taskDefinition.AddContainer(jsii.String("MyContainer"), containerOptions)
 //
 //   container.AddPortMappings(&PortMapping{
 //   	Name: jsii.String("api"),
 //   	ContainerPort: jsii.Number(8080),
 //   })
-//
-//   taskDefinition.AddContainer(container)
 //
 //   cluster.AddDefaultCloudMapNamespace(&CloudMapNamespaceOptions{
 //   	Name: jsii.String("local"),

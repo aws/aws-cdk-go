@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration that determines the elements and canvas size options of sheet control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,7 +34,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SheetControlLayoutConfigurationProperty struct {
-	// The configuration that determines the elements and canvas size options of sheet control.
+	// `CfnAnalysis.SheetControlLayoutConfigurationProperty.GridLayout`.
 	GridLayout interface{} `field:"optional" json:"gridLayout" yaml:"gridLayout"`
 }
 

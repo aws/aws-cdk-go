@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The measure type field with numerical type columns.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -92,13 +90,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_NumericalMeasureFieldProperty struct {
-	// The column that is used in the `NumericalMeasureField` .
+	// `CfnAnalysis.NumericalMeasureFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnAnalysis.NumericalMeasureFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The aggregation function of the measure field.
+	// `CfnAnalysis.NumericalMeasureFieldProperty.AggregationFunction`.
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
-	// The format configuration of the field.
+	// `CfnAnalysis.NumericalMeasureFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// An element within a grid layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,17 +18,17 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GridLayoutElementProperty struct {
-	// The width of a grid element expressed as a number of grid columns.
+	// `CfnDashboard.GridLayoutElementProperty.ColumnSpan`.
 	ColumnSpan *float64 `field:"required" json:"columnSpan" yaml:"columnSpan"`
-	// A unique identifier for an element within a grid layout.
+	// `CfnDashboard.GridLayoutElementProperty.ElementId`.
 	ElementId *string `field:"required" json:"elementId" yaml:"elementId"`
-	// The type of element.
+	// `CfnDashboard.GridLayoutElementProperty.ElementType`.
 	ElementType *string `field:"required" json:"elementType" yaml:"elementType"`
-	// The height of a grid element expressed as a number of grid rows.
+	// `CfnDashboard.GridLayoutElementProperty.RowSpan`.
 	RowSpan *float64 `field:"required" json:"rowSpan" yaml:"rowSpan"`
-	// The column index for the upper left corner of an element.
+	// `CfnDashboard.GridLayoutElementProperty.ColumnIndex`.
 	ColumnIndex *float64 `field:"optional" json:"columnIndex" yaml:"columnIndex"`
-	// The row index for the upper left corner of an element.
+	// `CfnDashboard.GridLayoutElementProperty.RowIndex`.
 	RowIndex *float64 `field:"optional" json:"rowIndex" yaml:"rowIndex"`
 }
 

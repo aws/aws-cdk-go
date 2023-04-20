@@ -7,7 +7,7 @@ package awsiam
 //   var app app
 //
 //   stack := awscdk.Newstack(app, jsii.String("MyStack"))
-//   iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+//   iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
 //   	UsePrecreatedRoles: map[string]*string{
 //   		"MyStack/MyLambda/ServiceRole": jsii.String("my-role-name"),
 //   	},
@@ -24,15 +24,17 @@ type CustomizeRolesOptions struct {
 	// The constructPath can be either a relative or absolute path
 	// from the scope that `customizeRoles` is used on to the role being created.
 	//
-	// For example, if you were creating a role.
-	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
-	//   stack := awscdk.Newstack(app, jsii.String("MyStack"))
-	//   NewRole(stack, jsii.String("MyRole"))
+	//   var app app
 	//
-	//   role_CustomizeRoles(stack, map[string]map[string]*string{
-	//   	"usePrecreatedRoles": map[string]*string{
+	//
+	//   stack := awscdk.Newstack(app, jsii.String("MyStack"))
+	//   iam.NewRole(stack, jsii.String("MyRole"), &RoleProps{
+	//   	AssumedBy: iam.NewAccountPrincipal(jsii.String("1111111111")),
+	//   })
+	//
+	//   iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{
+	//   	UsePrecreatedRoles: map[string]*string{
 	//   		// absolute path
 	//   		"MyStack/MyRole": jsii.String("my-precreated-role-name"),
 	//   		// or relative path from `stack`

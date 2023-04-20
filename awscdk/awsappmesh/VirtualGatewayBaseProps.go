@@ -4,7 +4,6 @@ package awsappmesh
 // Basic configuration properties for a VirtualGateway.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //
@@ -15,7 +14,7 @@ package awsappmesh
 //   		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
 //   			Port: jsii.Number(443),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
-//   				Interval: cdk.Duration_Seconds(jsii.Number(10)),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
 //   			}),
 //   		}),
 //   	},

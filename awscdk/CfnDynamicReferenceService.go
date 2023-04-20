@@ -5,7 +5,6 @@ package awscdk
 // The service to retrieve the dynamic reference from.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   awscdk.NewCfnDynamicReference(awscdk.CfnDynamicReferenceService_SECRETS_MANAGER, jsii.String("secret-id:secret-string:json-key:version-stage:version-id"))
 //
 type CfnDynamicReferenceService string

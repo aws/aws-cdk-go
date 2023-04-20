@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration options to sort aggregated values.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,14 +25,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_AggregationSortConfigurationProperty struct {
-	// The function that aggregates the values in `Column` .
+	// `CfnTemplate.AggregationSortConfigurationProperty.AggregationFunction`.
 	AggregationFunction interface{} `field:"required" json:"aggregationFunction" yaml:"aggregationFunction"`
-	// The column that determines the sort order of aggregated values.
+	// `CfnTemplate.AggregationSortConfigurationProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The sort direction of values.
-	//
-	// - `ASC` : Sort in ascending order.
-	// - `DESC` : Sort in descending order.
+	// `CfnTemplate.AggregationSortConfigurationProperty.SortDirection`.
 	SortDirection *string `field:"required" json:"sortDirection" yaml:"sortDirection"`
 }
 

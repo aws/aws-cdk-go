@@ -23,7 +23,7 @@ type CfnDashboard_DashboardErrorProperty struct {
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Type.
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// Lists the violated entities that caused the dashboard error.
+	// `CfnDashboard.DashboardErrorProperty.ViolatedEntities`.
 	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

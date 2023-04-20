@@ -11,7 +11,6 @@ import (
 // Represents the Product Provisioning Artifact Template.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //

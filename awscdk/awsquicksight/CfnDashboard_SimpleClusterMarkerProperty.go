@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The simple cluster marker of the cluster marker.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SimpleClusterMarkerProperty struct {
-	// The color of the simple cluster marker.
+	// `CfnDashboard.SimpleClusterMarkerProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
 }
 

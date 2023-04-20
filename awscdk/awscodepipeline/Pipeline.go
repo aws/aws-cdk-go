@@ -16,12 +16,11 @@ import (
 // An AWS CodePipeline pipeline with its associated IAM role and S3 bucket.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // create a pipeline
-//   import codecommit "github.com/aws-samples/dummy/awscdkawscodecommit"
+//   import codecommit "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // add a source action to the stage
-//   var repo codecommit.Repository
+//   var repo repository
 //   var sourceArtifact artifact
 //
 //

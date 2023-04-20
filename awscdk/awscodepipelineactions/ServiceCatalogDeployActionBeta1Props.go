@@ -8,7 +8,6 @@ import (
 // Construction properties of the `ServiceCatalogDeployActionBeta1 ServiceCatalog deploy CodePipeline Action`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   cdkBuildOutput := codepipeline.NewArtifact()
 //   serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&ServiceCatalogDeployActionBeta1Props{
 //   	ActionName: jsii.String("ServiceCatalogDeploy"),

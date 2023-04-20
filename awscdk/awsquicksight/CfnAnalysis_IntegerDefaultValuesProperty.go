@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The default values of the `IntegerParameterDeclaration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,11 +29,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_IntegerDefaultValuesProperty struct {
-	// The dynamic value of the `IntegerDefaultValues` .
-	//
-	// Different defaults are displayed according to users, groups, and values mapping.
+	// `CfnAnalysis.IntegerDefaultValuesProperty.DynamicValue`.
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
-	// The static values of the `IntegerDefaultValues` .
+	// `CfnAnalysis.IntegerDefaultValuesProperty.StaticValues`.
 	StaticValues interface{} `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

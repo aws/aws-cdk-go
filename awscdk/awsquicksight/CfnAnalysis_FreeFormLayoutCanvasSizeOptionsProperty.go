@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Configuration options for the canvas of a free-form layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FreeFormLayoutCanvasSizeOptionsProperty struct {
-	// The options that determine the sizing of the canvas used in a free-form layout.
+	// `CfnAnalysis.FreeFormLayoutCanvasSizeOptionsProperty.ScreenCanvasSizeOptions`.
 	ScreenCanvasSizeOptions interface{} `field:"optional" json:"screenCanvasSizeOptions" yaml:"screenCanvasSizeOptions"`
 }
 

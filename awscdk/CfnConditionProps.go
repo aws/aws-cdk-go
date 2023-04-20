@@ -3,7 +3,6 @@ package awscdk
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
 //   })
 //   // -or-

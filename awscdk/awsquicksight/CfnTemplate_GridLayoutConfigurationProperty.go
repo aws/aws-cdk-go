@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a grid layout. Also called a tiled layout.
-//
-// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,7 +32,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_GridLayoutConfigurationProperty struct {
-	// The elements that are included in a grid layout.
+	// `CfnTemplate.GridLayoutConfigurationProperty.Elements`.
 	Elements interface{} `field:"required" json:"elements" yaml:"elements"`
 	// `CfnTemplate.GridLayoutConfigurationProperty.CanvasSizeOptions`.
 	CanvasSizeOptions interface{} `field:"optional" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`

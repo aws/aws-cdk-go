@@ -7,11 +7,10 @@ import (
 // Properties to initialize UserPoolGoogleIdentityProvider.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   userpool := cognito.NewUserPool(this, jsii.String("Pool"))
-//   secret := secretsManager.secret_FromSecretAttributes(this, jsii.String("CognitoClientSecret"), map[string]*string{
-//   	"secretCompleteArn": jsii.String("arn:aws:secretsmanager:xxx:xxx:secret:xxx-xxx"),
-//   }).secretValue
+//   secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("CognitoClientSecret"), &SecretAttributes{
+//   	SecretCompleteArn: jsii.String("arn:aws:secretsmanager:xxx:xxx:secret:xxx-xxx"),
+//   }).SecretValue
 //
 //   provider := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("Google"), &UserPoolIdentityProviderGoogleProps{
 //   	ClientId: jsii.String("amzn-client-id"),

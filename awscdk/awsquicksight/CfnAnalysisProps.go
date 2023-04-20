@@ -31852,7 +31852,7 @@ type CfnAnalysisProps struct {
 	//
 	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity interface{} `field:"optional" json:"sourceEntity" yaml:"sourceEntity"`
-	// Status associated with the analysis.
+	// `AWS::QuickSight::Analysis.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

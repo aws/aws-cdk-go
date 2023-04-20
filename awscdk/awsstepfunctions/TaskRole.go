@@ -10,8 +10,6 @@ import (
 // Role to be assumed by the State Machine's execution role for invoking a task's resource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var submitLambda function
@@ -99,8 +97,7 @@ func TaskRole_FromRole(role awsiam.IRole) TaskRole {
 // Construct a task role retrieved from task inputs using a json expression.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   taskRole_FromRoleArnJsonPath(jsii.String("$.RoleArn"))
+//   sfn.TaskRole_FromRoleArnJsonPath(jsii.String("$.RoleArn"))
 //
 func TaskRole_FromRoleArnJsonPath(expression *string) TaskRole {
 	_init_.Initialize()

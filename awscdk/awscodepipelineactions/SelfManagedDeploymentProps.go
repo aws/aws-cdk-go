@@ -7,7 +7,6 @@ import (
 // Properties for configuring self-managed permissions.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   existingAdminRole := iam.Role_FromRoleName(this, jsii.String("AdminRole"), jsii.String("AWSCloudFormationStackSetAdministrationRole"))
 //
 //   deploymentModel := codepipeline_actions.StackSetDeploymentModel_SelfManaged(&SelfManagedDeploymentProps{

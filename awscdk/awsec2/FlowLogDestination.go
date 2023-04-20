@@ -13,7 +13,6 @@ import (
 // The destination type for the flow log.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //

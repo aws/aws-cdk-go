@@ -21,7 +21,6 @@ import (
 // - LinuxBuildImage.fromAsset(parent, id, props)
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 //   	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
 //   		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
@@ -359,6 +358,17 @@ func LinuxBuildImage_STANDARD_6_0() IBuildImage {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
 		"STANDARD_6_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_STANDARD_7_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"STANDARD_7_0",
 		&returns,
 	)
 	return returns

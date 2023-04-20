@@ -275,6 +275,10 @@ func init() {
 		reflect.TypeOf((*SqsQueueProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.Tag",
+		reflect.TypeOf((*Tag)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events_targets.TargetBaseProps",
 		reflect.TypeOf((*TargetBaseProps)(nil)).Elem(),
 	)

@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The control of a filter that is used to interact with a dashboard or an analysis.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -239,23 +235,19 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilterControlProperty struct {
-	// A control from a date filter that is used to specify date and time.
+	// `CfnAnalysis.FilterControlProperty.DateTimePicker`.
 	DateTimePicker interface{} `field:"optional" json:"dateTimePicker" yaml:"dateTimePicker"`
-	// A control to display a dropdown list with buttons that are used to select a single value.
+	// `CfnAnalysis.FilterControlProperty.Dropdown`.
 	Dropdown interface{} `field:"optional" json:"dropdown" yaml:"dropdown"`
-	// A control to display a list of buttons or boxes.
-	//
-	// This is used to select either a single value or multiple values.
+	// `CfnAnalysis.FilterControlProperty.List`.
 	List interface{} `field:"optional" json:"list" yaml:"list"`
-	// A control from a date filter that is used to specify the relative date.
+	// `CfnAnalysis.FilterControlProperty.RelativeDateTime`.
 	RelativeDateTime interface{} `field:"optional" json:"relativeDateTime" yaml:"relativeDateTime"`
-	// A control to display a horizontal toggle bar.
-	//
-	// This is used to change a value by sliding the toggle.
+	// `CfnAnalysis.FilterControlProperty.Slider`.
 	Slider interface{} `field:"optional" json:"slider" yaml:"slider"`
-	// A control to display a text box that is used to enter multiple entries.
+	// `CfnAnalysis.FilterControlProperty.TextArea`.
 	TextArea interface{} `field:"optional" json:"textArea" yaml:"textArea"`
-	// A control to display a text box that is used to enter a single entry.
+	// `CfnAnalysis.FilterControlProperty.TextField`.
 	TextField interface{} `field:"optional" json:"textField" yaml:"textField"`
 }
 

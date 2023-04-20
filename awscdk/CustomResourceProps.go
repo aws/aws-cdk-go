@@ -5,14 +5,15 @@ package awscdk
 // Properties to provide a Lambda-backed custom resource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   provider := customresources.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
-//   	OnEventHandler: OnEventHandler,
-//   	IsCompleteHandler: IsCompleteHandler,
+//   serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
+//   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
+//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+//   	Description: jsii.String("Lambda function created by the custom resource provider"),
 //   })
 //
 //   awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
-//   	ServiceToken: provider.ServiceToken,
+//   	ResourceType: jsii.String("Custom::MyCustomResourceType"),
+//   	ServiceToken: serviceToken,
 //   })
 //
 type CustomResourceProps struct {

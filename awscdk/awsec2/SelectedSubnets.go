@@ -7,9 +7,8 @@ import (
 // Result of selecting a subset of subnets from a VPC.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-//   	IpAddresses: ipAddresses_Cidr(jsii.String("10.0.0.0/16")),
+//   	IpAddresses: ec2.IpAddresses_Cidr(jsii.String("10.0.0.0/16")),
 //   })
 //
 //   // Iterate the private subnets

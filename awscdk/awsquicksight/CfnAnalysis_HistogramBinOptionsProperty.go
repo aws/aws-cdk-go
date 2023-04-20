@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of histogram bins.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,13 +19,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_HistogramBinOptionsProperty struct {
-	// The options that determine the bin count of a histogram.
+	// `CfnAnalysis.HistogramBinOptionsProperty.BinCount`.
 	BinCount interface{} `field:"optional" json:"binCount" yaml:"binCount"`
-	// The options that determine the bin width of a histogram.
+	// `CfnAnalysis.HistogramBinOptionsProperty.BinWidth`.
 	BinWidth interface{} `field:"optional" json:"binWidth" yaml:"binWidth"`
-	// The options that determine the selected bin type.
+	// `CfnAnalysis.HistogramBinOptionsProperty.SelectedBinType`.
 	SelectedBinType *string `field:"optional" json:"selectedBinType" yaml:"selectedBinType"`
-	// The options that determine the bin start value.
+	// `CfnAnalysis.HistogramBinOptionsProperty.StartValue`.
 	StartValue *float64 `field:"optional" json:"startValue" yaml:"startValue"`
 }
 

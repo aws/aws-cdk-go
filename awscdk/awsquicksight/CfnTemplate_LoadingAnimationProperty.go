@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of loading animation in free-form layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_LoadingAnimationProperty struct {
-	// The visibility configuration of `LoadingAnimation` .
+	// `CfnTemplate.LoadingAnimationProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

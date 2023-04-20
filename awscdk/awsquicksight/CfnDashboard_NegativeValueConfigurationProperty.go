@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the negative value configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_NegativeValueConfigurationProperty struct {
-	// Determines the display mode of the negative value configuration.
+	// `CfnDashboard.NegativeValueConfigurationProperty.DisplayMode`.
 	DisplayMode *string `field:"required" json:"displayMode" yaml:"displayMode"`
 }
 

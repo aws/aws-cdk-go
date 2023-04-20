@@ -40,7 +40,7 @@ package awsathena
 //   }
 //
 type CfnWorkGroup_WorkGroupConfigurationProperty struct {
-	// Specifies a user defined JSON string that is passed to the notebook engine.
+	// `CfnWorkGroup.WorkGroupConfigurationProperty.AdditionalConfiguration`.
 	AdditionalConfiguration *string `field:"optional" json:"additionalConfiguration" yaml:"additionalConfiguration"`
 	// The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
 	//
@@ -48,17 +48,15 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	//
 	// > This property currently supports integer types. Support for long values is planned.
 	BytesScannedCutoffPerQuery *float64 `field:"optional" json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
-	// Specifies the KMS key that is used to encrypt the user's data stores in Athena.
+	// `CfnWorkGroup.WorkGroupConfigurationProperty.CustomerContentEncryptionConfiguration`.
 	CustomerContentEncryptionConfiguration interface{} `field:"optional" json:"customerContentEncryptionConfiguration" yaml:"customerContentEncryptionConfiguration"`
 	// If set to "true", the settings for the workgroup override client-side settings.
 	//
 	// If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	EnforceWorkGroupConfiguration interface{} `field:"optional" json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
-	// The engine version that all queries running on the workgroup use.
-	//
-	// Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.
+	// `CfnWorkGroup.WorkGroupConfigurationProperty.EngineVersion`.
 	EngineVersion interface{} `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// Role used in a session for accessing the user's resources.
+	// `CfnWorkGroup.WorkGroupConfigurationProperty.ExecutionRole`.
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	PublishCloudWatchMetricsEnabled interface{} `field:"optional" json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`

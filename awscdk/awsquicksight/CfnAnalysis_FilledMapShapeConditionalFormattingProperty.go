@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting that determines the shape of the filled map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,9 +37,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilledMapShapeConditionalFormattingProperty struct {
-	// The field ID of the filled map shape.
+	// `CfnAnalysis.FilledMapShapeConditionalFormattingProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The conditional formatting that determines the background color of a filled map's shape.
+	// `CfnAnalysis.FilledMapShapeConditionalFormattingProperty.Format`.
 	Format interface{} `field:"optional" json:"format" yaml:"format"`
 }
 

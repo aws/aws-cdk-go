@@ -8,8 +8,7 @@ package awsssm
 // the values against existing values in the account.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   ssm.StringParameter_ValueForTypedStringParameterV2(stack, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
+//   ssm.StringParameter_ValueForTypedStringParameterV2(this, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types
 //

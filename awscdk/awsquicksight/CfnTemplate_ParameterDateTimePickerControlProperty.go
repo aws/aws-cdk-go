@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control from a date parameter that specifies date and time.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,13 +33,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ParameterDateTimePickerControlProperty struct {
-	// The ID of the `ParameterDateTimePickerControl` .
+	// `CfnTemplate.ParameterDateTimePickerControlProperty.ParameterControlId`.
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
-	// The name of the `ParameterDateTimePickerControl` .
+	// `CfnTemplate.ParameterDateTimePickerControlProperty.SourceParameterName`.
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
-	// The title of the `ParameterDateTimePickerControl` .
+	// `CfnTemplate.ParameterDateTimePickerControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnTemplate.ParameterDateTimePickerControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

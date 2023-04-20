@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The label options for an axis on a chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,14 +35,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ChartAxisLabelOptionsProperty struct {
-	// The label options for a chart axis.
+	// `CfnDashboard.ChartAxisLabelOptionsProperty.AxisLabelOptions`.
 	AxisLabelOptions interface{} `field:"optional" json:"axisLabelOptions" yaml:"axisLabelOptions"`
-	// The visibility configuration of the sort icon on a chart's axis label.
+	// `CfnDashboard.ChartAxisLabelOptionsProperty.SortIconVisibility`.
 	SortIconVisibility *string `field:"optional" json:"sortIconVisibility" yaml:"sortIconVisibility"`
-	// The visibility of an axis label on a chart. Choose one of the following options:.
-	//
-	// - `VISIBLE` : Shows the axis.
-	// - `HIDDEN` : Hides the axis.
+	// `CfnDashboard.ChartAxisLabelOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

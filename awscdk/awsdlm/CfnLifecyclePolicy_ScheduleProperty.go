@@ -90,11 +90,7 @@ package awsdlm
 //   }
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
-	// *[Snapshot policies that target volumes only]* The snapshot archiving rule for the schedule.
-	//
-	// When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify.
-	//
-	// For more information about using snapshot archiving, see [Considerations for snapshot lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive) .
+	// `CfnLifecyclePolicy.ScheduleProperty.ArchiveRule`.
 	ArchiveRule interface{} `field:"optional" json:"archiveRule" yaml:"archiveRule"`
 	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
@@ -104,7 +100,7 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 	//
 	// > You can't specify cross-Region copy rules for policies that create snapshots on an Outpost. If the policy creates snapshots in a Region, then snapshots can be copied to up to three Regions or Outposts.
 	CrossRegionCopyRules interface{} `field:"optional" json:"crossRegionCopyRules" yaml:"crossRegionCopyRules"`
-	// *[AMI policies only]* The AMI deprecation rule for the schedule.
+	// `CfnLifecyclePolicy.ScheduleProperty.DeprecateRule`.
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
 	// *[Snapshot policies only]* The rule for enabling fast snapshot restore.
 	FastRestoreRule interface{} `field:"optional" json:"fastRestoreRule" yaml:"fastRestoreRule"`

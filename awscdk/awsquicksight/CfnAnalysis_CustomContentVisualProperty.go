@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A visual that contains custom content.
-//
-// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -107,21 +103,17 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_CustomContentVisualProperty struct {
-	// The dataset that is used to create the custom content visual.
-	//
-	// You can't create a visual without a dataset.
+	// `CfnAnalysis.CustomContentVisualProperty.DataSetIdentifier`.
 	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	// `CfnAnalysis.CustomContentVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnAnalysis.CustomContentVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
-	// The configuration of a `CustomContentVisual` .
+	// `CfnAnalysis.CustomContentVisualProperty.ChartConfiguration`.
 	ChartConfiguration interface{} `field:"optional" json:"chartConfiguration" yaml:"chartConfiguration"`
-	// The subtitle that is displayed on the visual.
+	// `CfnAnalysis.CustomContentVisualProperty.Subtitle`.
 	Subtitle interface{} `field:"optional" json:"subtitle" yaml:"subtitle"`
-	// The title that is displayed on the visual.
+	// `CfnAnalysis.CustomContentVisualProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

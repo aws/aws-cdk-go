@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A `CategoryFilter` filters text values.
-//
-// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -49,11 +45,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CategoryFilterProperty struct {
-	// The column that the filter is applied to.
+	// `CfnDashboard.CategoryFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The configuration for a `CategoryFilter` .
+	// `CfnDashboard.CategoryFilterProperty.Configuration`.
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
-	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// `CfnDashboard.CategoryFilterProperty.FilterId`.
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
 }
 

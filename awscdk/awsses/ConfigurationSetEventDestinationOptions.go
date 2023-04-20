@@ -4,9 +4,8 @@ package awsses
 // Options for a configuration set event destination.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myConfigurationSet configurationSet
-//   var myTopic ses.Topic
+//   var myTopic topic
 //
 //
 //   myConfigurationSet.AddEventDestination(jsii.String("ToSns"), &ConfigurationSetEventDestinationOptions{

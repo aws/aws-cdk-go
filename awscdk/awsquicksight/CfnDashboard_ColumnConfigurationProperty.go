@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The general configuration of a column.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -240,13 +238,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ColumnConfigurationProperty struct {
-	// The column.
+	// `CfnDashboard.ColumnConfigurationProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// `CfnDashboard.ColumnConfigurationProperty.ColorsConfiguration`.
 	ColorsConfiguration interface{} `field:"optional" json:"colorsConfiguration" yaml:"colorsConfiguration"`
-	// The format configuration of a column.
+	// `CfnDashboard.ColumnConfigurationProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
-	// The role of the column.
+	// `CfnDashboard.ColumnConfigurationProperty.Role`.
 	Role *string `field:"optional" json:"role" yaml:"role"`
 }
 

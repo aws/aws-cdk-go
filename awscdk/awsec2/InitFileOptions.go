@@ -4,7 +4,6 @@ package awsec2
 // Options for InitFile.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //

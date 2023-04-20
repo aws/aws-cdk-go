@@ -12,8 +12,8 @@ import (
 // An IAM Group (collection of IAM users) lets you specify permissions for multiple users, which can make it easier to manage permissions for those users.
 //
 // Example:
-//   user := iam.NewUser(this, jsii.String("MyUser")) // or User.fromUserName(stack, 'User', 'johnsmith');
-//   group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(stack, 'Group', 'arn:aws:iam::account-id:group/group-name');
+//   user := iam.NewUser(this, jsii.String("MyUser")) // or User.fromUserName(this, 'User', 'johnsmith');
+//   group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(this, 'Group', 'arn:aws:iam::account-id:group/group-name');
 //
 //   user.AddToGroup(group)
 //   // or

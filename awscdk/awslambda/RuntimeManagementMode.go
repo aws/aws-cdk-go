@@ -8,11 +8,12 @@ import (
 // Specify the runtime update mode.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   runtimeManagementMode := awscdk.Aws_lambda.RuntimeManagementMode_Manual(jsii.String("arn"))
+//   lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
+//   	RuntimeManagementMode: lambda.RuntimeManagementMode_AUTO(),
+//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   })
 //
 type RuntimeManagementMode interface {
 	Arn() *string

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field wells of a combo chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1000,13 +998,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ComboChartAggregatedFieldWellsProperty struct {
-	// The aggregated `BarValues` field well of a combo chart.
+	// `CfnAnalysis.ComboChartAggregatedFieldWellsProperty.BarValues`.
 	BarValues interface{} `field:"optional" json:"barValues" yaml:"barValues"`
-	// The aggregated category field wells of a combo chart.
+	// `CfnAnalysis.ComboChartAggregatedFieldWellsProperty.Category`.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
-	// The aggregated colors field well of a combo chart.
+	// `CfnAnalysis.ComboChartAggregatedFieldWellsProperty.Colors`.
 	Colors interface{} `field:"optional" json:"colors" yaml:"colors"`
-	// The aggregated `LineValues` field well of a combo chart.
+	// `CfnAnalysis.ComboChartAggregatedFieldWellsProperty.LineValues`.
 	LineValues interface{} `field:"optional" json:"lineValues" yaml:"lineValues"`
 }
 

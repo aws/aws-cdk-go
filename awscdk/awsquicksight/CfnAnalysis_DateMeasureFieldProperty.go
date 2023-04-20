@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The measure type field with date type columns.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -91,13 +89,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_DateMeasureFieldProperty struct {
-	// The column that is used in the `DateMeasureField` .
+	// `CfnAnalysis.DateMeasureFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnAnalysis.DateMeasureFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The aggregation function of the measure field.
+	// `CfnAnalysis.DateMeasureFieldProperty.AggregationFunction`.
 	AggregationFunction *string `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
-	// The format configuration of the field.
+	// `CfnAnalysis.DateMeasureFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 }
 

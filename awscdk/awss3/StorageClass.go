@@ -8,24 +8,23 @@ import (
 // Storage class to move an object to.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	LifecycleRules: []lifecycleRule{
 //   		&lifecycleRule{
-//   			AbortIncompleteMultipartUploadAfter: cdk.Duration_Minutes(jsii.Number(30)),
+//   			AbortIncompleteMultipartUploadAfter: awscdk.Duration_Minutes(jsii.Number(30)),
 //   			Enabled: jsii.Boolean(false),
-//   			Expiration: cdk.Duration_Days(jsii.Number(30)),
+//   			Expiration: awscdk.Duration_Days(jsii.Number(30)),
 //   			ExpirationDate: NewDate(),
 //   			ExpiredObjectDeleteMarker: jsii.Boolean(false),
 //   			Id: jsii.String("id"),
-//   			NoncurrentVersionExpiration: cdk.Duration_*Days(jsii.Number(30)),
+//   			NoncurrentVersionExpiration: awscdk.Duration_*Days(jsii.Number(30)),
 //
 //   			// the properties below are optional
 //   			NoncurrentVersionsToRetain: jsii.Number(123),
 //   			NoncurrentVersionTransitions: []noncurrentVersionTransition{
 //   				&noncurrentVersionTransition{
 //   					StorageClass: s3.StorageClass_GLACIER(),
-//   					TransitionAfter: cdk.Duration_*Days(jsii.Number(30)),
+//   					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 //
 //   					// the properties below are optional
 //   					NoncurrentVersionsToRetain: jsii.Number(123),
@@ -39,7 +38,7 @@ import (
 //   					StorageClass: s3.StorageClass_GLACIER(),
 //
 //   					// the properties below are optional
-//   					TransitionAfter: cdk.Duration_*Days(jsii.Number(30)),
+//   					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 //   					TransitionDate: NewDate(),
 //   				},
 //   			},

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control to display a dropdown list with buttons that are used to select a single value.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -54,22 +52,19 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilterDropDownControlProperty struct {
-	// The ID of the `FilterDropDownControl` .
+	// `CfnAnalysis.FilterDropDownControlProperty.FilterControlId`.
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
-	// The source filter ID of the `FilterDropDownControl` .
+	// `CfnAnalysis.FilterDropDownControlProperty.SourceFilterId`.
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
-	// The title of the `FilterDropDownControl` .
+	// `CfnAnalysis.FilterDropDownControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+	// `CfnAnalysis.FilterDropDownControlProperty.CascadingControlConfiguration`.
 	CascadingControlConfiguration interface{} `field:"optional" json:"cascadingControlConfiguration" yaml:"cascadingControlConfiguration"`
-	// The display options of the `FilterDropDownControl` .
+	// `CfnAnalysis.FilterDropDownControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
-	// A list of selectable values that are used in a control.
+	// `CfnAnalysis.FilterDropDownControlProperty.SelectableValues`.
 	SelectableValues interface{} `field:"optional" json:"selectableValues" yaml:"selectableValues"`
-	// The type of the `FilterDropDownControl` . Choose one of the following options:.
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
+	// `CfnAnalysis.FilterDropDownControlProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

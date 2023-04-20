@@ -15,7 +15,6 @@ import (
 // A VPC flow log.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //

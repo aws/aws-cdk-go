@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The static data configuration of the reference line data configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ReferenceLineStaticDataConfigurationProperty struct {
-	// The double input of the static data.
+	// `CfnDashboard.ReferenceLineStaticDataConfigurationProperty.Value`.
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Formatting configuration for icon set.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ConditionalFormattingIconSetProperty struct {
-	// The expression that determines the formatting configuration for the icon set.
+	// `CfnTemplate.ConditionalFormattingIconSetProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// Determines the icon set type.
+	// `CfnTemplate.ConditionalFormattingIconSetProperty.IconSetType`.
 	IconSetType *string `field:"optional" json:"iconSetType" yaml:"iconSetType"`
 }
 

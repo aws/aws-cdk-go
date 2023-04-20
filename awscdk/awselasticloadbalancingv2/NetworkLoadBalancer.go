@@ -15,22 +15,25 @@ import (
 // Define a new network load balancer.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
+//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   })
-//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
-//   	Port: jsii.Number(80),
+//   link := apigateway.NewVpcLink(this, jsii.String("link"), &VpcLinkProps{
+//   	Targets: []iNetworkLoadBalancer{
+//   		nlb,
+//   	},
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   integration := apigateway.NewIntegration(&IntegrationProps{
+//   	Type: apigateway.IntegrationType_HTTP_PROXY,
+//   	Options: &IntegrationOptions{
+//   		ConnectionType: apigateway.ConnectionType_VPC_LINK,
+//   		VpcLink: link,
+//   	},
 //   })
 //
 type NetworkLoadBalancer interface {

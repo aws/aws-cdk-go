@@ -31,7 +31,7 @@ import (
 //   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
 //   	DeadLetterQueue: queue,
 //   	 // Optional: add a dead letter queue
-//   	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
+//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
 //   	 // Optional: set the maxEventAge retry policy
 //   	RetryAttempts: jsii.Number(2),
 //   }))

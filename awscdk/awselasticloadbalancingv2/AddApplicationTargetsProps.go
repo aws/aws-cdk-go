@@ -9,7 +9,6 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   var asg autoScalingGroup
-//
 //   var vpc vpc
 //
 //

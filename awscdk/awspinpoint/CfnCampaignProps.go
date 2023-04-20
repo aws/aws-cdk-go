@@ -463,9 +463,7 @@ type CfnCampaignProps struct {
 	AdditionalTreatments interface{} `field:"optional" json:"additionalTreatments" yaml:"additionalTreatments"`
 	// Specifies the Lambda function to use as a code hook for a campaign.
 	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
-	// The delivery configuration settings for sending the treatment through a custom channel.
-	//
-	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	// `AWS::Pinpoint::Campaign.CustomDeliveryConfiguration`.
 	CustomDeliveryConfiguration interface{} `field:"optional" json:"customDeliveryConfiguration" yaml:"customDeliveryConfiguration"`
 	// A custom description of the campaign.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -489,7 +487,7 @@ type CfnCampaignProps struct {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
-	// The message template to use for the treatment.
+	// `AWS::Pinpoint::Campaign.TemplateConfiguration`.
 	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// A custom description of the default treatment for the campaign.
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`

@@ -1,8 +1,6 @@
 package awsimagebuilder
 
 
-// Contains settings for Image Builder image resource and container image scans.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +17,9 @@ package awsimagebuilder
 //   }
 //
 type CfnImage_ImageScanningConfigurationProperty struct {
-	// Contains Amazon ECR settings for vulnerability scans.
+	// `CfnImage.ImageScanningConfigurationProperty.EcrConfiguration`.
 	EcrConfiguration interface{} `field:"optional" json:"ecrConfiguration" yaml:"ecrConfiguration"`
-	// A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	// `CfnImage.ImageScanningConfigurationProperty.ImageScanningEnabled`.
 	ImageScanningEnabled interface{} `field:"optional" json:"imageScanningEnabled" yaml:"imageScanningEnabled"`
 }
 

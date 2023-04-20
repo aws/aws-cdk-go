@@ -16,7 +16,6 @@ import (
 // A convenience class for CodeBuild Projects that are used in CodePipeline.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution

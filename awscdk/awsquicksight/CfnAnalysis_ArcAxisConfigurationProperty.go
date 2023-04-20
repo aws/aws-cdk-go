@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The arc axis configuration of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ArcAxisConfigurationProperty struct {
-	// The arc axis range of a `GaugeChartVisual` .
+	// `CfnAnalysis.ArcAxisConfigurationProperty.Range`.
 	Range interface{} `field:"optional" json:"range" yaml:"range"`
-	// The reserved range of the arc axis.
+	// `CfnAnalysis.ArcAxisConfigurationProperty.ReserveRange`.
 	ReserveRange *float64 `field:"optional" json:"reserveRange" yaml:"reserveRange"`
 }
 

@@ -24,18 +24,23 @@ import (
 //
 // Example:
 //   var listener applicationListener
+//   var myTargetGroup applicationTargetGroup
 //
 //
-//   listener.AddAction(jsii.String("Fixed"), &AddApplicationActionProps{
-//   	Priority: jsii.Number(10),
-//   	Conditions: []listenerCondition{
-//   		elbv2.*listenerCondition_PathPatterns([]*string{
-//   			jsii.String("/ok"),
+//   listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
+//   	Action: elbv2.ListenerAction_AuthenticateOidc(&AuthenticateOidcOptions{
+//   		AuthorizationEndpoint: jsii.String("https://example.com/openid"),
+//   		// Other OIDC properties here
+//   		ClientId: jsii.String("..."),
+//   		ClientSecret: awscdk.SecretValue_SecretsManager(jsii.String("...")),
+//   		Issuer: jsii.String("..."),
+//   		TokenEndpoint: jsii.String("..."),
+//   		UserInfoEndpoint: jsii.String("..."),
+//
+//   		// Next
+//   		Next: elbv2.ListenerAction_Forward([]iApplicationTargetGroup{
+//   			myTargetGroup,
 //   		}),
-//   	},
-//   	Action: elbv2.ListenerAction_FixedResponse(jsii.Number(200), &FixedResponseOptions{
-//   		ContentType: jsii.String("text/plain"),
-//   		MessageBody: jsii.String("OK"),
 //   	}),
 //   })
 //

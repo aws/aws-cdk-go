@@ -4,7 +4,6 @@ package awsappmesh
 // gRPC events.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -34,7 +33,7 @@ package awsappmesh
 //   				appmesh.*grpcRetryEvent_UNAVAILABLE,
 //   			},
 //   			RetryAttempts: jsii.Number(5),
-//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })

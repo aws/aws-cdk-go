@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field well of the filled map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -506,13 +504,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilledMapAggregatedFieldWellsProperty struct {
-	// The aggregated location field well of the filled map.
-	//
-	// Values are grouped by location fields.
+	// `CfnAnalysis.FilledMapAggregatedFieldWellsProperty.Geospatial`.
 	Geospatial interface{} `field:"optional" json:"geospatial" yaml:"geospatial"`
-	// The aggregated color field well of a filled map.
-	//
-	// Values are aggregated based on location fields.
+	// `CfnAnalysis.FilledMapAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

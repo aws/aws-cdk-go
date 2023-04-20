@@ -16,16 +16,15 @@ import (
 // this class.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import "github.com/aws-samples/dummy/awscdklib/awskinesisfirehose"
-//   var stream DeliveryStream
+//   import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   var stream deliveryStream
 //
 //
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
 //
 //   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
 //   	Topic: Topic,
-//   	Endpoint: stream.deliveryStreamArn,
+//   	Endpoint: stream.DeliveryStreamArn,
 //   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
 //   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })

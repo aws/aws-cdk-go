@@ -912,7 +912,7 @@ type CfnComponentProps struct {
 	//
 	// A variant is a unique style configuration of a main component.
 	Variants interface{} `field:"required" json:"variants" yaml:"variants"`
-	// The unique ID of the Amplify app associated with the component.
+	// `AWS::AmplifyUIBuilder::Component.AppId`.
 	AppId *string `field:"optional" json:"appId" yaml:"appId"`
 	// A list of the component's `ComponentChild` instances.
 	Children interface{} `field:"optional" json:"children" yaml:"children"`
@@ -920,13 +920,13 @@ type CfnComponentProps struct {
 	//
 	// Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties interface{} `field:"optional" json:"collectionProperties" yaml:"collectionProperties"`
-	// The name of the backend environment that is a part of the Amplify app.
+	// `AWS::AmplifyUIBuilder::Component.EnvironmentName`.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// Describes the events that can be raised on the component.
 	//
 	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
 	Events interface{} `field:"optional" json:"events" yaml:"events"`
-	// The schema version of the component when it was imported.
+	// `AWS::AmplifyUIBuilder::Component.SchemaVersion`.
 	SchemaVersion *string `field:"optional" json:"schemaVersion" yaml:"schemaVersion"`
 	// The unique ID of the component in its original source system, such as Figma.
 	SourceId *string `field:"optional" json:"sourceId" yaml:"sourceId"`

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a tree map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -992,23 +990,23 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TreeMapConfigurationProperty struct {
-	// The label options (label text, label visibility) for the colors displayed in a tree map.
+	// `CfnDashboard.TreeMapConfigurationProperty.ColorLabelOptions`.
 	ColorLabelOptions interface{} `field:"optional" json:"colorLabelOptions" yaml:"colorLabelOptions"`
-	// The color options (gradient color, point of divergence) of a tree map.
+	// `CfnDashboard.TreeMapConfigurationProperty.ColorScale`.
 	ColorScale interface{} `field:"optional" json:"colorScale" yaml:"colorScale"`
-	// The options that determine if visual data labels are displayed.
+	// `CfnDashboard.TreeMapConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field wells of the visual.
+	// `CfnDashboard.TreeMapConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The label options (label text, label visibility) of the groups that are displayed in a tree map.
+	// `CfnDashboard.TreeMapConfigurationProperty.GroupLabelOptions`.
 	GroupLabelOptions interface{} `field:"optional" json:"groupLabelOptions" yaml:"groupLabelOptions"`
-	// The legend display setup of the visual.
+	// `CfnDashboard.TreeMapConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The label options (label text, label visibility) of the sizes that are displayed in a tree map.
+	// `CfnDashboard.TreeMapConfigurationProperty.SizeLabelOptions`.
 	SizeLabelOptions interface{} `field:"optional" json:"sizeLabelOptions" yaml:"sizeLabelOptions"`
-	// The sort configuration of a tree map.
+	// `CfnDashboard.TreeMapConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The tooltip display setup of the visual.
+	// `CfnDashboard.TreeMapConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
 }
 

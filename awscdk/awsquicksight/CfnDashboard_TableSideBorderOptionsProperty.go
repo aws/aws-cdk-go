@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The side border options for a table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -42,17 +40,17 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableSideBorderOptionsProperty struct {
-	// The table border options of the bottom border.
+	// `CfnDashboard.TableSideBorderOptionsProperty.Bottom`.
 	Bottom interface{} `field:"optional" json:"bottom" yaml:"bottom"`
-	// The table border options of the inner horizontal border.
+	// `CfnDashboard.TableSideBorderOptionsProperty.InnerHorizontal`.
 	InnerHorizontal interface{} `field:"optional" json:"innerHorizontal" yaml:"innerHorizontal"`
-	// The table border options of the inner vertical border.
+	// `CfnDashboard.TableSideBorderOptionsProperty.InnerVertical`.
 	InnerVertical interface{} `field:"optional" json:"innerVertical" yaml:"innerVertical"`
-	// The table border options of the left border.
+	// `CfnDashboard.TableSideBorderOptionsProperty.Left`.
 	Left interface{} `field:"optional" json:"left" yaml:"left"`
-	// The table border options of the right border.
+	// `CfnDashboard.TableSideBorderOptionsProperty.Right`.
 	Right interface{} `field:"optional" json:"right" yaml:"right"`
-	// The table border options of the top border.
+	// `CfnDashboard.TableSideBorderOptionsProperty.Top`.
 	Top interface{} `field:"optional" json:"top" yaml:"top"`
 }
 

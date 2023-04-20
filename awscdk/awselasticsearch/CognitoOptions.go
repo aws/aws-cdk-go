@@ -7,7 +7,6 @@ import (
 // Configures Amazon ES to use Amazon Cognito authentication for Kibana.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   es.NewDomain(this, jsii.String("Domain"), &DomainProps{
 //   	CognitoKibanaAuth: &CognitoOptions{
 //   		IdentityPoolId: jsii.String("test-identity-pool-id"),

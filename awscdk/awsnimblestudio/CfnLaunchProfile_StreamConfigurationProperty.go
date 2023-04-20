@@ -51,12 +51,7 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	Ec2InstanceTypes *[]*string `field:"required" json:"ec2InstanceTypes" yaml:"ec2InstanceTypes"`
 	// The streaming images that users can select from when launching a streaming session with this launch profile.
 	StreamingImageIds *[]*string `field:"required" json:"streamingImageIds" yaml:"streamingImageIds"`
-	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-	//
-	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-	//
-	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
+	// `CfnLaunchProfile.StreamConfigurationProperty.AutomaticTerminationMode`.
 	AutomaticTerminationMode *string `field:"optional" json:"automaticTerminationMode" yaml:"automaticTerminationMode"`
 	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated.
 	//
@@ -72,17 +67,13 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	//
 	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 	MaxStoppedSessionLengthInMinutes *float64 `field:"optional" json:"maxStoppedSessionLengthInMinutes" yaml:"maxStoppedSessionLengthInMinutes"`
-	// Information about the streaming session backup.
+	// `CfnLaunchProfile.StreamConfigurationProperty.SessionBackup`.
 	SessionBackup interface{} `field:"optional" json:"sessionBackup" yaml:"sessionBackup"`
-	// Determine if a streaming session created from this launch profile can configure persistent storage.
-	//
-	// This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+	// `CfnLaunchProfile.StreamConfigurationProperty.SessionPersistenceMode`.
 	SessionPersistenceMode *string `field:"optional" json:"sessionPersistenceMode" yaml:"sessionPersistenceMode"`
 	// The upload storage for a streaming session.
 	SessionStorage interface{} `field:"optional" json:"sessionStorage" yaml:"sessionStorage"`
-	// Custom volume configuration for the root volumes that are attached to streaming sessions.
-	//
-	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
+	// `CfnLaunchProfile.StreamConfigurationProperty.VolumeConfiguration`.
 	VolumeConfiguration interface{} `field:"optional" json:"volumeConfiguration" yaml:"volumeConfiguration"`
 }
 

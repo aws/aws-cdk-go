@@ -78,7 +78,9 @@ type CfnEnvironmentProps struct {
 	AirflowConfigurationOptions interface{} `field:"optional" json:"airflowConfigurationOptions" yaml:"airflowConfigurationOptions"`
 	// The version of Apache Airflow to use for the environment.
 	//
-	// If no value is specified, defaults to the latest version. Valid values: `2.0.2` , `1.10.12` , `2.2.2` , and `2.4.3` .
+	// If no value is specified, defaults to the latest version.
+	//
+	// *Allowed Values* : `2.0.2` | `1.10.12` | `2.2.2` | `2.4.3` | `2.5.1` (latest)
 	AirflowVersion *string `field:"optional" json:"airflowVersion" yaml:"airflowVersion"`
 	// The relative path to the DAGs folder on your Amazon S3 bucket.
 	//

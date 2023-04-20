@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -868,11 +866,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_KPIConfigurationProperty struct {
-	// The field well configuration of a KPI visual.
+	// `CfnAnalysis.KPIConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The options that determine the presentation of a KPI visual.
+	// `CfnAnalysis.KPIConfigurationProperty.KPIOptions`.
 	KpiOptions interface{} `field:"optional" json:"kpiOptions" yaml:"kpiOptions"`
-	// The sort configuration of a KPI visual.
+	// `CfnAnalysis.KPIConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
 }
 

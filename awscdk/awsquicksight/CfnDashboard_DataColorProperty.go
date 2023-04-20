@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the color that is applied to a particular data value.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DataColorProperty struct {
-	// The color that is applied to the data value.
+	// `CfnDashboard.DataColorProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
-	// The data value that the color is applied to.
+	// `CfnDashboard.DataColorProperty.DataValue`.
 	DataValue *float64 `field:"optional" json:"dataValue" yaml:"dataValue"`
 }
 

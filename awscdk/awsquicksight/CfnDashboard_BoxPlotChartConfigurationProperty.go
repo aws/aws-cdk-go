@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a `BoxPlotVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -917,27 +915,27 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_BoxPlotChartConfigurationProperty struct {
-	// The box plot chart options for a box plot visual.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.BoxPlotOptions`.
 	BoxPlotOptions interface{} `field:"optional" json:"boxPlotOptions" yaml:"boxPlotOptions"`
-	// The label display options (grid line, range, scale, axis step) of a box plot category.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.CategoryAxis`.
 	CategoryAxis interface{} `field:"optional" json:"categoryAxis" yaml:"categoryAxis"`
-	// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.CategoryLabelOptions`.
 	CategoryLabelOptions interface{} `field:"optional" json:"categoryLabelOptions" yaml:"categoryLabelOptions"`
-	// The field wells of the visual.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
 	// `CfnDashboard.BoxPlotChartConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The label display options (grid line, range, scale, axis step) of a box plot category.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.PrimaryYAxisDisplayOptions`.
 	PrimaryYAxisDisplayOptions interface{} `field:"optional" json:"primaryYAxisDisplayOptions" yaml:"primaryYAxisDisplayOptions"`
-	// The label options (label text, label visibility and sort icon visibility) of a box plot value.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.PrimaryYAxisLabelOptions`.
 	PrimaryYAxisLabelOptions interface{} `field:"optional" json:"primaryYAxisLabelOptions" yaml:"primaryYAxisLabelOptions"`
-	// The reference line setup of the visual.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.ReferenceLines`.
 	ReferenceLines interface{} `field:"optional" json:"referenceLines" yaml:"referenceLines"`
-	// The sort configuration of a `BoxPlotVisual` .
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The tooltip display setup of the visual.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// The palette (chart color) display setup of the visual.
+	// `CfnDashboard.BoxPlotChartConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
 }
 

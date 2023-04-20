@@ -1,8 +1,6 @@
 package awspersonalize
 
 
-// Describes the properties for hyperparameter optimization (HPO).
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,13 +43,11 @@ package awspersonalize
 //   }
 //
 type CfnSolution_HpoConfigProperty struct {
-	// The hyperparameters and their allowable ranges.
+	// `CfnSolution.HpoConfigProperty.AlgorithmHyperParameterRanges`.
 	AlgorithmHyperParameterRanges interface{} `field:"optional" json:"algorithmHyperParameterRanges" yaml:"algorithmHyperParameterRanges"`
-	// The metric to optimize during HPO.
-	//
-	// > Amazon Personalize doesn't support configuring the `hpoObjective` at this time.
+	// `CfnSolution.HpoConfigProperty.HpoObjective`.
 	HpoObjective interface{} `field:"optional" json:"hpoObjective" yaml:"hpoObjective"`
-	// Describes the resource configuration for HPO.
+	// `CfnSolution.HpoConfigProperty.HpoResourceConfig`.
 	HpoResourceConfig interface{} `field:"optional" json:"hpoResourceConfig" yaml:"hpoResourceConfig"`
 }
 

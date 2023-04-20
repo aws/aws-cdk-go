@@ -24,7 +24,6 @@ import (
 // troubleshooting them. You would typically choose this mode for testing.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // in stack for account 123456789012...

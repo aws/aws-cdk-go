@@ -2011,6 +2011,7 @@ func init() {
 		reflect.TypeOf((*IPolicyValidationPluginBeta1)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleIds", GoGetter: "RuleIds"},
 			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},

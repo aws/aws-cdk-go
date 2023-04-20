@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The custom text content (value, font configuration) for the table link content configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,9 +24,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableFieldCustomTextContentProperty struct {
-	// The font configuration of the custom text content for the table URL link content.
+	// `CfnTemplate.TableFieldCustomTextContentProperty.FontConfiguration`.
 	FontConfiguration interface{} `field:"required" json:"fontConfiguration" yaml:"fontConfiguration"`
-	// The string value of the custom text content for the table URL link content.
+	// `CfnTemplate.TableFieldCustomTextContentProperty.Value`.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

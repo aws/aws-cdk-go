@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of trend arrows in a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TrendArrowOptionsProperty struct {
-	// The visibility of the trend arrows.
+	// `CfnDashboard.TrendArrowOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

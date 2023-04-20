@@ -4,7 +4,6 @@ package awsappmesh
 // Connection pool properties for gRPC listeners.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
 //

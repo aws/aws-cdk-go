@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field wells for a table visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -733,9 +729,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableFieldWellsProperty struct {
-	// The aggregated field well for the table.
+	// `CfnTemplate.TableFieldWellsProperty.TableAggregatedFieldWells`.
 	TableAggregatedFieldWells interface{} `field:"optional" json:"tableAggregatedFieldWells" yaml:"tableAggregatedFieldWells"`
-	// The unaggregated field well for the table.
+	// `CfnTemplate.TableFieldWellsProperty.TableUnaggregatedFieldWells`.
 	TableUnaggregatedFieldWells interface{} `field:"optional" json:"tableUnaggregatedFieldWells" yaml:"tableUnaggregatedFieldWells"`
 }
 

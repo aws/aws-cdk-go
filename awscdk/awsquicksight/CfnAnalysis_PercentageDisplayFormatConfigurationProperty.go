@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the percentage display format configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,17 +28,17 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PercentageDisplayFormatConfigurationProperty struct {
-	// The option that determines the decimal places configuration.
+	// `CfnAnalysis.PercentageDisplayFormatConfigurationProperty.DecimalPlacesConfiguration`.
 	DecimalPlacesConfiguration interface{} `field:"optional" json:"decimalPlacesConfiguration" yaml:"decimalPlacesConfiguration"`
-	// The options that determine the negative value configuration.
+	// `CfnAnalysis.PercentageDisplayFormatConfigurationProperty.NegativeValueConfiguration`.
 	NegativeValueConfiguration interface{} `field:"optional" json:"negativeValueConfiguration" yaml:"negativeValueConfiguration"`
-	// The options that determine the null value format configuration.
+	// `CfnAnalysis.PercentageDisplayFormatConfigurationProperty.NullValueFormatConfiguration`.
 	NullValueFormatConfiguration interface{} `field:"optional" json:"nullValueFormatConfiguration" yaml:"nullValueFormatConfiguration"`
-	// Determines the prefix value of the percentage format.
+	// `CfnAnalysis.PercentageDisplayFormatConfigurationProperty.Prefix`.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
-	// The options that determine the numeric separator configuration.
+	// `CfnAnalysis.PercentageDisplayFormatConfigurationProperty.SeparatorConfiguration`.
 	SeparatorConfiguration interface{} `field:"optional" json:"separatorConfiguration" yaml:"separatorConfiguration"`
-	// Determines the suffix value of the percentage format.
+	// `CfnAnalysis.PercentageDisplayFormatConfigurationProperty.Suffix`.
 	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 

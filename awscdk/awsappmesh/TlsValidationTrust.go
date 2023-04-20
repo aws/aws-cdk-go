@@ -11,7 +11,6 @@ import (
 // Defines the TLS Validation Context Trust.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -24,13 +23,13 @@ import (
 //   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
-//   				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 //   				Path: jsii.String("/ping"),
-//   				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),
 //   			Timeout: &HttpTimeout{
-//   				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
+//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
 //   			},
 //   		}),
 //   	},

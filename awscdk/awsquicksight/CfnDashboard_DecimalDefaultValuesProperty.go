@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The default values of the `DecimalParameterDeclaration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,11 +29,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DecimalDefaultValuesProperty struct {
-	// The dynamic value of the `DecimalDefaultValues` .
-	//
-	// Different defaults are displayed according to users, groups, and values mapping.
+	// `CfnDashboard.DecimalDefaultValuesProperty.DynamicValue`.
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
-	// The static values of the `DecimalDefaultValues` .
+	// `CfnDashboard.DecimalDefaultValuesProperty.StaticValues`.
 	StaticValues interface{} `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

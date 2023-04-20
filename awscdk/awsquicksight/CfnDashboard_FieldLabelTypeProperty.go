@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field label type.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FieldLabelTypeProperty struct {
-	// Indicates the field that is targeted by the field label.
+	// `CfnDashboard.FieldLabelTypeProperty.FieldId`.
 	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
-	// The visibility of the field label.
+	// `CfnDashboard.FieldLabelTypeProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

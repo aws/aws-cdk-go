@@ -31908,7 +31908,7 @@ type CfnAnalysis interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Status associated with the analysis.
+	// `AWS::QuickSight::Analysis.Status`.
 	Status() *string
 	SetStatus(val *string)
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.

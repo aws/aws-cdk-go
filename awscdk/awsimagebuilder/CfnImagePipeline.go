@@ -86,7 +86,7 @@ type CfnImagePipeline interface {
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
-	// Contains settings for vulnerability scans.
+	// `AWS::ImageBuilder::ImagePipeline.ImageScanningConfiguration`.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.

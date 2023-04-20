@@ -13,7 +13,7 @@ import (
 //   // The values are placeholders you should change.
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
-//   memory := apprunner_alpha.Memory_FOUR_GB()
+//   memory := apprunner_alpha.Memory_EIGHT_GB()
 //
 // Experimental.
 type Memory interface {
@@ -60,6 +60,17 @@ func Memory_Of(unit *string) Memory {
 	return returns
 }
 
+func Memory_EIGHT_GB() Memory {
+	_init_.Initialize()
+	var returns Memory
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Memory",
+		"EIGHT_GB",
+		&returns,
+	)
+	return returns
+}
+
 func Memory_FOUR_GB() Memory {
 	_init_.Initialize()
 	var returns Memory
@@ -71,12 +82,67 @@ func Memory_FOUR_GB() Memory {
 	return returns
 }
 
+func Memory_HALF_GB() Memory {
+	_init_.Initialize()
+	var returns Memory
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Memory",
+		"HALF_GB",
+		&returns,
+	)
+	return returns
+}
+
+func Memory_ONE_GB() Memory {
+	_init_.Initialize()
+	var returns Memory
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Memory",
+		"ONE_GB",
+		&returns,
+	)
+	return returns
+}
+
+func Memory_SIX_GB() Memory {
+	_init_.Initialize()
+	var returns Memory
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Memory",
+		"SIX_GB",
+		&returns,
+	)
+	return returns
+}
+
+func Memory_TEN_GB() Memory {
+	_init_.Initialize()
+	var returns Memory
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Memory",
+		"TEN_GB",
+		&returns,
+	)
+	return returns
+}
+
 func Memory_THREE_GB() Memory {
 	_init_.Initialize()
 	var returns Memory
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-apprunner-alpha.Memory",
 		"THREE_GB",
+		&returns,
+	)
+	return returns
+}
+
+func Memory_TWELVE_GB() Memory {
+	_init_.Initialize()
+	var returns Memory
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Memory",
+		"TWELVE_GB",
 		&returns,
 	)
 	return returns

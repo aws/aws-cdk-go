@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field wells of a radar chart visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -751,7 +749,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_RadarChartFieldWellsProperty struct {
-	// The aggregated field wells of a radar chart visual.
+	// `CfnAnalysis.RadarChartFieldWellsProperty.RadarChartAggregatedFieldWells`.
 	RadarChartAggregatedFieldWells interface{} `field:"optional" json:"radarChartAggregatedFieldWells" yaml:"radarChartAggregatedFieldWells"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Defines different defaults to the users or groups based on mapping.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,11 +24,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DynamicDefaultValueProperty struct {
-	// The column that contains the default value of each user or group.
+	// `CfnDashboard.DynamicDefaultValueProperty.DefaultValueColumn`.
 	DefaultValueColumn interface{} `field:"required" json:"defaultValueColumn" yaml:"defaultValueColumn"`
-	// The column that contains the group name.
+	// `CfnDashboard.DynamicDefaultValueProperty.GroupNameColumn`.
 	GroupNameColumn interface{} `field:"optional" json:"groupNameColumn" yaml:"groupNameColumn"`
-	// The column that contains the username.
+	// `CfnDashboard.DynamicDefaultValueProperty.UserNameColumn`.
 	UserNameColumn interface{} `field:"optional" json:"userNameColumn" yaml:"userNameColumn"`
 }
 

@@ -48,7 +48,6 @@ type GatewayVpcEndpointOptions struct {
 	// Specify a list of subnet selection objects here to be more specific.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var vpc vpc
 	//
 	//

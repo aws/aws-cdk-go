@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a page break after a section.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SectionAfterPageBreakProperty struct {
-	// The option that enables or disables a page break at the end of a section.
+	// `CfnAnalysis.SectionAfterPageBreakProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

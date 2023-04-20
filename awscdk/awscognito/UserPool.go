@@ -14,14 +14,22 @@ import (
 // Define a Cognito User Pool.
 //
 // Example:
-//   poolSmsRole := iam.NewRole(this, jsii.String("userpoolsmsrole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("foo")),
-//   })
-//
-//   cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
-//   	// ...
-//   	SmsRole: poolSmsRole,
-//   	SmsRoleExternalId: jsii.String("c87467be-4f34-11ea-b77f-2e728ce88125"),
+//   pool := cognito.NewUserPool(this, jsii.String("Pool"))
+//   pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+//   	OAuth: &OAuthSettings{
+//   		Flows: &OAuthFlows{
+//   			AuthorizationCodeGrant: jsii.Boolean(true),
+//   		},
+//   		Scopes: []oAuthScope{
+//   			cognito.*oAuthScope_OPENID(),
+//   		},
+//   		CallbackUrls: []*string{
+//   			jsii.String("https://my-app-domain.com/welcome"),
+//   		},
+//   		LogoutUrls: []*string{
+//   			jsii.String("https://my-app-domain.com/signin"),
+//   		},
+//   	},
 //   })
 //
 type UserPool interface {

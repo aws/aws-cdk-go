@@ -22,7 +22,6 @@ import (
 // This construct is backed by a custom resource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   tagParam := awscdk.NewCfnParameter(this, jsii.String("TagName"))
 //
 //   stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &CfnJsonProps{

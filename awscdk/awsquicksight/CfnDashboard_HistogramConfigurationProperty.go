@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a `HistogramVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -513,21 +511,21 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_HistogramConfigurationProperty struct {
-	// The options that determine the presentation of histogram bins.
+	// `CfnDashboard.HistogramConfigurationProperty.BinOptions`.
 	BinOptions interface{} `field:"optional" json:"binOptions" yaml:"binOptions"`
-	// The data label configuration of a histogram.
+	// `CfnDashboard.HistogramConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field well configuration of a histogram.
+	// `CfnDashboard.HistogramConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The tooltip configuration of a histogram.
+	// `CfnDashboard.HistogramConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// The visual palette configuration of a histogram.
+	// `CfnDashboard.HistogramConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
-	// The options that determine the presentation of the x-axis.
+	// `CfnDashboard.HistogramConfigurationProperty.XAxisDisplayOptions`.
 	XAxisDisplayOptions interface{} `field:"optional" json:"xAxisDisplayOptions" yaml:"xAxisDisplayOptions"`
-	// The options that determine the presentation of the x-axis label.
+	// `CfnDashboard.HistogramConfigurationProperty.XAxisLabelOptions`.
 	XAxisLabelOptions interface{} `field:"optional" json:"xAxisLabelOptions" yaml:"xAxisLabelOptions"`
-	// The options that determine the presentation of the y-axis.
+	// `CfnDashboard.HistogramConfigurationProperty.YAxisDisplayOptions`.
 	YAxisDisplayOptions interface{} `field:"optional" json:"yAxisDisplayOptions" yaml:"yAxisDisplayOptions"`
 }
 

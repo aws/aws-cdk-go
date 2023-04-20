@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The set parameter operation that sets parameters in custom action.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,7 +39,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_CustomActionSetParametersOperationProperty struct {
-	// The parameter that determines the value configuration.
+	// `CfnTemplate.CustomActionSetParametersOperationProperty.ParameterValueConfigurations`.
 	ParameterValueConfigurations interface{} `field:"required" json:"parameterValueConfigurations" yaml:"parameterValueConfigurations"`
 }
 

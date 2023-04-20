@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a `FunnelChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,9 +41,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FunnelChartSortConfigurationProperty struct {
-	// The limit on the number of categories displayed.
+	// `CfnDashboard.FunnelChartSortConfigurationProperty.CategoryItemsLimit`.
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
-	// The sort configuration of the category fields.
+	// `CfnDashboard.FunnelChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field well of a scatter plot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1008,17 +1006,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ScatterPlotCategoricallyAggregatedFieldWellsProperty struct {
-	// The category field well of a scatter plot.
+	// `CfnTemplate.ScatterPlotCategoricallyAggregatedFieldWellsProperty.Category`.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
-	// The size field well of a scatter plot.
+	// `CfnTemplate.ScatterPlotCategoricallyAggregatedFieldWellsProperty.Size`.
 	Size interface{} `field:"optional" json:"size" yaml:"size"`
-	// The x-axis field well of a scatter plot.
-	//
-	// The x-axis is aggregated by category.
+	// `CfnTemplate.ScatterPlotCategoricallyAggregatedFieldWellsProperty.XAxis`.
 	XAxis interface{} `field:"optional" json:"xAxis" yaml:"xAxis"`
-	// The y-axis field well of a scatter plot.
-	//
-	// The y-axis is aggregated by category.
+	// `CfnTemplate.ScatterPlotCategoricallyAggregatedFieldWellsProperty.YAxis`.
 	YAxis interface{} `field:"optional" json:"yAxis" yaml:"yAxis"`
 }
 

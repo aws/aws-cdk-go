@@ -7,18 +7,11 @@ import (
 // Configuration for AWS Backup Vault Lock.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   lockConfiguration := &LockConfiguration{
-//   	MinRetention: cdk.Duration_Minutes(jsii.Number(30)),
-//
-//   	// the properties below are optional
-//   	ChangeableFor: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	MaxRetention: cdk.Duration_*Minutes(jsii.Number(30)),
-//   }
+//   backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
+//   	LockConfiguration: &LockConfiguration{
+//   		MinRetention: awscdk.Duration_Days(jsii.Number(30)),
+//   	},
+//   })
 //
 // See: https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html
 //

@@ -7,7 +7,6 @@ import (
 // Options when downloading files from S3.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instance instance

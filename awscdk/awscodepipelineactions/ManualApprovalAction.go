@@ -14,7 +14,6 @@ import (
 // Manual approval action.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   approveStage := pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Approve"),

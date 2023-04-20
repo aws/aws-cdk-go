@@ -12,7 +12,6 @@ import (
 // Represents credentials used to access a Docker registry.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   dockerHubSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
 //   customRegSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("CRSecret"), jsii.String("arn:aws:..."))
 //   repo1 := ecr.Repository_FromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo1"))

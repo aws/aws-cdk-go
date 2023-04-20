@@ -131,10 +131,9 @@ To override this and force all images to get deleted during repository deletion,
 enable the`autoDeleteImages` option.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-repository := NewRepository(this, jsii.String("MyTempRepo"), map[string]interface{}{
-	"removalPolicy": RemovalPolicy_DESTROY,
-	"autoDeleteImages": jsii.Boolean(true),
+repository := ecr.NewRepository(this, jsii.String("MyTempRepo"), &RepositoryProps{
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+	AutoDeleteImages: jsii.Boolean(true),
 })
 ```
 

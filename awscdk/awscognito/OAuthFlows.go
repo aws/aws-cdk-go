@@ -4,22 +4,24 @@ package awscognito
 // Types of OAuth grant flows.
 //
 // Example:
-//   pool := cognito.NewUserPool(this, jsii.String("Pool"))
-//   pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+//   userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &UserPoolProps{
+//   })
+//   client := userpool.addClient(jsii.String("Client"), &UserPoolClientOptions{
+//   	// ...
 //   	OAuth: &OAuthSettings{
 //   		Flows: &OAuthFlows{
-//   			AuthorizationCodeGrant: jsii.Boolean(true),
-//   		},
-//   		Scopes: []oAuthScope{
-//   			cognito.*oAuthScope_OPENID(),
+//   			ImplicitCodeGrant: jsii.Boolean(true),
 //   		},
 //   		CallbackUrls: []*string{
-//   			jsii.String("https://my-app-domain.com/welcome"),
-//   		},
-//   		LogoutUrls: []*string{
-//   			jsii.String("https://my-app-domain.com/signin"),
+//   			jsii.String("https://myapp.com/home"),
+//   			jsii.String("https://myapp.com/users"),
 //   		},
 //   	},
+//   })
+//   domain := userpool.addDomain(jsii.String("Domain"), &UserPoolDomainOptions{
+//   })
+//   signInUrl := domain.SignInUrl(client, &SignInUrlOptions{
+//   	RedirectUri: jsii.String("https://myapp.com/home"),
 //   })
 //
 // See:  - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html

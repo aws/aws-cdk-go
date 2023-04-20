@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the bin width of a histogram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_BinWidthOptionsProperty struct {
-	// The options that determine the bin count limit.
+	// `CfnAnalysis.BinWidthOptionsProperty.BinCountLimit`.
 	BinCountLimit *float64 `field:"optional" json:"binCountLimit" yaml:"binCountLimit"`
-	// The options that determine the bin width value.
+	// `CfnAnalysis.BinWidthOptionsProperty.Value`.
 	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 

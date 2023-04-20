@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the gradient color settings.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,7 +19,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GradientColorProperty struct {
-	// The list of gradient color stops.
+	// `CfnDashboard.GradientColorProperty.Stops`.
 	Stops interface{} `field:"optional" json:"stops" yaml:"stops"`
 }
 

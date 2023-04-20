@@ -14,7 +14,6 @@ import (
 // **Note**: this class is still experimental, and may have breaking changes in the future!
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   cdkBuildOutput := codepipeline.NewArtifact()
 //   serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&ServiceCatalogDeployActionBeta1Props{
 //   	ActionName: jsii.String("ServiceCatalogDeploy"),

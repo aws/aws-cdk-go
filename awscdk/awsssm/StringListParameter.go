@@ -14,8 +14,7 @@ import (
 // Creates a new StringList SSM Parameter.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   ssm.StringListParameter_ValueForTypedListParameter(stack, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
+//   ssm.StringListParameter_ValueForTypedListParameter(this, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
 //
 type StringListParameter interface {
 	awscdk.Resource

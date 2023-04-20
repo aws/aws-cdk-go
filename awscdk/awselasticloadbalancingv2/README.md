@@ -16,7 +16,6 @@ and adding Targets to the Listener:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 var asg autoScalingGroup
-
 var vpc vpc
 
 
@@ -220,7 +219,9 @@ ingress rules then set `open: false` and use the listener's `connections` object
 You can modify attributes of Application Load Balancers:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var vpc vpc
+
+
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
@@ -229,7 +230,7 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 	Http2Enabled: jsii.Boolean(false),
 
 	// The idle timeout value, in seconds
-	IdleTimeout: cdk.duration_Seconds(jsii.Number(1000)),
+	IdleTimeout: awscdk.Duration_Seconds(jsii.Number(1000)),
 
 	// Whether HTTP headers with header fields thatare not valid
 	// are removed by the load balancer (true), or routed to targets
@@ -662,7 +663,6 @@ You may create metrics for Load Balancers and Target Groups through the `metrics
 **Load Balancer:**
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var alb iApplicationLoadBalancer
 
 
@@ -673,7 +673,6 @@ metricConnectionCount := albMetrics.ActiveConnectionCount()
 **Target Group:**
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var targetGroup iApplicationTargetGroup
 
 
@@ -684,13 +683,12 @@ metricHealthyHostCount := targetGroupMetrics.HealthyHostCount()
 Metrics are also available to imported resources:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var stack stack
 
 
-targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
-	TargetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
-	LoadBalancerArns: *fn_*ImportValue(jsii.String("LoadBalancerArn")),
+targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
+	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
+	LoadBalancerArns: awscdk.Fn_*ImportValue(jsii.String("LoadBalancerArn")),
 })
 
 targetGroupMetrics := targetGroup.Metrics
@@ -700,11 +698,10 @@ Notice that TargetGroups must be imported by supplying the Load Balancer too, ot
 throw an error:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var stack stack
 
-targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
-	TargetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
+targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
+	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
 })
 
 targetGroupMetrics := targetGroup.Metrics

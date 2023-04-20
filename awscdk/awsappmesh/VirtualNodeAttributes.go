@@ -4,7 +4,6 @@ package awsappmesh
 // Interface with properties necessary to import a reusable VirtualNode.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   virtualNodeName := "my-virtual-node"
 //   appmesh.VirtualNode_FromVirtualNodeAttributes(this, jsii.String("imported-virtual-node"), &VirtualNodeAttributes{
 //   	Mesh: appmesh.Mesh_FromMeshName(this, jsii.String("Mesh"), jsii.String("testMesh")),

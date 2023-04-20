@@ -164,9 +164,7 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	//
 	// The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, `/welcome.html?language=jp&login=y` .
 	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
-	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control.
-	//
-	// For more information about Route 53 Application Recovery Controller, see [Route 53 Application Recovery Controller Developer Guide.](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html) .
+	// `CfnHealthCheck.HealthCheckConfigProperty.RoutingControlArn`.
 	RoutingControlArn *string `field:"optional" json:"routingControlArn" yaml:"routingControlArn"`
 	// If the value of Type is `HTTP_STR_MATCH` or `HTTPS_STR_MATCH` , the string that you want Amazon Route 53 to search for in the response body from the specified resource.
 	//

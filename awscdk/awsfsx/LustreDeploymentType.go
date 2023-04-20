@@ -4,9 +4,10 @@ package awsfsx
 // The different kinds of file system deployments used by Lustre.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var vpc vpc
-//   var bucket s3.Bucket
+//   var bucket bucket
 //
 //
 //   lustreConfiguration := map[string]interface{}{

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a `PivotTableVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1796,17 +1794,17 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PivotTableConfigurationProperty struct {
-	// The field options for a pivot table visual.
+	// `CfnTemplate.PivotTableConfigurationProperty.FieldOptions`.
 	FieldOptions interface{} `field:"optional" json:"fieldOptions" yaml:"fieldOptions"`
-	// The field wells of the visual.
+	// `CfnTemplate.PivotTableConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The paginated report options for a pivot table visual.
+	// `CfnTemplate.PivotTableConfigurationProperty.PaginatedReportOptions`.
 	PaginatedReportOptions interface{} `field:"optional" json:"paginatedReportOptions" yaml:"paginatedReportOptions"`
-	// The sort configuration for a `PivotTableVisual` .
+	// `CfnTemplate.PivotTableConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The table options for a pivot table visual.
+	// `CfnTemplate.PivotTableConfigurationProperty.TableOptions`.
 	TableOptions interface{} `field:"optional" json:"tableOptions" yaml:"tableOptions"`
-	// The total options for a pivot table visual.
+	// `CfnTemplate.PivotTableConfigurationProperty.TotalOptions`.
 	TotalOptions interface{} `field:"optional" json:"totalOptions" yaml:"totalOptions"`
 }
 

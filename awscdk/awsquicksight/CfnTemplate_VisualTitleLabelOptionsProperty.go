@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The title label options for a visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_VisualTitleLabelOptionsProperty struct {
-	// The short text format of the title label, such as plain text or rich text.
+	// `CfnTemplate.VisualTitleLabelOptionsProperty.FormatText`.
 	FormatText interface{} `field:"optional" json:"formatText" yaml:"formatText"`
-	// The visibility of the title label.
+	// `CfnTemplate.VisualTitleLabelOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

@@ -7,8 +7,6 @@ import (
 // Properties for deploying with Stackset, which creates a StackSet constraint.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var portfolio portfolio
 //   var product cloudFormationProduct
 //

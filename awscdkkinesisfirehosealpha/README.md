@@ -80,8 +80,8 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStream
 
 ### Direct Put
 
-Data must be provided via "direct put", ie., by using a `PutRecord` or `PutRecordBatch` API call. There are a number of ways of doing
-so, such as:
+Data must be provided via "direct put", ie., by using a `PutRecord` or
+`PutRecordBatch` API call. There are a number of ways of doing so, such as:
 
 * Kinesis Agent: a standalone Java application that monitors and delivers files while
   handling file rotation, checkpointing, and retries. See: [Writing to Kinesis Data Firehose Using Kinesis Agent](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-agents.html)
@@ -118,9 +118,9 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStream
 })
 ```
 
-The S3 destination also supports custom dynamic prefixes. `prefix` will be used for files
-successfully delivered to S3. `errorOutputPrefix` will be added to failed records before
-writing them to S3.
+The S3 destination also supports custom dynamic prefixes. `dataOutputPrefix`
+will be used for files successfully delivered to S3. `errorOutputPrefix` will be added to
+failed records before writing them to S3.
 
 ```go
 var bucket bucket
@@ -131,7 +131,8 @@ s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 })
 ```
 
-See: [Custom S3 Prefixes](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) in the *Kinesis Data Firehose Developer Guide*.
+See: [Custom S3 Prefixes](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html)
+in the *Kinesis Data Firehose Developer Guide*.
 
 ## Server-side Encryption
 
@@ -140,35 +141,36 @@ sent to delivery stream when it is stored at rest. This means that data is encry
 before being written to the service's internal storage layer and decrypted after it is
 received from the internal storage layer. The service manages keys and cryptographic
 operations so that sources and destinations do not need to, as the data is encrypted and
-decrypted at the boundaries of the service (ie., before the data is delivered to a
+decrypted at the boundaries of the service (i.e., before the data is delivered to a
 destination). By default, delivery streams do not have SSE enabled.
 
-The Key Management Service (KMS) Customer Managed Key (CMK) used for SSE can either be
-AWS-owned or customer-managed. AWS-owned CMKs are keys that an AWS service (in this case
-Kinesis Data Firehose) owns and manages for use in multiple AWS accounts. As a customer,
-you cannot view, use, track, or manage these keys, and you are not charged for their
-use. On the other hand, customer-managed CMKs are keys that are created and owned within
-your account and managed entirely by you. As a customer, you are responsible for managing
-access, rotation, aliases, and deletion for these keys, and you are changed for their
-use. See: [Customer master keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys)
+The Key Management Service keys (KMS keys) used for SSE can either be AWS-owned or
+customer-managed. AWS-owned KMS keys are created, owned and managed by AWS for use in
+multiple AWS accounts. As a customer, you cannot view, use, track, or manage these keys,
+and you are not charged for their use. On the other hand, customer-managed KMS keys are
+created and owned within your account and managed entirely by you. As a customer, you are
+responsible for managing access, rotation, aliases, and deletion for these keys, and you
+are changed for their use.
+
+See: [AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys)
 in the *KMS Developer Guide*.
 
 ```go
 var destination iDestination
-// SSE with an customer-managed CMK that is explicitly specified
+// SSE with an customer-managed key that is explicitly specified
 var key key
 
 
-// SSE with an AWS-owned CMK
-// SSE with an AWS-owned CMK
+// SSE with an AWS-owned key
+// SSE with an AWS-owned key
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream AWS Owned"), &DeliveryStreamProps{
 	Encryption: firehose.StreamEncryption_AWS_OWNED,
 	Destinations: []*iDestination{
 		destination,
 	},
 })
-// SSE with an customer-managed CMK that is created automatically by the CDK
-// SSE with an customer-managed CMK that is created automatically by the CDK
+// SSE with an customer-managed key that is created automatically by the CDK
+// SSE with an customer-managed key that is created automatically by the CDK
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Implicit Customer Managed"), &DeliveryStreamProps{
 	Encryption: firehose.StreamEncryption_CUSTOMER_MANAGED,
 	Destinations: []*iDestination{
@@ -183,8 +185,8 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Explicit Customer 
 })
 ```
 
-See: [Data Protection](https://docs.aws.amazon.com/firehose/latest/dev/encryption.html) in
-the *Kinesis Data Firehose Developer Guide*.
+See: [Data Protection](https://docs.aws.amazon.com/firehose/latest/dev/encryption.html)
+in the *Kinesis Data Firehose Developer Guide*.
 
 ## Monitoring
 
@@ -197,22 +199,21 @@ Kinesis Data Firehose will send logs to CloudWatch when data transformation or d
 delivery fails. The CDK will enable logging by default and create a CloudWatch LogGroup
 and LogStream for your Delivery Stream.
 
-You can provide a specific log group to specify where the CDK will create the log streams
-where log events will be sent:
+When you create a destination, you can specify a log group. In this log group, The CDK
+will create log streams where log events will be sent:
 
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
 var bucket bucket
-
-var destination iDestination
 
 
 logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))
 destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	LogGroup: logGroup,
 })
+
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []*iDestination{
+	Destinations: []iDestination{
 		destination,
 	},
 })
@@ -255,6 +256,7 @@ are pre-populated with the correct dimensions for the delivery stream.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
+
 var deliveryStream deliveryStream
 
 
@@ -330,12 +332,13 @@ in the *Kinesis Data Firehose Developer Guide*.
 
 ## Destination Encryption
 
-Your data can be automatically encrypted when it is delivered to S3 as a final or
-an intermediary/backup destination. Kinesis Data Firehose supports Amazon S3 server-side
-encryption with AWS Key Management Service (AWS KMS) for encrypting delivered data
-in Amazon S3. You can choose to not encrypt the data or to encrypt with a key from
-the list of AWS KMS keys that you own. For more information, see [Protecting Data
-Using Server-Side Encryption with AWS KMS–Managed Keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html). Data is not encrypted by default.
+Your data can be automatically encrypted when it is delivered to S3 as a final or an
+intermediary/backup destination. Kinesis Data Firehose supports Amazon S3 server-side
+encryption with AWS Key Management Service (AWS KMS) for encrypting delivered data in
+Amazon S3. You can choose to not encrypt the data or to encrypt with a key from the list
+of AWS KMS keys that you own. For more information,
+see [Protecting Data Using Server-Side Encryption with AWS KMS–Managed Keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
+Data is not encrypted by default.
 
 ```go
 var bucket bucket
@@ -353,10 +356,10 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStream
 
 ## Backup
 
-A delivery stream can be configured to backup data to S3 that it attempted to deliver to
+A delivery stream can be configured to back up data to S3 that it attempted to deliver to
 the configured destination. Backed up data can be all the data that the delivery stream
 attempted to deliver or just data that it failed to deliver (Redshift and S3 destinations
-can only backup all data). CDK can create a new S3 bucket where it will back up data or
+can only back up all data). CDK can create a new S3 bucket where it will back up data, or
 you can provide a bucket where data will be backed up. You can also provide a prefix under
 which your backed-up data will be placed within the bucket. By default, source data is not
 backed up to S3.
@@ -424,10 +427,11 @@ result that contains records in a specific format, including the following field
 * `data` -- the transformed data, Base64-encoded.
 
 The data is buffered up to 1 minute and up to 3 MiB by default before being sent to the
-function, but can be configured using `bufferInterval` and `bufferSize` in the processor
-configuration (see: [Buffering](#buffering)). If the function invocation fails due to a
-network timeout or because of hitting an invocation limit, the invocation is retried 3
-times by default, but can be configured using `retries` in the processor configuration.
+function, but can be configured using `bufferInterval` and `bufferSize`
+in the processor configuration (see: [Buffering](#buffering)). If the function invocation
+fails due to a network timeout or because of hitting an invocation limit, the invocation
+is retried 3 times by default, but can be configured using `retries` in the processor
+configuration.
 
 ```go
 var bucket bucket
@@ -578,7 +582,7 @@ in the *Kinesis Data Firehose Developer Guide*.
 IAM roles, users or groups which need to be able to work with delivery streams should be
 granted IAM permissions.
 
-Any object that implements the `IGrantable` interface (ie., has an associated principal)
+Any object that implements the `IGrantable` interface (i.e., has an associated principal)
 can be granted permissions to a delivery stream by calling:
 
 * `grantPutRecords(principal)` - grants the principal the ability to put records onto the
@@ -595,7 +599,8 @@ lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 deliveryStream.grantPutRecords(lambdaRole)
 ```
 
-The following write permissions are provided to a service principal by the `grantPutRecords()` method:
+The following write permissions are provided to a service principal by the
+`grantPutRecords()` method:
 
 * `firehose:PutRecord`
 * `firehose:PutRecordBatch`

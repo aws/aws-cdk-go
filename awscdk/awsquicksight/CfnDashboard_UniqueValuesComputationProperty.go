@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The unique values computation configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -257,11 +255,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_UniqueValuesComputationProperty struct {
-	// The category field that is used in a computation.
+	// `CfnDashboard.UniqueValuesComputationProperty.Category`.
 	Category interface{} `field:"required" json:"category" yaml:"category"`
-	// The ID for a computation.
+	// `CfnDashboard.UniqueValuesComputationProperty.ComputationId`.
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The name of a computation.
+	// `CfnDashboard.UniqueValuesComputationProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

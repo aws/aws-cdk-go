@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the currency display format configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,21 +30,21 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CurrencyDisplayFormatConfigurationProperty struct {
-	// The option that determines the decimal places configuration.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.DecimalPlacesConfiguration`.
 	DecimalPlacesConfiguration interface{} `field:"optional" json:"decimalPlacesConfiguration" yaml:"decimalPlacesConfiguration"`
-	// The options that determine the negative value configuration.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.NegativeValueConfiguration`.
 	NegativeValueConfiguration interface{} `field:"optional" json:"negativeValueConfiguration" yaml:"negativeValueConfiguration"`
-	// The options that determine the null value format configuration.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.NullValueFormatConfiguration`.
 	NullValueFormatConfiguration interface{} `field:"optional" json:"nullValueFormatConfiguration" yaml:"nullValueFormatConfiguration"`
-	// Determines the number scale value for the currency format.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.NumberScale`.
 	NumberScale *string `field:"optional" json:"numberScale" yaml:"numberScale"`
-	// Determines the prefix value of the currency format.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.Prefix`.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
-	// The options that determine the numeric separator configuration.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.SeparatorConfiguration`.
 	SeparatorConfiguration interface{} `field:"optional" json:"separatorConfiguration" yaml:"separatorConfiguration"`
-	// Determines the suffix value of the currency format.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.Suffix`.
 	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
-	// Determines the symbol for the currency format.
+	// `CfnDashboard.CurrencyDisplayFormatConfigurationProperty.Symbol`.
 	Symbol *string `field:"optional" json:"symbol" yaml:"symbol"`
 }
 

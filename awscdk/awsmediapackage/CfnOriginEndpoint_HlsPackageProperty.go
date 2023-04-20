@@ -77,7 +77,7 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	// `CfnOriginEndpoint.HlsPackageProperty.IncludeDvbSubtitles`.
 	IncludeDvbSubtitles interface{} `field:"optional" json:"includeDvbSubtitles" yaml:"includeDvbSubtitles"`
 	// Only applies to stream sets with a single video track.
 	//

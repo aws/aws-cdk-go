@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The option that specifies individual data values for labels.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +13,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DataPathLabelTypeProperty struct {
-	// The field ID of the field that the data label needs to be applied to.
+	// `CfnDashboard.DataPathLabelTypeProperty.FieldId`.
 	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
-	// The actual value of the field that is labeled.
+	// `CfnDashboard.DataPathLabelTypeProperty.FieldValue`.
 	FieldValue *string `field:"optional" json:"fieldValue" yaml:"fieldValue"`
-	// The visibility of the data label.
+	// `CfnDashboard.DataPathLabelTypeProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

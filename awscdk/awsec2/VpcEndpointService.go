@@ -13,7 +13,6 @@ import (
 // A VPC endpoint service.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var networkLoadBalancer1 networkLoadBalancer
 //   var networkLoadBalancer2 networkLoadBalancer
 //

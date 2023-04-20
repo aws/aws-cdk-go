@@ -11,12 +11,24 @@ import (
 // Represents a CloudFormation resource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var bucket bucket
+//   type myConstruct struct {
+//   	resource
+//   	tags
+//   }
 //
+//   func newMyConstruct(scope construct, id *string) *myConstruct {
+//   	this := &myConstruct{}
+//   	newResource_Override(this, scope, id)
 //
-//   cfnBucket := bucket.Node.FindChild(jsii.String("Resource")).(cfnResource)
-//   cfnBucket.ApplyRemovalPolicy(awscdk.RemovalPolicy_DESTROY)
+//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
+//   		Type: jsii.String("Whatever::The::Type"),
+//   		Properties: map[string]interface{}{
+//   			// ...
+//   			"Tags": this.tags.renderedTags,
+//   		},
+//   	})
+//   	return this
+//   }
 //
 type CfnResource interface {
 	CfnRefElement

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the default presentation of all line series in `LineChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,11 +23,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_LineChartDefaultSeriesSettingsProperty struct {
-	// The axis to which you are binding all line series to.
+	// `CfnDashboard.LineChartDefaultSeriesSettingsProperty.AxisBinding`.
 	AxisBinding *string `field:"optional" json:"axisBinding" yaml:"axisBinding"`
-	// Line styles options for all line series in the visual.
+	// `CfnDashboard.LineChartDefaultSeriesSettingsProperty.LineStyleSettings`.
 	LineStyleSettings interface{} `field:"optional" json:"lineStyleSettings" yaml:"lineStyleSettings"`
-	// Marker styles options for all line series in the visual.
+	// `CfnDashboard.LineChartDefaultSeriesSettingsProperty.MarkerStyleSettings`.
 	MarkerStyleSettings interface{} `field:"optional" json:"markerStyleSettings" yaml:"markerStyleSettings"`
 }
 

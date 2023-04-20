@@ -3,7 +3,6 @@ package awscdk
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-1"),
@@ -65,7 +64,6 @@ type StackProps struct {
 	// environment's AWS partition, and other such enhancements.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Use a concrete account and region to deploy this stack to:
 	//   // `.account` and `.region` will simply return these values.
 	//   // Use a concrete account and region to deploy this stack to:

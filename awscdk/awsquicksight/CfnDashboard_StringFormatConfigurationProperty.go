@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Formatting configuration for string fields.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -80,9 +78,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_StringFormatConfigurationProperty struct {
-	// The options that determine the null value format configuration.
+	// `CfnDashboard.StringFormatConfigurationProperty.NullValueFormatConfiguration`.
 	NullValueFormatConfiguration interface{} `field:"optional" json:"nullValueFormatConfiguration" yaml:"nullValueFormatConfiguration"`
-	// The formatting configuration for numeric strings.
+	// `CfnDashboard.StringFormatConfigurationProperty.NumericFormatConfiguration`.
 	NumericFormatConfiguration interface{} `field:"optional" json:"numericFormatConfiguration" yaml:"numericFormatConfiguration"`
 }
 

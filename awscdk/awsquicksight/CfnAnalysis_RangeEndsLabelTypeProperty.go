@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The range ends label type of a data path label.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_RangeEndsLabelTypeProperty struct {
-	// The visibility of the range ends label.
+	// `CfnAnalysis.RangeEndsLabelTypeProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

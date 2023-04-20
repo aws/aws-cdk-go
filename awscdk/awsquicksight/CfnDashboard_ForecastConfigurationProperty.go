@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The forecast configuration that is used in a line chart's display properties.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,9 +29,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ForecastConfigurationProperty struct {
-	// The forecast properties setup of a forecast in the line chart.
+	// `CfnDashboard.ForecastConfigurationProperty.ForecastProperties`.
 	ForecastProperties interface{} `field:"optional" json:"forecastProperties" yaml:"forecastProperties"`
-	// The forecast scenario of a forecast in the line chart.
+	// `CfnDashboard.ForecastConfigurationProperty.Scenario`.
 	Scenario interface{} `field:"optional" json:"scenario" yaml:"scenario"`
 }
 

@@ -5,16 +5,10 @@ import (
 )
 
 // Example:
-//   var myResource resource
-//
-//
-//   myResource.AddCorsPreflight(&CorsOptions{
-//   	AllowOrigins: []*string{
-//   		jsii.String("https://amazon.com"),
-//   	},
-//   	AllowMethods: []*string{
-//   		jsii.String("GET"),
-//   		jsii.String("PUT"),
+//   apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
+//   	DefaultCorsPreflightOptions: &CorsOptions{
+//   		AllowOrigins: apigateway.Cors_ALL_ORIGINS(),
+//   		AllowMethods: apigateway.Cors_ALL_METHODS(),
 //   	},
 //   })
 //

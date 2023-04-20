@@ -23,7 +23,7 @@ type CfnTemplate_TemplateErrorProperty struct {
 	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Type of error.
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// An error path that shows which entities caused the template error.
+	// `CfnTemplate.TemplateErrorProperty.ViolatedEntities`.
 	ViolatedEntities interface{} `field:"optional" json:"violatedEntities" yaml:"violatedEntities"`
 }
 

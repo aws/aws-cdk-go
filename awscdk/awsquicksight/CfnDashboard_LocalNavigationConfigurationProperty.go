@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The navigation configuration for `CustomActionNavigationOperation` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_LocalNavigationConfigurationProperty struct {
-	// The sheet that is targeted for navigation in the same analysis.
+	// `CfnDashboard.LocalNavigationConfigurationProperty.TargetSheetId`.
 	TargetSheetId *string `field:"required" json:"targetSheetId" yaml:"targetSheetId"`
 }
 

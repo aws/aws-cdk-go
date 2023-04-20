@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A control to display a horizontal toggle bar.
-//
-// This is used to change a value by sliding the toggle.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,19 +35,19 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ParameterSliderControlProperty struct {
-	// The smaller value that is displayed at the left of the slider.
+	// `CfnDashboard.ParameterSliderControlProperty.MaximumValue`.
 	MaximumValue *float64 `field:"required" json:"maximumValue" yaml:"maximumValue"`
-	// The larger value that is displayed at the right of the slider.
+	// `CfnDashboard.ParameterSliderControlProperty.MinimumValue`.
 	MinimumValue *float64 `field:"required" json:"minimumValue" yaml:"minimumValue"`
-	// The ID of the `ParameterSliderControl` .
+	// `CfnDashboard.ParameterSliderControlProperty.ParameterControlId`.
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
-	// The source parameter name of the `ParameterSliderControl` .
+	// `CfnDashboard.ParameterSliderControlProperty.SourceParameterName`.
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
-	// The number of increments that the slider bar is divided into.
+	// `CfnDashboard.ParameterSliderControlProperty.StepSize`.
 	StepSize *float64 `field:"required" json:"stepSize" yaml:"stepSize"`
-	// The title of the `ParameterSliderControl` .
+	// `CfnDashboard.ParameterSliderControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnDashboard.ParameterSliderControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

@@ -4,7 +4,6 @@ package awsappmesh
 // The properties used when creating a new VirtualNode.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
 //

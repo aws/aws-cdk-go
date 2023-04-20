@@ -8,7 +8,6 @@ import (
 // A services that be enabled, disabled or restarted when the instance is launched.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //

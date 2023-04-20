@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a `CategoryFilter` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -42,17 +38,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CategoryFilterConfigurationProperty struct {
-	// A custom filter that filters based on a single value.
-	//
-	// This filter can be partially matched.
+	// `CfnDashboard.CategoryFilterConfigurationProperty.CustomFilterConfiguration`.
 	CustomFilterConfiguration interface{} `field:"optional" json:"customFilterConfiguration" yaml:"customFilterConfiguration"`
-	// A list of custom filter values.
-	//
-	// In the Amazon QuickSight console, this filter type is called a custom filter list.
+	// `CfnDashboard.CategoryFilterConfigurationProperty.CustomFilterListConfiguration`.
 	CustomFilterListConfiguration interface{} `field:"optional" json:"customFilterListConfiguration" yaml:"customFilterListConfiguration"`
-	// A list of filter configurations.
-	//
-	// In the Amazon QuickSight console, this filter type is called a filter list.
+	// `CfnDashboard.CategoryFilterConfigurationProperty.FilterListConfiguration`.
 	FilterListConfiguration interface{} `field:"optional" json:"filterListConfiguration" yaml:"filterListConfiguration"`
 }
 

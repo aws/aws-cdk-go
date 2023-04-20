@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The series item configuration of a line chart.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -55,9 +51,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SeriesItemProperty struct {
-	// The data field series item configuration of a line chart.
+	// `CfnDashboard.SeriesItemProperty.DataFieldSeriesItem`.
 	DataFieldSeriesItem interface{} `field:"optional" json:"dataFieldSeriesItem" yaml:"dataFieldSeriesItem"`
-	// The field series item configuration of a line chart.
+	// `CfnDashboard.SeriesItemProperty.FieldSeriesItem`.
 	FieldSeriesItem interface{} `field:"optional" json:"fieldSeriesItem" yaml:"fieldSeriesItem"`
 }
 

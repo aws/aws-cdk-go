@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The unaggregated field wells of a scatter plot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,15 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ScatterPlotUnaggregatedFieldWellsProperty struct {
-	// The size field well of a scatter plot.
+	// `CfnTemplate.ScatterPlotUnaggregatedFieldWellsProperty.Size`.
 	Size interface{} `field:"optional" json:"size" yaml:"size"`
-	// The x-axis field well of a scatter plot.
-	//
-	// The x-axis is a dimension field and cannot be aggregated.
+	// `CfnTemplate.ScatterPlotUnaggregatedFieldWellsProperty.XAxis`.
 	XAxis interface{} `field:"optional" json:"xAxis" yaml:"xAxis"`
-	// The y-axis field well of a scatter plot.
-	//
-	// The y-axis is a dimension field and cannot be aggregated.
+	// `CfnTemplate.ScatterPlotUnaggregatedFieldWellsProperty.YAxis`.
 	YAxis interface{} `field:"optional" json:"yAxis" yaml:"yAxis"`
 }
 

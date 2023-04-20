@@ -178,7 +178,6 @@ You can expose a metric on a metric filter by calling the `MetricFilter.metric()
 This has a default of `statistic = 'avg'` if the statistic is not set in the `props`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var logGroup logGroup
 
 mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
@@ -190,7 +189,7 @@ mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps
 	Dimensions: map[string]*string{
 		"ErrorCode": jsii.String("$.errorCode"),
 	},
-	Unit: unit_MILLISECONDS,
+	Unit: cloudwatch.Unit_MILLISECONDS,
 })
 
 //expose a metric from the metric filter

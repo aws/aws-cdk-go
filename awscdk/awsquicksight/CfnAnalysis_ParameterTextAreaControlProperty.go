@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control to display a text box that is used to enter multiple entries.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -38,15 +36,15 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ParameterTextAreaControlProperty struct {
-	// The ID of the `ParameterTextAreaControl` .
+	// `CfnAnalysis.ParameterTextAreaControlProperty.ParameterControlId`.
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
-	// The source parameter name of the `ParameterTextAreaControl` .
+	// `CfnAnalysis.ParameterTextAreaControlProperty.SourceParameterName`.
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
-	// The title of the `ParameterTextAreaControl` .
+	// `CfnAnalysis.ParameterTextAreaControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The delimiter that is used to separate the lines in text.
+	// `CfnAnalysis.ParameterTextAreaControlProperty.Delimiter`.
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
-	// The display options of a control.
+	// `CfnAnalysis.ParameterTextAreaControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

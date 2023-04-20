@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field well for the table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -506,13 +504,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableAggregatedFieldWellsProperty struct {
-	// The group by field well for a pivot table.
-	//
-	// Values are grouped by group by fields.
+	// `CfnTemplate.TableAggregatedFieldWellsProperty.GroupBy`.
 	GroupBy interface{} `field:"optional" json:"groupBy" yaml:"groupBy"`
-	// The values field well for a pivot table.
-	//
-	// Values are aggregated based on group by fields.
+	// `CfnTemplate.TableAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

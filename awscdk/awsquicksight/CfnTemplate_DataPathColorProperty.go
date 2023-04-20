@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The color map that determines the color options for a particular element.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,11 +18,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DataPathColorProperty struct {
-	// The color that needs to be applied to the element.
+	// `CfnTemplate.DataPathColorProperty.Color`.
 	Color *string `field:"required" json:"color" yaml:"color"`
-	// The element that the color needs to be applied to.
+	// `CfnTemplate.DataPathColorProperty.Element`.
 	Element interface{} `field:"required" json:"element" yaml:"element"`
-	// The time granularity of the field that the color needs to be applied to.
+	// `CfnTemplate.DataPathColorProperty.TimeGranularity`.
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

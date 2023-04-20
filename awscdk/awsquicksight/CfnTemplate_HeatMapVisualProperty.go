@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A heat map.
-//
-// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1197,19 +1193,17 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_HeatMapVisualProperty struct {
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	// `CfnTemplate.HeatMapVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnTemplate.HeatMapVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
-	// The configuration of a heat map.
+	// `CfnTemplate.HeatMapVisualProperty.ChartConfiguration`.
 	ChartConfiguration interface{} `field:"optional" json:"chartConfiguration" yaml:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
+	// `CfnTemplate.HeatMapVisualProperty.ColumnHierarchies`.
 	ColumnHierarchies interface{} `field:"optional" json:"columnHierarchies" yaml:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
+	// `CfnTemplate.HeatMapVisualProperty.Subtitle`.
 	Subtitle interface{} `field:"optional" json:"subtitle" yaml:"subtitle"`
-	// The title that is displayed on the visual.
+	// `CfnTemplate.HeatMapVisualProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

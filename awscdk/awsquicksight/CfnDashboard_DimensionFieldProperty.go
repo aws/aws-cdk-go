@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The dimension type field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -251,11 +249,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DimensionFieldProperty struct {
-	// The dimension type field with categorical type columns.
+	// `CfnDashboard.DimensionFieldProperty.CategoricalDimensionField`.
 	CategoricalDimensionField interface{} `field:"optional" json:"categoricalDimensionField" yaml:"categoricalDimensionField"`
-	// The dimension type field with date type columns.
+	// `CfnDashboard.DimensionFieldProperty.DateDimensionField`.
 	DateDimensionField interface{} `field:"optional" json:"dateDimensionField" yaml:"dateDimensionField"`
-	// The dimension type field with numerical type columns.
+	// `CfnDashboard.DimensionFieldProperty.NumericalDimensionField`.
 	NumericalDimensionField interface{} `field:"optional" json:"numericalDimensionField" yaml:"numericalDimensionField"`
 }
 

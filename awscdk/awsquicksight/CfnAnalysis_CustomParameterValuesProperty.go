@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The customized parameter values.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,13 +22,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_CustomParameterValuesProperty struct {
-	// A list of datetime-type parameter values.
+	// `CfnAnalysis.CustomParameterValuesProperty.DateTimeValues`.
 	DateTimeValues *[]*string `field:"optional" json:"dateTimeValues" yaml:"dateTimeValues"`
-	// A list of decimal-type parameter values.
+	// `CfnAnalysis.CustomParameterValuesProperty.DecimalValues`.
 	DecimalValues interface{} `field:"optional" json:"decimalValues" yaml:"decimalValues"`
-	// A list of integer-type parameter values.
+	// `CfnAnalysis.CustomParameterValuesProperty.IntegerValues`.
 	IntegerValues interface{} `field:"optional" json:"integerValues" yaml:"integerValues"`
-	// A list of string-type parameter values.
+	// `CfnAnalysis.CustomParameterValuesProperty.StringValues`.
 	StringValues *[]*string `field:"optional" json:"stringValues" yaml:"stringValues"`
 }
 

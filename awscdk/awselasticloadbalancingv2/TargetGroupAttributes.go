@@ -4,13 +4,12 @@ package awselasticloadbalancingv2
 // Properties to reference an existing target group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var stack stack
 //
 //
-//   targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(stack, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
-//   	TargetGroupArn: fn_ImportValue(jsii.String("TargetGroupArn")),
-//   	LoadBalancerArns: *fn_*ImportValue(jsii.String("LoadBalancerArn")),
+//   targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
+//   	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
+//   	LoadBalancerArns: awscdk.Fn_*ImportValue(jsii.String("LoadBalancerArn")),
 //   })
 //
 //   targetGroupMetrics := targetGroup.Metrics

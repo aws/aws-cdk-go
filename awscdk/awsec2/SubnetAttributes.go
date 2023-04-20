@@ -2,7 +2,6 @@ package awsec2
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Supply all properties
 //   subnet1 := ec2.Subnet_FromSubnetAttributes(this, jsii.String("SubnetFromAttributes"), &SubnetAttributes{
 //   	SubnetId: jsii.String("s-1234"),

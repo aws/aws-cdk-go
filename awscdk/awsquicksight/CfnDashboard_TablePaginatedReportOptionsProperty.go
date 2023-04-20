@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The paginated report options for a table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TablePaginatedReportOptionsProperty struct {
-	// The visibility of repeating header rows on each page.
+	// `CfnDashboard.TablePaginatedReportOptionsProperty.OverflowColumnHeaderVisibility`.
 	OverflowColumnHeaderVisibility *string `field:"optional" json:"overflowColumnHeaderVisibility" yaml:"overflowColumnHeaderVisibility"`
-	// The visibility of printing table overflow across pages.
+	// `CfnDashboard.TablePaginatedReportOptionsProperty.VerticalOverflowVisibility`.
 	VerticalOverflowVisibility *string `field:"optional" json:"verticalOverflowVisibility" yaml:"verticalOverflowVisibility"`
 }
 

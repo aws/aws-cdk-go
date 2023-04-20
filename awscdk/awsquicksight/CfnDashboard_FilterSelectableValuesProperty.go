@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A list of selectable values that are used in a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FilterSelectableValuesProperty struct {
-	// The values that are used in the `FilterSelectableValues` .
+	// `CfnDashboard.FilterSelectableValuesProperty.Values`.
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

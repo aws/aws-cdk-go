@@ -87,7 +87,9 @@ type CfnPricingRule interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::BillingConductor::PricingRule.Operation`.
+	// Operation is the specific AWS action covered by this line item.
+	//
+	// This describes the specific usage of the line item.
 	Operation() *string
 	SetOperation(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

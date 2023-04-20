@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a `BoxPlotVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,9 +41,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_BoxPlotSortConfigurationProperty struct {
-	// The sort configuration of a group by fields.
+	// `CfnTemplate.BoxPlotSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
-	// The pagination configuration of a table visual or box plot.
+	// `CfnTemplate.BoxPlotSortConfigurationProperty.PaginationConfiguration`.
 	PaginationConfiguration interface{} `field:"optional" json:"paginationConfiguration" yaml:"paginationConfiguration"`
 }
 

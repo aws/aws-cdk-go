@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The total options for a pivot table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -740,13 +738,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PivotTableTotalOptionsProperty struct {
-	// The column subtotal options.
+	// `CfnAnalysis.PivotTableTotalOptionsProperty.ColumnSubtotalOptions`.
 	ColumnSubtotalOptions interface{} `field:"optional" json:"columnSubtotalOptions" yaml:"columnSubtotalOptions"`
-	// The column total options.
+	// `CfnAnalysis.PivotTableTotalOptionsProperty.ColumnTotalOptions`.
 	ColumnTotalOptions interface{} `field:"optional" json:"columnTotalOptions" yaml:"columnTotalOptions"`
-	// The row subtotal options.
+	// `CfnAnalysis.PivotTableTotalOptionsProperty.RowSubtotalOptions`.
 	RowSubtotalOptions interface{} `field:"optional" json:"rowSubtotalOptions" yaml:"rowSubtotalOptions"`
-	// The row total options.
+	// `CfnAnalysis.PivotTableTotalOptionsProperty.RowTotalOptions`.
 	RowTotalOptions interface{} `field:"optional" json:"rowTotalOptions" yaml:"rowTotalOptions"`
 }
 

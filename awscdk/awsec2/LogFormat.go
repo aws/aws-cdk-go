@@ -8,7 +8,6 @@ import (
 // The following table describes all of the available fields for a flow log record.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 //
 //   vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{

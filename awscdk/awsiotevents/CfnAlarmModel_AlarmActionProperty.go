@@ -187,7 +187,7 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	IotTopicPublish interface{} `field:"optional" json:"iotTopicPublish" yaml:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
-	// `CfnAlarmModel.AlarmActionProperty.Sns`.
+	// Information required to publish the Amazon SNS message.
 	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 	Sqs interface{} `field:"optional" json:"sqs" yaml:"sqs"`

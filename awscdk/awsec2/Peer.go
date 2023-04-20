@@ -18,7 +18,6 @@ import (
 // directly, as it already implements `IPeer`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instanceType instanceType
 //
 //

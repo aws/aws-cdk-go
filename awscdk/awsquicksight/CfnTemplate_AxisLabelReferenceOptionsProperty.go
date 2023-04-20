@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The reference that specifies where the axis label is applied to.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_AxisLabelReferenceOptionsProperty struct {
-	// The column that the axis label is targeted to.
+	// `CfnTemplate.AxisLabelReferenceOptionsProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The field that the axis label is targeted to.
+	// `CfnTemplate.AxisLabelReferenceOptionsProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 }
 

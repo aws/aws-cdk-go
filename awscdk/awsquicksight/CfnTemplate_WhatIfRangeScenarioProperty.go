@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Provides the forecast to meet the target for a particular date range.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +13,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_WhatIfRangeScenarioProperty struct {
-	// The end date in the date range that you need the forecast results for.
+	// `CfnTemplate.WhatIfRangeScenarioProperty.EndDate`.
 	EndDate *string `field:"required" json:"endDate" yaml:"endDate"`
-	// The start date in the date range that you need the forecast results for.
+	// `CfnTemplate.WhatIfRangeScenarioProperty.StartDate`.
 	StartDate *string `field:"required" json:"startDate" yaml:"startDate"`
-	// The target value that you want to meet for the provided date range.
+	// `CfnTemplate.WhatIfRangeScenarioProperty.Value`.
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

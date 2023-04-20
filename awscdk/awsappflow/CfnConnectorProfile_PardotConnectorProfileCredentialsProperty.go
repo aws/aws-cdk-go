@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The connector-specific profile credentials required when using Salesforce Pardot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,13 +17,13 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_PardotConnectorProfileCredentialsProperty struct {
-	// The credentials used to access protected Salesforce Pardot resources.
+	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.AccessToken`.
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
-	// The secret manager ARN, which contains the client ID and client secret of the connected app.
+	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.ClientCredentialsArn`.
 	ClientCredentialsArn *string `field:"optional" json:"clientCredentialsArn" yaml:"clientCredentialsArn"`
 	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.ConnectorOAuthRequest`.
 	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
-	// The credentials used to acquire new access tokens.
+	// `CfnConnectorProfile.PardotConnectorProfileCredentialsProperty.RefreshToken`.
 	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 

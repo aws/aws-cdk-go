@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The point style of the geospatial map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,9 +18,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_GeospatialPointStyleOptionsProperty struct {
-	// The cluster marker configuration of the geospatial point style.
+	// `CfnAnalysis.GeospatialPointStyleOptionsProperty.ClusterMarkerConfiguration`.
 	ClusterMarkerConfiguration interface{} `field:"optional" json:"clusterMarkerConfiguration" yaml:"clusterMarkerConfiguration"`
-	// The selected point styles (point, cluster) of the geospatial map.
+	// `CfnAnalysis.GeospatialPointStyleOptionsProperty.SelectedPointStyle`.
 	SelectedPointStyle *string `field:"optional" json:"selectedPointStyle" yaml:"selectedPointStyle"`
 }
 

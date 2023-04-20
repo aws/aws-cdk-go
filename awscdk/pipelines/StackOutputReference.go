@@ -10,39 +10,36 @@ import (
 // A Reference to a Stack Output.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   type myLambdaStep struct {
 //   	step
-//   	stackOutputReference stackOutputReferencefunction lambda.Function
-//   	stackOutput cfnOutput
+//   	stackOutputReference stackOutputReference
 //   }
 //
-//   func newMyLambdaStep( ) *myLambdaStep {
+//   func newMyLambdaStep(fn function, stackOutput cfnOutput) *myLambdaStep {
 //   	this := &myLambdaStep{}
-//   	return this
-//   }{
-//   	newStack_Override(this, jsii.String("MyLambdaStep"))
+//   	pipelines.NewStep_Override(this, jsii.String("MyLambdaStep"))
 //   	this.stackOutputReference = pipelines.stackOutputReference_FromCfnOutput(stackOutput)
-//   }produceAction(stage, codepipeline.iStage, options, pipelines.produceActionOptions)pipelines.codePipelineActionFactoryResult{
+//   	return this
+//   }
 //
-//   	stage.addAction(cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
-//   		ActionName: options.actionName,
-//   		RunOrder: options.runOrder,
+//   func (this *myLambdaStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
+//
+//   	*stage.AddAction(cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+//   		ActionName: options.ActionName,
+//   		RunOrder: options.RunOrder,
 //   		// Map the reference to the variable name the CDK has generated for you.
 //   		UserParameters: map[string]interface{}{
 //   			"stackOutput": options.stackOutputsMap.toCodePipeline(this.stackOutputReference),
 //   		},
-//   		Lambda: this.function,
+//   		Lambda: this.fn,
 //   	}))
 //
-//   	return map[string]*f64{
-//   		"runOrdersConsumed": jsii.Number(1),
+//   	return &codePipelineActionFactoryResult{
+//   		RunOrdersConsumed: jsii.Number(1),
 //   	}
-//   }getconsumedStackOutputs()pipelines.stackOutputReference[]{
-//   	return []interface{}{
-//   		this.stackOutputReference,
-//   	}
-//   }
+//   }public get consumedStackOutputs(): pipelines.StackOutputReference[] {
+//       return [this.stackOutputReference];
+//     }
 //
 type StackOutputReference interface {
 	// Output name of the producing stack.

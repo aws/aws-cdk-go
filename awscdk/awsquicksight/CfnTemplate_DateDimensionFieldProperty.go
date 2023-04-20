@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The dimension type field with date type columns.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -92,25 +90,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DateDimensionFieldProperty struct {
-	// The column that is used in the `DateDimensionField` .
+	// `CfnTemplate.DateDimensionFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnTemplate.DateDimensionFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The date granularity of the `DateDimensionField` . Choose one of the following options:.
-	//
-	// - `YEAR`
-	// - `QUARTER`
-	// - `MONTH`
-	// - `WEEK`
-	// - `DAY`
-	// - `HOUR`
-	// - `MINUTE`
-	// - `SECOND`
-	// - `MILLISECOND`.
+	// `CfnTemplate.DateDimensionFieldProperty.DateGranularity`.
 	DateGranularity *string `field:"optional" json:"dateGranularity" yaml:"dateGranularity"`
-	// The format configuration of the field.
+	// `CfnTemplate.DateDimensionFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
-	// The custom hierarchy ID.
+	// `CfnTemplate.DateDimensionFieldProperty.HierarchyId`.
 	HierarchyId *string `field:"optional" json:"hierarchyId" yaml:"hierarchyId"`
 }
 

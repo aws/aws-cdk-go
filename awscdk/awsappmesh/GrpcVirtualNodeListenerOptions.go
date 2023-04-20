@@ -4,7 +4,6 @@ package awsappmesh
 // Represent the GRPC Node Listener property.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh

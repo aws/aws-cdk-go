@@ -1,8 +1,6 @@
 package awsdlm
 
 
-// *[AMI policies only]* Specifies an AMI deprecation rule for cross-Region AMI copies created by an AMI policy.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,13 +12,9 @@ package awsdlm
 //   }
 //
 type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
-	// The period after which to deprecate the cross-Region AMI copies.
-	//
-	// The period must be less than or equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
+	// `CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty.Interval`.
 	Interval *float64 `field:"required" json:"interval" yaml:"interval"`
-	// The unit of time in which to measure the *Interval* .
-	//
-	// For example, to deprecate a cross-Region AMI copy after 3 months, specify `Interval=3` and `IntervalUnit=MONTHS` .
+	// `CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty.IntervalUnit`.
 	IntervalUnit *string `field:"required" json:"intervalUnit" yaml:"intervalUnit"`
 }
 

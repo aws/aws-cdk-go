@@ -7,20 +7,17 @@ import (
 // Options for BYO DKIM.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var myHostedZone iPublicHostedZone
 //
-//   var secretValue secretValue
 //
-//   byoDkimOptions := &ByoDkimOptions{
-//   	PrivateKey: secretValue,
-//   	Selector: jsii.String("selector"),
-//
-//   	// the properties below are optional
-//   	PublicKey: jsii.String("publicKey"),
-//   }
+//   ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
+//   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
+//   	DkimIdentity: ses.DkimIdentity_ByoDkim(&ByoDkimOptions{
+//   		PrivateKey: awscdk.SecretValue_SecretsManager(jsii.String("dkim-private-key")),
+//   		PublicKey: jsii.String("...base64-encoded-public-key..."),
+//   		Selector: jsii.String("selector"),
+//   	}),
+//   })
 //
 type ByoDkimOptions struct {
 	// The private key that's used to generate a DKIM signature.

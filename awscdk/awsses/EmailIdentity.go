@@ -12,11 +12,10 @@ import (
 // An email identity.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myHostedZone iPublicHostedZone
 //
 //
-//   identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+//   identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
 //   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
 //   	MailFromDomain: jsii.String("mail.cdk.dev"),
 //   })

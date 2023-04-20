@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The scope configuration for a `FilterGroup` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,7 +23,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilterScopeConfigurationProperty struct {
-	// The configuration for applying a filter to specific sheets.
+	// `CfnTemplate.FilterScopeConfigurationProperty.SelectedSheets`.
 	SelectedSheets interface{} `field:"optional" json:"selectedSheets" yaml:"selectedSheets"`
 }
 

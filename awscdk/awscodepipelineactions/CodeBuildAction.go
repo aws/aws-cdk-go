@@ -12,7 +12,6 @@ import (
 // CodePipeline build action that uses AWS CodeBuild.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution

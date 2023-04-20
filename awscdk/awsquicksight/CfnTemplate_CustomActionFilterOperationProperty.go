@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The filter operation that filters data included in a visual or in an entire sheet.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,9 +24,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_CustomActionFilterOperationProperty struct {
-	// The configuration that chooses the fields to be filtered.
+	// `CfnTemplate.CustomActionFilterOperationProperty.SelectedFieldsConfiguration`.
 	SelectedFieldsConfiguration interface{} `field:"required" json:"selectedFieldsConfiguration" yaml:"selectedFieldsConfiguration"`
-	// The configuration that chooses the target visuals to be filtered.
+	// `CfnTemplate.CustomActionFilterOperationProperty.TargetVisualsConfiguration`.
 	TargetVisualsConfiguration interface{} `field:"required" json:"targetVisualsConfiguration" yaml:"targetVisualsConfiguration"`
 }
 

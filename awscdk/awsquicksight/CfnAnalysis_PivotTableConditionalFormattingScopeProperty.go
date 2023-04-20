@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The scope of the cell for conditional formatting.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PivotTableConditionalFormattingScopeProperty struct {
-	// The role (field, field total, grand total) of the cell for conditional formatting.
+	// `CfnAnalysis.PivotTableConditionalFormattingScopeProperty.Role`.
 	Role *string `field:"optional" json:"role" yaml:"role"`
 }
 

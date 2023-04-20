@@ -11,23 +11,26 @@ import (
 // A custom Deployment Configuration for an ECS Deployment Group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+//   var service fargateService
+//   var blueTargetGroup iTargetGroup
+//   var greenTargetGroup iTargetGroup
+//   var listener iApplicationListener
+//   var testListener iApplicationListener
+//
+//
+//   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+//   	AutoRollback: &AutoRollbackConfig{
+//   		// CodeDeploy will automatically roll back if the 8-hour approval period times out and the deployment stops
+//   		StoppedDeployment: jsii.Boolean(true),
+//   	},
 //   	Service: Service,
 //   	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
+//   		// The deployment will wait for approval for up to 8 hours before stopping the deployment
+//   		DeploymentApprovalWaitTime: awscdk.Duration_Hours(jsii.Number(8)),
 //   		BlueTargetGroup: *BlueTargetGroup,
 //   		GreenTargetGroup: *GreenTargetGroup,
 //   		Listener: *Listener,
-//   		// CodeDeploy will wait for 30 minutes after completing the blue-green deployment before it terminates the blue tasks
-//   		TerminationWaitTime: awscdk.Duration_Minutes(jsii.Number(30)),
-//   	},
-//   	// CodeDeploy will continue to monitor these alarms during the 30-minute bake time and will automatically
-//   	// roll back if they go into a failed state at any point during the deployment.
-//   	Alarms: []iAlarm{
-//   		blueUnhealthyHosts,
-//   		greenUnhealthyHosts,
-//   		blueApiFailure,
-//   		greenApiFailure,
+//   		TestListener: *TestListener,
 //   	},
 //   	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 //   })

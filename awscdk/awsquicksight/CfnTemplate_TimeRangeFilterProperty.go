@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A `TimeRangeFilter` filters values that are between two specified values.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -50,27 +48,23 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TimeRangeFilterProperty struct {
-	// The column that the filter is applied to.
+	// `CfnTemplate.TimeRangeFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// `CfnTemplate.TimeRangeFilterProperty.FilterId`.
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
-	// This option determines how null values should be treated when filtering data.
-	//
-	// - `ALL_VALUES` : Include null values in filtered results.
-	// - `NULLS_ONLY` : Only include null values in filtered results.
-	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// `CfnTemplate.TimeRangeFilterProperty.NullOption`.
 	NullOption *string `field:"required" json:"nullOption" yaml:"nullOption"`
-	// The exclude period of the time range filter.
+	// `CfnTemplate.TimeRangeFilterProperty.ExcludePeriodConfiguration`.
 	ExcludePeriodConfiguration interface{} `field:"optional" json:"excludePeriodConfiguration" yaml:"excludePeriodConfiguration"`
-	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	// `CfnTemplate.TimeRangeFilterProperty.IncludeMaximum`.
 	IncludeMaximum interface{} `field:"optional" json:"includeMaximum" yaml:"includeMaximum"`
-	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	// `CfnTemplate.TimeRangeFilterProperty.IncludeMinimum`.
 	IncludeMinimum interface{} `field:"optional" json:"includeMinimum" yaml:"includeMinimum"`
-	// The maximum value for the filter value range.
+	// `CfnTemplate.TimeRangeFilterProperty.RangeMaximumValue`.
 	RangeMaximumValue interface{} `field:"optional" json:"rangeMaximumValue" yaml:"rangeMaximumValue"`
-	// The minimum value for the filter value range.
+	// `CfnTemplate.TimeRangeFilterProperty.RangeMinimumValue`.
 	RangeMinimumValue interface{} `field:"optional" json:"rangeMinimumValue" yaml:"rangeMinimumValue"`
-	// The level of time precision that is used to aggregate `DateTime` values.
+	// `CfnTemplate.TimeRangeFilterProperty.TimeGranularity`.
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

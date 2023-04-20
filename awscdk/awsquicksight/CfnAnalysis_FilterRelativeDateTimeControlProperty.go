@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control from a date filter that is used to specify the relative date.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,13 +33,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilterRelativeDateTimeControlProperty struct {
-	// The ID of the `FilterTextAreaControl` .
+	// `CfnAnalysis.FilterRelativeDateTimeControlProperty.FilterControlId`.
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
-	// The source filter ID of the `FilterTextAreaControl` .
+	// `CfnAnalysis.FilterRelativeDateTimeControlProperty.SourceFilterId`.
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
-	// The title of the `FilterTextAreaControl` .
+	// `CfnAnalysis.FilterRelativeDateTimeControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnAnalysis.FilterRelativeDateTimeControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

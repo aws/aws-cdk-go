@@ -13,7 +13,7 @@ import (
 //   // The values are placeholders you should change.
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
-//   cpu := apprunner_alpha.Cpu_Of(jsii.String("unit"))
+//   cpu := apprunner_alpha.Cpu_FOUR_VCPU()
 //
 // Experimental.
 type Cpu interface {
@@ -60,12 +60,45 @@ func Cpu_Of(unit *string) Cpu {
 	return returns
 }
 
+func Cpu_FOUR_VCPU() Cpu {
+	_init_.Initialize()
+	var returns Cpu
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Cpu",
+		"FOUR_VCPU",
+		&returns,
+	)
+	return returns
+}
+
+func Cpu_HALF_VCPU() Cpu {
+	_init_.Initialize()
+	var returns Cpu
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Cpu",
+		"HALF_VCPU",
+		&returns,
+	)
+	return returns
+}
+
 func Cpu_ONE_VCPU() Cpu {
 	_init_.Initialize()
 	var returns Cpu
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-apprunner-alpha.Cpu",
 		"ONE_VCPU",
+		&returns,
+	)
+	return returns
+}
+
+func Cpu_QUARTER_VCPU() Cpu {
+	_init_.Initialize()
+	var returns Cpu
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Cpu",
+		"QUARTER_VCPU",
 		&returns,
 	)
 	return returns

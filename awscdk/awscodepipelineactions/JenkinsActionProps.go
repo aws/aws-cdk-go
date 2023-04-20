@@ -7,7 +7,6 @@ import (
 // Construction properties of `JenkinsAction`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var jenkinsProvider jenkinsProvider
 //
 //   buildAction := codepipeline_actions.NewJenkinsAction(&JenkinsActionProps{
@@ -35,7 +34,6 @@ type JenkinsActionProps struct {
 	// The name of the project (sometimes also called job, or task) on your Jenkins installation that will be invoked by this Action.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "MyJob"
 	//
 	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`

@@ -11,7 +11,6 @@ import (
 // Represents a TLS Validation Context Trust that is supported for mutual TLS authentication.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //

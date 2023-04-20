@@ -4,7 +4,6 @@ package awsappmesh
 // A utility enum defined for the egressFilter type property, the default of DROP_ALL, allows traffic only to other resources inside the mesh, or API calls to amazon resources.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &MeshProps{
 //   	MeshName: jsii.String("myAwsMesh"),
 //   	EgressFilter: appmesh.MeshFilterType_ALLOW_ALL,

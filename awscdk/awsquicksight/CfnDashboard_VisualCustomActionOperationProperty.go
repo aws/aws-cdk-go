@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The operation that is defined by the custom action.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -70,13 +66,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_VisualCustomActionOperationProperty struct {
-	// The filter operation that filters data included in a visual or in an entire sheet.
+	// `CfnDashboard.VisualCustomActionOperationProperty.FilterOperation`.
 	FilterOperation interface{} `field:"optional" json:"filterOperation" yaml:"filterOperation"`
-	// The navigation operation that navigates between different sheets in the same analysis.
+	// `CfnDashboard.VisualCustomActionOperationProperty.NavigationOperation`.
 	NavigationOperation interface{} `field:"optional" json:"navigationOperation" yaml:"navigationOperation"`
-	// The set parameter operation that sets parameters in custom action.
+	// `CfnDashboard.VisualCustomActionOperationProperty.SetParametersOperation`.
 	SetParametersOperation interface{} `field:"optional" json:"setParametersOperation" yaml:"setParametersOperation"`
-	// The URL operation that opens a link to another webpage.
+	// `CfnDashboard.VisualCustomActionOperationProperty.URLOperation`.
 	UrlOperation interface{} `field:"optional" json:"urlOperation" yaml:"urlOperation"`
 }
 

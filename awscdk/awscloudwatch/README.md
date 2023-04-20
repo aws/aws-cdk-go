@@ -183,7 +183,9 @@ The most common values are provided in the `cloudwatch.Stats` class. You can pro
 Read more at [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+var hostedZone hostedZone
+
+
 cloudwatch.NewMetric(&MetricProps{
 	Namespace: jsii.String("AWS/Route53"),
 	MetricName: jsii.String("DNSQueries"),
@@ -191,7 +193,7 @@ cloudwatch.NewMetric(&MetricProps{
 		"HostedZoneId": hostedZone.hostedZoneId,
 	},
 	Statistic: cloudwatch.Stats_SAMPLE_COUNT(),
-	Period: cloudwatch.duration_Minutes(jsii.Number(5)),
+	Period: awscdk.Duration_Minutes(jsii.Number(5)),
 })
 
 cloudwatch.NewMetric(&MetricProps{
@@ -201,7 +203,7 @@ cloudwatch.NewMetric(&MetricProps{
 		"HostedZoneId": hostedZone.hostedZoneId,
 	},
 	Statistic: cloudwatch.Stats_P(jsii.Number(99)),
-	Period: cloudwatch.*duration_*Minutes(jsii.Number(5)),
+	Period: awscdk.Duration_*Minutes(jsii.Number(5)),
 })
 
 cloudwatch.NewMetric(&MetricProps{
@@ -211,7 +213,7 @@ cloudwatch.NewMetric(&MetricProps{
 		"HostedZoneId": hostedZone.hostedZoneId,
 	},
 	Statistic: jsii.String("TS(7.5%:90%)"),
-	Period: cloudwatch.*duration_*Minutes(jsii.Number(5)),
+	Period: awscdk.Duration_*Minutes(jsii.Number(5)),
 })
 ```
 
@@ -340,9 +342,8 @@ cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &Comp
 If you want to disable actions of a Composite Alarm based on a certain condition, you can use [Actions Suppression](https://www.amazonaws.cn/en/new/2022/amazon-cloudwatch-supports-composite-alarm-actions-suppression/).
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var childAlarm1 alarm
-var childAlarm2 alarm
+var alarm1 alarm
+var alarm2 alarm
 var onAlarmAction iAlarmAction
 var onOkAction iAlarmAction
 var actionsSuppressor alarm
@@ -354,8 +355,8 @@ myCompositeAlarm := cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCom
 	AlarmRule: AlarmRule,
 	ActionsSuppressor: ActionsSuppressor,
 })
-myCompositeAlarm.addAlarmActions(onAlarmAction)
-myComposireAlarm.addOkAction(onOkAction)
+myCompositeAlarm.AddAlarmAction(onAlarmAction)
+myCompositeAlarm.AddOkAction(onOkAction)
 ```
 
 In the provided example, if `actionsSuppressor` is in `ALARM` state, `onAlarmAction` won't be triggered even if `myCompositeAlarm` goes into `ALARM` state.
@@ -589,13 +590,12 @@ dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
 Optionally set the TextWidget background to be transparent
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var dashboard dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
 	Markdown: jsii.String("# Key Performance Indicators"),
-	Background: textWidgetBackground_TRANSPARENT,
+	Background: cloudwatch.TextWidgetBackground_TRANSPARENT,
 }))
 ```
 
@@ -733,15 +733,14 @@ You can add a widget after object instantiation with the method
 ### Interval duration for dashboard
 
 Interval duration for metrics in dashboard. You can specify `defaultInterval` with
-the relative time(eg. 7 days) as `cdk.Duration.days(7)`.
+the relative time(eg. 7 days) as `Duration.days(7)`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import cw "github.com/aws/aws-cdk-go/awscdk"
 
 
-dashboard := cw.NewDashboard(stack, jsii.String("Dash"), &DashboardProps{
-	DefaultInterval: cdk.duration_Days(jsii.Number(7)),
+dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
+	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
 })
 ```
 

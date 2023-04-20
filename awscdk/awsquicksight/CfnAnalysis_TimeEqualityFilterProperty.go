@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A `TimeEqualityFilter` filters values that are equal to a given value.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,19 +20,15 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_TimeEqualityFilterProperty struct {
-	// The column that the filter is applied to.
+	// `CfnAnalysis.TimeEqualityFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// `CfnAnalysis.TimeEqualityFilterProperty.FilterId`.
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
-	// The parameter whose value should be used for the filter value.
-	//
-	// This field is mutually exclusive to `Value` .
+	// `CfnAnalysis.TimeEqualityFilterProperty.ParameterName`.
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
-	// The level of time precision that is used to aggregate `DateTime` values.
+	// `CfnAnalysis.TimeEqualityFilterProperty.TimeGranularity`.
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
-	// The value of a `TimeEquality` filter.
-	//
-	// This field is mutually exclusive to `ParameterName` .
+	// `CfnAnalysis.TimeEqualityFilterProperty.Value`.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

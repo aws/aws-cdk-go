@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the custom condition for an icon set.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,13 +21,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ConditionalFormattingCustomIconConditionProperty struct {
-	// The expression that determines the condition of the icon set.
+	// `CfnTemplate.ConditionalFormattingCustomIconConditionProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// Custom icon options for an icon set.
+	// `CfnTemplate.ConditionalFormattingCustomIconConditionProperty.IconOptions`.
 	IconOptions interface{} `field:"required" json:"iconOptions" yaml:"iconOptions"`
-	// Determines the color of the icon.
+	// `CfnTemplate.ConditionalFormattingCustomIconConditionProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
-	// Determines the icon display configuration.
+	// `CfnTemplate.ConditionalFormattingCustomIconConditionProperty.DisplayConfiguration`.
 	DisplayConfiguration interface{} `field:"optional" json:"displayConfiguration" yaml:"displayConfiguration"`
 }
 

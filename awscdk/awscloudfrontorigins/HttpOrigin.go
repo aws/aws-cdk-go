@@ -12,17 +12,27 @@ import (
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
 //
 // Example:
-//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   // Validating signed URLs or signed cookies with Trusted Key Groups
+//
+//   // public key in PEM format
+//   var publicKey string
+//
+//   pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps{
+//   	EncodedKey: publicKey,
+//   })
+//
+//   keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
+//   	Items: []iPublicKey{
+//   		pubKey,
+//   	},
+//   })
+//
+//   cloudfront.NewDistribution(this, jsii.String("Dist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewOriginGroup(&OriginGroupProps{
-//   			PrimaryOrigin: origins.NewS3Origin(myBucket),
-//   			FallbackOrigin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-//   			// optional, defaults to: 500, 502, 503 and 504
-//   			FallbackStatusCodes: []*f64{
-//   				jsii.Number(404),
-//   			},
-//   		}),
+//   		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+//   		TrustedKeyGroups: []iKeyGroup{
+//   			keyGroup,
+//   		},
 //   	},
 //   })
 //

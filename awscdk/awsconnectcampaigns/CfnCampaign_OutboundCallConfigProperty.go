@@ -24,7 +24,7 @@ type CfnCampaign_OutboundCallConfigProperty struct {
 	ConnectContactFlowArn *string `field:"required" json:"connectContactFlowArn" yaml:"connectContactFlowArn"`
 	// The Amazon Resource Name (ARN) of the queue.
 	ConnectQueueArn *string `field:"required" json:"connectQueueArn" yaml:"connectQueueArn"`
-	// Whether answering machine detection has been enabled.
+	// `CfnCampaign.OutboundCallConfigProperty.AnswerMachineDetectionConfig`.
 	AnswerMachineDetectionConfig interface{} `field:"optional" json:"answerMachineDetectionConfig" yaml:"answerMachineDetectionConfig"`
 	// The phone number associated with the outbound call.
 	//

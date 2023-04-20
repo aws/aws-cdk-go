@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The unaggregated field for a table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -229,11 +227,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_UnaggregatedFieldProperty struct {
-	// The column that is used in the `UnaggregatedField` .
+	// `CfnDashboard.UnaggregatedFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnDashboard.UnaggregatedFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The format configuration of the field.
+	// `CfnDashboard.UnaggregatedFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 }
 

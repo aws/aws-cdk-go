@@ -24,7 +24,6 @@ import (
 // ```.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 //   	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
 //   		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
@@ -166,7 +165,6 @@ type CodeBuildStep interface {
 	// it finishes its `post_build` phase.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Access the output of one CodeBuildStep in another CodeBuildStep
 	//   var pipeline codePipeline
 	//

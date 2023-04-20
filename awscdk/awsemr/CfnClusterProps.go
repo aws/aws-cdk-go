@@ -616,9 +616,7 @@ type CfnClusterProps struct {
 	//
 	// The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 	ManagedScalingPolicy interface{} `field:"optional" json:"managedScalingPolicy" yaml:"managedScalingPolicy"`
-	// The Amazon Linux release specified in a cluster launch RunJobFlow request.
-	//
-	// If no Amazon Linux release was specified, the default Amazon Linux release is shown in the response.
+	// `AWS::EMR::Cluster.OSReleaseLabel`.
 	OsReleaseLabel *string `field:"optional" json:"osReleaseLabel" yaml:"osReleaseLabel"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	//

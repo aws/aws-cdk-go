@@ -10,7 +10,6 @@ import (
 // Defines HTTP gateway route matching based on the URL path of the request.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //

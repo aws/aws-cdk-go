@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options for the visual tooltip.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -49,16 +47,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_TooltipOptionsProperty struct {
-	// The setup for the detailed tooltip.
-	//
-	// The tooltip setup is always saved. The display type is decided based on the tooltip type.
+	// `CfnAnalysis.TooltipOptionsProperty.FieldBasedTooltip`.
 	FieldBasedTooltip interface{} `field:"optional" json:"fieldBasedTooltip" yaml:"fieldBasedTooltip"`
-	// The selected type for the tooltip. Choose one of the following options:.
-	//
-	// - `BASIC` : A basic tooltip.
-	// - `DETAILED` : A detailed tooltip.
+	// `CfnAnalysis.TooltipOptionsProperty.SelectedTooltipType`.
 	SelectedTooltipType *string `field:"optional" json:"selectedTooltipType" yaml:"selectedTooltipType"`
-	// Determines whether or not the tooltip is visible.
+	// `CfnAnalysis.TooltipOptionsProperty.TooltipVisibility`.
 	TooltipVisibility *string `field:"optional" json:"tooltipVisibility" yaml:"tooltipVisibility"`
 }
 

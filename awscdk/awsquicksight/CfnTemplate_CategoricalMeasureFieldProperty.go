@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The measure type field with categorical type columns.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -90,13 +88,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_CategoricalMeasureFieldProperty struct {
-	// The column that is used in the `CategoricalMeasureField` .
+	// `CfnTemplate.CategoricalMeasureFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnTemplate.CategoricalMeasureFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The aggregation function of the measure field.
+	// `CfnTemplate.CategoricalMeasureFieldProperty.AggregationFunction`.
 	AggregationFunction *string `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
-	// The format configuration of the field.
+	// `CfnTemplate.CategoricalMeasureFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 }
 

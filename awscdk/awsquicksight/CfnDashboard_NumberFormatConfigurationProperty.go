@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Formatting configuration for number fields.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -77,7 +75,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_NumberFormatConfigurationProperty struct {
-	// The options that determine the numeric format configuration.
+	// `CfnDashboard.NumberFormatConfigurationProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 }
 

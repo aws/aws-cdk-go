@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a pie chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1036,29 +1034,27 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PieChartConfigurationProperty struct {
-	// The label options of the group/color that is displayed in a pie chart.
+	// `CfnAnalysis.PieChartConfigurationProperty.CategoryLabelOptions`.
 	CategoryLabelOptions interface{} `field:"optional" json:"categoryLabelOptions" yaml:"categoryLabelOptions"`
-	// The contribution analysis (anomaly configuration) setup of the visual.
+	// `CfnAnalysis.PieChartConfigurationProperty.ContributionAnalysisDefaults`.
 	ContributionAnalysisDefaults interface{} `field:"optional" json:"contributionAnalysisDefaults" yaml:"contributionAnalysisDefaults"`
-	// The options that determine if visual data labels are displayed.
+	// `CfnAnalysis.PieChartConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The options that determine the shape of the chart.
-	//
-	// This option determines whether the chart is a pie chart or a donut chart.
+	// `CfnAnalysis.PieChartConfigurationProperty.DonutOptions`.
 	DonutOptions interface{} `field:"optional" json:"donutOptions" yaml:"donutOptions"`
-	// The field wells of the visual.
+	// `CfnAnalysis.PieChartConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The legend display setup of the visual.
+	// `CfnAnalysis.PieChartConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The small multiples setup for the visual.
+	// `CfnAnalysis.PieChartConfigurationProperty.SmallMultiplesOptions`.
 	SmallMultiplesOptions interface{} `field:"optional" json:"smallMultiplesOptions" yaml:"smallMultiplesOptions"`
-	// The sort configuration of a pie chart.
+	// `CfnAnalysis.PieChartConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The tooltip display setup of the visual.
+	// `CfnAnalysis.PieChartConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// The label options for the value that is displayed in a pie chart.
+	// `CfnAnalysis.PieChartConfigurationProperty.ValueLabelOptions`.
 	ValueLabelOptions interface{} `field:"optional" json:"valueLabelOptions" yaml:"valueLabelOptions"`
-	// The palette (chart color) display setup of the visual.
+	// `CfnAnalysis.PieChartConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
 }
 

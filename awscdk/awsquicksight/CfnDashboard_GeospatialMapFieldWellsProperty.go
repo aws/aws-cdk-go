@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field wells of a `GeospatialMapVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -753,7 +749,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GeospatialMapFieldWellsProperty struct {
-	// The aggregated field well for a geospatial map.
+	// `CfnDashboard.GeospatialMapFieldWellsProperty.GeospatialMapAggregatedFieldWells`.
 	GeospatialMapAggregatedFieldWells interface{} `field:"optional" json:"geospatialMapAggregatedFieldWells" yaml:"geospatialMapAggregatedFieldWells"`
 }
 

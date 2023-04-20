@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The rolling date configuration of a date time filter.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_RollingDateConfigurationProperty struct {
-	// The expression of the rolling date configuration.
+	// `CfnTemplate.RollingDateConfigurationProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// The data set that is used in the rolling date configuration.
+	// `CfnTemplate.RollingDateConfigurationProperty.DataSetIdentifier`.
 	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 }
 

@@ -39,7 +39,6 @@ type StageProps struct {
 	// AWS partition, and other such enhancements.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Use a concrete account and region to deploy this Stage to
 	//   // Use a concrete account and region to deploy this Stage to
 	//   awscdk.NewStage(app, jsii.String("Stage1"), &StageProps{

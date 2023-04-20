@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The filter that is applied to the options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,14 +17,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_SheetVisualScopingConfigurationProperty struct {
-	// The scope of the applied entities. Choose one of the following options:.
-	//
-	// - `ALL_VISUALS`
-	// - `SELECTED_VISUALS`.
+	// `CfnTemplate.SheetVisualScopingConfigurationProperty.Scope`.
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
-	// The selected sheet that the filter is applied to.
+	// `CfnTemplate.SheetVisualScopingConfigurationProperty.SheetId`.
 	SheetId *string `field:"required" json:"sheetId" yaml:"sheetId"`
-	// The selected visuals that the filter is applied to.
+	// `CfnTemplate.SheetVisualScopingConfigurationProperty.VisualIds`.
 	VisualIds *[]*string `field:"optional" json:"visualIds" yaml:"visualIds"`
 }
 

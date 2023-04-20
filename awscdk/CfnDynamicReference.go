@@ -12,7 +12,6 @@ import (
 // metadata to themselves without having to change call signatures.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   awscdk.NewCfnDynamicReference(awscdk.CfnDynamicReferenceService_SECRETS_MANAGER, jsii.String("secret-id:secret-string:json-key:version-stage:version-id"))
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html

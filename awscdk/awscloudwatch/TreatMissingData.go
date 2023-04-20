@@ -12,7 +12,7 @@ package awscloudwatch
 //   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-//   	Timeout: cdk.Duration_Minutes(jsii.Number(5)),
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
 //   if fn.Timeout {

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a `FilledMapVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,7 +37,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilledMapSortConfigurationProperty struct {
-	// The sort configuration of the location fields.
+	// `CfnTemplate.FilledMapSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
 }
 

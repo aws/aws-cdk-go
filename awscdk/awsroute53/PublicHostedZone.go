@@ -13,7 +13,6 @@ import (
 // Create a Route53 public hosted zone.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-1"),

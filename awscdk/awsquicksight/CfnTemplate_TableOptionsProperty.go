@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The table options for a table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -135,13 +133,13 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableOptionsProperty struct {
-	// The table cell style of table cells.
+	// `CfnTemplate.TableOptionsProperty.CellStyle`.
 	CellStyle interface{} `field:"optional" json:"cellStyle" yaml:"cellStyle"`
-	// The table cell style of a table header.
+	// `CfnTemplate.TableOptionsProperty.HeaderStyle`.
 	HeaderStyle interface{} `field:"optional" json:"headerStyle" yaml:"headerStyle"`
-	// The orientation (vertical, horizontal) for a table.
+	// `CfnTemplate.TableOptionsProperty.Orientation`.
 	Orientation *string `field:"optional" json:"orientation" yaml:"orientation"`
-	// The row alternate color options (widget status, row alternate colors) for a table.
+	// `CfnTemplate.TableOptionsProperty.RowAlternateColorOptions`.
 	RowAlternateColorOptions interface{} `field:"optional" json:"rowAlternateColorOptions" yaml:"rowAlternateColorOptions"`
 }
 

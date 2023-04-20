@@ -13,7 +13,6 @@ import (
 // Use an SNS topic as a bucket notification destination.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewSnsDestination(topic))

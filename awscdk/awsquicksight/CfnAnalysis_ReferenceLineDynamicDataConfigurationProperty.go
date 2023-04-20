@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The dynamic configuration of the reference line data configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,11 +30,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ReferenceLineDynamicDataConfigurationProperty struct {
-	// The calculation that is used in the dynamic data.
+	// `CfnAnalysis.ReferenceLineDynamicDataConfigurationProperty.Calculation`.
 	Calculation interface{} `field:"required" json:"calculation" yaml:"calculation"`
-	// The column that the dynamic data targets.
+	// `CfnAnalysis.ReferenceLineDynamicDataConfigurationProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The aggregation function that is used in the dynamic data.
+	// `CfnAnalysis.ReferenceLineDynamicDataConfigurationProperty.MeasureAggregationFunction`.
 	MeasureAggregationFunction interface{} `field:"required" json:"measureAggregationFunction" yaml:"measureAggregationFunction"`
 }
 

@@ -56,9 +56,7 @@ type CfnPackagingConfiguration_DashPackageProperty struct {
 	//
 	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments interface{} `field:"optional" json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
-	// This applies only to stream sets with a single video track.
-	//
-	// When true, the stream set includes an additional I-frame trick-play only stream, along with the other tracks. If false, this extra stream is not included.
+	// `CfnPackagingConfiguration.DashPackageProperty.IncludeIframeOnlyStream`.
 	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// Controls whether AWS Elemental MediaPackage produces single-period or multi-period DASH manifests.
 	//

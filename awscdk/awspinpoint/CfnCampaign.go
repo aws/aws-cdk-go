@@ -485,9 +485,7 @@ type CfnCampaign interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The delivery configuration settings for sending the treatment through a custom channel.
-	//
-	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	// `AWS::Pinpoint::Campaign.CustomDeliveryConfiguration`.
 	CustomDeliveryConfiguration() interface{}
 	SetCustomDeliveryConfiguration(val interface{})
 	// A custom description of the campaign.
@@ -549,7 +547,7 @@ type CfnCampaign interface {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// The message template to use for the treatment.
+	// `AWS::Pinpoint::Campaign.TemplateConfiguration`.
 	TemplateConfiguration() interface{}
 	SetTemplateConfiguration(val interface{})
 	// A custom description of the default treatment for the campaign.

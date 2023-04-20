@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the numeric separator configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_NumericSeparatorConfigurationProperty struct {
-	// Determines the decimal separator.
+	// `CfnTemplate.NumericSeparatorConfigurationProperty.DecimalSeparator`.
 	DecimalSeparator *string `field:"optional" json:"decimalSeparator" yaml:"decimalSeparator"`
-	// The options that determine the thousands separator configuration.
+	// `CfnTemplate.NumericSeparatorConfigurationProperty.ThousandsSeparator`.
 	ThousandsSeparator interface{} `field:"optional" json:"thousandsSeparator" yaml:"thousandsSeparator"`
 }
 

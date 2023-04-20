@@ -8,7 +8,6 @@ import (
 // Determines how IAM roles are created and managed.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //

@@ -7,7 +7,6 @@ import (
 // Represents the outlier detection for a listener.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
@@ -21,8 +20,8 @@ import (
 //   	Listeners: []virtualNodeListener{
 //   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 //   			OutlierDetection: &OutlierDetection{
-//   				BaseEjectionDuration: cdk.Duration_Seconds(jsii.Number(10)),
-//   				Interval: cdk.Duration_*Seconds(jsii.Number(30)),
+//   				BaseEjectionDuration: awscdk.Duration_Seconds(jsii.Number(10)),
+//   				Interval: awscdk.Duration_*Seconds(jsii.Number(30)),
 //   				MaxEjectionPercent: jsii.Number(50),
 //   				MaxServerErrors: jsii.Number(5),
 //   			},

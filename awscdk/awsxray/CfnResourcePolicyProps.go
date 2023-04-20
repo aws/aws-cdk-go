@@ -17,11 +17,9 @@ package awsxray
 //   }
 //
 type CfnResourcePolicyProps struct {
-	// The resource policy document, which can be up to 5kb in size.
+	// `AWS::XRay::ResourcePolicy.PolicyDocument`.
 	PolicyDocument *string `field:"required" json:"policyDocument" yaml:"policyDocument"`
-	// The name of the resource policy.
-	//
-	// Must be unique within a specific AWS account.
+	// `AWS::XRay::ResourcePolicy.PolicyName`.
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// `AWS::XRay::ResourcePolicy.BypassPolicyLockoutCheck`.
 	BypassPolicyLockoutCheck interface{} `field:"optional" json:"bypassPolicyLockoutCheck" yaml:"bypassPolicyLockoutCheck"`

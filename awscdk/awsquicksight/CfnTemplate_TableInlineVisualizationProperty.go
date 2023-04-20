@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The inline visualization of a specific type to display within a chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,7 +17,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableInlineVisualizationProperty struct {
-	// The configuration of the inline visualization of the data bars within a chart.
+	// `CfnTemplate.TableInlineVisualizationProperty.DataBars`.
 	DataBars interface{} `field:"optional" json:"dataBars" yaml:"dataBars"`
 }
 

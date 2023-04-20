@@ -4,7 +4,6 @@ package pipelines
 // Defines which stages of a pipeline require the specified credentials.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   dockerHubSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
 //   // Only the image asset publishing actions will be granted read access to the secret.
 //   creds := pipelines.DockerCredential_DockerHub(dockerHubSecret, &ExternalDockerCredentialOptions{

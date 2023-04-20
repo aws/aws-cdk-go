@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -994,7 +992,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_LineChartFieldWellsProperty struct {
-	// The field well configuration of a line chart.
+	// `CfnTemplate.LineChartFieldWellsProperty.LineChartAggregatedFieldWells`.
 	LineChartAggregatedFieldWells interface{} `field:"optional" json:"lineChartAggregatedFieldWells" yaml:"lineChartAggregatedFieldWells"`
 }
 

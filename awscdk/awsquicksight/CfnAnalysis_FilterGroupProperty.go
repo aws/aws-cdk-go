@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A grouping of individual filters. Filter groups are applied to the same group of visuals.
-//
-// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -239,20 +235,15 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilterGroupProperty struct {
-	// The filter new feature which can apply filter group to all data sets. Choose one of the following options:.
-	//
-	// - `ALL_DATASETS`
-	// - `SINGLE_DATASET`.
+	// `CfnAnalysis.FilterGroupProperty.CrossDataset`.
 	CrossDataset *string `field:"required" json:"crossDataset" yaml:"crossDataset"`
-	// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
+	// `CfnAnalysis.FilterGroupProperty.FilterGroupId`.
 	FilterGroupId *string `field:"required" json:"filterGroupId" yaml:"filterGroupId"`
-	// The list of filters that are present in a `FilterGroup` .
+	// `CfnAnalysis.FilterGroupProperty.Filters`.
 	Filters interface{} `field:"required" json:"filters" yaml:"filters"`
-	// The configuration that specifies what scope to apply to a `FilterGroup` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// `CfnAnalysis.FilterGroupProperty.ScopeConfiguration`.
 	ScopeConfiguration interface{} `field:"required" json:"scopeConfiguration" yaml:"scopeConfiguration"`
-	// The status of the `FilterGroup` .
+	// `CfnAnalysis.FilterGroupProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

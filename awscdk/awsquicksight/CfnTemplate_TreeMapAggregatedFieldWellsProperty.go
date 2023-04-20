@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Aggregated field wells of a tree map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -757,17 +755,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TreeMapAggregatedFieldWellsProperty struct {
-	// The color field well of a tree map.
-	//
-	// Values are grouped by aggregations based on group by fields.
+	// `CfnTemplate.TreeMapAggregatedFieldWellsProperty.Colors`.
 	Colors interface{} `field:"optional" json:"colors" yaml:"colors"`
-	// The group by field well of a tree map.
-	//
-	// Values are grouped based on group by fields.
+	// `CfnTemplate.TreeMapAggregatedFieldWellsProperty.Groups`.
 	Groups interface{} `field:"optional" json:"groups" yaml:"groups"`
-	// The size field well of a tree map.
-	//
-	// Values are aggregated based on group by fields.
+	// `CfnTemplate.TreeMapAggregatedFieldWellsProperty.Sizes`.
 	Sizes interface{} `field:"optional" json:"sizes" yaml:"sizes"`
 }
 

@@ -1,8 +1,6 @@
 package awsconnectcampaigns
 
 
-// Contains information about answering machine detection.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsconnectcampaigns
 //   }
 //
 type CfnCampaign_AnswerMachineDetectionConfigProperty struct {
-	// Whether answering machine detection is enabled.
+	// `CfnCampaign.AnswerMachineDetectionConfigProperty.EnableAnswerMachineDetection`.
 	EnableAnswerMachineDetection interface{} `field:"required" json:"enableAnswerMachineDetection" yaml:"enableAnswerMachineDetection"`
 }
 

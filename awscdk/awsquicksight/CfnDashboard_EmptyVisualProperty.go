@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// An empty visual.
-//
-// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an `EmptyVisual` until a visual type is selected.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -88,15 +84,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_EmptyVisualProperty struct {
-	// The data set that is used in the empty visual.
-	//
-	// Every visual requires a dataset to render.
+	// `CfnDashboard.EmptyVisualProperty.DataSetIdentifier`.
 	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	// `CfnDashboard.EmptyVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnDashboard.EmptyVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 }
 

@@ -92,7 +92,7 @@ type CfnApplicationProps struct {
 	AutoStartConfiguration interface{} `field:"optional" json:"autoStartConfiguration" yaml:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration interface{} `field:"optional" json:"autoStopConfiguration" yaml:"autoStopConfiguration"`
-	// The image configuration applied to all worker types.
+	// `AWS::EMRServerless::Application.ImageConfiguration`.
 	ImageConfiguration interface{} `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 	// The initial capacity of the application.
 	InitialCapacity interface{} `field:"optional" json:"initialCapacity" yaml:"initialCapacity"`
@@ -112,7 +112,7 @@ type CfnApplicationProps struct {
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The tags assigned to the application.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The specification applied to each worker type.
+	// `AWS::EMRServerless::Application.WorkerTypeSpecifications`.
 	WorkerTypeSpecifications interface{} `field:"optional" json:"workerTypeSpecifications" yaml:"workerTypeSpecifications"`
 }
 

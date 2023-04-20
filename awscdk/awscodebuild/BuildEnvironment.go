@@ -2,7 +2,6 @@ package awscodebuild
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var mySecurityGroup securityGroup
 //

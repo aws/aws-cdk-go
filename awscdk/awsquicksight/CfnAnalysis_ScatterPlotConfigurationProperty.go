@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a scatter plot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2034,23 +2032,23 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ScatterPlotConfigurationProperty struct {
-	// The options that determine if visual data labels are displayed.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field wells of the visual.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The legend display setup of the visual.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The legend display setup of the visual.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// The palette (chart color) display setup of the visual.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
-	// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.XAxisDisplayOptions`.
 	XAxisDisplayOptions interface{} `field:"optional" json:"xAxisDisplayOptions" yaml:"xAxisDisplayOptions"`
-	// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.XAxisLabelOptions`.
 	XAxisLabelOptions interface{} `field:"optional" json:"xAxisLabelOptions" yaml:"xAxisLabelOptions"`
-	// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.YAxisDisplayOptions`.
 	YAxisDisplayOptions interface{} `field:"optional" json:"yAxisDisplayOptions" yaml:"yAxisDisplayOptions"`
-	// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
+	// `CfnAnalysis.ScatterPlotConfigurationProperty.YAxisLabelOptions`.
 	YAxisLabelOptions interface{} `field:"optional" json:"yAxisLabelOptions" yaml:"yAxisLabelOptions"`
 }
 

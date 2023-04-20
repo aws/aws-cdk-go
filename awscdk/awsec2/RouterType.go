@@ -4,7 +4,6 @@ package awsec2
 // Type of router used in route.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
 //   	SubnetConfiguration: []subnetConfiguration{
 //   		&subnetConfiguration{

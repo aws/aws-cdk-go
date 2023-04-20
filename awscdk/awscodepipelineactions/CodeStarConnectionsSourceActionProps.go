@@ -8,7 +8,6 @@ import (
 // Construction properties for `CodeStarConnectionsSourceAction`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&CodeStarConnectionsSourceActionProps{
 //   	ActionName: jsii.String("BitBucket_Source"),
@@ -42,7 +41,6 @@ type CodeStarConnectionsSourceActionProps struct {
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
@@ -55,14 +53,12 @@ type CodeStarConnectionsSourceActionProps struct {
 	// The owning user or organization of the repository.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "aws"
 	//
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repository.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "aws-cdk"
 	//
 	Repo *string `field:"required" json:"repo" yaml:"repo"`

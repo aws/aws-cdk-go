@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The total options for a table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -74,15 +72,15 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TotalOptionsProperty struct {
-	// The custom label string for the total cells.
+	// `CfnDashboard.TotalOptionsProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The placement (start, end) for the total cells.
+	// `CfnDashboard.TotalOptionsProperty.Placement`.
 	Placement *string `field:"optional" json:"placement" yaml:"placement"`
-	// The scroll status (pinned, scrolled) for the total cells.
+	// `CfnDashboard.TotalOptionsProperty.ScrollStatus`.
 	ScrollStatus *string `field:"optional" json:"scrollStatus" yaml:"scrollStatus"`
-	// Cell styling options for the total cells.
+	// `CfnDashboard.TotalOptionsProperty.TotalCellStyle`.
 	TotalCellStyle interface{} `field:"optional" json:"totalCellStyle" yaml:"totalCellStyle"`
-	// The visibility configuration for the total cells.
+	// `CfnDashboard.TotalOptionsProperty.TotalsVisibility`.
 	TotalsVisibility *string `field:"optional" json:"totalsVisibility" yaml:"totalsVisibility"`
 }
 

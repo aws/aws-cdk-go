@@ -8,11 +8,12 @@ import (
 // Util element for InsightSelector.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   insightType := awscdk.Aws_cloudtrail.InsightType_API_CALL_RATE()
+//   cloudtrail.NewTrail(this, jsii.String("Insights"), &TrailProps{
+//   	InsightTypes: []insightType{
+//   		cloudtrail.*insightType_API_CALL_RATE(),
+//   		cloudtrail.*insightType_API_ERROR_RATE(),
+//   	},
+//   })
 //
 type InsightType interface {
 	Value() *string

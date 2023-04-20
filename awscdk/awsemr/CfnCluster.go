@@ -663,9 +663,7 @@ type CfnCluster interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The Amazon Linux release specified in a cluster launch RunJobFlow request.
-	//
-	// If no Amazon Linux release was specified, the default Amazon Linux release is shown in the response.
+	// `AWS::EMR::Cluster.OSReleaseLabel`.
 	OsReleaseLabel() *string
 	SetOsReleaseLabel(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

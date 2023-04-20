@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The source controls that are used in a `CascadingControlConfiguration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_CascadingControlSourceProperty struct {
-	// The column identifier that determines which column to look up for the source sheet control.
+	// `CfnTemplate.CascadingControlSourceProperty.ColumnToMatch`.
 	ColumnToMatch interface{} `field:"optional" json:"columnToMatch" yaml:"columnToMatch"`
-	// The source sheet control ID of a `CascadingControlSource` .
+	// `CfnTemplate.CascadingControlSourceProperty.SourceSheetControlId`.
 	SourceSheetControlId *string `field:"optional" json:"sourceSheetControlId" yaml:"sourceSheetControlId"`
 }
 

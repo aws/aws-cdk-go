@@ -43,9 +43,11 @@ type DockerImageAssetProps struct {
 	// Docker BuildKit must be enabled to use build secrets.
 	//
 	// Example:
-	//   {
+	//   import { DockerBuildSecret } from 'aws-cdk-lib';
+	//
+	//   const buildSecrets = {
 	//     'MY_SECRET': DockerBuildSecret.fromSrc('file.txt')
-	//   }
+	//   };
 	//
 	// See: https://docs.docker.com/build/buildkit/
 	//

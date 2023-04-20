@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The liner axis scale setup.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_AxisLinearScaleProperty struct {
-	// The step count setup of a linear axis.
+	// `CfnTemplate.AxisLinearScaleProperty.StepCount`.
 	StepCount *float64 `field:"optional" json:"stepCount" yaml:"stepCount"`
-	// The step size setup of a linear axis.
+	// `CfnTemplate.AxisLinearScaleProperty.StepSize`.
 	StepSize *float64 `field:"optional" json:"stepSize" yaml:"stepSize"`
 }
 

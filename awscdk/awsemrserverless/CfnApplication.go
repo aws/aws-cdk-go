@@ -107,7 +107,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The image configuration applied to all worker types.
+	// `AWS::EMRServerless::Application.ImageConfiguration`.
 	ImageConfiguration() interface{}
 	SetImageConfiguration(val interface{})
 	// The initial capacity of the application.
@@ -178,7 +178,7 @@ type CfnApplication interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The specification applied to each worker type.
+	// `AWS::EMRServerless::Application.WorkerTypeSpecifications`.
 	WorkerTypeSpecifications() interface{}
 	SetWorkerTypeSpecifications(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

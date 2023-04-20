@@ -16,7 +16,6 @@ import (
 // are inside of your mesh.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
 //

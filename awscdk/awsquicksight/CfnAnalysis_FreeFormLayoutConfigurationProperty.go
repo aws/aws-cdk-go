@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a free-form layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -55,7 +53,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FreeFormLayoutConfigurationProperty struct {
-	// The elements that are included in a free-form layout.
+	// `CfnAnalysis.FreeFormLayoutConfigurationProperty.Elements`.
 	Elements interface{} `field:"required" json:"elements" yaml:"elements"`
 	// `CfnAnalysis.FreeFormLayoutConfigurationProperty.CanvasSizeOptions`.
 	CanvasSizeOptions interface{} `field:"optional" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`

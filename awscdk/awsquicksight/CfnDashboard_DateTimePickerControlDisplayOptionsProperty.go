@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options of a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -28,9 +26,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DateTimePickerControlDisplayOptionsProperty struct {
-	// Customize how dates are formatted in controls.
+	// `CfnDashboard.DateTimePickerControlDisplayOptionsProperty.DateTimeFormat`.
 	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
-	// The options to configure the title visibility, name, and font size.
+	// `CfnDashboard.DateTimePickerControlDisplayOptionsProperty.TitleOptions`.
 	TitleOptions interface{} `field:"optional" json:"titleOptions" yaml:"titleOptions"`
 }
 

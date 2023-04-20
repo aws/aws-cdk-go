@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A `TopBottomFilter` filters values that are at the top or the bottom.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,17 +39,17 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TopBottomFilterProperty struct {
-	// The aggregation and sort configuration of the top bottom filter.
+	// `CfnDashboard.TopBottomFilterProperty.AggregationSortConfigurations`.
 	AggregationSortConfigurations interface{} `field:"required" json:"aggregationSortConfigurations" yaml:"aggregationSortConfigurations"`
-	// The column that the filter is applied to.
+	// `CfnDashboard.TopBottomFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// `CfnDashboard.TopBottomFilterProperty.FilterId`.
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
-	// The number of items to include in the top bottom filter results.
+	// `CfnDashboard.TopBottomFilterProperty.Limit`.
 	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
-	// The parameter whose value should be used for the filter value.
+	// `CfnDashboard.TopBottomFilterProperty.ParameterName`.
 	ParameterName *string `field:"optional" json:"parameterName" yaml:"parameterName"`
-	// The level of time precision that is used to aggregate `DateTime` values.
+	// `CfnDashboard.TopBottomFilterProperty.TimeGranularity`.
 	TimeGranularity *string `field:"optional" json:"timeGranularity" yaml:"timeGranularity"`
 }
 

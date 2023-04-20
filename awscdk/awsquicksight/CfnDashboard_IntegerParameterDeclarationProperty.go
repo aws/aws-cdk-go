@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A parameter declaration for the `Integer` data type.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,17 +45,15 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_IntegerParameterDeclarationProperty struct {
-	// The name of the parameter that is being declared.
+	// `CfnDashboard.IntegerParameterDeclarationProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	// `CfnDashboard.IntegerParameterDeclarationProperty.ParameterValueType`.
 	ParameterValueType *string `field:"required" json:"parameterValueType" yaml:"parameterValueType"`
-	// The default values of a parameter.
-	//
-	// If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	// `CfnDashboard.IntegerParameterDeclarationProperty.DefaultValues`.
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
 	// `CfnDashboard.IntegerParameterDeclarationProperty.MappedDataSetParameters`.
 	MappedDataSetParameters interface{} `field:"optional" json:"mappedDataSetParameters" yaml:"mappedDataSetParameters"`
-	// A parameter declaration for the `Integer` data type.
+	// `CfnDashboard.IntegerParameterDeclarationProperty.ValueWhenUnset`.
 	ValueWhenUnset interface{} `field:"optional" json:"valueWhenUnset" yaml:"valueWhenUnset"`
 }
 

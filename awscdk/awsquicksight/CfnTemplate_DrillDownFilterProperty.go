@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The drill down filter for the column hierarchies.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,17 +35,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DrillDownFilterProperty struct {
-	// The category type drill down filter.
-	//
-	// This filter is used for string type columns.
+	// `CfnTemplate.DrillDownFilterProperty.CategoryFilter`.
 	CategoryFilter interface{} `field:"optional" json:"categoryFilter" yaml:"categoryFilter"`
-	// The numeric equality type drill down filter.
-	//
-	// This filter is used for number type columns.
+	// `CfnTemplate.DrillDownFilterProperty.NumericEqualityFilter`.
 	NumericEqualityFilter interface{} `field:"optional" json:"numericEqualityFilter" yaml:"numericEqualityFilter"`
-	// The time range drill down filter.
-	//
-	// This filter is used for date time columns.
+	// `CfnTemplate.DrillDownFilterProperty.TimeRangeFilter`.
 	TimeRangeFilter interface{} `field:"optional" json:"timeRangeFilter" yaml:"timeRangeFilter"`
 }
 

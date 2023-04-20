@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a heat map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -988,21 +986,21 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_HeatMapConfigurationProperty struct {
-	// The color options (gradient color, point of divergence) in a heat map.
+	// `CfnAnalysis.HeatMapConfigurationProperty.ColorScale`.
 	ColorScale interface{} `field:"optional" json:"colorScale" yaml:"colorScale"`
-	// The label options of the column that is displayed in a heat map.
+	// `CfnAnalysis.HeatMapConfigurationProperty.ColumnLabelOptions`.
 	ColumnLabelOptions interface{} `field:"optional" json:"columnLabelOptions" yaml:"columnLabelOptions"`
-	// The options that determine if visual data labels are displayed.
+	// `CfnAnalysis.HeatMapConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field wells of the visual.
+	// `CfnAnalysis.HeatMapConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The legend display setup of the visual.
+	// `CfnAnalysis.HeatMapConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The label options of the row that is displayed in a `heat map` .
+	// `CfnAnalysis.HeatMapConfigurationProperty.RowLabelOptions`.
 	RowLabelOptions interface{} `field:"optional" json:"rowLabelOptions" yaml:"rowLabelOptions"`
-	// The sort configuration of a heat map.
+	// `CfnAnalysis.HeatMapConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The tooltip display setup of the visual.
+	// `CfnAnalysis.HeatMapConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
 }
 

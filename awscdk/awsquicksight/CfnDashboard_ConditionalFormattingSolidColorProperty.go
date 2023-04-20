@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Formatting configuration for solid color.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ConditionalFormattingSolidColorProperty struct {
-	// The expression that determines the formatting configuration for solid color.
+	// `CfnDashboard.ConditionalFormattingSolidColorProperty.Expression`.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// Determines the color.
+	// `CfnDashboard.ConditionalFormattingSolidColorProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
 }
 

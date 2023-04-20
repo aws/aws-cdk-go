@@ -221,10 +221,9 @@ By default access is not restricted.
 Use the `lockConfiguration` property to enable [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html):
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-NewBackupVault(stack, jsii.String("Vault"), map[string]map[string]duration{
-	"lockConfiguration": map[string]duration{
-		"minRetention": awscdk.Duration_days(jsii.Number(30)),
+backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
+	LockConfiguration: &LockConfiguration{
+		MinRetention: awscdk.Duration_Days(jsii.Number(30)),
 	},
 })
 ```

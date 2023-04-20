@@ -4,7 +4,6 @@ package awsec2
 // The state of token usage for your instance metadata requests.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 //   	HttpEndpoint: jsii.Boolean(true),
 //   	HttpProtocolIpv6: jsii.Boolean(true),

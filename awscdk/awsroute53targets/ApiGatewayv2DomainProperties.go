@@ -11,16 +11,15 @@ import (
 // Defines an API Gateway V2 domain name as the alias target.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import apigwv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
 //
 //   var zone hostedZone
-//   var domainName apigwv2.DomainName
+//   var domainName domainName
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.regionalDomainName, domainName.regionalHostedZoneId)),
+//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
 //   })
 //
 type ApiGatewayv2DomainProperties interface {

@@ -1,8 +1,6 @@
 package awsimagebuilder
 
 
-// Contains a key/value pair that sets the named component parameter.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsimagebuilder
 //   }
 //
 type CfnContainerRecipe_ComponentParameterProperty struct {
-	// The name of the component parameter to set.
+	// `CfnContainerRecipe.ComponentParameterProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Sets the value for the named component parameter.
+	// `CfnContainerRecipe.ComponentParameterProperty.Value`.
 	Value *[]*string `field:"required" json:"value" yaml:"value"`
 }
 

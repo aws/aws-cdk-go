@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a sankey diagram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,11 +45,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SankeyDiagramSortConfigurationProperty struct {
-	// The limit on the number of destination nodes that are displayed in a sankey diagram.
+	// `CfnAnalysis.SankeyDiagramSortConfigurationProperty.DestinationItemsLimit`.
 	DestinationItemsLimit interface{} `field:"optional" json:"destinationItemsLimit" yaml:"destinationItemsLimit"`
-	// The limit on the number of source nodes that are displayed in a sankey diagram.
+	// `CfnAnalysis.SankeyDiagramSortConfigurationProperty.SourceItemsLimit`.
 	SourceItemsLimit interface{} `field:"optional" json:"sourceItemsLimit" yaml:"sourceItemsLimit"`
-	// The sort configuration of the weight fields.
+	// `CfnAnalysis.SankeyDiagramSortConfigurationProperty.WeightSort`.
 	WeightSort interface{} `field:"optional" json:"weightSort" yaml:"weightSort"`
 }
 

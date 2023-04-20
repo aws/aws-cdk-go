@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a waterfall visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,9 +41,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_WaterfallChartSortConfigurationProperty struct {
-	// The limit on the number of bar groups that are displayed.
+	// `CfnDashboard.WaterfallChartSortConfigurationProperty.BreakdownItemsLimit`.
 	BreakdownItemsLimit interface{} `field:"optional" json:"breakdownItemsLimit" yaml:"breakdownItemsLimit"`
-	// The sort configuration of the category fields.
+	// `CfnDashboard.WaterfallChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
 }
 

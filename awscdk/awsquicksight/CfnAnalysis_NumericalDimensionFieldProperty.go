@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The dimension type field with numerical type columns.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -87,13 +85,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_NumericalDimensionFieldProperty struct {
-	// The column that is used in the `NumericalDimensionField` .
+	// `CfnAnalysis.NumericalDimensionFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnAnalysis.NumericalDimensionFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The format configuration of the field.
+	// `CfnAnalysis.NumericalDimensionFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
-	// The custom hierarchy ID.
+	// `CfnAnalysis.NumericalDimensionFieldProperty.HierarchyId`.
 	HierarchyId *string `field:"optional" json:"hierarchyId" yaml:"hierarchyId"`
 }
 

@@ -61,9 +61,7 @@ type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 	//
 	// > Adding more than one target group to the array is not supported.
 	TargetGroupInfoList interface{} `field:"optional" json:"targetGroupInfoList" yaml:"targetGroupInfoList"`
-	// The target group pair information.
-	//
-	// This is an array of `TargeGroupPairInfo` objects with a maximum size of one.
+	// `CfnDeploymentGroup.LoadBalancerInfoProperty.TargetGroupPairInfoList`.
 	TargetGroupPairInfoList interface{} `field:"optional" json:"targetGroupPairInfoList" yaml:"targetGroupPairInfoList"`
 }
 

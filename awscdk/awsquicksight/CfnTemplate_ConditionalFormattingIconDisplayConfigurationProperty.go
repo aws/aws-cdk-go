@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the icon display configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ConditionalFormattingIconDisplayConfigurationProperty struct {
-	// Determines the icon display configuration.
+	// `CfnTemplate.ConditionalFormattingIconDisplayConfigurationProperty.IconDisplayOption`.
 	IconDisplayOption *string `field:"optional" json:"iconDisplayOption" yaml:"iconDisplayOption"`
 }
 

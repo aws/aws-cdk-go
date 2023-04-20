@@ -109,7 +109,7 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific properties required by Marketo.
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
-	// The connector-specific properties required by Salesforce Pardot.
+	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.Pardot`.
 	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// The connector-specific properties required by Amazon Redshift.
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`

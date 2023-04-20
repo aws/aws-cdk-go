@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the bin count of a histogram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_BinCountOptionsProperty struct {
-	// The options that determine the bin count value.
+	// `CfnDashboard.BinCountOptionsProperty.Value`.
 	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 

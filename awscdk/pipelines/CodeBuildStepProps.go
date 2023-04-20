@@ -10,7 +10,6 @@ import (
 // Construction props for a CodeBuildStep.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 //   	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
 //   		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{

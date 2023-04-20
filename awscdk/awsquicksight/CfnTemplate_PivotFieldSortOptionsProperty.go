@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field sort options for a pivot table sort configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,9 +45,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PivotFieldSortOptionsProperty struct {
-	// The field ID for the field sort options.
+	// `CfnTemplate.PivotFieldSortOptionsProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The sort by field for the field sort options.
+	// `CfnTemplate.PivotFieldSortOptionsProperty.SortBy`.
 	SortBy interface{} `field:"required" json:"sortBy" yaml:"sortBy"`
 }
 

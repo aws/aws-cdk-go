@@ -51,22 +51,6 @@ func (a *jsiiProxy_Application) validateAssociateApplicationWithStackParameters(
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateAssociateAttributeGroupParameters(attributeGroup IAttributeGroup) error {
-	if attributeGroup == nil {
-		return fmt.Errorf("parameter attributeGroup is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (a *jsiiProxy_Application) validateAssociateStackParameters(stack awscdk.Stack) error {
-	if stack == nil {
-		return fmt.Errorf("parameter stack is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (a *jsiiProxy_Application) validateGenerateUniqueHashParameters(resourceAddress *string) error {
 	if resourceAddress == nil {
 		return fmt.Errorf("parameter resourceAddress is required, but nil was provided")

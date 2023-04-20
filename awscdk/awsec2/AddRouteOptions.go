@@ -4,7 +4,6 @@ package awsec2
 // Options for adding a new route to a subnet.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
 //   	SubnetConfiguration: []subnetConfiguration{
 //   		&subnetConfiguration{

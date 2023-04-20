@@ -8,7 +8,6 @@ import (
 // Base class for all CloudFormation Init elements.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a body section.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -71,13 +69,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_BodySectionConfigurationProperty struct {
-	// The configuration of content in a body section.
+	// `CfnAnalysis.BodySectionConfigurationProperty.Content`.
 	Content interface{} `field:"required" json:"content" yaml:"content"`
-	// The unique identifier of a body section.
+	// `CfnAnalysis.BodySectionConfigurationProperty.SectionId`.
 	SectionId *string `field:"required" json:"sectionId" yaml:"sectionId"`
-	// The configuration of a page break for a section.
+	// `CfnAnalysis.BodySectionConfigurationProperty.PageBreakConfiguration`.
 	PageBreakConfiguration interface{} `field:"optional" json:"pageBreakConfiguration" yaml:"pageBreakConfiguration"`
-	// The style options of a body section.
+	// `CfnAnalysis.BodySectionConfigurationProperty.Style`.
 	Style interface{} `field:"optional" json:"style" yaml:"style"`
 }
 

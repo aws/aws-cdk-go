@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A parameter declaration for the `Decimal` data type.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,17 +45,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DecimalParameterDeclarationProperty struct {
-	// The name of the parameter that is being declared.
+	// `CfnTemplate.DecimalParameterDeclarationProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	// `CfnTemplate.DecimalParameterDeclarationProperty.ParameterValueType`.
 	ParameterValueType *string `field:"required" json:"parameterValueType" yaml:"parameterValueType"`
-	// The default values of a parameter.
-	//
-	// If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	// `CfnTemplate.DecimalParameterDeclarationProperty.DefaultValues`.
 	DefaultValues interface{} `field:"optional" json:"defaultValues" yaml:"defaultValues"`
 	// `CfnTemplate.DecimalParameterDeclarationProperty.MappedDataSetParameters`.
 	MappedDataSetParameters interface{} `field:"optional" json:"mappedDataSetParameters" yaml:"mappedDataSetParameters"`
-	// The configuration that defines the default value of a `Decimal` parameter when a value has not been set.
+	// `CfnTemplate.DecimalParameterDeclarationProperty.ValueWhenUnset`.
 	ValueWhenUnset interface{} `field:"optional" json:"valueWhenUnset" yaml:"valueWhenUnset"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sheet layout maximization options of a dashbaord.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SheetLayoutElementMaximizationOptionProperty struct {
-	// The status of the sheet layout maximization options of a dashbaord.
+	// `CfnDashboard.SheetLayoutElementMaximizationOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

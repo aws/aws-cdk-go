@@ -4,6 +4,23 @@ package triggers
 // The invocation type to apply to a trigger.
 //
 // This determines whether the trigger function should await the result of the to be triggered function or not.
+//
+// Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   func := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+//   	Handler: jsii.String("index.handler"),
+//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Code: lambda.Code_FromInline(jsii.String("foo")),
+//   })
+//
+//   triggers.NewTrigger(this, jsii.String("MyTrigger"), &TriggerProps{
+//   	Handler: func,
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
+//   	InvocationType: triggers.InvocationType_EVENT,
+//   })
+//
 type InvocationType string
 
 const (

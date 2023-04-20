@@ -10,7 +10,6 @@ import (
 // Multiple stages that are deployed in parallel.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline codePipeline
 //
 //   europeWave := pipeline.AddWave(jsii.String("Europe"))

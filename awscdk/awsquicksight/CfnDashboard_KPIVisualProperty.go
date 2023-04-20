@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A key performance indicator (KPI).
-//
-// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1152,21 +1148,19 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_KPIVisualProperty struct {
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	// `CfnDashboard.KPIVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnDashboard.KPIVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
-	// The configuration of a KPI visual.
+	// `CfnDashboard.KPIVisualProperty.ChartConfiguration`.
 	ChartConfiguration interface{} `field:"optional" json:"chartConfiguration" yaml:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
+	// `CfnDashboard.KPIVisualProperty.ColumnHierarchies`.
 	ColumnHierarchies interface{} `field:"optional" json:"columnHierarchies" yaml:"columnHierarchies"`
-	// The conditional formatting of a KPI visual.
+	// `CfnDashboard.KPIVisualProperty.ConditionalFormatting`.
 	ConditionalFormatting interface{} `field:"optional" json:"conditionalFormatting" yaml:"conditionalFormatting"`
-	// The subtitle that is displayed on the visual.
+	// `CfnDashboard.KPIVisualProperty.Subtitle`.
 	Subtitle interface{} `field:"optional" json:"subtitle" yaml:"subtitle"`
-	// The title that is displayed on the visual.
+	// `CfnDashboard.KPIVisualProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

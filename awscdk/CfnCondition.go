@@ -11,7 +11,6 @@ import (
 // Represents a CloudFormation condition, for resources which must be conditionally created and the determination must be made at deploy time.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
 //   })
 //   // -or-

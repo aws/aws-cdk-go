@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The default values of the `DateTimeParameterDeclaration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,15 +35,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DateTimeDefaultValuesProperty struct {
-	// The dynamic value of the `DataTimeDefaultValues` .
-	//
-	// Different defaults are displayed according to users, groups, and values mapping.
+	// `CfnDashboard.DateTimeDefaultValuesProperty.DynamicValue`.
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
-	// The rolling date of the `DataTimeDefaultValues` .
-	//
-	// The date is determined from the dataset based on input expression.
+	// `CfnDashboard.DateTimeDefaultValuesProperty.RollingDate`.
 	RollingDate interface{} `field:"optional" json:"rollingDate" yaml:"rollingDate"`
-	// The static values of the `DataTimeDefaultValues` .
+	// `CfnDashboard.DateTimeDefaultValuesProperty.StaticValues`.
 	StaticValues *[]*string `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

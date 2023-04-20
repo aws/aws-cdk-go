@@ -8,7 +8,6 @@ import (
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage

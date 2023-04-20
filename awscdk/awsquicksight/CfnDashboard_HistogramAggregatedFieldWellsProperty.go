@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a histogram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -263,9 +261,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_HistogramAggregatedFieldWellsProperty struct {
-	// The value field wells of a histogram.
-	//
-	// Values are aggregated by `COUNT` or `DISTINCT_COUNT` .
+	// `CfnDashboard.HistogramAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

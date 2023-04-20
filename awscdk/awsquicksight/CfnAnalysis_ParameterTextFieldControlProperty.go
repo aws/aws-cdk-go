@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A control to display a text box that is used to enter a single entry.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,13 +35,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ParameterTextFieldControlProperty struct {
-	// The ID of the `ParameterTextFieldControl` .
+	// `CfnAnalysis.ParameterTextFieldControlProperty.ParameterControlId`.
 	ParameterControlId *string `field:"required" json:"parameterControlId" yaml:"parameterControlId"`
-	// The source parameter name of the `ParameterTextFieldControl` .
+	// `CfnAnalysis.ParameterTextFieldControlProperty.SourceParameterName`.
 	SourceParameterName *string `field:"required" json:"sourceParameterName" yaml:"sourceParameterName"`
-	// The title of the `ParameterTextFieldControl` .
+	// `CfnAnalysis.ParameterTextFieldControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnAnalysis.ParameterTextFieldControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
 }
 

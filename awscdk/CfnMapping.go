@@ -11,7 +11,6 @@ import (
 // Represents a CloudFormation mapping.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &CfnMappingProps{
 //   	Mapping: map[string]map[string]interface{}{
 //   		"us-east-1": map[string]interface{}{

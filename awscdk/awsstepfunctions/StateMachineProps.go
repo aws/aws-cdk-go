@@ -8,7 +8,6 @@ import (
 // Properties for defining a State Machine.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //

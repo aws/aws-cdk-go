@@ -15,15 +15,15 @@ import (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import batch "github.com/aws/aws-cdk-go/awscdk"
+//   import batch "github.com/aws/aws-cdk-go/awscdkbatchalpha"
 //   var batchJobDefinition batch.JobDefinition
-//   var batchQueue batch.JobQueue
+//   var batchQueue jobQueue
 //
 //
 //   task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{
 //   	JobDefinitionArn: batchJobDefinition.jobDefinitionArn,
 //   	JobName: jsii.String("MyJob"),
-//   	JobQueueArn: batchQueue.jobQueueArn,
+//   	JobQueueArn: batchQueue.JobQueueArn,
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-batch.html

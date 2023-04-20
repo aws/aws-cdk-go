@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The background style configuration of a free-form layout element.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FreeFormLayoutElementBorderStyleProperty struct {
-	// The border color of a free-form layout element.
+	// `CfnDashboard.FreeFormLayoutElementBorderStyleProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
-	// The border visibility of a free-form layout element.
+	// `CfnDashboard.FreeFormLayoutElementBorderStyleProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

@@ -11,8 +11,6 @@ import (
 
 // A CloudFormation `AWS::XRay::ResourcePolicy`.
 //
-// Sets the resource policy to grant one or more AWS services and accounts permissions to access X-Ray. Each resource policy will be associated with a specific AWS account. Each AWS account can have a maximum of 5 resource policies, and each policy name must be unique within that account. The maximum size of each resource policy is 5KB.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -53,12 +51,10 @@ type CfnResourcePolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The resource policy document, which can be up to 5kb in size.
+	// `AWS::XRay::ResourcePolicy.PolicyDocument`.
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
-	// The name of the resource policy.
-	//
-	// Must be unique within a specific AWS account.
+	// `AWS::XRay::ResourcePolicy.PolicyName`.
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The pagination configuration for a table visual or boxplot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PaginationConfigurationProperty struct {
-	// Indicates the page number.
+	// `CfnTemplate.PaginationConfigurationProperty.PageNumber`.
 	PageNumber *float64 `field:"required" json:"pageNumber" yaml:"pageNumber"`
-	// Indicates how many items render in one page.
+	// `CfnTemplate.PaginationConfigurationProperty.PageSize`.
 	PageSize *float64 `field:"required" json:"pageSize" yaml:"pageSize"`
 }
 

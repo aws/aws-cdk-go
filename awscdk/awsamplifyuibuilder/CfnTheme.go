@@ -56,7 +56,7 @@ import (
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The unique ID for the Amplify app associated with the theme.
+	// `AWS::AmplifyUIBuilder::Theme.AppId`.
 	AppId() *string
 	SetAppId(val *string)
 	// The ID for the theme.
@@ -70,7 +70,7 @@ type CfnTheme interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The name of the backend environment that is a part of the Amplify app.
+	// `AWS::AmplifyUIBuilder::Theme.EnvironmentName`.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The bound options (north, south, west, east) of the geospatial window options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +14,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_GeospatialCoordinateBoundsProperty struct {
-	// The longitude of the east bound of the geospatial coordinate bounds.
+	// `CfnAnalysis.GeospatialCoordinateBoundsProperty.East`.
 	East *float64 `field:"required" json:"east" yaml:"east"`
-	// The latitude of the north bound of the geospatial coordinate bounds.
+	// `CfnAnalysis.GeospatialCoordinateBoundsProperty.North`.
 	North *float64 `field:"required" json:"north" yaml:"north"`
-	// The latitude of the south bound of the geospatial coordinate bounds.
+	// `CfnAnalysis.GeospatialCoordinateBoundsProperty.South`.
 	South *float64 `field:"required" json:"south" yaml:"south"`
-	// The longitude of the west bound of the geospatial coordinate bounds.
+	// `CfnAnalysis.GeospatialCoordinateBoundsProperty.West`.
 	West *float64 `field:"required" json:"west" yaml:"west"`
 }
 

@@ -5,13 +5,14 @@ package awscdk
 // When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   var resource cfnResource
 //
-//   cfnResourceSignal := &CfnResourceSignal{
-//   	Count: jsii.Number(123),
-//   	Timeout: jsii.String("timeout"),
+//
+//   resource.CfnOptions.CreationPolicy = &CfnCreationPolicy{
+//   	ResourceSignal: &CfnResourceSignal{
+//   		Count: jsii.Number(3),
+//   		Timeout: jsii.String("PR15M"),
+//   	},
 //   }
 //
 type CfnResourceSignal struct {

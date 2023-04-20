@@ -15,7 +15,6 @@ import (
 // a CloudTrail Trail in the account that captures the S3 event.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket

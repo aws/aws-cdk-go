@@ -12,31 +12,28 @@ import (
 // Start a task on an ECS cluster.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var role role
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import ecs "github.com/aws-samples/dummy/awscdkawsecs"
+//   var cluster ecs.ICluster
+//   var taskDefinition ecs.TaskDefinition
 //
 //
-//   ecsTaskTarget := awscdk.NewEcsTask(&EcsTaskProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	Role: Role,
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
-//   	Schedule: awscdk.Schedule_Cron(&CronOptions{
-//   		Minute: jsii.String("0"),
-//   		Hour: jsii.String("4"),
-//   	}),
-//   	Targets: []iRuleTarget{
-//   		ecsTaskTarget,
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: cluster,
+//   	TaskDefinition: taskDefinition,
+//   	PropagateTags: ecs.propagatedTagSource_TASK_DEFINITION,
+//   	Tags: []tag{
+//   		&tag{
+//   			Key: jsii.String("my-tag"),
+//   			Value: jsii.String("my-tag-value"),
+//   		},
 //   	},
-//   })
+//   }))
 //
 type EcsTask interface {
 	awsevents.IRuleTarget

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The option that determines the text display weight, or boldness.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FontWeightProperty struct {
-	// The lexical name for the level of boldness of the text display.
+	// `CfnAnalysis.FontWeightProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

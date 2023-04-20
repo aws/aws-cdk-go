@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The custom narrative options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_CustomNarrativeOptionsProperty struct {
-	// The string input of custom narrative.
+	// `CfnTemplate.CustomNarrativeOptionsProperty.Narrative`.
 	Narrative *string `field:"required" json:"narrative" yaml:"narrative"`
 }
 

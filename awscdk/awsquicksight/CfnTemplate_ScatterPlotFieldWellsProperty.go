@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a scatter plot.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1751,13 +1747,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ScatterPlotFieldWellsProperty struct {
-	// The aggregated field wells of a scatter plot.
-	//
-	// Scatter plots that have a field in the category (group/color) field will have aggregated field wells. The x and y-axes of these scatter plots are aggregated by category.
+	// `CfnTemplate.ScatterPlotFieldWellsProperty.ScatterPlotCategoricallyAggregatedFieldWells`.
 	ScatterPlotCategoricallyAggregatedFieldWells interface{} `field:"optional" json:"scatterPlotCategoricallyAggregatedFieldWells" yaml:"scatterPlotCategoricallyAggregatedFieldWells"`
-	// The unaggregated field wells of a scatter plot.
-	//
-	// Scatter plots without a category field well have unaggregated field wells. The x and y-axes of these scatter plots are unaggregated.
+	// `CfnTemplate.ScatterPlotFieldWellsProperty.ScatterPlotUnaggregatedFieldWells`.
 	ScatterPlotUnaggregatedFieldWells interface{} `field:"optional" json:"scatterPlotUnaggregatedFieldWells" yaml:"scatterPlotUnaggregatedFieldWells"`
 }
 

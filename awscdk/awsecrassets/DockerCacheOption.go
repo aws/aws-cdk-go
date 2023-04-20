@@ -41,8 +41,13 @@ type DockerCacheOption struct {
 	// Refer to https://docs.docker.com/build/cache/backends/ for cache backend configuration.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
-	//   {ref: `12345678.dkr.ecr.us-west-2.amazonaws.com/cache:${branch}`, mode"max"}
+	//   var branch string
+	//
+	//
+	//   params := map[string]interface{}{
+	//   	"ref": fmt.Sprintf("12345678.dkr.ecr.us-west-2.amazonaws.com/cache:%v", branch),
+	//   	"mode": jsii.String("max"),
+	//   }
 	//
 	Params *map[string]*string `field:"optional" json:"params" yaml:"params"`
 }

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options for a table field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -49,15 +47,15 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableFieldOptionProperty struct {
-	// The field ID for a table field.
+	// `CfnDashboard.TableFieldOptionProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The custom label for a table field.
+	// `CfnDashboard.TableFieldOptionProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The URL configuration for a table field.
+	// `CfnDashboard.TableFieldOptionProperty.URLStyling`.
 	UrlStyling interface{} `field:"optional" json:"urlStyling" yaml:"urlStyling"`
-	// The visibility of a table field.
+	// `CfnDashboard.TableFieldOptionProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
-	// The width for a table field.
+	// `CfnDashboard.TableFieldOptionProperty.Width`.
 	Width *string `field:"optional" json:"width" yaml:"width"`
 }
 

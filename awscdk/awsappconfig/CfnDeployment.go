@@ -80,7 +80,9 @@ type CfnDeployment interface {
 	// The environment ID.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
-	// `AWS::AppConfig::Deployment.KmsKeyIdentifier`.
+	// The AWS KMS key identifier (key ID, key alias, or key ARN).
+	//
+	// AWS AppConfig uses this ID to encrypt the configuration data using a customer managed key.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.

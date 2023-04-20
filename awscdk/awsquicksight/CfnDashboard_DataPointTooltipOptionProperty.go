@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The data point tooltip options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DataPointTooltipOptionProperty struct {
-	// The status of the data point tool tip options.
+	// `CfnDashboard.DataPointTooltipOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

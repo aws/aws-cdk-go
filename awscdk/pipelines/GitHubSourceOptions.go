@@ -8,7 +8,6 @@ import (
 // Options for GitHub sources.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipelines.CodePipelineSource_GitHub(jsii.String("org/repo"), jsii.String("branch"), &GitHubSourceOptions{
 //   	// This is optional
 //   	Authentication: cdk.SecretValue_SecretsManager(jsii.String("my-token")),

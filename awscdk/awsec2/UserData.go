@@ -10,25 +10,13 @@ import (
 // Instance User Data.
 //
 // Example:
-//   var cluster cluster
+//   multipartUserData := ec2.NewMultipartUserData()
+//   commandsUserData := ec2.UserData_ForLinux()
+//   multipartUserData.AddUserDataPart(commandsUserData, ec2.MultipartBody_SHELL_SCRIPT(), jsii.Boolean(true))
 //
-//   userData := ec2.UserData_ForLinux()
-//   userData.AddCommands(jsii.String("set -o xtrace"),
-//   fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.ClusterName))
-//   lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
-//   	LaunchTemplateData: &LaunchTemplateDataProperty{
-//   		ImageId: jsii.String("some-ami-id"),
-//   		 // custom AMI
-//   		InstanceType: jsii.String("t3.small"),
-//   		UserData: awscdk.Fn_Base64(userData.Render()),
-//   	},
-//   })
-//   cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
-//   	LaunchTemplateSpec: &LaunchTemplateSpec{
-//   		Id: lt.ref,
-//   		Version: lt.AttrLatestVersionNumber,
-//   	},
-//   })
+//   // Adding commands to the multipartUserData adds them to commandsUserData, and vice-versa.
+//   multipartUserData.AddCommands(jsii.String("touch /root/multi.txt"))
+//   commandsUserData.AddCommands(jsii.String("touch /root/userdata.txt"))
 //
 type UserData interface {
 	// Add one or more commands to the user data.

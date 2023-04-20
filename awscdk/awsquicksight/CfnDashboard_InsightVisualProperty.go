@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// An insight visual.
-//
-// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -5086,19 +5082,17 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_InsightVisualProperty struct {
-	// The dataset that is used in the insight visual.
+	// `CfnDashboard.InsightVisualProperty.DataSetIdentifier`.
 	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
-	// The unique identifier of a visual.
-	//
-	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	// `CfnDashboard.InsightVisualProperty.VisualId`.
 	VisualId *string `field:"required" json:"visualId" yaml:"visualId"`
-	// The list of custom actions that are configured for a visual.
+	// `CfnDashboard.InsightVisualProperty.Actions`.
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
-	// The configuration of an insight visual.
+	// `CfnDashboard.InsightVisualProperty.InsightConfiguration`.
 	InsightConfiguration interface{} `field:"optional" json:"insightConfiguration" yaml:"insightConfiguration"`
-	// The subtitle that is displayed on the visual.
+	// `CfnDashboard.InsightVisualProperty.Subtitle`.
 	Subtitle interface{} `field:"optional" json:"subtitle" yaml:"subtitle"`
-	// The title that is displayed on the visual.
+	// `CfnDashboard.InsightVisualProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

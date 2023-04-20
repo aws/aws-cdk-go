@@ -10,16 +10,15 @@ import (
 // The identity to use for DKIM.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myHostedZone iPublicHostedZone
 //
 //
-//   ses.NewEmailIdentity(stack, jsii.String("Identity"), &EmailIdentityProps{
+//   ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
 //   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
-//   	DkimIdentity: dkimIdentity_ByoDkim(map[string]interface{}{
-//   		"privateKey": SecretValue_secretsManager(jsii.String("dkim-private-key")),
-//   		"publicKey": jsii.String("...base64-encoded-public-key..."),
-//   		"selector": jsii.String("selector"),
+//   	DkimIdentity: ses.DkimIdentity_ByoDkim(&ByoDkimOptions{
+//   		PrivateKey: awscdk.SecretValue_SecretsManager(jsii.String("dkim-private-key")),
+//   		PublicKey: jsii.String("...base64-encoded-public-key..."),
+//   		Selector: jsii.String("selector"),
 //   	}),
 //   })
 //

@@ -14,22 +14,28 @@ import (
 // A CodeDeploy deployment group that orchestrates ECS blue-green deployments.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myApplication ecsApplication
-//   var service ecs.FargateService
-//   var blueTargetGroup elbv2.ITargetGroup
-//   var greenTargetGroup elbv2.ITargetGroup
-//   var listener elbv2.IApplicationListener
-//   var testListener elbv2.IApplicationListener
+//   var cluster cluster
+//   var taskDefinition fargateTaskDefinition
+//   var blueTargetGroup iTargetGroup
+//   var greenTargetGroup iTargetGroup
+//   var listener iApplicationListener
 //
 //
-//   codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	DeploymentController: &DeploymentController{
+//   		Type: ecs.DeploymentControllerType_CODE_DEPLOY,
+//   	},
+//   })
+//
+//   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 //   	Service: Service,
 //   	BlueGreenDeploymentConfig: &EcsBlueGreenDeploymentConfig{
 //   		BlueTargetGroup: *BlueTargetGroup,
 //   		GreenTargetGroup: *GreenTargetGroup,
 //   		Listener: *Listener,
-//   		TestListener: *TestListener,
 //   	},
 //   	DeploymentConfig: codedeploy.EcsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 //   })

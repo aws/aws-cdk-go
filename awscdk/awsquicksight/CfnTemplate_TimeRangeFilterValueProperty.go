@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The value of a time range filter.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,11 +18,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TimeRangeFilterValueProperty struct {
-	// The parameter type input value.
+	// `CfnTemplate.TimeRangeFilterValueProperty.Parameter`.
 	Parameter *string `field:"optional" json:"parameter" yaml:"parameter"`
-	// The rolling date input value.
+	// `CfnTemplate.TimeRangeFilterValueProperty.RollingDate`.
 	RollingDate interface{} `field:"optional" json:"rollingDate" yaml:"rollingDate"`
-	// The static input value.
+	// `CfnTemplate.TimeRangeFilterValueProperty.StaticValue`.
 	StaticValue *string `field:"optional" json:"staticValue" yaml:"staticValue"`
 }
 

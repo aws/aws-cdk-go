@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The table cell style for a cell in pivot table or table visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -68,21 +66,21 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableCellStyleProperty struct {
-	// The background color for the table cells.
+	// `CfnDashboard.TableCellStyleProperty.BackgroundColor`.
 	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
-	// The borders for the table cells.
+	// `CfnDashboard.TableCellStyleProperty.Border`.
 	Border interface{} `field:"optional" json:"border" yaml:"border"`
-	// The font configuration of the table cells.
+	// `CfnDashboard.TableCellStyleProperty.FontConfiguration`.
 	FontConfiguration interface{} `field:"optional" json:"fontConfiguration" yaml:"fontConfiguration"`
-	// The height color for the table cells.
+	// `CfnDashboard.TableCellStyleProperty.Height`.
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
-	// The horizontal text alignment (left, center, right, auto) for the table cells.
+	// `CfnDashboard.TableCellStyleProperty.HorizontalTextAlignment`.
 	HorizontalTextAlignment *string `field:"optional" json:"horizontalTextAlignment" yaml:"horizontalTextAlignment"`
-	// The text wrap (none, wrap) for the table cells.
+	// `CfnDashboard.TableCellStyleProperty.TextWrap`.
 	TextWrap *string `field:"optional" json:"textWrap" yaml:"textWrap"`
-	// The vertical text alignment (top, middle, bottom) for the table cells.
+	// `CfnDashboard.TableCellStyleProperty.VerticalTextAlignment`.
 	VerticalTextAlignment *string `field:"optional" json:"verticalTextAlignment" yaml:"verticalTextAlignment"`
-	// The visibility of the table cells.
+	// `CfnDashboard.TableCellStyleProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

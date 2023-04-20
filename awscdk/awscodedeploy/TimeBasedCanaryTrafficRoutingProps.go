@@ -7,15 +7,13 @@ import (
 // Construction properties for `TimeBasedCanaryTrafficRouting`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   timeBasedCanaryTrafficRoutingProps := &TimeBasedCanaryTrafficRoutingProps{
-//   	Interval: cdk.Duration_Minutes(jsii.Number(30)),
-//   	Percentage: jsii.Number(123),
-//   }
+//   config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
+//   	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
+//   		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
+//   		Percentage: jsii.Number(5),
+//   	}),
+//   	DeploymentConfigName: jsii.String("MyDeploymentConfig"),
+//   })
 //
 type TimeBasedCanaryTrafficRoutingProps struct {
 	// The amount of time between traffic shifts.

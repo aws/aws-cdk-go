@@ -12,15 +12,14 @@ import (
 // Use an AWS CloudWatch LogGroup as an event rule target.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //   var logGroup logGroup
 //   var rule rule
 //
 //
 //   rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-//   	LogEvent: targets.LogGroupTargetInput(map[string]*string{
-//   		"message": JSON.stringify(map[string]*string{
+//   	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
+//   		Message: jSON.stringify(map[string]*string{
 //   			"CustomField": jsii.String("CustomValue"),
 //   		}),
 //   	}),

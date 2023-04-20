@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A grid layout to define the placement of sheet control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -38,7 +36,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_SheetControlLayoutProperty struct {
-	// The configuration that determines the elements and canvas size options of sheet control.
+	// `CfnTemplate.SheetControlLayoutProperty.Configuration`.
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 }
 

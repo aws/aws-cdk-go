@@ -12,7 +12,6 @@ import (
 // Deploys the skill to Alexa.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Read the secrets from ParameterStore
 //   clientId := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientId"))
 //   clientSecret := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientSecret"))

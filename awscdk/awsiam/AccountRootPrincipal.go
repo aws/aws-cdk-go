@@ -8,7 +8,6 @@ import (
 // Use the AWS account into which a stack is deployed as the principal entity in a policy.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   result := bucket.AddToResourcePolicy(
 //   iam.NewPolicyStatement(&PolicyStatementProps{

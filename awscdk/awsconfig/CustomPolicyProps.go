@@ -4,7 +4,6 @@ package awsconfig
 // Construction properties for a CustomPolicy.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   samplePolicyText := `
 //   # This rule checks if point in time recovery (PITR) is enabled on active Amazon DynamoDB tables
 //   let status = ['ACTIVE']
@@ -22,7 +21,7 @@ package awsconfig
 //   }
 //   `
 //
-//   config.NewCustomPolicy(stack, jsii.String("Custom"), &CustomPolicyProps{
+//   config.NewCustomPolicy(this, jsii.String("Custom"), &CustomPolicyProps{
 //   	PolicyText: samplePolicyText,
 //   	EnableDebugLog: jsii.Boolean(true),
 //   	RuleScope: config.RuleScope_FromResources([]resourceType{

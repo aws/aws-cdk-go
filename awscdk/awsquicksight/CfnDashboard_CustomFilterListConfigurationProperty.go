@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A list of custom filter values.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,19 +18,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CustomFilterListConfigurationProperty struct {
-	// The match operator that is used to determine if a filter should be applied.
+	// `CfnDashboard.CustomFilterListConfigurationProperty.MatchOperator`.
 	MatchOperator *string `field:"required" json:"matchOperator" yaml:"matchOperator"`
-	// This option determines how null values should be treated when filtering data.
-	//
-	// - `ALL_VALUES` : Include null values in filtered results.
-	// - `NULLS_ONLY` : Only include null values in filtered results.
-	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// `CfnDashboard.CustomFilterListConfigurationProperty.NullOption`.
 	NullOption *string `field:"required" json:"nullOption" yaml:"nullOption"`
-	// The list of category values for the filter.
+	// `CfnDashboard.CustomFilterListConfigurationProperty.CategoryValues`.
 	CategoryValues *[]*string `field:"optional" json:"categoryValues" yaml:"categoryValues"`
-	// Select all of the values. Null is not the assigned value of select all.
-	//
-	// - `FILTER_ALL_VALUES`.
+	// `CfnDashboard.CustomFilterListConfigurationProperty.SelectAllOptions`.
 	SelectAllOptions *string `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
 }
 

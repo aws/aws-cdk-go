@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Determines the row alternate color options.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_RowAlternateColorOptionsProperty struct {
-	// Determines the list of row alternate colors.
+	// `CfnAnalysis.RowAlternateColorOptionsProperty.RowAlternateColors`.
 	RowAlternateColors *[]*string `field:"optional" json:"rowAlternateColors" yaml:"rowAlternateColors"`
-	// Determines the widget status.
+	// `CfnAnalysis.RowAlternateColorOptionsProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

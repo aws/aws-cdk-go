@@ -12,7 +12,6 @@ import (
 // Source that is provided by a GitHub repository.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Read the secret from Secrets Manager
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   sourceOutput := codepipeline.NewArtifact()

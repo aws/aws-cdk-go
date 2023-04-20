@@ -8,7 +8,6 @@ import (
 // Interface for classes that provide the connection-specification parts of a security group rule.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instanceType instanceType
 //
 //

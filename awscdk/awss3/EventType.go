@@ -4,7 +4,6 @@ package awss3
 // Notification event types.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myQueue queue
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))

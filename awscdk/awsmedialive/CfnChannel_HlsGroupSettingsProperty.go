@@ -207,9 +207,7 @@ type CfnChannel_HlsGroupSettingsProperty struct {
 	OutputSelection *string `field:"optional" json:"outputSelection" yaml:"outputSelection"`
 	// Includes or excludes the EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: Either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
 	ProgramDateTime *string `field:"optional" json:"programDateTime" yaml:"programDateTime"`
-	// Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME clock.
-	//
-	// Options include: INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock is initialized as a function of the first output timecode, then incremented by the EXTINF duration of each encoded segment. SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall clock, then incremented by the EXTINF duration of each encoded segment. If the PDT clock diverges from the wall clock by more than 500ms, it is resynchronized to the wall clock.
+	// `CfnChannel.HlsGroupSettingsProperty.ProgramDateTimeClock`.
 	ProgramDateTimeClock *string `field:"optional" json:"programDateTimeClock" yaml:"programDateTimeClock"`
 	// The period of insertion of the EXT-X-PROGRAM-DATE-TIME entry, in seconds.
 	ProgramDateTimePeriod *float64 `field:"optional" json:"programDateTimePeriod" yaml:"programDateTimePeriod"`

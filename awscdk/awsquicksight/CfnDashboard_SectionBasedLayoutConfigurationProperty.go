@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a section-based layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -199,13 +197,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SectionBasedLayoutConfigurationProperty struct {
-	// A list of body section configurations.
+	// `CfnDashboard.SectionBasedLayoutConfigurationProperty.BodySections`.
 	BodySections interface{} `field:"required" json:"bodySections" yaml:"bodySections"`
-	// The options for the canvas of a section-based layout.
+	// `CfnDashboard.SectionBasedLayoutConfigurationProperty.CanvasSizeOptions`.
 	CanvasSizeOptions interface{} `field:"required" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`
-	// A list of footer section configurations.
+	// `CfnDashboard.SectionBasedLayoutConfigurationProperty.FooterSections`.
 	FooterSections interface{} `field:"required" json:"footerSections" yaml:"footerSections"`
-	// A list of header section configurations.
+	// `CfnDashboard.SectionBasedLayoutConfigurationProperty.HeaderSections`.
 	HeaderSections interface{} `field:"required" json:"headerSections" yaml:"headerSections"`
 }
 

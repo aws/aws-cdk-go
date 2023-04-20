@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting for a `PivotTableVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -91,7 +89,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PivotTableConditionalFormattingProperty struct {
-	// Conditional formatting options for a `PivotTableVisual` .
+	// `CfnAnalysis.PivotTableConditionalFormattingProperty.ConditionalFormattingOptions`.
 	ConditionalFormattingOptions interface{} `field:"optional" json:"conditionalFormattingOptions" yaml:"conditionalFormattingOptions"`
 }
 

@@ -10,17 +10,17 @@ import (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkbatchalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), map[string][]map[string]interface{}{
-//   	"computeEnvironments": []map[string]interface{}{
-//   		map[string]interface{}{
-//   			"computeEnvironment": batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
+//   jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), &JobQueueProps{
+//   	ComputeEnvironments: []orderedComputeEnvironment{
+//   		&orderedComputeEnvironment{
+//   			ComputeEnvironment: batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
 //   				"managed": jsii.Boolean(false),
 //   			}),
-//   			"order": jsii.Number(1),
+//   			Order: jsii.Number(1),
 //   		},
 //   	},
 //   })
@@ -34,16 +34,16 @@ import (
 //   queue := sqs.NewQueue(this, jsii.String("Queue"))
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+//   	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(targets.NewBatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
+//   rule.AddTarget(targets.NewBatchJob(jobQueue.JobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
 //   	DeadLetterQueue: queue,
 //   	Event: events.RuleTargetInput_FromObject(map[string]*string{
 //   		"SomeParam": jsii.String("SomeValue"),
 //   	}),
 //   	RetryAttempts: jsii.Number(2),
-//   	MaxEventAge: cdk.Duration_*Hours(jsii.Number(2)),
+//   	MaxEventAge: awscdk.Duration_*Hours(jsii.Number(2)),
 //   }))
 //
 type BatchJobProps struct {

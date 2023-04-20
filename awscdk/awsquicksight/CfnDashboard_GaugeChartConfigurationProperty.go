@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -683,15 +681,15 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GaugeChartConfigurationProperty struct {
-	// The data label configuration of a `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field well configuration of a `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The options that determine the presentation of the `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartConfigurationProperty.GaugeChartOptions`.
 	GaugeChartOptions interface{} `field:"optional" json:"gaugeChartOptions" yaml:"gaugeChartOptions"`
-	// The tooltip configuration of a `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartConfigurationProperty.TooltipOptions`.
 	TooltipOptions interface{} `field:"optional" json:"tooltipOptions" yaml:"tooltipOptions"`
-	// The visual palette configuration of a `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
 }
 

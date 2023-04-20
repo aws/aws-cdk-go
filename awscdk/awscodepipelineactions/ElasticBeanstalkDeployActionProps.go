@@ -8,7 +8,6 @@ import (
 // Construction properties of the `ElasticBeanstalkDeployAction Elastic Beanstalk deploy CodePipeline Action`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceOutput := codepipeline.NewArtifact()
 //   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //

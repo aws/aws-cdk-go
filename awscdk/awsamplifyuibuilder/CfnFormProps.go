@@ -143,27 +143,27 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnFormProps struct {
-	// The type of data source to use to create the form.
+	// `AWS::AmplifyUIBuilder::Form.DataType`.
 	DataType interface{} `field:"required" json:"dataType" yaml:"dataType"`
-	// Stores the information about the form's fields.
+	// `AWS::AmplifyUIBuilder::Form.Fields`.
 	Fields interface{} `field:"required" json:"fields" yaml:"fields"`
-	// The operation to perform on the specified form.
+	// `AWS::AmplifyUIBuilder::Form.FormActionType`.
 	FormActionType *string `field:"required" json:"formActionType" yaml:"formActionType"`
-	// The name of the form.
+	// `AWS::AmplifyUIBuilder::Form.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The schema version of the form when it was imported.
+	// `AWS::AmplifyUIBuilder::Form.SchemaVersion`.
 	SchemaVersion *string `field:"required" json:"schemaVersion" yaml:"schemaVersion"`
-	// Stores the visual helper elements for the form that are not associated with any data.
+	// `AWS::AmplifyUIBuilder::Form.SectionalElements`.
 	SectionalElements interface{} `field:"required" json:"sectionalElements" yaml:"sectionalElements"`
-	// Stores the configuration for the form's style.
+	// `AWS::AmplifyUIBuilder::Form.Style`.
 	Style interface{} `field:"required" json:"style" yaml:"style"`
-	// The unique ID of the Amplify app associated with the form.
+	// `AWS::AmplifyUIBuilder::Form.AppId`.
 	AppId *string `field:"optional" json:"appId" yaml:"appId"`
-	// Stores the call to action configuration for the form.
+	// `AWS::AmplifyUIBuilder::Form.Cta`.
 	Cta interface{} `field:"optional" json:"cta" yaml:"cta"`
-	// The name of the backend environment that is a part of the Amplify app.
+	// `AWS::AmplifyUIBuilder::Form.EnvironmentName`.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
-	// One or more key-value pairs to use when tagging the form.
+	// `AWS::AmplifyUIBuilder::Form.Tags`.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a pie chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,13 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PieChartAggregatedFieldWellsProperty struct {
-	// The category (group/color) field wells of a pie chart.
+	// `CfnTemplate.PieChartAggregatedFieldWellsProperty.Category`.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
-	// The small multiples field well of a pie chart.
+	// `CfnTemplate.PieChartAggregatedFieldWellsProperty.SmallMultiples`.
 	SmallMultiples interface{} `field:"optional" json:"smallMultiples" yaml:"smallMultiples"`
-	// The value field wells of a pie chart.
-	//
-	// Values are aggregated based on categories.
+	// `CfnTemplate.PieChartAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

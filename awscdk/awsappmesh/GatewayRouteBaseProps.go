@@ -4,7 +4,6 @@ package awsappmesh
 // Basic configuration properties for a GatewayRoute.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //

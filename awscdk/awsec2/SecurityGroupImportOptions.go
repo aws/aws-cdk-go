@@ -4,7 +4,6 @@ package awsec2
 // Additional options for imported security groups.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   securityGroup := ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("SG"), jsii.String("sg-12345"), &SecurityGroupImportOptions{
 //   	Mutable: jsii.Boolean(false),
 //   })

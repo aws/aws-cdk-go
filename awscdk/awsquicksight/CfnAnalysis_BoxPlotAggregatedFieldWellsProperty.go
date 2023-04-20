@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field well for a box plot.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -506,13 +504,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_BoxPlotAggregatedFieldWellsProperty struct {
-	// The group by field well of a box plot chart.
-	//
-	// Values are grouped based on group by fields.
+	// `CfnAnalysis.BoxPlotAggregatedFieldWellsProperty.GroupBy`.
 	GroupBy interface{} `field:"optional" json:"groupBy" yaml:"groupBy"`
-	// The value field well of a box plot chart.
-	//
-	// Values are aggregated based on group by fields.
+	// `CfnAnalysis.BoxPlotAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

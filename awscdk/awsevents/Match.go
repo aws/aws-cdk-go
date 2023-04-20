@@ -11,7 +11,6 @@ import (
 // An event pattern matcher.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
 //   	EventPattern: &EventPattern{
 //   		Detail: map[string]interface{}{
@@ -23,7 +22,7 @@ import (
 //   			// 'OR' condition
 //   			"source-storage-class": events.Match_anyOf(events.Match_prefix(jsii.String("GLACIER")), events.Match_exactString(jsii.String("DEEP_ARCHIVE"))),
 //   		},
-//   		Detailtype: events.Match_EqualsIgnoreCase(jsii.String("object created")),
+//   		DetailType: events.Match_EqualsIgnoreCase(jsii.String("object created")),
 //
 //   		// If you prefer, you can use a low level array of strings, as directly consumed by EventBridge
 //   		Source: []*string{

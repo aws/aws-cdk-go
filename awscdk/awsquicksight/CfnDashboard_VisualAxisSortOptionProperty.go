@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The axis sort options for a visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_VisualAxisSortOptionProperty struct {
-	// The availaiblity status of a visual's axis sort options.
+	// `CfnDashboard.VisualAxisSortOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

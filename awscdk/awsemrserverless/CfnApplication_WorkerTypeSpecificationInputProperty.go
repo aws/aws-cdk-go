@@ -1,8 +1,6 @@
 package awsemrserverless
 
 
-// The specifications for a worker type.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsemrserverless
 //   }
 //
 type CfnApplication_WorkerTypeSpecificationInputProperty struct {
-	// The image configuration for a worker type.
+	// `CfnApplication.WorkerTypeSpecificationInputProperty.ImageConfiguration`.
 	ImageConfiguration interface{} `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 

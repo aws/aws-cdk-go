@@ -22,7 +22,10 @@ import (
 //   lb.AddListener(&LoadBalancerListener{
 //   	ExternalPort: jsii.Number(80),
 //   })
-//   lb.AddTarget(service)
+//   lb.AddTarget(service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+//   	ContainerName: jsii.String("MyContainer"),
+//   	ContainerPort: jsii.Number(80),
+//   }))
 //
 type LoadBalancerProps struct {
 	// VPC network of the fleet instances.

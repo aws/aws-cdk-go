@@ -85,7 +85,6 @@ type BucketBase interface {
 	// Adds a bucket notification event destination.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var myLambda function
 	//
 	//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))

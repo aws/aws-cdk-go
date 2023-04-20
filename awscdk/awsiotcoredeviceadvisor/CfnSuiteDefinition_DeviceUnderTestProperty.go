@@ -1,10 +1,6 @@
 package awsiotcoredeviceadvisor
 
 
-// Information of a test device.
-//
-// A thing ARN or a certificate ARN is required.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +12,9 @@ package awsiotcoredeviceadvisor
 //   }
 //
 type CfnSuiteDefinition_DeviceUnderTestProperty struct {
-	// Lists devices certificate ARN.
+	// `CfnSuiteDefinition.DeviceUnderTestProperty.CertificateArn`.
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
-	// Lists devices thing ARN.
+	// `CfnSuiteDefinition.DeviceUnderTestProperty.ThingArn`.
 	ThingArn *string `field:"optional" json:"thingArn" yaml:"thingArn"`
 }
 

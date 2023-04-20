@@ -41,7 +41,9 @@ type CfnDeploymentProps struct {
 	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`
 	// A description of the deployment.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::AppConfig::Deployment.KmsKeyIdentifier`.
+	// The AWS KMS key identifier (key ID, key alias, or key ARN).
+	//
+	// AWS AppConfig uses this ID to encrypt the configuration data using a customer managed key.
 	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// Metadata to assign to the deployment.
 	//

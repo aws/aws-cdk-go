@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Marker styles options for a line series in `LineChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,19 +14,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_LineChartMarkerStyleSettingsProperty struct {
-	// Color of marker in the series.
+	// `CfnAnalysis.LineChartMarkerStyleSettingsProperty.MarkerColor`.
 	MarkerColor *string `field:"optional" json:"markerColor" yaml:"markerColor"`
-	// Shape option for markers in the series.
-	//
-	// - `CIRCLE` : Show marker as a circle.
-	// - `TRIANGLE` : Show marker as a triangle.
-	// - `SQUARE` : Show marker as a square.
-	// - `DIAMOND` : Show marker as a diamond.
-	// - `ROUNDED_SQUARE` : Show marker as a rounded square.
+	// `CfnAnalysis.LineChartMarkerStyleSettingsProperty.MarkerShape`.
 	MarkerShape *string `field:"optional" json:"markerShape" yaml:"markerShape"`
-	// Size of marker in the series.
+	// `CfnAnalysis.LineChartMarkerStyleSettingsProperty.MarkerSize`.
 	MarkerSize *string `field:"optional" json:"markerSize" yaml:"markerSize"`
-	// Configuration option that determines whether to show the markers in the series.
+	// `CfnAnalysis.LineChartMarkerStyleSettingsProperty.MarkerVisibility`.
 	MarkerVisibility *string `field:"optional" json:"markerVisibility" yaml:"markerVisibility"`
 }
 

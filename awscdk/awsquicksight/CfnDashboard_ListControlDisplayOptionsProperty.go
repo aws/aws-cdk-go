@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options of a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,11 +31,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ListControlDisplayOptionsProperty struct {
-	// The configuration of the search options in a list control.
+	// `CfnDashboard.ListControlDisplayOptionsProperty.SearchOptions`.
 	SearchOptions interface{} `field:"optional" json:"searchOptions" yaml:"searchOptions"`
-	// The configuration of the `Select all` options in a list control.
+	// `CfnDashboard.ListControlDisplayOptionsProperty.SelectAllOptions`.
 	SelectAllOptions interface{} `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
-	// The options to configure the title visibility, name, and font size.
+	// `CfnDashboard.ListControlDisplayOptionsProperty.TitleOptions`.
 	TitleOptions interface{} `field:"optional" json:"titleOptions" yaml:"titleOptions"`
 }
 

@@ -177,9 +177,7 @@ type CfnCampaign_MessageConfigurationProperty struct {
 	//
 	// If specified, this message overrides the default message.
 	BaiduMessage interface{} `field:"optional" json:"baiduMessage" yaml:"baiduMessage"`
-	// The message that the campaign sends through a custom channel, as specified by the delivery configuration ( `CustomDeliveryConfiguration` ) settings for the campaign.
-	//
-	// If specified, this message overrides the default message.
+	// `CfnCampaign.MessageConfigurationProperty.CustomMessage`.
 	CustomMessage interface{} `field:"optional" json:"customMessage" yaml:"customMessage"`
 	// The default message that the campaign sends through all the channels that are configured for the campaign.
 	DefaultMessage interface{} `field:"optional" json:"defaultMessage" yaml:"defaultMessage"`

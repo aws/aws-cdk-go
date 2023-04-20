@@ -14,7 +14,6 @@ import (
 // support this step type.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline codePipeline
 //
 //   preprod := NewMyApplicationStage(this, jsii.String("PreProd"))

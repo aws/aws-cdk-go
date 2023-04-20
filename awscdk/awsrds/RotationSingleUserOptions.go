@@ -8,17 +8,16 @@ import (
 // Options to add the multi user rotation.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var instance databaseInstance
-//   var mySecurityGroup securityGroup
+//   var myEndpoint interfaceVpcEndpoint
+//
 //
 //   instance.addRotationSingleUser(&RotationSingleUserOptions{
-//   	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
-//   	 // defaults to 30 days
-//   	ExcludeCharacters: jsii.String("!@#$%^&*"),
-//   	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
-//   	SecurityGroup: mySecurityGroup,
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
+//   	 // Place rotation Lambda in private subnets
+//   	Endpoint: myEndpoint,
 //   })
 //
 type RotationSingleUserOptions struct {

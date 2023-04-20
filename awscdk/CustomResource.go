@@ -29,16 +29,15 @@ import (
 //   a Lambda Function or SNS Topic by passing the ARN into `serviceToken`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var myProvider customResourceProvider
+//   serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
+//   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
+//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+//   	Description: jsii.String("Lambda function created by the custom resource provider"),
+//   })
 //
-//
-//   awscdk.NewCustomResource(this, jsii.String("MyCustomResource"), &CustomResourceProps{
-//   	ServiceToken: myProvider.ServiceToken,
-//   	Properties: map[string]interface{}{
-//   		"myPropertyOne": jsii.String("one"),
-//   		"myPropertyTwo": jsii.String("two"),
-//   	},
+//   awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
+//   	ResourceType: jsii.String("Custom::MyCustomResourceType"),
+//   	ServiceToken: serviceToken,
 //   })
 //
 type CustomResource interface {

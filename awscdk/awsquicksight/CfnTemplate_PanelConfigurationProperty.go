@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A collection of options that configure how each panel displays in a small multiples chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,23 +33,23 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_PanelConfigurationProperty struct {
-	// Sets the background color for each panel.
+	// `CfnTemplate.PanelConfigurationProperty.BackgroundColor`.
 	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
-	// Determines whether or not a background for each small multiples panel is rendered.
+	// `CfnTemplate.PanelConfigurationProperty.BackgroundVisibility`.
 	BackgroundVisibility *string `field:"optional" json:"backgroundVisibility" yaml:"backgroundVisibility"`
-	// Sets the line color of panel borders.
+	// `CfnTemplate.PanelConfigurationProperty.BorderColor`.
 	BorderColor *string `field:"optional" json:"borderColor" yaml:"borderColor"`
-	// Sets the line style of panel borders.
+	// `CfnTemplate.PanelConfigurationProperty.BorderStyle`.
 	BorderStyle *string `field:"optional" json:"borderStyle" yaml:"borderStyle"`
-	// Sets the line thickness of panel borders.
+	// `CfnTemplate.PanelConfigurationProperty.BorderThickness`.
 	BorderThickness *string `field:"optional" json:"borderThickness" yaml:"borderThickness"`
-	// Determines whether or not each panel displays a border.
+	// `CfnTemplate.PanelConfigurationProperty.BorderVisibility`.
 	BorderVisibility *string `field:"optional" json:"borderVisibility" yaml:"borderVisibility"`
-	// Sets the total amount of negative space to display between sibling panels.
+	// `CfnTemplate.PanelConfigurationProperty.GutterSpacing`.
 	GutterSpacing *string `field:"optional" json:"gutterSpacing" yaml:"gutterSpacing"`
-	// Determines whether or not negative space between sibling panels is rendered.
+	// `CfnTemplate.PanelConfigurationProperty.GutterVisibility`.
 	GutterVisibility *string `field:"optional" json:"gutterVisibility" yaml:"gutterVisibility"`
-	// Configures the title display within each small multiples panel.
+	// `CfnTemplate.PanelConfigurationProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 }
 

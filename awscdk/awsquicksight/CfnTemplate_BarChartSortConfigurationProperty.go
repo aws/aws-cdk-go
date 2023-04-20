@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// sort-configuration-description.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -105,17 +103,17 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_BarChartSortConfigurationProperty struct {
-	// The limit on the number of categories displayed in a bar chart.
+	// `CfnTemplate.BarChartSortConfigurationProperty.CategoryItemsLimit`.
 	CategoryItemsLimit interface{} `field:"optional" json:"categoryItemsLimit" yaml:"categoryItemsLimit"`
-	// The sort configuration of category fields.
+	// `CfnTemplate.BarChartSortConfigurationProperty.CategorySort`.
 	CategorySort interface{} `field:"optional" json:"categorySort" yaml:"categorySort"`
-	// The limit on the number of values displayed in a bar chart.
+	// `CfnTemplate.BarChartSortConfigurationProperty.ColorItemsLimit`.
 	ColorItemsLimit interface{} `field:"optional" json:"colorItemsLimit" yaml:"colorItemsLimit"`
-	// The sort configuration of color fields in a bar chart.
+	// `CfnTemplate.BarChartSortConfigurationProperty.ColorSort`.
 	ColorSort interface{} `field:"optional" json:"colorSort" yaml:"colorSort"`
-	// The limit on the number of small multiples panels that are displayed.
+	// `CfnTemplate.BarChartSortConfigurationProperty.SmallMultiplesLimitConfiguration`.
 	SmallMultiplesLimitConfiguration interface{} `field:"optional" json:"smallMultiplesLimitConfiguration" yaml:"smallMultiplesLimitConfiguration"`
-	// The sort configuration of the small multiples field.
+	// `CfnTemplate.BarChartSortConfigurationProperty.SmallMultiplesSort`.
 	SmallMultiplesSort interface{} `field:"optional" json:"smallMultiplesSort" yaml:"smallMultiplesSort"`
 }
 

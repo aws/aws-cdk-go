@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The window options of the geospatial map visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +17,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GeospatialWindowOptionsProperty struct {
-	// The bounds options (north, south, west, east) of the geospatial window options.
+	// `CfnDashboard.GeospatialWindowOptionsProperty.Bounds`.
 	Bounds interface{} `field:"optional" json:"bounds" yaml:"bounds"`
-	// The map zoom modes (manual, auto) of the geospatial window options.
+	// `CfnDashboard.GeospatialWindowOptionsProperty.MapZoomMode`.
 	MapZoomMode *string `field:"optional" json:"mapZoomMode" yaml:"mapZoomMode"`
 }
 

@@ -1,8 +1,6 @@
 package awsbudgets
 
 
-// The parameters that determine the budget amount for an auto-adjusting budget.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,9 +16,9 @@ package awsbudgets
 //   }
 //
 type CfnBudget_AutoAdjustDataProperty struct {
-	// The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+	// `CfnBudget.AutoAdjustDataProperty.AutoAdjustType`.
 	AutoAdjustType *string `field:"required" json:"autoAdjustType" yaml:"autoAdjustType"`
-	// The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+	// `CfnBudget.AutoAdjustDataProperty.HistoricalOptions`.
 	HistoricalOptions interface{} `field:"optional" json:"historicalOptions" yaml:"historicalOptions"`
 }
 

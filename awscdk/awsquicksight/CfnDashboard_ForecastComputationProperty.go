@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The forecast computation configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -513,30 +511,27 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ForecastComputationProperty struct {
-	// The ID for a computation.
+	// `CfnDashboard.ForecastComputationProperty.ComputationId`.
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The time field that is used in a computation.
+	// `CfnDashboard.ForecastComputationProperty.Time`.
 	Time interface{} `field:"required" json:"time" yaml:"time"`
-	// The custom seasonality value setup of a forecast computation.
+	// `CfnDashboard.ForecastComputationProperty.CustomSeasonalityValue`.
 	CustomSeasonalityValue *float64 `field:"optional" json:"customSeasonalityValue" yaml:"customSeasonalityValue"`
-	// The lower boundary setup of a forecast computation.
+	// `CfnDashboard.ForecastComputationProperty.LowerBoundary`.
 	LowerBoundary *float64 `field:"optional" json:"lowerBoundary" yaml:"lowerBoundary"`
-	// The name of a computation.
+	// `CfnDashboard.ForecastComputationProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The periods backward setup of a forecast computation.
+	// `CfnDashboard.ForecastComputationProperty.PeriodsBackward`.
 	PeriodsBackward *float64 `field:"optional" json:"periodsBackward" yaml:"periodsBackward"`
-	// The periods forward setup of a forecast computation.
+	// `CfnDashboard.ForecastComputationProperty.PeriodsForward`.
 	PeriodsForward *float64 `field:"optional" json:"periodsForward" yaml:"periodsForward"`
-	// The prediction interval setup of a forecast computation.
+	// `CfnDashboard.ForecastComputationProperty.PredictionInterval`.
 	PredictionInterval *float64 `field:"optional" json:"predictionInterval" yaml:"predictionInterval"`
-	// The seasonality setup of a forecast computation. Choose one of the following options:.
-	//
-	// - `AUTOMATIC`
-	// - `CUSTOM` : Checks the custom seasonality value.
+	// `CfnDashboard.ForecastComputationProperty.Seasonality`.
 	Seasonality *string `field:"optional" json:"seasonality" yaml:"seasonality"`
-	// The upper boundary setup of a forecast computation.
+	// `CfnDashboard.ForecastComputationProperty.UpperBoundary`.
 	UpperBoundary *float64 `field:"optional" json:"upperBoundary" yaml:"upperBoundary"`
-	// The value field that is used in a computation.
+	// `CfnDashboard.ForecastComputationProperty.Value`.
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

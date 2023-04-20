@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The arc configuration of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ArcConfigurationProperty struct {
-	// The option that determines the arc angle of a `GaugeChartVisual` .
+	// `CfnAnalysis.ArcConfigurationProperty.ArcAngle`.
 	ArcAngle *float64 `field:"optional" json:"arcAngle" yaml:"arcAngle"`
-	// The options that determine the arc thickness of a `GaugeChartVisual` .
+	// `CfnAnalysis.ArcConfigurationProperty.ArcThickness`.
 	ArcThickness *string `field:"optional" json:"arcThickness" yaml:"arcThickness"`
 }
 

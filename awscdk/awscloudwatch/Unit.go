@@ -4,7 +4,6 @@ package awscloudwatch
 // Unit for metric.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var logGroup logGroup
 //
 //   mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
@@ -16,7 +15,7 @@ package awscloudwatch
 //   	Dimensions: map[string]*string{
 //   		"ErrorCode": jsii.String("$.errorCode"),
 //   	},
-//   	Unit: unit_MILLISECONDS,
+//   	Unit: cloudwatch.Unit_MILLISECONDS,
 //   })
 //
 //   //expose a metric from the metric filter

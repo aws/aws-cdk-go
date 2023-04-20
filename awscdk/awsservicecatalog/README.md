@@ -70,8 +70,6 @@ Entities with granted access will be able to utilize the portfolios resources an
 Once resources are deployed end users will be able to access them via the console or service catalog CLI.
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
 var portfolio portfolio
 
 
@@ -154,7 +152,6 @@ such as an S3 Bucket, IAM roles, and EC2 instances. This stack is passed in as a
 product.  This will not create a separate CloudFormation stack during deployment.
 
 ```go
-import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
 
@@ -188,7 +185,6 @@ You can reference assets in a Product Stack. For example, we can add a handler t
 In this case, you must provide a S3 Bucket with a bucketName to store your assets.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -198,9 +194,9 @@ type lambdaProduct struct {
 	productStack
 }
 
-func newLambdaProduct(scope construct, id *string) *lambdaProduct {
+func newLambdaProduct(scope construct, id *string, props productStackProps) *lambdaProduct {
 	this := &lambdaProduct{}
-	servicecatalog.NewProductStack_Override(this, scope, id)
+	servicecatalog.NewProductStack_Override(this, scope, id, props)
 
 	lambda.NewFunction(this, jsii.String("LambdaProduct"), &FunctionProps{
 		Runtime: lambda.Runtime_PYTHON_3_9(),
@@ -220,8 +216,8 @@ product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"),
 	ProductVersions: []cloudFormationProductVersion{
 		&cloudFormationProductVersion{
 			ProductVersionName: jsii.String("v1"),
-			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), map[string]bucket{
-				"assetBucket": userDefinedBucket,
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &productStackProps{
+				AssetBucket: userDefinedBucket,
 			})),
 		},
 	},
@@ -237,28 +233,30 @@ If you want to provide your own bucket policy or scope down your bucket policy f
 reads from a specific launch role, refer to the following example policy:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-iam.NewPolicyStatement(map[string]interface{}{
-	"actions": []*string{
+var bucket iBucket
+
+
+iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
 		jsii.String("s3:GetObject*"),
 		jsii.String("s3:GetBucket*"),
 		jsii.String("s3:List*"),
 	},
-	"effect": iam.Effect_ALLOW,
-	"resources": []interface{}{
-		bucket.bucketArn,
-		bucket.arnForObjects(jsii.String("*")),
+	Effect: iam.Effect_ALLOW,
+	Resources: []*string{
+		bucket.BucketArn,
+		bucket.ArnForObjects(jsii.String("*")),
 	},
-	"principals": []interface{}{
-		iam.NewArnPrincipal(cdk.Stack_of(this).formatArn(map[string]interface{}{
-			"service": jsii.String("iam"),
-			"region": jsii.String(""),
-			"sharedAccount": sharedAccount,
-			"resource": jsii.String("role"),
-			"resourceName": launchRoleName,
+	Principals: []iPrincipal{
+		iam.NewArnPrincipal(awscdk.*stack_Of(this).FormatArn(&ArnComponents{
+			Service: jsii.String("iam"),
+			Region: jsii.String(""),
+			Account: jsii.String("111111111111"),
+			Resource: jsii.String("role"),
+			ResourceName: jsii.String("MyLaunchRole"),
 		})),
 	},
-	"conditions": map[string]map[string][]*string{
+	Conditions: map[string]interface{}{
 		"ForAnyValue:StringEquals": map[string][]*string{
 			"aws:CalledVia": []*string{
 				jsii.String("cloudformation.amazonaws.com"),
@@ -278,15 +276,15 @@ For example your launch role would need to include at least the following policy
 
 ```json
 {
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": "*"
-        }
-    ]
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -309,16 +307,11 @@ The `locked` boolean which when set to true will prevent your `currentVersionNam
 from being overwritten when there is an existing snapshot for that version.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-
-
 type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -336,16 +329,11 @@ productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("
 We can deploy the current version `v1` by using `productStackHistory.currentVersion()`
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-
-
 type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -378,16 +366,11 @@ make changes to the `ProductStack` and update the `currentVersionName` to `v2`.
 We still want our `v1` version to still be deployed, so we reference it by calling `productStackHistory.versionFromSnapshot('v1')`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-
-
 type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -540,7 +523,7 @@ For information on rule-specific intrinsic functions to define rule conditions a
 see [AWS Rule Functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-rules.html).
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
 
 var portfolio portfolio
 var product cloudFormationProduct
@@ -549,13 +532,13 @@ var product cloudFormationProduct
 portfolio.constrainCloudFormationParameters(product, &CloudFormationRuleConstraintOptions{
 	Rule: &TemplateRule{
 		RuleName: jsii.String("testInstanceType"),
-		Condition: cdk.Fn_ConditionEquals(cdk.Fn_Ref(jsii.String("Environment")), jsii.String("test")),
+		Condition: awscdk.Fn_ConditionEquals(awscdk.Fn_Ref(jsii.String("Environment")), jsii.String("test")),
 		Assertions: []templateRuleAssertion{
 			&templateRuleAssertion{
-				Assert: cdk.Fn_ConditionContains([]*string{
+				Assert: awscdk.Fn_ConditionContains([]*string{
 					jsii.String("t2.micro"),
 					jsii.String("t2.small"),
-				}, cdk.Fn_*Ref(jsii.String("InstanceType"))),
+				}, awscdk.Fn_*Ref(jsii.String("InstanceType"))),
 				Description: jsii.String("For test environment, the instance type should be small"),
 			},
 		},
@@ -573,8 +556,6 @@ You can only have one launch role set for a portfolio-product association,
 and you cannot set a launch role on a product that already has a StackSets deployment configured.
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
 var portfolio portfolio
 var product cloudFormationProduct
 
@@ -594,8 +575,6 @@ as well as in any end user accounts that wish to provision a product with the la
 You can do this by passing in the role with an explicitly set name:
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
 var portfolio portfolio
 var product cloudFormationProduct
 
@@ -611,8 +590,6 @@ portfolio.setLocalLaunchRole(product, launchRole)
 Or you can simply pass in a role name and CDK will create a role with that name that trusts service catalog in the account:
 
 ```go
-import iam "github.com/aws/aws-cdk-go/awscdk"
-
 var portfolio portfolio
 var product cloudFormationProduct
 
@@ -636,8 +613,6 @@ You can only define one StackSets deployment configuration per portfolio-product
 and you cannot both set a launch role and StackSets deployment configuration for an assocation.
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
 var portfolio portfolio
 var product cloudFormationProduct
 

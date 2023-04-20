@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a `FunnelChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -506,13 +504,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_FunnelChartAggregatedFieldWellsProperty struct {
-	// The category field wells of a funnel chart.
-	//
-	// Values are grouped by category fields.
+	// `CfnDashboard.FunnelChartAggregatedFieldWellsProperty.Category`.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
-	// The value field wells of a funnel chart.
-	//
-	// Values are aggregated based on categories.
+	// `CfnDashboard.FunnelChartAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

@@ -9,12 +9,15 @@ import (
 // One ARN format (`secretArn`, `secretCompleteArn`, `secretPartialArn`) must be provided.
 //
 // Example:
-//   var encryptionKey key
+//   userpool := cognito.NewUserPool(this, jsii.String("Pool"))
+//   secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("CognitoClientSecret"), &SecretAttributes{
+//   	SecretCompleteArn: jsii.String("arn:aws:secretsmanager:xxx:xxx:secret:xxx-xxx"),
+//   }).SecretValue
 //
-//   secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("ImportedSecret"), &SecretAttributes{
-//   	SecretArn: jsii.String("arn:aws:secretsmanager:<region>:<account-id-number>:secret:<secret-name>-<random-6-characters>"),
-//   	// If the secret is encrypted using a KMS-hosted CMK, either import or reference that key:
-//   	EncryptionKey: EncryptionKey,
+//   provider := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("Google"), &UserPoolIdentityProviderGoogleProps{
+//   	ClientId: jsii.String("amzn-client-id"),
+//   	ClientSecretValue: secret,
+//   	UserPool: userpool,
 //   })
 //
 type SecretAttributes struct {

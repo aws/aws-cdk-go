@@ -5,7 +5,6 @@ package awscdk
 // Initialization props for apps.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   app := awscdk.NewApp(&AppProps{
 //   	Context: map[string]interface{}{
 //   		"@aws-cdk/core:validationReportJson": jsii.Boolean(true),
@@ -57,7 +56,6 @@ type AppProps struct {
 	// Context can be read from any construct using `node.getContext(key)`.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // context from the CLI and from `cdk.json` are stored in the
 	//   // CDK_CONTEXT env variable
 	//   cliContext := jSON.parse(process.env.cDK_CONTEXT)

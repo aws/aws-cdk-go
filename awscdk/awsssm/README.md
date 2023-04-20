@@ -8,7 +8,10 @@ You can reference existing SSM Parameter Store values that you want to use in
 your CDK app by using `ssm.StringParameter.fromStringParameterAttributes`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+parameterVersion := awscdk.Token_AsNumber(map[string]*string{
+	"Ref": jsii.String("MyParameter"),
+})
+
 // Retrieve the latest value of the non-secret parameter
 // with name "/My/String/Parameter".
 stringValue := ssm.StringParameter_FromStringParameterAttributes(this, jsii.String("MyValue"), &StringParameterAttributes{
@@ -37,15 +40,13 @@ You can also reference an existing SSM Parameter Store value that matches an
 [AWS specific parameter type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types):
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-ssm.StringParameter_ValueForTypedStringParameterV2(stack, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
+ssm.StringParameter_ValueForTypedStringParameterV2(this, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
 ```
 
 To do the same for a SSM Parameter Store value that is stored as a list:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-ssm.StringListParameter_ValueForTypedListParameter(stack, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
+ssm.StringListParameter_ValueForTypedListParameter(this, jsii.String("/My/Public/Parameter"), ssm.ParameterValueType_AWS_EC2_IMAGE_ID)
 ```
 
 ### Lookup existing parameters
@@ -54,8 +55,7 @@ You can also use an existing parameter by looking up the parameter from the AWS 
 This method uses AWS API calls to lookup the value from SSM during synthesis.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-stringValue := ssm.StringParameter_ValueFromLookup(stack, jsii.String("/My/Public/Parameter"))
+stringValue := ssm.StringParameter_ValueFromLookup(this, jsii.String("/My/Public/Parameter"))
 ```
 
 When using `valueFromLookup` an initial value of 'dummy-value-for-${parameterName}'
@@ -119,19 +119,18 @@ ssm.NewStringParameter(this, jsii.String("Parameter"), &StringParameterProps{
 ```
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+// Grant read access to some Role
+var role iRole
 // Create a new SSM Parameter holding a String
-param := ssm.NewStringParameter(stack, jsii.String("StringParameter"), &StringParameterProps{
+param := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{
 	// description: 'Some user-friendly description',
 	// name: 'ParameterName',
 	StringValue: jsii.String("Initial parameter value"),
 })
-
-// Grant read access to some Role
 param.grantRead(role)
 
 // Create a new SSM Parameter holding a StringList
-listParameter := ssm.NewStringListParameter(stack, jsii.String("StringListParameter"), &StringListParameterProps{
+listParameter := ssm.NewStringListParameter(this, jsii.String("StringListParameter"), &StringListParameterProps{
 	// description: 'Some user-friendly description',
 	// name: 'ParameterName',
 	StringListValue: []*string{

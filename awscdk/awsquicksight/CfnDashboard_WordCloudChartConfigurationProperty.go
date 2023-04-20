@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a word cloud visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -578,13 +576,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_WordCloudChartConfigurationProperty struct {
-	// The label options (label text, label visibility, and sort icon visibility) for the word cloud category.
+	// `CfnDashboard.WordCloudChartConfigurationProperty.CategoryLabelOptions`.
 	CategoryLabelOptions interface{} `field:"optional" json:"categoryLabelOptions" yaml:"categoryLabelOptions"`
-	// The field wells of the visual.
+	// `CfnDashboard.WordCloudChartConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The sort configuration of a word cloud visual.
+	// `CfnDashboard.WordCloudChartConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The options for a word cloud visual.
+	// `CfnDashboard.WordCloudChartConfigurationProperty.WordCloudOptions`.
 	WordCloudOptions interface{} `field:"optional" json:"wordCloudOptions" yaml:"wordCloudOptions"`
 }
 

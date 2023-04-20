@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Formatting configuration for `DateTime` fields.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -81,11 +79,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DateTimeFormatConfigurationProperty struct {
-	// Determines the `DateTime` format.
+	// `CfnTemplate.DateTimeFormatConfigurationProperty.DateTimeFormat`.
 	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
-	// The options that determine the null value format configuration.
+	// `CfnTemplate.DateTimeFormatConfigurationProperty.NullValueFormatConfiguration`.
 	NullValueFormatConfiguration interface{} `field:"optional" json:"nullValueFormatConfiguration" yaml:"nullValueFormatConfiguration"`
-	// The formatting configuration for numeric `DateTime` fields.
+	// `CfnTemplate.DateTimeFormatConfigurationProperty.NumericFormatConfiguration`.
 	NumericFormatConfiguration interface{} `field:"optional" json:"numericFormatConfiguration" yaml:"numericFormatConfiguration"`
 }
 

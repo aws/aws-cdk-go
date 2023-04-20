@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The configuration of destination parameter values.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,13 +32,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_DestinationParameterValueConfigurationProperty struct {
-	// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
+	// `CfnAnalysis.DestinationParameterValueConfigurationProperty.CustomValuesConfiguration`.
 	CustomValuesConfiguration interface{} `field:"optional" json:"customValuesConfiguration" yaml:"customValuesConfiguration"`
-	// The configuration that selects all options.
+	// `CfnAnalysis.DestinationParameterValueConfigurationProperty.SelectAllValueOptions`.
 	SelectAllValueOptions *string `field:"optional" json:"selectAllValueOptions" yaml:"selectAllValueOptions"`
-	// The source field ID of the destination parameter.
+	// `CfnAnalysis.DestinationParameterValueConfigurationProperty.SourceField`.
 	SourceField *string `field:"optional" json:"sourceField" yaml:"sourceField"`
-	// The source parameter name of the destination parameter.
+	// `CfnAnalysis.DestinationParameterValueConfigurationProperty.SourceParameterName`.
 	SourceParameterName *string `field:"optional" json:"sourceParameterName" yaml:"sourceParameterName"`
 }
 

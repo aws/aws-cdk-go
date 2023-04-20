@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The computation union that is used in an insight visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -4989,25 +4985,25 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ComputationProperty struct {
-	// The forecast computation configuration.
+	// `CfnAnalysis.ComputationProperty.Forecast`.
 	Forecast interface{} `field:"optional" json:"forecast" yaml:"forecast"`
-	// The growth rate computation configuration.
+	// `CfnAnalysis.ComputationProperty.GrowthRate`.
 	GrowthRate interface{} `field:"optional" json:"growthRate" yaml:"growthRate"`
-	// The maximum and minimum computation configuration.
+	// `CfnAnalysis.ComputationProperty.MaximumMinimum`.
 	MaximumMinimum interface{} `field:"optional" json:"maximumMinimum" yaml:"maximumMinimum"`
-	// The metric comparison computation configuration.
+	// `CfnAnalysis.ComputationProperty.MetricComparison`.
 	MetricComparison interface{} `field:"optional" json:"metricComparison" yaml:"metricComparison"`
-	// The period over period computation configuration.
+	// `CfnAnalysis.ComputationProperty.PeriodOverPeriod`.
 	PeriodOverPeriod interface{} `field:"optional" json:"periodOverPeriod" yaml:"periodOverPeriod"`
-	// The period to `DataSetIdentifier` computation configuration.
+	// `CfnAnalysis.ComputationProperty.PeriodToDate`.
 	PeriodToDate interface{} `field:"optional" json:"periodToDate" yaml:"periodToDate"`
-	// The top movers and bottom movers computation configuration.
+	// `CfnAnalysis.ComputationProperty.TopBottomMovers`.
 	TopBottomMovers interface{} `field:"optional" json:"topBottomMovers" yaml:"topBottomMovers"`
-	// The top ranked and bottom ranked computation configuration.
+	// `CfnAnalysis.ComputationProperty.TopBottomRanked`.
 	TopBottomRanked interface{} `field:"optional" json:"topBottomRanked" yaml:"topBottomRanked"`
-	// The total aggregation computation configuration.
+	// `CfnAnalysis.ComputationProperty.TotalAggregation`.
 	TotalAggregation interface{} `field:"optional" json:"totalAggregation" yaml:"totalAggregation"`
-	// The unique values computation configuration.
+	// `CfnAnalysis.ComputationProperty.UniqueValues`.
 	UniqueValues interface{} `field:"optional" json:"uniqueValues" yaml:"uniqueValues"`
 }
 

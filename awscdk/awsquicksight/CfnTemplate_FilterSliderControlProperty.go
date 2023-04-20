@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// A control to display a horizontal toggle bar.
-//
-// This is used to change a value by sliding the toggle.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -40,24 +36,21 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilterSliderControlProperty struct {
-	// The ID of the `FilterSliderControl` .
+	// `CfnTemplate.FilterSliderControlProperty.FilterControlId`.
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
-	// The smaller value that is displayed at the left of the slider.
+	// `CfnTemplate.FilterSliderControlProperty.MaximumValue`.
 	MaximumValue *float64 `field:"required" json:"maximumValue" yaml:"maximumValue"`
-	// The larger value that is displayed at the right of the slider.
+	// `CfnTemplate.FilterSliderControlProperty.MinimumValue`.
 	MinimumValue *float64 `field:"required" json:"minimumValue" yaml:"minimumValue"`
-	// The source filter ID of the `FilterSliderControl` .
+	// `CfnTemplate.FilterSliderControlProperty.SourceFilterId`.
 	SourceFilterId *string `field:"required" json:"sourceFilterId" yaml:"sourceFilterId"`
-	// The number of increments that the slider bar is divided into.
+	// `CfnTemplate.FilterSliderControlProperty.StepSize`.
 	StepSize *float64 `field:"required" json:"stepSize" yaml:"stepSize"`
-	// The title of the `FilterSliderControl` .
+	// `CfnTemplate.FilterSliderControlProperty.Title`.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// The display options of a control.
+	// `CfnTemplate.FilterSliderControlProperty.DisplayOptions`.
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
-	// The type of `FilterSliderControl` . Choose one of the following options:.
-	//
-	// - `SINGLE_POINT` : Filter against(equals) a single data point.
-	// - `RANGE` : Filter data that is in a specified range.
+	// `CfnTemplate.FilterSliderControlProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

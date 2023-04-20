@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The value label configuration of the label in a reference line.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -78,12 +76,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ReferenceLineValueLabelConfigurationProperty struct {
-	// The format configuration of the value label.
+	// `CfnTemplate.ReferenceLineValueLabelConfigurationProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
-	// The relative position of the value label. Choose one of the following options:.
-	//
-	// - `BEFORE_CUSTOM_LABEL`
-	// - `AFTER_CUSTOM_LABEL`.
+	// `CfnTemplate.ReferenceLineValueLabelConfigurationProperty.RelativePosition`.
 	RelativePosition *string `field:"optional" json:"relativePosition" yaml:"relativePosition"`
 }
 

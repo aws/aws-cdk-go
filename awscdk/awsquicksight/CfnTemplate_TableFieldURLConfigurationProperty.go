@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The URL configuration for a table field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,9 +39,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableFieldURLConfigurationProperty struct {
-	// The image configuration of a table field URL.
+	// `CfnTemplate.TableFieldURLConfigurationProperty.ImageConfiguration`.
 	ImageConfiguration interface{} `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
-	// The link configuration of a table field URL.
+	// `CfnTemplate.TableFieldURLConfigurationProperty.LinkConfiguration`.
 	LinkConfiguration interface{} `field:"optional" json:"linkConfiguration" yaml:"linkConfiguration"`
 }
 

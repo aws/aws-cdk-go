@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The menu options for a visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_VisualMenuOptionProperty struct {
-	// The availaiblity status of a visual's menu options.
+	// `CfnDashboard.VisualMenuOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 

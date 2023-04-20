@@ -125,7 +125,6 @@ type Stack interface {
 	// The ID of the stack.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // After resolving, looks like
 	//   "arn:aws:cloudformation:us-west-2:123456789012:stack/teststack/51af3dc0-da77-11e4-872e-1234567db123"
 	//
@@ -171,7 +170,6 @@ type Stack interface {
 	// Duplicate values are removed when stack is synthesized.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var stack stack
 	//
 	//

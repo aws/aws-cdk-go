@@ -9,7 +9,6 @@ import (
 // Construction properties of the `CodeDeployServerDeployAction CodeDeploy server deploy CodePipeline Action`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var deploymentGroup serverDeploymentGroup
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
 //   	PipelineName: jsii.String("MyPipeline"),

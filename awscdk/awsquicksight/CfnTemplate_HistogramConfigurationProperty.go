@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a `HistogramVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -513,21 +511,21 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_HistogramConfigurationProperty struct {
-	// The options that determine the presentation of histogram bins.
+	// `CfnTemplate.HistogramConfigurationProperty.BinOptions`.
 	BinOptions interface{} `field:"optional" json:"binOptions" yaml:"binOptions"`
-	// The data label configuration of a histogram.
+	// `CfnTemplate.HistogramConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The field well configuration of a histogram.
+	// `CfnTemplate.HistogramConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The tooltip configuration of a histogram.
+	// `CfnTemplate.HistogramConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// The visual palette configuration of a histogram.
+	// `CfnTemplate.HistogramConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
-	// The options that determine the presentation of the x-axis.
+	// `CfnTemplate.HistogramConfigurationProperty.XAxisDisplayOptions`.
 	XAxisDisplayOptions interface{} `field:"optional" json:"xAxisDisplayOptions" yaml:"xAxisDisplayOptions"`
-	// The options that determine the presentation of the x-axis label.
+	// `CfnTemplate.HistogramConfigurationProperty.XAxisLabelOptions`.
 	XAxisLabelOptions interface{} `field:"optional" json:"xAxisLabelOptions" yaml:"xAxisLabelOptions"`
-	// The options that determine the presentation of the y-axis.
+	// `CfnTemplate.HistogramConfigurationProperty.YAxisDisplayOptions`.
 	YAxisDisplayOptions interface{} `field:"optional" json:"yAxisDisplayOptions" yaml:"yAxisDisplayOptions"`
 }
 

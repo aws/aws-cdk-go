@@ -15,28 +15,27 @@ import (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import ecs "github.com/aws-samples/dummy/awscdkawsecs"
+//   var cluster ecs.ICluster
+//   var taskDefinition ecs.TaskDefinition
 //
 //
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+//   })
+//
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: cluster,
+//   	TaskDefinition: taskDefinition,
+//   	PropagateTags: ecs.propagatedTagSource_TASK_DEFINITION,
+//   	Tags: []tag{
+//   		&tag{
+//   			Key: jsii.String("my-tag"),
+//   			Value: jsii.String("my-tag-value"),
+//   		},
 //   	},
-//   })
-//
-//   metric := table.metricThrottledRequestsForOperations(&OperationsMetricOptions{
-//   	Operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
-//   	},
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
-//   })
-//
-//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
-//   })
+//   }))
 //
 type Duration interface {
 	// Returns stringified number of duration.

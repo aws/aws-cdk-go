@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1693,43 +1691,43 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_LineChartConfigurationProperty struct {
-	// The default configuration of a line chart's contribution analysis.
+	// `CfnAnalysis.LineChartConfigurationProperty.ContributionAnalysisDefaults`.
 	ContributionAnalysisDefaults interface{} `field:"optional" json:"contributionAnalysisDefaults" yaml:"contributionAnalysisDefaults"`
-	// The data label configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.DataLabels`.
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
-	// The options that determine the default presentation of all line series in `LineChartVisual` .
+	// `CfnAnalysis.LineChartConfigurationProperty.DefaultSeriesSettings`.
 	DefaultSeriesSettings interface{} `field:"optional" json:"defaultSeriesSettings" yaml:"defaultSeriesSettings"`
-	// The field well configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The forecast configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.ForecastConfigurations`.
 	ForecastConfigurations interface{} `field:"optional" json:"forecastConfigurations" yaml:"forecastConfigurations"`
-	// The legend configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The series axis configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.PrimaryYAxisDisplayOptions`.
 	PrimaryYAxisDisplayOptions interface{} `field:"optional" json:"primaryYAxisDisplayOptions" yaml:"primaryYAxisDisplayOptions"`
-	// The options that determine the presentation of the y-axis label.
+	// `CfnAnalysis.LineChartConfigurationProperty.PrimaryYAxisLabelOptions`.
 	PrimaryYAxisLabelOptions interface{} `field:"optional" json:"primaryYAxisLabelOptions" yaml:"primaryYAxisLabelOptions"`
-	// The reference lines configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.ReferenceLines`.
 	ReferenceLines interface{} `field:"optional" json:"referenceLines" yaml:"referenceLines"`
-	// The series axis configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.SecondaryYAxisDisplayOptions`.
 	SecondaryYAxisDisplayOptions interface{} `field:"optional" json:"secondaryYAxisDisplayOptions" yaml:"secondaryYAxisDisplayOptions"`
-	// The options that determine the presentation of the secondary y-axis label.
+	// `CfnAnalysis.LineChartConfigurationProperty.SecondaryYAxisLabelOptions`.
 	SecondaryYAxisLabelOptions interface{} `field:"optional" json:"secondaryYAxisLabelOptions" yaml:"secondaryYAxisLabelOptions"`
-	// The series item configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.Series`.
 	Series interface{} `field:"optional" json:"series" yaml:"series"`
-	// The small multiples setup for the visual.
+	// `CfnAnalysis.LineChartConfigurationProperty.SmallMultiplesOptions`.
 	SmallMultiplesOptions interface{} `field:"optional" json:"smallMultiplesOptions" yaml:"smallMultiplesOptions"`
-	// The sort configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The tooltip configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// Determines the type of the line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// The visual palette configuration of a line chart.
+	// `CfnAnalysis.LineChartConfigurationProperty.VisualPalette`.
 	VisualPalette interface{} `field:"optional" json:"visualPalette" yaml:"visualPalette"`
-	// The options that determine the presentation of the x-axis.
+	// `CfnAnalysis.LineChartConfigurationProperty.XAxisDisplayOptions`.
 	XAxisDisplayOptions interface{} `field:"optional" json:"xAxisDisplayOptions" yaml:"xAxisDisplayOptions"`
-	// The options that determine the presentation of the x-axis label.
+	// `CfnAnalysis.LineChartConfigurationProperty.XAxisLabelOptions`.
 	XAxisLabelOptions interface{} `field:"optional" json:"xAxisLabelOptions" yaml:"xAxisLabelOptions"`
 }
 

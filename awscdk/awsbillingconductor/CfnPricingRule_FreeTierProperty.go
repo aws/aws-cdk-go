@@ -1,6 +1,8 @@
 package awsbillingconductor
 
 
+// The possible AWS Free Tier configurations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsbillingconductor
 //   }
 //
 type CfnPricingRule_FreeTierProperty struct {
-	// `CfnPricingRule.FreeTierProperty.Activated`.
+	// Activate or deactivate AWS Free Tier.
 	Activated interface{} `field:"required" json:"activated" yaml:"activated"`
 }
 

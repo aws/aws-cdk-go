@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration for a column that is not used in a field well.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,11 +27,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_ColumnSortProperty struct {
-	// The sort direction.
+	// `CfnDashboard.ColumnSortProperty.Direction`.
 	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// `CfnDashboard.ColumnSortProperty.SortBy`.
 	SortBy interface{} `field:"required" json:"sortBy" yaml:"sortBy"`
-	// The aggregation function that is defined in the column sort.
+	// `CfnDashboard.ColumnSortProperty.AggregationFunction`.
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
 }
 

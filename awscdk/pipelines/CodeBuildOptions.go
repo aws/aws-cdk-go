@@ -10,7 +10,6 @@ import (
 // Options for customizing a single CodeBuild project.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var source iFileSetProducer // the repository source
 //   var synthCommands []*string // Commands to synthesize your app
 //   var installCommands []*string
@@ -25,21 +24,23 @@ import (
 //
 //   	// Configure CodeBuild to use a drop-in Docker replacement.
 //   	CodeBuildDefaults: &CodeBuildOptions{
-//   		BuildEnvironment: &BuildEnvironment{
-//   			PartialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
-//   				"phases": map[string]map[string][]*string{
-//   					"install": map[string][]*string{
-//   						// Add the shell commands to install your drop-in Docker
-//   						// replacement to the CodeBuild enviromment.
-//   						"commands": installCommands,
-//   					},
+//   		PartialBuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+//   			"phases": map[string]map[string][]*string{
+//   				"install": map[string][]*string{
+//   					// Add the shell commands to install your drop-in Docker
+//   					// replacement to the CodeBuild enviromment.
+//   					"commands": installCommands,
 //   				},
-//   			}),
+//   			},
+//   		}),
+//   		BuildEnvironment: &BuildEnvironment{
 //   			EnvironmentVariables: map[string]buildEnvironmentVariable{
 //   				// Instruct the AWS CDK to use `drop-in-replacement` instead of
 //   				// `docker` when building / publishing docker images.
 //   				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
-//   				"CDK_DOCKER": jsii.String("drop-in-replacement"),
+//   				"CDK_DOCKER": &buildEnvironmentVariable{
+//   					"value": jsii.String("drop-in-replacement"),
+//   				},
 //   			},
 //   		},
 //   	},

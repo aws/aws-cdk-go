@@ -10,7 +10,6 @@ import (
 )
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //   router := mesh.addVirtualRouter(jsii.String("router"), &VirtualRouterBaseProps{

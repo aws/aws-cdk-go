@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options for the legend setup of a visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,24 +29,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_LegendOptionsProperty struct {
-	// The height of the legend.
-	//
-	// If this value is omitted, a default height is used when rendering.
+	// `CfnTemplate.LegendOptionsProperty.Height`.
 	Height *string `field:"optional" json:"height" yaml:"height"`
-	// The positions for the legend. Choose one of the following options:.
-	//
-	// - `AUTO`
-	// - `RIGHT`
-	// - `BOTTOM`
-	// - `LEFT`.
+	// `CfnTemplate.LegendOptionsProperty.Position`.
 	Position *string `field:"optional" json:"position" yaml:"position"`
-	// The custom title for the legend.
+	// `CfnTemplate.LegendOptionsProperty.Title`.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
-	// Determines whether or not the legend is visible.
+	// `CfnTemplate.LegendOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
-	// The width of the legend.
-	//
-	// If this value is omitted, a default width is used when rendering.
+	// `CfnTemplate.LegendOptionsProperty.Width`.
 	Width *string `field:"optional" json:"width" yaml:"width"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field wells of a heat map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,11 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_HeatMapAggregatedFieldWellsProperty struct {
-	// The columns field well of a heat map.
+	// `CfnAnalysis.HeatMapAggregatedFieldWellsProperty.Columns`.
 	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
-	// The rows field well of a heat map.
+	// `CfnAnalysis.HeatMapAggregatedFieldWellsProperty.Rows`.
 	Rows interface{} `field:"optional" json:"rows" yaml:"rows"`
-	// The values field well of a heat map.
+	// `CfnAnalysis.HeatMapAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

@@ -18,7 +18,6 @@ import (
 // The base class for Ec2Service and FargateService services.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
 //

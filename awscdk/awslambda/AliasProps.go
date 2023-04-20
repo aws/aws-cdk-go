@@ -7,7 +7,6 @@ import (
 // Properties for a new Lambda alias.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   lambdaCode := lambda.Code_FromCfnParameters()
 //   func := lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 //   	Code: lambdaCode,

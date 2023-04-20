@@ -203,11 +203,10 @@ Set `InsightSelector` to enable Insight.
 Insights selector values can be `ApiCallRateInsight`, `ApiErrorRateInsight`, or both.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-NewTrail(stack, jsii.String("Insights"), map[string][]interface{}{
-	"insightTypes": []interface{}{
-		InsightType_API_CALL_RATE,
-		InsightType_API_ERROR_RATE,
+cloudtrail.NewTrail(this, jsii.String("Insights"), &TrailProps{
+	InsightTypes: []insightType{
+		cloudtrail.*insightType_API_CALL_RATE(),
+		cloudtrail.*insightType_API_ERROR_RATE(),
 	},
 })
 ```

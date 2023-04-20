@@ -280,25 +280,22 @@ creates all the necessary Route53 entries, and verifies domain ownership.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
 
-stack := awscdk.NewStack()
-vpc := awscdk.NewVpc(stack, jsii.String("VPC"))
-nlb := awscdk.NewNetworkLoadBalancer(stack, jsii.String("NLB"), &NetworkLoadBalancerProps{
+
+vpc := ec2.NewVpc(this, jsii.String("VPC"))
+nlb := awscdk.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 })
-vpces := awscdk.NewVpcEndpointService(stack, jsii.String("VPCES"), &VpcEndpointServiceProps{
+vpces := ec2.NewVpcEndpointService(this, jsii.String("VPCES"), &VpcEndpointServiceProps{
 	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
 		nlb,
 	},
 })
 // You must use a public hosted zone so domain ownership can be verified
-zone := awscdk.NewPublicHostedZone(stack, jsii.String("PHZ"), &PublicHostedZoneProps{
+zone := route53.NewPublicHostedZone(this, jsii.String("PHZ"), &PublicHostedZoneProps{
 	ZoneName: jsii.String("aws-cdk.dev"),
 })
-awscdk.NewVpcEndpointServiceDomainName(stack, jsii.String("EndpointDomain"), &VpcEndpointServiceDomainNameProps{
+route53.NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &VpcEndpointServiceDomainNameProps{
 	EndpointService: vpces,
 	DomainName: jsii.String("my-stuff.aws-cdk.dev"),
 	PublicHostedZone: zone,

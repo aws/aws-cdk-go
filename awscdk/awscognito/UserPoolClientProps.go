@@ -7,10 +7,16 @@ import (
 // Properties for the UserPoolClient construct.
 //
 // Example:
-//   importedPool := cognito.UserPool_FromUserPoolId(this, jsii.String("imported-pool"), jsii.String("us-east-1_oiuR12Abd"))
-//   cognito.NewUserPoolClient(this, jsii.String("customer-app-client"), &UserPoolClientProps{
+//   var importedPool userPool
+//
+//
+//   userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"), &UserPoolClientProps{
 //   	UserPool: importedPool,
+//   	GenerateSecret: jsii.Boolean(true),
 //   })
+//
+//   // Allows you to pass the generated secret to other pieces of infrastructure
+//   secret := userPoolClient.userPoolClientSecret
 //
 type UserPoolClientProps struct {
 	// Validity of the access token.

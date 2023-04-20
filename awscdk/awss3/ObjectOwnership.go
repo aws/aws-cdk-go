@@ -4,7 +4,6 @@ package awss3
 // The ObjectOwnership of the bucket.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	ObjectOwnership: s3.ObjectOwnership_OBJECT_WRITER,
 //   })

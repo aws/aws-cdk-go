@@ -4,7 +4,6 @@ package awsappmesh
 // The criterion for determining a request match for this Route.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //

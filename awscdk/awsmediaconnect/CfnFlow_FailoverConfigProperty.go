@@ -32,7 +32,7 @@ type CfnFlow_FailoverConfigProperty struct {
 	SourcePriority interface{} `field:"optional" json:"sourcePriority" yaml:"sourcePriority"`
 	// The state of source failover on the flow.
 	//
-	// If the state is disabled, the flow can have only one source. If the state is enabled, the flow can have one or two sources.
+	// If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 

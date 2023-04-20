@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The link configuration of a table field URL.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,9 +32,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_TableFieldLinkConfigurationProperty struct {
-	// The URL content (text, icon) for the table link configuration.
+	// `CfnDashboard.TableFieldLinkConfigurationProperty.Content`.
 	Content interface{} `field:"required" json:"content" yaml:"content"`
-	// The URL target (new tab, new window, same tab) for the table link configuration.
+	// `CfnDashboard.TableFieldLinkConfigurationProperty.Target`.
 	Target *string `field:"required" json:"target" yaml:"target"`
 }
 

@@ -4,7 +4,6 @@ package pipelines
 // Configuration options for CodeStar source.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 //   	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
 //   		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
@@ -42,7 +41,6 @@ type ConnectionSourceOptions struct {
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html

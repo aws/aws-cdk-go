@@ -989,6 +989,7 @@ stack.Node.SetContext(cxapi.eCS_REMOVE_DEFAULT_DESIRED_COUNT, jsii.Boolean(true)
 The following is an example of an application with the REMOVE_DEFAULT_DESIRED_COUNT feature flag enabled:
 
 ```go
+import "github.com/aws/constructs-go/constructs"
 import "github.com/aws/aws-cdk-go/awscdk"
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import ecs "github.com/aws/aws-cdk-go/awscdk"
@@ -996,20 +997,27 @@ import ecsPatterns "github.com/aws/aws-cdk-go/awscdk"
 import cxapi "github.com/aws/aws-cdk-go/awscdk"
 import path "github.com/aws-samples/dummy/path"
 
-app := awscdk.NewApp()
+type myStack struct {
+	stack
+}
 
-stack := awscdk.NewStack(app, jsii.String("aws-ecs-patterns-queue"))
-stack.Node.SetContext(cxapi.eCS_REMOVE_DEFAULT_DESIRED_COUNT, jsii.Boolean(true))
+func newMyStack(scope construct, id *string) *myStack {
+	this := &myStack{}
+	newStack_Override(this, scope, id)
 
-vpc := ec2.NewVpc(stack, jsii.String("VPC"), &VpcProps{
-	MaxAzs: jsii.Number(2),
-})
+	this.Node.SetContext(cxapi.eCS_REMOVE_DEFAULT_DESIRED_COUNT, jsii.Boolean(true))
 
-ecsPatterns.NewQueueProcessingFargateService(stack, jsii.String("QueueProcessingService"), &QueueProcessingFargateServiceProps{
-	Vpc: Vpc,
-	MemoryLimitMiB: jsii.Number(512),
-	Image: ecs.NewAssetImage(path.join(__dirname, jsii.String(".."), jsii.String("sqs-reader"))),
-})
+	vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+		MaxAzs: jsii.Number(2),
+	})
+
+	ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("QueueProcessingService"), &QueueProcessingFargateServiceProps{
+		Vpc: Vpc,
+		MemoryLimitMiB: jsii.Number(512),
+		Image: ecs.NewAssetImage(path.join(__dirname, jsii.String(".."), jsii.String("sqs-reader"))),
+	})
+	return this
+}
 ```
 
 ### Deploy application and metrics sidecar

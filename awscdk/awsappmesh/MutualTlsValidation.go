@@ -4,7 +4,6 @@ package awsappmesh
 // Represents the properties needed to define TLS Validation context that is supported for mutual TLS authentication.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //

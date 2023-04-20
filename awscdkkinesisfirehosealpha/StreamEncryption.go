@@ -6,20 +6,20 @@ package awscdkkinesisfirehosealpha
 //
 // Example:
 //   var destination iDestination
-//   // SSE with an customer-managed CMK that is explicitly specified
+//   // SSE with an customer-managed key that is explicitly specified
 //   var key key
 //
 //
-//   // SSE with an AWS-owned CMK
-//   // SSE with an AWS-owned CMK
+//   // SSE with an AWS-owned key
+//   // SSE with an AWS-owned key
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream AWS Owned"), &DeliveryStreamProps{
 //   	Encryption: firehose.StreamEncryption_AWS_OWNED,
 //   	Destinations: []*iDestination{
 //   		destination,
 //   	},
 //   })
-//   // SSE with an customer-managed CMK that is created automatically by the CDK
-//   // SSE with an customer-managed CMK that is created automatically by the CDK
+//   // SSE with an customer-managed key that is created automatically by the CDK
+//   // SSE with an customer-managed key that is created automatically by the CDK
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Implicit Customer Managed"), &DeliveryStreamProps{
 //   	Encryption: firehose.StreamEncryption_CUSTOMER_MANAGED,
 //   	Destinations: []*iDestination{

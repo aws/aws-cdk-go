@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the default settings for a grid layout configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,7 +18,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DefaultGridLayoutConfigurationProperty struct {
-	// Determines the screen canvas size options for a grid layout.
+	// `CfnDashboard.DefaultGridLayoutConfigurationProperty.CanvasSizeOptions`.
 	CanvasSizeOptions interface{} `field:"required" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`
 }
 

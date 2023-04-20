@@ -4,8 +4,6 @@ package awsstepfunctions
 // Specifies a target role assumed by the State Machine's execution role for invoking the task's resource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var submitLambda function

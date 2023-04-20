@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for default analysis settings.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -50,7 +48,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_AnalysisDefaultsProperty struct {
-	// The configuration for default new sheet settings.
+	// `CfnDashboard.AnalysisDefaultsProperty.DefaultNewSheetConfiguration`.
 	DefaultNewSheetConfiguration interface{} `field:"required" json:"defaultNewSheetConfiguration" yaml:"defaultNewSheetConfiguration"`
 }
 

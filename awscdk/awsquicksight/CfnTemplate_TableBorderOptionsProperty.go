@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The border options for a table border.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +13,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableBorderOptionsProperty struct {
-	// The color of a table border.
+	// `CfnTemplate.TableBorderOptionsProperty.Color`.
 	Color *string `field:"optional" json:"color" yaml:"color"`
-	// The style (none, solid) of a table border.
+	// `CfnTemplate.TableBorderOptionsProperty.Style`.
 	Style *string `field:"optional" json:"style" yaml:"style"`
-	// The thickness of a table border.
+	// `CfnTemplate.TableBorderOptionsProperty.Thickness`.
 	Thickness *float64 `field:"optional" json:"thickness" yaml:"thickness"`
 }
 

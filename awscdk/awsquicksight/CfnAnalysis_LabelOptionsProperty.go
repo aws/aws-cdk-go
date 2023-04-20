@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The share label options for the labels.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,11 +23,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_LabelOptionsProperty struct {
-	// The text for the label.
+	// `CfnAnalysis.LabelOptionsProperty.CustomLabel`.
 	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
-	// The font configuration of the label.
+	// `CfnAnalysis.LabelOptionsProperty.FontConfiguration`.
 	FontConfiguration interface{} `field:"optional" json:"fontConfiguration" yaml:"fontConfiguration"`
-	// Determines whether or not the label is visible.
+	// `CfnAnalysis.LabelOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

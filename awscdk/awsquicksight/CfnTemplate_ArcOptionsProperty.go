@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the arc thickness of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ArcOptionsProperty struct {
-	// The arc thickness of a `GaugeChartVisual` .
+	// `CfnTemplate.ArcOptionsProperty.ArcThickness`.
 	ArcThickness *string `field:"optional" json:"arcThickness" yaml:"arcThickness"`
 }
 

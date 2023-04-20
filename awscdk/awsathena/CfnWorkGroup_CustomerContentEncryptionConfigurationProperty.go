@@ -1,8 +1,6 @@
 package awsathena
 
 
-// Specifies the KMS key that is used to encrypt the user's data stores in Athena.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsathena
 //   }
 //
 type CfnWorkGroup_CustomerContentEncryptionConfigurationProperty struct {
-	// The KMS key that is used to encrypt the user's data stores in Athena.
+	// `CfnWorkGroup.CustomerContentEncryptionConfigurationProperty.KmsKey`.
 	KmsKey *string `field:"required" json:"kmsKey" yaml:"kmsKey"`
 }
 

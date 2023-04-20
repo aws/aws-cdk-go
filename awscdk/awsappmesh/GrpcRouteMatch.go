@@ -6,12 +6,11 @@ package awsappmesh
 // At least one match type must be selected.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
 //
-//   router.addRoute(jsii.String("route-http"), &RouteBaseProps{
+//   router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 //   	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
 //   		WeightedTargets: []weightedTarget{
 //   			&weightedTarget{
@@ -19,11 +18,13 @@ package awsappmesh
 //   			},
 //   		},
 //   		Match: &GrpcRouteMatch{
-//   			ServiceName: jsii.String("my-service.default.svc.cluster.local"),
-//   		},
-//   		Timeout: &GrpcTimeout{
-//   			Idle: cdk.Duration_Seconds(jsii.Number(2)),
-//   			PerRequest: cdk.Duration_*Seconds(jsii.Number(1)),
+//   			// When method name is specified, service name must be also specified.
+//   			MethodName: jsii.String("methodname"),
+//   			ServiceName: jsii.String("servicename"),
+//   			Metadata: []headerMatch{
+//   				appmesh.*headerMatch_ValueStartsWith(jsii.String("Content-Type"), jsii.String("application/")),
+//   				appmesh.*headerMatch_ValueDoesNotStartWith(jsii.String("Content-Type"), jsii.String("text/")),
+//   			},
 //   		},
 //   	}),
 //   })

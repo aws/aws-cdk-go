@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The field wells of a word cloud visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -510,7 +506,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_WordCloudFieldWellsProperty struct {
-	// The aggregated field wells of a word cloud.
+	// `CfnTemplate.WordCloudFieldWellsProperty.WordCloudAggregatedFieldWells`.
 	WordCloudAggregatedFieldWells interface{} `field:"optional" json:"wordCloudAggregatedFieldWells" yaml:"wordCloudAggregatedFieldWells"`
 }
 

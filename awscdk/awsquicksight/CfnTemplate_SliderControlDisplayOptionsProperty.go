@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options of a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,7 +25,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_SliderControlDisplayOptionsProperty struct {
-	// The options to configure the title visibility, name, and font size.
+	// `CfnTemplate.SliderControlDisplayOptionsProperty.TitleOptions`.
 	TitleOptions interface{} `field:"optional" json:"titleOptions" yaml:"titleOptions"`
 }
 

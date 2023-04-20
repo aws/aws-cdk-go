@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The aggregated field wells for a geospatial map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,15 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GeospatialMapAggregatedFieldWellsProperty struct {
-	// The color field wells of a geospatial map.
+	// `CfnDashboard.GeospatialMapAggregatedFieldWellsProperty.Colors`.
 	Colors interface{} `field:"optional" json:"colors" yaml:"colors"`
-	// The geospatial field wells of a geospatial map.
-	//
-	// Values are grouped by geospatial fields.
+	// `CfnDashboard.GeospatialMapAggregatedFieldWellsProperty.Geospatial`.
 	Geospatial interface{} `field:"optional" json:"geospatial" yaml:"geospatial"`
-	// The size field wells of a geospatial map.
-	//
-	// Values are aggregated based on geospatial fields.
+	// `CfnDashboard.GeospatialMapAggregatedFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

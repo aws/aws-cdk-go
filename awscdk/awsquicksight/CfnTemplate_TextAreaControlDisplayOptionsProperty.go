@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options of a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,9 +28,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TextAreaControlDisplayOptionsProperty struct {
-	// The configuration of the placeholder options in a text area control.
+	// `CfnTemplate.TextAreaControlDisplayOptionsProperty.PlaceholderOptions`.
 	PlaceholderOptions interface{} `field:"optional" json:"placeholderOptions" yaml:"placeholderOptions"`
-	// The options to configure the title visibility, name, and font size.
+	// `CfnTemplate.TextAreaControlDisplayOptionsProperty.TitleOptions`.
 	TitleOptions interface{} `field:"optional" json:"titleOptions" yaml:"titleOptions"`
 }
 

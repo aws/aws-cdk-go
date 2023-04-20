@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The sort configuration of a tree map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,9 +41,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TreeMapSortConfigurationProperty struct {
-	// The limit on the number of groups that are displayed.
+	// `CfnTemplate.TreeMapSortConfigurationProperty.TreeMapGroupItemsLimitConfiguration`.
 	TreeMapGroupItemsLimitConfiguration interface{} `field:"optional" json:"treeMapGroupItemsLimitConfiguration" yaml:"treeMapGroupItemsLimitConfiguration"`
-	// The sort configuration of group by fields.
+	// `CfnTemplate.TreeMapSortConfigurationProperty.TreeMapSort`.
 	TreeMapSort interface{} `field:"optional" json:"treeMapSort" yaml:"treeMapSort"`
 }
 

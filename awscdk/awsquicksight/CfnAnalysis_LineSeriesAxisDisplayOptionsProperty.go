@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The series axis configuration of a line chart.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -74,9 +72,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_LineSeriesAxisDisplayOptionsProperty struct {
-	// The options that determine the presentation of the line series axis.
+	// `CfnAnalysis.LineSeriesAxisDisplayOptionsProperty.AxisOptions`.
 	AxisOptions interface{} `field:"optional" json:"axisOptions" yaml:"axisOptions"`
-	// The configuration options that determine how missing data is treated during the rendering of a line chart.
+	// `CfnAnalysis.LineSeriesAxisDisplayOptionsProperty.MissingDataConfigurations`.
 	MissingDataConfigurations interface{} `field:"optional" json:"missingDataConfigurations" yaml:"missingDataConfigurations"`
 }
 

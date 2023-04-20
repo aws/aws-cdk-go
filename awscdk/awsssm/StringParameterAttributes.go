@@ -4,7 +4,10 @@ package awsssm
 // Attributes for parameters of various types of string.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
+//   parameterVersion := awscdk.Token_AsNumber(map[string]*string{
+//   	"Ref": jsii.String("MyParameter"),
+//   })
+//
 //   // Retrieve the latest value of the non-secret parameter
 //   // with name "/My/String/Parameter".
 //   stringValue := ssm.StringParameter_FromStringParameterAttributes(this, jsii.String("MyValue"), &StringParameterAttributes{

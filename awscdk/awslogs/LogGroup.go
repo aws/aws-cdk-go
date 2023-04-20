@@ -14,7 +14,6 @@ import (
 // Define a CloudWatch Log Group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //

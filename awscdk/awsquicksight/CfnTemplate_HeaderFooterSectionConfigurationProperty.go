@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of a header or footer section.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -64,11 +62,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_HeaderFooterSectionConfigurationProperty struct {
-	// The layout configuration of the header or footer section.
+	// `CfnTemplate.HeaderFooterSectionConfigurationProperty.Layout`.
 	Layout interface{} `field:"required" json:"layout" yaml:"layout"`
-	// The unique identifier of the header or footer section.
+	// `CfnTemplate.HeaderFooterSectionConfigurationProperty.SectionId`.
 	SectionId *string `field:"required" json:"sectionId" yaml:"sectionId"`
-	// The style options of a header or footer section.
+	// `CfnTemplate.HeaderFooterSectionConfigurationProperty.Style`.
 	Style interface{} `field:"optional" json:"style" yaml:"style"`
 }
 

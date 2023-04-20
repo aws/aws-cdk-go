@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The default values of the `StringParameterDeclaration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,11 +29,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_StringDefaultValuesProperty struct {
-	// The dynamic value of the `StringDefaultValues` .
-	//
-	// Different defaults displayed according to users, groups, and values mapping.
+	// `CfnTemplate.StringDefaultValuesProperty.DynamicValue`.
 	DynamicValue interface{} `field:"optional" json:"dynamicValue" yaml:"dynamicValue"`
-	// The static values of the `DecimalDefaultValues` .
+	// `CfnTemplate.StringDefaultValuesProperty.StaticValues`.
 	StaticValues *[]*string `field:"optional" json:"staticValues" yaml:"staticValues"`
 }
 

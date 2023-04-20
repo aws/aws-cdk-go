@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the null value format configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_NullValueFormatConfigurationProperty struct {
-	// Determines the null string of null values.
+	// `CfnDashboard.NullValueFormatConfigurationProperty.NullString`.
 	NullString *string `field:"required" json:"nullString" yaml:"nullString"`
 }
 

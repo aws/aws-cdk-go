@@ -8,7 +8,6 @@ import (
 // A reference to a bucket outside this stack.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myLambda function
 //
 //   bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &BucketAttributes{

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options for a paper canvas of a section-based layout.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,14 +18,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_SectionBasedLayoutPaperCanvasSizeOptionsProperty struct {
-	// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+	// `CfnDashboard.SectionBasedLayoutPaperCanvasSizeOptionsProperty.PaperMargin`.
 	PaperMargin interface{} `field:"optional" json:"paperMargin" yaml:"paperMargin"`
-	// The paper orientation that is used to define canvas dimensions. Choose one of the following options:.
-	//
-	// - PORTRAIT
-	// - LANDSCAPE.
+	// `CfnDashboard.SectionBasedLayoutPaperCanvasSizeOptionsProperty.PaperOrientation`.
 	PaperOrientation *string `field:"optional" json:"paperOrientation" yaml:"paperOrientation"`
-	// The paper size that is used to define canvas dimensions.
+	// `CfnDashboard.SectionBasedLayoutPaperCanvasSizeOptionsProperty.PaperSize`.
 	PaperSize *string `field:"optional" json:"paperSize" yaml:"paperSize"`
 }
 

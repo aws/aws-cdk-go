@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a `FilledMapVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -611,17 +609,17 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_FilledMapConfigurationProperty struct {
-	// The field wells of the visual.
+	// `CfnAnalysis.FilledMapConfigurationProperty.FieldWells`.
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
-	// The legend display setup of the visual.
+	// `CfnAnalysis.FilledMapConfigurationProperty.Legend`.
 	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
-	// The map style options of the filled map visual.
+	// `CfnAnalysis.FilledMapConfigurationProperty.MapStyleOptions`.
 	MapStyleOptions interface{} `field:"optional" json:"mapStyleOptions" yaml:"mapStyleOptions"`
-	// The sort configuration of a `FilledMapVisual` .
+	// `CfnAnalysis.FilledMapConfigurationProperty.SortConfiguration`.
 	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
-	// The tooltip display setup of the visual.
+	// `CfnAnalysis.FilledMapConfigurationProperty.Tooltip`.
 	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
-	// The window options of the filled map visual.
+	// `CfnAnalysis.FilledMapConfigurationProperty.WindowOptions`.
 	WindowOptions interface{} `field:"optional" json:"windowOptions" yaml:"windowOptions"`
 }
 

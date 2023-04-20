@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the number display format configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,19 +29,19 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_NumberDisplayFormatConfigurationProperty struct {
-	// The option that determines the decimal places configuration.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.DecimalPlacesConfiguration`.
 	DecimalPlacesConfiguration interface{} `field:"optional" json:"decimalPlacesConfiguration" yaml:"decimalPlacesConfiguration"`
-	// The options that determine the negative value configuration.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.NegativeValueConfiguration`.
 	NegativeValueConfiguration interface{} `field:"optional" json:"negativeValueConfiguration" yaml:"negativeValueConfiguration"`
-	// The options that determine the null value format configuration.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.NullValueFormatConfiguration`.
 	NullValueFormatConfiguration interface{} `field:"optional" json:"nullValueFormatConfiguration" yaml:"nullValueFormatConfiguration"`
-	// Determines the number scale value of the number format.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.NumberScale`.
 	NumberScale *string `field:"optional" json:"numberScale" yaml:"numberScale"`
-	// Determines the prefix value of the number format.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.Prefix`.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
-	// The options that determine the numeric separator configuration.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.SeparatorConfiguration`.
 	SeparatorConfiguration interface{} `field:"optional" json:"separatorConfiguration" yaml:"separatorConfiguration"`
-	// Determines the suffix value of the number format.
+	// `CfnTemplate.NumberDisplayFormatConfigurationProperty.Suffix`.
 	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 

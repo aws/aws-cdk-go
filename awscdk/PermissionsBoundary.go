@@ -18,20 +18,19 @@ import (
 // within your app. In this case the most specifically applied one wins
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // no permissions boundary for dev stage
 //   // no permissions boundary for dev stage
 //   awscdk.NewStage(app, jsii.String("DevStage"))
 //
 //   // default boundary for prod stage
 //   prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
-//   	PermissionsBoundary: permissionsBoundary_FromName(jsii.String("prod-pb")),
+//   	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("prod-pb")),
 //   })
 //
 //   // overriding the pb applied for this stack
 //   // overriding the pb applied for this stack
 //   awscdk.Newstack(prodStage, jsii.String("ProdStack1"), &stackProps{
-//   	PermissionsBoundary: *permissionsBoundary_*FromName(jsii.String("stack-pb")),
+//   	PermissionsBoundary: awscdk.PermissionsBoundary_*FromName(jsii.String("stack-pb")),
 //   })
 //
 //   // will inherit the permissions boundary from the stage
@@ -59,11 +58,8 @@ type jsiiProxy_PermissionsBoundary struct {
 // - '${Qualifier}'.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var app app
-//
 //   awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
-//   	PermissionsBoundary: permissionsBoundary_FromArn(jsii.String("arn:aws:iam::${AWS::AccountId}:policy/my-custom-permissions-boundary")),
+//   	PermissionsBoundary: awscdk.PermissionsBoundary_FromArn(jsii.String("arn:aws:iam::${AWS::AccountId}:policy/my-custom-permissions-boundary")),
 //   })
 //
 func PermissionsBoundary_FromArn(arn *string) PermissionsBoundary {
@@ -97,11 +93,8 @@ func PermissionsBoundary_FromArn(arn *string) PermissionsBoundary {
 // - '${Qualifier}'.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var app app
-//
 //   awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
-//   	PermissionsBoundary: permissionsBoundary_FromName(jsii.String("my-custom-permissions-boundary")),
+//   	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("my-custom-permissions-boundary")),
 //   })
 //
 func PermissionsBoundary_FromName(name *string) PermissionsBoundary {

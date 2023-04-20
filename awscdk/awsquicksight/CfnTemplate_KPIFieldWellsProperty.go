@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -757,11 +755,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_KPIFieldWellsProperty struct {
-	// The target value field wells of a KPI visual.
+	// `CfnTemplate.KPIFieldWellsProperty.TargetValues`.
 	TargetValues interface{} `field:"optional" json:"targetValues" yaml:"targetValues"`
-	// The trend group field wells of a KPI visual.
+	// `CfnTemplate.KPIFieldWellsProperty.TrendGroups`.
 	TrendGroups interface{} `field:"optional" json:"trendGroups" yaml:"trendGroups"`
-	// The value field wells of a KPI visual.
+	// `CfnTemplate.KPIFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

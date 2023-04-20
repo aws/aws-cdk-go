@@ -21,7 +21,7 @@ type CfnTopicRule_CloudwatchLogsActionProperty struct {
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The IAM role that allows access to the CloudWatch log.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// `CfnTopicRule.CloudwatchLogsActionProperty.BatchMode`.
+	// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
 	BatchMode interface{} `field:"optional" json:"batchMode" yaml:"batchMode"`
 }
 

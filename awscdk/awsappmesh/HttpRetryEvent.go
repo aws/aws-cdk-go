@@ -4,7 +4,6 @@ package awsappmesh
 // HTTP events on which to retry.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -28,7 +27,7 @@ package awsappmesh
 //   			// Retry five times
 //   			RetryAttempts: jsii.Number(5),
 //   			// Use a 1 second timeout per retry
-//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })

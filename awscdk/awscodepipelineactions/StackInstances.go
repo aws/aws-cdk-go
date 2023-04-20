@@ -10,7 +10,6 @@ import (
 // Where Stack Instances will be created from the StackSet.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //

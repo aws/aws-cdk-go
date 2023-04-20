@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -514,9 +512,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GaugeChartFieldWellsProperty struct {
-	// The target value field wells of a `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartFieldWellsProperty.TargetValues`.
 	TargetValues interface{} `field:"optional" json:"targetValues" yaml:"targetValues"`
-	// The value field wells of a `GaugeChartVisual` .
+	// `CfnDashboard.GaugeChartFieldWellsProperty.Values`.
 	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

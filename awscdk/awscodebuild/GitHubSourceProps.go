@@ -4,9 +4,8 @@ package awscodebuild
 // Construction properties for `GitHubSource` and `GitHubEnterpriseSource`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
-//   	BuildSpec: codebuild.BuildSpec.fromSourceFileName(jsii.String("my-buildspec.yml")),
+//   	BuildSpec: codebuild.BuildSpec_FromSourceFilename(jsii.String("my-buildspec.yml")),
 //   	Source: codebuild.Source_GitHub(&GitHubSourceProps{
 //   		Owner: jsii.String("awslabs"),
 //   		Repo: jsii.String("aws-cdk"),

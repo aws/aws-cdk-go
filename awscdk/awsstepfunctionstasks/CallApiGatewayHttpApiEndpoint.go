@@ -14,13 +14,12 @@ import (
 // Call HTTP API endpoint as a Task.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
 //
 //   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 //
 //   invokeTask := tasks.NewCallApiGatewayHttpApiEndpoint(this, jsii.String("Call HTTP API"), &CallApiGatewayHttpApiEndpointProps{
-//   	ApiId: httpApi.apiId,
+//   	ApiId: httpApi.ApiId,
 //   	ApiStack: awscdk.*stack_Of(httpApi),
 //   	Method: tasks.HttpMethod_GET,
 //   })

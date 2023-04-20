@@ -14,7 +14,6 @@ import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk"
 To use a CodeCommit Repository in a CodePipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 repo := codecommit.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
 	RepositoryName: jsii.String("MyRepo"),
 })
@@ -40,7 +39,6 @@ If you want to use existing role which can be used by on commit event rule.
 You can specify the role object in eventRole property.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var repo repository
 eventRole := iam.Role_FromRoleArn(this, jsii.String("Event-role"), jsii.String("roleArn"))
 sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
@@ -55,7 +53,6 @@ If you want to clone the entire CodeCommit repository (only available for CodeBu
 you can set the `codeBuildCloneOutput` property to `true`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var project pipelineProject
 var repo repository
 
@@ -81,7 +78,6 @@ buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 The CodeCommit source action emits variables:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var project pipelineProject
 var repo repository
 
@@ -125,7 +121,6 @@ If you want to use a GitHub repository as the source, you must create:
 To use GitHub as the source of a CodePipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Read the secret from Secrets Manager
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 sourceOutput := codepipeline.NewArtifact()
@@ -148,7 +143,6 @@ pipeline.AddStage(&StageOptions{
 The GitHub source action emits variables:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var sourceOutput artifact
 var project pipelineProject
 
@@ -194,7 +188,6 @@ After that, you can safely abort creating or editing the pipeline -
 the connection has already been created.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
 sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&CodeStarConnectionsSourceActionProps{
 	ActionName: jsii.String("BitBucket_Source"),
@@ -211,7 +204,6 @@ You can also use the `CodeStarConnectionsSourceAction` to connect to GitHub, in 
 Similarly to `GitHubSourceAction`, `CodeStarConnectionsSourceAction` also emits the variables:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var project project
 
 
@@ -245,7 +237,6 @@ codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 To use an S3 Bucket as a source in CodePipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceBucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	Versioned: jsii.Boolean(true),
 })
@@ -273,7 +264,6 @@ for an imported bucket,
 you can specify the region explicitly:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceBucket := s3.Bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
 	BucketName: jsii.String("my-bucket"),
 	Region: jsii.String("ap-southeast-1"),
@@ -289,7 +279,6 @@ and your Pipeline will not react to changes in the Bucket.
 You can do it through the CDK:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 var sourceBucket bucket
@@ -317,7 +306,6 @@ sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
 The S3 source action emits variables:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var sourceBucket bucket
 
 // later:
@@ -348,7 +336,6 @@ codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 To use an ECR Repository as a source in a Pipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import ecr "github.com/aws/aws-cdk-go/awscdk"
 
 var ecrRepository repository
@@ -373,7 +360,6 @@ pipeline.AddStage(&StageOptions{
 The ECR source action emits variables:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import ecr "github.com/aws/aws-cdk-go/awscdk"
 var ecrRepository repository
 
@@ -407,7 +393,6 @@ codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 Example of a CodeBuild Project used in a Pipeline, alongside CodeCommit:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var project pipelineProject
 
 repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &RepositoryProps{
@@ -457,7 +442,6 @@ if you want a `Test` Action instead,
 override the `type` property:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var project pipelineProject
 
 sourceOutput := codepipeline.NewArtifact()
@@ -478,7 +462,6 @@ properties of the `Project` class, you need to use the `extraInputs` and
 Actions. Example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var repository1 repository
 var repository2 repository
 
@@ -520,7 +503,6 @@ above, so that you know what name to use in the buildspec.
 Example buildspec for the above project:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 project := codebuild.NewPipelineProject(this, jsii.String("MyProject"), &PipelineProjectProps{
 	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
@@ -551,7 +533,6 @@ in the 'exported-variables' subsection of the 'env' section.
 Example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // later:
 var project pipelineProject
 sourceOutput := codepipeline.NewArtifact()
@@ -593,7 +574,6 @@ In order to use Jenkins Actions in the Pipeline,
 you first need to create a `JenkinsProvider`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 jenkinsProvider := codepipeline_actions.NewJenkinsProvider(this, jsii.String("JenkinsProvider"), &JenkinsProviderProps{
 	ProviderName: jsii.String("MyJenkinsProvider"),
 	ServerUrl: jsii.String("http://my-jenkins.com:8080"),
@@ -606,7 +586,6 @@ or outside the CDK (in the CodePipeline AWS Console, for example),
 you can import it:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 jenkinsProvider := codepipeline_actions.JenkinsProvider_FromJenkinsProviderAttributes(this, jsii.String("JenkinsProvider"), &JenkinsProviderAttributes{
 	ProviderName: jsii.String("MyJenkinsProvider"),
 	ServerUrl: jsii.String("http://my-jenkins.com:8080"),
@@ -623,7 +602,6 @@ With a `JenkinsProvider`,
 we can create a Jenkins Action:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var jenkinsProvider jenkinsProvider
 
 buildAction := codepipeline_actions.NewJenkinsAction(&JenkinsActionProps{
@@ -732,7 +710,6 @@ The actions available for updating StackSets are:
 Here's an example of using both of these actions:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline pipeline
 var sourceOutput artifact
 
@@ -925,7 +902,6 @@ If you want to update stacks in a different account,
 pass the `account` property when creating the action:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
 codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
 	ActionName: jsii.String("CloudFormationCreateUpdate"),
@@ -945,7 +921,6 @@ in that case, the `account` property is ignored,
 and the action will operate in the same account the role belongs to:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // in stack for account 123456789012...
@@ -975,7 +950,6 @@ codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCre
 To use CodeDeploy for EC2/on-premise deployments in a Pipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var deploymentGroup serverDeploymentGroup
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
 	PipelineName: jsii.String("MyPipeline"),
@@ -1001,7 +975,6 @@ pipeline.AddStage(&StageOptions{
 To use CodeDeploy for blue-green Lambda deployments in a Pipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 lambdaCode := lambda.Code_FromCfnParameters()
 func := lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 	Code: lambdaCode,
@@ -1032,7 +1005,6 @@ CodePipeline can deploy an ECS service.
 The deploy Action receives one input Artifact which contains the [image definition file](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions):
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
 var service fargateService
@@ -1066,7 +1038,6 @@ CodePipeline can deploy to an existing ECS service which uses the
 This also works if the service is in a different account and/or region than the pipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
 
@@ -1312,7 +1283,6 @@ NewEcsAppStack(app, jsii.String("EcsStackDeployedInPipeline"), &ecsAppStackProps
 To use an S3 Bucket as a deployment target in CodePipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
 targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
@@ -1337,7 +1307,6 @@ One workaround is to add another build step after the deploy step,
 and use the AWS CLI to invalidate the cache:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Create a Cloudfront Web Distribution
 import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 var distribution distribution
@@ -1404,7 +1373,6 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 To deploy an Elastic Beanstalk Application in CodePipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
 targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
@@ -1429,7 +1397,6 @@ deployStage := pipeline.AddStage(&StageOptions{
 You can deploy to Alexa using CodePipeline with the following Action:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Read the secrets from ParameterStore
 clientId := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientId"))
 clientSecret := awscdk.SecretValue_SecretsManager(jsii.String("AlexaClientSecret"))
@@ -1451,7 +1418,6 @@ codepipeline_actions.NewAlexaSkillDeployAction(&AlexaSkillDeployActionProps{
 If you need manifest overrides you can specify them as `parameterOverridesArtifact` in the action:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Deploy some CFN change set and store output
 executeOutput := codepipeline.NewArtifact(jsii.String("CloudFormation"))
 executeChangeSetAction := codepipeline_actions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
@@ -1485,7 +1451,6 @@ codepipeline_actions.NewAlexaSkillDeployAction(&AlexaSkillDeployActionProps{
 You can deploy a CloudFormation template to an existing Service Catalog product with the following Action:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 cdkBuildOutput := codepipeline.NewArtifact()
 serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&ServiceCatalogDeployActionBeta1Props{
 	ActionName: jsii.String("ServiceCatalogDeploy"),
@@ -1503,7 +1468,6 @@ serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployAction
 This package contains an Action that stops the Pipeline until someone manually clicks the approve button:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import sns "github.com/aws/aws-cdk-go/awscdk"
 
 
@@ -1533,7 +1497,6 @@ If you want to grant a principal permissions to approve the changes,
 you can invoke the method `grantManualApproval` passing it a `IGrantable`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 approveStage := pipeline.AddStage(&StageOptions{
 	StageName: jsii.String("Approve"),
@@ -1556,7 +1519,6 @@ manualApprovalAction.GrantManualApproval(role)
 This module contains an Action that allows you to invoke a Lambda function in a Pipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var fn function
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
@@ -1576,7 +1538,6 @@ The Lambda Action can have up to 5 inputs,
 and up to 5 outputs:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var fn function
 
 sourceOutput := codepipeline.NewArtifact()
@@ -1599,7 +1560,6 @@ The Lambda Action supports custom user parameters that pipeline
 will pass to the Lambda function:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var fn function
 
 
@@ -1623,7 +1583,6 @@ API with the `outputVariables` property filled with the map of variables
 Example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // later:
 var project pipelineProject
 lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
@@ -1668,7 +1627,6 @@ on how to write a Lambda function invoked from CodePipeline.
 This module contains an Action that allows you to invoke a Step Function in a Pipeline:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
@@ -1695,7 +1653,6 @@ The `StateMachineInput` can be created with one of 2 static factory methods:
 `literal`, which takes an arbitrary map as its only argument, or `filePath`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 

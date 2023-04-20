@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A `NumericRangeFilter` filters values that are within the value range.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,29 +39,23 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_NumericRangeFilterProperty struct {
-	// The column that the filter is applied to.
+	// `CfnAnalysis.NumericRangeFilterProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	// `CfnAnalysis.NumericRangeFilterProperty.FilterId`.
 	FilterId *string `field:"required" json:"filterId" yaml:"filterId"`
-	// This option determines how null values should be treated when filtering data.
-	//
-	// - `ALL_VALUES` : Include null values in filtered results.
-	// - `NULLS_ONLY` : Only include null values in filtered results.
-	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	// `CfnAnalysis.NumericRangeFilterProperty.NullOption`.
 	NullOption *string `field:"required" json:"nullOption" yaml:"nullOption"`
-	// The aggregation function of the filter.
+	// `CfnAnalysis.NumericRangeFilterProperty.AggregationFunction`.
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
-	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	// `CfnAnalysis.NumericRangeFilterProperty.IncludeMaximum`.
 	IncludeMaximum interface{} `field:"optional" json:"includeMaximum" yaml:"includeMaximum"`
-	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	// `CfnAnalysis.NumericRangeFilterProperty.IncludeMinimum`.
 	IncludeMinimum interface{} `field:"optional" json:"includeMinimum" yaml:"includeMinimum"`
-	// The maximum value for the filter value range.
+	// `CfnAnalysis.NumericRangeFilterProperty.RangeMaximum`.
 	RangeMaximum interface{} `field:"optional" json:"rangeMaximum" yaml:"rangeMaximum"`
-	// The minimum value for the filter value range.
+	// `CfnAnalysis.NumericRangeFilterProperty.RangeMinimum`.
 	RangeMinimum interface{} `field:"optional" json:"rangeMinimum" yaml:"rangeMinimum"`
-	// Select all of the values. Null is not the assigned value of select all.
-	//
-	// - `FILTER_ALL_VALUES`.
+	// `CfnAnalysis.NumericRangeFilterProperty.SelectAllOptions`.
 	SelectAllOptions *string `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
 }
 

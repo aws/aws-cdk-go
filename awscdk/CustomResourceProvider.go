@@ -32,7 +32,6 @@ import (
 // class in there or this one.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
@@ -57,7 +56,6 @@ type CustomResourceProvider interface {
 	// The ARN of the provider's AWS Lambda function which should be used as the `serviceToken` when defining a custom resource.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var myProvider customResourceProvider
 	//
 	//
@@ -76,7 +74,6 @@ type CustomResourceProvider interface {
 	// object like you will see in the rest of the CDK.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var myProvider customResourceProvider
 	//
 	//

@@ -4,7 +4,6 @@ package awsec2
 // Properties of a VPC Flow Log.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The total aggregation computation configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -265,11 +263,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_TotalAggregationComputationProperty struct {
-	// The ID for a computation.
+	// `CfnAnalysis.TotalAggregationComputationProperty.ComputationId`.
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The value field that is used in a computation.
+	// `CfnAnalysis.TotalAggregationComputationProperty.Value`.
 	Value interface{} `field:"required" json:"value" yaml:"value"`
-	// The name of a computation.
+	// `CfnAnalysis.TotalAggregationComputationProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -15,7 +15,7 @@ import (
 //
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
+//   	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
 //   })
 //
 //   dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
@@ -25,7 +25,7 @@ import (
 //   })
 //   stateMachine := sfn.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
 //   	Definition: sfn.NewWait(this, jsii.String("Hello"), &WaitProps{
-//   		Time: sfn.WaitTime_Duration(cdk.Duration_Seconds(jsii.Number(10))),
+//   		Time: sfn.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
 //   	}),
 //   })
 //

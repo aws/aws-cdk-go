@@ -4,7 +4,6 @@ package awsappmesh
 // The set of properties used when creating a Mesh.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var infraStack stack
 //   var appStack stack
 //

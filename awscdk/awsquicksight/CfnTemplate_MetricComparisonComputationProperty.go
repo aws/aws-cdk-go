@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The metric comparison computation configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -755,15 +753,15 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_MetricComparisonComputationProperty struct {
-	// The ID for a computation.
+	// `CfnTemplate.MetricComparisonComputationProperty.ComputationId`.
 	ComputationId *string `field:"required" json:"computationId" yaml:"computationId"`
-	// The field that is used in a metric comparison from value setup.
+	// `CfnTemplate.MetricComparisonComputationProperty.FromValue`.
 	FromValue interface{} `field:"required" json:"fromValue" yaml:"fromValue"`
-	// The field that is used in a metric comparison to value setup.
+	// `CfnTemplate.MetricComparisonComputationProperty.TargetValue`.
 	TargetValue interface{} `field:"required" json:"targetValue" yaml:"targetValue"`
-	// The time field that is used in a computation.
+	// `CfnTemplate.MetricComparisonComputationProperty.Time`.
 	Time interface{} `field:"required" json:"time" yaml:"time"`
-	// The name of a computation.
+	// `CfnTemplate.MetricComparisonComputationProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

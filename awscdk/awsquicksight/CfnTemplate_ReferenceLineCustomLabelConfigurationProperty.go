@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration for a custom label on a `ReferenceLine` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ReferenceLineCustomLabelConfigurationProperty struct {
-	// The string text of the custom label.
+	// `CfnTemplate.ReferenceLineCustomLabelConfigurationProperty.CustomLabel`.
 	CustomLabel *string `field:"required" json:"customLabel" yaml:"customLabel"`
 }
 

@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The configuration that determines what the type of layout will be used on a sheet.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -272,13 +268,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_LayoutConfigurationProperty struct {
-	// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
+	// `CfnDashboard.LayoutConfigurationProperty.FreeFormLayout`.
 	FreeFormLayout interface{} `field:"optional" json:"freeFormLayout" yaml:"freeFormLayout"`
-	// A type of layout that can be used on a sheet.
-	//
-	// In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
+	// `CfnDashboard.LayoutConfigurationProperty.GridLayout`.
 	GridLayout interface{} `field:"optional" json:"gridLayout" yaml:"gridLayout"`
-	// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
+	// `CfnDashboard.LayoutConfigurationProperty.SectionBasedLayout`.
 	SectionBasedLayout interface{} `field:"optional" json:"sectionBasedLayout" yaml:"sectionBasedLayout"`
 }
 

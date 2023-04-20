@@ -34,7 +34,9 @@ import (
 //   }
 //
 type CfnVolumeProps struct {
-	// The Availability Zone in which to create the volume.
+	// The ID of the Availability Zone in which to create the volume.
+	//
+	// For example, `us-east-1a` .
 	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// Indicates whether the volume is auto-enabled for I/O operations.
 	//

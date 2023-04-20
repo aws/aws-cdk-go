@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The data path that needs to be sorted.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DataPathValueProperty struct {
-	// The field ID of the field that needs to be sorted.
+	// `CfnTemplate.DataPathValueProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The actual value of the field that needs to be sorted.
+	// `CfnTemplate.DataPathValueProperty.FieldValue`.
 	FieldValue *string `field:"required" json:"fieldValue" yaml:"fieldValue"`
 }
 

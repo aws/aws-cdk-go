@@ -4,7 +4,6 @@ package pipelines
 // Options for ECR sources.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var repository iRepository
 //
 //   pipelines.CodePipelineSource_Ecr(repository, &ECRSourceOptions{

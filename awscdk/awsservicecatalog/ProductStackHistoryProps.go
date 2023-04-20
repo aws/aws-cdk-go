@@ -4,16 +4,11 @@ package awsservicecatalog
 // Properties for a ProductStackHistory.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//
 //   type s3BucketProduct struct {
 //   	productStack
 //   }
 //
-//   func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
+//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
 //   	this := &s3BucketProduct{}
 //   	servicecatalog.NewProductStack_Override(this, scope, id)
 //

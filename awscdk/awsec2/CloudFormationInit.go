@@ -10,7 +10,6 @@ import (
 // A CloudFormation-init configuration.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //
@@ -18,22 +17,14 @@ import (
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 //   	Vpc: Vpc,
 //   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-//   		// Amazon Linux 2 uses SystemD
-//   		Generation: ec2.AmazonLinuxGeneration,
-//   		AMAZON_LINUX_2: AMAZON_LINUX_2,
-//   	}),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 //
-//   	Init: ec2.CloudFormationInit_FromElements([]interface{}{
-//   		ec2.InitService_SystemdConfigFile(jsii.String("simpleserver"), &SystemdConfigFileOptions{
-//   			Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
-//   			Cwd: jsii.String("/var/www/html"),
-//   		}),
-//   		ec2.InitService_Enable(jsii.String("simpleserver"), &InitServiceOptions{
-//   			ServiceManager: ec2.ServiceManager_SYSTEMD,
-//   		}),
-//   		ec2.InitFile_FromString(jsii.String("/var/www/html/index.html"), jsii.String("Hello! It's working!")),
-//   	}),
+//   	Init: ec2.CloudFormationInit_FromElements(ec2.InitService_SystemdConfigFile(jsii.String("simpleserver"), &SystemdConfigFileOptions{
+//   		Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
+//   		Cwd: jsii.String("/var/www/html"),
+//   	}), ec2.InitService_Enable(jsii.String("simpleserver"), &InitServiceOptions{
+//   		ServiceManager: ec2.ServiceManager_SYSTEMD,
+//   	}), ec2.InitFile_FromString(jsii.String("/var/www/html/index.html"), jsii.String("Hello! It's working!"))),
 //   })
 //
 type CloudFormationInit interface {

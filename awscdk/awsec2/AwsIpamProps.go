@@ -4,14 +4,13 @@ package awsec2
 // Configuration for AwsIpam.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var pool cfnIPAMPool
 //
 //
-//   ec2.NewVpc(stack, jsii.String("TheVPC"), &VpcProps{
-//   	IpAddresses: ec2.IpAddresses_AwsIpamAllocation(&AwsIpamProps{
+//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+//   	IpAddresses: awscdk.IpAddresses_AwsIpamAllocation(&AwsIpamProps{
 //   		Ipv4IpamPoolId: pool.ref,
 //   		Ipv4NetmaskLength: jsii.Number(18),
 //   		DefaultSubnetIpv4NetmaskLength: jsii.Number(24),

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The dimension type field with categorical type columns..
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -90,13 +88,13 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_CategoricalDimensionFieldProperty struct {
-	// The column that is used in the `CategoricalDimensionField` .
+	// `CfnDashboard.CategoricalDimensionFieldProperty.Column`.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// The custom field ID.
+	// `CfnDashboard.CategoricalDimensionFieldProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The format configuration of the field.
+	// `CfnDashboard.CategoricalDimensionFieldProperty.FormatConfiguration`.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
-	// The custom hierarchy ID.
+	// `CfnDashboard.CategoricalDimensionFieldProperty.HierarchyId`.
 	HierarchyId *string `field:"optional" json:"hierarchyId" yaml:"hierarchyId"`
 }
 

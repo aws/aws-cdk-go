@@ -17,7 +17,6 @@ import (
 // users that don't need to switch out engines.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var codePipeline pipeline
 //
 //

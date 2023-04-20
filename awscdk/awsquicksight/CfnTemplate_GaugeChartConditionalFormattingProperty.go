@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting of a `GaugeChartVisual` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -85,7 +83,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_GaugeChartConditionalFormattingProperty struct {
-	// Conditional formatting options of a `GaugeChartVisual` .
+	// `CfnTemplate.GaugeChartConditionalFormattingProperty.ConditionalFormattingOptions`.
 	ConditionalFormattingOptions interface{} `field:"optional" json:"conditionalFormattingOptions" yaml:"conditionalFormattingOptions"`
 }
 

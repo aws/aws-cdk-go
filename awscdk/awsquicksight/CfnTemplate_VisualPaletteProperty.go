@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The visual display options for the visual palette.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,9 +23,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_VisualPaletteProperty struct {
-	// The chart color options for the visual palette.
+	// `CfnTemplate.VisualPaletteProperty.ChartColor`.
 	ChartColor *string `field:"optional" json:"chartColor" yaml:"chartColor"`
-	// The color map options for the visual palette.
+	// `CfnTemplate.VisualPaletteProperty.ColorMap`.
 	ColorMap interface{} `field:"optional" json:"colorMap" yaml:"colorMap"`
 }
 

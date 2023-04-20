@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting of a table row.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -56,9 +54,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TableRowConditionalFormattingProperty struct {
-	// The conditional formatting color (solid, gradient) of the background for a table row.
+	// `CfnTemplate.TableRowConditionalFormattingProperty.BackgroundColor`.
 	BackgroundColor interface{} `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
-	// The conditional formatting color (solid, gradient) of the text for a table row.
+	// `CfnTemplate.TableRowConditionalFormattingProperty.TextColor`.
 	TextColor interface{} `field:"optional" json:"textColor" yaml:"textColor"`
 }
 

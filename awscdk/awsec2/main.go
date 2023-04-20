@@ -63,6 +63,84 @@ func init() {
 		"aws-cdk-lib.aws_ec2.AllocatedSubnet",
 		reflect.TypeOf((*AllocatedSubnet)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2022ImageSsmParameter",
+		reflect.TypeOf((*AmazonLinux2022ImageSsmParameter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AmazonLinux2022ImageSsmParameter{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AmazonLinuxImageSsmParameterBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2022ImageSsmParameterProps",
+		reflect.TypeOf((*AmazonLinux2022ImageSsmParameterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2022Kernel",
+		reflect.TypeOf((*AmazonLinux2022Kernel)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AmazonLinux2022Kernel{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2023ImageSsmParameter",
+		reflect.TypeOf((*AmazonLinux2023ImageSsmParameter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AmazonLinux2023ImageSsmParameter{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AmazonLinuxImageSsmParameterBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2023ImageSsmParameterProps",
+		reflect.TypeOf((*AmazonLinux2023ImageSsmParameterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2023Kernel",
+		reflect.TypeOf((*AmazonLinux2023Kernel)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AmazonLinux2023Kernel{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2ImageSsmParameter",
+		reflect.TypeOf((*AmazonLinux2ImageSsmParameter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AmazonLinux2ImageSsmParameter{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AmazonLinuxImageSsmParameterBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2ImageSsmParameterProps",
+		reflect.TypeOf((*AmazonLinux2ImageSsmParameterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinux2Kernel",
+		reflect.TypeOf((*AmazonLinux2Kernel)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AmazonLinux2Kernel{}
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ec2.AmazonLinuxCpuType",
 		reflect.TypeOf((*AmazonLinuxCpuType)(nil)).Elem(),
@@ -86,6 +164,7 @@ func init() {
 			"AMAZON_LINUX": AmazonLinuxGeneration_AMAZON_LINUX,
 			"AMAZON_LINUX_2": AmazonLinuxGeneration_AMAZON_LINUX_2,
 			"AMAZON_LINUX_2022": AmazonLinuxGeneration_AMAZON_LINUX_2022,
+			"AMAZON_LINUX_2023": AmazonLinuxGeneration_AMAZON_LINUX_2023,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -104,6 +183,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.AmazonLinuxImageProps",
 		reflect.TypeOf((*AmazonLinuxImageProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImageSsmParameterBase",
+		reflect.TypeOf((*AmazonLinuxImageSsmParameterBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AmazonLinuxImageSsmParameterBase{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMachineImage)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImageSsmParameterBaseOptions",
+		reflect.TypeOf((*AmazonLinuxImageSsmParameterBaseOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImageSsmParameterBaseProps",
+		reflect.TypeOf((*AmazonLinuxImageSsmParameterBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImageSsmParameterCommonOptions",
+		reflect.TypeOf((*AmazonLinuxImageSsmParameterCommonOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ec2.AmazonLinuxKernel",

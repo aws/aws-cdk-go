@@ -58,7 +58,7 @@ type CfnImagePipelineProps struct {
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
-	// Contains settings for vulnerability scans.
+	// `AWS::ImageBuilder::ImagePipeline.ImageScanningConfiguration`.
 	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`

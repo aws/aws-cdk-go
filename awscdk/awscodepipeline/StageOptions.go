@@ -2,7 +2,6 @@ package awscodepipeline
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))

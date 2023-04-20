@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The conditional formatting for the progress bar of a KPI visual.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,7 +32,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_KPIProgressBarConditionalFormattingProperty struct {
-	// The conditional formatting of the progress bar's foreground color.
+	// `CfnTemplate.KPIProgressBarConditionalFormattingProperty.ForegroundColor`.
 	ForegroundColor interface{} `field:"optional" json:"foregroundColor" yaml:"foregroundColor"`
 }
 

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a sankey diagram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -749,11 +747,11 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SankeyDiagramAggregatedFieldWellsProperty struct {
-	// The destination field wells of a sankey diagram.
+	// `CfnAnalysis.SankeyDiagramAggregatedFieldWellsProperty.Destination`.
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
-	// The source field wells of a sankey diagram.
+	// `CfnAnalysis.SankeyDiagramAggregatedFieldWellsProperty.Source`.
 	Source interface{} `field:"optional" json:"source" yaml:"source"`
-	// The weight field wells of a sankey diagram.
+	// `CfnAnalysis.SankeyDiagramAggregatedFieldWellsProperty.Weight`.
 	Weight interface{} `field:"optional" json:"weight" yaml:"weight"`
 }
 

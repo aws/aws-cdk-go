@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The field well configuration of a histogram.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -265,7 +263,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_HistogramFieldWellsProperty struct {
-	// The field well configuration of a histogram.
+	// `CfnAnalysis.HistogramFieldWellsProperty.HistogramAggregatedFieldWells`.
 	HistogramAggregatedFieldWells interface{} `field:"optional" json:"histogramAggregatedFieldWells" yaml:"histogramAggregatedFieldWells"`
 }
 

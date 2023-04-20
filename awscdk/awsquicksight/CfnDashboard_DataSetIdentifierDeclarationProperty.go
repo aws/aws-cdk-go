@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// A data set.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DataSetIdentifierDeclarationProperty struct {
-	// The Amazon Resource Name (ARN) of the data set.
+	// `CfnDashboard.DataSetIdentifierDeclarationProperty.DataSetArn`.
 	DataSetArn *string `field:"required" json:"dataSetArn" yaml:"dataSetArn"`
-	// The identifier of the data set, typically the data set's name.
+	// `CfnDashboard.DataSetIdentifierDeclarationProperty.Identifier`.
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 }
 

@@ -36,13 +36,16 @@ import (
 // your Lamba's code, instead of using environment variables.)
 //
 // Example:
-//   amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
-//   	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
-//   		Owner: jsii.String("<user>"),
-//   		Repository: jsii.String("<repo>"),
-//   		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
+//   var myHostedZone iPublicHostedZone
+//
+//
+//   ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
+//   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
+//   	DkimIdentity: ses.DkimIdentity_ByoDkim(&ByoDkimOptions{
+//   		PrivateKey: awscdk.SecretValue_SecretsManager(jsii.String("dkim-private-key")),
+//   		PublicKey: jsii.String("...base64-encoded-public-key..."),
+//   		Selector: jsii.String("selector"),
 //   	}),
-//   	BasicAuth: amplify.BasicAuth_FromCredentials(jsii.String("username"), awscdk.SecretValue_*SecretsManager(jsii.String("my-github-token"))),
 //   })
 //
 type SecretValue interface {
@@ -317,7 +320,6 @@ func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 // secret values.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var secret secretValue
 //
 //   jsonSecret := map[string]secretValue{

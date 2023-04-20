@@ -82,6 +82,12 @@ type DeployOptions struct {
 	// Include "AWS::CDK::Metadata" resource in synthesized templates.
 	// Experimental.
 	VersionReporting *bool `field:"optional" json:"versionReporting" yaml:"versionReporting"`
+	// Whether to build/publish assets in parallel.
+	// Experimental.
+	AssetParallelism *bool `field:"optional" json:"assetParallelism" yaml:"assetParallelism"`
+	// Whether to build all assets before deploying the first stack (useful for failing Docker builds).
+	// Experimental.
+	AssetPrebuild *bool `field:"optional" json:"assetPrebuild" yaml:"assetPrebuild"`
 	// Optional name to use for the CloudFormation change set.
 	//
 	// If not provided, a name will be generated automatically.
@@ -90,6 +96,9 @@ type DeployOptions struct {
 	// Whether we are on a CI system.
 	// Experimental.
 	Ci *bool `field:"optional" json:"ci" yaml:"ci"`
+	// Maximum number of simultaneous deployments (dependency permitting) to execute.
+	// Experimental.
+	Concurrency *float64 `field:"optional" json:"concurrency" yaml:"concurrency"`
 	// Only perform action on the given stack.
 	// Experimental.
 	Exclusively *bool `field:"optional" json:"exclusively" yaml:"exclusively"`

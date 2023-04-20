@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The tooltip item for the fields.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FieldTooltipItemProperty struct {
-	// The unique ID of the field that is targeted by the tooltip.
+	// `CfnTemplate.FieldTooltipItemProperty.FieldId`.
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
-	// The label of the tooltip item.
+	// `CfnTemplate.FieldTooltipItemProperty.Label`.
 	Label *string `field:"optional" json:"label" yaml:"label"`
-	// The visibility of the tooltip item.
+	// `CfnTemplate.FieldTooltipItemProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

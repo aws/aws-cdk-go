@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration that defines the default value of a `Decimal` parameter when a value has not been set.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,12 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DecimalValueWhenUnsetConfigurationProperty struct {
-	// A custom value that's used when the value of a parameter isn't set.
+	// `CfnTemplate.DecimalValueWhenUnsetConfigurationProperty.CustomValue`.
 	CustomValue *float64 `field:"optional" json:"customValue" yaml:"customValue"`
-	// The built-in options for default values. The value can be one of the following:.
-	//
-	// - `RECOMMENDED` : The recommended value.
-	// - `NULL` : The `NULL` value.
+	// `CfnTemplate.DecimalValueWhenUnsetConfigurationProperty.ValueWhenUnsetOption`.
 	ValueWhenUnsetOption *string `field:"optional" json:"valueWhenUnsetOption" yaml:"valueWhenUnsetOption"`
 }
 

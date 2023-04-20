@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The image configuration of a table field URL.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_TableFieldImageConfigurationProperty struct {
-	// The sizing options for the table image configuration.
+	// `CfnAnalysis.TableFieldImageConfigurationProperty.SizingOptions`.
 	SizingOptions interface{} `field:"optional" json:"sizingOptions" yaml:"sizingOptions"`
 }
 

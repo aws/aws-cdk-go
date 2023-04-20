@@ -45,7 +45,7 @@ type CfnImageProps struct {
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
-	// Contains settings for vulnerability scans.
+	// `AWS::ImageBuilder::Image.ImageScanningConfiguration`.
 	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
 	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`

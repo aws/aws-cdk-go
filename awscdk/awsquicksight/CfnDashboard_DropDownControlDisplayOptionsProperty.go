@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The display options of a control.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,9 +28,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DropDownControlDisplayOptionsProperty struct {
-	// The configuration of the `Select all` options in a dropdown control.
+	// `CfnDashboard.DropDownControlDisplayOptionsProperty.SelectAllOptions`.
 	SelectAllOptions interface{} `field:"optional" json:"selectAllOptions" yaml:"selectAllOptions"`
-	// The options to configure the title visibility, name, and font size.
+	// `CfnDashboard.DropDownControlDisplayOptionsProperty.TitleOptions`.
 	TitleOptions interface{} `field:"optional" json:"titleOptions" yaml:"titleOptions"`
 }
 

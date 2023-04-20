@@ -49,7 +49,9 @@ type CfnPricingRuleProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A percentage modifier applied on the public pricing rates.
 	ModifierPercentage *float64 `field:"optional" json:"modifierPercentage" yaml:"modifierPercentage"`
-	// `AWS::BillingConductor::PricingRule.Operation`.
+	// Operation is the specific AWS action covered by this line item.
+	//
+	// This describes the specific usage of the line item.
 	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service *string `field:"optional" json:"service" yaml:"service"`

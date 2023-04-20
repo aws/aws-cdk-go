@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The map style options of the geospatial map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_GeospatialMapStyleOptionsProperty struct {
-	// The base map style of the geospatial map.
+	// `CfnDashboard.GeospatialMapStyleOptionsProperty.BaseMapStyle`.
 	BaseMapStyle *string `field:"optional" json:"baseMapStyle" yaml:"baseMapStyle"`
 }
 

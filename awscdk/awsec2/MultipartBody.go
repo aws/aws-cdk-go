@@ -8,7 +8,6 @@ import (
 // The base class for all classes which can be used as `MultipartUserData`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   multipartUserData := ec2.NewMultipartUserData()
 //   commandsUserData := ec2.UserData_ForLinux()
 //   multipartUserData.AddUserDataPart(commandsUserData, ec2.MultipartBody_SHELL_SCRIPT(), jsii.Boolean(true))

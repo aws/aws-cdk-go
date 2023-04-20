@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The configuration of spacing (often a margin or padding).
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +14,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_SpacingProperty struct {
-	// Define the bottom spacing.
+	// `CfnAnalysis.SpacingProperty.Bottom`.
 	Bottom *string `field:"optional" json:"bottom" yaml:"bottom"`
-	// Define the left spacing.
+	// `CfnAnalysis.SpacingProperty.Left`.
 	Left *string `field:"optional" json:"left" yaml:"left"`
-	// Define the right spacing.
+	// `CfnAnalysis.SpacingProperty.Right`.
 	Right *string `field:"optional" json:"right" yaml:"right"`
-	// Define the top spacing.
+	// `CfnAnalysis.SpacingProperty.Top`.
 	Top *string `field:"optional" json:"top" yaml:"top"`
 }
 

@@ -1,12 +1,6 @@
 package awsquicksight
 
 
-// The declaration definition of a parameter.
-//
-// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -170,13 +164,13 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_ParameterDeclarationProperty struct {
-	// A parameter declaration for the `DateTime` data type.
+	// `CfnAnalysis.ParameterDeclarationProperty.DateTimeParameterDeclaration`.
 	DateTimeParameterDeclaration interface{} `field:"optional" json:"dateTimeParameterDeclaration" yaml:"dateTimeParameterDeclaration"`
-	// A parameter declaration for the `Decimal` data type.
+	// `CfnAnalysis.ParameterDeclarationProperty.DecimalParameterDeclaration`.
 	DecimalParameterDeclaration interface{} `field:"optional" json:"decimalParameterDeclaration" yaml:"decimalParameterDeclaration"`
-	// A parameter declaration for the `Integer` data type.
+	// `CfnAnalysis.ParameterDeclarationProperty.IntegerParameterDeclaration`.
 	IntegerParameterDeclaration interface{} `field:"optional" json:"integerParameterDeclaration" yaml:"integerParameterDeclaration"`
-	// A parameter declaration for the `String` data type.
+	// `CfnAnalysis.ParameterDeclarationProperty.StringParameterDeclaration`.
 	StringParameterDeclaration interface{} `field:"optional" json:"stringParameterDeclaration" yaml:"stringParameterDeclaration"`
 }
 

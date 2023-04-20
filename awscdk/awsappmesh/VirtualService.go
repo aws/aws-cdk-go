@@ -14,7 +14,6 @@ import (
 // It routes traffic either to a Virtual Node or to a Virtual Router.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //

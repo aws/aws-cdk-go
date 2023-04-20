@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the presentation of the data labels.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -52,23 +50,23 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DataLabelOptionsProperty struct {
-	// Determines the visibility of the category field labels.
+	// `CfnTemplate.DataLabelOptionsProperty.CategoryLabelVisibility`.
 	CategoryLabelVisibility *string `field:"optional" json:"categoryLabelVisibility" yaml:"categoryLabelVisibility"`
-	// The option that determines the data label type.
+	// `CfnTemplate.DataLabelOptionsProperty.DataLabelTypes`.
 	DataLabelTypes interface{} `field:"optional" json:"dataLabelTypes" yaml:"dataLabelTypes"`
-	// Determines the color of the data labels.
+	// `CfnTemplate.DataLabelOptionsProperty.LabelColor`.
 	LabelColor *string `field:"optional" json:"labelColor" yaml:"labelColor"`
-	// Determines the content of the data labels.
+	// `CfnTemplate.DataLabelOptionsProperty.LabelContent`.
 	LabelContent *string `field:"optional" json:"labelContent" yaml:"labelContent"`
-	// Determines the font configuration of the data labels.
+	// `CfnTemplate.DataLabelOptionsProperty.LabelFontConfiguration`.
 	LabelFontConfiguration interface{} `field:"optional" json:"labelFontConfiguration" yaml:"labelFontConfiguration"`
-	// Determines the visibility of the measure field labels.
+	// `CfnTemplate.DataLabelOptionsProperty.MeasureLabelVisibility`.
 	MeasureLabelVisibility *string `field:"optional" json:"measureLabelVisibility" yaml:"measureLabelVisibility"`
-	// Determines whether overlap is enabled or disabled for the data labels.
+	// `CfnTemplate.DataLabelOptionsProperty.Overlap`.
 	Overlap *string `field:"optional" json:"overlap" yaml:"overlap"`
-	// Determines the position of the data labels.
+	// `CfnTemplate.DataLabelOptionsProperty.Position`.
 	Position *string `field:"optional" json:"position" yaml:"position"`
-	// Determines the visibility of the data labels.
+	// `CfnTemplate.DataLabelOptionsProperty.Visibility`.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

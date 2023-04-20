@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,19 +18,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_AggregationFunctionProperty struct {
-	// Aggregation for categorical values.
-	//
-	// - `COUNT` : Aggregate by the total number of values, including duplicates.
-	// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+	// `CfnDashboard.AggregationFunctionProperty.CategoricalAggregationFunction`.
 	CategoricalAggregationFunction *string `field:"optional" json:"categoricalAggregationFunction" yaml:"categoricalAggregationFunction"`
-	// Aggregation for date values.
-	//
-	// - `COUNT` : Aggregate by the total number of values, including duplicates.
-	// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
-	// - `MIN` : Select the smallest date value.
-	// - `MAX` : Select the largest date value.
+	// `CfnDashboard.AggregationFunctionProperty.DateAggregationFunction`.
 	DateAggregationFunction *string `field:"optional" json:"dateAggregationFunction" yaml:"dateAggregationFunction"`
-	// Aggregation for numerical values.
+	// `CfnDashboard.AggregationFunctionProperty.NumericalAggregationFunction`.
 	NumericalAggregationFunction interface{} `field:"optional" json:"numericalAggregationFunction" yaml:"numericalAggregationFunction"`
 }
 

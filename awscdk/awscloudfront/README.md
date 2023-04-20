@@ -142,16 +142,21 @@ enabled it is possible to do something like creating a CloudFront distribution i
 an ACM certificate in `us-east-1`.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
+import route53 "github.com/aws/aws-cdk-go/awscdk"
+
+var app app
+
+
 stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-east-1"),
 	},
 	CrossRegionReferences: jsii.Boolean(true),
 })
-cert := acm.NewCertificate(stack1, jsii.String("Cert"), map[string]interface{}{
-	"domainName": jsii.String("*.example.com"),
-	"validation": acm.CertificateValidation_fromDns(route53.PublicHostedZone_fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
+	DomainName: jsii.String("*.example.com"),
+	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 })
 
 stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{

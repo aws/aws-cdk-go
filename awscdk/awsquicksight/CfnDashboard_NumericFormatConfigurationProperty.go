@@ -1,10 +1,6 @@
 package awsquicksight
 
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -77,11 +73,11 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_NumericFormatConfigurationProperty struct {
-	// The options that determine the currency display format configuration.
+	// `CfnDashboard.NumericFormatConfigurationProperty.CurrencyDisplayFormatConfiguration`.
 	CurrencyDisplayFormatConfiguration interface{} `field:"optional" json:"currencyDisplayFormatConfiguration" yaml:"currencyDisplayFormatConfiguration"`
-	// The options that determine the number display format configuration.
+	// `CfnDashboard.NumericFormatConfigurationProperty.NumberDisplayFormatConfiguration`.
 	NumberDisplayFormatConfiguration interface{} `field:"optional" json:"numberDisplayFormatConfiguration" yaml:"numberDisplayFormatConfiguration"`
-	// The options that determine the percentage display format configuration.
+	// `CfnDashboard.NumericFormatConfigurationProperty.PercentageDisplayFormatConfiguration`.
 	PercentageDisplayFormatConfiguration interface{} `field:"optional" json:"percentageDisplayFormatConfiguration" yaml:"percentageDisplayFormatConfiguration"`
 }
 

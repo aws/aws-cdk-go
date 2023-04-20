@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The percent range in the visible range.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnAnalysis_PercentVisibleRangeProperty struct {
-	// The lower bound of the range.
+	// `CfnAnalysis.PercentVisibleRangeProperty.From`.
 	From *float64 `field:"optional" json:"from" yaml:"from"`
-	// The top bound of the range.
+	// `CfnAnalysis.PercentVisibleRangeProperty.To`.
 	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 

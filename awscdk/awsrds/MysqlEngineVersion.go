@@ -8,13 +8,12 @@ import (
 // The versions for the MySQL instance engines (those returned by `DatabaseInstanceEngine.mysql`).
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //
 //   iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
 //   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-//   		Version: mysqlEngineVersion_VER_8_0_30,
+//   		Version: rds.MysqlEngineVersion_VER_8_0_30(),
 //   	}),
 //   	Vpc: Vpc,
 //   	StorageType: rds.StorageType_IO1,
@@ -23,7 +22,7 @@ import (
 //
 //   gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
 //   	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
-//   		Version: *mysqlEngineVersion_VER_8_0_30,
+//   		Version: rds.MysqlEngineVersion_VER_8_0_30(),
 //   	}),
 //   	Vpc: Vpc,
 //   	AllocatedStorage: jsii.Number(500),
