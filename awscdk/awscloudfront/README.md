@@ -92,16 +92,16 @@ from SNI only and a minimum protocol version of TLSv1.2_2021 if the `@aws-cdk/aw
 
 ```go
 // To use your own domain name in a Distribution, you must associate a certificate
-import "github.com/aws/aws-cdk-go/awscdk"
+import acm "github.com/aws/aws-cdk-go/awscdk"
 import route53 "github.com/aws/aws-cdk-go/awscdk"
 
 var hostedZone hostedZone
 
 var myBucket bucket
 
-myCertificate := acm.NewCertificate(this, jsii.String("mySiteCert"), &CertificateProps{
+myCertificate := acm.NewDnsValidatedCertificate(this, jsii.String("mySiteCert"), &DnsValidatedCertificateProps{
 	DomainName: jsii.String("www.example.com"),
-	Validation: acm.CertificateValidation_FromDns(hostedZone),
+	HostedZone: HostedZone,
 })
 cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
@@ -129,50 +129,6 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 	},
 	MinimumProtocolVersion: cloudfront.SecurityPolicyProtocol_TLS_V1_2016,
 	SslSupportMethod: cloudfront.SSLMethod_SNI,
-})
-```
-
-#### Cross Region Certificates
-
-> **This feature is currently experimental**
-
-You can enable the Stack property `crossRegionReferences`
-in order to access resources in a different stack *and* region. With this feature flag
-enabled it is possible to do something like creating a CloudFront distribution in `us-east-2` and
-an ACM certificate in `us-east-1`.
-
-```go
-import "github.com/aws/aws-cdk-go/awscdk"
-import route53 "github.com/aws/aws-cdk-go/awscdk"
-
-var app app
-
-
-stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
-	Env: &Environment{
-		Region: jsii.String("us-east-1"),
-	},
-	CrossRegionReferences: jsii.Boolean(true),
-})
-cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
-	DomainName: jsii.String("*.example.com"),
-	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
-})
-
-stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
-	Env: &Environment{
-		Region: jsii.String("us-east-2"),
-	},
-	CrossRegionReferences: jsii.Boolean(true),
-})
-cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
-	DefaultBehavior: &BehaviorOptions{
-		Origin: origins.NewHttpOrigin(jsii.String("example.com")),
-	},
-	DomainNames: []*string{
-		jsii.String("dev.example.com"),
-	},
-	Certificate: cert,
 })
 ```
 
@@ -402,10 +358,6 @@ myResponseHeadersPolicy := cloudfront.NewResponseHeadersPolicy(this, jsii.String
 			Override: jsii.Boolean(true),
 		},
 	},
-	RemoveHeaders: []*string{
-		jsii.String("Server"),
-	},
-	ServerTimingSamplingRate: jsii.Number(50),
 })
 cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
@@ -642,23 +594,6 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 })
 ```
 
-### HTTP Versions
-
-You can configure CloudFront to use a particular version of the HTTP protocol. By default,
-newly created distributions use HTTP/2 but can be configured to use both HTTP/2 and HTTP/3 or
-just HTTP/3. For all supported HTTP versions, see the `HttpVerson` enum.
-
-```go
-// Configure a distribution to use HTTP/2 and HTTP/3
-// Configure a distribution to use HTTP/2 and HTTP/3
-cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-	DefaultBehavior: &BehaviorOptions{
-		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-	},
-	HttpVersion: cloudfront.HttpVersion_HTTP2_AND_3,
-})
-```
-
 ### Importing Distributions
 
 Existing distributions can be imported as well; note that like most imported constructs, an imported distribution cannot be modified.
@@ -670,19 +605,6 @@ distribution := cloudfront.Distribution_FromDistributionAttributes(this, jsii.St
 	DomainName: jsii.String("d111111abcdef8.cloudfront.net"),
 	DistributionId: jsii.String("012345ABCDEF"),
 })
-```
-
-### Permissions
-
-Use the `grant()` method to allow actions on the distribution.
-`grantCreateInvalidation()` is a shorthand to allow `CreateInvalidation`.
-
-```go
-var distribution distribution
-var lambdaFn function
-
-distribution.Grant(lambdaFn, jsii.String("cloudfront:ListInvalidations"), jsii.String("cloudfront:GetInvalidation"))
-distribution.GrantCreateInvalidation(lambdaFn)
 ```
 
 ## Migrating from the original CloudFrontWebDistribution to the newer Distribution construct

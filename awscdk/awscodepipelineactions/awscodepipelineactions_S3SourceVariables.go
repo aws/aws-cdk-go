@@ -1,0 +1,25 @@
+package awscodepipelineactions
+
+
+// The CodePipeline variables emitted by the S3 source Action.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   s3SourceVariables := &S3SourceVariables{
+//   	ETag: jsii.String("eTag"),
+//   	VersionId: jsii.String("versionId"),
+//   }
+//
+// Experimental.
+type S3SourceVariables struct {
+	// The e-tag of the S3 version of the object that triggered the build.
+	// Experimental.
+	ETag *string `field:"required" json:"eTag" yaml:"eTag"`
+	// The identifier of the S3 version of the object that triggered the build.
+	// Experimental.
+	VersionId *string `field:"required" json:"versionId" yaml:"versionId"`
+}
+

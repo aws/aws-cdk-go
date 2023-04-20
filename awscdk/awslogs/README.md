@@ -45,8 +45,6 @@ By default, the log group will be created in the same region as the stack. The `
 log groups in other regions. This is typically useful when controlling retention for log groups auto-created by global services that
 publish their log group to a specific region, such as AWS Chatbot creating a log group in `us-east-1`.
 
-By default, the log group created by LogRetention will be retained after the stack is deleted. If the RemovalPolicy is set to DESTROY, then the log group will be deleted when the stack is deleted.
-
 ## Resource Policy
 
 CloudWatch Resource Policies allow other AWS services or IAM Principals to put log events into the log groups.
@@ -75,16 +73,9 @@ logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
 logGroup.grantWrite(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
 ```
 
-Similarily, read permissions can be granted to the log group as follows.
-
-```go
-logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
-logGroup.grantRead(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
-```
-
 Be aware that any ARNs or tokenized values passed to the resource policy will be converted into AWS Account IDs.
 This is because CloudWatch Logs Resource Policies do not accept ARNs as principals, but they do accept
-Account ID strings. Non-ARN principals, like Service principals or Any principals, are accepted by CloudWatch.
+Account ID strings. Non-ARN principals, like Service principals or Any princpals, are accepted by CloudWatch.
 
 ## Encrypting Log Groups
 
@@ -168,7 +159,7 @@ var logGroup logGroup
 logGroup.extractMetric(jsii.String("$.jsonField"), jsii.String("Namespace"), jsii.String("MetricName"))
 ```
 
-Will extract the value of `jsonField` wherever it occurs in JSON-structured
+Will extract the value of `jsonField` wherever it occurs in JSON-structed
 log records in the LogGroup, and emit them to CloudWatch Metrics under
 the name `Namespace/MetricName`.
 
@@ -186,10 +177,6 @@ mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps
 	MetricName: jsii.String("Latency"),
 	FilterPattern: logs.FilterPattern_Exists(jsii.String("$.latency")),
 	MetricValue: jsii.String("$.latency"),
-	Dimensions: map[string]*string{
-		"ErrorCode": jsii.String("$.errorCode"),
-	},
-	Unit: cloudwatch.Unit_MILLISECONDS,
 })
 
 //expose a metric from the metric filter
@@ -344,14 +331,6 @@ logs.NewQueryDefinition(this, jsii.String("QueryDefinition"), &QueryDefinitionPr
 		Fields: []*string{
 			jsii.String("@timestamp"),
 			jsii.String("@message"),
-		},
-		ParseStatements: []*string{
-			jsii.String("@message \"[*] *\" as loggingType, loggingMessage"),
-			jsii.String("@message \"<*>: *\" as differentLoggingType, differentLoggingMessage"),
-		},
-		FilterStatements: []*string{
-			jsii.String("loggingType = \"ERROR\""),
-			jsii.String("loggingMessage = \"A very strange error occurred!\""),
 		},
 		Sort: jsii.String("@timestamp desc"),
 		Limit: jsii.Number(20),

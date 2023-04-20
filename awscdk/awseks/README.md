@@ -39,14 +39,9 @@ This example defines an Amazon EKS cluster with the following configuration:
 * A Kubernetes pod with a container based on the [paulbouwer/hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) image.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv25"
-
-
-// provisioning a cluster
+// provisiong a cluster
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_25(),
-	KubectlLayer: awscdklambdalayerkubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_21(),
 })
 
 // apply a kubernetes manifest to the cluster
@@ -311,7 +306,6 @@ You may specify one `instanceType` in the launch template or multiple `instanceT
 > For more details visit [Launch Template Support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
 
 Graviton 2 instance types are supported including `c6g`, `m6g`, `r6g` and `t4g`.
-Graviton 3 instance types are supported including `c7g`.
 
 ### Fargate profiles
 
@@ -614,7 +608,7 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Vpc: Vpc,
 	VpcSubnets: []subnetSelection{
 		&subnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 		},
 	},
 })
@@ -716,37 +710,20 @@ The kubectl handler uses `kubectl`, `helm` and the `aws` CLI in order to
 interact with the cluster. These are bundled into AWS Lambda layers included in
 the `@aws-cdk/lambda-layer-awscli` and `@aws-cdk/lambda-layer-kubectl` modules.
 
-The version of kubectl used must be compatible with the Kubernetes version of the
-cluster. kubectl is supported within one minor version (older or newer) of Kubernetes
-(see [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy/#kubectl)).
-Only version 1.20 of kubectl is available in `aws-cdk-lib`. If you need a different
-version, you will need to use one of the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv25"
-
-
-cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_25(),
-	KubectlLayer: awscdklambdalayerkubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
-})
-```
-
-You can also specify a custom `lambda.LayerVersion` if you wish to use a
-different version of these tools, or a version not available in any of the
-`@aws-cdk/lambda-layer-kubectl-vXY` packages. The handler expects the layer to
-include the following two executables:
+You can specify a custom `lambda.LayerVersion` if you wish to use a different
+version of these tools. The handler expects the layer to include the following
+three executables:
 
 ```text
 helm/helm
 kubectl/kubectl
+awscli/aws
 ```
 
 See more information in the
-[Dockerfile](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/lambda-layer-awscli/layer) for @aws-cdk/lambda-layer-awscli
+[Dockerfile](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/lambda-layer-awscli/layer) for @aws-cdk/lambda-layer-awscli
 and the
-[Dockerfile](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/lambda-layer-kubectl/layer) for @aws-cdk/lambda-layer-kubectl.
+[Dockerfile](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/lambda-layer-kubectl/layer) for @aws-cdk/lambda-layer-kubectl.
 
 ```go
 layer := lambda.NewLayerVersion(this, jsii.String("KubectlLayer"), &LayerVersionProps{
@@ -1025,7 +1002,7 @@ bucket.GrantReadWrite(serviceAccount)
 
 Note that adding service accounts requires running `kubectl` commands against the cluster.
 This means you must also pass the `kubectlRoleArn` when importing the cluster.
-See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/main/packages/@aws-cdk/aws-eks#using-existing-clusters).
+See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/master/packages/@aws-cdk/aws-eks#using-existing-clusters).
 
 ## Applying Kubernetes Resources
 
@@ -1273,42 +1250,6 @@ cluster.addHelmChart(jsii.String("test-chart"), &HelmChartOptions{
 })
 ```
 
-Nested values passed to the `values` parameter should be provided as a nested dictionary:
-
-```go
-var cluster cluster
-
-
-cluster.addHelmChart(jsii.String("ExternalSecretsOperator"), &HelmChartOptions{
-	Chart: jsii.String("external-secrets"),
-	Release: jsii.String("external-secrets"),
-	Repository: jsii.String("https://charts.external-secrets.io"),
-	Namespace: jsii.String("external-secrets"),
-	Values: map[string]interface{}{
-		"installCRDs": jsii.Boolean(true),
-		"webhook": map[string]*f64{
-			"port": jsii.Number(9443),
-		},
-	},
-})
-```
-
-Helm chart can come with Custom Resource Definitions (CRDs) defined that by default will be installed by helm as well. However in special cases it might be needed to skip the installation of CRDs, for that the property `skipCrds` can be used.
-
-```go
-var cluster cluster
-
-// option 1: use a construct
-// option 1: use a construct
-eks.NewHelmChart(this, jsii.String("NginxIngress"), &HelmChartProps{
-	Cluster: Cluster,
-	Chart: jsii.String("nginx-ingress"),
-	Repository: jsii.String("https://helm.nginx.com/stable"),
-	Namespace: jsii.String("kube-system"),
-	SkipCrds: jsii.Boolean(true),
-})
-```
-
 ### OCI Charts
 
 OCI charts are also supported.
@@ -1355,7 +1296,7 @@ chart2 := cluster.addHelmChart(jsii.String("MyChart"), &HelmChartOptions{
 chart2.Node.AddDependency(chart1)
 ```
 
-### CDK8s Charts
+#### CDK8s Charts
 
 [CDK8s](https://cdk8s.io/) is an open-source library that enables Kubernetes manifest authoring using familiar programming languages. It is founded on the same technologies as the AWS CDK, such as [`constructs`](https://github.com/aws/constructs) and [`jsii`](https://github.com/aws/jsii).
 
@@ -1370,30 +1311,32 @@ To get started, add the following dependencies to your `package.json` file:
 
 ```json
 "dependencies": {
-  "cdk8s": "^2.0.0",
-  "cdk8s-plus-25": "^2.0.0",
-  "constructs": "^10.0.0"
+  "cdk8s": "^1.0.0",
+  "cdk8s-plus-21": "^1.0.0-beta.38",
+  "constructs": "^3.3.69"
 }
 ```
 
-Note that here we are using `cdk8s-plus-25` as we are targeting Kubernetes version 1.25.0. If you operate a different kubernetes version, you should
+Note that here we are using `cdk8s-plus-21` as we are targeting Kubernetes version 1.21.0. If you operate a different kubernetes version, you should
 use the corresponding `cdk8s-plus-XX` library.
 See [Select the appropriate cdk8s+ library](https://cdk8s.io/docs/latest/plus/#i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using)
 for more details.
 
-Similarly to how you would create a stack by extending `aws-cdk-lib.Stack`, we recommend you create a chart of your own that extends `cdk8s.Chart`,
+Similarly to how you would create a stack by extending `@aws-cdk/core.Stack`, we recommend you create a chart of your own that extends `cdk8s.Chart`,
 and add your kubernetes resources to it. You can use `aws-cdk` construct attributes and properties inside your `cdk8s` construct freely.
 
 In this example we create a chart that accepts an `s3.Bucket` and passes its name to a kubernetes pod as an environment variable.
 
+Notice that the chart must accept a `constructs.Construct` type as its scope, not an `@aws-cdk/core.Construct` as you would normally use.
+For this reason, to avoid possible confusion, we will create the chart in a separate file:
+
 `+ my-chart.ts`
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
 import constructs "github.com/aws/constructs-go/constructs"
 import cdk8s "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
-import "github.com/aws-samples/dummy/cdk8splus25"
+import "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus21"
 
 type myChartProps struct {
 	bucket bucket
@@ -1407,14 +1350,14 @@ func NewMyChart(scope construct, id *string, props myChartProps) *MyChart {
 	this := &MyChart{}
 	cdk8s.NewChart_Override(this, scope, id)
 
-	kplus.NewPod(this, jsii.String("Pod"), map[string][]map[string]interface{}{
-		"containers": []map[string]interface{}{
-			map[string]interface{}{
-				"image": jsii.String("my-image"),
-				"env": map[string]interface{}{
-					"BUCKET_NAME": kplus.EnvValue_fromValue(*props.bucket.bucketName),
+	kplus.NewPod(this, jsii.String("Pod"), &PodProps{
+		Containers: []containerProps{
+			kplus.NewContainer(&containerProps{
+				Image: jsii.String("my-image"),
+				EnvVariables: map[string]envValue{
+					"BUCKET_NAME": kplus.*envValue_fromValue(props.bucket.bucketName),
 				},
-			},
+			}),
 		},
 	})
 	return this
@@ -1424,7 +1367,6 @@ func NewMyChart(scope construct, id *string, props myChartProps) *MyChart {
 Then, in your AWS CDK app:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var cluster cluster
 
 
@@ -1440,17 +1382,16 @@ myChart := NewMyChart(cdk8s.NewApp(), jsii.String("MyChart"), &myChartProps{
 cluster.addCdk8sChart(jsii.String("my-chart"), myChart)
 ```
 
-#### Custom CDK8s Constructs
+##### Custom CDK8s Constructs
 
 You can also compose a few stock `cdk8s+` constructs into your own custom construct. However, since mixing scopes between `aws-cdk` and `cdk8s` is currently not supported, the `Construct` class
-you'll need to use is the one from the [`constructs`](https://github.com/aws/constructs) module, and not from `aws-cdk-lib` like you normally would.
+you'll need to use is the one from the [`constructs`](https://github.com/aws/constructs) module, and not from `@aws-cdk/core` like you normally would.
 This is why we used `new cdk8s.App()` as the scope of the chart above.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import constructs "github.com/aws/constructs-go/constructs"
 import "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
-import "github.com/aws-samples/dummy/cdk8splus25"
+import "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus21"
 
 type loadBalancedWebService struct {
 	port *f64
@@ -1469,24 +1410,24 @@ func NewLoadBalancedWebService(scope construct, id *string, props loadBalancedWe
 	this := &loadBalancedWebService{}
 	constructs.NewConstruct_Override(this, scope, id)
 
-	deployment := kplus.NewDeployment(chart, jsii.String("Deployment"), map[string]interface{}{
-		"replicas": *props.replicas,
-		"containers": []interface{}{
-			kplus.NewContainer(map[string]*string{
-				"image": *props.image,
+	deployment := kplus.NewDeployment(chart, jsii.String("Deployment"), &DeploymentProps{
+		Replicas: props.replicas,
+		Containers: []containerProps{
+			kplus.NewContainer(&containerProps{
+				Image: props.image,
 			}),
 		},
 	})
 
-	deployment.exposeViaService(map[string]interface{}{
-		"port": *props.port,
-		"serviceType": kplus.ServiceType_LOAD_BALANCER,
+	deployment.ExposeViaService(&ExposeDeploymentViaServiceOptions{
+		Port: props.port,
+		ServiceType: kplus.ServiceType_LOAD_BALANCER,
 	})
 	return this
 }
 ```
 
-#### Manually importing k8s specs and CRD's
+##### Manually importing k8s specs and CRD's
 
 If you find yourself unable to use `cdk8s+`, or just like to directly use the `k8s` native objects or CRD's, you can do so by manually importing them using the `cdk8s-cli`.
 

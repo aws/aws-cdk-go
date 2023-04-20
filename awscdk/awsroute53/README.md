@@ -129,49 +129,16 @@ Constructs are available for A, AAAA, CAA, CNAME, MX, NS, SRV and TXT records.
 Use the `CaaAmazonRecord` construct to easily restrict certificate authorities
 allowed to issue certificates for a domain to Amazon only.
 
-### Replacing existing record sets (dangerous!)
-
-Use the `deleteExisting` prop to delete an existing record set before deploying the new one.
-This is useful if you want to minimize downtime and avoid "manual" actions while deploying a
-stack with a record set that already exists. This is typically the case for record sets that
-are not already "owned" by CloudFormation or "owned" by another stack or construct that is
-going to be deleted (migration).
-
-> **N.B.:** this feature is dangerous, use with caution! It can only be used safely when
-> `deleteExisting` is set to `true` as soon as the resource is added to the stack. Changing
-> an existing Record Set's `deleteExisting` property from `false -> true` after deployment
-> will delete the record!
-
-```go
-var myZone hostedZone
-
-
-route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
-	Zone: myZone,
-	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4"), jsii.String("5.6.7.8")),
-	DeleteExisting: jsii.Boolean(true),
-})
-```
-
-### Cross Account Zone Delegation
-
-If you want to have your root domain hosted zone in one account and your subdomain hosted
-zone in a diferent one, you can use `CrossAccountZoneDelegationRecord` to set up delegation
-between them.
+To add a NS record to a HostedZone in different account you can do the following:
 
 In the account containing the parent hosted zone:
 
 ```go
 parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 	ZoneName: jsii.String("someexample.com"),
+	CrossAccountZoneDelegationPrincipal: iam.NewAccountPrincipal(jsii.String("12345678901")),
+	CrossAccountZoneDelegationRoleName: jsii.String("MyDelegationRole"),
 })
-crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProps{
-	// The role name must be predictable
-	RoleName: jsii.String("MyDelegationRole"),
-	// The other account
-	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
-})
-parentZone.GrantDelegation(crossAccountRole)
 ```
 
 In the account containing the child zone to be delegated:
@@ -243,7 +210,7 @@ you know the ID and the retrieval for the `zoneName` is undesirable.
 zone := route53.HostedZone_FromHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
-You can import a Public Hosted Zone as well with the similar `PublicHostedZone.fromPublicHostedZoneId` and `PublicHostedZone.fromPublicHostedZoneAttributes` methods:
+You can import a Public Hosted Zone as well with the similar `PubicHostedZone.fromPublicHostedZoneId` and `PubicHostedZone.fromPublicHostedZoneAttributes` methods:
 
 ```go
 zoneFromAttributes := route53.PublicHostedZone_FromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &PublicHostedZoneAttributes{
@@ -280,22 +247,25 @@ creates all the necessary Route53 entries, and verifies domain ownership.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
-
-vpc := ec2.NewVpc(this, jsii.String("VPC"))
-nlb := awscdk.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
+stack := awscdk.NewStack()
+vpc := awscdk.NewVpc(stack, jsii.String("VPC"))
+nlb := awscdk.NewNetworkLoadBalancer(stack, jsii.String("NLB"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 })
-vpces := ec2.NewVpcEndpointService(this, jsii.String("VPCES"), &VpcEndpointServiceProps{
+vpces := awscdk.NewVpcEndpointService(stack, jsii.String("VPCES"), &VpcEndpointServiceProps{
 	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
 		nlb,
 	},
 })
 // You must use a public hosted zone so domain ownership can be verified
-zone := route53.NewPublicHostedZone(this, jsii.String("PHZ"), &PublicHostedZoneProps{
+zone := awscdk.NewPublicHostedZone(stack, jsii.String("PHZ"), &PublicHostedZoneProps{
 	ZoneName: jsii.String("aws-cdk.dev"),
 })
-route53.NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &VpcEndpointServiceDomainNameProps{
+awscdk.NewVpcEndpointServiceDomainName(stack, jsii.String("EndpointDomain"), &VpcEndpointServiceDomainNameProps{
 	EndpointService: vpces,
 	DomainName: jsii.String("my-stuff.aws-cdk.dev"),
 	PublicHostedZone: zone,
