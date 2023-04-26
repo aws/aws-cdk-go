@@ -14,11 +14,7 @@ var vpc vpc
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	Vpc: Vpc,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-
-	// The latest Amazon Linux image of a particular generation
-	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-	}),
+	MachineImage: ec2.NewAmazonLinuxImage(),
 })
 ```
 
@@ -37,9 +33,7 @@ mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &Sec
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	Vpc: Vpc,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-	}),
+	MachineImage: ec2.NewAmazonLinuxImage(),
 	SecurityGroup: mySecurityGroup,
 })
 ```
@@ -313,36 +307,6 @@ autoScalingGroup.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &BasicS
 })
 ```
 
-### Block Devices
-
-This type specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
-
-#### GP3 Volumes
-
-You can only specify the `throughput` on GP3 volumes.
-
-```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
-
-
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-	Vpc: Vpc,
-	InstanceType: InstanceType,
-	MachineImage: MachineImage,
-	BlockDevices: []blockDevice{
-		&blockDevice{
-			DeviceName: jsii.String("gp3-volume"),
-			Volume: autoscaling.BlockDeviceVolume_Ebs(jsii.Number(15), &EbsDeviceOptions{
-				VolumeType: autoscaling.EbsDeviceVolumeType_GP3,
-				Throughput: jsii.Number(125),
-			}),
-		},
-	},
-})
-```
-
 ## Configuring Instances using CloudFormation Init
 
 It is possible to use the CloudFormation Init mechanism to configure the
@@ -561,62 +525,6 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 })
 ```
 
-## Configuring Capacity Rebalancing
-
-Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the Amazon EC2 Auto Scaling User Guide.
-
-```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
-
-
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-	Vpc: Vpc,
-	InstanceType: InstanceType,
-	MachineImage: MachineImage,
-
-	// ...
-
-	CapacityRebalance: jsii.Boolean(true),
-})
-```
-
-## Connecting to your instances using SSM Session Manager
-
-SSM Session Manager makes it possible to connect to your instances from the
-AWS Console, without preparing SSH keys.
-
-To do so, you need to:
-
-* Use an image with [SSM agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html) installed
-  and configured. [Many images come with SSM Agent
-  preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html), otherwise you
-  may need to manually put instructions to [install SSM
-  Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html) into your
-  instance's UserData or use EC2 Init).
-* Create the AutoScalingGroup with `ssmSessionPermissions: true`.
-
-If these conditions are met, you can connect to the instance from the EC2 Console. Example:
-
-```go
-var vpc vpc
-
-
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-	Vpc: Vpc,
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T3, ec2.InstanceSize_MICRO),
-
-	// Amazon Linux 2 comes with SSM Agent by default
-	MachineImage: ec2.MachineImage_LatestAmazonLinux(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-	}),
-
-	// Turn on SSM
-	SsmSessionPermissions: jsii.Boolean(true),
-})
-```
-
 ## Configuring Instance Metadata Service (IMDS)
 
 ### Toggling IMDSv1
@@ -673,35 +581,6 @@ var autoScalingGroup autoScalingGroup
 autoScalingGroup.addWarmPool(&WarmPoolOptions{
 	MinSize: jsii.Number(1),
 	ReuseOnScaleIn: jsii.Boolean(true),
-})
-```
-
-### Default Instance Warming
-
-You can use the default instance warmup feature to improve the Amazon CloudWatch metrics used for dynamic scaling.
-When default instance warmup is not enabled, each instance starts contributing usage data to the aggregated metrics
-as soon as the instance reaches the InService state. However, if you enable default instance warmup, this lets
-your instances finish warming up before they contribute the usage data.
-
-To optimize the performance of scaling policies that scale continuously, such as target tracking and step scaling
-policies, we strongly recommend that you enable the default instance warmup, even if its value is set to 0 seconds.
-
-To set up Default Instance Warming for an autoscaling group, simply pass it in as a prop
-
-```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
-
-
-autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-	Vpc: Vpc,
-	InstanceType: InstanceType,
-	MachineImage: MachineImage,
-
-	// ...
-
-	DefaultInstanceWarmup: awscdk.Duration_Seconds(jsii.Number(5)),
 })
 ```
 

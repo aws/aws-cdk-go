@@ -5,7 +5,7 @@ This package contains constructs for working with Amazon Elastic Container Regis
 ## Repositories
 
 Define a repository by creating a new instance of `Repository`. A repository
-holds multiple versions of a single container image.
+holds multiple verions of a single container image.
 
 ```go
 repository := ecr.NewRepository(this, jsii.String("Repository"))
@@ -117,42 +117,4 @@ repository.AddLifecycleRule(&LifecycleRule{
 repository.AddLifecycleRule(&LifecycleRule{
 	MaxImageAge: awscdk.Duration_Days(jsii.Number(30)),
 })
-```
-
-### Repository deletion
-
-When a repository is removed from a stack (or the stack is deleted), the ECR
-repository will be removed according to its removal policy (which by default will
-simply orphan the repository and leave it in your AWS account). If the removal
-policy is set to `RemovalPolicy.DESTROY`, the repository will be deleted as long
-as it does not contain any images.
-
-To override this and force all images to get deleted during repository deletion,
-enable the`autoDeleteImages` option.
-
-```go
-repository := ecr.NewRepository(this, jsii.String("MyTempRepo"), &RepositoryProps{
-	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-	AutoDeleteImages: jsii.Boolean(true),
-})
-```
-
-## Managing the Resource Policy
-
-You can add statements to the resource policy of the repository using the
-`addToResourcePolicy` method. However, be advised that you must not include
-a `resources` section in the `PolicyStatement`.
-
-```go
-var repository repository
-
-repository.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
-		jsii.String("ecr:GetDownloadUrlForLayer"),
-	},
-	// resources: ['*'], // not currently allowed!
-	Principals: []iPrincipal{
-		iam.NewAnyPrincipal(),
-	},
-}))
 ```
