@@ -17,7 +17,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
 		SecretName: jsii.String("/myapp/mydocdb/masteruser"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R5, ec2.InstanceSize_LARGE),
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
 	VpcSubnets: &SubnetSelection{
 		SubnetType: ec2.SubnetType_PUBLIC,
 	},
@@ -74,7 +74,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 	MasterUser: &Login{
 		Username: jsii.String("myuser"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R5, ec2.InstanceSize_LARGE),
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
 	VpcSubnets: &SubnetSelection{
 		SubnetType: ec2.SubnetType_PUBLIC,
 	},
@@ -140,7 +140,7 @@ cluster.AddRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
 **Note**: This user must be created manually in the database using the master credentials.
 The rotation will start as soon as this user exists.
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters.
 
 ## Audit and profiler Logs
 
@@ -162,7 +162,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 	MasterUser: &Login{
 		Username: jsii.String("myuser"),
 	},
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R5, ec2.InstanceSize_LARGE),
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
 	VpcSubnets: &SubnetSelection{
 		SubnetType: ec2.SubnetType_PUBLIC,
 	},
@@ -174,5 +174,26 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 	CloudWatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
 	 // Optional - default is to never expire logs
 	CloudWatchLogsRetentionRole: myLogsPublishingRole,
+})
+```
+
+## Enable Performance Insights
+
+By enabling this feature it will be cascaded and enabled in all instances inside the cluster:
+
+```go
+var vpc vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	Vpc: Vpc,
+	EnablePerformanceInsights: jsii.Boolean(true),
 })
 ```

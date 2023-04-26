@@ -101,8 +101,58 @@ config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCh
 ### Custom rules
 
 You can develop custom rules and add them to AWS Config. You associate each custom rule with an
-AWS Lambda function, which contains the logic that evaluates whether your AWS resources comply
-with the rule.
+AWS Lambda function and Guard.
+
+#### Custom Lambda Rules
+
+Lambda function which contains the logic that evaluates whether your AWS resources comply with the rule.
+
+```go
+// Lambda function containing logic that evaluates compliance with the rule.
+evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
+	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_14_X(),
+})
+
+// A custom rule that runs on configuration changes of EC2 instances
+customRule := config.NewCustomRule(this, jsii.String("Custom"), &CustomRuleProps{
+	ConfigurationChanges: jsii.Boolean(true),
+	LambdaFunction: evalComplianceFn,
+	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_INSTANCE()),
+})
+```
+
+#### Custom Policy Rules
+
+Guard which contains the logic that evaluates whether your AWS resources comply with the rule.
+
+```go
+samplePolicyText := `
+# This rule checks if point in time recovery (PITR) is enabled on active Amazon DynamoDB tables
+let status = ['ACTIVE']
+
+rule tableisactive when
+    resourceType == "AWS::DynamoDB::Table" {
+    configuration.tableStatus == %status
+}
+
+rule checkcompliance when
+    resourceType == "AWS::DynamoDB::Table"
+    tableisactive {
+        let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+        %pitr == "ENABLED"
+}
+`
+
+config.NewCustomPolicy(this, jsii.String("Custom"), &CustomPolicyProps{
+	PolicyText: samplePolicyText,
+	EnableDebugLog: jsii.Boolean(true),
+	RuleScope: config.RuleScope_FromResources([]resourceType{
+		config.*resourceType_DYNAMODB_TABLE(),
+	}),
+})
+```
 
 ### Triggers
 

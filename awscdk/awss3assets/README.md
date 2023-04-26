@@ -130,6 +130,9 @@ method `tryBundle()` which should return `true` if local bundling was performed.
 If `false` is returned, docker bundling will be done:
 
 ```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
 type myBundle struct {
 }
 
@@ -142,12 +145,12 @@ func (this *myBundle) tryBundle(outputDir *string, options bundlingOptions) *boo
 	return jsii.Boolean(false)
 }
 
-assets.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
+awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
 	Path: jsii.String("/path/to/asset"),
 	Bundling: &bundlingOptions{
 		Local: NewMyBundle(),
 		// Docker bundling fallback
-		Image: awscdk.DockerImage_FromRegistry(jsii.String("alpine")),
+		Image: cdk.DockerImage_FromRegistry(jsii.String("alpine")),
 		Entrypoint: []*string{
 			jsii.String("/bin/sh"),
 			jsii.String("-c"),
@@ -170,20 +173,50 @@ is the default behavior for `bundling.outputType` (`BundlingOutput.AUTO_DISCOVER
 Use `BundlingOutput.NOT_ARCHIVED` if the bundling output must always be zipped:
 
 ```go
-asset := assets.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+asset := awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
 	Path: jsii.String("/path/to/asset"),
 	Bundling: &BundlingOptions{
-		Image: awscdk.DockerImage_FromRegistry(jsii.String("alpine")),
+		Image: cdk.DockerImage_FromRegistry(jsii.String("alpine")),
 		Command: []*string{
 			jsii.String("command-that-produces-an-archive.sh"),
 		},
-		OutputType: awscdk.BundlingOutput_NOT_ARCHIVED,
+		OutputType: cdk.BundlingOutput_NOT_ARCHIVED,
 	},
 })
 ```
 
 Use `BundlingOutput.ARCHIVED` if the bundling output contains a single archive file and
 you don't want it to be zipped.
+
+### Docker options
+
+Depending on your build environment, you may need to pass certain docker options to the `docker run` command that bundles assets.
+This can be done using [BundlingOptions](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.BundlingOptions.html) properties.
+
+Some optional properties to pass to the docker bundling
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+
+
+asset := awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
+	Path: jsii.String("/path/to/asset"),
+	Bundling: &BundlingOptions{
+		Image: lambda.Runtime_PYTHON_3_9().BundlingImage,
+		Command: []*string{
+			jsii.String("bash"),
+			jsii.String("-c"),
+			jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
+		},
+		SecurityOpt: jsii.String("no-new-privileges:true"),
+		 // https://docs.docker.com/engine/reference/commandline/run/#optional-security-options---security-opt
+		Network: jsii.String("host"),
+	},
+})
+```
 
 ## CloudFormation Resource Metadata
 

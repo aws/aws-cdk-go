@@ -68,7 +68,7 @@ allProblems := cloudwatch.NewMathExpression(&MathExpressionProps{
 	Expression: jsii.String("errors + throttles"),
 	UsingMetrics: map[string]iMetric{
 		"errors": fn.metricErrors(),
-		"faults": fn.metricThrottles(),
+		"throttles": fn.metricThrottles(),
 	},
 })
 ```
@@ -130,14 +130,17 @@ var fn function
 
 
 minuteErrorRate := fn.metricErrors(&MetricOptions{
-	Statistic: jsii.String("avg"),
+	Statistic: cloudwatch.Stats_AVERAGE(),
 	Period: awscdk.Duration_Minutes(jsii.Number(1)),
 	Label: jsii.String("Lambda failure rate"),
 })
 ```
 
-This function also allows changing the metric label or color (which will be
-useful when embedding them in graphs, see below).
+The `statistic` field accepts a `string`; the `cloudwatch.Stats` object has a
+number of predefined factory functions that help you constructs strings that are
+appropriate for CloudWatch. The `metricErrors` function also allows changing the
+metric label or color, which will be useful when embedding them in graphs (see
+below).
 
 > Rates versus Sums
 >
@@ -157,6 +160,63 @@ useful when embedding them in graphs, see below).
 > happen to know the Metric you want to alarm on makes sense as a rate
 > (`Average`) you can always choose to change the statistic.
 
+### Available Aggregation Statistics
+
+For your metrics aggregation, you can use the following statistics:
+
+| Statistic                |    Short format     |                 Long format                  | Factory name         |
+| ------------------------ | :-----------------: | :------------------------------------------: | -------------------- |
+| SampleCount (n)          |         ❌          |                      ❌                      | `Stats.SAMPLE_COUNT` |
+| Average (avg)            |         ❌          |                      ❌                      | `Stats.AVERAGE`      |
+| Sum                      |         ❌          |                      ❌                      | `Stats.SUM`          |
+| Minimum (min)            |         ❌          |                      ❌                      | `Stats.MINIMUM`      |
+| Maximum (max)            |         ❌          |                      ❌                      | `Stats.MAXIMUM`      |
+| Interquartile mean (IQM) |         ❌          |                      ❌                      | `Stats.IQM`          |
+| Percentile (p)           |        `p99`        |                      ❌                      | `Stats.p(99)`        |
+| Winsorized mean (WM)     | `wm99` = `WM(:99%)` | `WM(x:y) \| WM(x%:y%) \| WM(x%:) \| WM(:y%)` | `Stats.wm(10, 90)`   |
+| Trimmed count (TC)       | `tc99` = `TC(:99%)` | `TC(x:y) \| TC(x%:y%) \| TC(x%:) \| TC(:y%)` | `Stats.tc(10, 90)`   |
+| Trimmed sum (TS)         | `ts99` = `TS(:99%)` | `TS(x:y) \| TS(x%:y%) \| TS(x%:) \| TS(:y%)` | `Stats.ts(10, 90)`   |
+| Percentile rank (PR)     |         ❌          |        `PR(x:y) \| PR(x:) \| PR(:y)`         | `Stats.pr(10, 5000)` |
+
+The most common values are provided in the `cloudwatch.Stats` class. You can provide any string if your statistic is not in the class.
+
+Read more at [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+
+```go
+var hostedZone hostedZone
+
+
+cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
+		"HostedZoneId": hostedZone.hostedZoneId,
+	},
+	Statistic: cloudwatch.Stats_SAMPLE_COUNT(),
+	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+})
+
+cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
+		"HostedZoneId": hostedZone.hostedZoneId,
+	},
+	Statistic: cloudwatch.Stats_P(jsii.Number(99)),
+	Period: awscdk.Duration_*Minutes(jsii.Number(5)),
+})
+
+cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/Route53"),
+	MetricName: jsii.String("DNSQueries"),
+	DimensionsMap: map[string]*string{
+		"HostedZoneId": hostedZone.hostedZoneId,
+	},
+	Statistic: jsii.String("TS(7.5%:90%)"),
+	Period: awscdk.Duration_*Minutes(jsii.Number(5)),
+})
+```
+
 ### Labels
 
 Metric labels are displayed in the legend of graphs that include the metrics.
@@ -170,7 +230,7 @@ var fn function
 
 
 minuteErrorRate := fn.metricErrors(&MetricOptions{
-	Statistic: jsii.String("sum"),
+	Statistic: cloudwatch.Stats_SUM(),
 	Period: awscdk.Duration_Hours(jsii.Number(1)),
 
 	// Show the maximum hourly error count in the legend
@@ -218,7 +278,7 @@ The most important properties to set while creating an Alarms are:
 * `threshold`: the value to compare the metric against.
 * `comparisonOperator`: the comparison operation to use, defaults to `metric >= threshold`.
 * `evaluationPeriods`: how many consecutive periods the metric has to be
-  breaching the the threshold for the alarm to trigger.
+  breaching the threshold for the alarm to trigger.
 
 To create a cross-account alarm, make sure you have enabled [cross-account functionality](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html) in CloudWatch. Then, set the `account` property in the `Metric` object either manually or via the `metric.attachTo()` method.
 
@@ -277,6 +337,31 @@ cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &Comp
 })
 ```
 
+#### Actions Suppressor
+
+If you want to disable actions of a Composite Alarm based on a certain condition, you can use [Actions Suppression](https://www.amazonaws.cn/en/new/2022/amazon-cloudwatch-supports-composite-alarm-actions-suppression/).
+
+```go
+var alarm1 alarm
+var alarm2 alarm
+var onAlarmAction iAlarmAction
+var onOkAction iAlarmAction
+var actionsSuppressor alarm
+
+
+alarmRule := cloudwatch.AlarmRule_AnyOf(alarm1, alarm2)
+
+myCompositeAlarm := cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &CompositeAlarmProps{
+	AlarmRule: AlarmRule,
+	ActionsSuppressor: ActionsSuppressor,
+})
+myCompositeAlarm.AddAlarmAction(onAlarmAction)
+myCompositeAlarm.AddOkAction(onOkAction)
+```
+
+In the provided example, if `actionsSuppressor` is in `ALARM` state, `onAlarmAction` won't be triggered even if `myCompositeAlarm` goes into `ALARM` state.
+Similar, if `actionsSuppressor` is in `ALARM` state and `myCompositeAlarm` goes from `ALARM` into `OK` state, `onOkAction` won't be triggered.
+
 ### A note on units
 
 In CloudWatch, Metrics datums are emitted with units, such as `seconds` or
@@ -332,7 +417,7 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 
 	Right: []*iMetric{
 		errorCountMetric.With(&MetricOptions{
-			Statistic: jsii.String("average"),
+			Statistic: cloudwatch.Stats_AVERAGE(),
 			Label: jsii.String("Error rate"),
 			Color: cloudwatch.Color_GREEN(),
 		}),
@@ -405,6 +490,27 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 }))
 ```
 
+### Gauge widget
+
+Gauge graph requires the max and min value of the left Y axis, if no value is informed the limits will be from 0 to 100.
+
+```go
+var dashboard dashboard
+var errorAlarm alarm
+var gaugeMetric metric
+
+
+dashboard.AddWidgets(cloudwatch.NewGaugeWidget(&GaugeWidgetProps{
+	Metrics: []iMetric{
+		gaugeMetric,
+	},
+	LeftYAxis: &YAxisProps{
+		Min: jsii.Number(0),
+		Max: jsii.Number(1000),
+	},
+}))
+```
+
 ### Alarm widget
 
 An alarm widget shows the graph and the alarm line of a single alarm:
@@ -453,6 +559,20 @@ dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
 }))
 ```
 
+Sparkline allows you to glance the trend of a metric by displaying a simplified linegraph below the value. You can't use `sparkline: true` together with `setPeriodToTimeRange: true`
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
+	Metrics: []iMetric{
+	},
+
+	Sparkline: jsii.Boolean(true),
+}))
+```
+
 ### Text widget
 
 A text widget shows an arbitrary piece of MarkDown. Use this to add explanations
@@ -464,6 +584,18 @@ var dashboard dashboard
 
 dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
 	Markdown: jsii.String("# Key Performance Indicators"),
+}))
+```
+
+Optionally set the TextWidget background to be transparent
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
+	Markdown: jsii.String("# Key Performance Indicators"),
+	Background: cloudwatch.TextWidgetBackground_TRANSPARENT,
 }))
 ```
 
@@ -563,3 +695,53 @@ you can use the following widgets to pack widgets together in different ways:
 * `Column`: stack two or more widgets vertically.
 * `Row`: lay out two or more widgets horizontally.
 * `Spacer`: take up empty space
+
+### Column widget
+
+A column widget contains other widgets and they will be laid out in a
+vertical column. Widgets will be put one after another in order.
+
+```go
+var widgetA iWidget
+var widgetB iWidget
+
+
+cloudwatch.NewColumn(widgetA, widgetB)
+```
+
+You can add a widget after object instantiation with the method
+`addWidget()`. Each new widget will be put at the bottom of the column.
+
+### Row widget
+
+A row widget contains other widgets and they will be laid out in a
+horizontal row. Widgets will be put one after another in order.
+If the total width of the row exceeds the max width of the grid of 24
+columns, the row will wrap automatically and adapt its height.
+
+```go
+var widgetA iWidget
+var widgetB iWidget
+
+
+cloudwatch.NewRow(widgetA, widgetB)
+```
+
+You can add a widget after object instantiation with the method
+`addWidget()`.
+
+### Interval duration for dashboard
+
+Interval duration for metrics in dashboard. You can specify `defaultInterval` with
+the relative time(eg. 7 days) as `Duration.days(7)`.
+
+```go
+import cw "github.com/aws/aws-cdk-go/awscdk"
+
+
+dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
+	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
+})
+```
+
+Here, the dashboard would show the metrics for the last 7 days.
