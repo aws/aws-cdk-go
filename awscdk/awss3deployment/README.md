@@ -56,6 +56,23 @@ NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]iBu
 })
 ```
 
+It is also possible to add additional sources using the `addSource` method.
+
+```go
+var websiteBucket iBucket
+
+
+deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
+	},
+	DestinationBucket: websiteBucket,
+	DestinationKeyPrefix: jsii.String("web/static"),
+})
+
+deployment.AddSource(s3deploy.Source_Asset(jsii.String("./another-asset")))
+```
+
 ## Supported sources
 
 The following source types are supported for bucket deployments:
@@ -66,6 +83,8 @@ The following source types are supported for bucket deployments:
 * String data: `s3deploy.Source.data('object-key.txt', 'hello, world!')`
   (supports [deploy-time values](#data-with-deploy-time-values))
 * JSON data: `s3deploy.Source.jsonData('object-key.json', { json: 'object' })`
+  (supports [deploy-time values](#data-with-deploy-time-values))
+* YAML data: `s3deploy.Source.yamlData('object-key.yaml', { yaml: 'object' })`
   (supports [deploy-time values](#data-with-deploy-time-values))
 
 To create a source from a single file, you can pass `AssetOptions` to exclude
@@ -253,9 +272,9 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeployme
 	DestinationBucket: websiteBucket,
 	DestinationKeyPrefix: jsii.String("web/static"),
 	 // optional prefix in destination bucket
-	Metadata: &UserDefinedObjectMetadata{
-		A: jsii.String("1"),
-		B: jsii.String("2"),
+	Metadata: map[string]*string{
+		"A": jsii.String("1"),
+		"b": jsii.String("2"),
 	},
 	 // user-defined metadata
 
@@ -302,6 +321,26 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &Bucke
 })
 ```
 
+## Signed Content Payloads
+
+By default, deployment uses streaming uploads which set the `x-amz-content-sha256`
+request header to `UNSIGNED-PAYLOAD` (matching default behavior of the AWS CLI tool).
+In cases where bucket policy restrictions require signed content payloads, you can enable
+generation of a signed `x-amz-content-sha256` request header with `signContent: true`.
+
+```go
+var bucket iBucket
+
+
+s3deploy.NewBucketDeployment(this, jsii.String("DeployWithSignedPayloads"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
+	},
+	DestinationBucket: bucket,
+	SignContent: jsii.Boolean(true),
+})
+```
+
 ## Size Limits
 
 The default memory limit for the deployment resource is 128MiB. If you need to
@@ -344,7 +383,7 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithEfsStorage"), &Bucke
 
 ## Data with deploy-time values
 
-The content passed to `Source.data()` or `Source.jsonData()` can include
+The content passed to `Source.data()`, `Source.jsonData()`, or `Source.yamlData()` can include
 references that will get resolved only during deployment.
 
 For example:
@@ -373,6 +412,31 @@ The value in `topic.topicArn` is a deploy-time value. It only gets resolved
 during deployment by placing a marker in the generated source file and
 substituting it when its deployed to the destination with the actual value.
 
+## Keep Files Zipped
+
+By default, files are zipped, then extracted into the destination bucket.
+
+You can use the option `extract: false` to disable this behavior, in which case, files will remain in a zip file when deployed to S3. To reference the object keys, or filenames, which will be deployed to the bucket, you can use the `objectKeys` getter on the bucket deployment.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var destinationBucket bucket
+
+
+myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
+	},
+	DestinationBucket: DestinationBucket,
+	Extract: jsii.Boolean(false),
+})
+
+cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &CfnOutputProps{
+	Value: cdk.Fn_Select(jsii.Number(0), myBucketDeployment.objectKeys),
+})
+```
+
 ## Notes
 
 * This library uses an AWS CloudFormation custom resource which is about 10MiB in
@@ -393,11 +457,11 @@ substituting it when its deployed to the destination with the actual value.
 
 ## Development
 
-The custom resource is implemented in Python 3.7 in order to be able to leverage
-the AWS CLI for "aws s3 sync". The code is under [`lib/lambda`](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment/lib/lambda) and
-unit tests are under [`test/lambda`](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment/test/lambda).
+The custom resource is implemented in Python 3.9 in order to be able to leverage
+the AWS CLI for "aws s3 sync". The code is under [`lib/lambda`](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-s3-deployment/lib/lambda) and
+unit tests are under [`test/lambda`](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-s3-deployment/test/lambda).
 
-This package requires Python 3.7 during build time in order to create the custom
+This package requires Python 3.9 during build time in order to create the custom
 resource Lambda bundle and test it. It also relies on a few bash scripts, so
 might be tricky to build on Windows.
 

@@ -33,6 +33,8 @@ myHostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &HostedZo
 })
 acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
 	DomainName: jsii.String("hello.example.com"),
+	CertificateName: jsii.String("Hello World Service"),
+	 // Optionally provide an certificate name
 	Validation: acm.CertificateValidation_FromDns(myHostedZone),
 })
 ```
@@ -90,16 +92,46 @@ acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
 ## Cross-region Certificates
 
 ACM certificates that are used with CloudFront -- or higher-level constructs which rely on CloudFront -- must be in the `us-east-1` region.
-The `DnsValidatedCertificate` construct exists to facilitate creating these certificates cross-region. This resource can only be used with
-Route53-based DNS validation.
+CloudFormation allows you to create a Stack with a CloudFront distribution in any region. In order
+to create an ACM certificate in us-east-1 and reference it in a CloudFront distribution is a
+different region, it is recommended to perform a multi stack deployment.
+
+Enable the Stack property `crossRegionReferences`
+in order to access the cross stack/region certificate.
+
+> **This feature is currently experimental**
 
 ```go
-var myHostedZone hostedZone
+import "github.com/aws/aws-cdk-go/awscdk"
+var app app
 
-acm.NewDnsValidatedCertificate(this, jsii.String("CrossRegionCertificate"), &DnsValidatedCertificateProps{
-	DomainName: jsii.String("hello.example.com"),
-	HostedZone: myHostedZone,
-	Region: jsii.String("us-east-1"),
+
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-east-1"),
+	},
+	CrossRegionReferences: jsii.Boolean(true),
+})
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
+	DomainName: jsii.String("*.example.com"),
+	Validation: acm.CertificateValidation_FromDns(awscdk.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("ZONE_ID"))),
+})
+
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-east-2"),
+	},
+	CrossRegionReferences: jsii.Boolean(true),
+})
+
+awscdk.Aws_cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: awscdk.Aws_cloudfront_origins.NewHttpOrigin(jsii.String("example.com")),
+	},
+	DomainNames: []*string{
+		jsii.String("dev.example.com"),
+	},
+	Certificate: cert,
 })
 ```
 
@@ -119,6 +151,17 @@ acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &PrivateCerti
 	},
 	 // optional
 	CertificateAuthority: acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CA"), jsii.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/023077d8-2bfa-4eb0-8f22-05c96deade77")),
+})
+```
+
+## Requesting certificates without transparency logging
+
+Transparency logging can be opted out of for AWS Certificate Manager certificates. See [opting out of certificate transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency) for limits.
+
+```go
+acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
+	DomainName: jsii.String("test.example.com"),
+	TransparencyLoggingEnabled: jsii.Boolean(false),
 })
 ```
 
