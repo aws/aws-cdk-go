@@ -1,0 +1,32 @@
+package awsssm
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+// A String SSM Parameter.
+// Experimental.
+type IStringParameter interface {
+	IParameter
+	// The parameter value.
+	//
+	// Value must not nest another parameter. Do not use {{}} in the value.
+	// Experimental.
+	StringValue() *string
+}
+
+// The jsii proxy for IStringParameter
+type jsiiProxy_IStringParameter struct {
+	jsiiProxy_IParameter
+}
+
+func (j *jsiiProxy_IStringParameter) StringValue() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stringValue",
+		&returns,
+	)
+	return returns
+}
+

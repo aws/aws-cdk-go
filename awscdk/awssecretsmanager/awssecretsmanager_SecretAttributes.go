@@ -1,0 +1,43 @@
+package awssecretsmanager
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+)
+
+// Attributes required to import an existing secret into the Stack.
+//
+// One ARN format (`secretArn`, `secretCompleteArn`, `secretPartialArn`) must be provided.
+//
+// Example:
+//   var encryptionKey key
+//
+//   secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("ImportedSecret"), &SecretAttributes{
+//   	SecretArn: jsii.String("arn:aws:secretsmanager:<region>:<account-id-number>:secret:<secret-name>-<random-6-characters>"),
+//   	// If the secret is encrypted using a KMS-hosted CMK, either import or reference that key:
+//   	EncryptionKey: EncryptionKey,
+//   })
+//
+// Experimental.
+type SecretAttributes struct {
+	// The encryption key that is used to encrypt the secret, unless the default SecretsManager key is used.
+	// Experimental.
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// The ARN of the secret in SecretsManager.
+	//
+	// Cannot be used with `secretCompleteArn` or `secretPartialArn`.
+	// Deprecated: use `secretCompleteArn` or `secretPartialArn` instead.
+	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
+	// The complete ARN of the secret in SecretsManager.
+	//
+	// This is the ARN including the Secrets Manager 6-character suffix.
+	// Cannot be used with `secretArn` or `secretPartialArn`.
+	// Experimental.
+	SecretCompleteArn *string `field:"optional" json:"secretCompleteArn" yaml:"secretCompleteArn"`
+	// The partial ARN of the secret in SecretsManager.
+	//
+	// This is the ARN without the Secrets Manager 6-character suffix.
+	// Cannot be used with `secretArn` or `secretCompleteArn`.
+	// Experimental.
+	SecretPartialArn *string `field:"optional" json:"secretPartialArn" yaml:"secretPartialArn"`
+}
+

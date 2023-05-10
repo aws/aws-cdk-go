@@ -705,7 +705,7 @@ The actions available for updating StackSets are:
 
 * **CloudFormationDeployStackSetAction** - Create or update a CloudFormation StackSet directly from the pipeline, optionally
   immediately create and update Stack Instances as well.
-* **CloudFormationDeployStackInstancesAction** - Update outdated Stack Instances using the current version of the StackSet.
+* **CloudFormationDeployStackInstancesAction** - Update outdated Stack Instaces using the current version of the StackSet.
 
 Here's an example of using both of these actions:
 
@@ -1060,7 +1060,7 @@ deployStage := pipeline.AddStage(&StageOptions{
 When deploying across accounts, especially in a CDK Pipelines self-mutating pipeline,
 it is recommended to provide the `role` property to the `EcsDeployAction`.
 The Role will need to have permissions assigned to it for ECS deployment.
-See [the CodePipeline documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/security-iam.html#how-to-custom-role)
+See [the CodePipeline documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-custom-role.html#how-to-update-role-new-services)
 for the permissions needed.
 
 #### Deploying ECS applications stored in a separate source code repository
@@ -1075,7 +1075,7 @@ Here's an example:
 
 ```go
 /**
- * These are the construction properties for `EcsAppStack`.
+ * These are the construction properties for {@link EcsAppStack}.
  * They extend the standard Stack properties,
  * but also require providing the ContainerImage that the service will use.
  * That Image will be provided from the Stack containing the CodePipeline.
@@ -1364,30 +1364,6 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 				}),
 			},
 		},
-	},
-})
-```
-
-### Elastic Beanstalk Deployment
-
-To deploy an Elastic Beanstalk Application in CodePipeline:
-
-```go
-sourceOutput := codepipeline.NewArtifact()
-targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
-
-pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-deployAction := codepipeline_actions.NewElasticBeanstalkDeployAction(&ElasticBeanstalkDeployActionProps{
-	ActionName: jsii.String("ElasticBeanstalkDeploy"),
-	Input: sourceOutput,
-	EnvironmentName: jsii.String("envName"),
-	ApplicationName: jsii.String("appName"),
-})
-
-deployStage := pipeline.AddStage(&StageOptions{
-	StageName: jsii.String("Deploy"),
-	Actions: []iAction{
-		deployAction,
 	},
 })
 ```
