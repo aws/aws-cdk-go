@@ -39,11 +39,21 @@ import (
 //   	ExcludeFilters: []interface{}{
 //   		&MetricStreamFilterProperty{
 //   			Namespace: jsii.String("namespace"),
+//
+//   			// the properties below are optional
+//   			MetricNames: []*string{
+//   				jsii.String("metricNames"),
+//   			},
 //   		},
 //   	},
 //   	IncludeFilters: []interface{}{
 //   		&MetricStreamFilterProperty{
 //   			Namespace: jsii.String("namespace"),
+//
+//   			// the properties below are optional
+//   			MetricNames: []*string{
+//   				jsii.String("metricNames"),
+//   			},
 //   		},
 //   	},
 //   	IncludeLinkedAccountsMetrics: jsii.Boolean(false),

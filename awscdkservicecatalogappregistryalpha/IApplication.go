@@ -25,6 +25,12 @@ type IApplication interface {
 	// Associate a Cloudformation statck with the application in the given stack.
 	// Experimental.
 	AssociateApplicationWithStack(stack awscdk.Stack)
+	// Associate this application with an attribute group.
+	// Experimental.
+	AssociateAttributeGroup(attributeGroup IAttributeGroup)
+	// Associate this application with a CloudFormation stack.
+	// Deprecated: Use `associateApplicationWithStack` instead.
+	AssociateStack(stack awscdk.Stack)
 	// Share this application with other IAM entities, accounts, or OUs.
 	// Experimental.
 	ShareApplication(id *string, shareOptions *ShareOptions)
@@ -78,6 +84,28 @@ func (i *jsiiProxy_IApplication) AssociateApplicationWithStack(stack awscdk.Stac
 	_jsii_.InvokeVoid(
 		i,
 		"associateApplicationWithStack",
+		[]interface{}{stack},
+	)
+}
+
+func (i *jsiiProxy_IApplication) AssociateAttributeGroup(attributeGroup IAttributeGroup) {
+	if err := i.validateAssociateAttributeGroupParameters(attributeGroup); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"associateAttributeGroup",
+		[]interface{}{attributeGroup},
+	)
+}
+
+func (i *jsiiProxy_IApplication) AssociateStack(stack awscdk.Stack) {
+	if err := i.validateAssociateStackParameters(stack); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"associateStack",
 		[]interface{}{stack},
 	)
 }

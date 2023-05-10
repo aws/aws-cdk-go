@@ -24,6 +24,18 @@ package awsamplifyuibuilder
 //   				"defaultCountryCode": jsii.String("defaultCountryCode"),
 //   				"defaultValue": jsii.String("defaultValue"),
 //   				"descriptiveText": jsii.String("descriptiveText"),
+//   				"fileUploaderConfig": &FileUploaderFieldConfigProperty{
+//   					"acceptedFileTypes": []*string{
+//   						jsii.String("acceptedFileTypes"),
+//   					},
+//   					"accessLevel": jsii.String("accessLevel"),
+//
+//   					// the properties below are optional
+//   					"isResumable": jsii.Boolean(false),
+//   					"maxFileCount": jsii.Number(123),
+//   					"maxSize": jsii.Number(123),
+//   					"showThumbnails": jsii.Boolean(false),
+//   				},
 //   				"isArray": jsii.Boolean(false),
 //   				"maxValue": jsii.Number(123),
 //   				"minValue": jsii.Number(123),
@@ -137,6 +149,7 @@ package awsamplifyuibuilder
 //   		},
 //   	},
 //   	EnvironmentName: jsii.String("environmentName"),
+//   	LabelDecorator: jsii.String("labelDecorator"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -165,6 +178,8 @@ type CfnFormProps struct {
 	Cta interface{} `field:"optional" json:"cta" yaml:"cta"`
 	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
+	// `AWS::AmplifyUIBuilder::Form.LabelDecorator`.
+	LabelDecorator *string `field:"optional" json:"labelDecorator" yaml:"labelDecorator"`
 	// One or more key-value pairs to use when tagging the form data.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }

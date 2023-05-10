@@ -80,6 +80,14 @@ func validateCfnNetworkInsightsPath_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsPath) validateSetFilterAtDestinationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsPath) validateSetFilterAtSourceParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNetworkInsightsPath) validateSetProtocolParameters(val *string) error {
 	return nil
 }

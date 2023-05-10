@@ -11,8 +11,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var json interface{}
-//
 //   cfnModelBiasJobDefinitionProps := &CfnModelBiasJobDefinitionProps{
 //   	JobResources: &MonitoringResourcesProperty{
 //   		ClusterConfig: &ClusterConfigProperty{
@@ -45,7 +43,9 @@ import (
 //   				Csv: &CsvProperty{
 //   					Header: jsii.Boolean(false),
 //   				},
-//   				Json: json,
+//   				Json: &JsonProperty{
+//   					Line: jsii.Boolean(false),
+//   				},
 //   				Parquet: jsii.Boolean(false),
 //   			},
 //   			LocalPath: jsii.String("localPath"),

@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (c *jsiiProxy_CfnJson) validateResolveParameters(_arg IResolveContext) error {
-	if _arg == nil {
-		return fmt.Errorf("parameter _arg is required, but nil was provided")
+func (c *jsiiProxy_CfnJson) validateResolveParameters(_context IResolveContext) error {
+	if _context == nil {
+		return fmt.Errorf("parameter _context is required, but nil was provided")
 	}
 
 	return nil

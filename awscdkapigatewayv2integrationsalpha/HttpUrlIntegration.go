@@ -38,7 +38,7 @@ type HttpUrlIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
 	// Bind this integration to the route.
 	// Experimental.
-	Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
+	Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
 	// In some cases, there is
@@ -85,8 +85,8 @@ func NewHttpUrlIntegration_Override(h HttpUrlIntegration, id *string, url *strin
 	)
 }
 
-func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
-	if err := h.validateBindParameters(_arg); err != nil {
+func (h *jsiiProxy_HttpUrlIntegration) Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(_options); err != nil {
 		panic(err)
 	}
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -94,7 +94,7 @@ func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRo
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_arg},
+		[]interface{}{_options},
 		&returns,
 	)
 

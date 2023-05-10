@@ -34,7 +34,7 @@ type HttpLambdaIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
 	// Bind this integration to the route.
 	// Experimental.
-	Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
+	Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
 	// In some cases, there is
@@ -81,8 +81,8 @@ func NewHttpLambdaIntegration_Override(h HttpLambdaIntegration, id *string, hand
 	)
 }
 
-func (h *jsiiProxy_HttpLambdaIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
-	if err := h.validateBindParameters(_arg); err != nil {
+func (h *jsiiProxy_HttpLambdaIntegration) Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(_options); err != nil {
 		panic(err)
 	}
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -90,7 +90,7 @@ func (h *jsiiProxy_HttpLambdaIntegration) Bind(_arg *awscdkapigatewayv2alpha.Htt
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_arg},
+		[]interface{}{_options},
 		&returns,
 	)
 

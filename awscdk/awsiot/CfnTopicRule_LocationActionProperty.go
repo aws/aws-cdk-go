@@ -16,7 +16,12 @@ package awsiot
 //   	TrackerName: jsii.String("trackerName"),
 //
 //   	// the properties below are optional
-//   	Timestamp: NewDate(),
+//   	Timestamp: &TimestampProperty{
+//   		Value: jsii.String("value"),
+//
+//   		// the properties below are optional
+//   		Unit: jsii.String("unit"),
+//   	},
 //   }
 //
 type CfnTopicRule_LocationActionProperty struct {

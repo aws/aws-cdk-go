@@ -98,6 +98,8 @@ type Repository interface {
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to pull and push images to this repository.
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to read the images in this repository.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
@@ -511,6 +513,22 @@ func (r *jsiiProxy_Repository) GrantPullPush(grantee awsiam.IGrantable) awsiam.G
 	_jsii_.Invoke(
 		r,
 		"grantPullPush",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_Repository) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := r.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		r,
+		"grantRead",
 		[]interface{}{grantee},
 		&returns,
 	)

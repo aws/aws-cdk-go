@@ -20,11 +20,11 @@ func (l *jsiiProxy_LinuxBuildImage) validateRunScriptBuildspecParameters(entrypo
 	return nil
 }
 
-func (l *jsiiProxy_LinuxBuildImage) validateValidateParameters(_arg *BuildEnvironment) error {
-	if _arg == nil {
-		return fmt.Errorf("parameter _arg is required, but nil was provided")
+func (l *jsiiProxy_LinuxBuildImage) validateValidateParameters(_env *BuildEnvironment) error {
+	if _env == nil {
+		return fmt.Errorf("parameter _env is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_arg, func() string { return "parameter _arg" }); err != nil {
+	if err := _jsii_.ValidateStruct(_env, func() string { return "parameter _env" }); err != nil {
 		return err
 	}
 

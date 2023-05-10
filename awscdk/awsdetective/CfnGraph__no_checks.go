@@ -80,6 +80,10 @@ func validateCfnGraph_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraph) validateSetAutoEnableMembersParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnGraphParameters(scope constructs.Construct, id *string, props *CfnGraphProps) error {
 	return nil
 }

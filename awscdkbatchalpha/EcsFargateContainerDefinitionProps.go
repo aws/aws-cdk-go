@@ -83,6 +83,11 @@ type EcsFargateContainerDefinitionProps struct {
 	// We don't recommend using plaintext environment variables for sensitive information, such as credential data.
 	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
+	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
+	//
+	// Experimental.
+	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The role that the container can assume.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
 	//
@@ -120,11 +125,6 @@ type EcsFargateContainerDefinitionProps struct {
 	//
 	// Experimental.
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
-	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
-	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
-	//
-	// Experimental.
-	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// Which version of Fargate to use when running this container.
 	// Experimental.
 	FargatePlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"fargatePlatformVersion" yaml:"fargatePlatformVersion"`

@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// An IAM principal that represents an AWS service (i.e. sqs.amazonaws.com).
+// An IAM principal that represents an AWS service (i.e. `sqs.amazonaws.com`).
 //
 // Example:
 //   lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -152,12 +152,21 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 	)
 }
 
-// Translate the given service principal name based on the region it's used in.
+// Return the service principal name based on the region it's used in.
 //
-// For example, for Chinese regions this may (depending on whether that's necessary
-// for the given service principal) append `.cn` to the name.
+// Some service principal names used to be different for different partitions,
+// and some were not. This method would return the appropriate region-specific
+// service principal name, getting that information from the `region-info`
+// module.
 //
-// The `region-info` module is used to obtain this information.
+// These days all service principal names are standardized, and they are all
+// of the form `<servicename>.amazonaws.com`.
+//
+// If the feature flag `@aws-cdk/aws-iam:standardizedServicePrincipals` is set, this
+// method will always return its input. If this feature flag is not set, this
+// method will perform the legacy behavior, which appends the region-specific
+// domain suffix for some select services (for example, it would append `.cn`
+// to some service principal names).
 //
 // Example:
 //   principalName := iam.ServicePrincipal_ServicePrincipalName(jsii.String("ec2.amazonaws.com"))

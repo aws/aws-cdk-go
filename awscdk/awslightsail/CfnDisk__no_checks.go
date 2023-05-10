@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDisk) validateSetDiskNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDisk) validateSetLocationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDisk) validateSetSizeInGbParameters(val *float64) error {
 	return nil
 }

@@ -22,6 +22,15 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VpcConfig: &VpcConfigProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   }
 //
 type CfnProjectProps struct {
@@ -35,5 +44,7 @@ type CfnProjectProps struct {
 	//
 	// A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::DeviceFarm::Project.VpcConfig`.
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 

@@ -120,6 +120,9 @@ import (
 //   			LogStreamName: jsii.String("logStreamName"),
 //   		},
 //   		ClusterEndpoint: jsii.String("clusterEndpoint"),
+//   		DocumentIdOptions: &DocumentIdOptionsProperty{
+//   			DefaultDocumentIdFormat: jsii.String("defaultDocumentIdFormat"),
+//   		},
 //   		DomainArn: jsii.String("domainArn"),
 //   		IndexRotationPeriod: jsii.String("indexRotationPeriod"),
 //   		ProcessingConfiguration: &ProcessingConfigurationProperty{
@@ -200,6 +203,9 @@ import (
 //   			LogStreamName: jsii.String("logStreamName"),
 //   		},
 //   		ClusterEndpoint: jsii.String("clusterEndpoint"),
+//   		DocumentIdOptions: &DocumentIdOptionsProperty{
+//   			DefaultDocumentIdFormat: jsii.String("defaultDocumentIdFormat"),
+//   		},
 //   		DomainArn: jsii.String("domainArn"),
 //   		IndexRotationPeriod: jsii.String("indexRotationPeriod"),
 //   		ProcessingConfiguration: &ProcessingConfigurationProperty{

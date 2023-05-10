@@ -29,6 +29,15 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VpcConfig: &VpcConfigProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   })
 //
 type CfnProject interface {
@@ -93,6 +102,9 @@ type CfnProject interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// `AWS::DeviceFarm::Project.VpcConfig`.
+	VpcConfig() interface{}
+	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -366,6 +378,16 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) VpcConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcConfig",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::DeviceFarm::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
@@ -411,6 +433,17 @@ func (j *jsiiProxy_CfnProject)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetVpcConfig(val interface{}) {
+	if err := j.validateSetVpcConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcConfig",
 		val,
 	)
 }

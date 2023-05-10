@@ -8,8 +8,6 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var json interface{}
-//
 //   monitoringInputProperty := &MonitoringInputProperty{
 //   	BatchTransformInput: &BatchTransformInputProperty{
 //   		DataCapturedDestinationS3Uri: jsii.String("dataCapturedDestinationS3Uri"),
@@ -17,7 +15,9 @@ package awssagemaker
 //   			Csv: &CsvProperty{
 //   				Header: jsii.Boolean(false),
 //   			},
-//   			Json: json,
+//   			Json: &JsonProperty{
+//   				Line: jsii.Boolean(false),
+//   			},
 //   			Parquet: jsii.Boolean(false),
 //   		},
 //   		LocalPath: jsii.String("localPath"),

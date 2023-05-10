@@ -80,11 +80,19 @@ func validateCfnDataIntegration_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataIntegration) validateSetFileConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataIntegration) validateSetKmsKeyParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnDataIntegration) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataIntegration) validateSetObjectConfigurationParameters(val interface{}) error {
 	return nil
 }
 

@@ -38,7 +38,7 @@ type EcrImageCode interface {
 	// Determines whether this Code is inline code or not.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_arg constructs.Construct) *CodeConfig
+	Bind(_scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
@@ -229,8 +229,8 @@ func EcrImageCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (e *jsiiProxy_EcrImageCode) Bind(_arg constructs.Construct) *CodeConfig {
-	if err := e.validateBindParameters(_arg); err != nil {
+func (e *jsiiProxy_EcrImageCode) Bind(_scope constructs.Construct) *CodeConfig {
+	if err := e.validateBindParameters(_scope); err != nil {
 		panic(err)
 	}
 	var returns *CodeConfig
@@ -238,7 +238,7 @@ func (e *jsiiProxy_EcrImageCode) Bind(_arg constructs.Construct) *CodeConfig {
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{_arg},
+		[]interface{}{_scope},
 		&returns,
 	)
 

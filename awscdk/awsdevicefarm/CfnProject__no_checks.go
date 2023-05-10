@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnProject) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetVpcConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnProjectParameters(scope constructs.Construct, id *string, props *CfnProjectProps) error {
 	return nil
 }

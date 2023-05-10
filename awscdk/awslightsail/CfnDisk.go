@@ -35,6 +35,10 @@ import (
 //   		},
 //   	},
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	Location: &LocationProperty{
+//   		AvailabilityZone: jsii.String("availabilityZone"),
+//   		RegionName: jsii.String("regionName"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -90,6 +94,9 @@ type CfnDisk interface {
 	// The name of the disk.
 	DiskName() *string
 	SetDiskName(val *string)
+	// `AWS::Lightsail::Disk.Location`.
+	Location() interface{}
+	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -446,6 +453,16 @@ func (j *jsiiProxy_CfnDisk) DiskName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDisk) Location() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"location",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDisk) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -582,6 +599,17 @@ func (j *jsiiProxy_CfnDisk)SetDiskName(val *string) {
 	_jsii_.Set(
 		j,
 		"diskName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDisk)SetLocation(val interface{}) {
+	if err := j.validateSetLocationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"location",
 		val,
 	)
 }

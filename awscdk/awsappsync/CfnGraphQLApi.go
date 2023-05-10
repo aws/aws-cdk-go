@@ -74,6 +74,7 @@ import (
 //   		DefaultAction: jsii.String("defaultAction"),
 //   		UserPoolId: jsii.String("userPoolId"),
 //   	},
+//   	Visibility: jsii.String("visibility"),
 //   	XrayEnabled: jsii.Boolean(false),
 //   })
 //
@@ -87,8 +88,11 @@ type CfnGraphQLApi interface {
 	AttrApiId() *string
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid` .
 	AttrArn() *string
+	AttrGraphQlDns() *string
 	// The Endpoint URL of your GraphQL API.
 	AttrGraphQlUrl() *string
+	AttrRealtimeDns() *string
+	AttrRealtimeUrl() *string
 	// Security configuration for your GraphQL API.
 	//
 	// For allowed values (such as `API_KEY` , `AWS_IAM` , `AMAZON_COGNITO_USER_POOLS` , `OPENID_CONNECT` , or `AWS_LAMBDA` ), see [Security](https://docs.aws.amazon.com/appsync/latest/devguide/security.html) in the *AWS AppSync Developer Guide* .
@@ -156,6 +160,9 @@ type CfnGraphQLApi interface {
 	// Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
 	UserPoolConfig() interface{}
 	SetUserPoolConfig(val interface{})
+	// `AWS::AppSync::GraphQLApi.Visibility`.
+	Visibility() *string
+	SetVisibility(val *string)
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .
 	XrayEnabled() interface{}
 	SetXrayEnabled(val interface{})
@@ -322,11 +329,41 @@ func (j *jsiiProxy_CfnGraphQLApi) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) AttrGraphQlDns() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrGraphQlDns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) AttrGraphQlUrl() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrGraphQlUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLApi) AttrRealtimeDns() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRealtimeDns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLApi) AttrRealtimeUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRealtimeUrl",
 		&returns,
 	)
 	return returns
@@ -502,6 +539,16 @@ func (j *jsiiProxy_CfnGraphQLApi) UserPoolConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) Visibility() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"visibility",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) XrayEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -615,6 +662,14 @@ func (j *jsiiProxy_CfnGraphQLApi)SetUserPoolConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"userPoolConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraphQLApi)SetVisibility(val *string) {
+	_jsii_.Set(
+		j,
+		"visibility",
 		val,
 	)
 }

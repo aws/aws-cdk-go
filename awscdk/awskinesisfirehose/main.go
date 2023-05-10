@@ -112,6 +112,10 @@ func init() {
 		reflect.TypeOf((*CfnDeliveryStream_DeserializerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DocumentIdOptionsProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DocumentIdOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DynamicPartitioningConfigurationProperty",
 		reflect.TypeOf((*CfnDeliveryStream_DynamicPartitioningConfigurationProperty)(nil)).Elem(),
 	)

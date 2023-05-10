@@ -18,18 +18,32 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var filters interface{}
+//   var objectConfiguration interface{}
+//
 //   cfnDataIntegration := awscdk.Aws_appintegrations.NewCfnDataIntegration(this, jsii.String("MyCfnDataIntegration"), &CfnDataIntegrationProps{
 //   	KmsKey: jsii.String("kmsKey"),
 //   	Name: jsii.String("name"),
 //   	ScheduleConfig: &ScheduleConfigProperty{
+//   		ScheduleExpression: jsii.String("scheduleExpression"),
+//
+//   		// the properties below are optional
 //   		FirstExecutionFrom: jsii.String("firstExecutionFrom"),
 //   		Object: jsii.String("object"),
-//   		ScheduleExpression: jsii.String("scheduleExpression"),
 //   	},
 //   	SourceUri: jsii.String("sourceUri"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	FileConfiguration: &FileConfigurationProperty{
+//   		Folders: []*string{
+//   			jsii.String("folders"),
+//   		},
+//
+//   		// the properties below are optional
+//   		Filters: filters,
+//   	},
+//   	ObjectConfiguration: objectConfiguration,
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -57,6 +71,9 @@ type CfnDataIntegration interface {
 	// A description of the DataIntegration.
 	Description() *string
 	SetDescription(val *string)
+	// `AWS::AppIntegrations::DataIntegration.FileConfiguration`.
+	FileConfiguration() interface{}
+	SetFileConfiguration(val interface{})
 	// The KMS key for the DataIntegration.
 	KmsKey() *string
 	SetKmsKey(val *string)
@@ -75,6 +92,9 @@ type CfnDataIntegration interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::AppIntegrations::DataIntegration.ObjectConfiguration`.
+	ObjectConfiguration() interface{}
+	SetObjectConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -310,6 +330,16 @@ func (j *jsiiProxy_CfnDataIntegration) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataIntegration) FileConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fileConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataIntegration) KmsKey() *string {
 	var returns *string
 	_jsii_.Get(
@@ -345,6 +375,16 @@ func (j *jsiiProxy_CfnDataIntegration) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataIntegration) ObjectConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"objectConfiguration",
 		&returns,
 	)
 	return returns
@@ -458,6 +498,17 @@ func (j *jsiiProxy_CfnDataIntegration)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDataIntegration)SetFileConfiguration(val interface{}) {
+	if err := j.validateSetFileConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fileConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDataIntegration)SetKmsKey(val *string) {
 	if err := j.validateSetKmsKeyParameters(val); err != nil {
 		panic(err)
@@ -476,6 +527,17 @@ func (j *jsiiProxy_CfnDataIntegration)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataIntegration)SetObjectConfiguration(val interface{}) {
+	if err := j.validateSetObjectConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"objectConfiguration",
 		val,
 	)
 }

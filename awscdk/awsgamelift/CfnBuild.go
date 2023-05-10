@@ -21,6 +21,7 @@ import (
 //   cfnBuild := awscdk.Aws_gamelift.NewCfnBuild(this, jsii.String("MyCfnBuild"), &CfnBuildProps{
 //   	Name: jsii.String("name"),
 //   	OperatingSystem: jsii.String("operatingSystem"),
+//   	ServerSdkVersion: jsii.String("serverSdkVersion"),
 //   	StorageLocation: &StorageLocationProperty{
 //   		Bucket: jsii.String("bucket"),
 //   		Key: jsii.String("key"),
@@ -74,6 +75,9 @@ type CfnBuild interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::GameLift::Build.ServerSdkVersion`.
+	ServerSdkVersion() *string
+	SetServerSdkVersion(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -336,6 +340,16 @@ func (j *jsiiProxy_CfnBuild) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBuild) ServerSdkVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serverSdkVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBuild) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -428,6 +442,14 @@ func (j *jsiiProxy_CfnBuild)SetOperatingSystem(val *string) {
 	_jsii_.Set(
 		j,
 		"operatingSystem",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBuild)SetServerSdkVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"serverSdkVersion",
 		val,
 	)
 }

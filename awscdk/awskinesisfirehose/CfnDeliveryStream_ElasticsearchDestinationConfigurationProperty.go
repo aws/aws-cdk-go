@@ -47,6 +47,9 @@ package awskinesisfirehose
 //   		LogStreamName: jsii.String("logStreamName"),
 //   	},
 //   	ClusterEndpoint: jsii.String("clusterEndpoint"),
+//   	DocumentIdOptions: &DocumentIdOptionsProperty{
+//   		DefaultDocumentIdFormat: jsii.String("defaultDocumentIdFormat"),
+//   	},
 //   	DomainArn: jsii.String("domainArn"),
 //   	IndexRotationPeriod: jsii.String("indexRotationPeriod"),
 //   	ProcessingConfiguration: &ProcessingConfigurationProperty{
@@ -98,6 +101,8 @@ type CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty struct {
 	//
 	// Specify either this `ClusterEndpoint` or the `DomainARN` field.
 	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
+	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.DocumentIdOptions`.
+	DocumentIdOptions interface{} `field:"optional" json:"documentIdOptions" yaml:"documentIdOptions"`
 	// The ARN of the Amazon ES domain.
 	//
 	// The IAM role must have permissions for `DescribeElasticsearchDomain` , `DescribeElasticsearchDomains` , and `DescribeElasticsearchDomainConfig` after assuming the role specified in *RoleARN* .

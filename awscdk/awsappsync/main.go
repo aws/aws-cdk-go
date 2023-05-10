@@ -573,7 +573,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrApiId", GoGetter: "AttrApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrGraphQlDns", GoGetter: "AttrGraphQlDns"},
 			_jsii_.MemberProperty{JsiiProperty: "attrGraphQlUrl", GoGetter: "AttrGraphQlUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRealtimeDns", GoGetter: "AttrRealtimeDns"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRealtimeUrl", GoGetter: "AttrRealtimeUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "authenticationType", GoGetter: "AuthenticationType"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -603,6 +606,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolConfig", GoGetter: "UserPoolConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "visibility", GoGetter: "Visibility"},
 			_jsii_.MemberProperty{JsiiProperty: "xrayEnabled", GoGetter: "XrayEnabled"},
 		},
 		func() interface{} {

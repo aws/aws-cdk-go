@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnGraphProps := &CfnGraphProps{
+//   	AutoEnableMembers: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -21,6 +22,8 @@ import (
 //   }
 //
 type CfnGraphProps struct {
+	// `AWS::Detective::Graph.AutoEnableMembers`.
+	AutoEnableMembers interface{} `field:"optional" json:"autoEnableMembers" yaml:"autoEnableMembers"`
 	// The tag values to assign to the new behavior graph.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

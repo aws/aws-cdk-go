@@ -39,13 +39,14 @@ This example defines an Amazon EKS cluster with the following configuration:
 * A Kubernetes pod with a container based on the [paulbouwer/hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) image.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv25"
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv26"
 
 
 // provisioning a cluster
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_26(),
-	KubectlLayer: kubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
+	KubectlLayer: awscdklambdalayerkubectlv26.NewKubectlV26Layer(this, jsii.String("kubectl")),
 })
 
 // apply a kubernetes manifest to the cluster
@@ -722,12 +723,13 @@ Only version 1.20 of kubectl is available in `aws-cdk-lib`. If you need a differ
 version, you will need to use one of the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv25"
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdklambdalayerkubectlv26"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_26(),
-	KubectlLayer: kubectlv25.NewKubectlV25Layer(this, jsii.String("kubectl")),
+	KubectlLayer: awscdklambdalayerkubectlv26.NewKubectlV26Layer(this, jsii.String("kubectl")),
 })
 ```
 

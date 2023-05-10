@@ -5,7 +5,7 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnJson) validateResolveParameters(_arg IResolveContext) error {
+func (c *jsiiProxy_CfnJson) validateResolveParameters(_context IResolveContext) error {
 	return nil
 }
 

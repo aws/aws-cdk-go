@@ -18,20 +18,20 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeMap interface{}
-//
 //   cfnEnvironment := awscdk.Aws_finspace.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &CfnEnvironmentProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	DataBundles: []*string{
-//   		jsii.String("dataBundles"),
-//   	},
 //   	Description: jsii.String("description"),
 //   	FederationMode: jsii.String("federationMode"),
 //   	FederationParameters: &FederationParametersProperty{
 //   		ApplicationCallBackUrl: jsii.String("applicationCallBackUrl"),
-//   		AttributeMap: attributeMap,
+//   		AttributeMap: []interface{}{
+//   			&AttributeMapItemsProperty{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		FederationProviderName: jsii.String("federationProviderName"),
 //   		FederationUrn: jsii.String("federationUrn"),
 //   		SamlMetadataDocument: jsii.String("samlMetadataDocument"),
@@ -42,6 +42,12 @@ import (
 //   		EmailAddress: jsii.String("emailAddress"),
 //   		FirstName: jsii.String("firstName"),
 //   		LastName: jsii.String("lastName"),
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   })
 //
@@ -71,12 +77,6 @@ type CfnEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:.
-	//
-	// - `arn:aws:finspace:${Region}::data-bundle/capital-markets-sample` - Contains sample Capital Markets datasets, categories and controlled vocabularies.
-	// - `arn:aws:finspace:${Region}::data-bundle/taq` (default) - Contains trades and quotes data in addition to sample Capital Markets data.
-	DataBundles() *[]*string
-	SetDataBundles(val *[]*string)
 	// The description of the FinSpace environment.
 	Description() *string
 	SetDescription(val *string)
@@ -116,6 +116,8 @@ type CfnEnvironment interface {
 	// Configuration information for the superuser.
 	SuperuserParameters() interface{}
 	SetSuperuserParameters(val interface{})
+	// `AWS::FinSpace::Environment.Tags`.
+	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -372,16 +374,6 @@ func (j *jsiiProxy_CfnEnvironment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) DataBundles() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"dataBundles",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnEnvironment) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -482,6 +474,16 @@ func (j *jsiiProxy_CfnEnvironment) SuperuserParameters() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -529,14 +531,6 @@ func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id
 		"aws-cdk-lib.aws_finspace.CfnEnvironment",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnEnvironment)SetDataBundles(val *[]*string) {
-	_jsii_.Set(
-		j,
-		"dataBundles",
-		val,
 	)
 }
 

@@ -41,6 +41,8 @@ import (
 //   	AuthMode: jsii.String("authMode"),
 //   	DefaultUserSettings: &UserSettingsProperty{
 //   		ExecutionRole: jsii.String("executionRole"),
+//
+//   		// the properties below are optional
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
@@ -107,6 +109,8 @@ import (
 //   	AppSecurityGroupManagement: jsii.String("appSecurityGroupManagement"),
 //   	DefaultSpaceSettings: &DefaultSpaceSettingsProperty{
 //   		ExecutionRole: jsii.String("executionRole"),
+//
+//   		// the properties below are optional
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),

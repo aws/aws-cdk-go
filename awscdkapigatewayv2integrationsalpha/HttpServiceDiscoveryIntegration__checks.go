@@ -12,11 +12,11 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha/v2"
 )
 
-func (h *jsiiProxy_HttpServiceDiscoveryIntegration) validateBindParameters(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) error {
-	if _arg == nil {
-		return fmt.Errorf("parameter _arg is required, but nil was provided")
+func (h *jsiiProxy_HttpServiceDiscoveryIntegration) validateBindParameters(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) error {
+	if _options == nil {
+		return fmt.Errorf("parameter _options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_arg, func() string { return "parameter _arg" }); err != nil {
+	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
 		return err
 	}
 

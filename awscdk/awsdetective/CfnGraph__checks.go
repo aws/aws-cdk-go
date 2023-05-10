@@ -179,6 +179,23 @@ func validateCfnGraph_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraph) validateSetAutoEnableMembersParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnGraphParameters(scope constructs.Construct, id *string, props *CfnGraphProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

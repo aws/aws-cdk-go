@@ -17,6 +17,14 @@ func (i *jsiiProxy_IApplication) validateAssociateApplicationWithStackParameters
 	return nil
 }
 
+func (i *jsiiProxy_IApplication) validateAssociateAttributeGroupParameters(attributeGroup IAttributeGroup) error {
+	return nil
+}
+
+func (i *jsiiProxy_IApplication) validateAssociateStackParameters(stack awscdk.Stack) error {
+	return nil
+}
+
 func (i *jsiiProxy_IApplication) validateShareApplicationParameters(id *string, shareOptions *ShareOptions) error {
 	return nil
 }

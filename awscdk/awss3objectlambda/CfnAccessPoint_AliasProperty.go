@@ -19,8 +19,8 @@ type CfnAccessPoint_AliasProperty struct {
 	// The status of the Object Lambda Access Point alias.
 	//
 	// If the status is `PROVISIONING` , the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If the status is `READY` , the Object Lambda Access Point alias is successfully provisioned and ready for use.
-	Status *string `field:"optional" json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 	// The alias value of the Object Lambda Access Point.
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

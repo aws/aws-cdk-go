@@ -14,6 +14,7 @@ package awslakeformation
 //
 //   	// the properties below are optional
 //   	RoleArn: jsii.String("roleArn"),
+//   	WithFederation: jsii.Boolean(false),
 //   }
 //
 type CfnResourceProps struct {
@@ -23,5 +24,7 @@ type CfnResourceProps struct {
 	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// `AWS::LakeFormation::Resource.WithFederation`.
+	WithFederation interface{} `field:"optional" json:"withFederation" yaml:"withFederation"`
 }
 

@@ -19,6 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnGraph := awscdk.Aws_detective.NewCfnGraph(this, jsii.String("MyCfnGraph"), &CfnGraphProps{
+//   	AutoEnableMembers: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -32,6 +33,9 @@ type CfnGraph interface {
 	awscdk.IInspectable
 	// The ARN of the new behavior graph.
 	AttrArn() *string
+	// `AWS::Detective::Graph.AutoEnableMembers`.
+	AutoEnableMembers() interface{}
+	SetAutoEnableMembers(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -220,6 +224,16 @@ func (j *jsiiProxy_CfnGraph) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraph) AutoEnableMembers() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoEnableMembers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraph) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -357,6 +371,17 @@ func NewCfnGraph_Override(c CfnGraph, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_detective.CfnGraph",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnGraph)SetAutoEnableMembers(val interface{}) {
+	if err := j.validateSetAutoEnableMembersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoEnableMembers",
+		val,
 	)
 }
 

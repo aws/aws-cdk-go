@@ -36,6 +36,7 @@ package awsec2
 //   		},
 //   	},
 //   	CpuOptions: &CpuOptionsProperty{
+//   		AmdSevSnp: jsii.String("amdSevSnp"),
 //   		CoreCount: jsii.Number(123),
 //   		ThreadsPerCore: jsii.Number(123),
 //   	},

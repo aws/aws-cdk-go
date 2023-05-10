@@ -8,11 +8,14 @@ package awsfinspace
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeMap interface{}
-//
 //   federationParametersProperty := &FederationParametersProperty{
 //   	ApplicationCallBackUrl: jsii.String("applicationCallBackUrl"),
-//   	AttributeMap: attributeMap,
+//   	AttributeMap: []interface{}{
+//   		&AttributeMapItemsProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	FederationProviderName: jsii.String("federationProviderName"),
 //   	FederationUrn: jsii.String("federationUrn"),
 //   	SamlMetadataDocument: jsii.String("samlMetadataDocument"),

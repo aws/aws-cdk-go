@@ -5,7 +5,7 @@ package awscdkapigatewayv2alpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (w *jsiiProxy_WebSocketNoneAuthorizer) validateBindParameters(_arg *WebSocketRouteAuthorizerBindOptions) error {
+func (w *jsiiProxy_WebSocketNoneAuthorizer) validateBindParameters(_options *WebSocketRouteAuthorizerBindOptions) error {
 	return nil
 }
 

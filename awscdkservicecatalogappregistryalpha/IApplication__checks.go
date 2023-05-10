@@ -43,6 +43,22 @@ func (i *jsiiProxy_IApplication) validateAssociateApplicationWithStackParameters
 	return nil
 }
 
+func (i *jsiiProxy_IApplication) validateAssociateAttributeGroupParameters(attributeGroup IAttributeGroup) error {
+	if attributeGroup == nil {
+		return fmt.Errorf("parameter attributeGroup is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IApplication) validateAssociateStackParameters(stack awscdk.Stack) error {
+	if stack == nil {
+		return fmt.Errorf("parameter stack is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IApplication) validateShareApplicationParameters(id *string, shareOptions *ShareOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")

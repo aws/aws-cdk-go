@@ -10,10 +10,17 @@ package awscloudwatch
 //
 //   metricStreamFilterProperty := &MetricStreamFilterProperty{
 //   	Namespace: jsii.String("namespace"),
+//
+//   	// the properties below are optional
+//   	MetricNames: []*string{
+//   		jsii.String("metricNames"),
+//   	},
 //   }
 //
 type CfnMetricStream_MetricStreamFilterProperty struct {
 	// The name of the metric namespace in the filter.
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
+	// `CfnMetricStream.MetricStreamFilterProperty.MetricNames`.
+	MetricNames *[]*string `field:"optional" json:"metricNames" yaml:"metricNames"`
 }
 

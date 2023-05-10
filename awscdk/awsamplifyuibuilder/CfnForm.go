@@ -34,6 +34,18 @@ import (
 //   				"defaultCountryCode": jsii.String("defaultCountryCode"),
 //   				"defaultValue": jsii.String("defaultValue"),
 //   				"descriptiveText": jsii.String("descriptiveText"),
+//   				"fileUploaderConfig": &FileUploaderFieldConfigProperty{
+//   					"acceptedFileTypes": []*string{
+//   						jsii.String("acceptedFileTypes"),
+//   					},
+//   					"accessLevel": jsii.String("accessLevel"),
+//
+//   					// the properties below are optional
+//   					"isResumable": jsii.Boolean(false),
+//   					"maxFileCount": jsii.Number(123),
+//   					"maxSize": jsii.Number(123),
+//   					"showThumbnails": jsii.Boolean(false),
+//   				},
 //   				"isArray": jsii.Boolean(false),
 //   				"maxValue": jsii.Number(123),
 //   				"minValue": jsii.Number(123),
@@ -147,6 +159,7 @@ import (
 //   		},
 //   	},
 //   	EnvironmentName: jsii.String("environmentName"),
+//   	LabelDecorator: jsii.String("labelDecorator"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -184,6 +197,9 @@ type CfnForm interface {
 	// Specifies whether to perform a create or update action on the form.
 	FormActionType() *string
 	SetFormActionType(val *string)
+	// `AWS::AmplifyUIBuilder::Form.LabelDecorator`.
+	LabelDecorator() *string
+	SetLabelDecorator(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -477,6 +493,16 @@ func (j *jsiiProxy_CfnForm) FormActionType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnForm) LabelDecorator() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"labelDecorator",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnForm) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -673,6 +699,14 @@ func (j *jsiiProxy_CfnForm)SetFormActionType(val *string) {
 	_jsii_.Set(
 		j,
 		"formActionType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnForm)SetLabelDecorator(val *string) {
+	_jsii_.Set(
+		j,
+		"labelDecorator",
 		val,
 	)
 }

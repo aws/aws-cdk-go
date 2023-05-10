@@ -402,6 +402,32 @@ func init() {
 		reflect.TypeOf((*CrossAccountDestinationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_logs.DataIdentifier",
+		reflect.TypeOf((*DataIdentifier)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DataIdentifier{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_logs.DataProtectionPolicy",
+		reflect.TypeOf((*DataProtectionPolicy)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_DataProtectionPolicy{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_logs.DataProtectionPolicyConfig",
+		reflect.TypeOf((*DataProtectionPolicyConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_logs.DataProtectionPolicyProps",
+		reflect.TypeOf((*DataProtectionPolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.FilterPattern",
 		reflect.TypeOf((*FilterPattern)(nil)).Elem(),
 		nil, // no members

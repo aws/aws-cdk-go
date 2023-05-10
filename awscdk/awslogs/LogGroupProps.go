@@ -38,6 +38,8 @@ import (
 //   })
 //
 type LogGroupProps struct {
+	// Data Protection Policy for this log group.
+	DataProtectionPolicy DataProtectionPolicy `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The KMS customer managed key to encrypt the log group with.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the log group.

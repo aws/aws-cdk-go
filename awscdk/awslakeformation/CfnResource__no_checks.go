@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnResource) validateSetUseServiceLinkedRoleParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnResource) validateSetWithFederationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnResourceParameters(scope constructs.Construct, id *string, props *CfnResourceProps) error {
 	return nil
 }

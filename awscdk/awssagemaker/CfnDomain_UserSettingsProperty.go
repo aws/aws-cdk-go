@@ -14,6 +14,8 @@ package awssagemaker
 //
 //   userSettingsProperty := &UserSettingsProperty{
 //   	ExecutionRole: jsii.String("executionRole"),
+//
+//   	// the properties below are optional
 //   	JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
@@ -72,7 +74,7 @@ package awssagemaker
 //
 type CfnDomain_UserSettingsProperty struct {
 	// The execution role for the user.
-	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.

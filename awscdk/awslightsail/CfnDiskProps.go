@@ -28,6 +28,10 @@ import (
 //   		},
 //   	},
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	Location: &LocationProperty{
+//   		AvailabilityZone: jsii.String("availabilityZone"),
+//   		RegionName: jsii.String("regionName"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -47,6 +51,8 @@ type CfnDiskProps struct {
 	AddOns interface{} `field:"optional" json:"addOns" yaml:"addOns"`
 	// The AWS Region and Availability Zone location for the disk (for example, `us-east-1a` ).
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// `AWS::Lightsail::Disk.Location`.
+	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .

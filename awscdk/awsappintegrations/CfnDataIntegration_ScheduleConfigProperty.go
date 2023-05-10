@@ -9,17 +9,19 @@ package awsappintegrations
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   scheduleConfigProperty := &ScheduleConfigProperty{
+//   	ScheduleExpression: jsii.String("scheduleExpression"),
+//
+//   	// the properties below are optional
 //   	FirstExecutionFrom: jsii.String("firstExecutionFrom"),
 //   	Object: jsii.String("object"),
-//   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   }
 //
 type CfnDataIntegration_ScheduleConfigProperty struct {
-	// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format.
-	FirstExecutionFrom *string `field:"required" json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
-	// The name of the object to pull from the data source.
-	Object *string `field:"required" json:"object" yaml:"object"`
 	// How often the data should be pulled from data source.
 	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
+	// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format.
+	FirstExecutionFrom *string `field:"optional" json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
+	// The name of the object to pull from the data source.
+	Object *string `field:"optional" json:"object" yaml:"object"`
 }
 

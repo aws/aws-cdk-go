@@ -47,6 +47,9 @@ package awskinesisfirehose
 //   		LogStreamName: jsii.String("logStreamName"),
 //   	},
 //   	ClusterEndpoint: jsii.String("clusterEndpoint"),
+//   	DocumentIdOptions: &DocumentIdOptionsProperty{
+//   		DefaultDocumentIdFormat: jsii.String("defaultDocumentIdFormat"),
+//   	},
 //   	DomainArn: jsii.String("domainArn"),
 //   	IndexRotationPeriod: jsii.String("indexRotationPeriod"),
 //   	ProcessingConfiguration: &ProcessingConfigurationProperty{
@@ -98,6 +101,8 @@ type CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty s
 	//
 	// Specify either this ClusterEndpoint or the DomainARN field.
 	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.DocumentIdOptions`.
+	DocumentIdOptions interface{} `field:"optional" json:"documentIdOptions" yaml:"documentIdOptions"`
 	// The ARN of the Amazon OpenSearch Service domain.
 	DomainArn *string `field:"optional" json:"domainArn" yaml:"domainArn"`
 	// The Amazon OpenSearch Service index rotation period.

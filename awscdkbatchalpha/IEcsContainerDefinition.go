@@ -36,6 +36,11 @@ type IEcsContainerDefinition interface {
 	// We don't recommend using plaintext environment variables for sensitive information, such as credential data.
 	// Experimental.
 	Environment() *map[string]*string
+	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
+	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
+	//
+	// Experimental.
+	ExecutionRole() awsiam.IRole
 	// The image that this container will run.
 	// Experimental.
 	Image() awsecs.ContainerImage
@@ -117,6 +122,16 @@ func (j *jsiiProxy_IEcsContainerDefinition) Environment() *map[string]*string {
 	_jsii_.Get(
 		j,
 		"environment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsContainerDefinition) ExecutionRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"executionRole",
 		&returns,
 	)
 	return returns

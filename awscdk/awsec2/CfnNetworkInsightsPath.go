@@ -28,6 +28,30 @@ import (
 //   	Destination: jsii.String("destination"),
 //   	DestinationIp: jsii.String("destinationIp"),
 //   	DestinationPort: jsii.Number(123),
+//   	FilterAtDestination: &PathFilterProperty{
+//   		DestinationAddress: jsii.String("destinationAddress"),
+//   		DestinationPortRange: &FilterPortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   		SourceAddress: jsii.String("sourceAddress"),
+//   		SourcePortRange: &FilterPortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   	},
+//   	FilterAtSource: &PathFilterProperty{
+//   		DestinationAddress: jsii.String("destinationAddress"),
+//   		DestinationPortRange: &FilterPortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   		SourceAddress: jsii.String("sourceAddress"),
+//   		SourcePortRange: &FilterPortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   	},
 //   	SourceIp: jsii.String("sourceIp"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -70,6 +94,12 @@ type CfnNetworkInsightsPath interface {
 	// The destination port.
 	DestinationPort() *float64
 	SetDestinationPort(val *float64)
+	// `AWS::EC2::NetworkInsightsPath.FilterAtDestination`.
+	FilterAtDestination() interface{}
+	SetFilterAtDestination(val interface{})
+	// `AWS::EC2::NetworkInsightsPath.FilterAtSource`.
+	FilterAtSource() interface{}
+	SetFilterAtSource(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -370,6 +400,26 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) DestinationPort() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInsightsPath) FilterAtDestination() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"filterAtDestination",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsPath) FilterAtSource() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"filterAtSource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInsightsPath) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -520,6 +570,28 @@ func (j *jsiiProxy_CfnNetworkInsightsPath)SetDestinationPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"destinationPort",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetFilterAtDestination(val interface{}) {
+	if err := j.validateSetFilterAtDestinationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"filterAtDestination",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetFilterAtSource(val interface{}) {
+	if err := j.validateSetFilterAtSourceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"filterAtSource",
 		val,
 	)
 }

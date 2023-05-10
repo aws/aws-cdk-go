@@ -26,6 +26,7 @@ import (
 //
 //   	// the properties below are optional
 //   	RoleArn: jsii.String("roleArn"),
+//   	WithFederation: jsii.Boolean(false),
 //   })
 //
 type CfnResource interface {
@@ -83,6 +84,9 @@ type CfnResource interface {
 	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog .
 	UseServiceLinkedRole() interface{}
 	SetUseServiceLinkedRole(val interface{})
+	// `AWS::LakeFormation::Resource.WithFederation`.
+	WithFederation() interface{}
+	SetWithFederation(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -346,6 +350,16 @@ func (j *jsiiProxy_CfnResource) UseServiceLinkedRole() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResource) WithFederation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"withFederation",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::LakeFormation::Resource`.
 func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourceProps) CfnResource {
@@ -402,6 +416,17 @@ func (j *jsiiProxy_CfnResource)SetUseServiceLinkedRole(val interface{}) {
 	_jsii_.Set(
 		j,
 		"useServiceLinkedRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResource)SetWithFederation(val interface{}) {
+	if err := j.validateSetWithFederationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"withFederation",
 		val,
 	)
 }

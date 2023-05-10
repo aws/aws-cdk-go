@@ -18,6 +18,18 @@ package awsamplifyuibuilder
 //   		DefaultCountryCode: jsii.String("defaultCountryCode"),
 //   		DefaultValue: jsii.String("defaultValue"),
 //   		DescriptiveText: jsii.String("descriptiveText"),
+//   		FileUploaderConfig: &FileUploaderFieldConfigProperty{
+//   			AcceptedFileTypes: []*string{
+//   				jsii.String("acceptedFileTypes"),
+//   			},
+//   			AccessLevel: jsii.String("accessLevel"),
+//
+//   			// the properties below are optional
+//   			IsResumable: jsii.Boolean(false),
+//   			MaxFileCount: jsii.Number(123),
+//   			MaxSize: jsii.Number(123),
+//   			ShowThumbnails: jsii.Boolean(false),
+//   		},
 //   		IsArray: jsii.Boolean(false),
 //   		MaxValue: jsii.Number(123),
 //   		MinValue: jsii.Number(123),

@@ -16,6 +16,18 @@ package awsamplifyuibuilder
 //   	DefaultCountryCode: jsii.String("defaultCountryCode"),
 //   	DefaultValue: jsii.String("defaultValue"),
 //   	DescriptiveText: jsii.String("descriptiveText"),
+//   	FileUploaderConfig: &FileUploaderFieldConfigProperty{
+//   		AcceptedFileTypes: []*string{
+//   			jsii.String("acceptedFileTypes"),
+//   		},
+//   		AccessLevel: jsii.String("accessLevel"),
+//
+//   		// the properties below are optional
+//   		IsResumable: jsii.Boolean(false),
+//   		MaxFileCount: jsii.Number(123),
+//   		MaxSize: jsii.Number(123),
+//   		ShowThumbnails: jsii.Boolean(false),
+//   	},
 //   	IsArray: jsii.Boolean(false),
 //   	MaxValue: jsii.Number(123),
 //   	MinValue: jsii.Number(123),
@@ -52,6 +64,8 @@ type CfnForm_FieldInputConfigProperty struct {
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The text to display to describe the field.
 	DescriptiveText *string `field:"optional" json:"descriptiveText" yaml:"descriptiveText"`
+	// `CfnForm.FieldInputConfigProperty.FileUploaderConfig`.
+	FileUploaderConfig interface{} `field:"optional" json:"fileUploaderConfig" yaml:"fileUploaderConfig"`
 	// `CfnForm.FieldInputConfigProperty.IsArray`.
 	IsArray interface{} `field:"optional" json:"isArray" yaml:"isArray"`
 	// The maximum value to display for the field.

@@ -64,8 +64,6 @@ type EcsEc2ContainerDefinition interface {
 	// Experimental.
 	Environment() *map[string]*string
 	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
-	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
-	//
 	// Experimental.
 	ExecutionRole() awsiam.IRole
 	// The number of physical GPUs to reserve for the container.

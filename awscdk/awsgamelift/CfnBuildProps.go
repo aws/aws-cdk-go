@@ -11,6 +11,7 @@ package awsgamelift
 //   cfnBuildProps := &CfnBuildProps{
 //   	Name: jsii.String("name"),
 //   	OperatingSystem: jsii.String("operatingSystem"),
+//   	ServerSdkVersion: jsii.String("serverSdkVersion"),
 //   	StorageLocation: &StorageLocationProperty{
 //   		Bucket: jsii.String("bucket"),
 //   		Key: jsii.String("key"),
@@ -33,6 +34,8 @@ type CfnBuildProps struct {
 	//
 	// > If you have active fleets using the Windows Server 2012 operating system, you can continue to create new builds using this OS until October 10, 2023, when Microsoft ends its support. All others must use Windows Server 2016 when creating new Windows-based builds.
 	OperatingSystem *string `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`
+	// `AWS::GameLift::Build.ServerSdkVersion`.
+	ServerSdkVersion *string `field:"optional" json:"serverSdkVersion" yaml:"serverSdkVersion"`
 	// Information indicating where your game build files are stored.
 	//
 	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.

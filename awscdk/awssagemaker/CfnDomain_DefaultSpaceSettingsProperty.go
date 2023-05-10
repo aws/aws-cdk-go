@@ -10,6 +10,8 @@ package awssagemaker
 //
 //   defaultSpaceSettingsProperty := &DefaultSpaceSettingsProperty{
 //   	ExecutionRole: jsii.String("executionRole"),
+//
+//   	// the properties below are optional
 //   	JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
@@ -42,7 +44,7 @@ package awssagemaker
 //
 type CfnDomain_DefaultSpaceSettingsProperty struct {
 	// The ARN of the execution role for the space.
-	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
 	// The JupyterServer app settings.
 	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The KernelGateway app settings.

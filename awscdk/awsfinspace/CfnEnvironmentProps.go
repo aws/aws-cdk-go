@@ -1,5 +1,8 @@
 package awsfinspace
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnEnvironment`.
 //
@@ -8,20 +11,20 @@ package awsfinspace
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeMap interface{}
-//
 //   cfnEnvironmentProps := &CfnEnvironmentProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	DataBundles: []*string{
-//   		jsii.String("dataBundles"),
-//   	},
 //   	Description: jsii.String("description"),
 //   	FederationMode: jsii.String("federationMode"),
 //   	FederationParameters: &FederationParametersProperty{
 //   		ApplicationCallBackUrl: jsii.String("applicationCallBackUrl"),
-//   		AttributeMap: attributeMap,
+//   		AttributeMap: []interface{}{
+//   			&AttributeMapItemsProperty{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		FederationProviderName: jsii.String("federationProviderName"),
 //   		FederationUrn: jsii.String("federationUrn"),
 //   		SamlMetadataDocument: jsii.String("samlMetadataDocument"),
@@ -33,16 +36,17 @@ package awsfinspace
 //   		FirstName: jsii.String("firstName"),
 //   		LastName: jsii.String("lastName"),
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnEnvironmentProps struct {
 	// The name of the FinSpace environment.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:.
-	//
-	// - `arn:aws:finspace:${Region}::data-bundle/capital-markets-sample` - Contains sample Capital Markets datasets, categories and controlled vocabularies.
-	// - `arn:aws:finspace:${Region}::data-bundle/taq` (default) - Contains trades and quotes data in addition to sample Capital Markets data.
-	DataBundles *[]*string `field:"optional" json:"dataBundles" yaml:"dataBundles"`
 	// The description of the FinSpace environment.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The authentication mode for the environment.
@@ -53,5 +57,7 @@ type CfnEnvironmentProps struct {
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Configuration information for the superuser.
 	SuperuserParameters interface{} `field:"optional" json:"superuserParameters" yaml:"superuserParameters"`
+	// `AWS::FinSpace::Environment.Tags`.
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

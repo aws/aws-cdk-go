@@ -86,6 +86,14 @@ type AuthenticateCognitoActionProps struct {
 	UserPoolClient awscognito.IUserPoolClient `field:"required" json:"userPoolClient" yaml:"userPoolClient"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 	UserPoolDomain awscognito.IUserPoolDomain `field:"required" json:"userPoolDomain" yaml:"userPoolDomain"`
+	// Allow HTTPS outbound traffic to communicate with the IdP.
+	//
+	// Set this property to false if the IP address used for the IdP endpoint is identifiable
+	// and you want to control outbound traffic.
+	// Then allow HTTPS outbound traffic to the IdP's IP address using the listener's `connections` property.
+	// See: https://repost.aws/knowledge-center/elb-configure-authentication-alb
+	//
+	AllowHttpsOutbound *bool `field:"optional" json:"allowHttpsOutbound" yaml:"allowHttpsOutbound"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams *map[string]*string `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.

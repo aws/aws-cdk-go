@@ -13,11 +13,14 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cpuOptionsProperty := &CpuOptionsProperty{
+//   	AmdSevSnp: jsii.String("amdSevSnp"),
 //   	CoreCount: jsii.Number(123),
 //   	ThreadsPerCore: jsii.Number(123),
 //   }
 //
 type CfnLaunchTemplate_CpuOptionsProperty struct {
+	// `CfnLaunchTemplate.CpuOptionsProperty.AmdSevSnp`.
+	AmdSevSnp *string `field:"optional" json:"amdSevSnp" yaml:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
 	// The number of threads per CPU core.

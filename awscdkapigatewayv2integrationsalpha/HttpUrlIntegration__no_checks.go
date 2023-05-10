@@ -5,7 +5,7 @@ package awscdkapigatewayv2integrationsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (h *jsiiProxy_HttpUrlIntegration) validateBindParameters(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) error {
+func (h *jsiiProxy_HttpUrlIntegration) validateBindParameters(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) error {
 	return nil
 }
 

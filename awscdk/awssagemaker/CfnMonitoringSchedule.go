@@ -18,8 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var json interface{}
-//
 //   cfnMonitoringSchedule := awscdk.Aws_sagemaker.NewCfnMonitoringSchedule(this, jsii.String("MyCfnMonitoringSchedule"), &CfnMonitoringScheduleProps{
 //   	MonitoringScheduleConfig: &MonitoringScheduleConfigProperty{
 //   		MonitoringJobDefinition: &MonitoringJobDefinitionProperty{
@@ -44,7 +42,9 @@ import (
 //   							Csv: &CsvProperty{
 //   								Header: jsii.Boolean(false),
 //   							},
-//   							Json: json,
+//   							Json: &JsonProperty{
+//   								Line: jsii.Boolean(false),
+//   							},
 //   							Parquet: jsii.Boolean(false),
 //   						},
 //   						LocalPath: jsii.String("localPath"),

@@ -66,6 +66,11 @@ type EcsEc2ContainerDefinitionProps struct {
 	// We don't recommend using plaintext environment variables for sensitive information, such as credential data.
 	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
+	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
+	//
+	// Experimental.
+	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The role that the container can assume.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
 	//
@@ -95,11 +100,6 @@ type EcsEc2ContainerDefinitionProps struct {
 	// Automatically added to the job definition.
 	// Experimental.
 	Volumes *[]EcsVolume `field:"optional" json:"volumes" yaml:"volumes"`
-	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
-	// See: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
-	//
-	// Experimental.
-	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// Make sure that the number of GPUs reserved for all containers in a job doesn't exceed

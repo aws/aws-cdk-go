@@ -21,6 +21,14 @@ func (a *jsiiProxy_Application) validateAssociateApplicationWithStackParameters(
 	return nil
 }
 
+func (a *jsiiProxy_Application) validateAssociateAttributeGroupParameters(attributeGroup IAttributeGroup) error {
+	return nil
+}
+
+func (a *jsiiProxy_Application) validateAssociateStackParameters(stack awscdk.Stack) error {
+	return nil
+}
+
 func (a *jsiiProxy_Application) validateGenerateUniqueHashParameters(resourceAddress *string) error {
 	return nil
 }
