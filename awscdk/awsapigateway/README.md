@@ -102,6 +102,22 @@ item.AddMethod(jsii.String("GET")) // GET /items/{item}
 item.AddMethod(jsii.String("DELETE"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")))
 ```
 
+Additionally, `integrationOptions` can be supplied to explicitly define
+options of the Lambda integration:
+
+```go
+var backend function
+
+
+api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
+	Handler: backend,
+	IntegrationOptions: &LambdaIntegrationOptions{
+		AllowTestInvoke: jsii.Boolean(false),
+		Timeout: awscdk.Duration_Seconds(jsii.Number(1)),
+	},
+})
+```
+
 ## AWS StepFunctions backed APIs
 
 You can use Amazon API Gateway with AWS Step Functions as the backend integration, specifically Synchronous Express Workflows.
@@ -252,6 +268,7 @@ func newRootStack(scope construct) *rootStack {
 	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 
 	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &RestApiProps{
+		CloudWatchRole: jsii.Boolean(true),
 		Deploy: jsii.Boolean(false),
 	})
 	restApi.Root.AddMethod(jsii.String("ANY"))
@@ -455,7 +472,7 @@ A usage plan specifies who can access one or more deployed API stages and method
 accessed. The plan uses API keys to identify API clients and meters access to the associated API stages for each key.
 Usage plans also allow configuring throttling limits and quota limits that are enforced on individual client API keys.
 
-The following example shows how to create and asscociate a usage plan and an API key:
+The following example shows how to create and associate a usage plan and an API key:
 
 ```go
 var integration lambdaIntegration
@@ -537,6 +554,23 @@ var lambdaFn function
 importedKey.grantRead(lambdaFn)
 ```
 
+### Adding an API Key to an imported RestApi
+
+API Keys are added to ApiGateway Stages, not to the API itself. When you import a RestApi
+it does not have any information on the Stages that may be associated with it. Since adding an API
+Key requires a stage, you should instead add the Api Key to the imported Stage.
+
+```go
+var restApi iRestApi
+
+importedStage := apigateway.Stage_FromStageAttributes(this, jsii.String("imported-stage"), &StageAttributes{
+	StageName: jsii.String("myStageName"),
+	RestApi: RestApi,
+})
+
+importedStage.AddApiKey(jsii.String("MyApiKey"))
+```
+
 ### ⚠️ Multiple API Keys
 
 It is possible to specify multiple API keys for a given Usage Plan, by calling `usagePlan.addApiKey()`.
@@ -573,8 +607,8 @@ var api restApi
 
 key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 	CustomerId: jsii.String("hello-customer"),
-	Resources: []iRestApi{
-		api,
+	Stages: []iStage{
+		api.DeploymentStage,
 	},
 	Quota: &QuotaSettings{
 		Limit: jsii.Number(10000),
@@ -770,6 +804,42 @@ resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
 Specifying `requestValidatorOptions` automatically creates the RequestValidator construct with the given options.
 However, if you have your RequestValidator already initialized or imported, use the `requestValidator` option instead.
 
+If you want to use `requestValidatorOptions` in multiple `addMethod()` calls
+then you need to set the `@aws-cdk/aws-apigateway:requestValidatorUniqueId`
+feature flag. When this feature flag is set, each `RequestValidator` will have a unique generated id.
+
+> **Note** if you enable this feature flag when you have already used
+> `addMethod()` with `requestValidatorOptions` the Logical Id of the resource
+> will change causing the resource to be replaced.
+
+```go
+var integration lambdaIntegration
+var resource resource
+var responseModel model
+var errorResponseModel model
+
+
+resource.Node.SetContext(jsii.String("@aws-cdk/aws-apigateway:requestValidatorUniqueId"), jsii.Boolean(true))
+
+resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
+	// we can set request validator options like below
+	RequestValidatorOptions: &RequestValidatorOptions{
+		RequestValidatorName: jsii.String("test-validator"),
+		ValidateRequestBody: jsii.Boolean(true),
+		ValidateRequestParameters: jsii.Boolean(false),
+	},
+})
+
+resource.AddMethod(jsii.String("POST"), integration, &MethodOptions{
+	// we can set request validator options like below
+	RequestValidatorOptions: &RequestValidatorOptions{
+		RequestValidatorName: jsii.String("test-validator2"),
+		ValidateRequestBody: jsii.Boolean(true),
+		ValidateRequestParameters: jsii.Boolean(false),
+	},
+})
+```
+
 ## Default Integration and Method Options
 
 The `defaultIntegration` and `defaultMethodOptions` properties can be used to
@@ -904,54 +974,54 @@ books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("h
 
 A full working example is shown below.
 
-!cdk-integ pragma:ignore-assets
-
 ```go
-import path "github.com/aws-samples/dummy/path"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
+type myStack struct {
+	stack
+}
 
-/*
- * Stack verification steps:
- * * `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
- * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>` should return 403
- * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>` should return 200
- */
+func newMyStack(scope construct, id *string) *myStack {
+	this := &myStack{}
+	newStack_Override(this, scope, id)
 
-app := awscdk.NewApp()
-stack := awscdk.NewStack(app, jsii.String("TokenAuthorizerInteg"))
+	authorizerFn := lambda.NewFunction(this, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+		Runtime: lambda.Runtime_NODEJS_14_X(),
+		Handler: jsii.String("index.handler"),
+		Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
+	})
 
-authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Handler: jsii.String("index.handler"),
-	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
-})
+	authorizer := awscdk.NewTokenAuthorizer(this, jsii.String("MyAuthorizer"), &TokenAuthorizerProps{
+		Handler: authorizerFn,
+	})
 
-restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
-
-authorizer := awscdk.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), &TokenAuthorizerProps{
-	Handler: authorizerFn,
-})
-
-restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-	IntegrationResponses: []integrationResponse{
-		&integrationResponse{
-			StatusCode: jsii.String("200"),
+	restapi := awscdk.NewRestApi(this, jsii.String("MyRestApi"), &RestApiProps{
+		CloudWatchRole: jsii.Boolean(true),
+		DefaultMethodOptions: &MethodOptions{
+			Authorizer: *Authorizer,
 		},
-	},
-	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-	RequestTemplates: map[string]*string{
-		"application/json": jsii.String("{ \"statusCode\": 200 }"),
-	},
-}), &MethodOptions{
-	MethodResponses: []methodResponse{
-		&methodResponse{
-			StatusCode: jsii.String("200"),
+		DefaultCorsPreflightOptions: &CorsOptions{
+			AllowOrigins: awscdk.Cors_ALL_ORIGINS(),
 		},
-	},
-	Authorizer: Authorizer,
-})
+	})
+
+	restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+		IntegrationResponses: []integrationResponse{
+			&integrationResponse{
+				StatusCode: jsii.String("200"),
+			},
+		},
+		PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+		RequestTemplates: map[string]*string{
+			"application/json": jsii.String("{ \"statusCode\": 200 }"),
+		},
+	}), &MethodOptions{
+		MethodResponses: []methodResponse{
+			&methodResponse{
+				StatusCode: jsii.String("200"),
+			},
+		},
+	})
+	return this
+}
 ```
 
 By default, the `TokenAuthorizer` looks for the authorization token in the request header with the key 'Authorization'. This can,
@@ -996,12 +1066,8 @@ books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("h
 
 A full working example is shown below.
 
-!cdk-integ pragma:ignore-assets
-
 ```go
 import path "github.com/aws-samples/dummy/path"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -1020,13 +1086,23 @@ authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &
 	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 })
 
-restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &RestApiProps{
+	CloudWatchRole: jsii.Boolean(true),
+})
 
 authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &RequestAuthorizerProps{
 	Handler: authorizerFn,
 	IdentitySources: []*string{
 		awscdk.IdentitySource_Header(jsii.String("Authorization")),
 		awscdk.IdentitySource_QueryString(jsii.String("allow")),
+	},
+})
+
+secondAuthorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MySecondAuthorizer"), &RequestAuthorizerProps{
+	Handler: authorizerFn,
+	IdentitySources: []*string{
+		awscdk.IdentitySource_*Header(jsii.String("Authorization")),
+		awscdk.IdentitySource_*QueryString(jsii.String("allow")),
 	},
 })
 
@@ -1047,6 +1123,25 @@ restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&Integratio
 		},
 	},
 	Authorizer: Authorizer,
+})
+
+restapi.Root.ResourceForPath(jsii.String("auth")).AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+	IntegrationResponses: []*integrationResponse{
+		&integrationResponse{
+			StatusCode: jsii.String("200"),
+		},
+	},
+	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+	RequestTemplates: map[string]*string{
+		"application/json": jsii.String("{ \"statusCode\": 200 }"),
+	},
+}), &MethodOptions{
+	MethodResponses: []*methodResponse{
+		&methodResponse{
+			StatusCode: jsii.String("200"),
+		},
+	},
+	Authorizer: secondAuthorizer,
 })
 ```
 
@@ -1126,18 +1221,29 @@ API.
 The following example will configure API Gateway to emit logs and data traces to
 AWS CloudWatch for all API calls:
 
-> By default, an IAM role will be created and associated with API Gateway to
-> allow it to write logs and metrics to AWS CloudWatch unless `cloudWatchRole` is
-> set to `false`.
+> Note: whether or not this is enabled or disabled by default is controlled by the
+> `@aws-cdk/aws-apigateway:disableCloudWatchRole` feature flag. When this feature flag
+> is set to `false` the default behavior will set `cloudWatchRole=true`
+
+This is controlled via the `@aws-cdk/aws-apigateway:disableCloudWatchRole` feature flag and
+is disabled by default. When enabled (or `@aws-cdk/aws-apigateway:disableCloudWatchRole=false`),
+an IAM role will be created and associated with API Gateway to allow it to write logs and metrics to AWS CloudWatch.
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	CloudWatchRole: jsii.Boolean(true),
 	DeployOptions: &StageOptions{
 		LoggingLevel: apigateway.MethodLoggingLevel_INFO,
 		DataTraceEnabled: jsii.Boolean(true),
 	},
 })
 ```
+
+> Note: there can only be a single apigateway.CfnAccount per AWS environment
+> so if you create multiple `RestApi`s with `cloudWatchRole=true` each new `RestApi`
+> will overwrite the `CfnAccount`. It is recommended to set `cloudWatchRole=false`
+> (the default behavior if `@aws-cdk/aws-apigateway:disableCloudWatchRole` is enabled)
+> and only create a single CloudWatch role and account per environment.
 
 ### Deep dive: Invalidation of deployments
 
@@ -1154,6 +1260,18 @@ CloudFormation to create a new deployment resource.
 
 By default, old deployments are *deleted*. You can set `retainDeployments: true`
 to allow users revert the stage to an old deployment manually.
+
+In order to also create a new deployment when changes are made to any authorizer attached to the API,
+the `@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId` [feature flag](https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html) can be enabled. This can be set
+in the `cdk.json` file.
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId": true
+  }
+}
+```
 
 ## Custom Domains
 
@@ -1229,8 +1347,8 @@ domain.AddBasePathMapping(api2, &BasePathMappingOptions{
 })
 ```
 
-You can specify the API `Stage` to which this base path URL will map to. By default, this will be the
-`deploymentStage` of the `RestApi`.
+By default, the base path URL will map to the `deploymentStage` of the `RestApi`.
+You can specify a different API `Stage` to which the base path URL will map to.
 
 ```go
 var domain domainName
@@ -1249,6 +1367,23 @@ domain.AddBasePathMapping(restapi, &BasePathMappingOptions{
 })
 ```
 
+It is possible to create a base path mapping without associating it with a
+stage by using the `attachToStage` property. When set to `false`, the stage must be
+included in the URL when invoking the API. For example,
+[https://example.com/myapi/prod](https://example.com/myapi/prod) will invoke the stage named `prod` from the
+`myapi` base path mapping.
+
+```go
+var domain domainName
+var api restApi
+
+
+domain.AddBasePathMapping(api, &BasePathMappingOptions{
+	BasePath: jsii.String("myapi"),
+	AttachToStage: jsii.Boolean(false),
+})
+```
+
 If you don't specify `basePath`, all URLs under this domain will be mapped
 to the API, and you won't be able to map another API to the same domain:
 
@@ -1261,6 +1396,24 @@ domain.AddBasePathMapping(api)
 
 This can also be achieved through the `mapping` configuration when defining the
 domain as demonstrated above.
+
+Base path mappings can also be created with the `BasePathMapping` resource.
+
+```go
+var api restApi
+
+
+domainName := apigateway.DomainName_FromDomainNameAttributes(this, jsii.String("DomainName"), &DomainNameAttributes{
+	DomainName: jsii.String("domainName"),
+	DomainNameAliasHostedZoneId: jsii.String("domainNameAliasHostedZoneId"),
+	DomainNameAliasTarget: jsii.String("domainNameAliasTarget"),
+})
+
+apigateway.NewBasePathMapping(this, jsii.String("BasePathMapping"), &BasePathMappingProps{
+	DomainName: domainName,
+	RestApi: api,
+})
+```
 
 If you wish to setup this domain with an Amazon Route53 alias, use the `targets.ApiGatewayDomain`:
 
@@ -1278,14 +1431,55 @@ route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &ARecordProps{
 })
 ```
 
+### Custom Domains with multi-level api mapping
+
+Additional requirements for creating multi-level path mappings for RestApis:
+
+(both are defaults)
+
+* Must use `SecurityPolicy.TLS_1_2`
+* DomainNames must be `EndpointType.REGIONAL`
+
+```go
+var acmCertificateForExampleCom interface{}
+var restApi restApi
+
+
+apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
+	DomainName: jsii.String("example.com"),
+	Certificate: acmCertificateForExampleCom,
+	Mapping: restApi,
+	BasePath: jsii.String("orders/v1/api"),
+})
+```
+
+To then add additional mappings to a domain you can use the `addApiMapping` method.
+
+```go
+var acmCertificateForExampleCom interface{}
+var restApi restApi
+var secondRestApi restApi
+
+
+domain := apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
+	DomainName: jsii.String("example.com"),
+	Certificate: acmCertificateForExampleCom,
+	Mapping: restApi,
+})
+
+domain.AddApiMapping(secondRestApi.DeploymentStage, &ApiMappingOptions{
+	BasePath: jsii.String("orders/v2/api"),
+})
+```
+
 ## Access Logging
 
 Access logging creates logs every time an API method is accessed. Access logs can have information on
 who has accessed the API, how the caller accessed the API and what responses were generated.
 Access logs are configured on a Stage of the RestApi.
 Access logs can be expressed in a format of your choosing, and can contain any access details, with a
-minimum that it must include the 'requestId'. The list of  variables that can be expressed in the access
-log can be found
+minimum that it must include either 'requestId' or 'extendedRequestId'. The list of  variables that
+can be expressed in the access log can be found
 [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference).
 Read more at [Setting Up CloudWatch API Logging in API
 Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
@@ -1343,7 +1537,7 @@ apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 	DeployOptions: &StageOptions{
 		AccessLogDestination: apigateway.NewLogGroupLogDestination(logGroup),
 		AccessLogFormat: apigateway.AccessLogFormat_Custom(
-		fmt.Sprintf("%v %v %v", apigateway.AccessLogField_ContextRequestId(), apigateway.AccessLogField_ContextErrorMessage(), apigateway.AccessLogField_ContextErrorMessageString())),
+		fmt.Sprintf("%v %v %v\n      %v %v", apigateway.AccessLogField_ContextRequestId(), apigateway.AccessLogField_ContextErrorMessage(), apigateway.AccessLogField_ContextErrorMessageString(), apigateway.AccessLogField_ContextAuthorizerError(), apigateway.AccessLogField_ContextAuthorizerIntegrationStatus())),
 	},
 })
 ```
@@ -1558,8 +1752,9 @@ api.AddGatewayResponse(jsii.String("test-response"), &GatewayResponseOptions{
 	Type: apigateway.ResponseType_ACCESS_DENIED(),
 	StatusCode: jsii.String("500"),
 	ResponseHeaders: map[string]*string{
-		"Access-Control-Allow-Origin": jsii.String("test.com"),
-		"test-key": jsii.String("test-value"),
+		// Note that values must be enclosed within a pair of single quotes
+		"Access-Control-Allow-Origin": jsii.String("'test.com'"),
+		"test-key": jsii.String("'test-value'"),
 	},
 	Templates: map[string]*string{
 		"application/json": jsii.String("{ \"message\": $context.error.messageString, \"statusCode\": \"488\", \"type\": \"$context.error.responseType\" }"),
@@ -1630,13 +1825,19 @@ in your openApi file.
 ## Metrics
 
 The API Gateway service sends metrics around the performance of Rest APIs to Amazon CloudWatch.
-These metrics can be referred to using the metric APIs available on the `RestApi` construct.
-The APIs with the `metric` prefix can be used to get reference to specific metrics for this API. For example,
-the method below refers to the client side errors metric for this API.
+These metrics can be referred to using the metric APIs available on the `RestApi`, `Stage` and `Method` constructs.
+Note that detailed metrics must be enabled for a stage to use the `Method` metrics.
+Read more about [API Gateway metrics](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html), including enabling detailed metrics.
+The APIs with the `metric` prefix can be used to get reference to specific metrics for this API. For example:
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("my-api"))
-clientErrorMetric := api.MetricClientError()
+stage := api.DeploymentStage
+method := api.Root.AddMethod(jsii.String("GET"))
+
+clientErrorApiMetric := api.MetricClientError()
+serverErrorStageMetric := stage.MetricServerError()
+latencyMethodMetric := method.MetricLatency(stage)
 ```
 
 ## APIGateway v2

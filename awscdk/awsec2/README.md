@@ -30,10 +30,11 @@ distinguishes three different subnet types:
   Internet Gateway. If you want your instances to have a public IP address
   and be directly reachable from the Internet, you must place them in a
   public subnet.
-* **Private with Internet Access (`SubnetType.PRIVATE_WITH_NAT`)** - instances in private subnets are not directly routable from the
-  Internet, and connect out to the Internet via a NAT gateway. By default, a
-  NAT gateway is created in every public subnet for maximum availability. Be
+* **Private with Internet Access (`SubnetType.PRIVATE_WITH_EGRESS`)** - instances in private subnets are not directly routable from the
+  Internet, and you must provide a way to connect out to the Internet.
+  By default, a NAT gateway is created in every public subnet for maximum availability. Be
   aware that you will be charged for NAT gateways.
+  Alternatively you can set `natGateways:0` and provide your own egress configuration (i.e through Transit Gateway)
 * **Isolated (`SubnetType.PRIVATE_ISOLATED`)** - isolated subnets do not route from or to the Internet, and
   as such do not require NAT gateways. They can only connect to or be
   connected to from other instances in the same VPC. A default VPC configuration
@@ -72,14 +73,19 @@ and *account* of the Stack containing the VPC. If the [region and account are
 specified](https://docs.aws.amazon.com/cdk/latest/guide/environments.html) on
 the Stack, the CLI will [look up the existing Availability
 Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-describe)
-and get an accurate count. If region and account are not specified, the stack
+and get an accurate count. The result of this operation will be written to a file
+called `cdk.context.json`. You must commit this file to source control so
+that the lookup values are available in non-privileged environments such
+as CI build steps, and to ensure your template builds are repeatable.
+
+If region and account are not specified, the stack
 could be deployed anywhere and it will have to make a safe choice, limiting
 itself to 2 Availability Zones.
 
 Therefore, to get the VPC to spread over 3 or more availability zones, you
 must specify the environment where the stack will be deployed.
 
-You can gain full control over the availability zones selection strategy by overriding the Stack's [`get availabilityZones()`](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/core/lib/stack.ts) method:
+You can gain full control over the availability zones selection strategy by overriding the Stack's [`get availabilityZones()`](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/core/lib/stack.ts) method:
 
 ```text
 // This example is only available in TypeScript
@@ -227,6 +233,89 @@ ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
 ```
 
+### Ip Address Management
+
+The VPC spans a supernet IP range, which contains the non-overlapping IPs of its contained subnets. Possible sources for this IP range are:
+
+* You specify an IP range directly by specifying a CIDR
+* You allocate an IP range of a given size automatically from AWS IPAM
+
+By default the Vpc will allocate the `10.0.0.0/16` address range which will be exhaustively spread across all subnets in the subnet configuration. This behavior can be changed by passing an object that implements `IIpAddresses` to the `ipAddress` property of a Vpc. See the subsequent sections for the options.
+
+Be aware that if you don't explicitly reserve subnet groups in `subnetConfiguration`, the address space will be fully allocated! If you predict you may need to add more subnet groups later, add them early on and set `reserved: true` (see the "Advanced Subnet Configuration" section for more information).
+
+#### Specifying a CIDR directly
+
+Use `IpAddresses.cidr` to define a Cidr range for your Vpc directly in code:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+	IpAddresses: awscdk.IpAddresses_Cidr(jsii.String("10.0.1.0/20")),
+})
+```
+
+Space will be allocated to subnets in the following order:
+
+* First, spaces is allocated for all subnets groups that explicitly have a `cidrMask` set as part of their configuration (including reserved subnets).
+* Afterwards, any remaining space is divided evenly between the rest of the subnets (if any).
+
+The argument to `IpAddresses.cidr` may not be a token, and concrete Cidr values are generated in the synthesized CloudFormation template.
+
+#### Allocating an IP range from AWS IPAM
+
+Amazon VPC IP Address Manager (IPAM) manages a large IP space, from which chunks can be allocated for use in the Vpc. For information on Amazon VPC IP Address Manager please see the [official documentation](https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html). An example of allocating from AWS IPAM looks like this:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var pool cfnIPAMPool
+
+
+ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+	IpAddresses: awscdk.IpAddresses_AwsIpamAllocation(&AwsIpamProps{
+		Ipv4IpamPoolId: pool.ref,
+		Ipv4NetmaskLength: jsii.Number(18),
+		DefaultSubnetIpv4NetmaskLength: jsii.Number(24),
+	}),
+})
+```
+
+`IpAddresses.awsIpamAllocation` requires the following:
+
+* `ipv4IpamPoolId`, the id of an IPAM Pool from which the VPC range should be allocated.
+* `ipv4NetmaskLength`, the size of the IP range that will be requested from the Pool at deploy time.
+* `defaultSubnetIpv4NetmaskLength`, the size of subnets in groups that don't have `cidrMask` set.
+
+With this method of IP address management, no attempt is made to guess at subnet group sizes or to exhaustively allocate the IP range. All subnet groups must have an explicit `cidrMask` set as part of their subnet configuration, or `defaultSubnetIpv4NetmaskLength` must be set for a default size. If not, synthesis will fail and you must provide one or the other.
+
+### Reserving availability zones
+
+There are situations where the IP space for availability zones will
+need to be reserved. This is useful in situations where availability
+zones would need to be added after the vpc is originally deployed,
+without causing IP renumbering for availability zones subnets. The IP
+space for reserving `n` availability zones can be done by setting the
+`reservedAzs` to `n` in vpc props, as shown below:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+	Cidr: jsii.String("10.0.0.0/21"),
+	MaxAzs: jsii.Number(3),
+	ReservedAzs: jsii.Number(1),
+})
+```
+
+In the example above, the subnets for reserved availability zones is not
+actually provisioned but its IP space is still reserved. If, in the future,
+new availability zones needs to be provisioned, then we would decrement
+the value of `reservedAzs` and increment the `maxAzs` or `availabilityZones`
+accordingly. This action would not cause the IP address of subnets to get
+renumbered, but rather the IP space that was previously reserved will be
+used for the new availability zones subnets.
+
 ### Advanced Subnet Configuration
 
 If the default VPC configuration (public and private subnets spanning the
@@ -237,11 +326,13 @@ subnet configuration could look like this:
 
 ```go
 vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-	// 'cidr' configures the IP range and size of the entire VPC.
-	// The IP space will be divided over the configured subnets.
-	Cidr: jsii.String("10.0.0.0/21"),
+	// 'IpAddresses' configures the IP range and size of the entire VPC.
+	// The IP space will be divided based on configuration for the subnets.
+	IpAddresses: ec2.IpAddresses_Cidr(jsii.String("10.0.0.0/21")),
 
-	// 'maxAzs' configures the maximum number of availability zones to use
+	// 'maxAzs' configures the maximum number of availability zones to use.
+	// If you want to specify the exact availability zones you want the VPC
+	// to use, use `availabilityZones` instead.
 	MaxAzs: jsii.Number(3),
 
 	// 'subnetConfiguration' specifies the "subnet groups" to create.
@@ -269,7 +360,7 @@ vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 		&subnetConfiguration{
 			CidrMask: jsii.Number(24),
 			Name: jsii.String("Application"),
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 		&subnetConfiguration{
 			CidrMask: jsii.Number(28),
@@ -376,12 +467,12 @@ vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 		&subnetConfiguration{
 			CidrMask: jsii.Number(26),
 			Name: jsii.String("Application1"),
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 		&subnetConfiguration{
 			CidrMask: jsii.Number(26),
 			Name: jsii.String("Application2"),
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 			Reserved: jsii.Boolean(true),
 		},
 		&subnetConfiguration{
@@ -515,6 +606,71 @@ vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("VPC"), &VpcAttributes{
 })
 ```
 
+For each subnet group the import function accepts optional parameters for subnet
+names, route table ids and IPv4 CIDR blocks. When supplied, the length of these
+lists are required to match the length of the list of subnet ids, allowing the
+lists to be zipped together to form `ISubnet` instances.
+
+Public subnet group example (for private or isolated subnet groups, use the properties with the respective prefix):
+
+```go
+vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("VPC"), &VpcAttributes{
+	VpcId: jsii.String("vpc-1234"),
+	AvailabilityZones: []*string{
+		jsii.String("us-east-1a"),
+		jsii.String("us-east-1b"),
+		jsii.String("us-east-1c"),
+	},
+	PublicSubnetIds: []*string{
+		jsii.String("s-12345"),
+		jsii.String("s-34567"),
+		jsii.String("s-56789"),
+	},
+	PublicSubnetNames: []*string{
+		jsii.String("Subnet A"),
+		jsii.String("Subnet B"),
+		jsii.String("Subnet C"),
+	},
+	PublicSubnetRouteTableIds: []*string{
+		jsii.String("rt-12345"),
+		jsii.String("rt-34567"),
+		jsii.String("rt-56789"),
+	},
+	PublicSubnetIpv4CidrBlocks: []*string{
+		jsii.String("10.0.0.0/24"),
+		jsii.String("10.0.1.0/24"),
+		jsii.String("10.0.2.0/24"),
+	},
+})
+```
+
+The above example will create an `IVpc` instance with three public subnets:
+
+| Subnet id | Availability zone | Subnet name | Route table id | IPv4 CIDR   |
+| --------- | ----------------- | ----------- | -------------- | ----------- |
+| s-12345   | us-east-1a        | Subnet A    | rt-12345       | 10.0.0.0/24 |
+| s-34567   | us-east-1b        | Subnet B    | rt-34567       | 10.0.1.0/24 |
+| s-56789   | us-east-1c        | Subnet B    | rt-56789       | 10.0.2.0/24 |
+
+### Restricting access to the VPC default security group
+
+AWS Security best practices recommend that the [VPC default security group should
+not allow inbound and outbound
+traffic](https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-2).
+When the `@aws-cdk/aws-ec2:restrictDefaultSecurityGroup` feature flag is set to
+`true` (default for new projects) this will be enabled by default. If you do not
+have this feature flag set you can either set the feature flag *or* you can set
+the `restrictDefaultSecurityGroup` property to `true`.
+
+```go
+ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+	RestrictDefaultSecurityGroup: jsii.Boolean(true),
+})
+```
+
+If you set this property to `true` and then later remove it or set it to `false`
+the default ingress/egress will be restored on the default security group.
+
 ## Allowing Connections
 
 In AWS, all network traffic in and out of **Elastic Network Interfaces** (ENIs)
@@ -602,11 +758,14 @@ the connection specifier:
 ec2.Port_Tcp(jsii.Number(80))
 ec2.Port_TcpRange(jsii.Number(60000), jsii.Number(65535))
 ec2.Port_AllTcp()
+ec2.Port_AllIcmp()
+ec2.Port_AllIcmpV6()
 ec2.Port_AllTraffic()
 ```
 
-> NOTE: This set is not complete yet; for example, there is no library support for ICMP at the moment.
-> However, you can write your own classes to implement those.
+> NOTE: Not all protocols have corresponding helper methods. In the absence of a helper method,
+> you can instantiate `Port` yourself with your own settings. You are also welcome to contribute
+> new helper methods.
 
 ### Default Ports
 
@@ -664,7 +823,7 @@ sg := ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("SecurityGroupImpo
 })
 ```
 
-Alternatively, use lookup methods to import security groups if you do not know the ID or the configuration details. Method `SecurityGroup.fromLookupByName` looks up a security group if the secruity group ID is unknown.
+Alternatively, use lookup methods to import security groups if you do not know the ID or the configuration details. Method `SecurityGroup.fromLookupByName` looks up a security group if the security group ID is unknown.
 
 ```go
 sg := ec2.SecurityGroup_FromLookupByName(this, jsii.String("SecurityGroupLookup"), jsii.String("security-group-name"), vpc)
@@ -754,7 +913,7 @@ AMIs control the OS that gets launched when you start your EC2 instance. The EC2
 library contains constructs to select the AMI you want to use.
 
 Depending on the type of AMI, you select it a different way. Here are some
-examples of things you might want to use:
+examples of images you might want to use:
 
 ```go
 // Pick the right Amazon Linux edition. All arguments shown are optional
@@ -857,7 +1016,7 @@ By default, routes will be propagated on the route tables associated with the pr
 private subnets exist, isolated subnets are used. If no isolated subnets exist, public subnets are
 used. Use the `Vpc` property `vpnRoutePropagation` to customize this behavior.
 
-VPN connections expose [metrics (cloudwatch.Metric)](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-cloudwatch/README.md) across all tunnels in the account/region and per connection:
+VPN connections expose [metrics (cloudwatch.Metric)](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-cloudwatch/README.md) across all tunnels in the account/region and per connection:
 
 ```go
 // Across all tunnels in the account/region
@@ -1099,32 +1258,21 @@ var vpc vpc
 var instanceType instanceType
 
 
-// AWS Linux
-// AWS Linux
-ec2.NewInstance(this, jsii.String("Instance1"), &InstanceProps{
-	Vpc: Vpc,
-	InstanceType: InstanceType,
-	MachineImage: ec2.NewAmazonLinuxImage(),
-})
-
-// AWS Linux 2
-// AWS Linux 2
+// Amazon Linux 2
+// Amazon Linux 2
 ec2.NewInstance(this, jsii.String("Instance2"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-	}),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
 })
 
-// AWS Linux 2 with kernel 5.x
-// AWS Linux 2 with kernel 5.x
+// Amazon Linux 2 with kernel 5.x
+// Amazon Linux 2 with kernel 5.x
 ec2.NewInstance(this, jsii.String("Instance3"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-		Kernel: ec2.AmazonLinuxKernel_KERNEL5_X,
+	MachineImage: ec2.MachineImage_*LatestAmazonLinux2(&AmazonLinux2ImageSsmParameterProps{
+		Kernel: ec2.AmazonLinux2Kernel_KERNEL_5_10(),
 	}),
 })
 
@@ -1133,11 +1281,138 @@ ec2.NewInstance(this, jsii.String("Instance3"), &InstanceProps{
 ec2.NewInstance(this, jsii.String("Instance4"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2022,
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+})
+
+// Graviton 3 Processor
+// Graviton 3 Processor
+ec2.NewInstance(this, jsii.String("Instance5"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.*instanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.MachineImage_*LatestAmazonLinux2022(&AmazonLinux2022ImageSsmParameterProps{
+		CpuType: ec2.AmazonLinuxCpuType_ARM_64,
 	}),
 })
 ```
+
+### Latest Amazon Linux Images
+
+Rather than specifying a specific AMI ID to use, it is possible to specify a SSM
+Parameter that contains the AMI ID. AWS publishes a set of [public parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-public-parameters-ami.html)
+that contain the latest Amazon Linux AMIs. To make it easier to query a
+particular image parameter, the CDK provides a couple of constructs `AmazonLinux2ImageSsmParameter`,
+`AmazonLinux2022ImageSsmParameter`, & `AmazonLinux2023SsmParameter`. For example
+to use the latest `al2023` image:
+
+```go
+var vpc vpc
+
+
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+})
+```
+
+> **Warning**
+> Since this retrieves the value from an SSM parameter at deployment time, the
+> value will be resolved each time the stack is deployed. This means that if
+> the parameter contains a different value on your next deployment, the instance
+> will be replaced.
+
+It is also possible to perform the lookup once at synthesis time and then cache
+the value in CDK context. This way the value will not change on future
+deployments unless you manually refresh the context.
+
+```go
+var vpc vpc
+
+
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(&AmazonLinux2023ImageSsmParameterProps{
+		CachedInContext: jsii.Boolean(true),
+	}),
+})
+
+// or
+// or
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	// context cache is turned on by default
+	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(),
+})
+```
+
+#### Kernel Versions
+
+Each Amazon Linux AMI uses a specific kernel version. Most Amazon Linux
+generations come with an AMI using the "default" kernel and then 1 or more
+AMIs using a specific kernel version, which may or may not be different from the
+default kernel version.
+
+For example, Amazon Linux 2 has two different AMIs available from the SSM
+parameters.
+
+* `/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-ebs`
+
+  * This is the "default" kernel which uses `kernel-4.14`
+* `/aws/service/ami-amazon-linux-latest/amzn2-ami-kernel-5.10-hvm-x86_64-ebs`
+
+If a new Amazon Linux generation AMI is published with a new kernel version,
+then a new SSM parameter will be created with the new version
+(e.g. `/aws/service/ami-amazon-linux-latest/amzn2-ami-kernel-5.15-hvm-x86_64-ebs`),
+but the "default" AMI may or may not be updated.
+
+If you would like to make sure you always have the latest kernel version, then
+either specify the specific latest kernel version or opt-in to using the CDK
+latest kernel version.
+
+```go
+var vpc vpc
+
+
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	// context cache is turned on by default
+	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(&AmazonLinux2023ImageSsmParameterProps{
+		Kernel: ec2.AmazonLinux2023Kernel_KERNEL_6_1(),
+	}),
+})
+```
+
+*CDK managed latest*
+
+```go
+var vpc vpc
+
+
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	// context cache is turned on by default
+	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(&AmazonLinux2023ImageSsmParameterProps{
+		Kernel: ec2.AmazonLinux2023Kernel_CDK_LATEST(),
+	}),
+})
+
+// or
+
+// or
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+})
+```
+
+When using the CDK managed latest version, when a new kernel version is made
+available the `LATEST` will be updated to point to the new kernel version. You
+then would be required to update the newest CDK version for it to take effect.
 
 ### Configuring Instances using CloudFormation Init (cfn-init)
 
@@ -1202,6 +1477,39 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 		// Optional, whether to include the --role argument when running cfn-init and cfn-signal commands (false by default)
 		IncludeRole: jsii.Boolean(true),
 	},
+})
+```
+
+`InitCommand` can not be used to start long-running processes. At deploy time,
+`cfn-init` will always wait for the process to exit before continuing, causing
+the CloudFormation deployment to fail because the signal hasn't been received
+within the expected timeout.
+
+Instead, you should install a service configuration file onto your machine `InitFile`,
+and then use `InitService` to start it.
+
+If your Linux OS is using SystemD (like Amazon Linux 2 or higher), the CDK has
+helpers to create a long-running service using CFN Init. You can create a
+SystemD-compatible config file using `InitService.systemdConfigFile()`, and
+start it immediately. The following examples shows how to start a trivial Python
+3 web server:
+
+```go
+var vpc vpc
+var instanceType instanceType
+
+
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+
+	Init: ec2.CloudFormationInit_FromElements(ec2.InitService_SystemdConfigFile(jsii.String("simpleserver"), &SystemdConfigFileOptions{
+		Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
+		Cwd: jsii.String("/var/www/html"),
+	}), ec2.InitService_Enable(jsii.String("simpleserver"), &InitServiceOptions{
+		ServiceManager: ec2.ServiceManager_SYSTEMD,
+	}), ec2.InitFile_FromString(jsii.String("/var/www/html/index.html"), jsii.String("Hello! It's working!"))),
 })
 ```
 
@@ -1423,6 +1731,19 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 })
 ```
 
+#### Throughput on GP3 Volumes
+
+You can specify the `throughput` of a GP3 volume from 125 (default) to 1000.
+
+```go
+ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
+	AvailabilityZone: jsii.String("us-east-1a"),
+	Size: awscdk.Size_Gibibytes(jsii.Number(125)),
+	VolumeType: ec2.EbsDeviceVolumeType_GP3,
+	Throughput: jsii.Number(125),
+})
+```
+
 ### Configuring Instance Metadata Service (IMDS)
 
 #### Toggling IMDSv1
@@ -1494,8 +1815,41 @@ vpc.addFlowLog(jsii.String("FlowLogS3"), &FlowLogOptions{
 	Destination: ec2.FlowLogDestination_ToS3(),
 })
 
+// Only reject traffic and interval every minute.
 vpc.addFlowLog(jsii.String("FlowLogCloudWatch"), &FlowLogOptions{
 	TrafficType: ec2.FlowLogTrafficType_REJECT,
+	MaxAggregationInterval: ec2.FlowLogMaxAggregationInterval_ONE_MINUTE,
+})
+```
+
+### Custom Formatting
+
+You can also custom format flow logs.
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("Vpc"))
+
+vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{
+	LogFormat: []logFormat{
+		ec2.*logFormat_DST_PORT(),
+		ec2.*logFormat_SRC_PORT(),
+	},
+})
+
+// If you just want to add a field to the default field
+vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{
+	LogFormat: []*logFormat{
+		ec2.*logFormat_VERSION(),
+		ec2.*logFormat_ALL_DEFAULT_FIELDS(),
+	},
+})
+
+// If AWS CDK does not support the new fields
+vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{
+	LogFormat: []*logFormat{
+		ec2.*logFormat_SRC_PORT(),
+		ec2.*logFormat_Custom(jsii.String("${new-field}")),
+	},
 })
 ```
 
@@ -1542,6 +1896,20 @@ ec2.NewFlowLog(this, jsii.String("FlowLogWithKeyPrefix"), &FlowLogProps{
 })
 ```
 
+When the S3 destination is configured, AWS will automatically create an S3 bucket policy
+that allows the service to write logs to the bucket. This makes it impossible to later update
+that bucket policy. To have CDK create the bucket policy so that future updates can be made,
+the `@aws-cdk/aws-s3:createDefaultLoggingPolicy` [feature flag](https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html) can be used. This can be set
+in the `cdk.json` file.
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-s3:createDefaultLoggingPolicy": true
+  }
+}
+```
+
 ## User Data
 
 User data enables you to run a script when your instances start up.  In order to configure these scripts you can add commands directly to the script
@@ -1570,6 +1938,23 @@ instance.UserData.AddExecuteFileCommand(&ExecuteFileOptions{
 })
 asset.GrantRead(instance.Role)
 ```
+
+### Persisting user data
+
+By default, EC2 UserData is run once on only the first time that an instance is started. It is possible to make the
+user data script run on every start of the instance.
+
+When creating a Windows UserData you can use the `persist` option to set whether or not to add
+`<persist>true</persist>` [to the user data script](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html#user-data-scripts). it can be used as follows:
+
+```go
+windowsUserData := ec2.UserData_ForWindows(&WindowsUserDataOptions{
+	Persist: jsii.Boolean(true),
+})
+```
+
+For a Linux instance, this can be accomplished by using a Multipart user data to configure cloud-config as detailed
+in: https://aws.amazon.com/premiumsupport/knowledge-center/execute-user-data-ec2/
 
 ### Multipart user data
 
@@ -1617,7 +2002,7 @@ For more information see
 #### Using add*Command on MultipartUserData
 
 To use the `add*Command` methods, that are inherited from the `UserData` interface, on `MultipartUserData` you must add a part
-to the `MultipartUserData` and designate it as the reciever for these methods. This is accomplished by using the `addUserDataPart()`
+to the `MultipartUserData` and designate it as the receiver for these methods. This is accomplished by using the `addUserDataPart()`
 method on `MultipartUserData` with the `makeDefault` argument set to `true`:
 
 ```go
@@ -1669,10 +2054,22 @@ var vpc vpc
 
 
 template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
-	MachineImage: ec2.MachineImage_LatestAmazonLinux(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
 		Vpc: vpc,
 	}),
+})
+```
+
+And the following demonstrates how to enable metadata options support.
+
+```go
+ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+	HttpEndpoint: jsii.Boolean(true),
+	HttpProtocolIpv6: jsii.Boolean(true),
+	HttpPutResponseHopLimit: jsii.Number(1),
+	HttpTokens: ec2.LaunchTemplateHttpTokens_REQUIRED,
+	InstanceMetadataTags: jsii.Boolean(true),
 })
 ```
 
@@ -1688,7 +2085,71 @@ var instanceType instanceType
 ec2.NewInstance(this, jsii.String("Instance1"), &InstanceProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
-	MachineImage: ec2.NewAmazonLinuxImage(),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
 	DetailedMonitoring: jsii.Boolean(true),
 })
 ```
+
+## Connecting to your instances using SSM Session Manager
+
+SSM Session Manager makes it possible to connect to your instances from the
+AWS Console, without preparing SSH keys.
+
+To do so, you need to:
+
+* Use an image with [SSM agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html) installed
+  and configured. [Many images come with SSM Agent
+  preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html), otherwise you
+  may need to manually put instructions to [install SSM
+  Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html) into your
+  instance's UserData or use EC2 Init).
+* Create the instance with `ssmSessionPermissions: true`.
+
+If these conditions are met, you can connect to the instance from the EC2 Console. Example:
+
+```go
+var vpc vpc
+var instanceType instanceType
+
+
+ec2.NewInstance(this, jsii.String("Instance1"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+
+	// Amazon Linux 2 comes with SSM Agent by default
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+
+	// Turn on SSM
+	SsmSessionPermissions: jsii.Boolean(true),
+})
+```
+
+## Managed Prefix Lists
+
+Create and manage customer-managed prefix lists. If you don't specify anything in this construct, it will manage IPv4 addresses.
+
+You can also create an empty Prefix List with only the maximum number of entries specified, as shown in the following code. If nothing is specified, maxEntries=1.
+
+```go
+ec2.NewPrefixList(this, jsii.String("EmptyPrefixList"), &PrefixListProps{
+	MaxEntries: jsii.Number(100),
+})
+```
+
+`maxEntries` can also be omitted as follows. In this case `maxEntries: 2`, will be set.
+
+```go
+ec2.NewPrefixList(this, jsii.String("PrefixList"), &PrefixListProps{
+	Entries: []entryProperty{
+		&entryProperty{
+			Cidr: jsii.String("10.0.0.1/32"),
+		},
+		&entryProperty{
+			Cidr: jsii.String("10.0.0.2/32"),
+			Description: jsii.String("sample1"),
+		},
+	},
+})
+```
+
+For more information see [Work with customer-managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-managed-prefix-lists.html)

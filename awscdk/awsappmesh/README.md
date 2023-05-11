@@ -38,6 +38,17 @@ mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &MeshProps{
 })
 ```
 
+A mesh with an IP preference can be created by providing the property `serviceDiscovery` that specifes an `ipPreference`.
+
+```go
+mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &MeshProps{
+	MeshName: jsii.String("myAwsMesh"),
+	ServiceDiscovery: &MeshServiceDiscovery{
+		IpPreference: appmesh.IpPreference_IPV4_ONLY,
+	},
+})
+```
+
 ## Adding VirtualRouters
 
 A *mesh* uses  *virtual routers* as logical units to route requests to *virtual nodes*.
@@ -151,10 +162,10 @@ node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 			Port: jsii.Number(8081),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
-				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 				 // minimum
 				Path: jsii.String("/health-check-path"),
-				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 				 // minimum
 				UnhealthyThreshold: jsii.Number(2),
 			}),
@@ -179,13 +190,13 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 			Port: jsii.Number(8080),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
-				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 				Path: jsii.String("/ping"),
-				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 				UnhealthyThreshold: jsii.Number(2),
 			}),
 			Timeout: &HttpTimeout{
-				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
+				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
 			},
 		}),
 	},
@@ -218,13 +229,13 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 			Port: jsii.Number(8080),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
-				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 				Path: jsii.String("/ping"),
-				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 				UnhealthyThreshold: jsii.Number(2),
 			}),
 			Timeout: &HttpTimeout{
-				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
+				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
 			},
 		}),
 	},
@@ -401,8 +412,8 @@ node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 	Listeners: []virtualNodeListener{
 		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			OutlierDetection: &OutlierDetection{
-				BaseEjectionDuration: cdk.Duration_Seconds(jsii.Number(10)),
-				Interval: cdk.Duration_*Seconds(jsii.Number(30)),
+				BaseEjectionDuration: awscdk.Duration_Seconds(jsii.Number(10)),
+				Interval: awscdk.Duration_*Seconds(jsii.Number(30)),
 				MaxEjectionPercent: jsii.Number(50),
 				MaxServerErrors: jsii.Number(5),
 			},
@@ -449,6 +460,46 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatew
 		}),
 	},
 	VirtualGatewayName: jsii.String("gateway"),
+})
+```
+
+### Adding an IP Preference to a Virtual Node
+
+An `ipPreference` can be specified as part of a Virtual Node's service discovery. An IP preference defines how clients for this Virtual Node will interact with it.
+
+There a four different IP preferences available to use which each specify what IP versions this Virtual Node will use and prefer.
+
+* `IPv4_ONLY` - Only use IPv4. For CloudMap service discovery, only IPv4 addresses returned from CloudMap will be used. For DNS service discovery, Envoy's DNS resolver will only resolve DNS queries for IPv4.
+* `IPv4_PREFERRED` - Prefer IPv4 and fall back to IPv6. For CloudMap service discovery, an IPv4 address will be used if returned from CloudMap. Otherwise, an IPv6 address will be used if available. For DNS service discovery, Envoy's DNS resolver will first attempt to resolve DNS queries using IPv4 and fall back to IPv6.
+* `IPv6_ONLY` - Only use IPv6. For CloudMap service discovery, only IPv6 addresses returned from CloudMap will be used. For DNS service discovery, Envoy's DNS resolver will only resolve DNS queries for IPv6.
+* `IPv6_PREFERRED` - Prefer IPv6 and fall back to IPv4. For CloudMap service discovery, an IPv6 address will be used if returned from CloudMap. Otherwise, an IPv4 address will be used if available. For DNS service discovery, Envoy's DNS resolver will first attempt to resolve DNS queries using IPv6 and fall back to IPv4.
+
+```go
+mesh := appmesh.NewMesh(this, jsii.String("mesh"), &MeshProps{
+	MeshName: jsii.String("mesh-with-preference"),
+})
+
+// Virtual Node with DNS service discovery and an IP preference
+dnsNode := appmesh.NewVirtualNode(this, jsii.String("dns-node"), &VirtualNodeProps{
+	Mesh: Mesh,
+	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("test"), appmesh.DnsResponseType_LOAD_BALANCER, appmesh.IpPreference_IPV4_ONLY),
+})
+
+// Virtual Node with CloudMap service discovery and an IP preference
+vpc := ec2.NewVpc(this, jsii.String("vpc"))
+namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
+	Vpc: Vpc,
+	Name: jsii.String("domain.local"),
+})
+service := namespace.CreateService(jsii.String("Svc"))
+
+instanceAttribute := map[string]interface{}{
+}
+instanceAttribute.testKey = "testValue"
+
+cloudmapNode := appmesh.NewVirtualNode(this, jsii.String("cloudmap-node"), &VirtualNodeProps{
+	Mesh: Mesh,
+	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service, instanceAttribute, appmesh.IpPreference_IPV4_ONLY),
 })
 ```
 
@@ -570,7 +621,7 @@ router.addRoute(jsii.String("route-http2-retry"), &RouteBaseProps{
 			// Retry five times
 			RetryAttempts: jsii.Number(5),
 			// Use a 1 second timeout per retry
-			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
+			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
 		},
 	}),
 })
@@ -608,7 +659,7 @@ router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 				appmesh.*grpcRetryEvent_UNAVAILABLE,
 			},
 			RetryAttempts: jsii.Number(5),
-			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
+			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
 		},
 	}),
 })
@@ -659,8 +710,8 @@ router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 			ServiceName: jsii.String("my-service.default.svc.cluster.local"),
 		},
 		Timeout: &GrpcTimeout{
-			Idle: cdk.Duration_Seconds(jsii.Number(2)),
-			PerRequest: cdk.Duration_*Seconds(jsii.Number(1)),
+			Idle: awscdk.Duration_Seconds(jsii.Number(2)),
+			PerRequest: awscdk.Duration_*Seconds(jsii.Number(1)),
 		},
 	}),
 })
@@ -689,7 +740,7 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatew
 		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
 			Port: jsii.Number(443),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
-				Interval: cdk.Duration_Seconds(jsii.Number(10)),
+				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
 			}),
 		}),
 	},
@@ -724,7 +775,7 @@ gateway := mesh.addVirtualGateway(jsii.String("gateway"), &VirtualGatewayBasePro
 		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
 			Port: jsii.Number(443),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
-				Interval: cdk.Duration_Seconds(jsii.Number(10)),
+				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
 			}),
 		}),
 	},

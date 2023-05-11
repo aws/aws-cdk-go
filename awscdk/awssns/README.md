@@ -15,11 +15,10 @@ topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
 	ContentBasedDeduplication: jsii.Boolean(true),
 	DisplayName: jsii.String("Customer subscription topic"),
 	Fifo: jsii.Boolean(true),
-	TopicName: jsii.String("customerTopic"),
 })
 ```
 
-Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically added to the topic name if it is not explicitly provided.
+Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically generated and added to the topic name if it is not explicitly provided.
 
 ## Subscriptions
 
@@ -96,10 +95,39 @@ myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscript
 }))
 ```
 
+#### Payload-based filtering
+
+To filter messages based on the payload or body of the message, use the `filterPolicyWithMessageBody` property. This type of filter policy supports creating filters on nested objects.
+
+Example with a Lambda subscription:
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+var fn function
+
+
+myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
+
+// Lambda should receive only message matching the following conditions on message body:
+// color: 'red' or 'orange'
+myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
+	FilterPolicyWithMessageBody: map[string]filterOrPolicy{
+		"background": sns.*filterOrPolicy_policy(map[string]*filterOrPolicy{
+			"color": sns.*filterOrPolicy_filter(sns.SubscriptionFilter_stringFilter(&StringConditions{
+				"allowlist": []*string{
+					jsii.String("red"),
+					jsii.String("orange"),
+				},
+			})),
+		}),
+	},
+}))
+```
+
 ### Example of Firehose Subscription
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
 var stream deliveryStream
 
 
