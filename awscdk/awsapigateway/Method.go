@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,6 +100,8 @@ type Method interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grants an IAM principal permission to invoke this method.
+	GrantExecute(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns the given named metric for this API method.
 	Metric(metricName *string, stage IStage, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the API cache in a given period.
@@ -388,6 +391,22 @@ func (m *jsiiProxy_Method) GetResourceNameAttribute(nameAttr *string) *string {
 		m,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Method) GrantExecute(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := m.validateGrantExecuteParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		m,
+		"grantExecute",
+		[]interface{}{grantee},
 		&returns,
 	)
 

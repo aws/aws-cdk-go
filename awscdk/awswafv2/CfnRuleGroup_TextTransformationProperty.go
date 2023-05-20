@@ -14,7 +14,7 @@ package awswafv2
 //   }
 //
 type CfnRuleGroup_TextTransformationProperty struct {
-	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
+	// Sets the relative processing order for multiple transformations.
 	//
 	// AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`

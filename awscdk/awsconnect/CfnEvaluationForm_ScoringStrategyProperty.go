@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// A scoring strategy of the evaluation form.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,13 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_ScoringStrategyProperty struct {
-	// `CfnEvaluationForm.ScoringStrategyProperty.Mode`.
+	// The scoring mode of the evaluation form.
+	//
+	// *Allowed values* : `QUESTION_ONLY` | `SECTION_ONLY`.
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
-	// `CfnEvaluationForm.ScoringStrategyProperty.Status`.
+	// The scoring status of the evaluation form.
+	//
+	// *Allowed values* : `ENABLED` | `DISABLED`.
 	Status *string `field:"required" json:"status" yaml:"status"`
 }
 

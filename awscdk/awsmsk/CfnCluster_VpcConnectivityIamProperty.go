@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Not currently supported by AWS CloudFormation .
+// Details for SASL/IAM client authentication for VpcConnectivity.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,7 +13,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_VpcConnectivityIamProperty struct {
-	// `CfnCluster.VpcConnectivityIamProperty.Enabled`.
+	// SASL/IAM authentication is enabled or not.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

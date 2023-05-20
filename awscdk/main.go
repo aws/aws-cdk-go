@@ -1,3 +1,4 @@
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (

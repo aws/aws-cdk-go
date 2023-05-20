@@ -35,6 +35,8 @@ type CloudAssemblyBuilder interface {
 	BuildAssembly(options *AssemblyBuildOptions) CloudAssembly
 	// Creates a nested cloud assembly.
 	CreateNestedAssembly(artifactId *string, displayName *string) CloudAssemblyBuilder
+	// Delete the cloud assembly directory.
+	Delete()
 }
 
 // The jsii proxy struct for CloudAssemblyBuilder
@@ -144,5 +146,13 @@ func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CloudAssemblyBuilder) Delete() {
+	_jsii_.InvokeVoid(
+		c,
+		"delete",
+		nil, // no parameters
+	)
 }
 

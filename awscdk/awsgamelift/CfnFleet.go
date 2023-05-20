@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::GameLift::Fleet`.
 //
-// The `AWS::GameLift::Fleet` resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+// The `AWS::GameLift::Fleet` resource creates an Amazon GameLift (GameLift) fleet to host custom game server or Realtime Servers. A fleet is a set of EC2 instances, configured with instructions to run game servers on each instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -110,7 +110,9 @@ type CfnFleet interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::GameLift::Fleet.ComputeType`.
+	// The type of compute resource used to host your game servers.
+	//
+	// You can use your own compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed Amazon GameLift.
 	ComputeType() *string
 	SetComputeType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

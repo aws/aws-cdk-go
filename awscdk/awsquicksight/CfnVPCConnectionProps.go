@@ -35,23 +35,25 @@ import (
 //   }
 //
 type CfnVPCConnectionProps struct {
-	// `AWS::QuickSight::VPCConnection.AvailabilityStatus`.
+	// The availability status of the VPC connection.
 	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
-	// `AWS::QuickSight::VPCConnection.AwsAccountId`.
+	// The AWS account ID of the account where you want to create a new VPC connection.
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
-	// `AWS::QuickSight::VPCConnection.DnsResolvers`.
+	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers *[]*string `field:"optional" json:"dnsResolvers" yaml:"dnsResolvers"`
-	// `AWS::QuickSight::VPCConnection.Name`.
+	// The display name for the VPC connection.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::QuickSight::VPCConnection.RoleArn`.
+	// The ARN of the IAM role associated with the VPC connection.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
-	// `AWS::QuickSight::VPCConnection.SecurityGroupIds`.
+	// The Amazon EC2 security group IDs associated with the VPC connection.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// `AWS::QuickSight::VPCConnection.SubnetIds`.
+	// A list of subnet IDs for the VPC connection.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
-	// `AWS::QuickSight::VPCConnection.Tags`.
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::QuickSight::VPCConnection.VPCConnectionId`.
+	// The ID of the VPC connection that you're creating.
+	//
+	// This ID is a unique identifier for each AWS Region in an AWS account.
 	VpcConnectionId *string `field:"optional" json:"vpcConnectionId" yaml:"vpcConnectionId"`
 }
 

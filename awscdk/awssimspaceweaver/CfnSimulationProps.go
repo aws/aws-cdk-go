@@ -27,6 +27,10 @@ type CfnSimulationProps struct {
 	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ).
 	//
 	// For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
 	SchemaS3Location interface{} `field:"optional" json:"schemaS3Location" yaml:"schemaS3Location"`
 }
 

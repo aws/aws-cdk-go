@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::Cloud9
 package awscdkcloud9alpha
 
 

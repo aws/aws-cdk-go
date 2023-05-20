@@ -60,9 +60,11 @@ type CfnDetectorProps struct {
 	Features interface{} `field:"optional" json:"features" yaml:"features"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
-	// The tags to be added to a new detector resource.
+	// Specifies tags added to a new detector resource.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

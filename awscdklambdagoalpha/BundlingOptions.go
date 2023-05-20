@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS Lambda in Golang
 package awscdklambdagoalpha
 
 import (

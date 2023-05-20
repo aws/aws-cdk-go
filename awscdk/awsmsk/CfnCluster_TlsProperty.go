@@ -16,7 +16,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_TlsProperty struct {
-	// List of ACM Certificate Authority ARNs.
+	// List of AWS Private CA ARNs.
 	CertificateAuthorityArnList *[]*string `field:"optional" json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
 	// TLS authentication is enabled or not.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

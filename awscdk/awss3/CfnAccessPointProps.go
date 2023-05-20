@@ -41,7 +41,7 @@ type CfnAccessPointProps struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The access point policy associated with this access point.
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
-	// The container element for a bucket's policy status.
+	// `AWS::S3::AccessPoint.PolicyStatus`.
 	PolicyStatus interface{} `field:"optional" json:"policyStatus" yaml:"policyStatus"`
 	// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket.
 	//

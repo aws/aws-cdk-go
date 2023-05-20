@@ -26,17 +26,21 @@ import (
 //   }
 //
 type CfnEnvironmentTemplateProps struct {
-	// `AWS::Proton::EnvironmentTemplate.Description`.
+	// A description of the environment template.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Proton::EnvironmentTemplate.DisplayName`.
+	// The name of the environment template as displayed in the developer interface.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// `AWS::Proton::EnvironmentTemplate.EncryptionKey`.
+	// The customer provided encryption key for the environment template.
 	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// `AWS::Proton::EnvironmentTemplate.Name`.
+	// The name of the environment template.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Proton::EnvironmentTemplate.Provisioning`.
+	// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
 	Provisioning *string `field:"optional" json:"provisioning" yaml:"provisioning"`
-	// `AWS::Proton::EnvironmentTemplate.Tags`.
+	// An optional list of metadata items that you can associate with the AWS Proton environment template.
+	//
+	// A tag is a key-value pair.
+	//
+	// For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide* .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

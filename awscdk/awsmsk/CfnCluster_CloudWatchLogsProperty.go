@@ -18,7 +18,7 @@ package awsmsk
 type CfnCluster_CloudWatchLogsProperty struct {
 	// Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// The CloudWatch Logs group that is the destination for broker logs.
+	// The CloudWatch log group that is the destination for broker logs.
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 

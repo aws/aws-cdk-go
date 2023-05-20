@@ -48,7 +48,9 @@ type CfnWirelessGatewayProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the thing to associate with the wireless gateway.
 	ThingArn *string `field:"optional" json:"thingArn" yaml:"thingArn"`
-	// `AWS::IoTWireless::WirelessGateway.ThingName`.
+	// The name of the thing associated with the wireless gateway.
+	//
+	// The value is empty if a thing isn't associated with the gateway.
 	ThingName *string `field:"optional" json:"thingName" yaml:"thingName"`
 }
 

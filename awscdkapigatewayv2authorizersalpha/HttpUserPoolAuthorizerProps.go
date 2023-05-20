@@ -1,4 +1,3 @@
-// Authorizers for AWS APIGateway V2
 package awscdkapigatewayv2authorizersalpha
 
 import (

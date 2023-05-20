@@ -124,9 +124,7 @@ type CfnCanaryProps struct {
 	StartCanaryAfterCreation interface{} `field:"required" json:"startCanaryAfterCreation" yaml:"startCanaryAfterCreation"`
 	// A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
 	ArtifactConfig interface{} `field:"optional" json:"artifactConfig" yaml:"artifactConfig"`
-	// Specifies whether AWS CloudFormation is to also delete the Lambda functions and layers used by this canary, when the canary is deleted.
-	//
-	// The default is false.
+	// `AWS::Synthetics::Canary.DeleteLambdaResourcesOnCanaryDeletion`.
 	DeleteLambdaResourcesOnCanaryDeletion interface{} `field:"optional" json:"deleteLambdaResourcesOnCanaryDeletion" yaml:"deleteLambdaResourcesOnCanaryDeletion"`
 	// The number of days to retain data about failed runs of this canary.
 	//

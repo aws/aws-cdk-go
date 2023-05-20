@@ -712,13 +712,13 @@ type CfnDBCluster interface {
 	//
 	// This setting is required to create a Multi-AZ DB cluster.
 	//
-	// Valid values: `io1`
+	// When specified for a Multi-AZ DB cluster, a value for the `Iops` parameter is required.
 	//
-	// When specified, a value for the `Iops` parameter is required.
+	// Valid values: `aurora` , `aurora-iopt1` (Aurora DB clusters); `io1` (Multi-AZ DB clusters)
 	//
-	// Default: `io1`
+	// Default: `aurora` (Aurora DB clusters); `io1` (Multi-AZ DB clusters)
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	StorageType() *string
 	SetStorageType(val *string)
 	// An optional array of key-value pairs to apply to this DB cluster.

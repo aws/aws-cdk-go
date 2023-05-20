@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Includes information related to client authentication.
+// Includes all client authentication information.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,9 +29,13 @@ package awsmsk
 //   }
 //
 type CfnCluster_ClientAuthenticationProperty struct {
-	// Details for ClientAuthentication using SASL.
+	// Details for client authentication using SASL.
+	//
+	// To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
 	Sasl interface{} `field:"optional" json:"sasl" yaml:"sasl"`
-	// Details for client authentication using TLS.
+	// Details for ClientAuthentication using TLS.
+	//
+	// To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
 	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 	// Details for ClientAuthentication using no authentication.
 	Unauthenticated interface{} `field:"optional" json:"unauthenticated" yaml:"unauthenticated"`

@@ -18,9 +18,9 @@ package awsmsk
 //   }
 //
 type CfnBatchScramSecretProps struct {
-	// The Amazon Resource Name (ARN) of the MSK cluster.
+	// `AWS::MSK::BatchScramSecret.ClusterArn`.
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
-	// A list of Amazon Secrets Manager secret ARNs.
+	// `AWS::MSK::BatchScramSecret.SecretArnList`.
 	SecretArnList *[]*string `field:"optional" json:"secretArnList" yaml:"secretArnList"`
 }
 

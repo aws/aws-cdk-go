@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the property value used in automation of a numeric questions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,9 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_NumericQuestionPropertyValueAutomationProperty struct {
-	// `CfnEvaluationForm.NumericQuestionPropertyValueAutomationProperty.Label`.
+	// The property label of the automation.
+	//
+	// *Allowed values* : `OVERALL_CUSTOMER_SENTIMENT_SCORE` , `OVERALL_AGENT_SENTIMENT_SCORE` | `NON_TALK_TIME` | `NON_TALK_TIME_PERCENTAGE` | `NUMBER_OF_INTERRUPTIONS` | `CONTACT_DURATION` | `AGENT_INTERACTION_DURATION` | `CUSTOMER_HOLD_TIME`.
 	Label *string `field:"required" json:"label" yaml:"label"`
 }
 

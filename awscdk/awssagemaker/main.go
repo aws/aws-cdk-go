@@ -1283,6 +1283,10 @@ func init() {
 		reflect.TypeOf((*CfnModelCard_BusinessDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ContainerProperty",
+		reflect.TypeOf((*CfnModelCard_ContainerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ContentProperty",
 		reflect.TypeOf((*CfnModelCard_ContentProperty)(nil)).Elem(),
 	)
@@ -1297,6 +1301,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard.InferenceEnvironmentProperty",
 		reflect.TypeOf((*CfnModelCard_InferenceEnvironmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.InferenceSpecificationProperty",
+		reflect.TypeOf((*CfnModelCard_InferenceSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard.IntendedUsesProperty",
@@ -1315,12 +1323,24 @@ func init() {
 		reflect.TypeOf((*CfnModelCard_ModelOverviewProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ModelPackageCreatorProperty",
+		reflect.TypeOf((*CfnModelCard_ModelPackageCreatorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ModelPackageDetailsProperty",
+		reflect.TypeOf((*CfnModelCard_ModelPackageDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard.ObjectiveFunctionProperty",
 		reflect.TypeOf((*CfnModelCard_ObjectiveFunctionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard.SecurityConfigProperty",
 		reflect.TypeOf((*CfnModelCard_SecurityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard.SourceAlgorithmProperty",
+		reflect.TypeOf((*CfnModelCard_SourceAlgorithmProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard.TrainingDetailsProperty",

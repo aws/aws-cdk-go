@@ -38,6 +38,8 @@ type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 	// The ClassCTimeout value.
 	ClassCTimeout *float64 `field:"optional" json:"classCTimeout" yaml:"classCTimeout"`
 	// The list of values that make up the FactoryPresetFreqs value.
+	//
+	// Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
 	FactoryPresetFreqsList interface{} `field:"optional" json:"factoryPresetFreqsList" yaml:"factoryPresetFreqsList"`
 	// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
 	MacVersion *string `field:"optional" json:"macVersion" yaml:"macVersion"`

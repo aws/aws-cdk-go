@@ -72,6 +72,8 @@ type CfnScheduledQuery_TimestreamConfigurationProperty struct {
 	// Column type for this should be TIMESTAMP.
 	TimeColumn *string `field:"required" json:"timeColumn" yaml:"timeColumn"`
 	// Name of the measure column.
+	//
+	// Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
 	MeasureNameColumn *string `field:"optional" json:"measureNameColumn" yaml:"measureNameColumn"`
 	// Specifies how to map measures to multi-measure records.
 	MixedMeasureMappings interface{} `field:"optional" json:"mixedMeasureMappings" yaml:"mixedMeasureMappings"`

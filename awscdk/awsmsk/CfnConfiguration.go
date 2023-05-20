@@ -11,7 +11,16 @@ import (
 
 // A CloudFormation `AWS::MSK::Configuration`.
 //
-// Creates a new MSK configuration.
+// Creates a new MSK configuration. To see an example of how to use this operation, first save the following text to a file and name the file config-file.txt .
+//
+// `auto.create.topics.enable = true zookeeper.connection.timeout.ms = 1000 log.roll.ms = 604800000`
+//
+// Now run the following Python 3.6 script in the folder where you saved config-file.txt . This script uses the properties specified in config-file.txt to create a configuration named `SalesClusterConfiguration` . This configuration can work with Apache Kafka versions 1.1.1 and 2.1.0.
+//
+// ```PYTHON
+// import boto3 client = boto3.client('kafka') config_file = open('config-file.txt', 'r') server_properties = config_file.read() response = client.create_configuration( Name='SalesClusterConfiguration', Description='The configuration to use on all sales clusters.', KafkaVersions=['1.1.1', '2.1.0'], ServerProperties=server_properties
+// ) print(response)
+// ```.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,7 +41,6 @@ import (
 type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the configuration.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,9 +54,7 @@ type CfnConfiguration interface {
 	// The description of the configuration.
 	Description() *string
 	SetDescription(val *string)
-	// A list of the versions of Apache Kafka with which you can use this MSK configuration.
-	//
-	// You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this list.
+	// `AWS::MSK::Configuration.KafkaVersionsList`.
 	KafkaVersionsList() *[]*string
 	SetKafkaVersionsList(val *[]*string)
 	// The logical ID for this CloudFormation stack element.

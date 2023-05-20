@@ -20,7 +20,7 @@ package awsmediaconnect
 type CfnFlow_FailoverConfigProperty struct {
 	// The type of failover you choose for this flow.
 	//
-	// MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+	// MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams. The string for this property must be entered as MERGE or FAILOVER. No other string entry is valid.
 	FailoverMode *string `field:"optional" json:"failoverMode" yaml:"failoverMode"`
 	// The size of the buffer (delay) that the service maintains.
 	//

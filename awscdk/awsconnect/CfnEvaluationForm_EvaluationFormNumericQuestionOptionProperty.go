@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the option range used for scoring in numeric questions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +18,19 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormNumericQuestionOptionProperty struct {
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionOptionProperty.MaxValue`.
+	// The maximum answer value of the range option.
 	MaxValue *float64 `field:"required" json:"maxValue" yaml:"maxValue"`
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionOptionProperty.MinValue`.
+	// The minimum answer value of the range option.
 	MinValue *float64 `field:"required" json:"minValue" yaml:"minValue"`
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionOptionProperty.AutomaticFail`.
+	// The flag to mark the option as automatic fail.
+	//
+	// If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail interface{} `field:"optional" json:"automaticFail" yaml:"automaticFail"`
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionOptionProperty.Score`.
+	// The score assigned to answer values within the range option.
+	//
+	// *Minimum* : 0
+	//
+	// *Maximum* : 10.
 	Score *float64 `field:"optional" json:"score" yaml:"score"`
 }
 

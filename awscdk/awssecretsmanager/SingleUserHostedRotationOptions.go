@@ -7,7 +7,7 @@ import (
 // Single user hosted rotation options.
 //
 // Example:
-//   var myVpc vpc
+//   var myVpc iVpc
 //   var dbConnections connections
 //   var secret secret
 //

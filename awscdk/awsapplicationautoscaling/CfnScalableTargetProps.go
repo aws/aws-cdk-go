@@ -68,6 +68,7 @@ type CfnScalableTargetProps struct {
 	// - Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: `arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5` .
 	// - Amazon ElastiCache replication group - The resource type is `replication-group` and the unique identifier is the replication group name. Example: `replication-group/mycluster` .
 	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
+	// - SageMaker Serverless endpoint - The resource type is `variant` and the unique identifier is the resource ID. Example: `endpoint/my-end-point/variant/KMeansClustering` .
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
 	//
@@ -99,6 +100,7 @@ type CfnScalableTargetProps struct {
 	// - `elasticache:replication-group:NodeGroups` - The number of node groups for an Amazon ElastiCache replication group.
 	// - `elasticache:replication-group:Replicas` - The number of replicas per node group for an Amazon ElastiCache replication group.
 	// - `neptune:cluster:ReadReplicaCount` - The count of read replicas in an Amazon Neptune DB cluster.
+	// - `sagemaker:variant:DesiredProvisionedConcurrency` - The provisioned concurrency for a SageMaker Serverless endpoint.
 	ScalableDimension *string `field:"required" json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
 	ServiceNamespace *string `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`

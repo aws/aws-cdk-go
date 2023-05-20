@@ -24,7 +24,7 @@ type CfnResourceProps struct {
 	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
-	// `AWS::LakeFormation::Resource.WithFederation`.
+	// Allows Lake Formation to assume a role to access tables in a federated database.
 	WithFederation interface{} `field:"optional" json:"withFederation" yaml:"withFederation"`
 }
 

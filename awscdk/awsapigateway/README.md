@@ -63,6 +63,15 @@ book.AddMethod(jsii.String("GET"))
 book.AddMethod(jsii.String("DELETE"))
 ```
 
+To give an IAM User or Role permission to invoke a method, use `grantExecute`:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+declareuser: iam.User;
+books := api.root.addResource(jsii.String("books"))
+books.grantExecute(user)
+```
+
 ## AWS Lambda-backed APIs
 
 A very common practice is to use Amazon API Gateway with AWS Lambda as the
@@ -245,8 +254,8 @@ way to do this is to have a stack per Resource or groups of Resources, but this 
 The following example uses sets up two Resources '/pets' and '/books' in separate stacks using nested stacks:
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/constructs-go/constructs"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 /**

@@ -1,6 +1,5 @@
 //go:build !no_runtime_type_checking
 
-// Receipt rule actions for AWS IoT
 package awscdkiotactionsalpha
 
 import (

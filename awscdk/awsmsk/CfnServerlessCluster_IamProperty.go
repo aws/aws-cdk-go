@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Details for IAM client authentication.
+// Details for SASL/IAM client authentication.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

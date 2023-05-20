@@ -38,6 +38,8 @@ type GraphqlApiProps struct {
 	DomainName *DomainOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Logging configuration for this api.
 	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
+	// A value indicating whether the API is accessible from anywhere (GLOBAL) or can only be access from a VPC (PRIVATE).
+	Visibility Visibility `field:"optional" json:"visibility" yaml:"visibility"`
 	// A flag indicating whether or not X-Ray tracing is enabled for the GraphQL API.
 	XrayEnabled *bool `field:"optional" json:"xrayEnabled" yaml:"xrayEnabled"`
 }

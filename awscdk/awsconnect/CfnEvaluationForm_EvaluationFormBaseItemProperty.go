@@ -1,6 +1,10 @@
 package awsconnect
 
 
+// An item at the root level.
+//
+// All items must be sections.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -87,7 +91,7 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormBaseItemProperty struct {
-	// `CfnEvaluationForm.EvaluationFormBaseItemProperty.Section`.
+	// A subsection or inner section of an item.
 	Section interface{} `field:"required" json:"section" yaml:"section"`
 }
 

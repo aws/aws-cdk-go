@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the options in single select questions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,11 +39,17 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormSingleSelectQuestionPropertiesProperty struct {
-	// `CfnEvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty.Options`.
+	// The answer options of the single select question.
+	//
+	// *Minimum* : 2
+	//
+	// *Maximum* : 256.
 	Options interface{} `field:"required" json:"options" yaml:"options"`
-	// `CfnEvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty.Automation`.
+	// The display mode of the single select question.
 	Automation interface{} `field:"optional" json:"automation" yaml:"automation"`
-	// `CfnEvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty.DisplayAs`.
+	// The display mode of the single select question.
+	//
+	// *Allowed values* : `DROPDOWN` | `RADIO`.
 	DisplayAs *string `field:"optional" json:"displayAs" yaml:"displayAs"`
 }
 

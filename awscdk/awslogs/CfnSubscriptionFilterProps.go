@@ -30,9 +30,9 @@ type CfnSubscriptionFilterProps struct {
 	//
 	// All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
-	// `AWS::Logs::SubscriptionFilter.Distribution`.
+	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution *string `field:"optional" json:"distribution" yaml:"distribution"`
-	// `AWS::Logs::SubscriptionFilter.FilterName`.
+	// The name of the subscription filter.
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 	// The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream.
 	//

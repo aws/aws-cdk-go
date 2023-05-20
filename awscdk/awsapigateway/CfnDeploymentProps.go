@@ -81,6 +81,8 @@ type CfnDeploymentProps struct {
 	// The description for the Deployment resource to create.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The description of the Stage resource for the Deployment resource to create.
+	//
+	// To specify a stage description, you must also provide a stage name.
 	StageDescription interface{} `field:"optional" json:"stageDescription" yaml:"stageDescription"`
 	// The name of the Stage resource for the Deployment resource to create.
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`

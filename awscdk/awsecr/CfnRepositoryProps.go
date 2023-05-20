@@ -59,6 +59,8 @@ type CfnRepositoryProps struct {
 	//
 	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
+	// The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// The JSON repository policy text to apply to the repository.

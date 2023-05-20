@@ -18,8 +18,6 @@ package awslex
 //
 type CfnBot_DialogActionProperty struct {
 	// The action that the bot should execute.
-	//
-	// Valid values are `ElicitIntent` , `StartIntent` , `ElicitSlot` , `EvaluateConditional` , `InvokeDialogCodeHook` , `ConfirmIntent` , `FulfillIntent` , `CloseIntent` , and `EndConversation` .
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
 	SlotToElicit *string `field:"optional" json:"slotToElicit" yaml:"slotToElicit"`

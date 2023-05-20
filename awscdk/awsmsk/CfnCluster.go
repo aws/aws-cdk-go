@@ -11,7 +11,12 @@ import (
 
 // A CloudFormation `AWS::MSK::Cluster`.
 //
-// The `AWS::MSK::Cluster` resource creates an Amazon MSK cluster . For more information, see [What Is Amazon MSK?](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) in the *Amazon MSK Developer Guide* .
+// Creates a new MSK cluster. The following Python 3.6 examples shows how you can create a cluster that's distributed over two Availability Zones. Before you run this Python script, replace the example subnet and security-group IDs with the IDs of your subnets and security group. When you create an MSK cluster, its brokers get evenly distributed over a number of Availability Zones that's equal to the number of subnets that you specify in the `BrokerNodeGroupInfo` parameter. In this example, you can add a third subnet to get a cluster that's distributed over three Availability Zones.
+//
+// ```PYTHON
+// import boto3 client = boto3.client('kafka') response = client.create_cluster( BrokerNodeGroupInfo={ 'BrokerAZDistribution': 'DEFAULT', 'ClientSubnets': [ 'subnet-012345678901fedcba', 'subnet-9876543210abcdef01' ], 'InstanceType': 'kafka.m5.large', 'SecurityGroups': [ 'sg-012345abcdef789789' ] }, ClusterName='SalesCluster', EncryptionInfo={ 'EncryptionInTransit': { 'ClientBroker': 'TLS_PLAINTEXT', 'InCluster': True } }, EnhancedMonitoring='PER_TOPIC_PER_BROKER', KafkaVersion='2.2.1', NumberOfBrokerNodes=2
+// ) print(response)
+// ```.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -142,9 +147,7 @@ type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
-	// The setup to be used for brokers in the cluster.
-	//
-	// AWS CloudFormation may replace the cluster when you update certain `BrokerNodeGroupInfo` properties. To understand the update behavior for your use case, you should review the child properties for [`BrokerNodeGroupInfo`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties) .
+	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo() interface{}
 	SetBrokerNodeGroupInfo(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -152,13 +155,13 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Includes information related to client authentication.
+	// Includes all client authentication related information.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
 	// The name of the cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
-	// The Amazon MSK configuration to use for the cluster.
+	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo() interface{}
 	SetConfigurationInfo(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -178,12 +181,10 @@ type CfnCluster interface {
 	SetEnhancedMonitoring(val *string)
 	// The version of Apache Kafka.
 	//
-	// For more information, see [Supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) in the Amazon MSK Developer Guide.
+	// You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
 	KafkaVersion() *string
 	SetKafkaVersion(val *string)
-	// You can configure your Amazon MSK cluster to send broker logs to different destination types.
-	//
-	// This is a container for the configuration details related to broker logs.
+	// Logging Info details.
 	LoggingInfo() interface{}
 	SetLoggingInfo(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -198,9 +199,7 @@ type CfnCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The number of broker nodes you want in the Amazon MSK cluster.
-	//
-	// You can submit an update to increase the number of broker nodes in a cluster.
+	// The number of broker nodes in the cluster.
 	NumberOfBrokerNodes() *float64
 	SetNumberOfBrokerNodes(val *float64)
 	// The settings for open monitoring.
@@ -218,9 +217,7 @@ type CfnCluster interface {
 	// This controls storage mode for supported storage tiers.
 	StorageMode() *string
 	SetStorageMode(val *string)
-	// A map of key:value pairs to apply to this resource.
-	//
-	// Both key and value are of type String.
+	// Create tags when creating the cluster.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

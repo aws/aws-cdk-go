@@ -1,6 +1,5 @@
 //go:build !no_runtime_type_checking
 
-// CDK Destinations Constructs for AWS Kinesis Firehose
 package awscdkkinesisfirehosedestinationsalpha
 
 import (

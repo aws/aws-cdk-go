@@ -20,6 +20,8 @@ import (
 type AlbControllerVersion interface {
 	// Whether or not its a custom version.
 	Custom() *bool
+	// The version of the helm chart to use.
+	HelmChartVersion() *string
 	// The version string.
 	Version() *string
 }
@@ -39,6 +41,16 @@ func (j *jsiiProxy_AlbControllerVersion) Custom() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_AlbControllerVersion) HelmChartVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"helmChartVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_AlbControllerVersion) Version() *string {
 	var returns *string
 	_jsii_.Get(
@@ -50,11 +62,14 @@ func (j *jsiiProxy_AlbControllerVersion) Version() *string {
 }
 
 
-// Specify a custom version.
+// Specify a custom version and an associated helm chart version.
 //
 // Use this if the version you need is not available in one of the predefined versions.
 // Note that in this case, you will also need to provide an IAM policy in the controller options.
-func AlbControllerVersion_Of(version *string) AlbControllerVersion {
+//
+// ALB controller version and helm chart version compatibility information can be found
+// here: https://github.com/aws/eks-charts/blob/v0.0.133/stable/aws-load-balancer-controller/Chart.yaml
+func AlbControllerVersion_Of(version *string, helmChartVersion *string) AlbControllerVersion {
 	_init_.Initialize()
 
 	if err := validateAlbControllerVersion_OfParameters(version); err != nil {
@@ -65,7 +80,7 @@ func AlbControllerVersion_Of(version *string) AlbControllerVersion {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"of",
-		[]interface{}{version},
+		[]interface{}{version, helmChartVersion},
 		&returns,
 	)
 
@@ -221,6 +236,94 @@ func AlbControllerVersion_V2_4_1() AlbControllerVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_4_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_2() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_4_2",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_3() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_4_3",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_4() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_4_4",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_5() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_4_5",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_6() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_4_6",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_7() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_4_7",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_5_0() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_5_0",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_5_1() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_5_1",
 		&returns,
 	)
 	return returns

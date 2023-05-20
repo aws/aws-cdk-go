@@ -1,12 +1,11 @@
-// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
 // Initialization props for the `NestedStack` construct.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   /**

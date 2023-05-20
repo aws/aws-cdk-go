@@ -51,13 +51,13 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 	ReservoirSize *float64 `field:"optional" json:"reservoirSize" yaml:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
-	// The ARN of the sampling rule.
+	// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 	//
-	// You must specify either RuleARN or RuleName, but not both.
+	// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
 	RuleArn *string `field:"optional" json:"ruleArn" yaml:"ruleArn"`
 	// The name of the sampling rule.
 	//
-	// You must specify either RuleARN or RuleName, but not both.
+	// Specify a rule by either name or ARN, but not both.
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
@@ -65,7 +65,9 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 	ServiceType *string `field:"optional" json:"serviceType" yaml:"serviceType"`
 	// Matches the path from a request URL.
 	UrlPath *string `field:"optional" json:"urlPath" yaml:"urlPath"`
-	// The version of the sampling rule format ( `1` ).
+	// The version of the sampling rule.
+	//
+	// `Version` can only be set when creating a new sampling rule.
 	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 

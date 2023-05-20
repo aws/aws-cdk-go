@@ -1283,14 +1283,19 @@ NewEcsAppStack(app, jsii.String("EcsStackDeployedInPipeline"), &ecsAppStackProps
 To use an S3 Bucket as a deployment target in CodePipeline:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 sourceOutput := codepipeline.NewArtifact()
 targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
+key := kms.NewKey(stack, jsii.String("EnvVarEncryptKey"), map[string]*string{
+	"description": jsii.String("sample key"),
+})
 
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 	ActionName: jsii.String("S3Deploy"),
 	Bucket: targetBucket,
 	Input: sourceOutput,
+	EncryptionKey: key,
 })
 deployStage := pipeline.AddStage(&StageOptions{
 	StageName: jsii.String("Deploy"),

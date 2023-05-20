@@ -11,6 +11,13 @@ import (
 
 // A CloudFormation `AWS::Proton::EnvironmentTemplate`.
 //
+// Create an environment template for AWS Proton . For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
+//
+// You can create an environment template in one of the two following ways:
+//
+// - Register and publish a *standard* environment template that instructs AWS Proton to deploy and manage environment infrastructure.
+// - Register and publish a *customer managed* environment template that connects AWS Proton to your existing provisioned infrastructure that you manage. AWS Proton *doesn't* manage your existing provisioned infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the `provisioning` parameter and set the value to `CUSTOMER_MANAGED` . For more information, see [Register and publish an environment template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html) in the *AWS Proton User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,6 +40,7 @@ import (
 type CfnEnvironmentTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the ARN of the environment template.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,13 +51,13 @@ type CfnEnvironmentTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Proton::EnvironmentTemplate.Description`.
+	// A description of the environment template.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Proton::EnvironmentTemplate.DisplayName`.
+	// The name of the environment template as displayed in the developer interface.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// `AWS::Proton::EnvironmentTemplate.EncryptionKey`.
+	// The customer provided encryption key for the environment template.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,12 +70,12 @@ type CfnEnvironmentTemplate interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Proton::EnvironmentTemplate.Name`.
+	// The name of the environment template.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Proton::EnvironmentTemplate.Provisioning`.
+	// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
 	Provisioning() *string
 	SetProvisioning(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -79,7 +87,11 @@ type CfnEnvironmentTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Proton::EnvironmentTemplate.Tags`.
+	// An optional list of metadata items that you can associate with the AWS Proton environment template.
+	//
+	// A tag is a key-value pair.
+	//
+	// For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide* .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

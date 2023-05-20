@@ -113,8 +113,6 @@ type CfnBot_PromptSpecificationProperty struct {
 	// Indicates how a message is selected from a message group among retries.
 	MessageSelectionStrategy *string `field:"optional" json:"messageSelectionStrategy" yaml:"messageSelectionStrategy"`
 	// Specifies the advanced settings on each attempt of the prompt.
-	//
-	// The valid keys are `Initial` , `Retry1` , `Retry2` , `Retry3` , `Retry4` , and `Retry5` .
 	PromptAttemptsSpecification interface{} `field:"optional" json:"promptAttemptsSpecification" yaml:"promptAttemptsSpecification"`
 }
 

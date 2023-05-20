@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::IoT
 package awscdkiotalpha
 
 import (

@@ -67,9 +67,13 @@ type CfnNetworkInsightsPathProps struct {
 	DestinationIp *string `field:"optional" json:"destinationIp" yaml:"destinationIp"`
 	// The destination port.
 	DestinationPort *float64 `field:"optional" json:"destinationPort" yaml:"destinationPort"`
-	// `AWS::EC2::NetworkInsightsPath.FilterAtDestination`.
+	// Scopes the analysis to network paths that match specific filters at the destination.
+	//
+	// If you specify this parameter, you can't specify the parameter for the destination IP address.
 	FilterAtDestination interface{} `field:"optional" json:"filterAtDestination" yaml:"filterAtDestination"`
-	// `AWS::EC2::NetworkInsightsPath.FilterAtSource`.
+	// Scopes the analysis to network paths that match specific filters at the source.
+	//
+	// If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 	FilterAtSource interface{} `field:"optional" json:"filterAtSource" yaml:"filterAtSource"`
 	// The IP address of the source.
 	SourceIp *string `field:"optional" json:"sourceIp" yaml:"sourceIp"`

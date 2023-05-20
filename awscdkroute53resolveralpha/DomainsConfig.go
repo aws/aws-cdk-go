@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::Route53Resolver
 package awscdkroute53resolveralpha
 
 

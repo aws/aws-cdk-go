@@ -3,6 +3,8 @@ package awssagemaker
 
 // Describes the S3 data source.
 //
+// Your input bucket must be in the same AWS region as your training job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -56,6 +58,8 @@ type CfnModelPackage_S3DataSourceProperty struct {
 	// `s3://customer_bucket/some/prefix/relative/path/custdata-N`
 	//
 	// The complete set of `S3Uri` in this manifest is the input data for the channel for this data source. The object that each `S3Uri` points to must be readable by the IAM role that SageMaker uses to perform tasks on your behalf.
+	//
+	// Your input bucket must be located in same AWS region as your training job.
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 }
 

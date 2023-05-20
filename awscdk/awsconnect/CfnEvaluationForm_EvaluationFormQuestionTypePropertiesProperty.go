@@ -1,6 +1,10 @@
 package awsconnect
 
 
+// Information about properties for a question in an evaluation form.
+//
+// The question type properties must be either for a numeric question or a single select question.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -60,9 +64,9 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormQuestionTypePropertiesProperty struct {
-	// `CfnEvaluationForm.EvaluationFormQuestionTypePropertiesProperty.Numeric`.
+	// The properties of the numeric question.
 	Numeric interface{} `field:"optional" json:"numeric" yaml:"numeric"`
-	// `CfnEvaluationForm.EvaluationFormQuestionTypePropertiesProperty.SingleSelect`.
+	// The properties of the numeric question.
 	SingleSelect interface{} `field:"optional" json:"singleSelect" yaml:"singleSelect"`
 }
 

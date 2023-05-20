@@ -20,7 +20,7 @@ package awstransfer
 type CfnServer_IdentityProviderDetailsProperty struct {
 	// The identifier of the AWS Directory Service directory that you want to stop sharing.
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
-	// The ARN for a lambda function to use for the Identity provider.
+	// The ARN for a Lambda function to use for the Identity provider.
 	Function *string `field:"optional" json:"function" yaml:"function"`
 	// This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` .
 	//

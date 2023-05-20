@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The component type status.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,9 +17,9 @@ package awsiottwinmaker
 //   }
 //
 type CfnComponentType_StatusProperty struct {
-	// `CfnComponentType.StatusProperty.Error`.
+	// The component type error.
 	Error interface{} `field:"optional" json:"error" yaml:"error"`
-	// `CfnComponentType.StatusProperty.State`.
+	// The component type status state.
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 

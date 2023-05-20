@@ -173,7 +173,9 @@ type CfnDomainProps struct {
 	AppNetworkAccessType *string `field:"optional" json:"appNetworkAccessType" yaml:"appNetworkAccessType"`
 	// The entity that creates and manages the required security groups for inter-app communication in `VpcOnly` mode.
 	//
-	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided.
+	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided. If setting up the domain for use with RStudio, this value must be set to `Service` .
+	//
+	// *Allowed Values* : `Service` | `Customer`.
 	AppSecurityGroupManagement *string `field:"optional" json:"appSecurityGroupManagement" yaml:"appSecurityGroupManagement"`
 	// `AWS::SageMaker::Domain.DefaultSpaceSettings`.
 	DefaultSpaceSettings interface{} `field:"optional" json:"defaultSpaceSettings" yaml:"defaultSpaceSettings"`

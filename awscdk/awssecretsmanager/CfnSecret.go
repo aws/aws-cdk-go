@@ -70,6 +70,8 @@ import (
 type CfnSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the secret.
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -301,6 +303,16 @@ type CfnSecret interface {
 type jsiiProxy_CfnSecret struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSecret) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSecret) CfnOptions() awscdk.ICfnResourceOptions {

@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The entity data type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -63,15 +65,15 @@ package awsiottwinmaker
 //   }
 //
 type CfnEntity_DataTypeProperty struct {
-	// `CfnEntity.DataTypeProperty.AllowedValues`.
+	// The allowed values.
 	AllowedValues interface{} `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// `CfnEntity.DataTypeProperty.NestedType`.
+	// The nested type.
 	NestedType interface{} `field:"optional" json:"nestedType" yaml:"nestedType"`
-	// `CfnEntity.DataTypeProperty.Relationship`.
+	// The relationship.
 	Relationship interface{} `field:"optional" json:"relationship" yaml:"relationship"`
-	// `CfnEntity.DataTypeProperty.Type`.
+	// The entity type.
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// `CfnEntity.DataTypeProperty.UnitOfMeasure`.
+	// The unit of measure.
 	UnitOfMeasure *string `field:"optional" json:"unitOfMeasure" yaml:"unitOfMeasure"`
 }
 

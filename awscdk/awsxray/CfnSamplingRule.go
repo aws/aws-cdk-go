@@ -11,7 +11,9 @@ import (
 
 // A CloudFormation `AWS::XRay::SamplingRule`.
 //
-// Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. A new sampling rule is created by specifying a `SamplingRule` . To change the configuration of an existing sampling rule, specify a `SamplingRuleUpdate` .
+// Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. Include a `SamplingRule` entity to create or update a sampling rule.
+//
+// > `SamplingRule.Version` can only be set when creating a sampling rule. Updating the version will cause the update to fail.
 //
 // Services retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com//xray/latest/api/API_GetSamplingRules.html) , and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com//xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.
 //
@@ -114,14 +116,10 @@ type CfnSamplingRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The name of the sampling rule.
-	//
-	// Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the `RuleName` or `RuleARN` properties within `SamplingRule` or `SamplingRuleUpdate` .
+	// `AWS::XRay::SamplingRule.RuleName`.
 	RuleName() *string
 	SetRuleName(val *string)
-	// The sampling rule to be created.
-	//
-	// Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.
+	// The sampling rule to be created or updated.
 	SamplingRule() interface{}
 	SetSamplingRule(val interface{})
 	// `AWS::XRay::SamplingRule.SamplingRuleRecord`.
@@ -135,8 +133,6 @@ type CfnSamplingRule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() *[]interface{}
 	SetTags(val *[]interface{})
 	// Deprecated.

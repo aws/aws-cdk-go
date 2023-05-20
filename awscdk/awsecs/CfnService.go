@@ -184,7 +184,7 @@ type CfnService interface {
 	// If no deployment controller is specified, the default value of `ECS` is used.
 	DeploymentController() interface{}
 	SetDeploymentController(val interface{})
-	// The number of instantiations of the specified task definition to place and keep running on your cluster.
+	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//
 	// For new services, if a desired count is not specified, a default value of `1` is used. When using the `DAEMON` scheduling strategy, the desired count is not required.
 	//

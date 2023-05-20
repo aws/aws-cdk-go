@@ -37,6 +37,14 @@ func validateTreeCloudArtifact_FromManifestParameters(assembly CloudAssembly, id
 	return nil
 }
 
+func validateTreeCloudArtifact_IsTreeCloudArtifactParameters(art interface{}) error {
+	if art == nil {
+		return fmt.Errorf("parameter art is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewTreeCloudArtifactParameters(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) error {
 	if assembly == nil {
 		return fmt.Errorf("parameter assembly is required, but nil was provided")

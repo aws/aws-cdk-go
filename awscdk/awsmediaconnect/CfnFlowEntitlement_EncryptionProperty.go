@@ -23,7 +23,9 @@ package awsmediaconnect
 //   }
 //
 type CfnFlowEntitlement_EncryptionProperty struct {
-	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+	// The type of algorithm that is used for static key encryption (such as aes128, aes192, or aes256).
+	//
+	// If you are using SPEKE or SRT-password encryption, this property must be left blank.
 	Algorithm *string `field:"required" json:"algorithm" yaml:"algorithm"`
 	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
@@ -37,7 +39,7 @@ type CfnFlowEntitlement_EncryptionProperty struct {
 	DeviceId *string `field:"optional" json:"deviceId" yaml:"deviceId"`
 	// The type of key that is used for the encryption.
 	//
-	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
+	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ). Valid key types are: `static-key` , `speke` , and `srt-password` .
 	KeyType *string `field:"optional" json:"keyType" yaml:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in.
 	//

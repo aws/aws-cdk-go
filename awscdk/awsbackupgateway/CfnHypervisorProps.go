@@ -27,19 +27,21 @@ import (
 //   }
 //
 type CfnHypervisorProps struct {
-	// `AWS::BackupGateway::Hypervisor.Host`.
+	// The server host of the hypervisor.
+	//
+	// This can be either an IP address or a fully-qualified domain name (FQDN).
 	Host *string `field:"optional" json:"host" yaml:"host"`
-	// `AWS::BackupGateway::Hypervisor.KmsKeyArn`.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// `AWS::BackupGateway::Hypervisor.LogGroupArn`.
+	// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
 	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
-	// `AWS::BackupGateway::Hypervisor.Name`.
+	// The name of the hypervisor.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::BackupGateway::Hypervisor.Password`.
+	// The password for the hypervisor.
 	Password *string `field:"optional" json:"password" yaml:"password"`
-	// `AWS::BackupGateway::Hypervisor.Tags`.
+	// The tags of the hypervisor configuration to import.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::BackupGateway::Hypervisor.Username`.
+	// The username for the hypervisor.
 	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 

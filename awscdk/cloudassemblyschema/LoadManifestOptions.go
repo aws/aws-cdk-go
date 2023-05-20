@@ -11,6 +11,7 @@ package cloudassemblyschema
 //   loadManifestOptions := &LoadManifestOptions{
 //   	SkipEnumCheck: jsii.Boolean(false),
 //   	SkipVersionCheck: jsii.Boolean(false),
+//   	TopoSort: jsii.Boolean(false),
 //   }
 //
 type LoadManifestOptions struct {
@@ -25,5 +26,10 @@ type LoadManifestOptions struct {
 	// to support, and your application may not be aware of all features that in use
 	// in the Cloud Assembly.
 	SkipVersionCheck *bool `field:"optional" json:"skipVersionCheck" yaml:"skipVersionCheck"`
+	// Topologically sort all artifacts.
+	//
+	// This parameter is only respected by the constructor of `CloudAssembly`. The
+	// property lives here for backwards compatibility reasons.
+	TopoSort *bool `field:"optional" json:"topoSort" yaml:"topoSort"`
 }
 

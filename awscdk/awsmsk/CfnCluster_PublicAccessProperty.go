@@ -1,9 +1,7 @@
 package awsmsk
 
 
-// Specifies whether the cluster's brokers are accessible from the internet.
-//
-// Public access is off by default.
+// Broker access controls.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +13,9 @@ package awsmsk
 //   }
 //
 type CfnCluster_PublicAccessProperty struct {
-	// Set to `DISABLED` to turn off public access or to `SERVICE_PROVIDED_EIPS` to turn it on.
+	// DISABLED means that public access is turned off.
 	//
-	// Public access if off by default.
+	// SERVICE_PROVIDED_EIPS means that public access is turned on.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

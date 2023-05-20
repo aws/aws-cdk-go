@@ -148,6 +148,8 @@ type CfnRestApi interface {
 	Mode() *string
 	SetMode(val *string)
 	// The name of the RestApi.
+	//
+	// A name is required if the REST API is not based on an OpenAPI specification.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

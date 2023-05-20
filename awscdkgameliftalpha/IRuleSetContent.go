@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::GameLift
 package awscdkgameliftalpha
 
 import (

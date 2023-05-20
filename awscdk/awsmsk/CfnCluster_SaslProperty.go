@@ -20,7 +20,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_SaslProperty struct {
-	// Details for IAM access control.
+	// Details for ClientAuthentication using IAM.
 	Iam interface{} `field:"optional" json:"iam" yaml:"iam"`
 	// Details for SASL/SCRAM client authentication.
 	Scram interface{} `field:"optional" json:"scram" yaml:"scram"`

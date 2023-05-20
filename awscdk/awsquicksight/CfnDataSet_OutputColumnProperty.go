@@ -19,7 +19,7 @@ type CfnDataSet_OutputColumnProperty struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A display name for the dataset.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Type.
+	// The type.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

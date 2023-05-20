@@ -124,7 +124,7 @@ type CfnRuleGroup_RulesSourceProperty struct {
 	RulesString *string `field:"optional" json:"rulesString" yaml:"rulesString"`
 	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
 	//
-	// Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.iorules/intro.html#) .
+	// Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
 	StatefulRules interface{} `field:"optional" json:"statefulRules" yaml:"statefulRules"`
 	// Stateless inspection criteria to be used in a stateless rule group.
 	StatelessRulesAndCustomActions interface{} `field:"optional" json:"statelessRulesAndCustomActions" yaml:"statelessRulesAndCustomActions"`

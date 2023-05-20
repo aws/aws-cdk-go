@@ -1,3 +1,4 @@
+// The CDK Construct Library for AWS::Neptune
 package awscdkneptunealpha
 
 import (

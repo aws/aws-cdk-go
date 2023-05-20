@@ -1,6 +1,8 @@
 package awslakeformation
 
 
+// Permissions granted to a principal.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,9 @@ package awslakeformation
 //   }
 //
 type CfnDataLakeSettings_PrincipalPermissionsProperty struct {
-	// `CfnDataLakeSettings.PrincipalPermissionsProperty.Permissions`.
+	// The permissions that are granted to the principal.
 	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
-	// `CfnDataLakeSettings.PrincipalPermissionsProperty.Principal`.
+	// The principal who is granted permissions.
 	Principal interface{} `field:"optional" json:"principal" yaml:"principal"`
 }
 

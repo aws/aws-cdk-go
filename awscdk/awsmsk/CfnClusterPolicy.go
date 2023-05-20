@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::MSK::ClusterPolicy`.
 //
+// Create or update cluster policy.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,13 +28,14 @@ import (
 type CfnClusterPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The current version of the policy attached to the specified cluster.
 	AttrCurrentVersion() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::MSK::ClusterPolicy.ClusterArn`.
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn() *string
 	SetClusterArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -51,7 +54,7 @@ type CfnClusterPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::MSK::ClusterPolicy.Policy`.
+	// Resource policy for the cluster.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -37,6 +37,14 @@ func validateNestedCloudAssemblyArtifact_FromManifestParameters(assembly CloudAs
 	return nil
 }
 
+func validateNestedCloudAssemblyArtifact_IsNestedCloudAssemblyArtifactParameters(art interface{}) error {
+	if art == nil {
+		return fmt.Errorf("parameter art is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewNestedCloudAssemblyArtifactParameters(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) error {
 	if assembly == nil {
 		return fmt.Errorf("parameter assembly is required, but nil was provided")

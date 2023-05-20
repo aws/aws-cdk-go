@@ -20,6 +20,10 @@ func (m *jsiiProxy_Method) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
+func (m *jsiiProxy_Method) validateGrantExecuteParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (m *jsiiProxy_Method) validateMetricParameters(metricName *string, stage IStage, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

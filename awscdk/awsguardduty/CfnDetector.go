@@ -13,6 +13,8 @@ import (
 //
 // The `AWS::GuardDuty::Detector` resource specifies a new  detector. A detector is an object that represents the  service. A detector is required for  to become operational.
 //
+// Make sure you use either `DataSources` or `Features` in a one request, and not both.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -103,9 +105,11 @@ type CfnDetector interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to be added to a new detector resource.
+	// Specifies tags added to a new detector resource.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager

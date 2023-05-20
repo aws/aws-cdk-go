@@ -127,9 +127,7 @@ type CfnCanary interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies whether AWS CloudFormation is to also delete the Lambda functions and layers used by this canary, when the canary is deleted.
-	//
-	// The default is false.
+	// `AWS::Synthetics::Canary.DeleteLambdaResourcesOnCanaryDeletion`.
 	DeleteLambdaResourcesOnCanaryDeletion() interface{}
 	SetDeleteLambdaResourcesOnCanaryDeletion(val interface{})
 	// The ARN of the IAM role to be used to run the canary.

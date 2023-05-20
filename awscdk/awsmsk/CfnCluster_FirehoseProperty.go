@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+// Firehose details for BrokerLogs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_FirehoseProperty struct {
-	// Specifies whether broker logs get sent to the specified Kinesis Data Firehose delivery stream.
+	// Specifies whether broker logs get send to the specified Kinesis Data Firehose delivery stream.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
 	DeliveryStream *string `field:"optional" json:"deliveryStream" yaml:"deliveryStream"`

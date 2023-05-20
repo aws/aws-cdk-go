@@ -72,21 +72,15 @@ package awsxray
 //   }
 //
 type CfnSamplingRuleProps struct {
-	// The name of the sampling rule.
-	//
-	// Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the `RuleName` or `RuleARN` properties within `SamplingRule` or `SamplingRuleUpdate` .
+	// `AWS::XRay::SamplingRule.RuleName`.
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
-	// The sampling rule to be created.
-	//
-	// Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.
+	// The sampling rule to be created or updated.
 	SamplingRule interface{} `field:"optional" json:"samplingRule" yaml:"samplingRule"`
 	// `AWS::XRay::SamplingRule.SamplingRuleRecord`.
 	SamplingRuleRecord interface{} `field:"optional" json:"samplingRuleRecord" yaml:"samplingRuleRecord"`
 	// `AWS::XRay::SamplingRule.SamplingRuleUpdate`.
 	SamplingRuleUpdate interface{} `field:"optional" json:"samplingRuleUpdate" yaml:"samplingRuleUpdate"`
 	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

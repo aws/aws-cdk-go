@@ -37,7 +37,7 @@ type CfnSceneProps struct {
 	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// The description of this scene.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTTwinMaker::Scene.SceneMetadata`.
+	// The scene metadata.
 	SceneMetadata interface{} `field:"optional" json:"sceneMetadata" yaml:"sceneMetadata"`
 	// The ComponentType tags.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

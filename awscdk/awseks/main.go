@@ -33,6 +33,7 @@ func init() {
 		reflect.TypeOf((*AlbControllerVersion)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "custom", GoGetter: "Custom"},
+			_jsii_.MemberProperty{JsiiProperty: "helmChartVersion", GoGetter: "HelmChartVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {

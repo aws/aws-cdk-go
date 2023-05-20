@@ -1,9 +1,7 @@
 package awsmsk
 
 
-// Specifies whether the cluster's brokers are publicly accessible.
-//
-// By default, they are not.
+// Broker access controls.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,11 +30,9 @@ package awsmsk
 //   }
 //
 type CfnCluster_ConnectivityInfoProperty struct {
-	// Specifies whether the cluster's brokers are accessible from the internet.
-	//
-	// Public access is off by default.
+	// Access control settings for the cluster's brokers.
 	PublicAccess interface{} `field:"optional" json:"publicAccess" yaml:"publicAccess"`
-	// Not currently supported by AWS CloudFormation .
+	// VPC connection control settings for brokers.
 	VpcConnectivity interface{} `field:"optional" json:"vpcConnectivity" yaml:"vpcConnectivity"`
 }
 

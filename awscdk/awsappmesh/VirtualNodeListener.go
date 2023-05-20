@@ -11,30 +11,38 @@ import (
 //
 // Example:
 //   var mesh mesh
-//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
-//   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
-//   	Vpc: Vpc,
-//   	Name: jsii.String("domain.local"),
-//   })
-//   service := namespace.CreateService(jsii.String("Svc"))
-//   node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
+//   var service service
+//
+//
+//   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
+//   	Mesh: Mesh,
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
 //   	Listeners: []virtualNodeListener{
 //   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
-//   			Port: jsii.Number(8081),
+//   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
 //   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
-//   				 // minimum
-//   				Path: jsii.String("/health-check-path"),
+//   				Path: jsii.String("/ping"),
 //   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
-//   				 // minimum
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),
+//   			Timeout: &HttpTimeout{
+//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
+//   			},
 //   		}),
+//   	},
+//   	BackendDefaults: &BackendDefaults{
+//   		TlsClientPolicy: &TlsClientPolicy{
+//   			Validation: &TlsValidation{
+//   				Trust: appmesh.TlsValidationTrust_File(jsii.String("/keys/local_cert_chain.pem")),
+//   			},
+//   		},
 //   	},
 //   	AccessLog: appmesh.AccessLog_FromFilePath(jsii.String("/dev/stdout")),
 //   })
+//
+//   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
 type VirtualNodeListener interface {
 	// Binds the current object when adding Listener to a VirtualNode.

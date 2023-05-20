@@ -72,7 +72,7 @@ type CfnSchedule_EcsParametersProperty struct {
 	//
 	// If true, this enables execute command functionality on all containers in the task.
 	EnableExecuteCommand interface{} `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
-	// Specifies an ECS task group for the task.
+	// Specifies an Amazon ECS task group for the task.
 	//
 	// The maximum length is 255 characters.
 	Group *string `field:"optional" json:"group" yaml:"group"`
@@ -94,7 +94,7 @@ type CfnSchedule_EcsParametersProperty struct {
 	PlatformVersion *string `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
-	// If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use Amazon ECS's [`TagResource`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
+	// If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the Amazon ECS [`TagResource`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
 	PropagateTags *string `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId *string `field:"optional" json:"referenceId" yaml:"referenceId"`

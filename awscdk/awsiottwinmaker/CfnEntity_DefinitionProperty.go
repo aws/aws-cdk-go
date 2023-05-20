@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The entity definition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -65,25 +67,25 @@ package awsiottwinmaker
 //   }
 //
 type CfnEntity_DefinitionProperty struct {
-	// `CfnEntity.DefinitionProperty.Configuration`.
+	// The configuration.
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
-	// `CfnEntity.DefinitionProperty.DataType`.
+	// The data type.
 	DataType interface{} `field:"optional" json:"dataType" yaml:"dataType"`
-	// `CfnEntity.DefinitionProperty.DefaultValue`.
+	// The default value.
 	DefaultValue interface{} `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// `CfnEntity.DefinitionProperty.IsExternalId`.
+	// Displays if the entity has a external Id.
 	IsExternalId interface{} `field:"optional" json:"isExternalId" yaml:"isExternalId"`
-	// `CfnEntity.DefinitionProperty.IsFinal`.
+	// Displays if the entity is final.
 	IsFinal interface{} `field:"optional" json:"isFinal" yaml:"isFinal"`
-	// `CfnEntity.DefinitionProperty.IsImported`.
+	// Displays if the entity is imported.
 	IsImported interface{} `field:"optional" json:"isImported" yaml:"isImported"`
-	// `CfnEntity.DefinitionProperty.IsInherited`.
+	// Displays if the entity is inherited.
 	IsInherited interface{} `field:"optional" json:"isInherited" yaml:"isInherited"`
-	// `CfnEntity.DefinitionProperty.IsRequiredInEntity`.
+	// Displays if the entity is a required entity.
 	IsRequiredInEntity interface{} `field:"optional" json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
-	// `CfnEntity.DefinitionProperty.IsStoredExternally`.
+	// Displays if the entity is tored externally.
 	IsStoredExternally interface{} `field:"optional" json:"isStoredExternally" yaml:"isStoredExternally"`
-	// `CfnEntity.DefinitionProperty.IsTimeSeries`.
+	// Displays if the entity.
 	IsTimeSeries interface{} `field:"optional" json:"isTimeSeries" yaml:"isTimeSeries"`
 }
 

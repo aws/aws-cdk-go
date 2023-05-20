@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::Amplify
 package awscdkamplifyalpha
 
 import (

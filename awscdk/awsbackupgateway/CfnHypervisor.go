@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::BackupGateway::Hypervisor`.
 //
+// Represents the hypervisor's permissions to which the gateway will connect.
+//
+// A hypervisor is hardware, software, or firmware that creates and manages virtual machines, and allocates resources to them.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,6 +38,9 @@ import (
 type CfnHypervisor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor.
+	//
+	// For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`.
 	AttrHypervisorArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -44,13 +51,15 @@ type CfnHypervisor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::BackupGateway::Hypervisor.Host`.
+	// The server host of the hypervisor.
+	//
+	// This can be either an IP address or a fully-qualified domain name (FQDN).
 	Host() *string
 	SetHost(val *string)
-	// `AWS::BackupGateway::Hypervisor.KmsKeyArn`.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
-	// `AWS::BackupGateway::Hypervisor.LogGroupArn`.
+	// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
 	LogGroupArn() *string
 	SetLogGroupArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -63,12 +72,12 @@ type CfnHypervisor interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::BackupGateway::Hypervisor.Name`.
+	// The name of the hypervisor.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::BackupGateway::Hypervisor.Password`.
+	// The password for the hypervisor.
 	Password() *string
 	SetPassword(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -80,7 +89,7 @@ type CfnHypervisor interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::BackupGateway::Hypervisor.Tags`.
+	// The tags of the hypervisor configuration to import.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -95,7 +104,7 @@ type CfnHypervisor interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::BackupGateway::Hypervisor.Username`.
+	// The username for the hypervisor.
 	Username() *string
 	SetUsername(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

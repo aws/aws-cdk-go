@@ -129,23 +129,19 @@ package awsmsk
 //   }
 //
 type CfnClusterProps struct {
-	// The setup to be used for brokers in the cluster.
-	//
-	// AWS CloudFormation may replace the cluster when you update certain `BrokerNodeGroupInfo` properties. To understand the update behavior for your use case, you should review the child properties for [`BrokerNodeGroupInfo`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties) .
+	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo interface{} `field:"required" json:"brokerNodeGroupInfo" yaml:"brokerNodeGroupInfo"`
 	// The name of the cluster.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The version of Apache Kafka.
 	//
-	// For more information, see [Supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) in the Amazon MSK Developer Guide.
+	// You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
 	KafkaVersion *string `field:"required" json:"kafkaVersion" yaml:"kafkaVersion"`
-	// The number of broker nodes you want in the Amazon MSK cluster.
-	//
-	// You can submit an update to increase the number of broker nodes in a cluster.
+	// The number of broker nodes in the cluster.
 	NumberOfBrokerNodes *float64 `field:"required" json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
-	// Includes information related to client authentication.
+	// Includes all client authentication related information.
 	ClientAuthentication interface{} `field:"optional" json:"clientAuthentication" yaml:"clientAuthentication"`
-	// The Amazon MSK configuration to use for the cluster.
+	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo interface{} `field:"optional" json:"configurationInfo" yaml:"configurationInfo"`
 	// The version of the cluster that you want to update.
 	CurrentVersion *string `field:"optional" json:"currentVersion" yaml:"currentVersion"`
@@ -155,17 +151,13 @@ type CfnClusterProps struct {
 	//
 	// The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
 	EnhancedMonitoring *string `field:"optional" json:"enhancedMonitoring" yaml:"enhancedMonitoring"`
-	// You can configure your Amazon MSK cluster to send broker logs to different destination types.
-	//
-	// This is a container for the configuration details related to broker logs.
+	// Logging Info details.
 	LoggingInfo interface{} `field:"optional" json:"loggingInfo" yaml:"loggingInfo"`
 	// The settings for open monitoring.
 	OpenMonitoring interface{} `field:"optional" json:"openMonitoring" yaml:"openMonitoring"`
 	// This controls storage mode for supported storage tiers.
 	StorageMode *string `field:"optional" json:"storageMode" yaml:"storageMode"`
-	// A map of key:value pairs to apply to this resource.
-	//
-	// Both key and value are of type String.
+	// Create tags when creating the cluster.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

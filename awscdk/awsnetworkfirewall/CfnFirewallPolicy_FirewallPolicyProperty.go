@@ -17,6 +17,15 @@ package awsnetworkfirewall
 //   	},
 //
 //   	// the properties below are optional
+//   	PolicyVariables: &PolicyVariablesProperty{
+//   		RuleVariables: map[string]interface{}{
+//   			"ruleVariablesKey": map[string][]*string{
+//   				"definition": []*string{
+//   					jsii.String("definition"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	StatefulDefaultActions: []*string{
 //   		jsii.String("statefulDefaultActions"),
 //   	},
@@ -74,6 +83,8 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	//
 	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", “customActionName”]` . For information about compatibility, see the custom action descriptions.
 	StatelessFragmentDefaultActions *[]*string `field:"required" json:"statelessFragmentDefaultActions" yaml:"statelessFragmentDefaultActions"`
+	// Contains variables that you can use to override default Suricata settings in your firewall policy.
+	PolicyVariables interface{} `field:"optional" json:"policyVariables" yaml:"policyVariables"`
 	// The default actions to take on a packet that doesn't match any stateful rules.
 	//
 	// The stateful default action is optional, and is only valid when using the strict rule order.

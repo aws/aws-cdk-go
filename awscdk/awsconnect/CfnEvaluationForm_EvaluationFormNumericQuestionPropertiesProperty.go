@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about properties for a numeric question in an evaluation form.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,13 +31,13 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormNumericQuestionPropertiesProperty struct {
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionPropertiesProperty.MaxValue`.
+	// The maximum answer value.
 	MaxValue *float64 `field:"required" json:"maxValue" yaml:"maxValue"`
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionPropertiesProperty.MinValue`.
+	// The minimum answer value.
 	MinValue *float64 `field:"required" json:"minValue" yaml:"minValue"`
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionPropertiesProperty.Automation`.
+	// The automation properties of the numeric question.
 	Automation interface{} `field:"optional" json:"automation" yaml:"automation"`
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionPropertiesProperty.Options`.
+	// The scoring options of the numeric question.
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 }
 

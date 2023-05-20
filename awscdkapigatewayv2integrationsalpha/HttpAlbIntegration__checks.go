@@ -1,6 +1,5 @@
 //go:build !no_runtime_type_checking
 
-// Integrations for AWS APIGateway V2
 package awscdkapigatewayv2integrationsalpha
 
 import (

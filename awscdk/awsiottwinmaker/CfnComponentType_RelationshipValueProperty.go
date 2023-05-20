@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The component type relationship value.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsiottwinmaker
 //   }
 //
 type CfnComponentType_RelationshipValueProperty struct {
-	// `CfnComponentType.RelationshipValueProperty.TargetComponentName`.
+	// The target component name.
 	TargetComponentName *string `field:"optional" json:"targetComponentName" yaml:"targetComponentName"`
-	// `CfnComponentType.RelationshipValueProperty.TargetEntityId`.
+	// The target entity Id.
 	TargetEntityId *string `field:"optional" json:"targetEntityId" yaml:"targetEntityId"`
 }
 

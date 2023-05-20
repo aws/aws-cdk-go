@@ -1,6 +1,10 @@
 package awsconnect
 
 
+// Items that are part of the evaluation form.
+//
+// The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -149,9 +153,9 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormItemProperty struct {
-	// `CfnEvaluationForm.EvaluationFormItemProperty.Question`.
+	// The information of the question.
 	Question interface{} `field:"optional" json:"question" yaml:"question"`
-	// `CfnEvaluationForm.EvaluationFormItemProperty.Section`.
+	// The information of the section.
 	Section interface{} `field:"optional" json:"section" yaml:"section"`
 }
 

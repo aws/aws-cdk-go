@@ -4,40 +4,39 @@ package awsappmesh
 // The properties used when creating a new VirtualNode.
 //
 // Example:
-//   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
+//   var service service
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 //   	Mesh: Mesh,
-//   	// DNS service discovery can optionally specify the DNS response type as either LOAD_BALANCER or ENDPOINTS.
-//   	// LOAD_BALANCER means that the DNS resolver returns a loadbalanced set of endpoints,
-//   	// whereas ENDPOINTS means that the DNS resolver is returning all the endpoints.
-//   	// By default, the response type is assumed to be LOAD_BALANCER
-//   	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node"), appmesh.DnsResponseType_ENDPOINTS),
+//   	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
 //   	Listeners: []virtualNodeListener{
 //   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
-//   			Port: jsii.Number(80),
-//   			ConnectionPool: &HttpConnectionPool{
-//   				MaxConnections: jsii.Number(100),
-//   				MaxPendingRequests: jsii.Number(10),
+//   			Port: jsii.Number(8080),
+//   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
+//   				HealthyThreshold: jsii.Number(3),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
+//   				Path: jsii.String("/ping"),
+//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
+//   				UnhealthyThreshold: jsii.Number(2),
+//   			}),
+//   			Timeout: &HttpTimeout{
+//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
 //   			},
 //   		}),
 //   	},
+//   	BackendDefaults: &BackendDefaults{
+//   		TlsClientPolicy: &TlsClientPolicy{
+//   			Validation: &TlsValidation{
+//   				Trust: appmesh.TlsValidationTrust_File(jsii.String("/keys/local_cert_chain.pem")),
+//   			},
+//   		},
+//   	},
+//   	AccessLog: appmesh.AccessLog_FromFilePath(jsii.String("/dev/stdout")),
 //   })
 //
-//   // A Virtual Gateway with a gRPC listener with a connection pool set
-//   gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatewayProps{
-//   	Mesh: Mesh,
-//   	Listeners: []virtualGatewayListener{
-//   		appmesh.*virtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
-//   			Port: jsii.Number(8080),
-//   			ConnectionPool: &GrpcConnectionPool{
-//   				MaxRequests: jsii.Number(10),
-//   			},
-//   		}),
-//   	},
-//   	VirtualGatewayName: jsii.String("gateway"),
-//   })
+//   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
 type VirtualNodeProps struct {
 	// Access Logging Configuration for the virtual node.

@@ -43,6 +43,7 @@ type CfnScene interface {
 	AttrArn() *string
 	// The date and time when the scene was created.
 	AttrCreationDateTime() *string
+	// The generated scene metadata.
 	AttrGeneratedSceneMetadata() awscdk.IResolvable
 	// The scene the update time.
 	AttrUpdateDateTime() *string
@@ -84,7 +85,7 @@ type CfnScene interface {
 	// The scene ID.
 	SceneId() *string
 	SetSceneId(val *string)
-	// `AWS::IoTTwinMaker::Scene.SceneMetadata`.
+	// The scene metadata.
 	SceneMetadata() interface{}
 	SetSceneMetadata(val interface{})
 	// The stack in which this element is defined.

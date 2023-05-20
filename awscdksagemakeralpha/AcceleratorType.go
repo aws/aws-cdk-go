@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::SageMaker
 package awscdksagemakeralpha
 
 import (

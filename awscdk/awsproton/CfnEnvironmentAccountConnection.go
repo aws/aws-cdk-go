@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Proton::EnvironmentAccountConnection`.
 //
+// Detailed data of an AWS Proton environment account connection resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,28 +36,39 @@ import (
 type CfnEnvironmentAccountConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the environment account connection ARN.
 	AttrArn() *string
+	// Returns the environment account connection ID.
 	AttrId() *string
+	// Returns the environment account connection status.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Proton::EnvironmentAccountConnection.CodebuildRoleArn`.
+	// The Amazon Resource Name (ARN) of an IAM service role in the environment account.
+	//
+	// AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
 	CodebuildRoleArn() *string
 	SetCodebuildRoleArn(val *string)
-	// `AWS::Proton::EnvironmentAccountConnection.ComponentRoleArn`.
+	// The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account.
+	//
+	// It determines the scope of infrastructure that a component can provision in the account.
+	//
+	// The environment account connection must have a `componentRoleArn` to allow directly defined components to be associated with any environments running in the account.
+	//
+	// For more information about components, see [AWS Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the *AWS Proton User Guide* .
 	ComponentRoleArn() *string
 	SetComponentRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Proton::EnvironmentAccountConnection.EnvironmentAccountId`.
+	// The environment account that's connected to the environment account connection.
 	EnvironmentAccountId() *string
 	SetEnvironmentAccountId(val *string)
-	// `AWS::Proton::EnvironmentAccountConnection.EnvironmentName`.
+	// The name of the environment that's associated with the environment account connection.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +81,7 @@ type CfnEnvironmentAccountConnection interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Proton::EnvironmentAccountConnection.ManagementAccountId`.
+	// The ID of the management account that's connected to the environment account connection.
 	ManagementAccountId() *string
 	SetManagementAccountId(val *string)
 	// The tree node.
@@ -78,14 +91,18 @@ type CfnEnvironmentAccountConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Proton::EnvironmentAccountConnection.RoleArn`.
+	// The IAM service role that's associated with the environment account connection.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Proton::EnvironmentAccountConnection.Tags`.
+	// An optional list of metadata items that you can associate with the AWS Proton environment account connection.
+	//
+	// A tag is a key-value pair.
+	//
+	// For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide* .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

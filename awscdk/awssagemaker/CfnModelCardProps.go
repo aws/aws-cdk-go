@@ -88,6 +88,40 @@ import (
 //   			ModelVersion: jsii.Number(123),
 //   			ProblemType: jsii.String("problemType"),
 //   		},
+//   		ModelPackageDetails: &ModelPackageDetailsProperty{
+//   			ApprovalDescription: jsii.String("approvalDescription"),
+//   			CreatedBy: &ModelPackageCreatorProperty{
+//   				UserProfileName: jsii.String("userProfileName"),
+//   			},
+//   			Domain: jsii.String("domain"),
+//   			InferenceSpecification: &InferenceSpecificationProperty{
+//   				Containers: []interface{}{
+//   					&ContainerProperty{
+//   						Image: jsii.String("image"),
+//
+//   						// the properties below are optional
+//   						ModelDataUrl: jsii.String("modelDataUrl"),
+//   						NearestModelName: jsii.String("nearestModelName"),
+//   					},
+//   				},
+//   			},
+//   			ModelApprovalStatus: jsii.String("modelApprovalStatus"),
+//   			ModelPackageArn: jsii.String("modelPackageArn"),
+//   			ModelPackageDescription: jsii.String("modelPackageDescription"),
+//   			ModelPackageGroupName: jsii.String("modelPackageGroupName"),
+//   			ModelPackageName: jsii.String("modelPackageName"),
+//   			ModelPackageStatus: jsii.String("modelPackageStatus"),
+//   			ModelPackageVersion: jsii.Number(123),
+//   			SourceAlgorithms: []interface{}{
+//   				&SourceAlgorithmProperty{
+//   					AlgorithmName: jsii.String("algorithmName"),
+//
+//   					// the properties below are optional
+//   					ModelDataUrl: jsii.String("modelDataUrl"),
+//   				},
+//   			},
+//   			Task: jsii.String("task"),
+//   		},
 //   		TrainingDetails: &TrainingDetailsProperty{
 //   			ObjectiveFunction: &ObjectiveFunctionProperty{
 //   				Function: &FunctionProperty{

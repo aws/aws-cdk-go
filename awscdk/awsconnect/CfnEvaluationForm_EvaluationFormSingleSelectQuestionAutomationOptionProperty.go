@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// The automation options of the single select question.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +17,7 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormSingleSelectQuestionAutomationOptionProperty struct {
-	// `CfnEvaluationForm.EvaluationFormSingleSelectQuestionAutomationOptionProperty.RuleCategory`.
+	// The automation option based on a rule category for the single select question.
 	RuleCategory interface{} `field:"required" json:"ruleCategory" yaml:"ruleCategory"`
 }
 

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::QuickSight::VPCConnection`.
 //
+// Creates a new VPC connection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -48,10 +50,10 @@ type CfnVPCConnection interface {
 	AttrNetworkInterfaces() awscdk.IResolvable
 	AttrStatus() *string
 	AttrVpcId() *string
-	// `AWS::QuickSight::VPCConnection.AvailabilityStatus`.
+	// The availability status of the VPC connection.
 	AvailabilityStatus() *string
 	SetAvailabilityStatus(val *string)
-	// `AWS::QuickSight::VPCConnection.AwsAccountId`.
+	// The AWS account ID of the account where you want to create a new VPC connection.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -63,7 +65,7 @@ type CfnVPCConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::QuickSight::VPCConnection.DnsResolvers`.
+	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers() *[]*string
 	SetDnsResolvers(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -76,7 +78,7 @@ type CfnVPCConnection interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::QuickSight::VPCConnection.Name`.
+	// The display name for the VPC connection.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -86,20 +88,20 @@ type CfnVPCConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::QuickSight::VPCConnection.RoleArn`.
+	// The ARN of the IAM role associated with the VPC connection.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// `AWS::QuickSight::VPCConnection.SecurityGroupIds`.
+	// The Amazon EC2 security group IDs associated with the VPC connection.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::QuickSight::VPCConnection.SubnetIds`.
+	// A list of subnet IDs for the VPC connection.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// `AWS::QuickSight::VPCConnection.Tags`.
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -114,7 +116,9 @@ type CfnVPCConnection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::QuickSight::VPCConnection.VPCConnectionId`.
+	// The ID of the VPC connection that you're creating.
+	//
+	// This ID is a unique identifier for each AWS Region in an AWS account.
 	VpcConnectionId() *string
 	SetVpcConnectionId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Not currently supported by AWS CloudFormation .
+// Includes all client authentication information for VpcConnectivity.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,9 +23,9 @@ package awsmsk
 //   }
 //
 type CfnCluster_VpcConnectivityClientAuthenticationProperty struct {
-	// `CfnCluster.VpcConnectivityClientAuthenticationProperty.Sasl`.
+	// Details for VpcConnectivity ClientAuthentication using SASL.
 	Sasl interface{} `field:"optional" json:"sasl" yaml:"sasl"`
-	// `CfnCluster.VpcConnectivityClientAuthenticationProperty.Tls`.
+	// Details for VpcConnectivity ClientAuthentication using TLS.
 	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 

@@ -1,6 +1,10 @@
 package awsconnect
 
 
+// Information about a section from an evaluation form.
+//
+// A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -95,15 +99,25 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormSectionProperty struct {
-	// `CfnEvaluationForm.EvaluationFormSectionProperty.RefId`.
+	// The identifier of the section. An identifier must be unique within the evaluation form.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 40.
 	RefId *string `field:"required" json:"refId" yaml:"refId"`
-	// `CfnEvaluationForm.EvaluationFormSectionProperty.Title`.
+	// The title of the section.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// `CfnEvaluationForm.EvaluationFormSectionProperty.Instructions`.
+	// The instructions of the section.
 	Instructions *string `field:"optional" json:"instructions" yaml:"instructions"`
-	// `CfnEvaluationForm.EvaluationFormSectionProperty.Items`.
+	// The items of the section.
+	//
+	// *Minimum* : 1.
 	Items interface{} `field:"optional" json:"items" yaml:"items"`
-	// `CfnEvaluationForm.EvaluationFormSectionProperty.Weight`.
+	// The scoring weight of the section.
+	//
+	// *Minimum* : 0
+	//
+	// *Maximum* : 100.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

@@ -1,4 +1,3 @@
-// AWS CDK Programmatic CLI library
 package awscdkclilibalpha
 
 import (

@@ -1,6 +1,5 @@
 //go:build !no_runtime_type_checking
 
-// Receipt Detector Model actions for AWS IoT Events
 package awscdkioteventsactionsalpha
 
 import (

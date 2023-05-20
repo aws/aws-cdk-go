@@ -213,6 +213,52 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 ```
 
+Create a `VirtualNode` with the customized access logging format.
+
+```go
+var mesh mesh
+var service service
+
+node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
+	Mesh: Mesh,
+	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
+	Listeners: []virtualNodeListener{
+		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+			Port: jsii.Number(8080),
+			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
+				HealthyThreshold: jsii.Number(3),
+				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+				Path: jsii.String("/ping"),
+				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+				UnhealthyThreshold: jsii.Number(2),
+			}),
+			Timeout: &HttpTimeout{
+				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
+			},
+		}),
+	},
+	BackendDefaults: &BackendDefaults{
+		TlsClientPolicy: &TlsClientPolicy{
+			Validation: &TlsValidation{
+				Trust: appmesh.TlsValidationTrust_File(jsii.String("/keys/local_cert_chain.pem")),
+			},
+		},
+	},
+	AccessLog: appmesh.AccessLog_FromFilePath(jsii.String("/dev/stdout"), appmesh.LoggingFormat_FromJson(map[string]*string{
+		"testKey1": jsii.String("testValue1"),
+		"testKey2": jsii.String("testValue2"),
+	})),
+})
+```
+
+By using a key-value pair indexed signature, you can specify json key pairs to customize the log entry pattern. You can also use text format as below. You can only specify one of these 2 formats.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+accessLog: appmesh.AccessLog.fromFilePath('/dev/stdout', appmesh.LoggingFormat.fromText('test_pattern')),
+```
+
+For what values and operators you can use for these two formats, please visit the latest envoy documentation. (https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage)
 Create a `VirtualNode` with the constructor and add backend virtual service.
 
 ```go

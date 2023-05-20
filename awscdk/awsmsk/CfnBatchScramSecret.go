@@ -11,8 +11,6 @@ import (
 
 // A CloudFormation `AWS::MSK::BatchScramSecret`.
 //
-// Represents a secret stored in the Amazon Secrets Manager that can be used to authenticate with a cluster using your sign-in credentials.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,7 +33,7 @@ type CfnBatchScramSecret interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) of the MSK cluster.
+	// `AWS::MSK::BatchScramSecret.ClusterArn`.
 	ClusterArn() *string
 	SetClusterArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -59,7 +57,7 @@ type CfnBatchScramSecret interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A list of Amazon Secrets Manager secret ARNs.
+	// `AWS::MSK::BatchScramSecret.SecretArnList`.
 	SecretArnList() *[]*string
 	SetSecretArnList(val *[]*string)
 	// The stack in which this element is defined.

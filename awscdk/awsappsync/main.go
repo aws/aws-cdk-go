@@ -1345,4 +1345,12 @@ func init() {
 			return &jsiiProxy_Values{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.Visibility",
+		reflect.TypeOf((*Visibility)(nil)).Elem(),
+		map[string]interface{}{
+			"GLOBAL": Visibility_GLOBAL,
+			"PRIVATE": Visibility_PRIVATE,
+		},
+	)
 }

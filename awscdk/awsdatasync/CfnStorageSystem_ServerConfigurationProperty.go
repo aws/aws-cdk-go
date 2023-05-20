@@ -1,6 +1,8 @@
 package awsdatasync
 
 
+// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,9 @@ package awsdatasync
 //   }
 //
 type CfnStorageSystem_ServerConfigurationProperty struct {
-	// `CfnStorageSystem.ServerConfigurationProperty.ServerHostname`.
+	// The domain name or IP address of your storage system's management interface.
 	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
-	// `CfnStorageSystem.ServerConfigurationProperty.ServerPort`.
+	// The network port for accessing the storage system's management interface.
 	ServerPort *float64 `field:"optional" json:"serverPort" yaml:"serverPort"`
 }
 

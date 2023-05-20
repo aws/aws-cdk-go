@@ -92,7 +92,9 @@ type CfnGraphQLApiProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
 	UserPoolConfig interface{} `field:"optional" json:"userPoolConfig" yaml:"userPoolConfig"`
-	// `AWS::AppSync::GraphQLApi.Visibility`.
+	// Sets the scope of the GraphQL API to public ( `GLOBAL` ) or private ( `PRIVATE` ).
+	//
+	// By default, the scope is set to `Global` if no value is provided.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .
 	XrayEnabled interface{} `field:"optional" json:"xrayEnabled" yaml:"xrayEnabled"`

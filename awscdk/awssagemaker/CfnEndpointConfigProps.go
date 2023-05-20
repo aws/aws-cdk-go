@@ -28,6 +28,9 @@ import (
 //   			ServerlessConfig: &ServerlessConfigProperty{
 //   				MaxConcurrency: jsii.Number(123),
 //   				MemorySizeInMb: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				ProvisionedConcurrency: jsii.Number(123),
 //   			},
 //   			VolumeSizeInGb: jsii.Number(123),
 //   		},
@@ -134,6 +137,9 @@ import (
 //   			ServerlessConfig: &ServerlessConfigProperty{
 //   				MaxConcurrency: jsii.Number(123),
 //   				MemorySizeInMb: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				ProvisionedConcurrency: jsii.Number(123),
 //   			},
 //   			VolumeSizeInGb: jsii.Number(123),
 //   		},

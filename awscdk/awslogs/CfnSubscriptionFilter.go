@@ -51,10 +51,10 @@ type CfnSubscriptionFilter interface {
 	// The Amazon Resource Name (ARN) of the destination.
 	DestinationArn() *string
 	SetDestinationArn(val *string)
-	// `AWS::Logs::SubscriptionFilter.Distribution`.
+	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution() *string
 	SetDistribution(val *string)
-	// `AWS::Logs::SubscriptionFilter.FilterName`.
+	// The name of the subscription filter.
 	FilterName() *string
 	SetFilterName(val *string)
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.

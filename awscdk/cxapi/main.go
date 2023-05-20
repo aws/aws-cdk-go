@@ -85,6 +85,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "assetOutdir", GoGetter: "AssetOutdir"},
 			_jsii_.MemberMethod{JsiiMethod: "buildAssembly", GoMethod: "BuildAssembly"},
 			_jsii_.MemberMethod{JsiiMethod: "createNestedAssembly", GoMethod: "CreateNestedAssembly"},
+			_jsii_.MemberMethod{JsiiMethod: "delete", GoMethod: "Delete"},
 			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
 		},
 		func() interface{} {

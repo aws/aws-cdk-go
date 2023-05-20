@@ -1,4 +1,3 @@
-// CDK Destinations Constructs for AWS Kinesis Firehose
 package awscdkkinesisfirehosedestinationsalpha
 
 import (

@@ -1390,6 +1390,20 @@ func init() {
 		reflect.TypeOf((*ListenerTlsOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appmesh.LoggingFormat",
+		reflect.TypeOf((*LoggingFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_LoggingFormat{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appmesh.LoggingFormatConfig",
+		reflect.TypeOf((*LoggingFormatConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.Mesh",
 		reflect.TypeOf((*Mesh)(nil)).Elem(),
 		[]_jsii_.Member{

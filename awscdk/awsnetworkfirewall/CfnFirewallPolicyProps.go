@@ -21,6 +21,15 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		PolicyVariables: &PolicyVariablesProperty{
+//   			RuleVariables: map[string]interface{}{
+//   				"ruleVariablesKey": map[string][]*string{
+//   					"definition": []*string{
+//   						jsii.String("definition"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		StatefulDefaultActions: []*string{
 //   			jsii.String("statefulDefaultActions"),
 //   		},

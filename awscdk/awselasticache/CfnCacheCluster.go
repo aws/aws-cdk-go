@@ -330,8 +330,6 @@ type CfnCacheCluster interface {
 	// A list of tags to be added to this resource.
 	Tags() awscdk.TagManager
 	// A flag that enables in-transit encryption when set to true.
-	//
-	// Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.
 	TransitEncryptionEnabled() interface{}
 	SetTransitEncryptionEnabled(val interface{})
 	// Deprecated.

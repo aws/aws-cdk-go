@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// You can configure your Amazon MSK cluster to send broker logs to different destination types.
+// You can configure your MSK cluster to send broker logs to different destination types.
 //
 // This is a container for the configuration details related to broker logs.
 //
@@ -35,7 +35,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_LoggingInfoProperty struct {
-	// You can configure your Amazon MSK cluster to send broker logs to different destination types.
+	// You can configure your MSK cluster to send broker logs to different destination types.
 	//
 	// This configuration specifies the details of these destinations.
 	BrokerLogs interface{} `field:"required" json:"brokerLogs" yaml:"brokerLogs"`

@@ -92,7 +92,9 @@ type CfnFleetProps struct {
 	//
 	// > ACM isn't available in all AWS regions. A fleet creation request with certificate generation enabled in an unsupported Region, fails with a 4xx error. For more information about the supported Regions, see [Supported Regions](https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html) in the *AWS Certificate Manager User Guide* .
 	CertificateConfiguration interface{} `field:"optional" json:"certificateConfiguration" yaml:"certificateConfiguration"`
-	// `AWS::GameLift::Fleet.ComputeType`.
+	// The type of compute resource used to host your game servers.
+	//
+	// You can use your own compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed Amazon GameLift.
 	ComputeType *string `field:"optional" json:"computeType" yaml:"computeType"`
 	// A description for the fleet.
 	Description *string `field:"optional" json:"description" yaml:"description"`

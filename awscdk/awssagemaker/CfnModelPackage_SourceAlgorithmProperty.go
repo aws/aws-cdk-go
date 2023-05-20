@@ -26,7 +26,7 @@ type CfnModelPackage_SourceAlgorithmProperty struct {
 	//
 	// This path must point to a single `gzip` compressed tar archive ( `.tar.gz` suffix).
 	//
-	// > The model artifacts must be in an S3 bucket that is in the same region as the algorithm.
+	// > The model artifacts must be in an S3 bucket that is in the same AWS region as the algorithm.
 	ModelDataUrl *string `field:"optional" json:"modelDataUrl" yaml:"modelDataUrl"`
 }
 

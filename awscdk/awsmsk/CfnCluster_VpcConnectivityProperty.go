@@ -1,6 +1,8 @@
 package awsmsk
 
 
+// VPC connection control settings for brokers.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,7 +25,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_VpcConnectivityProperty struct {
-	// Not currently supported by AWS CloudFormation .
+	// VPC connection control settings for brokers.
 	ClientAuthentication interface{} `field:"optional" json:"clientAuthentication" yaml:"clientAuthentication"`
 }
 

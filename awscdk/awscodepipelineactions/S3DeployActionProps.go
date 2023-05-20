@@ -3,20 +3,26 @@ package awscodepipelineactions
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Construction properties of the `S3DeployAction S3 deploy Action`.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceOutput := codepipeline.NewArtifact()
 //   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   key := kms.NewKey(stack, jsii.String("EnvVarEncryptKey"), map[string]*string{
+//   	"description": jsii.String("sample key"),
+//   })
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 //   	ActionName: jsii.String("S3Deploy"),
 //   	Bucket: targetBucket,
 //   	Input: sourceOutput,
+//   	EncryptionKey: key,
 //   })
 //   deployStage := pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Deploy"),
@@ -59,6 +65,10 @@ type S3DeployActionProps struct {
 	// The final cache control property will be the result of joining all of the provided array elements with a comma
 	// (plus a space after the comma).
 	CacheControl *[]CacheControl `field:"optional" json:"cacheControl" yaml:"cacheControl"`
+	// The AWS KMS encryption key for the host bucket.
+	//
+	// The encryptionKey parameter encrypts uploaded artifacts with the provided AWS KMS key.
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Should the deploy action extract the artifact before deploying to Amazon S3.
 	Extract *bool `field:"optional" json:"extract" yaml:"extract"`
 	// The key of the target object.

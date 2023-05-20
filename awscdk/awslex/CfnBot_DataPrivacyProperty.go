@@ -1,6 +1,10 @@
 package awslex
 
 
+// By default, data stored by Amazon Lex is encrypted.
+//
+// The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

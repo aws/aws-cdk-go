@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::GameLift::Location`.
 //
+// Creates a custom location for use in an Anywhere fleet.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,7 +43,7 @@ type CfnLocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::GameLift::Location.LocationName`.
+	// The location's name.
 	LocationName() *string
 	SetLocationName(val *string)
 	// The logical ID for this CloudFormation stack element.

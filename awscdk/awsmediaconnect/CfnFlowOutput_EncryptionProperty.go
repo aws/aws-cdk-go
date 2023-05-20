@@ -22,11 +22,13 @@ type CfnFlowOutput_EncryptionProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
-	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+	// The type of algorithm that is used for static key encryption (such as aes128, aes192, or aes256).
+	//
+	// If you are using SPEKE or SRT-password encryption, this property must be left blank.
 	Algorithm *string `field:"optional" json:"algorithm" yaml:"algorithm"`
 	// The type of key that is used for the encryption.
 	//
-	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
+	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ). Valid key types are: `static-key` , `speke` , and `srt-password` .
 	KeyType *string `field:"optional" json:"keyType" yaml:"keyType"`
 }
 

@@ -88,10 +88,15 @@ type CfnGraphQLApi interface {
 	AttrApiId() *string
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid` .
 	AttrArn() *string
+	// The fully qualified domain name (FQDN) of the endpoint URL of your GraphQL API.
 	AttrGraphQlDns() *string
 	// The Endpoint URL of your GraphQL API.
 	AttrGraphQlUrl() *string
+	// The fully qualified domain name (FQDN) of the real-time endpoint URL of your GraphQL API.
 	AttrRealtimeDns() *string
+	// The GraphQL API real-time endpoint URL.
+	//
+	// For more information, see [Discovering the real-time endpoint from the GraphQL endpoint](https://docs.aws.amazon.com/appsync/latest/devguide/real-time-websocket-client.html#handshake-details-to-establish-the-websocket-connection) .
 	AttrRealtimeUrl() *string
 	// Security configuration for your GraphQL API.
 	//
@@ -160,7 +165,9 @@ type CfnGraphQLApi interface {
 	// Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
 	UserPoolConfig() interface{}
 	SetUserPoolConfig(val interface{})
-	// `AWS::AppSync::GraphQLApi.Visibility`.
+	// Sets the scope of the GraphQL API to public ( `GLOBAL` ) or private ( `PRIVATE` ).
+	//
+	// By default, the scope is set to `Global` if no value is provided.
 	Visibility() *string
 	SetVisibility(val *string)
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .

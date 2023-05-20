@@ -12,15 +12,13 @@ import (
 // Construction properties for a DatabaseInstance.
 //
 // Example:
-//   var vpc vpc
+//   var vpc iVpc
 //
 //
-//   // Simple secret
-//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
-//   // Using the secret
 //   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{
 //   	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
-//   	Credentials: rds.Credentials_FromSecret(secret),
+//   	// Generate the secret with admin username `postgres` and random password
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres")),
 //   	Vpc: Vpc,
 //   })
 //   // Templated secret with username and password fields
@@ -30,6 +28,7 @@ import (
 //   			"username": jsii.String("postgres"),
 //   		}),
 //   		GenerateStringKey: jsii.String("password"),
+//   		ExcludeCharacters: jsii.String("/@\""),
 //   	},
 //   })
 //   // Using the templated secret as credentials

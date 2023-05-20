@@ -39,19 +39,23 @@ import (
 //   }
 //
 type CfnStorageSystemProps struct {
-	// `AWS::DataSync::StorageSystem.AgentArns`.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads from your on-premises storage system's management interface.
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
-	// `AWS::DataSync::StorageSystem.ServerConfiguration`.
+	// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
 	ServerConfiguration interface{} `field:"required" json:"serverConfiguration" yaml:"serverConfiguration"`
-	// `AWS::DataSync::StorageSystem.SystemType`.
+	// Specifies the type of on-premises storage system that you want DataSync Discovery to collect information about.
+	//
+	// > DataSync Discovery currently supports NetApp Fabric-Attached Storage (FAS) and All Flash FAS (AFF) systems running ONTAP 9.7 or later.
 	SystemType *string `field:"required" json:"systemType" yaml:"systemType"`
-	// `AWS::DataSync::StorageSystem.CloudWatchLogGroupArn`.
+	// Specifies the ARN of the Amazon CloudWatch log group for monitoring and logging discovery job events.
 	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
-	// `AWS::DataSync::StorageSystem.Name`.
+	// Specifies a familiar name for your on-premises storage system.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::DataSync::StorageSystem.ServerCredentials`.
+	// Specifies the user name and password for accessing your on-premises storage system's management interface.
 	ServerCredentials interface{} `field:"optional" json:"serverCredentials" yaml:"serverCredentials"`
-	// `AWS::DataSync::StorageSystem.Tags`.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	//
+	// We recommend creating at least a name tag for your on-premises storage system.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,4 +1,3 @@
-// Integrations for AWS APIGateway V2
 package awscdkapigatewayv2integrationsalpha
 
 import (

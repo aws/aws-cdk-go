@@ -96,7 +96,9 @@ type CfnWirelessGateway interface {
 	// The ARN of the thing to associate with the wireless gateway.
 	ThingArn() *string
 	SetThingArn(val *string)
-	// `AWS::IoTWireless::WirelessGateway.ThingName`.
+	// The name of the thing associated with the wireless gateway.
+	//
+	// The value is empty if a thing isn't associated with the gateway.
 	ThingName() *string
 	SetThingName(val *string)
 	// Deprecated.

@@ -25,6 +25,7 @@ import (
 //   		jsii.String("cacheSecurityGroupNames"),
 //   	},
 //   	CacheSubnetGroupName: jsii.String("cacheSubnetGroupName"),
+//   	ClusterMode: jsii.String("clusterMode"),
 //   	DataTieringEnabled: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
@@ -195,6 +196,10 @@ type CfnReplicationGroupProps struct {
 	//
 	// > If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see [AWS::ElastiCache::SubnetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html) .
 	CacheSubnetGroupName *string `field:"optional" json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
+	// Enabled or Disabled.
+	//
+	// To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see [Modify cluster mode](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/modify-cluster-mode.html) .
+	ClusterMode *string `field:"optional" json:"clusterMode" yaml:"clusterMode"`
 	// Enables data tiering.
 	//
 	// Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html) .

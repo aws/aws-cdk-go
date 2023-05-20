@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Proton::ServiceTemplate`.
 //
+// Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn, select the service template from AWS Proton . If the selected service template includes a service pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the selected service template. For more information, see [AWS Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,6 +35,7 @@ import (
 type CfnServiceTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the service template ARN.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,13 +46,13 @@ type CfnServiceTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Proton::ServiceTemplate.Description`.
+	// A description of the service template.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Proton::ServiceTemplate.DisplayName`.
+	// The service template name as displayed in the developer interface.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// `AWS::Proton::ServiceTemplate.EncryptionKey`.
+	// The customer provided service template encryption key that's used to encrypt data.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,12 +65,14 @@ type CfnServiceTemplate interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Proton::ServiceTemplate.Name`.
+	// The name of the service template.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Proton::ServiceTemplate.PipelineProvisioning`.
+	// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template.
+	//
+	// Otherwise, a service pipeline *isn't* included in the service template.
 	PipelineProvisioning() *string
 	SetPipelineProvisioning(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -79,7 +84,7 @@ type CfnServiceTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Proton::ServiceTemplate.Tags`.
+	// An object that includes the template bundle S3 bucket path and name for the new version of a service template.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS Lambda in Python
 package awscdklambdapythonalpha
 
 import (

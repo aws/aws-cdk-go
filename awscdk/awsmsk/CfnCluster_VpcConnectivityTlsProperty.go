@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Not currently supported by AWS CloudFormation .
+// Details for client authentication using TLS for vpcConnectivity.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,7 +13,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_VpcConnectivityTlsProperty struct {
-	// `CfnCluster.VpcConnectivityTlsProperty.Enabled`.
+	// TLS authentication is enabled or not.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

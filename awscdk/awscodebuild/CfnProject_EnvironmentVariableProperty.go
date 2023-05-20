@@ -25,9 +25,9 @@ type CfnProject_EnvironmentVariableProperty struct {
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// The type of environment variable. Valid values include:.
 	//
-	// - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. To learn how to specify a parameter store environment variable, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+	// - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
 	// - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
-	// - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . To learn how to specify a secrets manager environment variable, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+	// - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

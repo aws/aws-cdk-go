@@ -1,6 +1,8 @@
 package awstimestream
 
 
+// The set of properties on a table for configuring magnetic store writes.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,9 +25,9 @@ package awstimestream
 //   }
 //
 type CfnTable_MagneticStoreWritePropertiesProperty struct {
-	// `CfnTable.MagneticStoreWritePropertiesProperty.EnableMagneticStoreWrites`.
+	// A flag to enable magnetic store writes.
 	EnableMagneticStoreWrites interface{} `field:"required" json:"enableMagneticStoreWrites" yaml:"enableMagneticStoreWrites"`
-	// `CfnTable.MagneticStoreWritePropertiesProperty.MagneticStoreRejectedDataLocation`.
+	// The location to write error reports for records rejected asynchronously during magnetic store writes.
 	MagneticStoreRejectedDataLocation interface{} `field:"optional" json:"magneticStoreRejectedDataLocation" yaml:"magneticStoreRejectedDataLocation"`
 }
 

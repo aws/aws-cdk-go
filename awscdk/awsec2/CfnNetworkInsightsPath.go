@@ -94,10 +94,14 @@ type CfnNetworkInsightsPath interface {
 	// The destination port.
 	DestinationPort() *float64
 	SetDestinationPort(val *float64)
-	// `AWS::EC2::NetworkInsightsPath.FilterAtDestination`.
+	// Scopes the analysis to network paths that match specific filters at the destination.
+	//
+	// If you specify this parameter, you can't specify the parameter for the destination IP address.
 	FilterAtDestination() interface{}
 	SetFilterAtDestination(val interface{})
-	// `AWS::EC2::NetworkInsightsPath.FilterAtSource`.
+	// Scopes the analysis to network paths that match specific filters at the source.
+	//
+	// If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 	FilterAtSource() interface{}
 	SetFilterAtSource(val interface{})
 	// The logical ID for this CloudFormation stack element.

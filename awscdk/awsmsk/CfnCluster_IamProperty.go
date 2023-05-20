@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Details for IAM access control.
+// Details for SASL/IAM client authentication.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,7 +13,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_IamProperty struct {
-	// Whether IAM access control is enabled.
+	// SASL/IAM authentication is enabled or not.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

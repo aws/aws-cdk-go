@@ -1,6 +1,10 @@
 package awsec2
 
 
+// Describes a set of filters for a path analysis.
+//
+// Use path filters to scope the analysis when there can be multiple resulting paths.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,13 +24,13 @@ package awsec2
 //   }
 //
 type CfnNetworkInsightsPath_PathFilterProperty struct {
-	// `CfnNetworkInsightsPath.PathFilterProperty.DestinationAddress`.
+	// The destination IPv4 address.
 	DestinationAddress *string `field:"optional" json:"destinationAddress" yaml:"destinationAddress"`
-	// `CfnNetworkInsightsPath.PathFilterProperty.DestinationPortRange`.
+	// The destination port range.
 	DestinationPortRange interface{} `field:"optional" json:"destinationPortRange" yaml:"destinationPortRange"`
-	// `CfnNetworkInsightsPath.PathFilterProperty.SourceAddress`.
+	// The source IPv4 address.
 	SourceAddress *string `field:"optional" json:"sourceAddress" yaml:"sourceAddress"`
-	// `CfnNetworkInsightsPath.PathFilterProperty.SourcePortRange`.
+	// The source port range.
 	SourcePortRange interface{} `field:"optional" json:"sourcePortRange" yaml:"sourcePortRange"`
 }
 

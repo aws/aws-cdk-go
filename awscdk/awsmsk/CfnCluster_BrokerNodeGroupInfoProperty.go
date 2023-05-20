@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// The setup to be used for brokers in the cluster.
+// Describes the setup to be used for the broker nodes in the cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -61,7 +61,7 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
 	// The type of Amazon EC2 instances to use for brokers.
 	//
-	// The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
+	// The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, and kafka.m5.24xlarge, and kafka.t3.small.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// This parameter is currently not in use.
 	BrokerAzDistribution *string `field:"optional" json:"brokerAzDistribution" yaml:"brokerAzDistribution"`

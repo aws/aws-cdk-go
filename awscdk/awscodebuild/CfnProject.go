@@ -13,6 +13,8 @@ import (
 //
 // The `AWS::CodeBuild::Project` resource configures how AWS CodeBuild builds your source code. For example, it tells CodeBuild where to get the source code and which build environment to use.
 //
+// > To unset or remove a project value via CFN, explicitly provide the attribute with value as empty input.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

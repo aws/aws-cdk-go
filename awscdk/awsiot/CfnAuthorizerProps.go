@@ -36,9 +36,7 @@ type CfnAuthorizerProps struct {
 	AuthorizerFunctionArn *string `field:"required" json:"authorizerFunctionArn" yaml:"authorizerFunctionArn"`
 	// The authorizer name.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
-	// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections.
-	//
-	// The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+	// `AWS::IoT::Authorizer.EnableCachingForHttp`.
 	EnableCachingForHttp interface{} `field:"optional" json:"enableCachingForHttp" yaml:"enableCachingForHttp"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request.
 	SigningDisabled interface{} `field:"optional" json:"signingDisabled" yaml:"signingDisabled"`

@@ -37,9 +37,13 @@ import (
 type CfnSigningProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the signing profile created.
 	AttrArn() *string
+	// The name of the signing profile created.
 	AttrProfileName() *string
+	// The version of the signing profile created.
 	AttrProfileVersion() *string
+	// The signing profile ARN, including the profile version.
 	AttrProfileVersionArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

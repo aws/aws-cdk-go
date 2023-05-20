@@ -26,17 +26,17 @@ package awsmsk
 //   }
 //
 type CfnVpcConnectionProps struct {
-	// `AWS::MSK::VpcConnection.Authentication`.
+	// The type of private link authentication.
 	Authentication *string `field:"required" json:"authentication" yaml:"authentication"`
-	// `AWS::MSK::VpcConnection.ClientSubnets`.
+	// The list of subnets in the client VPC to connect to.
 	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
-	// `AWS::MSK::VpcConnection.SecurityGroups`.
+	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
-	// `AWS::MSK::VpcConnection.TargetClusterArn`.
+	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn *string `field:"required" json:"targetClusterArn" yaml:"targetClusterArn"`
-	// `AWS::MSK::VpcConnection.VpcId`.
+	// The VPC id of the remote client.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// `AWS::MSK::VpcConnection.Tags`.
+	// Create tags when creating the VPC connection.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

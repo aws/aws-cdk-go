@@ -97,7 +97,9 @@ package awsec2
 //   }
 //
 type CfnSpotFleet_LaunchTemplateConfigProperty struct {
-	// The launch template.
+	// The launch template to use.
+	//
+	// Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
 	LaunchTemplateSpecification interface{} `field:"optional" json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any parameters that you specify override the same parameters in the launch template.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`

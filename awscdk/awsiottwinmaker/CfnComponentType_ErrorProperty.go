@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The component type error.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsiottwinmaker
 //   }
 //
 type CfnComponentType_ErrorProperty struct {
-	// `CfnComponentType.ErrorProperty.Code`.
+	// The component type error code.
 	Code *string `field:"optional" json:"code" yaml:"code"`
-	// `CfnComponentType.ErrorProperty.Message`.
+	// The component type error message.
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

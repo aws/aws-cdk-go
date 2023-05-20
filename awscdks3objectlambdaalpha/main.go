@@ -1,3 +1,4 @@
+// The CDK Construct Library for AWS::S3ObjectLambda
 package awscdks3objectlambdaalpha
 
 import (

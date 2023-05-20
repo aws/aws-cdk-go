@@ -18,7 +18,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
 	}),
 	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-	 // Optional - will default to 'admin' username and generated password
+	 // Optional - will default to 'clusteradmin' username and generated password
 	InstanceProps: &InstanceProps{
 		// optional , defaults to t3.medium
 		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),

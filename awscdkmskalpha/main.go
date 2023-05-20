@@ -1,3 +1,4 @@
+// The CDK Construct Library for AWS::MSK
 package awscdkmskalpha
 
 import (

@@ -4,8 +4,8 @@ package awsapigateway
 // Attributes that can be specified when importing a RestApi.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   /**

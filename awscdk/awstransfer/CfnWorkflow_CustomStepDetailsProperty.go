@@ -25,7 +25,7 @@ type CfnWorkflow_CustomStepDetailsProperty struct {
 	// - To use the previous file as the input, enter `${previous.file}` . In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value.
 	// - To use the originally uploaded file location as input for this step, enter `${original.file}` .
 	SourceFileLocation *string `field:"optional" json:"sourceFileLocation" yaml:"sourceFileLocation"`
-	// The ARN for the lambda function that is being called.
+	// The ARN for the Lambda function that is being called.
 	Target *string `field:"optional" json:"target" yaml:"target"`
 	// Timeout, in seconds, for the step.
 	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`

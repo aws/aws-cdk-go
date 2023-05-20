@@ -16,9 +16,9 @@ package awsmsk
 //   }
 //
 type CfnClusterPolicyProps struct {
-	// `AWS::MSK::ClusterPolicy.ClusterArn`.
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
-	// `AWS::MSK::ClusterPolicy.Policy`.
+	// Resource policy for the cluster.
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 }
 

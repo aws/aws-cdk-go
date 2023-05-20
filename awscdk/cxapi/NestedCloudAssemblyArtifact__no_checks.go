@@ -12,6 +12,10 @@ func validateNestedCloudAssemblyArtifact_FromManifestParameters(assembly CloudAs
 	return nil
 }
 
+func validateNestedCloudAssemblyArtifact_IsNestedCloudAssemblyArtifactParameters(art interface{}) error {
+	return nil
+}
+
 func validateNewNestedCloudAssemblyArtifactParameters(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) error {
 	return nil
 }

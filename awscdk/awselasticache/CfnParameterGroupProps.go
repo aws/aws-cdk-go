@@ -36,8 +36,6 @@ type CfnParameterGroupProps struct {
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// A comma-delimited list of parameter name/value pairs.
 	//
-	// For more information, see [ModifyCacheParameterGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html) in the *Amazon ElastiCache API Reference Guide* .
-	//
 	// For example:
 	//
 	// ```

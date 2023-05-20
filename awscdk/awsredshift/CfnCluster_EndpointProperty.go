@@ -14,9 +14,13 @@ package awsredshift
 //   }
 //
 type CfnCluster_EndpointProperty struct {
-	// The DNS address of the Cluster.
+	// The DNS address of the cluster.
+	//
+	// This property is read only.
 	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The port that the database engine is listening on.
+	//
+	// This property is read only.
 	Port *string `field:"optional" json:"port" yaml:"port"`
 }
 

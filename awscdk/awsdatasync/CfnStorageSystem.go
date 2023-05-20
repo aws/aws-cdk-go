@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::DataSync::StorageSystem`.
 //
+// The `AWS::DataSync::StorageSystem` resource creates an AWS resource for an on-premises storage system that you want DataSync Discovery to collect information about. For more information, see [discovering your storage with DataSync Discovery.](https://docs.aws.amazon.com/datasync/latest/userguide/understanding-your-storage.html)
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -46,18 +48,23 @@ import (
 type CfnStorageSystem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::DataSync::StorageSystem.AgentArns`.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads from your on-premises storage system's management interface.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
+	// Indicates whether your DataSync agent can connect to your on-premises storage system.
 	AttrConnectivityStatus() *string
+	// The ARN of the secret that stores your on-premises storage system's credentials.
+	//
+	// DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html#discovery-add-storage) .
 	AttrSecretsManagerArn() *string
+	// The ARN of the on-premises storage system that you're using with DataSync Discovery.
 	AttrStorageSystemArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::DataSync::StorageSystem.CloudWatchLogGroupArn`.
+	// Specifies the ARN of the Amazon CloudWatch log group for monitoring and logging discovery job events.
 	CloudWatchLogGroupArn() *string
 	SetCloudWatchLogGroupArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -74,7 +81,7 @@ type CfnStorageSystem interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::DataSync::StorageSystem.Name`.
+	// Specifies a familiar name for your on-premises storage system.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,20 +91,24 @@ type CfnStorageSystem interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::DataSync::StorageSystem.ServerConfiguration`.
+	// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
 	ServerConfiguration() interface{}
 	SetServerConfiguration(val interface{})
-	// `AWS::DataSync::StorageSystem.ServerCredentials`.
+	// Specifies the user name and password for accessing your on-premises storage system's management interface.
 	ServerCredentials() interface{}
 	SetServerCredentials(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::DataSync::StorageSystem.SystemType`.
+	// Specifies the type of on-premises storage system that you want DataSync Discovery to collect information about.
+	//
+	// > DataSync Discovery currently supports NetApp Fabric-Attached Storage (FAS) and All Flash FAS (AFF) systems running ONTAP 9.7 or later.
 	SystemType() *string
 	SetSystemType(val *string)
-	// `AWS::DataSync::StorageSystem.Tags`.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	//
+	// We recommend creating at least a name tag for your on-premises storage system.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

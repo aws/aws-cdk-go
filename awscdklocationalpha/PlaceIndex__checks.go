@@ -1,6 +1,5 @@
 //go:build !no_runtime_type_checking
 
-// The CDK Construct Library for AWS::Location
 package awscdklocationalpha
 
 import (

@@ -17,6 +17,7 @@ import (
 //   cloudAssembly := awscdk.Cx_api.NewCloudAssembly(jsii.String("directory"), &LoadManifestOptions{
 //   	SkipEnumCheck: jsii.Boolean(false),
 //   	SkipVersionCheck: jsii.Boolean(false),
+//   	TopoSort: jsii.Boolean(false),
 //   })
 //
 type CloudAssembly interface {

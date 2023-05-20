@@ -60,7 +60,7 @@ func NewAccessLog_Override(a AccessLog) {
 }
 
 // Path to a file to write access logs to.
-func AccessLog_FromFilePath(filePath *string) AccessLog {
+func AccessLog_FromFilePath(filePath *string, loggingFormat LoggingFormat) AccessLog {
 	_init_.Initialize()
 
 	if err := validateAccessLog_FromFilePathParameters(filePath); err != nil {
@@ -71,7 +71,7 @@ func AccessLog_FromFilePath(filePath *string) AccessLog {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appmesh.AccessLog",
 		"fromFilePath",
-		[]interface{}{filePath},
+		[]interface{}{filePath, loggingFormat},
 		&returns,
 	)
 

@@ -11,6 +11,9 @@ package awssagemaker
 //   serverlessConfigProperty := &ServerlessConfigProperty{
 //   	MaxConcurrency: jsii.Number(123),
 //   	MemorySizeInMb: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	ProvisionedConcurrency: jsii.Number(123),
 //   }
 //
 type CfnEndpointConfig_ServerlessConfigProperty struct {
@@ -20,5 +23,7 @@ type CfnEndpointConfig_ServerlessConfigProperty struct {
 	//
 	// Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
 	MemorySizeInMb *float64 `field:"required" json:"memorySizeInMb" yaml:"memorySizeInMb"`
+	// `CfnEndpointConfig.ServerlessConfigProperty.ProvisionedConcurrency`.
+	ProvisionedConcurrency *float64 `field:"optional" json:"provisionedConcurrency" yaml:"provisionedConcurrency"`
 }
 

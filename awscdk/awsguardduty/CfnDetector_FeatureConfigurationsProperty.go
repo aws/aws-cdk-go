@@ -3,7 +3,7 @@ package awsguardduty
 
 // Describes the configuration for a feature.
 //
-// Make sure you use either `dataSources` or `Features` , and not both.
+// Although the `Required` field associated with the following properties specifies `No` , if you provide information for `Name` , you will need to provide the information for `Status` too. For information about the available feature configurations, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

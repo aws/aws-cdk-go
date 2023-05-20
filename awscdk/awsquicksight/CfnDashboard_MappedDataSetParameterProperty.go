@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A dataset parameter that is mapped to an analysis parameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_MappedDataSetParameterProperty struct {
-	// `CfnDashboard.MappedDataSetParameterProperty.DataSetIdentifier`.
+	// A unique name that identifies a dataset within the analysis or dashboard.
 	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
-	// `CfnDashboard.MappedDataSetParameterProperty.DataSetParameterName`.
+	// The name of the dataset parameter.
 	DataSetParameterName *string `field:"required" json:"dataSetParameterName" yaml:"dataSetParameterName"`
 }
 

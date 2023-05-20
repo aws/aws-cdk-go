@@ -17,7 +17,7 @@ package awsmsk
 //   }
 //
 type CfnServerlessCluster_SaslProperty struct {
-	// Details for client authentication using IAM.
+	// Details for ClientAuthentication using IAM.
 	Iam interface{} `field:"required" json:"iam" yaml:"iam"`
 }
 

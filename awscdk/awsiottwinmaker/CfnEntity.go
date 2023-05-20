@@ -85,8 +85,11 @@ type CfnEntity interface {
 	AttrCreationDateTime() *string
 	// A boolean value that specifies whether the entity has child entities or not.
 	AttrHasChildEntities() awscdk.IResolvable
+	// The error code.
 	AttrStatusErrorCode() *string
+	// The error message.
 	AttrStatusErrorMessage() *string
+	// The state ofthe entity, component type, or workspace.
 	AttrStatusState() *string
 	// The date and time when the component type was last updated.
 	AttrUpdateDateTime() *string

@@ -1,3 +1,4 @@
+// A CDK Construct Library for Kinesis Analytics Flink applications
 package awscdkkinesisanalyticsflinkalpha
 
 import (

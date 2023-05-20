@@ -38,6 +38,7 @@ import (
 //   		jsii.String("cacheSecurityGroupNames"),
 //   	},
 //   	CacheSubnetGroupName: jsii.String("cacheSubnetGroupName"),
+//   	ClusterMode: jsii.String("clusterMode"),
 //   	DataTieringEnabled: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
@@ -251,6 +252,11 @@ type CfnReplicationGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Enabled or Disabled.
+	//
+	// To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see [Modify cluster mode](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/modify-cluster-mode.html) .
+	ClusterMode() *string
+	SetClusterMode(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -825,6 +831,16 @@ func (j *jsiiProxy_CfnReplicationGroup) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationGroup) ClusterMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationGroup) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -1294,6 +1310,14 @@ func (j *jsiiProxy_CfnReplicationGroup)SetCacheSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"cacheSubnetGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReplicationGroup)SetClusterMode(val *string) {
+	_jsii_.Set(
+		j,
+		"clusterMode",
 		val,
 	)
 }

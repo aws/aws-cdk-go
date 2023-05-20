@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The structure that contains information about a network interface.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,15 +17,15 @@ package awsquicksight
 //   }
 //
 type CfnVPCConnection_NetworkInterfaceProperty struct {
-	// `CfnVPCConnection.NetworkInterfaceProperty.AvailabilityZone`.
+	// The availability zone that the network interface resides in.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// `CfnVPCConnection.NetworkInterfaceProperty.ErrorMessage`.
+	// An error message.
 	ErrorMessage *string `field:"optional" json:"errorMessage" yaml:"errorMessage"`
-	// `CfnVPCConnection.NetworkInterfaceProperty.NetworkInterfaceId`.
+	// The network interface ID.
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
-	// `CfnVPCConnection.NetworkInterfaceProperty.Status`.
+	// The status of the network interface.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// `CfnVPCConnection.NetworkInterfaceProperty.SubnetId`.
+	// The subnet ID associated with the network interface.
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

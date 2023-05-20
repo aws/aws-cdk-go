@@ -14,10 +14,10 @@ package awsmediaconnect
 //
 //   	// the properties below are optional
 //   	Decryption: &EncryptionProperty{
-//   		Algorithm: jsii.String("algorithm"),
 //   		RoleArn: jsii.String("roleArn"),
 //
 //   		// the properties below are optional
+//   		Algorithm: jsii.String("algorithm"),
 //   		ConstantInitializationVector: jsii.String("constantInitializationVector"),
 //   		DeviceId: jsii.String("deviceId"),
 //   		KeyType: jsii.String("keyType"),
@@ -31,7 +31,12 @@ package awsmediaconnect
 //   	IngestPort: jsii.Number(123),
 //   	MaxBitrate: jsii.Number(123),
 //   	MaxLatency: jsii.Number(123),
+//   	MinLatency: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
+//   	SenderControlPort: jsii.Number(123),
+//   	SenderIpAddress: jsii.String("senderIpAddress"),
+//   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
+//   	SourceListenerPort: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
 //   	VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
@@ -64,10 +69,24 @@ type CfnFlowSourceProps struct {
 	//
 	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
+	// The minimum latency in milliseconds for SRT-based streams.
+	//
+	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+	MinLatency *float64 `field:"optional" json:"minLatency" yaml:"minLatency"`
 	// The protocol that the source uses to deliver the content to MediaConnect.
 	//
-	// Adding additional sources to an existing flow requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. Only the following protocols support failover: Zixi-push, RTP-FEC, RTP, and RIST.
+	// Adding additional sources to an existing flow requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. Only the following protocols support failover: Zixi-push, RTP-FEC, RTP, RIST and SRT protocols.
+	//
+	// If you use failover with SRT caller or listener, the `FailoverMode` property must be set to `FAILOVER` . The `FailoverMode` property is found in the `FailoverConfig` resource of the same flow ARN you used for the source's `FlowArn` property. SRT caller/listener does not support merge mode failover.
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	// The port that the flow uses to send outbound requests to initiate connection with the sender.
+	SenderControlPort *float64 `field:"optional" json:"senderControlPort" yaml:"senderControlPort"`
+	// The IP address that the flow communicates with to initiate connection with the sender.
+	SenderIpAddress *string `field:"optional" json:"senderIpAddress" yaml:"senderIpAddress"`
+	// Source IP or domain name for SRT-caller protocol.
+	SourceListenerAddress *string `field:"optional" json:"sourceListenerAddress" yaml:"sourceListenerAddress"`
+	// Source port for SRT-caller protocol.
+	SourceListenerPort *float64 `field:"optional" json:"sourceListenerPort" yaml:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport.
 	//
 	// This parameter applies only to Zixi and SRT caller-based streams.

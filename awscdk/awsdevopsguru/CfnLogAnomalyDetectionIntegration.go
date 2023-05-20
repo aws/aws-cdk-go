@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
 //
+// Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,6 +23,7 @@ import (
 type CfnLogAnomalyDetectionIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Connect::EvaluationForm`.
 //
+// Creates an evaluation form for the specified Amazon Connect instance.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -119,6 +121,7 @@ import (
 type CfnEvaluationForm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the evaluation form.
 	AttrEvaluationFormArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -129,13 +132,21 @@ type CfnEvaluationForm interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::EvaluationForm.Description`.
+	// The description of the evaluation form.
+	//
+	// *Length Constraints* : Minimum length of 0. Maximum length of 1024.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Connect::EvaluationForm.InstanceArn`.
+	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
-	// `AWS::Connect::EvaluationForm.Items`.
+	// Items that are part of the evaluation form.
+	//
+	// The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+	//
+	// *Minimum size* : 1
+	//
+	// *Maximum size* : 100.
 	Items() interface{}
 	SetItems(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -155,19 +166,23 @@ type CfnEvaluationForm interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Connect::EvaluationForm.ScoringStrategy`.
+	// A scoring strategy of the evaluation form.
 	ScoringStrategy() interface{}
 	SetScoringStrategy(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Connect::EvaluationForm.Status`.
+	// The status of the evaluation form.
+	//
+	// *Allowed values* : `DRAFT` | `ACTIVE`.
 	Status() *string
 	SetStatus(val *string)
-	// `AWS::Connect::EvaluationForm.Tags`.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags() awscdk.TagManager
-	// `AWS::Connect::EvaluationForm.Title`.
+	// A title of the evaluation form.
 	Title() *string
 	SetTitle(val *string)
 	// Deprecated.

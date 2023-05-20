@@ -26,17 +26,19 @@ import (
 //   }
 //
 type CfnServiceTemplateProps struct {
-	// `AWS::Proton::ServiceTemplate.Description`.
+	// A description of the service template.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Proton::ServiceTemplate.DisplayName`.
+	// The service template name as displayed in the developer interface.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// `AWS::Proton::ServiceTemplate.EncryptionKey`.
+	// The customer provided service template encryption key that's used to encrypt data.
 	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// `AWS::Proton::ServiceTemplate.Name`.
+	// The name of the service template.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Proton::ServiceTemplate.PipelineProvisioning`.
+	// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template.
+	//
+	// Otherwise, a service pipeline *isn't* included in the service template.
 	PipelineProvisioning *string `field:"optional" json:"pipelineProvisioning" yaml:"pipelineProvisioning"`
-	// `AWS::Proton::ServiceTemplate.Tags`.
+	// An object that includes the template bundle S3 bucket path and name for the new version of a service template.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

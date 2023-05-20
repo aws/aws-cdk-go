@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::MSK
 package awscdkmskalpha
 
 import (
@@ -259,6 +258,17 @@ func KafkaVersion_V3_3_2() KafkaVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		"V3_3_2",
+		&returns,
+	)
+	return returns
+}
+
+func KafkaVersion_V3_4_0() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V3_4_0",
 		&returns,
 	)
 	return returns

@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::LakeFormation::DataLakeSettings`.
 //
-// The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account. Note that the CloudFormation template only supports updating the `Admins` list. It does not support updating the [CreateDatabaseDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) or [CreateTableDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) . Those permissions can only be edited in the DataLakeSettings resource via the API.
+// The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -67,10 +67,18 @@ type CfnDataLakeSettings interface {
 	// A list of AWS Lake Formation principals.
 	Admins() interface{}
 	SetAdmins(val interface{})
-	// `AWS::LakeFormation::DataLakeSettings.AllowExternalDataFiltering`.
+	// Whether to allow Amazon EMR clusters or other third-party query engines to access data managed by Lake Formation .
+	//
+	// If set to true, you allow Amazon EMR clusters or other third-party engines to access data in Amazon S3 locations that are registered with Lake Formation .
+	//
+	// If false or null, no third-party query engines will be able to access data in Amazon S3 locations that are registered with Lake Formation.
+	//
+	// For more information, see [External data filtering setting](https://docs.aws.amazon.com/lake-formation/latest/dg/initial-LF-setup.html#external-data-filter) .
 	AllowExternalDataFiltering() interface{}
 	SetAllowExternalDataFiltering(val interface{})
-	// `AWS::LakeFormation::DataLakeSettings.AuthorizedSessionTagValueList`.
+	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// Lake Formation will publish the acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value = "TRUE" and the third party integrator must properly tag the temporary security credentials that will be used to call Lake Formation 's administrative API operations.
 	AuthorizedSessionTagValueList() *[]*string
 	SetAuthorizedSessionTagValueList(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -78,17 +86,29 @@ type CfnDataLakeSettings interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::LakeFormation::DataLakeSettings.CreateDatabaseDefaultPermissions`.
+	// Specifies whether access control on a newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.
+	//
+	// A null value indicates that the access is controlled by Lake Formation permissions. `ALL` permissions assigned to `IAM_ALLOWED_PRINCIPALS` group indicates that the user's IAM permissions determine the access to the database. This is referred to as the setting "Use only IAM access control," and is to support backward compatibility with the AWS Glue permission model implemented by IAM permissions.
+	//
+	// The only permitted values are an empty array or an array that contains a single JSON object that grants `ALL` to `IAM_ALLOWED_PRINCIPALS` .
+	//
+	// For more information, see [Changing the default security settings for your data lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) .
 	CreateDatabaseDefaultPermissions() interface{}
 	SetCreateDatabaseDefaultPermissions(val interface{})
-	// `AWS::LakeFormation::DataLakeSettings.CreateTableDefaultPermissions`.
+	// Specifies whether access control on a newly created table is managed by Lake Formation permissions or exclusively by IAM permissions.
+	//
+	// A null value indicates that the access is controlled by Lake Formation permissions. `ALL` permissions assigned to `IAM_ALLOWED_PRINCIPALS` group indicate that the user's IAM permissions determine the access to the table. This is referred to as the setting "Use only IAM access control," and is to support the backward compatibility with the AWS Glue permission model implemented by IAM permissions.
+	//
+	// The only permitted values are an empty array or an array that contains a single JSON object that grants `ALL` permissions to `IAM_ALLOWED_PRINCIPALS` .
+	//
+	// For more information, see [Changing the default security settings for your data lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) .
 	CreateTableDefaultPermissions() interface{}
 	SetCreateTableDefaultPermissions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::LakeFormation::DataLakeSettings.ExternalDataFilteringAllowList`.
+	// A list of the account IDs of AWS accounts with Amazon EMR clusters or third-party engines that are allwed to perform data filtering.
 	ExternalDataFilteringAllowList() interface{}
 	SetExternalDataFilteringAllowList(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -103,7 +123,9 @@ type CfnDataLakeSettings interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::LakeFormation::DataLakeSettings.Parameters`.
+	// A key-value map that provides an additional configuration on your data lake.
+	//
+	// `CrossAccountVersion` is the key you can configure in the `Parameters` field. Accepted values for the `CrossAccountVersion` key are 1, 2, and 3.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

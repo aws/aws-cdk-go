@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::XRay::Group`.
 //
-// Use the `AWS::XRay::Group` resource to specify a group with a name and a filter expression.
+// Use the `AWS::XRay::Group` resource to specify a group with a name and a filter expression. Groups enable the collection of traces that match the filter expression, can be used to filter service graphs and traces, and to supply Amazon CloudWatch metrics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -80,8 +80,6 @@ type CfnGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() *[]interface{}
 	SetTags(val *[]interface{})
 	// Deprecated.

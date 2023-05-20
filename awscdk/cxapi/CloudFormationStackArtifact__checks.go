@@ -37,6 +37,14 @@ func validateCloudFormationStackArtifact_FromManifestParameters(assembly CloudAs
 	return nil
 }
 
+func validateCloudFormationStackArtifact_IsCloudFormationStackArtifactParameters(art interface{}) error {
+	if art == nil {
+		return fmt.Errorf("parameter art is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCloudFormationStackArtifactParameters(assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) error {
 	if assembly == nil {
 		return fmt.Errorf("parameter assembly is required, but nil was provided")

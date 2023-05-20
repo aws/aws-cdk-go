@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::Cognito Identity Pools
 package awscdkcognitoidentitypoolalpha
 
 import (

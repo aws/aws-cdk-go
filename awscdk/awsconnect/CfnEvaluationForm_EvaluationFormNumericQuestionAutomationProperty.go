@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the automation configuration in numeric questions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +15,7 @@ package awsconnect
 //   }
 //
 type CfnEvaluationForm_EvaluationFormNumericQuestionAutomationProperty struct {
-	// `CfnEvaluationForm.EvaluationFormNumericQuestionAutomationProperty.PropertyValue`.
+	// The property value of the automation.
 	PropertyValue interface{} `field:"required" json:"propertyValue" yaml:"propertyValue"`
 }
 

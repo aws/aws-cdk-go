@@ -124,8 +124,11 @@ type CfnComponentType interface {
 	AttrIsAbstract() awscdk.IResolvable
 	// A boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
 	AttrIsSchemaInitialized() awscdk.IResolvable
+	// component type error code.
 	AttrStatusErrorCode() *string
+	// The component type error message.
 	AttrStatusErrorMessage() *string
+	// The component type state.
 	AttrStatusState() *string
 	// The component type the update time.
 	AttrUpdateDateTime() *string

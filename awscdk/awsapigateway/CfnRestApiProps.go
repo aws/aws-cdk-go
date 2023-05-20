@@ -103,6 +103,8 @@ type CfnRestApiProps struct {
 	// Use the default mode to define top-level `RestApi` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The name of the RestApi.
+	//
+	// A name is required if the REST API is not based on an OpenAPI specification.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Custom header parameters as part of the request.
 	//

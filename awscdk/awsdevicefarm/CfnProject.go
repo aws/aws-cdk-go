@@ -102,7 +102,7 @@ type CfnProject interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::DeviceFarm::Project.VpcConfig`.
+	// The VPC security groups and subnets that are attached to a project.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

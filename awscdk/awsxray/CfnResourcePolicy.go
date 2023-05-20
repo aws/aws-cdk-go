@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::XRay::ResourcePolicy`.
 //
+// Use `AWS::XRay::ResourcePolicy` to specify an X-Ray resource-based policy, which grants one or more AWS services and accounts permissions to access X-Ray . Each resource-based policy is associated with a specific AWS account.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,7 +29,7 @@ import (
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::XRay::ResourcePolicy.BypassPolicyLockoutCheck`.
+	// A flag to indicate whether to bypass the resource-based policy lockout safety check.
 	BypassPolicyLockoutCheck() interface{}
 	SetBypassPolicyLockoutCheck(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -51,10 +53,12 @@ type CfnResourcePolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::XRay::ResourcePolicy.PolicyDocument`.
+	// The resource-based policy document, which can be up to 5kb in size.
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
-	// `AWS::XRay::ResourcePolicy.PolicyName`.
+	// The name of the resource-based policy.
+	//
+	// Must be unique within a specific AWS account.
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

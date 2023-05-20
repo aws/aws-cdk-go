@@ -18,7 +18,7 @@ package awss3
 type CfnMultiRegionAccessPoint_RegionProperty struct {
 	// The name of the associated bucket for the Region.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+	// `CfnMultiRegionAccessPoint.RegionProperty.BucketAccountId`.
 	BucketAccountId *string `field:"optional" json:"bucketAccountId" yaml:"bucketAccountId"`
 }
 

@@ -15,7 +15,7 @@ package awslex
 type CfnBot_ObfuscationSettingProperty struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs.
 	//
-	// The default is to obscure the values. The valid values are `None` and `DefaultObfuscation.`
+	// The default is to obscure the values.
 	ObfuscationSettingType *string `field:"required" json:"obfuscationSettingType" yaml:"obfuscationSettingType"`
 }
 

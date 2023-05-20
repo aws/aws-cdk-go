@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The entity error.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsiottwinmaker
 //   }
 //
 type CfnEntity_ErrorProperty struct {
-	// `CfnEntity.ErrorProperty.Code`.
+	// The entity error code.
 	Code *string `field:"optional" json:"code" yaml:"code"`
-	// `CfnEntity.ErrorProperty.Message`.
+	// The entity error message.
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

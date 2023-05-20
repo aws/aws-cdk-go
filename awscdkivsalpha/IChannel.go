@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::IVS
 package awscdkivsalpha
 
 import (

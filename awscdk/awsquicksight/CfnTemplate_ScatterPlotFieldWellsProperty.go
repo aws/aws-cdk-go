@@ -1753,11 +1753,11 @@ package awsquicksight
 type CfnTemplate_ScatterPlotFieldWellsProperty struct {
 	// The aggregated field wells of a scatter plot.
 	//
-	// Scatter plots that have a field in the category (group/color) field will have aggregated field wells. The x and y-axes of these scatter plots are aggregated by category.
+	// The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.
 	ScatterPlotCategoricallyAggregatedFieldWells interface{} `field:"optional" json:"scatterPlotCategoricallyAggregatedFieldWells" yaml:"scatterPlotCategoricallyAggregatedFieldWells"`
 	// The unaggregated field wells of a scatter plot.
 	//
-	// Scatter plots without a category field well have unaggregated field wells. The x and y-axes of these scatter plots are unaggregated.
+	// The x and y-axes of these scatter plots are unaggregated.
 	ScatterPlotUnaggregatedFieldWells interface{} `field:"optional" json:"scatterPlotUnaggregatedFieldWells" yaml:"scatterPlotUnaggregatedFieldWells"`
 }
 

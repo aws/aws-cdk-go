@@ -90,7 +90,7 @@ type CfnAccessPoint interface {
 	// The access point policy associated with this access point.
 	Policy() interface{}
 	SetPolicy(val interface{})
-	// The container element for a bucket's policy status.
+	// `AWS::S3::AccessPoint.PolicyStatus`.
 	PolicyStatus() interface{}
 	SetPolicyStatus(val interface{})
 	// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket.

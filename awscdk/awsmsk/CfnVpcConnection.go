@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::MSK::VpcConnection`.
 //
+// Create remote VPC connection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,8 +38,9 @@ import (
 type CfnVpcConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the VPC connection.
 	AttrArn() *string
-	// `AWS::MSK::VpcConnection.Authentication`.
+	// The type of private link authentication.
 	Authentication() *string
 	SetAuthentication(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -45,7 +48,7 @@ type CfnVpcConnection interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::MSK::VpcConnection.ClientSubnets`.
+	// The list of subnets in the client VPC to connect to.
 	ClientSubnets() *[]*string
 	SetClientSubnets(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -69,16 +72,16 @@ type CfnVpcConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::MSK::VpcConnection.SecurityGroups`.
+	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::MSK::VpcConnection.Tags`.
+	// Create tags when creating the VPC connection.
 	Tags() awscdk.TagManager
-	// `AWS::MSK::VpcConnection.TargetClusterArn`.
+	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn() *string
 	SetTargetClusterArn(val *string)
 	// Deprecated.
@@ -94,7 +97,7 @@ type CfnVpcConnection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::MSK::VpcConnection.VpcId`.
+	// The VPC id of the remote client.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

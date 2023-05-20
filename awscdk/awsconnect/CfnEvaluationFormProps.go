@@ -112,19 +112,31 @@ import (
 //   }
 //
 type CfnEvaluationFormProps struct {
-	// `AWS::Connect::EvaluationForm.InstanceArn`.
+	// The identifier of the Amazon Connect instance.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// `AWS::Connect::EvaluationForm.Items`.
+	// Items that are part of the evaluation form.
+	//
+	// The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+	//
+	// *Minimum size* : 1
+	//
+	// *Maximum size* : 100.
 	Items interface{} `field:"required" json:"items" yaml:"items"`
-	// `AWS::Connect::EvaluationForm.Status`.
+	// The status of the evaluation form.
+	//
+	// *Allowed values* : `DRAFT` | `ACTIVE`.
 	Status *string `field:"required" json:"status" yaml:"status"`
-	// `AWS::Connect::EvaluationForm.Title`.
+	// A title of the evaluation form.
 	Title *string `field:"required" json:"title" yaml:"title"`
-	// `AWS::Connect::EvaluationForm.Description`.
+	// The description of the evaluation form.
+	//
+	// *Length Constraints* : Minimum length of 0. Maximum length of 1024.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Connect::EvaluationForm.ScoringStrategy`.
+	// A scoring strategy of the evaluation form.
 	ScoringStrategy interface{} `field:"optional" json:"scoringStrategy" yaml:"scoringStrategy"`
-	// `AWS::Connect::EvaluationForm.Tags`.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

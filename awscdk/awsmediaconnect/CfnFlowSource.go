@@ -24,10 +24,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Decryption: &EncryptionProperty{
-//   		Algorithm: jsii.String("algorithm"),
 //   		RoleArn: jsii.String("roleArn"),
 //
 //   		// the properties below are optional
+//   		Algorithm: jsii.String("algorithm"),
 //   		ConstantInitializationVector: jsii.String("constantInitializationVector"),
 //   		DeviceId: jsii.String("deviceId"),
 //   		KeyType: jsii.String("keyType"),
@@ -41,7 +41,12 @@ import (
 //   	IngestPort: jsii.Number(123),
 //   	MaxBitrate: jsii.Number(123),
 //   	MaxLatency: jsii.Number(123),
+//   	MinLatency: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
+//   	SenderControlPort: jsii.Number(123),
+//   	SenderIpAddress: jsii.String("senderIpAddress"),
+//   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
+//   	SourceListenerPort: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
 //   	VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
@@ -105,6 +110,11 @@ type CfnFlowSource interface {
 	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
+	// The minimum latency in milliseconds for SRT-based streams.
+	//
+	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+	MinLatency() *float64
+	SetMinLatency(val *float64)
 	// The name of the source.
 	Name() *string
 	SetName(val *string)
@@ -112,7 +122,9 @@ type CfnFlowSource interface {
 	Node() constructs.Node
 	// The protocol that the source uses to deliver the content to MediaConnect.
 	//
-	// Adding additional sources to an existing flow requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. Only the following protocols support failover: Zixi-push, RTP-FEC, RTP, and RIST.
+	// Adding additional sources to an existing flow requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. Only the following protocols support failover: Zixi-push, RTP-FEC, RTP, RIST and SRT protocols.
+	//
+	// If you use failover with SRT caller or listener, the `FailoverMode` property must be set to `FAILOVER` . The `FailoverMode` property is found in the `FailoverConfig` resource of the same flow ARN you used for the source's `FlowArn` property. SRT caller/listener does not support merge mode failover.
 	Protocol() *string
 	SetProtocol(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -120,6 +132,18 @@ type CfnFlowSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The port that the flow uses to send outbound requests to initiate connection with the sender.
+	SenderControlPort() *float64
+	SetSenderControlPort(val *float64)
+	// The IP address that the flow communicates with to initiate connection with the sender.
+	SenderIpAddress() *string
+	SetSenderIpAddress(val *string)
+	// Source IP or domain name for SRT-caller protocol.
+	SourceListenerAddress() *string
+	SetSourceListenerAddress(val *string)
+	// Source port for SRT-caller protocol.
+	SourceListenerPort() *float64
+	SetSourceListenerPort(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -433,6 +457,16 @@ func (j *jsiiProxy_CfnFlowSource) MaxLatency() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowSource) MinLatency() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"minLatency",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowSource) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -468,6 +502,46 @@ func (j *jsiiProxy_CfnFlowSource) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) SenderControlPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"senderControlPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) SenderIpAddress() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"senderIpAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) SourceListenerAddress() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceListenerAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) SourceListenerPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"sourceListenerPort",
 		&returns,
 	)
 	return returns
@@ -625,6 +699,14 @@ func (j *jsiiProxy_CfnFlowSource)SetMaxLatency(val *float64) {
 	)
 }
 
+func (j *jsiiProxy_CfnFlowSource)SetMinLatency(val *float64) {
+	_jsii_.Set(
+		j,
+		"minLatency",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFlowSource)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -640,6 +722,38 @@ func (j *jsiiProxy_CfnFlowSource)SetProtocol(val *string) {
 	_jsii_.Set(
 		j,
 		"protocol",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetSenderControlPort(val *float64) {
+	_jsii_.Set(
+		j,
+		"senderControlPort",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetSenderIpAddress(val *string) {
+	_jsii_.Set(
+		j,
+		"senderIpAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetSourceListenerAddress(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceListenerAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetSourceListenerPort(val *float64) {
+	_jsii_.Set(
+		j,
+		"sourceListenerPort",
 		val,
 	)
 }

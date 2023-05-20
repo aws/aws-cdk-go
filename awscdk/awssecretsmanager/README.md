@@ -10,15 +10,13 @@ To have SecretsManager generate a new secret value automatically,
 follow this example:
 
 ```go
-var vpc vpc
+var vpc iVpc
 
 
-// Simple secret
-secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
-// Using the secret
 instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
-	Credentials: rds.Credentials_FromSecret(secret),
+	// Generate the secret with admin username `postgres` and random password
+	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres")),
 	Vpc: Vpc,
 })
 // Templated secret with username and password fields
@@ -28,6 +26,7 @@ templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret")
 			"username": jsii.String("postgres"),
 		}),
 		GenerateStringKey: jsii.String("password"),
+		ExcludeCharacters: jsii.String("/@\""),
 	},
 })
 // Using the templated secret as credentials
@@ -144,7 +143,7 @@ MariaDB, SQLServer, Redshift and MongoDB (both for the single and multi user sch
 When deployed in a VPC, the hosted rotation implements `ec2.IConnectable`:
 
 ```go
-var myVpc vpc
+var myVpc iVpc
 var dbConnections connections
 var secret secret
 

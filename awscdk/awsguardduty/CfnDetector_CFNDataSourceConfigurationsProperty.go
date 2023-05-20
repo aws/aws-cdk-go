@@ -25,7 +25,7 @@ package awsguardduty
 //   }
 //
 type CfnDetector_CFNDataSourceConfigurationsProperty struct {
-	// Describes which Kuberentes data sources are enabled for a detector.
+	// Describes which Kubernetes data sources are enabled for a detector.
 	Kubernetes interface{} `field:"optional" json:"kubernetes" yaml:"kubernetes"`
 	// Describes whether Malware Protection will be enabled as a data source.
 	MalwareProtection interface{} `field:"optional" json:"malwareProtection" yaml:"malwareProtection"`

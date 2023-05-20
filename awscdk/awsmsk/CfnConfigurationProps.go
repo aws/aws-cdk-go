@@ -28,9 +28,7 @@ type CfnConfigurationProps struct {
 	ServerProperties *string `field:"required" json:"serverProperties" yaml:"serverProperties"`
 	// The description of the configuration.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A list of the versions of Apache Kafka with which you can use this MSK configuration.
-	//
-	// You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this list.
+	// `AWS::MSK::Configuration.KafkaVersionsList`.
 	KafkaVersionsList *[]*string `field:"optional" json:"kafkaVersionsList" yaml:"kafkaVersionsList"`
 }
 

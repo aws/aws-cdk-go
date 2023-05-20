@@ -1,4 +1,3 @@
-// CDK Integration Testing Constructs
 package awscdkintegtestsalpha
 
 import (

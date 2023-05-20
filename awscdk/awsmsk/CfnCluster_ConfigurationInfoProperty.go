@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Specifies the Amazon MSK configuration to use for the brokers.
+// Specifies the configuration to use for the brokers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -14,11 +14,9 @@ package awsmsk
 //   }
 //
 type CfnCluster_ConfigurationInfoProperty struct {
-	// The Amazon Resource Name (ARN) of the MSK configuration to use.
-	//
-	// For example, `arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1` .
+	// ARN of the configuration to use.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
-	// The revision of the Amazon MSK configuration to use.
+	// The revision of the configuration to use.
 	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 

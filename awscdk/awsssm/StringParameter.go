@@ -346,7 +346,7 @@ func StringParameter_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Returns a token that will resolve (during deployment).
-// Deprecated: Use `SecretValue.ssmSecure()` instead, it will correctly type the imported value as a `SecretValue` and allow importing without version.
+// Deprecated: Use `SecretValue.ssmSecure()` instead, it will correctly type the imported value as a `SecretValue` and allow importing without version. `SecretValue` lives in the core `aws-cdk-lib` module.
 func StringParameter_ValueForSecureStringParameter(scope constructs.Construct, parameterName *string, version *float64) *string {
 	_init_.Initialize()
 

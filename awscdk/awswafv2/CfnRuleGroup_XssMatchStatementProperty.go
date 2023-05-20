@@ -82,7 +82,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	// Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents.
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 

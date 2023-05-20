@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Specifies whether provisioned throughput is turned on and the volume throughput target.
+// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -14,9 +14,9 @@ package awsmsk
 //   }
 //
 type CfnCluster_ProvisionedThroughputProperty struct {
-	// Specifies whether provisioned throughput is turned on for the cluster.
+	// Provisioned throughput is enabled or not.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// The provisioned throughput rate in MiB per second.
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
 	VolumeThroughput *float64 `field:"optional" json:"volumeThroughput" yaml:"volumeThroughput"`
 }
 

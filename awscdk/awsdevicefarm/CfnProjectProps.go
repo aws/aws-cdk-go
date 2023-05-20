@@ -44,7 +44,7 @@ type CfnProjectProps struct {
 	//
 	// A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::DeviceFarm::Project.VpcConfig`.
+	// The VPC security groups and subnets that are attached to a project.
 	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 

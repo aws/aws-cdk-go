@@ -1,4 +1,3 @@
-// The CDK Construct Library for AWS::Synthetics
 package awscdksyntheticsalpha
 
 
