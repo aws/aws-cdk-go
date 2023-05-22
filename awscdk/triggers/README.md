@@ -14,10 +14,15 @@ The `TriggerFunction` construct will define an AWS Lambda function which is
 triggered *during* deployment:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
 import triggers "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var stack stack
 
 
-triggers.NewTriggerFunction(this, jsii.String("MyTrigger"), &TriggerFunctionProps{
+triggers.NewTriggerFunction(stack, jsii.String("MyTrigger"), &TriggerFunctionProps{
 	Runtime: lambda.Runtime_NODEJS_14_X(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(jsii.String(__dirname + "/my-trigger")),
@@ -26,30 +31,6 @@ triggers.NewTriggerFunction(this, jsii.String("MyTrigger"), &TriggerFunctionProp
 
 In the above example, the AWS Lambda function defined in `myLambdaFunction` will
 be invoked when the stack is deployed.
-
-It is also possible to trigger a predefined Lambda function by using the `Trigger` construct:
-
-```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
-
-func := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_14_X(),
-	Code: lambda.Code_FromInline(jsii.String("foo")),
-})
-
-triggers.NewTrigger(this, jsii.String("MyTrigger"), &TriggerProps{
-	Handler: func,
-	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-	InvocationType: triggers.InvocationType_EVENT,
-})
-```
-
-Addition properties can be used to fine-tune the behaviour of the trigger.
-The `timeout` property can be used to determine how long the invocation of the function should take.
-The `invocationType` property can be used to change the invocation type of the function.
-This might be useful in scenarios where a fire-and-forget strategy for invoking the function is sufficient.
 
 ## Trigger Failures
 
@@ -74,6 +55,8 @@ parallel, and then the trigger `myTrigger` will be executed. Only then the
 resources under `goodbye` will be provisioned:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/constructs-go/constructs"
 import triggers "github.com/aws/aws-cdk-go/awscdk"
 
 var myTrigger trigger

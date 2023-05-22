@@ -37,7 +37,7 @@ CDK stack file `app-stack.ts`:
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
 	Name: jsii.String("demo"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+	Schema: appsync.Schema_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
 	AuthorizationConfig: &AuthorizationConfig{
 		DefaultAuthorization: &AuthorizationMode{
 			AuthorizationType: appsync.AuthorizationType_IAM,
@@ -56,9 +56,7 @@ demoTable := dynamodb.NewTable(this, jsii.String("DemoTable"), &TableProps{
 demoDS := api.AddDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
 
 // Resolver for the Query "getDemos" that scans the DynamoDb table and returns the entire list.
-// Resolver Mapping Template Reference:
-// https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html
-demoDS.CreateResolver(jsii.String("QueryGetDemosResolver"), &BaseResolverProps{
+demoDS.CreateResolver(&BaseResolverProps{
 	TypeName: jsii.String("Query"),
 	FieldName: jsii.String("getDemos"),
 	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbScanTable(),
@@ -66,19 +64,11 @@ demoDS.CreateResolver(jsii.String("QueryGetDemosResolver"), &BaseResolverProps{
 })
 
 // Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
-demoDS.CreateResolver(jsii.String("MutationAddDemoResolver"), &BaseResolverProps{
+demoDS.CreateResolver(&BaseResolverProps{
 	TypeName: jsii.String("Mutation"),
 	FieldName: jsii.String("addDemo"),
 	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbPutItem(appsync.PrimaryKey_Partition(jsii.String("id")).Auto(), appsync.Values_Projecting(jsii.String("input"))),
 	ResponseMappingTemplate: appsync.MappingTemplate_DynamoDbResultItem(),
-})
-
-//To enable DynamoDB read consistency with the `MappingTemplate`:
-demoDS.CreateResolver(jsii.String("QueryGetDemosConsistentResolver"), &BaseResolverProps{
-	TypeName: jsii.String("Query"),
-	FieldName: jsii.String("getDemosConsistent"),
-	RequestMappingTemplate: appsync.MappingTemplate_*DynamoDbScanTable(jsii.Boolean(true)),
-	ResponseMappingTemplate: appsync.MappingTemplate_*DynamoDbResultList(),
 })
 ```
 
@@ -112,7 +102,7 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &Serverl
 rdsDS := api.AddRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
 
 // Set up a resolver for an RDS query.
-rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
+rdsDS.CreateResolver(&BaseResolverProps{
 	TypeName: jsii.String("Query"),
 	FieldName: jsii.String("getDemosRds"),
 	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
@@ -129,7 +119,7 @@ rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps
 })
 
 // Set up a resolver for an RDS mutation.
-rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
+rdsDS.CreateResolver(&BaseResolverProps{
 	TypeName: jsii.String("Mutation"),
 	FieldName: jsii.String("addDemoRds"),
 	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
@@ -203,7 +193,7 @@ CDK stack file `app-stack.ts`:
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("api"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+	Schema: appsync.Schema_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
 })
 
 httpDs := api.AddHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &HttpDataSourceOptions{
@@ -215,99 +205,9 @@ httpDs := api.AddHttpDataSource(jsii.String("ds"), jsii.String("https://states.a
 	},
 })
 
-httpDs.CreateResolver(jsii.String("MutationCallStepFunctionResolver"), &BaseResolverProps{
+httpDs.CreateResolver(&BaseResolverProps{
 	TypeName: jsii.String("Mutation"),
 	FieldName: jsii.String("callStepFunction"),
-	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
-	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
-})
-```
-
-### EventBridge
-
-Integrating AppSync with EventBridge enables developers to use EventBridge rules to route commands for GraphQl mutations
-that need to perform any one of a variety of asynchronous tasks. More broadly, it enables teams to expose an event bus
-as a part of a GraphQl schema.
-
-GraphQL schema file `schema.graphql`:
-
-```gql
-schema {
-    query: Query
-    mutation: Mutation
-}
-
-type Query {
-    event(id:ID!): Event
-}
-
-type Mutation {
-    emitEvent(id: ID!, name: String): PutEventsResult!
-}
-
-type Event {
-    id: ID!
-    name: String!
-}
-
-type Entry {
-    ErrorCode: String
-    ErrorMessage: String
-    EventId: String
-}
-
-type PutEventsResult {
-    Entries: [Entry!]
-    FailedEntry: Int
-}
-```
-
-GraphQL request mapping template `request.vtl`:
-
-```
-{
-    "version" : "2018-05-29",
-    "operation": "PutEvents",
-    "events" : [
-        {
-            "source": "integ.appsync.eventbridge",
-            "detailType": "Mutation.emitEvent",
-            "detail": $util.toJson($context.arguments)
-        }
-    ]
-}
-```
-
-GraphQL response mapping template `response.vtl`:
-
-```
-$util.toJson($ctx.result)'
-```
-
-This response mapping template simply converts the EventBridge PutEvents result to JSON.
-For details about the response see the
-[documentation](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html).
-Additional logic can be added to the response template to map the response type, or to error in the event of failed
-events. More information can be found
-[here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-eventbridge.html).
-
-CDK stack file `app-stack.ts`:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-api := appsync.NewGraphqlApi(stack, jsii.String("EventBridgeApi"), &GraphqlApiProps{
-	Name: jsii.String("EventBridgeApi"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
-})
-
-bus := events.NewEventBus(stack, jsii.String("DestinationEventBus"), map[string]interface{}{
-})
-
-dataSource := api.AddEventBridgeDataSource(jsii.String("NoneDS"), bus)
-
-dataSource.CreateResolver(jsii.String("EventResolver"), &BaseResolverProps{
-	TypeName: jsii.String("Mutation"),
-	FieldName: jsii.String("emitEvent"),
 	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
 	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
 })
@@ -328,7 +228,7 @@ var api graphqlApi
 
 user := iam.NewUser(this, jsii.String("User"))
 domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
+	Version: opensearch.EngineVersion_OPENSEARCH_1_2(),
 	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 	FineGrainedAccessControl: &AdvancedSecurityOptions{
 		MasterUserArn: user.UserArn,
@@ -341,7 +241,7 @@ domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
 })
 ds := api.AddOpenSearchDataSource(jsii.String("ds"), domain)
 
-ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
+ds.CreateResolver(&BaseResolverProps{
 	TypeName: jsii.String("Query"),
 	FieldName: jsii.String("getTests"),
 	RequestMappingTemplate: appsync.MappingTemplate_FromString(jSON.stringify(map[string]interface{}{
@@ -386,12 +286,8 @@ myDomainName := "api.example.com"
 certificate := acm.NewCertificate(this, jsii.String("cert"), &CertificateProps{
 	DomainName: myDomainName,
 })
-schema := appsync.NewSchemaFile(&SchemaProps{
-	FilePath: jsii.String("mySchemaFile"),
-})
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("myApi"),
-	Schema: Schema,
 	DomainName: &DomainOptions{
 		Certificate: *Certificate,
 		DomainName: myDomainName,
@@ -409,51 +305,59 @@ zone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("HostedZon
 route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &CnameRecordProps{
 	RecordName: jsii.String("api"),
 	Zone: Zone,
-	DomainName: api.appSyncDomainName,
-})
-```
-
-## Log Group
-
-AppSync automatically create a log group with the name `/aws/appsync/apis/<graphql_api_id>` upon deployment with
-log data set to never expire. If you want to set a different expiration period, use the `logConfig.retention` property.
-
-To obtain the GraphQL API's log group as a `logs.ILogGroup` use the `logGroup` property of the
-`GraphqlApi` construct.
-
-```go
-import logs "github.com/aws/aws-cdk-go/awscdk"
-
-
-logConfig := &LogConfig{
-	Retention: logs.RetentionDays_ONE_WEEK,
-}
-
-appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
-	AuthorizationConfig: &AuthorizationConfig{
-	},
-	Name: jsii.String("myApi"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
-	LogConfig: LogConfig,
+	DomainName: myDomainName,
 })
 ```
 
 ## Schema
 
-You can define a schema using from a local file using `SchemaFile.fromAsset`
+Every GraphQL Api needs a schema to define the Api. CDK offers `appsync.Schema`
+for static convenience methods for various types of schema declaration: code-first
+or schema-first.
+
+### Code-First
+
+When declaring your GraphQL Api, CDK defaults to a code-first approach if the
+`schema` property is not configured.
 
 ```go
 api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("myApi"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphl"))),
 })
 ```
 
-### ISchema
+CDK will declare a `Schema` class that will give your Api access functions to
+define your schema code-first: `addType`, `addToSchema`, etc.
 
-Alternative schema sources can be defined by implementing the `ISchema`
-interface. An example of this is the `CodeFirstSchema` class provided in
-[awscdk-appsync-utils](https://github.com/cdklabs/awscdk-appsync-utils)
+You can also declare your `Schema` class outside of your CDK stack, to define
+your schema externally.
+
+```go
+schema := appsync.NewSchema()
+schema.AddType(appsync.NewObjectType(jsii.String("demo"), &ObjectTypeOptions{
+	Definition: map[string]iField{
+		"id": appsync.GraphqlType_id(),
+	},
+}))
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("myApi"),
+	Schema: Schema,
+})
+```
+
+See the [code-first schema](#Code-First-Schema) section for more details.
+
+### Schema-First
+
+You can define your GraphQL Schema from a file on disk. For convenience, use
+the `appsync.Schema.fromAsset` to specify the file representing your schema.
+
+```go
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("myApi"),
+	Schema: appsync.Schema_FromAsset(path.join(__dirname, jsii.String("schema.graphl"))),
+})
+```
 
 ## Imports
 
@@ -475,27 +379,6 @@ importedApi.AddDynamoDbDataSource(jsii.String("TableDataSource"), table)
 If you don't specify `graphqlArn` in `fromXxxAttributes`, CDK will autogenerate
 the expected `arn` for the imported api, given the `apiId`. For creating data
 sources and resolvers, an `apiId` is sufficient.
-
-## Private APIs
-
-By default all AppSync GraphQL APIs are public and can be accessed from the internet.
-For customers that want to limit access to be from their VPC, the optional API `visibility` property can be set to `Visibility.PRIVATE`
-at creation time. To explicitly create a public API, the `visibility` property should be set to `Visibility.GLOBAL`.
-If visbility is not set, the service will default to `GLOBAL`.
-
-CDK stack file `app-stack.ts`:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-api := appsync.NewGraphqlApi(stack, jsii.String("api"), &GraphqlApiProps{
-	Name: jsii.String("MyPrivateAPI"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
-	Visbility: appsync.Visibility_PRIVATE,
-})
-```
-
-See [documentation](https://docs.aws.amazon.com/appsync/latest/devguide/using-private-apis.html)
-for more details about Private APIs
 
 ## Authorization
 
@@ -520,7 +403,7 @@ var authFunction function
 
 appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Name: jsii.String("api"),
-	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
+	Schema: appsync.Schema_FromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
 	AuthorizationConfig: &AuthorizationConfig{
 		DefaultAuthorization: &AuthorizationMode{
 			AuthorizationType: appsync.AuthorizationType_LAMBDA,
@@ -654,43 +537,600 @@ pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &Resolver
 })
 ```
 
-### JS Functions and Resolvers
+Learn more about Pipeline Resolvers and AppSync Functions [here](https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html).
 
-JS Functions and resolvers are also supported. You can use a `.js` file within your CDK project, or specify your function code inline.
+## Code-First Schema
+
+CDK offers the ability to generate your schema in a code-first approach.
+A code-first approach offers a developer workflow with:
+
+* **modularity**: organizing schema type definitions into different files
+* **reusability**: simplifying down boilerplate/repetitive code
+* **consistency**: resolvers and schema definition will always be synced
+
+The code-first approach allows for **dynamic** schema generation. You can generate your schema based on variables and templates to reduce code duplication.
+
+### Code-First Example
+
+To showcase the code-first approach. Let's try to model the following schema segment.
+
+```gql
+interface Node {
+  id: String
+}
+
+type Query {
+  allFilms(after: String, first: Int, before: String, last: Int): FilmConnection
+}
+
+type FilmNode implements Node {
+  filmName: String
+}
+
+type FilmConnection {
+  edges: [FilmEdge]
+  films: [Film]
+  totalCount: Int
+}
+
+type FilmEdge {
+  node: Film
+  cursor: String
+}
+```
+
+Above we see a schema that allows for generating paginated responses. For example,
+we can query `allFilms(first: 100)` since `FilmConnection` acts as an intermediary
+for holding `FilmEdges` we can write a resolver to return the first 100 films.
+
+In a separate file, we can declare our object types and related functions.
+We will call this file `object-types.ts` and we will have created it in a way that
+allows us to generate other `XxxConnection` and `XxxEdges` in the future.
 
 ```go
-var api graphqlApi
+import "github.com/aws/aws-cdk-go/awscdk"
+pluralize := require(jsii.String("pluralize"))
 
+args := map[string]graphqlType{
+	"after": appsync.graphqlType_string(),
+	"first": appsync.graphqlType_int(),
+	"before": appsync.graphqlType_string(),
+	"last": appsync.graphqlType_int(),
+}
 
-myJsFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
-	Name: jsii.String("my_js_function"),
-	Api: Api,
-	DataSource: api.AddNoneDataSource(jsii.String("none")),
-	Code: appsync.Code_FromAsset(jsii.String("directory/function_code.js")),
-	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
+node := appsync.NewInterfaceType(jsii.String("Node"), &IntermediateTypeOptions{
+	Definition: map[string]iField{
+		"id": appsync.*graphqlType_string(),
+	},
+})
+filmNode := appsync.NewObjectType(jsii.String("FilmNode"), &ObjectTypeOptions{
+	InterfaceTypes: []interfaceType{
+		*node,
+	},
+	Definition: map[string]*iField{
+		"filmName": appsync.*graphqlType_string(),
+	},
 })
 
-appsync.NewResolver(this, jsii.String("PipelineResolver"), &ResolverProps{
-	Api: Api,
-	TypeName: jsii.String("typeName"),
-	FieldName: jsii.String("fieldName"),
-	Code: appsync.Code_FromInline(jsii.String(`
-	    // The before step
-	    export function request(...args) {
-	      console.log(args);
-	      return {}
-	    }
+func GenerateEdgeAndConnection(base *objectType) map[string]objectType {
+	edge := appsync.NewObjectType(fmt.Sprintf("%vEdge", *base.Name), &ObjectTypeOptions{
+		Definition: map[string]*iField{
+			"node": base.attribute(),
+			"cursor": appsync.*graphqlType_string(),
+		},
+	})
+	connection := appsync.NewObjectType(fmt.Sprintf("%vConnection", *base.Name), &ObjectTypeOptions{
+		Definition: map[string]*iField{
+			"edges": edge.attribute(&BaseTypeOptions{
+				"isList": jsii.Boolean(true),
+			}),
+			pluralize(base.*Name): base.attribute(&BaseTypeOptions{
+				"isList": jsii.Boolean(true),
+			}),
+			"totalCount": appsync.*graphqlType_int(),
+		},
+	})
+	return map[string]objectType{
+		"edge": edge,
+		"connection": connection,
+	}
+}
+```
 
-	    // The after step
-	    export function response(ctx) {
-	      return ctx.prev.result
-	    }
-	  `)),
-	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
-	PipelineConfig: []iAppsyncFunction{
-		myJsFunction,
+Finally, we will go to our `cdk-stack` and combine everything together
+to generate our schema.
+
+```go
+var dummyRequest mappingTemplate
+var dummyResponse mappingTemplate
+
+
+api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
+	Name: jsii.String("demo"),
+})
+
+objectTypes := []interfaceType{
+	node,
+	filmNode,
+}
+
+filmConnections := generateEdgeAndConnection(filmNode)
+
+api.AddQuery(jsii.String("allFilms"), appsync.NewResolvableField(&ResolvableFieldOptions{
+	ReturnType: filmConnections.connection.Attribute(),
+	Args: args,
+	DataSource: api.AddNoneDataSource(jsii.String("none")),
+	RequestMappingTemplate: dummyRequest,
+	ResponseMappingTemplate: dummyResponse,
+}))
+
+api.AddType(node)
+api.AddType(filmNode)
+api.AddType(filmConnections.edge)
+api.AddType(filmConnections.connection)
+```
+
+Notice how we can utilize the `generateEdgeAndConnection` function to generate
+Object Types. In the future, if we wanted to create more Object Types, we can simply
+create the base Object Type (i.e. Film) and from there we can generate its respective
+`Connections` and `Edges`.
+
+Check out a more in-depth example [here](https://github.com/BryanPan342/starwars-code-first).
+
+## GraphQL Types
+
+One of the benefits of GraphQL is its strongly typed nature. We define the
+types within an object, query, mutation, interface, etc. as **GraphQL Types**.
+
+GraphQL Types are the building blocks of types, whether they are scalar, objects,
+interfaces, etc. GraphQL Types can be:
+
+* [**Scalar Types**](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html): Id, Int, String, AWSDate, etc.
+* [**Object Types**](#Object-Types): types that you generate (i.e. `demo` from the example above)
+* [**Interface Types**](#Interface-Types): abstract types that define the base implementation of other
+  Intermediate Types
+
+More concretely, GraphQL Types are simply the types appended to variables.
+Referencing the object type `Demo` in the previous example, the GraphQL Types
+is `String!` and is applied to both the names `id` and `version`.
+
+### Directives
+
+`Directives` are attached to a field or type and affect the execution of queries,
+mutations, and types. With AppSync, we use `Directives` to configure authorization.
+CDK provides static functions to add directives to your Schema.
+
+* `Directive.iam()` sets a type or field's authorization to be validated through `Iam`
+* `Directive.apiKey()` sets a type or field's authorization to be validated through a `Api Key`
+* `Directive.oidc()` sets a type or field's authorization to be validated through `OpenID Connect`
+* `Directive.cognito(...groups: string[])` sets a type or field's authorization to be validated
+  through `Cognito User Pools`
+
+  * `groups` the name of the cognito groups to give access
+
+To learn more about authorization and directives, read these docs [here](https://docs.aws.amazon.com/appsync/latest/devguide/security.html).
+
+### Field and Resolvable Fields
+
+While `GraphqlType` is a base implementation for GraphQL fields, we have abstractions
+on top of `GraphqlType` that provide finer grain support.
+
+### Field
+
+`Field` extends `GraphqlType` and will allow you to define arguments. [**Interface Types**](#Interface-Types) are not resolvable and this class will allow you to define arguments,
+but not its resolvers.
+
+For example, if we want to create the following type:
+
+```gql
+type Node {
+  test(argument: string): String
+}
+```
+
+The CDK code required would be:
+
+```go
+field := appsync.NewField(&FieldOptions{
+	ReturnType: appsync.GraphqlType_String(),
+	Args: map[string]graphqlType{
+		"argument": appsync.*graphqlType_*String(),
+	},
+})
+type := appsync.NewInterfaceType(jsii.String("Node"), &IntermediateTypeOptions{
+	Definition: map[string]iField{
+		"test": field,
 	},
 })
 ```
 
-Learn more about Pipeline Resolvers and AppSync Functions [here](https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html).
+### Resolvable Fields
+
+`ResolvableField` extends `Field` and will allow you to define arguments and its resolvers.
+[**Object Types**](#Object-Types) can have fields that resolve and perform operations on
+your backend.
+
+You can also create resolvable fields for object types.
+
+```gql
+type Info {
+  node(id: String): String
+}
+```
+
+The CDK code required would be:
+
+```go
+var api graphqlApi
+var dummyRequest mappingTemplate
+var dummyResponse mappingTemplate
+
+info := appsync.NewObjectType(jsii.String("Info"), &ObjectTypeOptions{
+	Definition: map[string]iField{
+		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
+			"returnType": appsync.GraphqlType_string(),
+			"args": map[string]GraphqlType{
+				"id": appsync.GraphqlType_string(),
+			},
+			"dataSource": api.addNoneDataSource(jsii.String("none")),
+			"requestMappingTemplate": dummyRequest,
+			"responseMappingTemplate": dummyResponse,
+		}),
+	},
+})
+```
+
+To nest resolvers, we can also create top level query types that call upon
+other types. Building off the previous example, if we want the following graphql
+type definition:
+
+```gql
+type Query {
+  get(argument: string): Info
+}
+```
+
+The CDK code required would be:
+
+```go
+var api graphqlApi
+var dummyRequest mappingTemplate
+var dummyResponse mappingTemplate
+
+query := appsync.NewObjectType(jsii.String("Query"), &ObjectTypeOptions{
+	Definition: map[string]iField{
+		"get": appsync.NewResolvableField(&ResolvableFieldOptions{
+			"returnType": appsync.GraphqlType_string(),
+			"args": map[string]GraphqlType{
+				"argument": appsync.GraphqlType_string(),
+			},
+			"dataSource": api.addNoneDataSource(jsii.String("none")),
+			"requestMappingTemplate": dummyRequest,
+			"responseMappingTemplate": dummyResponse,
+		}),
+	},
+})
+```
+
+Learn more about fields and resolvers [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-overview.html).
+
+### Intermediate Types
+
+Intermediate Types are defined by Graphql Types and Fields. They have a set of defined
+fields, where each field corresponds to another type in the system. Intermediate
+Types will be the meat of your GraphQL Schema as they are the types defined by you.
+
+Intermediate Types include:
+
+* [**Interface Types**](#Interface-Types)
+* [**Object Types**](#Object-Types)
+* [**Enum Types**](#Enum-Types)
+* [**Input Types**](#Input-Types)
+* [**Union Types**](#Union-Types)
+
+#### Interface Types
+
+**Interface Types** are abstract types that define the implementation of other
+intermediate types. They are useful for eliminating duplication and can be used
+to generate Object Types with less work.
+
+You can create Interface Types ***externally***.
+
+```go
+node := appsync.NewInterfaceType(jsii.String("Node"), &IntermediateTypeOptions{
+	Definition: map[string]iField{
+		"id": appsync.GraphqlType_string(&BaseTypeOptions{
+			"isRequired": jsii.Boolean(true),
+		}),
+	},
+})
+```
+
+To learn more about **Interface Types**, read the docs [here](https://graphql.org/learn/schema/#interfaces).
+
+#### Object Types
+
+**Object Types** are types that you declare. For example, in the [code-first example](#code-first-example)
+the `demo` variable is an **Object Type**. **Object Types** are defined by
+GraphQL Types and are only usable when linked to a GraphQL Api.
+
+You can create Object Types in two ways:
+
+1. Object Types can be created ***externally***.
+
+   ```go
+   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
+   	Name: jsii.String("demo"),
+   })
+   demo := appsync.NewObjectType(jsii.String("Demo"), &ObjectTypeOptions{
+   	Definition: map[string]iField{
+   		"id": appsync.GraphqlType_string(&BaseTypeOptions{
+   			"isRequired": jsii.Boolean(true),
+   		}),
+   		"version": appsync.GraphqlType_string(&BaseTypeOptions{
+   			"isRequired": jsii.Boolean(true),
+   		}),
+   	},
+   })
+
+   api.AddType(demo)
+   ```
+
+   > This method allows for reusability and modularity, ideal for larger projects.
+   > For example, imagine moving all Object Type definition outside the stack.
+
+   `object-types.ts` - a file for object type definitions
+
+   ```go
+   import "github.com/aws/aws-cdk-go/awscdk"
+   demo := appsync.NewObjectType(jsii.String("Demo"), &ObjectTypeOptions{
+   	Definition: map[string]iField{
+   		"id": appsync.GraphqlType_string(&BaseTypeOptions{
+   			"isRequired": jsii.Boolean(true),
+   		}),
+   		"version": appsync.GraphqlType_string(&BaseTypeOptions{
+   			"isRequired": jsii.Boolean(true),
+   		}),
+   	},
+   })
+   ```
+
+   `cdk-stack.ts` - a file containing our cdk stack
+
+   ```go
+   var api graphqlApi
+
+   api.AddType(demo)
+   ```
+2. Object Types can be created ***externally*** from an Interface Type.
+
+   ```go
+   node := appsync.NewInterfaceType(jsii.String("Node"), &IntermediateTypeOptions{
+   	Definition: map[string]iField{
+   		"id": appsync.GraphqlType_string(&BaseTypeOptions{
+   			"isRequired": jsii.Boolean(true),
+   		}),
+   	},
+   })
+   demo := appsync.NewObjectType(jsii.String("Demo"), &ObjectTypeOptions{
+   	InterfaceTypes: []interfaceType{
+   		node,
+   	},
+   	Definition: map[string]*iField{
+   		"version": appsync.GraphqlType_string(&BaseTypeOptions{
+   			"isRequired": jsii.Boolean(true),
+   		}),
+   	},
+   })
+   ```
+
+   > This method allows for reusability and modularity, ideal for reducing code duplication.
+
+To learn more about **Object Types**, read the docs [here](https://graphql.org/learn/schema/#object-types-and-fields).
+
+#### Enum Types
+
+**Enum Types** are a special type of Intermediate Type. They restrict a particular
+set of allowed values for other Intermediate Types.
+
+```gql
+enum Episode {
+  NEWHOPE
+  EMPIRE
+  JEDI
+}
+```
+
+> This means that wherever we use the type Episode in our schema, we expect it to
+> be exactly one of NEWHOPE, EMPIRE, or JEDI.
+
+The above GraphQL Enumeration Type can be expressed in CDK as the following:
+
+```go
+var api graphqlApi
+
+episode := appsync.NewEnumType(jsii.String("Episode"), &EnumTypeOptions{
+	Definition: []*string{
+		jsii.String("NEWHOPE"),
+		jsii.String("EMPIRE"),
+		jsii.String("JEDI"),
+	},
+})
+api.AddType(episode)
+```
+
+To learn more about **Enum Types**, read the docs [here](https://graphql.org/learn/schema/#enumeration-types).
+
+#### Input Types
+
+**Input Types** are special types of Intermediate Types. They give users an
+easy way to pass complex objects for top level Mutation and Queries.
+
+```gql
+input Review {
+  stars: Int!
+  commentary: String
+}
+```
+
+The above GraphQL Input Type can be expressed in CDK as the following:
+
+```go
+var api graphqlApi
+
+review := appsync.NewInputType(jsii.String("Review"), &IntermediateTypeOptions{
+	Definition: map[string]iField{
+		"stars": appsync.GraphqlType_int(&BaseTypeOptions{
+			"isRequired": jsii.Boolean(true),
+		}),
+		"commentary": appsync.GraphqlType_string(),
+	},
+})
+api.AddType(review)
+```
+
+To learn more about **Input Types**, read the docs [here](https://graphql.org/learn/schema/#input-types).
+
+#### Union Types
+
+**Union Types** are a special type of Intermediate Type. They are similar to
+Interface Types, but they cannot specify any common fields between types.
+
+**Note:** the fields of a union type need to be `Object Types`. In other words, you
+can't create a union type out of interfaces, other unions, or inputs.
+
+```gql
+union Search = Human | Droid | Starship
+```
+
+The above GraphQL Union Type encompasses the Object Types of Human, Droid and Starship. It
+can be expressed in CDK as the following:
+
+```go
+var api graphqlApi
+
+string := appsync.GraphqlType_String()
+human := appsync.NewObjectType(jsii.String("Human"), &ObjectTypeOptions{
+	Definition: map[string]iField{
+		"name": string,
+	},
+})
+droid := appsync.NewObjectType(jsii.String("Droid"), &ObjectTypeOptions{
+	Definition: map[string]*iField{
+		"name": string,
+	},
+})
+starship := appsync.NewObjectType(jsii.String("Starship"), &ObjectTypeOptions{
+	Definition: map[string]*iField{
+		"name": string,
+	},
+})
+search := appsync.NewUnionType(jsii.String("Search"), &UnionTypeOptions{
+	Definition: []iIntermediateType{
+		human,
+		droid,
+		starship,
+	},
+})
+api.AddType(search)
+```
+
+To learn more about **Union Types**, read the docs [here](https://graphql.org/learn/schema/#union-types).
+
+### Query
+
+Every schema requires a top level Query type. By default, the schema will look
+for the `Object Type` named `Query`. The top level `Query` is the **only** exposed
+type that users can access to perform `GET` operations on your Api.
+
+To add fields for these queries, we can simply run the `addQuery` function to add
+to the schema's `Query` type.
+
+```go
+var api graphqlApi
+var filmConnection interfaceType
+var dummyRequest mappingTemplate
+var dummyResponse mappingTemplate
+
+
+string := appsync.GraphqlType_String()
+int := appsync.GraphqlType_Int()
+api.AddQuery(jsii.String("allFilms"), appsync.NewResolvableField(&ResolvableFieldOptions{
+	ReturnType: filmConnection.Attribute(),
+	Args: map[string]graphqlType{
+		"after": string,
+		"first": int,
+		"before": string,
+		"last": int,
+	},
+	DataSource: api.AddNoneDataSource(jsii.String("none")),
+	RequestMappingTemplate: dummyRequest,
+	ResponseMappingTemplate: dummyResponse,
+}))
+```
+
+To learn more about top level operations, check out the docs [here](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html).
+
+### Mutation
+
+Every schema **can** have a top level Mutation type. By default, the schema will look
+for the `ObjectType` named `Mutation`. The top level `Mutation` Type is the only exposed
+type that users can access to perform `mutable` operations on your Api.
+
+To add fields for these mutations, we can simply run the `addMutation` function to add
+to the schema's `Mutation` type.
+
+```go
+var api graphqlApi
+var filmNode objectType
+var dummyRequest mappingTemplate
+var dummyResponse mappingTemplate
+
+
+string := appsync.GraphqlType_String()
+int := appsync.GraphqlType_Int()
+api.AddMutation(jsii.String("addFilm"), appsync.NewResolvableField(&ResolvableFieldOptions{
+	ReturnType: filmNode.Attribute(),
+	Args: map[string]graphqlType{
+		"name": string,
+		"film_number": int,
+	},
+	DataSource: api.AddNoneDataSource(jsii.String("none")),
+	RequestMappingTemplate: dummyRequest,
+	ResponseMappingTemplate: dummyResponse,
+}))
+```
+
+To learn more about top level operations, check out the docs [here](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html).
+
+### Subscription
+
+Every schema **can** have a top level Subscription type. The top level `Subscription` Type
+is the only exposed type that users can access to invoke a response to a mutation. `Subscriptions`
+notify users when a mutation specific mutation is called. This means you can make any data source
+real time by specify a GraphQL Schema directive on a mutation.
+
+**Note**: The AWS AppSync client SDK automatically handles subscription connection management.
+
+To add fields for these subscriptions, we can simply run the `addSubscription` function to add
+to the schema's `Subscription` type.
+
+```go
+var api graphqlApi
+var film interfaceType
+
+
+api.AddSubscription(jsii.String("addedFilm"), appsync.NewField(&FieldOptions{
+	ReturnType: film.Attribute(),
+	Args: map[string]graphqlType{
+		"id": appsync.*graphqlType_id(&BaseTypeOptions{
+			"isRequired": jsii.Boolean(true),
+		}),
+	},
+	Directives: []directive{
+		appsync.*directive_Subscribe(jsii.String("addFilm")),
+	},
+}))
+```
+
+To learn more about top level operations, check out the docs [here](https://docs.aws.amazon.com/appsync/latest/devguide/real-time-data.html).
