@@ -18,12 +18,12 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
 	}),
 	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-	 // Optional - will default to 'admin' username and generated password
+	 // Optional - will default to 'clusteradmin' username and generated password
 	InstanceProps: &InstanceProps{
 		// optional , defaults to t3.medium
 		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
 		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 		Vpc: *Vpc,
 	},
@@ -42,6 +42,25 @@ By default, the master password will be generated and stored in AWS Secrets Mana
 Your cluster will be empty by default. To add a default database upon construction, specify the
 `defaultDatabaseName` attribute.
 
+To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
+
+```go
+var vpc vpc
+// VPC and subnets must have IPv6 CIDR blocks
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_02_1(),
+	}),
+	InstanceProps: &InstanceProps{
+		Vpc: *Vpc,
+		PubliclyAccessible: jsii.Boolean(false),
+	},
+	NetworkType: rds.NetworkType_DUAL,
+})
+```
+
+For more information about dual-stack mode, see [Working with a DB cluster in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
+
 Use `DatabaseClusterFromSnapshot` to create a cluster from a snapshot:
 
 ```go
@@ -58,9 +77,33 @@ rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClust
 })
 ```
 
+### Updating the database instances in a cluster
+
+Database cluster instances may be updated in bulk or on a rolling basis.
+
+An update to all instances in a cluster may cause significant downtime. To reduce the downtime, set the `instanceUpdateBehavior` property in `DatabaseClusterBaseProps` to `InstanceUpdateBehavior.ROLLING`. This adds a dependency between each instance so the update is performed on only one instance at a time.
+
+Use `InstanceUpdateBehavior.BULK` to update all instances at once.
+
+```go
+var vpc vpc
+
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
+	}),
+	Instances: jsii.Number(2),
+	InstanceProps: &InstanceProps{
+		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+		Vpc: *Vpc,
+	},
+	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
+})
+```
+
 ## Starting an instance database
 
-To set up a instance database, define a `DatabaseInstance`. You must
+To set up an instance database, define a `DatabaseInstance`. You must
 always launch a database in a VPC. Use the `vpcSubnets` attribute to control whether
 your instances will be launched privately or publicly:
 
@@ -77,7 +120,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 	 // Optional - will default to 'admin' username and generated password
 	Vpc: Vpc,
 	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
 })
 ```
@@ -101,7 +144,7 @@ var vpc vpc
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_12_3(),
+		Version: rds.PostgresEngineVersion_VER_15_2(),
 	}),
 	// optional, defaults to m5.large
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
@@ -109,6 +152,23 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 	MaxAllocatedStorage: jsii.Number(200),
 })
 ```
+
+To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
+
+```go
+var vpc vpc
+// VPC and subnets must have IPv6 CIDR blocks
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+		Version: rds.PostgresEngineVersion_VER_15_2(),
+	}),
+	Vpc: Vpc,
+	NetworkType: rds.NetworkType_DUAL,
+	PubliclyAccessible: jsii.Boolean(false),
+})
+```
+
+For more information about dual-stack mode, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
 
 Use `DatabaseInstanceFromSnapshot` and `DatabaseInstanceReadReplica` to create an instance from snapshot or
 a source database respectively:
@@ -121,7 +181,7 @@ var sourceInstance databaseInstance
 rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
 	SnapshotIdentifier: jsii.String("my-snapshot"),
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_12_3(),
+		Version: rds.PostgresEngineVersion_VER_15_2(),
 	}),
 	// optional, defaults to m5.large
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
@@ -328,6 +388,33 @@ availabilityRule.AddEventPattern(&EventPattern{
 })
 ```
 
+Use the `storageType` property to specify the [type of storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html)
+to use for the instance:
+
+```go
+var vpc vpc
+
+
+iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+	}),
+	Vpc: Vpc,
+	StorageType: rds.StorageType_IO1,
+	Iops: jsii.Number(5000),
+})
+
+gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+	}),
+	Vpc: Vpc,
+	AllocatedStorage: jsii.Number(500),
+	StorageType: rds.StorageType_GP3,
+	StorageThroughput: jsii.Number(500),
+})
+```
+
 ## Setting Public Accessibility
 
 You can set public accessibility for the database instance or cluster using the `publiclyAccessible` property.
@@ -347,7 +434,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	}),
 	Vpc: Vpc,
 	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
 	PubliclyAccessible: jsii.Boolean(true),
 })
@@ -359,7 +446,7 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 	InstanceProps: &InstanceProps{
 		Vpc: *Vpc,
 		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 		PubliclyAccessible: jsii.Boolean(true),
 	},
@@ -391,7 +478,7 @@ The following examples use a `DatabaseInstance`, but the same usage is applicabl
 var vpc vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_12_3(),
+	Version: rds.PostgresEngineVersion_VER_15_2(),
 })
 rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &DatabaseInstanceProps{
 	Engine: Engine,
@@ -419,7 +506,7 @@ Secrets generated by `fromGeneratedSecret()` can be customized:
 var vpc vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_12_3(),
+	Version: rds.PostgresEngineVersion_VER_15_2(),
 })
 myKey := kms.NewKey(this, jsii.String("MyKey"))
 
@@ -450,7 +537,7 @@ As noted above, Databases created with `DatabaseInstanceFromSnapshot` or `Server
 var vpc vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_12_3(),
+	Version: rds.PostgresEngineVersion_VER_15_2(),
 })
 myKey := kms.NewKey(this, jsii.String("MyKey"))
 
@@ -509,11 +596,14 @@ When the master password is generated and stored in AWS Secrets Manager, it can 
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
 var instance databaseInstance
+var mySecurityGroup securityGroup
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
-	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
+	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
 	 // defaults to 30 days
 	ExcludeCharacters: jsii.String("!@#$%^&*"),
+	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
+	SecurityGroup: mySecurityGroup,
 })
 ```
 
@@ -527,6 +617,23 @@ cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClust
 })
 
 cluster.addRotationSingleUser()
+
+clusterWithCustomRotationOptions := rds.NewDatabaseCluster(stack, jsii.String("CustomRotationOptions"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	InstanceProps: &InstanceProps{
+		InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+		Vpc: *Vpc,
+	},
+})
+clusterWithCustomRotationOptions.addRotationSingleUser(&RotationSingleUserOptions{
+	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
+	ExcludeCharacters: jsii.String("!@#$%^&*"),
+	SecurityGroup: SecurityGroup,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+	},
+	Endpoint: endpoint,
+})
 ```
 
 The multi user rotation scheme is also available:
@@ -549,6 +656,8 @@ myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &Databa
 	Username: jsii.String("myuser"),
 	SecretName: jsii.String("my-user-secret"),
 	 // optional, defaults to a CloudFormation-generated name
+	Dbname: jsii.String("mydb"),
+	 //optional, defaults to the main database of the RDS cluster this secret gets attached to
 	MasterSecret: instance.Secret,
 	ExcludeCharacters: jsii.String("{}[]()'\"/\\"),
 })
@@ -575,14 +684,14 @@ var myEndpoint interfaceVpcEndpoint
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
 	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
 	 // Place rotation Lambda in private subnets
 	Endpoint: myEndpoint,
 })
 ```
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
 
 ## IAM Authentication
 
@@ -607,7 +716,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
 	AssumedBy: iam.NewAccountPrincipal(this.Account),
 })
-instance.GrantConnect(role)
+instance.grantConnect(role)
 ```
 
 The following example shows granting connection access for RDS Proxy to an IAM role.
@@ -793,7 +902,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 // Exporting logs from an instance
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_12_3(),
+		Version: rds.PostgresEngineVersion_VER_15_2(),
 	}),
 	Vpc: Vpc,
 	CloudwatchLogsExports: []*string{
@@ -896,6 +1005,8 @@ var vpc vpc
 
 cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
+	CopyTagsToSnapshot: jsii.Boolean(true),
+	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 	Vpc: Vpc,
 	Scaling: &ServerlessScalingOptions{

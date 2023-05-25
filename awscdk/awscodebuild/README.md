@@ -9,24 +9,6 @@ started quickly by using prepackaged build environments, or you can create
 custom build environments that use your own build tools. With CodeBuild, you are
 charged by the minute for the compute resources you use.
 
-## Installation
-
-Install the module:
-
-```console
-$ npm i @aws-cdk/aws-codebuild
-```
-
-Import it into your code:
-
-```go
-import codebuild "github.com/aws/aws-cdk-go/awscdk"
-```
-
-The `codebuild.Project` construct represents a build project resource. See the
-reference documentation for a comprehensive list of initialization properties,
-methods and attributes.
-
 ## Source
 
 Build projects are usually associated with a *source*, which is specified via
@@ -101,7 +83,7 @@ gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	WebhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
 	WebhookFilters: []filterGroup{
-		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("master")).AndCommitMessageIs(jsii.String("the commit message")),
+		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
 	},
 })
 ```
@@ -127,13 +109,65 @@ bbSource := codebuild.Source_BitBucket(&BitBucketSourceProps{
 
 ### For all Git sources
 
-For all Git sources, you can fetch submodules while cloing git repo.
+For all Git sources, you can fetch submodules while cloning git repo.
 
 ```go
 gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	Owner: jsii.String("awslabs"),
 	Repo: jsii.String("aws-cdk"),
 	FetchSubmodules: jsii.Boolean(true),
+})
+```
+
+## BuildSpec
+
+The build spec can be provided from a number of different sources
+
+### File path relative to the root of the source
+
+You can specify a specific filename that exists within the project's source artifact to use as the buildspec.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromSourceFilename(jsii.String("my-buildspec.yml")),
+	Source: codebuild.Source_GitHub(&GitHubSourceProps{
+		Owner: jsii.String("awslabs"),
+		Repo: jsii.String("aws-cdk"),
+	}),
+})
+```
+
+This will use `my-buildspec.yml` file within the `awslabs/aws-cdk` repository as the build spec.
+
+### File within the CDK project codebuild
+
+You can also specify a file within your cdk project directory to use as the buildspec.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromAsset(jsii.String("my-buildspec.yml")),
+})
+```
+
+This file will be uploaded to S3 and referenced from the codebuild project.
+
+### Inline object
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+	}),
+})
+```
+
+This will result in the buildspec being rendered as JSON within the codebuild project, if you prefer it to be rendered as YAML, use `fromObjectToYaml`.
+
+```go
+project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
+		"version": jsii.String("0.2"),
+	}),
 })
 ```
 
@@ -159,9 +193,6 @@ project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 })
 ```
 
-If you'd prefer your buildspec to be rendered as YAML in the template,
-use the `fromObjectToYaml()` method instead of `fromObject()`.
-
 Because we've not set the `name` property, this example will set the
 `overrideArtifactName` parameter, and produce an artifact named as defined in
 the Buildspec file, uploaded to an S3 bucket (`bucket`). The path will be
@@ -181,7 +212,7 @@ project := codebuild.NewPipelineProject(this, jsii.String("Project"), &PipelineP
 })
 ```
 
-For more details, see the readme of the `@aws-cdk/@aws-codepipeline-actions` package.
+For more details, see the readme of the `@aws-cdk/aws-codepipeline-actions` package.
 
 ## Caching
 
@@ -424,6 +455,48 @@ codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 })
 ```
 
+## Debugging builds interactively using SSM Session Manager
+
+Integration with SSM Session Manager makes it possible to add breakpoints to your
+build commands, pause the build there and log into the container to interactively
+debug the environment.
+
+To do so, you need to:
+
+* Create the build with `ssmSessionPermissions: true`.
+* Use a build image with SSM agent installed and configured (default CodeBuild images come with the image preinstalled).
+* Start the build with [debugSessionEnabled](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html#CodeBuild-StartBuild-request-debugSessionEnabled) set to true.
+
+If these conditions are met, execution of the command `codebuild-breakpoint`
+will suspend your build and allow you to attach a Session Manager session from
+the CodeBuild console.
+
+For more information, see [View a running build in Session
+Manager](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html)
+in the CodeBuild documentation.
+
+Example:
+
+```go
+codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Environment: &BuildEnvironment{
+		BuildImage: codebuild.LinuxBuildImage_STANDARD_7_0(),
+	},
+	SsmSessionPermissions: jsii.Boolean(true),
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+		"phases": map[string]map[string][]*string{
+			"build": map[string][]*string{
+				"commands": []*string{
+					jsii.String("codebuild-breakpoint"),
+					jsii.String("./my-build.sh"),
+				},
+			},
+		},
+	}),
+})
+```
+
 ## Credentials
 
 CodeBuild allows you to store credentials used when communicating with various sources,
@@ -517,7 +590,33 @@ project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 })
 ```
 
-If you do that, you need to grant the project's role permissions to write reports to that report group:
+For a code coverage report, you can specify a report group with the code coverage report group type.
+
+```go
+var source source
+
+
+// create a new ReportGroup
+reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"), &ReportGroupProps{
+	Type: codebuild.ReportGroupType_CODE_COVERAGE,
+})
+
+project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	Source: Source,
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		// ...
+		"reports": map[string]map[string]*string{
+			reportGroup.reportGroupArn: map[string]*string{
+				"files": jsii.String("**/*"),
+				"base-directory": jsii.String("build/coverage-report.xml"),
+				"file-format": jsii.String("JACOCOXML"),
+			},
+		},
+	}),
+})
+```
+
+If you specify a report group, you need to grant the project's role permissions to write reports to that report group:
 
 ```go
 var project project
@@ -526,6 +625,8 @@ var reportGroup reportGroup
 
 reportGroup.grantWrite(project)
 ```
+
+The created policy will adjust to the report group type. If no type is specified when creating the report group the created policy will contain the action for the test report group type.
 
 For more information on the test reports feature,
 see the [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/test-reporting.html).
