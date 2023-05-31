@@ -19,8 +19,8 @@ var getStatusLambda function
 
 submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
 	LambdaFunction: submitLambda,
-	// Lambda's result is in the attribute `guid`
-	OutputPath: jsii.String("$.guid"),
+	// Lambda's result is in the attribute `Payload`
+	OutputPath: jsii.String("$.Payload"),
 })
 
 waitX := sfn.NewWait(this, jsii.String("Wait X Seconds"), &WaitProps{
@@ -32,7 +32,7 @@ getStatus := tasks.NewLambdaInvoke(this, jsii.String("Get Job Status"), &LambdaI
 	// Pass just the field named "guid" into the Lambda, put the
 	// Lambda's result in a field called "status" in the response
 	InputPath: jsii.String("$.guid"),
-	OutputPath: jsii.String("$.status"),
+	OutputPath: jsii.String("$.Payload"),
 })
 
 jobFailed := sfn.NewFail(this, jsii.String("Job Failed"), &FailProps{
@@ -72,80 +72,23 @@ sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 })
 ```
 
-State machines are made up of a sequence of **Steps**, which represent different actions
-taken in sequence. Some of these steps represent *control flow* (like `Choice`, `Map` and `Wait`)
-while others represent calls made against other AWS services (like `LambdaInvoke`).
-The second category are called `Task`s and they can all be found in the module [`aws-stepfunctions-tasks`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions_tasks-readme.html).
-
 State machines execute using an IAM Role, which will automatically have all
 permissions added that are required to make all state machine tasks execute
 properly (for example, permissions to invoke any Lambda functions you add to
 your workflow). A role will be created by default, but you can supply an
 existing one as well.
 
-Set the `removalPolicy` prop to `RemovalPolicy.RETAIN` if you want to retain the execution
-history when CloudFormation deletes your state machine.
+## Accessing State (the JsonPath class)
 
-## State Machine Data
-
-An Execution represents each time the State Machine is run. Every Execution has [State Machine
+Every State Machine execution has [State Machine
 Data](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-data.html):
 a JSON document containing keys and values that is fed into the state machine,
-gets modified by individual steps as the state machine progresses, and finally
-is produced as output.
+gets modified as the state machine progresses, and finally is produced as output.
 
-By default, the entire Data object is passed into every state, and the return data of the step
-becomes new the new Data object. This behavior can be modified by supplying values for `inputPath`,
-`resultSelector`, `resultPath` and `outputPath`.
-
-### Manipulating state machine data using inputPath, resultSelector, resultPath and outputPath
-
-These properties impact how each individual step interacts with the state machine data:
-
-* `inputPath`: the part of the data object that gets passed to the step (`itemsPath` for `Map` states)
-* `resultSelector`: the part of the step result that should be added to the state machine data
-* `resultPath`: where in the state machine data the step result should be inserted
-* `outputPath`: what part of the state machine data should be retained
-
-Their values should be a string indicating a [JSON path](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html) into the State Machine Data object (like `"$.MyKey"`). If absent, the values are treated as if they were `"$"`, which means the entire object.
-
-The following pseudocode shows how AWS Step Functions uses these parameters when executing a step:
-
-```js
-// Schematically show how Step Functions evaluates functions.
-// [] represents indexing into an object by a using JSON path.
-
-input = state[inputPath]
-
-result = invoke_step(select_parameters(input))
-
-state[resultPath] = result[resultSelector]
-
-state = state[outputPath]
-```
-
-Instead of a JSON path string, each of these paths can also have the special value `JsonPath.DISCARD`, which causes the corresponding indexing expression to return an empty object (`{}`). Effectively, that means there will be an empty input object, an empty result object, no effect on the state, or an empty state, respectively.
-
-Some steps (mostly Tasks) have *Parameters*, which are selected differently. See the next section.
-
-See the official documentation on [input and output processing in Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-input-output-filtering.html).
-
-### Passing Parameters to Tasks
-
-Tasks take parameters, whose values can be taken from the State Machine Data object. For example, your
-workflow may want to start a CodeBuild with an environment variable that is taken from the State Machine data, or pass part of the State Machine Data into an AWS Lambda Function.
-
-In the original JSON-based states language used by AWS Step Functions, you would
-add `.$` to the end of a key to indicate that a value needs to be interpreted as
-a JSON path. In the CDK API you do not change the names of any keys. Instead, you
-pass special values. There are 3 types of task inputs to consider:
-
-* Tasks that accept a "payload" type of input (like AWS Lambda invocations, or posting messages to SNS topics or SQS queues), will take an object of type `TaskInput`, like `TaskInput.fromObject()` or `TaskInput.fromJsonPathAt()`.
-* When tasks expect individual string or number values to customize their behavior, you can also pass a value constructed by `JsonPath.stringAt()` or `JsonPath.numberAt()`.
-* When tasks expect strongly-typed resources and you want to vary the resource that is referenced based on a name from the State Machine Data, reference the resource as if it was external (using `JsonPath.stringAt()`). For example, for a Lambda function: `Function.fromFunctionName(this, 'ReferencedFunction', JsonPath.stringAt('$.MyFunctionName'))`.
-
-For example, to pass the value that's in the data key of `OrderId` to a Lambda
-function as you invoke it, use `JsonPath.stringAt('$.OrderId')`, like so:
+You can pass fragments of this State Machine Data into Tasks of the state machine.
+To do so, use the static methods on the `JsonPath` class. For example, to pass
+the value that's in the data key of `OrderId` to a Lambda function as you invoke
+it, use `JsonPath.stringAt('$.OrderId')`, like so:
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
@@ -177,23 +120,9 @@ You can also call [intrinsic functions](https://docs.aws.amazon.com/step-functio
 | Method | Purpose |
 |--------|---------|
 | `JsonPath.array(JsonPath.stringAt('$.Field'), ...)` | make an array from other elements. |
-| `JsonPath.arrayPartition(JsonPath.listAt('$.inputArray'), 4)` | partition an array. |
-| `JsonPath.arrayContains(JsonPath.listAt('$.inputArray'), 5)` | determine if a specific value is present in an array. |
-| `JsonPath.arrayRange(1, 9, 2)` | create a new array containing a specific range of elements. |
-| `JsonPath.arrayGetItem(JsonPath.listAt('$.inputArray'), 5)` | get a specified index's value in an array. |
-| `JsonPath.arrayLength(JsonPath.listAt('$.inputArray'))` | get the length of an array. |
-| `JsonPath.arrayUnique(JsonPath.listAt('$.inputArray'))` | remove duplicate values from an array. |
-| `JsonPath.base64Encode(JsonPath.stringAt('$.input'))` | encode data based on MIME Base64 encoding scheme. |
-| `JsonPath.base64Decode(JsonPath.stringAt('$.base64'))` | decode data based on MIME Base64 decoding scheme. |
-| `JsonPath.hash(JsonPath.objectAt('$.Data'), JsonPath.stringAt('$.Algorithm'))` | calculate the hash value of a given input. |
-| `JsonPath.jsonMerge(JsonPath.objectAt('$.Obj1'), JsonPath.objectAt('$.Obj2'))` | merge two JSON objects into a single object. |
+| `JsonPath.format('The value is {}.', JsonPath.stringAt('$.Value'))` | insert elements into a format string. |
 | `JsonPath.stringToJson(JsonPath.stringAt('$.ObjStr'))` | parse a JSON string to an object |
 | `JsonPath.jsonToString(JsonPath.objectAt('$.Obj'))` | stringify an object to a JSON string |
-| `JsonPath.mathRandom(1, 999)` | return a random number. |
-| `JsonPath.mathAdd(JsonPath.numberAt('$.value1'), JsonPath.numberAt('$.step'))` | return the sum of two numbers. |
-| `JsonPath.stringSplit(JsonPath.stringAt('$.inputString'), JsonPath.stringAt('$.splitter'))` | split a string into an array of values. |
-| `JsonPath.uuid()` | return a version 4 universally unique identifier (v4 UUID). |
-| `JsonPath.format('The value is {}.', JsonPath.stringAt('$.Value'))` | insert elements into a format string. |
 
 ## Amazon States Language
 
@@ -217,10 +146,13 @@ information, see the States Language spec.
 
 ### Task
 
-A `Task` represents some work that needs to be done. Do not use the `Task` class directly.
+A `Task` represents some work that needs to be done. The exact work to be
+done is determine by a class that implements `IStepFunctionsTask`, a collection
+of which can be found in the `@aws-cdk/aws-stepfunctions-tasks` module.
 
-Instead, use one of the classes in the `@aws-cdk/aws-stepfunctions-tasks` module,
-which provide a much more ergonomic way to integrate with various AWS services.
+The tasks in the `@aws-cdk/aws-stepfunctions-tasks` module support the
+[service integration pattern](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html) that integrates Step Functions with services
+directly in the Amazon States language.
 
 ### Pass
 
@@ -449,7 +381,7 @@ It's possible that the high-level constructs for the states or `stepfunctions-ta
 the states or service integrations you are looking for. The primary reasons for this lack of
 functionality are:
 
-* A [service integration](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-service-integrations.html) is available through Amazon States Language, but not available as construct
+* A [service integration](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-service-integrations.html) is available through Amazon States Langauge, but not available as construct
   classes in the CDK.
 * The state or state properties are available through Step Functions, but are not configurable
   through constructs
@@ -552,36 +484,6 @@ step3 := sfn.NewPass(this, jsii.String("Step3"))
 
 definition := sfn.Chain_Start(step1).Next(step2).Next(step3)
 ```
-
-## Task Credentials
-
-Tasks are executed using the State Machine's execution role. In some cases, e.g. cross-account access, an IAM role can be assumed by the State Machine's execution role to provide access to the resource.
-This can be achieved by providing the optional `credentials` property which allows using a fixed role or a json expression to resolve the role at runtime from the task's inputs.
-
-```go
-import lambda "github.com/aws/aws-cdk-go/awscdk"
-
-var submitLambda function
-var iamRole role
-
-
-// use a fixed role for all task invocations
-role := sfn.TaskRole_FromRole(iamRole)
-// or use a json expression to resolve the role at runtime based on task inputs
-//const role = sfn.TaskRole.fromRoleArnJsonPath('$.RoleArn');
-
-submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
-	LambdaFunction: submitLambda,
-	OutputPath: jsii.String("$.Payload"),
-	// use credentials
-	Credentials: &Credentials{
-		Role: *Role,
-	},
-})
-```
-
-See [the AWS documentation](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-access-cross-acct-resources.html)
-to learn more about AWS Step Functions support for accessing resources in other AWS accounts.
 
 ## State Machine Fragments
 
@@ -705,7 +607,7 @@ to create an alarm on a particular task failing:
 var task task
 
 cloudwatch.NewAlarm(this, jsii.String("TaskAlarm"), &AlarmProps{
-	Metric: task.metricFailed(),
+	Metric: task.MetricFailed(),
 	Threshold: jsii.Number(1),
 	EvaluationPeriods: jsii.Number(1),
 })
@@ -905,13 +807,10 @@ stateMachine.grant(user, jsii.String("states:SendTaskSuccess"))
 Any Step Functions state machine that has been created outside the stack can be imported
 into your CDK stack.
 
-State machines can be imported by their ARN via the `StateMachine.fromStateMachineArn()` API.
-In addition, the StateMachine can be imported via the `StateMachine.fromStateMachineName()` method, as long as they are in the same account/region as the current construct.
+State machines can be imported by their ARN via the `StateMachine.fromStateMachineArn()` API
 
 ```go
 app := awscdk.NewApp()
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
-sfn.StateMachine_FromStateMachineArn(this, jsii.String("ViaArnImportedStateMachine"), jsii.String("arn:aws:states:us-east-1:123456789012:stateMachine:StateMachine2E01A3A5-N5TJppzoevKQ"))
-
-sfn.StateMachine_FromStateMachineName(this, jsii.String("ViaResourceNameImportedStateMachine"), jsii.String("StateMachine2E01A3A5-N5TJppzoevKQ"))
+sfn.StateMachine_FromStateMachineArn(stack, jsii.String("ImportedStateMachine"), jsii.String("arn:aws:states:us-east-1:123456789012:stateMachine:StateMachine2E01A3A5-N5TJppzoevKQ"))
 ```

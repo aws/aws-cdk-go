@@ -12,18 +12,23 @@ Here's an example:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/constructs-go/constructs"
+import actions "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
-var certificate certificate
-
+cognitoStack struct {
+stack
+}
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
 })
 
-userPool := awscdk.Aws_cognito.NewUserPool(this, jsii.String("UserPool"))
-userPoolClient := awscdk.Aws_cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
+userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
+userPoolClient := cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
 	UserPool: UserPool,
 
 	// Required minimal configuration for use with an ELB
@@ -36,7 +41,7 @@ userPoolClient := awscdk.Aws_cognito.NewUserPoolClient(this, jsii.String("Client
 			AuthorizationCodeGrant: jsii.Boolean(true),
 		},
 		Scopes: []oAuthScope{
-			awscdk.*Aws_cognito.*oAuthScope_EMAIL(),
+			cognito.*oAuthScope_EMAIL(),
 		},
 		CallbackUrls: []*string{
 			fmt.Sprintf("https://%v/oauth2/idpresponse", lb.LoadBalancerDnsName),
@@ -49,7 +54,7 @@ cfnClient.AddPropertyOverride(jsii.String("SupportedIdentityProviders"), []inter
 	jsii.String("COGNITO"),
 })
 
-userPoolDomain := awscdk.Aws_cognito.NewUserPoolDomain(this, jsii.String("Domain"), &UserPoolDomainProps{
+userPoolDomain := cognito.NewUserPoolDomain(this, jsii.String("Domain"), &UserPoolDomainProps{
 	UserPool: UserPool,
 	CognitoDomain: &CognitoDomainOptions{
 		DomainPrefix: jsii.String("test-cdk-prefix"),
@@ -75,4 +80,12 @@ lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 awscdk.NewCfnOutput(this, jsii.String("DNS"), &CfnOutputProps{
 	Value: lb.*LoadBalancerDnsName,
 })
+
+app := awscdk.NewApp()
+NewCognitoStack(app, jsii.String("integ-cognito"))
+app.Synth()
 ```
+
+> NOTE: this example seems incomplete, I was not able to get the redirect back to the
+> Load Balancer after authentication working. Would love some pointers on what a full working
+> setup actually looks like!

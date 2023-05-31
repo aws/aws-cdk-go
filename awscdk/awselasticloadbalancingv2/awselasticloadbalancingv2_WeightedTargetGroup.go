@@ -1,0 +1,31 @@
+package awselasticloadbalancingv2
+
+
+// A Target Group and weight combination.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var applicationTargetGroup applicationTargetGroup
+//
+//   weightedTargetGroup := &WeightedTargetGroup{
+//   	TargetGroup: applicationTargetGroup,
+//
+//   	// the properties below are optional
+//   	Weight: jsii.Number(123),
+//   }
+//
+// Experimental.
+type WeightedTargetGroup struct {
+	// The target group.
+	// Experimental.
+	TargetGroup IApplicationTargetGroup `field:"required" json:"targetGroup" yaml:"targetGroup"`
+	// The target group's weight.
+	//
+	// Range is [0..1000).
+	// Experimental.
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
+}
+

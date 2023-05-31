@@ -1,30 +1,74 @@
 # AWS::IVS Construct Library
 
+Amazon Interactive Video Service (Amazon IVS) is a managed live streaming
+solution that is quick and easy to set up, and ideal for creating interactive
+video experiences. Send your live streams to Amazon IVS using streaming software
+and the service does everything you need to make low-latency live video
+available to any viewer around the world, letting you focus on building
+interactive experiences alongside the live video. You can easily customize and
+enhance the audience experience through the Amazon IVS player SDK and timed
+metadata APIs, allowing you to build a more valuable relationship with your
+viewers on your own websites and applications.
+
 This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
+## Channels
+
+An Amazon IVS channel stores configuration information related to your live
+stream. You first create a channel and then contribute video to it using the
+channel’s stream key to start your live stream.
+
+You can create a channel
+
 ```go
-import ivs "github.com/aws/aws-cdk-go/awscdk"
+myChannel := ivs.NewChannel(this, jsii.String("Channel"))
 ```
 
-<!--BEGIN CFNONLY DISCLAIMER-->
+### Importing an existing channel
 
-There are no official hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet. Here are some suggestions on how to proceed:
+You can reference an existing channel, for example, if you need to create a
+stream key for an existing channel
 
-* Search [Construct Hub for IVS construct libraries](https://constructs.dev/search?q=ivs)
-* Use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, in the same way you would use [the CloudFormation AWS::IVS resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IVS.html) directly.
+```go
+myChannel := ivs.Channel_FromChannelArn(this, jsii.String("Channel"), myChannelArn)
+```
 
-> An experimental construct library for this service is available in preview. Since it is not stable yet, it is distributed
-> as a separate package so that you can pin its version independently of the rest of the CDK. See the package:
->
-> <span class="package-reference">@aws-cdk/aws-ivs-alpha</span>
+## Stream Keys
 
-<!--BEGIN CFNONLY DISCLAIMER-->
+A Stream Key is used by a broadcast encoder to initiate a stream and identify
+to Amazon IVS which customer and channel the stream is for. If you are
+storing this value, it should be treated as if it were a password.
 
-There are no hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet.
-However, you can still use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, and use this service exactly as you would using CloudFormation directly.
+You can create a stream key for a given channel
 
-For more information on the resources and properties available for this service, see the [CloudFormation documentation for AWS::IVS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IVS.html).
+```go
+myStreamKey := myChannel.AddStreamKey(jsii.String("StreamKey"))
+```
 
-(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/main/CONTRIBUTING.md) and submit an RFC if you are interested in contributing to this construct library.)
+## Private Channels
 
-<!--END CFNONLY DISCLAIMER-->
+Amazon IVS offers the ability to create private channels, allowing
+you to restrict your streams by channel or viewer. You control access
+to video playback by enabling playback authorization on channels and
+generating signed JSON Web Tokens (JWTs) for authorized playback requests.
+
+A playback token is a JWT that you sign (with a playback authorization key)
+and include with every playback request for a channel that has playback
+authorization enabled.
+
+In order for Amazon IVS to validate the token, you need to upload
+the public key that corresponds to the private key you use to sign the token.
+
+```go
+keyPair := ivs.NewPlaybackKeyPair(this, jsii.String("PlaybackKeyPair"), &PlaybackKeyPairProps{
+	PublicKeyMaterial: myPublicKeyPemString,
+})
+```
+
+Then, when creating a channel, specify the authorized property
+
+```go
+myChannel := ivs.NewChannel(this, jsii.String("Channel"), &ChannelProps{
+	Authorized: jsii.Boolean(true),
+})
+```

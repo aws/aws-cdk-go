@@ -117,9 +117,9 @@ fmt.Sprintf("chown ec2-user:ec2-user %v", mountPath),
 fmt.Sprintf("echo \"%v@tcp:/%v %v lustre defaults,noatime,flock,_netdev 0 0\" >> /etc/fstab", dnsName, mountName, mountPath), jsii.String("mount -a"))
 ```
 
-### Importing an existing Lustre filesystem
+### Importing
 
-An FSx for Lustre file system can be imported with `fromLustreFileSystemAttributes(this, id, attributes)`. The
+An FSx for Lustre file system can be imported with `fromLustreFileSystemAttributes(stack, id, attributes)`. The
 following example lays out how you could import the SecurityGroup a file system belongs to, use that to import the file
 system, and then also import the VPC the file system is in and add an EC2 instance to it, giving it access to the file
 system.
@@ -157,49 +157,6 @@ inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
 
 fs.Connections.AllowDefaultPortFrom(inst)
 ```
-
-### Lustre Data Repository Association support
-
-The LustreFilesystem Construct supports one [Data Repository Association](https://docs.aws.amazon.com/fsx/latest/LustreGuide/fsx-data-repositories.html) (DRA) to an S3 bucket.  This allows Lustre hierarchical storage management to S3 buckets, which in turn makes it possible to use S3 as a permanent backing store, and use FSx for Lustre as a temporary high performance cache.
-
-Note: CloudFormation does not currently support for `PERSISTENT_2` filesystems, and so neither does CDK.
-
-The following example illustrates setting up a DRA to an S3 bucket, including automated metadata import whenever a file is changed, created or deleted in the S3 bucket:
-
-```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
-var vpc vpc
-var bucket bucket
-
-
-lustreConfiguration := map[string]interface{}{
-	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
-	"exportPath": bucket.s3UrlForObject(),
-	"importPath": bucket.s3UrlForObject(),
-	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
-}
-
-fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
-	Vpc: vpc,
-	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
-	StorageCapacityGiB: jsii.Number(1200),
-	LustreConfiguration: LustreConfiguration,
-})
-```
-
-### Compression
-
-By default, transparent compression of data within FSx for Lustre is switched off.  To enable it, add the following to your `lustreConfiguration`:
-
-```go
-lustreConfiguration := map[string]lustreDataCompressionType{
-	// ...
-	"dataCompressionType": fsx.lustreDataCompressionType_LZ4,
-}
-```
-
-When you turn data compression on for an existing file system, only newly written files are compressed.  Existing files are not compressed. For more information, see [Compressing previously written files](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html#migrate-compression).```
 
 ## FSx for Windows File Server
 
