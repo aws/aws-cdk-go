@@ -7,16 +7,16 @@ See [Migrating to OpenSearch](https://docs.aws.amazon.com/cdk/api/latest/docs/aw
 Create a development cluster by simply specifying the version:
 
 ```go
-devDomain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+devDomain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 })
 ```
 
 To perform version upgrades without replacing the entire domain, specify the `enableVersionUpgrade` property.
 
 ```go
-devDomain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+devDomain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	EnableVersionUpgrade: jsii.Boolean(true),
 })
 ```
@@ -24,8 +24,8 @@ devDomain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
 Create a production grade cluster by also specifying things like capacity and az distribution
 
 ```go
-prodDomain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+prodDomain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	Capacity: &CapacityConfig{
 		MasterNodes: jsii.Number(5),
 		DataNodes: jsii.Number(20),
@@ -51,7 +51,7 @@ logging the domain logs and slow search logs.
 
 Some cluster configurations (e.g VPC access) require the existence of the [`AWSServiceRoleForAmazonElasticsearchService`](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/slr.html) Service-Linked Role.
 
-When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message simlar to:
+When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message similar to:
 
 ```console
 Before you can proceed, you must enable a service-linked role to give Amazon OpenSearch Service...
@@ -73,12 +73,28 @@ slr := iam.NewCfnServiceLinkedRole(this, jsii.String("Service Linked Role"), &Cf
 
 ## Importing existing domains
 
+### Using a known domain endpoint
+
 To import an existing domain into your CDK application, use the `Domain.fromDomainEndpoint` factory method.
 This method accepts a domain endpoint of an already existing domain:
 
 ```go
 domainEndpoint := "https://my-domain-jcjotrt6f7otem4sqcwbch3c4u.us-east-1.es.amazonaws.com"
-domain := opensearch.Domain_FromDomainEndpoint(this, jsii.String("ImportedDomain"), domainEndpoint)
+domain := awscdk.Domain_FromDomainEndpoint(this, jsii.String("ImportedDomain"), domainEndpoint)
+```
+
+### Using the output of another CloudFormation stack
+
+To import an existing domain with the help of an exported value from another CloudFormation stack,
+use the `Domain.fromDomainAttributes` factory method. This will accept tokens.
+
+```go
+domainArn := awscdk.Fn_ImportValue(jsii.String("another-cf-stack-export-domain-arn"))
+domainEndpoint := awscdk.Fn_ImportValue(jsii.String("another-cf-stack-export-domain-endpoint"))
+domain := awscdk.Domain_FromDomainAttributes(this, jsii.String("ImportedDomain"), &DomainAttributes{
+	DomainArn: jsii.String(DomainArn),
+	DomainEndpoint: jsii.String(DomainEndpoint),
+})
 ```
 
 ## Permissions
@@ -104,8 +120,8 @@ domain.grantPathRead(jsii.String("app-search/_search"), fn)
 The domain can also be created with encryption enabled:
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	Ebs: &EbsOptions{
 		VolumeSize: jsii.Number(100),
 		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD,
@@ -130,7 +146,7 @@ Domains can be placed inside a VPC, providing a secure communication between Ama
 ```go
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 domainProps := &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 	Vpc: Vpc,
 	// must be enabled since our VPC contains multiple private subnets.
@@ -142,7 +158,7 @@ domainProps := &DomainProps{
 		DataNodes: jsii.Number(2),
 	},
 }
-opensearch.NewDomain(this, jsii.String("Domain"), domainProps)
+awscdk.NewDomain(this, jsii.String("Domain"), domainProps)
 ```
 
 In addition, you can use the `vpcSubnets` property to control which specific subnets will be used, and the `securityGroups` property to control
@@ -167,8 +183,8 @@ The domain can also be created with a master user configured. The password can
 be supplied or dynamically created if not supplied.
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	EnforceHttps: jsii.Boolean(true),
 	NodeToNodeEncryption: jsii.Boolean(true),
 	EncryptionAtRest: &EncryptionAtRestOptions{
@@ -190,7 +206,7 @@ means anyone can access the domain using the configured master username and
 password.
 
 To enable unsigned basic auth access the domain is configured with an access
-policy that allows anyonmous requests, HTTPS required, node to node encryption,
+policy that allows anonymous requests, HTTPS required, node to node encryption,
 encryption at rest and fine grained access control.
 
 If the above settings are not set they will be configured as part of enabling
@@ -205,8 +221,8 @@ stored in the AWS Secrets Manager as secret. The secret has the prefix
 `<domain id>MasterUser`.
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	UseUnsignedBasicAuth: jsii.Boolean(true),
 })
 
@@ -221,8 +237,8 @@ constructor property, or later by means of a helper method.
 For simple permissions the `accessPolicies` constructor may be sufficient:
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	AccessPolicies: []policyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
@@ -246,8 +262,8 @@ For more complex use-cases, for example, to set the domain up to receive data fr
 allows for policies that include the explicit domain ARN.
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 })
 domain.AddAccessPolicies(
 iam.NewPolicyStatement(&PolicyStatementProps{
@@ -292,8 +308,8 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 Audit logs can be enabled for a domain, but only when fine grained access control is enabled.
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	EnforceHttps: jsii.Boolean(true),
 	NodeToNodeEncryption: jsii.Boolean(true),
 	EncryptionAtRest: &EncryptionAtRestOptions{
@@ -316,8 +332,8 @@ domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
 UltraWarm nodes can be enabled to provide a cost-effective way to store large amounts of read-only data.
 
 ```go
-domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	Capacity: &CapacityConfig{
 		MasterNodes: jsii.Number(2),
 		WarmNodes: jsii.Number(2),
@@ -331,8 +347,8 @@ domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
 Custom endpoints can be configured to reach the domain under a custom domain name.
 
 ```go
-opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	CustomEndpoint: &CustomEndpointOptions{
 		DomainName: jsii.String("search.example.com"),
 	},
@@ -348,12 +364,32 @@ Additionally, an automatic CNAME-Record is created if a hosted zone is provided 
 [Advanced options](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) can used to configure additional options.
 
 ```go
-opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-	Version: opensearch.EngineVersion_OPENSEARCH_1_0(),
+awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 	AdvancedOptions: map[string]*string{
 		"rest.action.multi.allow_explicit_index": jsii.String("false"),
 		"indices.fielddata.cache.size": jsii.String("25"),
 		"indices.query.bool.max_clause_count": jsii.String("2048"),
+	},
+})
+```
+
+## Amazon Cognito authentication for OpenSearch Dashboards
+
+The domain can be configured to use Amazon Cognito authentication for OpenSearch Dashboards.
+
+> Visit [Configuring Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) for more details.
+
+```go
+var cognitoConfigurationRole role
+
+
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+	CognitoDashboardsAuth: &CognitoOptions{
+		Role: cognitoConfigurationRole,
+		IdentityPoolId: jsii.String("example-identity-pool-id"),
+		UserPoolId: jsii.String("example-user-pool-id"),
 	},
 })
 ```

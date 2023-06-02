@@ -1,0 +1,47 @@
+package awsnetworkmanager
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for defining a `CfnSiteToSiteVpnAttachment`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSiteToSiteVpnAttachmentProps := &CfnSiteToSiteVpnAttachmentProps{
+//   	CoreNetworkId: jsii.String("coreNetworkId"),
+//   	VpnConnectionArn: jsii.String("vpnConnectionArn"),
+//
+//   	// the properties below are optional
+//   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		SegmentName: jsii.String("segmentName"),
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	Tags: []*cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+type CfnSiteToSiteVpnAttachmentProps struct {
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.CoreNetworkId`.
+	CoreNetworkId *string `field:"required" json:"coreNetworkId" yaml:"coreNetworkId"`
+	// The ARN of the site-to-site VPN attachment.
+	VpnConnectionArn *string `field:"required" json:"vpnConnectionArn" yaml:"vpnConnectionArn"`
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.ProposedSegmentChange`.
+	ProposedSegmentChange interface{} `field:"optional" json:"proposedSegmentChange" yaml:"proposedSegmentChange"`
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.Tags`.
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

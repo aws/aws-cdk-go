@@ -23,13 +23,37 @@ Assigning resources to a plan can be done with `addSelection()`:
 
 ```go
 var plan backupPlan
+var vpc vpc
 
 myTable := dynamodb.Table_FromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
+myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_26(),
+	}),
+	Vpc: Vpc,
+})
+myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+	}),
+	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+	InstanceProps: &InstanceProps{
+		Vpc: *Vpc,
+	},
+})
+myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
+	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+	Vpc: Vpc,
+})
 myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 
 plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
 	Resources: []backupResource{
 		backup.*backupResource_FromDynamoDbTable(myTable),
+		backup.*backupResource_FromRdsDatabaseInstance(myDatabaseInstance),
+		backup.*backupResource_FromRdsDatabaseCluster(myDatabaseCluster),
+		backup.*backupResource_FromRdsServerlessCluster(myServerlessCluster),
 		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
 		backup.*backupResource_FromConstruct(myCoolConstruct),
 	},
@@ -69,6 +93,24 @@ var plan backupPlan
 plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 	EnableContinuousBackup: jsii.Boolean(true),
 	DeleteAfter: awscdk.Duration_Days(jsii.Number(14)),
+}))
+```
+
+Rules can also specify to copy recovery points to another Backup Vault using `copyActions`. Copied recovery points can
+optionally have `moveToColdStorageAfter` and `deleteAfter` configured.
+
+```go
+var plan backupPlan
+var secondaryVault backupVault
+
+plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+	CopyActions: []backupPlanCopyActionProps{
+		&backupPlanCopyActionProps{
+			DestinationBackupVault: secondaryVault,
+			MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
+			DeleteAfter: awscdk.Duration_*Days(jsii.Number(120)),
+		},
+	},
 }))
 ```
 
@@ -175,6 +217,16 @@ backupVault.BlockRecoveryPointDeletion()
 ```
 
 By default access is not restricted.
+
+Use the `lockConfiguration` property to enable [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html):
+
+```go
+backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
+	LockConfiguration: &LockConfiguration{
+		MinRetention: awscdk.Duration_Days(jsii.Number(30)),
+	},
+})
+```
 
 ## Importing existing backup vault
 

@@ -19,7 +19,7 @@ This library contains Route53 Alias Record targets for:
 * API Gateway V2 custom domains
 
   ```go
-  import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
+  import apigwv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
 
   var zone hostedZone
   var domainName domainName

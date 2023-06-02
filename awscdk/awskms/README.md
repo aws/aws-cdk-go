@@ -262,3 +262,15 @@ key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 > runs the risk of the key becoming unmanageable if that user or role is deleted.
 > It is highly recommended that the key policy grants access to the account root, rather than specific principals.
 > See https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html for more information.
+
+### HMAC specific key policies
+
+HMAC keys have a different key policy than other KMS keys. They have a policy for generating and for verifying a MAC.
+The respective policies can be attached to a principal via the `grantGenerateMac` and `grantVerifyMac` methods.
+
+```go
+key := kms.NewKey(this, jsii.String("MyKey"))
+user := iam.NewUser(this, jsii.String("MyUser"))
+key.grantGenerateMac(user) // Adds 'kms:GenerateMac' to the principal's policy
+key.grantVerifyMac(user)
+```

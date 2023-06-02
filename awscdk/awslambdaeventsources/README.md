@@ -24,9 +24,14 @@ eventSource := awscdk.NewSqsEventSource(queue)
 fn.AddEventSource(eventSource)
 
 eventSourceId := eventSource.eventSourceMappingId
+eventSourceMappingArn := eventSource.eventSourceMappingArn
 ```
 
 The `eventSourceId` property contains the event source id. This will be a
+[token](https://docs.aws.amazon.com/cdk/latest/guide/tokens.html) that will resolve to the final value at the time of
+deployment.
+
+The `eventSourceMappingArn` property contains the event source mapping ARN. This will be a
 [token](https://docs.aws.amazon.com/cdk/latest/guide/tokens.html) that will resolve to the final value at the time of
 deployment.
 
@@ -49,6 +54,7 @@ behavior:
   duration. The default value is 20 seconds.
 * **batchSize**: Determines how many records are buffered before invoking your lambda function.
 * **maxBatchingWindow**: The maximum amount of time to gather records before invoking the lambda. This increases the likelihood of a full batch at the cost of delayed processing.
+* **maxConcurrency**: The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS event source can invoke.
 * **enabled**: If the SQS event source mapping should be enabled. The default is true.
 
 ```go
@@ -202,7 +208,8 @@ behavior:
 * **onFailure**: In the event a record fails and consumes all retries, the record will be sent to SQS queue or SNS topic that is specified here
 * **parallelizationFactor**: The number of batches to concurrently process on each shard.
 * **retryAttempts**: The maximum number of times a record should be retried in the event of failure.
-* **startingPosition**: Will determine where to being consumption, either at the most recent ('LATEST') record or the oldest record ('TRIM_HORIZON'). 'TRIM_HORIZON' will ensure you process all available data, while 'LATEST' will ignore all records that arrived prior to attaching the event source.
+* **startingPosition**: Will determine where to begin consumption. 'LATEST' will start at the most recent record and ignore all records that arrived prior to attaching the event source, 'TRIM_HORIZON' will start at the oldest record and ensure you process all available data, while 'AT_TIMESTAMP' will start reading records from a specified time stamp. Note that 'AT_TIMESTAMP' is only supported for Amazon Kinesis streams.
+* **startingPositionTimestamp**: The time stamp from which to start reading. Used in conjunction with **startingPosition** when set to 'AT_TIMESTAMP'.
 * **tumblingWindow**: The duration in seconds of a processing window when using streams.
 * **enabled**: If the DynamoDB Streams event source mapping should be enabled. The default is true.
 
@@ -276,9 +283,13 @@ bootstrapServers := []*string{
 
 // The Kafka topic you want to subscribe to
 topic := "some-cool-topic"
+
+// (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
+consumerGroupId := "my-consumer-group-id"
 myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
 	BootstrapServers: bootstrapServers,
 	Topic: topic,
+	ConsumerGroupId: consumerGroupId,
 	Secret: secret,
 	BatchSize: jsii.Number(100),
 	 // default
