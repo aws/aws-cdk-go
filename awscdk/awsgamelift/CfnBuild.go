@@ -75,9 +75,7 @@ type CfnBuild interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A server SDK version you used when integrating your game server build with Amazon GameLift.
-	//
-	// For more information see [Integrate games with custom game servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html) . By default Amazon GameLift sets this value to `4.0.2` .
+	// The Amazon GameLift Server SDK version used to develop your game server.
 	ServerSdkVersion() *string
 	SetServerSdkVersion(val *string)
 	// The stack in which this element is defined.

@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::GuardDuty::Detector`.
 //
-// The `AWS::GuardDuty::Detector` resource specifies a new  detector. A detector is an object that represents the  service. A detector is required for  to become operational.
+// The `AWS::GuardDuty::Detector` resource specifies a new GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector is required for GuardDuty to become operational.
 //
 // Make sure you use either `DataSources` or `Features` in a one request, and not both.
 //

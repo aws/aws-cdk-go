@@ -30,9 +30,9 @@ type CfnFleetProps struct {
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ARN of the signal catalog associated with the fleet.
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// A brief description of the fleet.
+	// (Optional) A brief description of the fleet.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTFleetWise::Fleet.Tags`.
+	// (Optional) Metadata that can be used to manage the fleet.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

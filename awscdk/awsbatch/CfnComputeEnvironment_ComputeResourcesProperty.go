@@ -100,7 +100,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	BidPercentage *float64 `field:"optional" json:"bidPercentage" yaml:"bidPercentage"`
-	// The desired number of Amazon EC2 vCPUS in the compute environment.
+	// The desired number of vCPUS in the compute environment.
 	//
 	// AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
 	//
@@ -158,7 +158,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// > This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
-	// The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if the compute environment is `DISABLED` ).
+	// The minimum number of vCPUs that an environment should maintain (even if the compute environment is `DISABLED` ).
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	MinvCpus *float64 `field:"optional" json:"minvCpus" yaml:"minvCpus"`

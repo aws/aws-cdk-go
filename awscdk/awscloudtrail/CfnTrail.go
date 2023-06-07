@@ -23,6 +23,38 @@ import (
 //   	S3BucketName: jsii.String("s3BucketName"),
 //
 //   	// the properties below are optional
+//   	AdvancedEventSelectors: []interface{}{
+//   		&AdvancedEventSelectorProperty{
+//   			FieldSelectors: []interface{}{
+//   				&AdvancedFieldSelectorProperty{
+//   					Field: jsii.String("field"),
+//
+//   					// the properties below are optional
+//   					EndsWith: []*string{
+//   						jsii.String("endsWith"),
+//   					},
+//   					EqualTo: []*string{
+//   						jsii.String("equalTo"),
+//   					},
+//   					NotEndsWith: []*string{
+//   						jsii.String("notEndsWith"),
+//   					},
+//   					NotEquals: []*string{
+//   						jsii.String("notEquals"),
+//   					},
+//   					NotStartsWith: []*string{
+//   						jsii.String("notStartsWith"),
+//   					},
+//   					StartsWith: []*string{
+//   						jsii.String("startsWith"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	CloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   	CloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
 //   	EnableLogFileValidation: jsii.Boolean(false),
@@ -68,6 +100,9 @@ import (
 type CfnTrail interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// `AWS::CloudTrail::Trail.AdvancedEventSelectors`.
+	AdvancedEventSelectors() interface{}
+	SetAdvancedEventSelectors(val interface{})
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 	AttrArn() *string
 	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
@@ -122,9 +157,9 @@ type CfnTrail interface {
 	// Whether the CloudTrail trail is currently logging AWS API calls.
 	IsLogging() interface{}
 	SetIsLogging(val interface{})
-	// Specifies whether the trail applies only to the current region or to all regions.
+	// Specifies whether the trail applies only to the current Region or to all Regions.
 	//
-	// The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
+	// The default is false. If the trail exists only in the current Region and this value is set to true, shadow trails (replications of the trail) will be created in the other Regions. If the trail exists in all Regions and this value is set to false, the trail will remain in the Region where it was created, and its shadow trails in other Regions will be deleted. As a best practice, consider using trails that log events in all Regions.
 	IsMultiRegionTrail() interface{}
 	SetIsMultiRegionTrail(val interface{})
 	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
@@ -337,6 +372,16 @@ type CfnTrail interface {
 type jsiiProxy_CfnTrail struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTrail) AdvancedEventSelectors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"advancedEventSelectors",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTrail) AttrArn() *string {
@@ -636,6 +681,17 @@ func NewCfnTrail_Override(c CfnTrail, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTrail)SetAdvancedEventSelectors(val interface{}) {
+	if err := j.validateSetAdvancedEventSelectorsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"advancedEventSelectors",
+		val,
 	)
 }
 

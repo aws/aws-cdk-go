@@ -53,6 +53,26 @@ package awsquicksight
 //   			FilterOperation: &FilterOperationProperty{
 //   				ConditionExpression: jsii.String("conditionExpression"),
 //   			},
+//   			OverrideDatasetParameterOperation: &OverrideDatasetParameterOperationProperty{
+//   				ParameterName: jsii.String("parameterName"),
+//
+//   				// the properties below are optional
+//   				NewDefaultValues: &NewDefaultValuesProperty{
+//   					DateTimeStaticValues: []*string{
+//   						jsii.String("dateTimeStaticValues"),
+//   					},
+//   					DecimalStaticValues: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					IntegerStaticValues: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					StringStaticValues: []*string{
+//   						jsii.String("stringStaticValues"),
+//   					},
+//   				},
+//   				NewParameterName: jsii.String("newParameterName"),
+//   			},
 //   			ProjectOperation: &ProjectOperationProperty{
 //   				ProjectedColumns: []*string{
 //   					jsii.String("projectedColumns"),

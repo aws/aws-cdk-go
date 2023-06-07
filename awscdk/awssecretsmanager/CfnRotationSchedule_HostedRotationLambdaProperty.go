@@ -66,7 +66,12 @@ type CfnRotationSchedule_HostedRotationLambdaProperty struct {
 	MasterSecretKmsKeyArn *string `field:"optional" json:"masterSecretKmsKeyArn" yaml:"masterSecretKmsKeyArn"`
 	// The name of the Lambda rotation function.
 	RotationLambdaName *string `field:"optional" json:"rotationLambdaName" yaml:"rotationLambdaName"`
-	// The Python runtime version associated with the Lambda function.
+	// By default, CloudFormation deploys Python 3.9 binaries for the rotation function. To use a different version of Python, you must do the following two steps:.
+	//
+	// - Deploy the matching version Python binaries with your rotation function.
+	// - Set the version number in this field. For example, for Python 3.7, enter *python3.7*
+	//
+	// If you only do one of the steps, your rotation function will be incompatible with the binaries. For more information, see [Why did my Lambda rotation function fail with a "pg module not found" error](https://docs.aws.amazon.com/https://repost.aws/knowledge-center/secrets-manager-lambda-rotation) .
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
 	// The ARN of the secret that contains superuser credentials, if you use the [Alternating users rotation strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users) . CloudFormation grants the execution role for the Lambda rotation function `GetSecretValue` permission to the secret in this property. For more information, see [Lambda rotation function execution role permissions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html) .
 	//

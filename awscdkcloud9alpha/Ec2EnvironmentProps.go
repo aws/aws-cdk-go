@@ -1,6 +1,7 @@
 package awscdkcloud9alpha
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
@@ -28,6 +29,11 @@ type Ec2EnvironmentProps struct {
 	// The VPC that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// The number of minutes until the running instance is shut down after the environment was last used.
+	//
+	// Setting a value of 0 means the instance will never be automatically shut down."
+	// Experimental.
+	AutomaticStop awscdk.Duration `field:"optional" json:"automaticStop" yaml:"automaticStop"`
 	// The AWS CodeCommit repository to be cloned.
 	// Experimental.
 	ClonedRepositories *[]CloneRepository `field:"optional" json:"clonedRepositories" yaml:"clonedRepositories"`

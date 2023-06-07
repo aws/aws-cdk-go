@@ -36,6 +36,7 @@ type CfnModel interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The model ID.
 	AttrModelId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

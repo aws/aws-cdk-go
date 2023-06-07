@@ -30,13 +30,13 @@ package awsec2
 //   }
 //
 type CfnVPCEndpointProps struct {
-	// The service name.
+	// The name of the endpoint service.
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
-	// The ID of the VPC for the endpoint.
+	// The ID of the VPC.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// A policy that controls access to the service from the VPC.
+	// An endpoint policy, which controls access to the service from the VPC.
 	//
-	// If this parameter is not specified, the default policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
+	// The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//
 	// For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
 	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`

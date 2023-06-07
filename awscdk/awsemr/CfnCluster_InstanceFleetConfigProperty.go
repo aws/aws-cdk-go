@@ -73,7 +73,7 @@ package awsemr
 //   }
 //
 type CfnCluster_InstanceFleetConfigProperty struct {
-	// The instance type configurations that define the EC2 instances in the instance fleet.
+	// The instance type configurations that define the Amazon EC2 instances in the instance fleet.
 	InstanceTypeConfigs interface{} `field:"optional" json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
 	LaunchSpecifications interface{} `field:"optional" json:"launchSpecifications" yaml:"launchSpecifications"`

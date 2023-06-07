@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::GuardDuty::ThreatIntelSet`.
 //
-// The `AWS::GuardDuty::ThreatIntelSet` resource specifies a new `ThreatIntelSet` . A `ThreatIntelSet` consists of known malicious IP addresses.  generates findings based on the `ThreatIntelSet` when it is activated.
+// The `AWS::GuardDuty::ThreatIntelSet` resource specifies a new `ThreatIntelSet` . A `ThreatIntelSet` consists of known malicious IP addresses. GuardDuty generates findings based on the `ThreatIntelSet` when it is activated.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

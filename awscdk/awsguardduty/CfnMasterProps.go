@@ -19,11 +19,11 @@ package awsguardduty
 type CfnMasterProps struct {
 	// The unique ID of the detector of the GuardDuty member account.
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
-	// The AWS account ID of the account designated as the  administrator account.
+	// The AWS account ID of the account designated as the GuardDuty administrator account.
 	MasterId *string `field:"required" json:"masterId" yaml:"masterId"`
 	// The ID of the invitation that is sent to the account designated as a member account.
 	//
-	// You can find the invitation ID by using the ListInvitation action of the  API.
+	// You can find the invitation ID by using the ListInvitation action of the GuardDuty API.
 	InvitationId *string `field:"optional" json:"invitationId" yaml:"invitationId"`
 }
 

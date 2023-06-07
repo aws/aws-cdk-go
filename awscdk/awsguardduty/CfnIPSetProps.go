@@ -28,7 +28,7 @@ import (
 //   }
 //
 type CfnIPSetProps struct {
-	// Indicates whether or not  uses the `IPSet` .
+	// Indicates whether or not GuardDuty uses the `IPSet` .
 	Activate interface{} `field:"required" json:"activate" yaml:"activate"`
 	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`

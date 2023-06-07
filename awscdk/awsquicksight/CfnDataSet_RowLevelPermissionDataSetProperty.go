@@ -19,6 +19,7 @@ package awsquicksight
 //   	// the properties below are optional
 //   	FormatVersion: jsii.String("formatVersion"),
 //   	Namespace: jsii.String("namespace"),
+//   	Status: jsii.String("status"),
 //   }
 //
 type CfnDataSet_RowLevelPermissionDataSetProperty struct {
@@ -34,5 +35,9 @@ type CfnDataSet_RowLevelPermissionDataSetProperty struct {
 	FormatVersion *string `field:"optional" json:"formatVersion" yaml:"formatVersion"`
 	// The namespace associated with the dataset that contains permissions for RLS.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	// The status of the row-level security permission dataset.
+	//
+	// If enabled, the status is `ENABLED` . If disabled, the status is `DISABLED` .
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

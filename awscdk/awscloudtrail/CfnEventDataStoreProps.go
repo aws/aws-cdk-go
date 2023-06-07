@@ -44,6 +44,7 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	IngestionEnabled: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MultiRegionEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
@@ -69,6 +70,8 @@ type CfnEventDataStoreProps struct {
 	//
 	// For more information about how to use advanced event selectors to include non- AWS events in your event data store, see [Create an integration to log events from outside AWS](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration) in the CloudTrail User Guide.
 	AdvancedEventSelectors interface{} `field:"optional" json:"advancedEventSelectors" yaml:"advancedEventSelectors"`
+	// `AWS::CloudTrail::EventDataStore.IngestionEnabled`.
+	IngestionEnabled interface{} `field:"optional" json:"ingestionEnabled" yaml:"ingestionEnabled"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
 	//
 	// The value can be an alias name prefixed by `alias/` , a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
@@ -84,7 +87,7 @@ type CfnEventDataStoreProps struct {
 	// - `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
 	// - `12345678-1234-1234-1234-123456789012`.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created.
+	// Specifies whether the event data store includes events from all Regions, or only from the Region in which the event data store is created.
 	MultiRegionEnabled interface{} `field:"optional" json:"multiRegionEnabled" yaml:"multiRegionEnabled"`
 	// The name of the event data store.
 	Name *string `field:"optional" json:"name" yaml:"name"`

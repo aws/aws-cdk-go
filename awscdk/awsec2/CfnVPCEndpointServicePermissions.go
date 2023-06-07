@@ -32,7 +32,7 @@ import (
 type CfnVPCEndpointServicePermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Names (ARN) of one or more principals (users, IAM roles, and AWS accounts).
+	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ).
 	//
 	// Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals() *[]*string

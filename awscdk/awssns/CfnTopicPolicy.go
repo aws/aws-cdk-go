@@ -65,7 +65,7 @@ type CfnTopicPolicy interface {
 	Stack() awscdk.Stack
 	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
 	//
-	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html)` resource.
+	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html)` resource.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
 	// Deprecated.

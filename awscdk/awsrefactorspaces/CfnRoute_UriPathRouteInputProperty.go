@@ -23,7 +23,7 @@ package awsrefactorspaces
 type CfnRoute_UriPathRouteInputProperty struct {
 	// If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
 	ActivationState *string `field:"required" json:"activationState" yaml:"activationState"`
-	// `CfnRoute.UriPathRouteInputProperty.AppendSourcePath`.
+	// If set to `true` , this option appends the source path to the service URL endpoint.
 	AppendSourcePath interface{} `field:"optional" json:"appendSourcePath" yaml:"appendSourcePath"`
 	// Indicates whether to match all subpaths of the given source path.
 	//

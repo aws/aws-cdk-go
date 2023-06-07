@@ -129,7 +129,7 @@ type CfnInstanceGroupConfig interface {
 	CfnResourceType() *string
 	// > Amazon EMR releases 4.x or later.
 	//
-	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+	// The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 	Configurations() interface{}
 	SetConfigurations(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -150,7 +150,7 @@ type CfnInstanceGroupConfig interface {
 	// *Allowed Values* : TASK.
 	InstanceRole() *string
 	SetInstanceRole(val *string)
-	// The EC2 instance type for all instances in the instance group.
+	// The Amazon EC2 instance type for all instances in the instance group.
 	InstanceType() *string
 	SetInstanceType(val *string)
 	// The ID of an Amazon EMR cluster that you want to associate this instance group with.
@@ -166,7 +166,7 @@ type CfnInstanceGroupConfig interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Market type of the EC2 instances used to create a cluster node.
+	// Market type of the Amazon EC2 instances used to create a cluster node.
 	Market() *string
 	SetMarket(val *string)
 	// Friendly name given to the instance group.

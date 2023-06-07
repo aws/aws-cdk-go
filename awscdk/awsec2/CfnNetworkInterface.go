@@ -23,7 +23,6 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	GroupSet: []*string{
 //   		jsii.String("groupSet"),
 //   	},
@@ -76,9 +75,6 @@ type CfnNetworkInterface interface {
 	// A description for the network interface.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::EC2::NetworkInterface.EnablePrimaryIpv6`.
-	EnablePrimaryIpv6() interface{}
-	SetEnablePrimaryIpv6(val interface{})
 	// The security group IDs associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
@@ -371,16 +367,6 @@ func (j *jsiiProxy_CfnNetworkInterface) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterface) EnablePrimaryIpv6() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"enablePrimaryIpv6",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnNetworkInterface) GroupSet() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -575,17 +561,6 @@ func (j *jsiiProxy_CfnNetworkInterface)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnNetworkInterface)SetEnablePrimaryIpv6(val interface{}) {
-	if err := j.validateSetEnablePrimaryIpv6Parameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"enablePrimaryIpv6",
 		val,
 	)
 }

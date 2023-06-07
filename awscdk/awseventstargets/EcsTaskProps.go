@@ -59,6 +59,10 @@ type EcsTaskProps struct {
 	// Key is the name of the container to override, value is the
 	// values you want to override.
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
+	// Whether or not to enable the execute command functionality for the containers in this task.
+	//
+	// If true, this enables execute command functionality on all containers in the task.
+	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The platform version on which to run your task.
 	//
 	// Unless you have specific compatibility requirements, you don't need to specify this.

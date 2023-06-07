@@ -51,6 +51,7 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	IngestionEnabled: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MultiRegionEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
@@ -96,6 +97,9 @@ type CfnEventDataStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::CloudTrail::EventDataStore.IngestionEnabled`.
+	IngestionEnabled() interface{}
+	SetIngestionEnabled(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
 	//
 	// The value can be an alias name prefixed by `alias/` , a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
@@ -122,7 +126,7 @@ type CfnEventDataStore interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created.
+	// Specifies whether the event data store includes events from all Regions, or only from the Region in which the event data store is created.
 	MultiRegionEnabled() interface{}
 	SetMultiRegionEnabled(val interface{})
 	// The name of the event data store.
@@ -390,6 +394,16 @@ func (j *jsiiProxy_CfnEventDataStore) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventDataStore) IngestionEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ingestionEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventDataStore) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -557,6 +571,17 @@ func (j *jsiiProxy_CfnEventDataStore)SetAdvancedEventSelectors(val interface{}) 
 	_jsii_.Set(
 		j,
 		"advancedEventSelectors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetIngestionEnabled(val interface{}) {
+	if err := j.validateSetIngestionEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ingestionEnabled",
 		val,
 	)
 }

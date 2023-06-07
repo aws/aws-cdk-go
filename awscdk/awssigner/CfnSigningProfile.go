@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Signer::SigningProfile`.
 //
-// Creates a signing profile. A signing profile is a code signing template that can be used to carry out a pre-defined signing job.
+// Creates a signing profile. A signing profile is a code-signing template that can be used to carry out a pre-defined signing job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -19,9 +19,9 @@ package awsiotfleetwise
 type CfnDecoderManifest_CanInterfaceProperty struct {
 	// The unique name of the interface.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The name of the communication protocol for the interface.
+	// (Optional) The name of the communication protocol for the interface.
 	ProtocolName *string `field:"optional" json:"protocolName" yaml:"protocolName"`
-	// The version of the communication protocol for the interface.
+	// (Optional) The version of the communication protocol for the interface.
 	ProtocolVersion *string `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 }
 

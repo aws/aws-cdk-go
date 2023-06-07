@@ -63,7 +63,7 @@ type CfnWebACL_JsonBodyProperty struct {
 	//
 	// The options for oversize handling are the following:
 	//
-	// - `CONTINUE` - Inspect the body normally, according to the rule inspection criteria.
+	// - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 	//

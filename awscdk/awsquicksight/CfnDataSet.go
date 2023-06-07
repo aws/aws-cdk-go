@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var tagRuleConfigurations interface{}
+//
 //   cfnDataSet := awscdk.Aws_quicksight.NewCfnDataSet(this, jsii.String("MyCfnDataSet"), &CfnDataSetProps{
 //   	AwsAccountId: jsii.String("awsAccountId"),
 //   	ColumnGroups: []interface{}{
@@ -44,6 +46,70 @@ import (
 //   		},
 //   	},
 //   	DataSetId: jsii.String("dataSetId"),
+//   	DatasetParameters: []interface{}{
+//   		&DatasetParameterProperty{
+//   			DateTimeDatasetParameter: &DateTimeDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &DateTimeDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []*string{
+//   						jsii.String("staticValues"),
+//   					},
+//   				},
+//   				TimeGranularity: jsii.String("timeGranularity"),
+//   			},
+//   			DecimalDatasetParameter: &DecimalDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &DecimalDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			IntegerDatasetParameter: &IntegerDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &IntegerDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			StringDatasetParameter: &StringDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &StringDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []*string{
+//   						jsii.String("staticValues"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	DataSetRefreshProperties: &DataSetRefreshPropertiesProperty{
+//   		RefreshConfiguration: &RefreshConfigurationProperty{
+//   			IncrementalRefresh: &IncrementalRefreshProperty{
+//   				LookbackWindow: &LookbackWindowProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					Size: jsii.Number(123),
+//   					SizeUnit: jsii.String("sizeUnit"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	DataSetUsageConfiguration: &DataSetUsageConfigurationProperty{
 //   		DisableUseAsDirectQuerySource: jsii.Boolean(false),
 //   		DisableUseAsImportedSource: jsii.Boolean(false),
@@ -104,6 +170,26 @@ import (
 //   					},
 //   					"filterOperation": &FilterOperationProperty{
 //   						"conditionExpression": jsii.String("conditionExpression"),
+//   					},
+//   					"overrideDatasetParameterOperation": &OverrideDatasetParameterOperationProperty{
+//   						"parameterName": jsii.String("parameterName"),
+//
+//   						// the properties below are optional
+//   						"newDefaultValues": &NewDefaultValuesProperty{
+//   							"dateTimeStaticValues": []*string{
+//   								jsii.String("dateTimeStaticValues"),
+//   							},
+//   							"decimalStaticValues": []interface{}{
+//   								jsii.Number(123),
+//   							},
+//   							"integerStaticValues": []interface{}{
+//   								jsii.Number(123),
+//   							},
+//   							"stringStaticValues": []*string{
+//   								jsii.String("stringStaticValues"),
+//   							},
+//   						},
+//   						"newParameterName": jsii.String("newParameterName"),
 //   					},
 //   					"projectOperation": &ProjectOperationProperty{
 //   						"projectedColumns": []*string{
@@ -192,6 +278,23 @@ import (
 //   		// the properties below are optional
 //   		FormatVersion: jsii.String("formatVersion"),
 //   		Namespace: jsii.String("namespace"),
+//   		Status: jsii.String("status"),
+//   	},
+//   	RowLevelPermissionTagConfiguration: &RowLevelPermissionTagConfigurationProperty{
+//   		TagRules: []interface{}{
+//   			&RowLevelPermissionTagRuleProperty{
+//   				ColumnName: jsii.String("columnName"),
+//   				TagKey: jsii.String("tagKey"),
+//
+//   				// the properties below are optional
+//   				MatchAllValue: jsii.String("matchAllValue"),
+//   				TagMultiValueDelimiter: jsii.String("tagMultiValueDelimiter"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		Status: jsii.String("status"),
+//   		TagRuleConfigurations: tagRuleConfigurations,
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -237,6 +340,12 @@ type CfnDataSet interface {
 	// This ID is unique per AWS Region for each AWS account.
 	DataSetId() *string
 	SetDataSetId(val *string)
+	// `AWS::QuickSight::DataSet.DatasetParameters`.
+	DatasetParameters() interface{}
+	SetDatasetParameters(val interface{})
+	// `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
+	DataSetRefreshProperties() interface{}
+	SetDataSetRefreshProperties(val interface{})
 	// The usage configuration to apply to child datasets that reference this dataset as a source.
 	DataSetUsageConfiguration() interface{}
 	SetDataSetUsageConfiguration(val interface{})
@@ -283,6 +392,9 @@ type CfnDataSet interface {
 	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet() interface{}
 	SetRowLevelPermissionDataSet(val interface{})
+	// The element you can use to define tags for row-level security.
+	RowLevelPermissionTagConfiguration() interface{}
+	SetRowLevelPermissionTagConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -565,6 +677,26 @@ func (j *jsiiProxy_CfnDataSet) DataSetId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSet) DatasetParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"datasetParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) DataSetRefreshProperties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataSetRefreshProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSet) DataSetUsageConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -685,6 +817,16 @@ func (j *jsiiProxy_CfnDataSet) RowLevelPermissionDataSet() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSet) RowLevelPermissionTagConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rowLevelPermissionTagConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSet) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -793,6 +935,28 @@ func (j *jsiiProxy_CfnDataSet)SetDataSetId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDataSet)SetDatasetParameters(val interface{}) {
+	if err := j.validateSetDatasetParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"datasetParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet)SetDataSetRefreshProperties(val interface{}) {
+	if err := j.validateSetDataSetRefreshPropertiesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dataSetRefreshProperties",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDataSet)SetDataSetUsageConfiguration(val interface{}) {
 	if err := j.validateSetDataSetUsageConfigurationParameters(val); err != nil {
 		panic(err)
@@ -882,6 +1046,17 @@ func (j *jsiiProxy_CfnDataSet)SetRowLevelPermissionDataSet(val interface{}) {
 	_jsii_.Set(
 		j,
 		"rowLevelPermissionDataSet",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet)SetRowLevelPermissionTagConfiguration(val interface{}) {
+	if err := j.validateSetRowLevelPermissionTagConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rowLevelPermissionTagConfiguration",
 		val,
 	)
 }

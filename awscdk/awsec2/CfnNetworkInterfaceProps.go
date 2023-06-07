@@ -16,7 +16,6 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	GroupSet: []*string{
 //   		jsii.String("groupSet"),
 //   	},
@@ -49,8 +48,6 @@ type CfnNetworkInterfaceProps struct {
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// A description for the network interface.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::EC2::NetworkInterface.EnablePrimaryIpv6`.
-	EnablePrimaryIpv6 interface{} `field:"optional" json:"enablePrimaryIpv6" yaml:"enablePrimaryIpv6"`
 	// The security group IDs associated with this network interface.
 	GroupSet *[]*string `field:"optional" json:"groupSet" yaml:"groupSet"`
 	// The type of network interface.

@@ -104,7 +104,7 @@ type CfnInstanceGroupConfigProps struct {
 	//
 	// *Allowed Values* : TASK.
 	InstanceRole *string `field:"required" json:"instanceRole" yaml:"instanceRole"`
-	// The EC2 instance type for all instances in the instance group.
+	// The Amazon EC2 instance type for all instances in the instance group.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The ID of an Amazon EMR cluster that you want to associate this instance group with.
 	JobFlowId *string `field:"required" json:"jobFlowId" yaml:"jobFlowId"`
@@ -118,13 +118,13 @@ type CfnInstanceGroupConfigProps struct {
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
 	// > Amazon EMR releases 4.x or later.
 	//
-	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+	// The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 	// The custom AMI ID to use for the provisioned instance group.
 	CustomAmiId *string `field:"optional" json:"customAmiId" yaml:"customAmiId"`
 	// `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
 	EbsConfiguration interface{} `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
-	// Market type of the EC2 instances used to create a cluster node.
+	// Market type of the Amazon EC2 instances used to create a cluster node.
 	Market *string `field:"optional" json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
 	Name *string `field:"optional" json:"name" yaml:"name"`

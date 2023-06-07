@@ -47,6 +47,7 @@ type CfnAuthorizer interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The authorizer ID.
 	AttrAuthorizerId() *string
 	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
 	//

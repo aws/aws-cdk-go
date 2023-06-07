@@ -1,6 +1,8 @@
 package awsfis
 
 
+// Specifies the configuration for experiment logging to CloudWatch Logs .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsfis
 //   }
 //
 type CfnExperimentTemplate_CloudWatchLogsConfigurationProperty struct {
-	// `CfnExperimentTemplate.CloudWatchLogsConfigurationProperty.LogGroupArn`.
+	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
 	LogGroupArn *string `field:"required" json:"logGroupArn" yaml:"logGroupArn"`
 }
 

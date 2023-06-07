@@ -404,3 +404,31 @@ targets.NewEcsTask(&EcsTaskProps{
 	},
 }))
 ```
+
+### enable Amazon ECS Exec for ECS Task
+
+If you use Amazon ECS Exec, you can run commands in or get a shell to a container running on an Amazon EC2 instance or on AWS Fargate.
+
+```go
+import ecs "github.com/aws/aws-cdk-go/awscdk"
+var cluster iCluster
+var taskDefinition taskDefinition
+var rule rule
+
+
+rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	TaskCount: jsii.Number(1),
+	ContainerOverrides: []containerOverride{
+		&containerOverride{
+			ContainerName: jsii.String("TheContainer"),
+			Command: []*string{
+				jsii.String("echo"),
+				events.EventField_FromPath(jsii.String("$.detail.event")),
+			},
+		},
+	},
+	EnableExecuteCommand: jsii.Boolean(true),
+}))
+```

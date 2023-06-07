@@ -14,7 +14,7 @@ import (
 //   	value
 //   }
 //
-//   regionInfo.Fact_Register(NewMyFact())
+//   regionInfo.Fact_Register(NewMyFact(), jsii.Boolean(true))
 //
 type FactName interface {
 }

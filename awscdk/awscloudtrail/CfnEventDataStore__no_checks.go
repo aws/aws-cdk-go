@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnEventDataStore) validateSetAdvancedEventSelectorsParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventDataStore) validateSetIngestionEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventDataStore) validateSetMultiRegionEnabledParameters(val interface{}) error {
 	return nil
 }

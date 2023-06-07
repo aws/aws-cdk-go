@@ -58,7 +58,7 @@ package awsemr
 //   }
 //
 type CfnCluster_AutoScalingPolicyProperty struct {
-	// The upper and lower EC2 instance limits for an automatic scaling policy.
+	// The upper and lower Amazon EC2 instance limits for an automatic scaling policy.
 	//
 	// Automatic scaling activity will not cause an instance group to grow above or below these limits.
 	Constraints interface{} `field:"required" json:"constraints" yaml:"constraints"`

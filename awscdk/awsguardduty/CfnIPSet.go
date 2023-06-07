@@ -37,7 +37,7 @@ import (
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Indicates whether or not  uses the `IPSet` .
+	// Indicates whether or not GuardDuty uses the `IPSet` .
 	Activate() interface{}
 	SetActivate(val interface{})
 	// Options for this resource, such as condition, update policy etc.

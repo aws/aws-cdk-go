@@ -786,7 +786,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The name of the managed rule group vendor.
 	//
-	// You use this, along with the rule group name, to identify the rule group.
+	// You use this, along with the rule group name, to identify a rule group.
 	VendorName *string `field:"required" json:"vendorName" yaml:"vendorName"`
 	// Rules in the referenced rule group whose actions are set to `Count` .
 	//

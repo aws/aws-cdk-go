@@ -32,17 +32,17 @@ import (
 type CfnModelManifestProps struct {
 	// The name of the vehicle model.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ARN of the signal catalog associated with the vehicle model.
+	// The Amazon Resource Name (ARN) of the signal catalog associated with the vehicle model.
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// A brief description of the vehicle model.
+	// (Optional) A brief description of the vehicle model.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTFleetWise::ModelManifest.Nodes`.
+	// (Optional) A list of nodes, which are a general abstraction of signals.
 	Nodes *[]*string `field:"optional" json:"nodes" yaml:"nodes"`
-	// The state of the vehicle model.
+	// (Optional) The state of the vehicle model.
 	//
 	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// `AWS::IoTFleetWise::ModelManifest.Tags`.
+	// (Optional) Metadata that can be used to manage the vehicle model.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

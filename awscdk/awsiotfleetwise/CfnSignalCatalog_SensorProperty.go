@@ -31,15 +31,15 @@ type CfnSignalCatalog_SensorProperty struct {
 	//
 	// For example, the fully qualified name of a sensor might be `Vehicle.Body.Engine.Battery` .
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// A list of possible values a sensor can take.
+	// (Optional) A list of possible values a sensor can take.
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// A brief description of a sensor.
+	// (Optional) A brief description of a sensor.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The specified possible maximum value of the sensor.
+	// (Optional) The specified possible maximum value of the sensor.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// The specified possible minimum value of the sensor.
+	// (Optional) The specified possible minimum value of the sensor.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// The scientific unit of measurement for data collected by the sensor.
+	// (Optional) The scientific unit of measurement for data collected by the sensor.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

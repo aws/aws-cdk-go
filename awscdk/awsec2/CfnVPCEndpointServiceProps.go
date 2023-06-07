@@ -23,7 +23,7 @@ package awsec2
 type CfnVPCEndpointServiceProps struct {
 	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 	AcceptanceRequired interface{} `field:"optional" json:"acceptanceRequired" yaml:"acceptanceRequired"`
-	// Indicates whether to enable the built-in Contributor Insights rules.
+	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
 	ContributorInsightsEnabled interface{} `field:"optional" json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
 	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 	GatewayLoadBalancerArns *[]*string `field:"optional" json:"gatewayLoadBalancerArns" yaml:"gatewayLoadBalancerArns"`

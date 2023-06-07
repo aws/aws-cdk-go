@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var tagRuleConfigurations interface{}
+//
 //   cfnDataSetProps := &CfnDataSetProps{
 //   	AwsAccountId: jsii.String("awsAccountId"),
 //   	ColumnGroups: []interface{}{
@@ -37,6 +39,70 @@ import (
 //   		},
 //   	},
 //   	DataSetId: jsii.String("dataSetId"),
+//   	DatasetParameters: []interface{}{
+//   		&DatasetParameterProperty{
+//   			DateTimeDatasetParameter: &DateTimeDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &DateTimeDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []*string{
+//   						jsii.String("staticValues"),
+//   					},
+//   				},
+//   				TimeGranularity: jsii.String("timeGranularity"),
+//   			},
+//   			DecimalDatasetParameter: &DecimalDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &DecimalDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			IntegerDatasetParameter: &IntegerDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &IntegerDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			StringDatasetParameter: &StringDatasetParameterProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   				ValueType: jsii.String("valueType"),
+//
+//   				// the properties below are optional
+//   				DefaultValues: &StringDatasetParameterDefaultValuesProperty{
+//   					StaticValues: []*string{
+//   						jsii.String("staticValues"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	DataSetRefreshProperties: &DataSetRefreshPropertiesProperty{
+//   		RefreshConfiguration: &RefreshConfigurationProperty{
+//   			IncrementalRefresh: &IncrementalRefreshProperty{
+//   				LookbackWindow: &LookbackWindowProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					Size: jsii.Number(123),
+//   					SizeUnit: jsii.String("sizeUnit"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	DataSetUsageConfiguration: &DataSetUsageConfigurationProperty{
 //   		DisableUseAsDirectQuerySource: jsii.Boolean(false),
 //   		DisableUseAsImportedSource: jsii.Boolean(false),
@@ -97,6 +163,26 @@ import (
 //   					},
 //   					"filterOperation": &FilterOperationProperty{
 //   						"conditionExpression": jsii.String("conditionExpression"),
+//   					},
+//   					"overrideDatasetParameterOperation": &OverrideDatasetParameterOperationProperty{
+//   						"parameterName": jsii.String("parameterName"),
+//
+//   						// the properties below are optional
+//   						"newDefaultValues": &NewDefaultValuesProperty{
+//   							"dateTimeStaticValues": []*string{
+//   								jsii.String("dateTimeStaticValues"),
+//   							},
+//   							"decimalStaticValues": []interface{}{
+//   								jsii.Number(123),
+//   							},
+//   							"integerStaticValues": []interface{}{
+//   								jsii.Number(123),
+//   							},
+//   							"stringStaticValues": []*string{
+//   								jsii.String("stringStaticValues"),
+//   							},
+//   						},
+//   						"newParameterName": jsii.String("newParameterName"),
 //   					},
 //   					"projectOperation": &ProjectOperationProperty{
 //   						"projectedColumns": []*string{
@@ -185,6 +271,23 @@ import (
 //   		// the properties below are optional
 //   		FormatVersion: jsii.String("formatVersion"),
 //   		Namespace: jsii.String("namespace"),
+//   		Status: jsii.String("status"),
+//   	},
+//   	RowLevelPermissionTagConfiguration: &RowLevelPermissionTagConfigurationProperty{
+//   		TagRules: []interface{}{
+//   			&RowLevelPermissionTagRuleProperty{
+//   				ColumnName: jsii.String("columnName"),
+//   				TagKey: jsii.String("tagKey"),
+//
+//   				// the properties below are optional
+//   				MatchAllValue: jsii.String("matchAllValue"),
+//   				TagMultiValueDelimiter: jsii.String("tagMultiValueDelimiter"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		Status: jsii.String("status"),
+//   		TagRuleConfigurations: tagRuleConfigurations,
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -207,6 +310,10 @@ type CfnDataSetProps struct {
 	//
 	// This ID is unique per AWS Region for each AWS account.
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
+	// `AWS::QuickSight::DataSet.DatasetParameters`.
+	DatasetParameters interface{} `field:"optional" json:"datasetParameters" yaml:"datasetParameters"`
+	// `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
+	DataSetRefreshProperties interface{} `field:"optional" json:"dataSetRefreshProperties" yaml:"dataSetRefreshProperties"`
 	// The usage configuration to apply to child datasets that reference this dataset as a source.
 	DataSetUsageConfiguration interface{} `field:"optional" json:"dataSetUsageConfiguration" yaml:"dataSetUsageConfiguration"`
 	// The folder that contains fields and nested subfolders for your dataset.
@@ -227,6 +334,8 @@ type CfnDataSetProps struct {
 	PhysicalTableMap interface{} `field:"optional" json:"physicalTableMap" yaml:"physicalTableMap"`
 	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet interface{} `field:"optional" json:"rowLevelPermissionDataSet" yaml:"rowLevelPermissionDataSet"`
+	// The element you can use to define tags for row-level security.
+	RowLevelPermissionTagConfiguration interface{} `field:"optional" json:"rowLevelPermissionTagConfiguration" yaml:"rowLevelPermissionTagConfiguration"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

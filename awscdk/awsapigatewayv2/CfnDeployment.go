@@ -32,6 +32,7 @@ type CfnDeployment interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The deployment ID.
 	AttrDeploymentId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

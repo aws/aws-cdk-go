@@ -20,7 +20,7 @@ type CfnSignalCatalog_BranchProperty struct {
 	//
 	// For example, the fully qualified name of a branch might be `Vehicle.Body.Engine` .
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// A brief description of the branch.
+	// (Optional) A brief description of the branch.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

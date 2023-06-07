@@ -34,9 +34,7 @@ type CfnBuildProps struct {
 	//
 	// > If you have active fleets using the Windows Server 2012 operating system, you can continue to create new builds using this OS until October 10, 2023, when Microsoft ends its support. All others must use Windows Server 2016 when creating new Windows-based builds.
 	OperatingSystem *string `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`
-	// A server SDK version you used when integrating your game server build with Amazon GameLift.
-	//
-	// For more information see [Integrate games with custom game servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html) . By default Amazon GameLift sets this value to `4.0.2` .
+	// The Amazon GameLift Server SDK version used to develop your game server.
 	ServerSdkVersion *string `field:"optional" json:"serverSdkVersion" yaml:"serverSdkVersion"`
 	// Information indicating where your game build files are stored.
 	//

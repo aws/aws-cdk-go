@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// (Optional) A list of information about available network interfaces.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,13 +34,15 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_NetworkInterfacesItemsProperty struct {
-	// `CfnDecoderManifest.NetworkInterfacesItemsProperty.InterfaceId`.
+	// The ID of the network interface.
 	InterfaceId *string `field:"required" json:"interfaceId" yaml:"interfaceId"`
-	// `CfnDecoderManifest.NetworkInterfacesItemsProperty.Type`.
+	// The network protocol for the vehicle.
+	//
+	// For example, `CAN_SIGNAL` specifies a protocol that defines how data is communicated between electronic control units (ECUs). `OBD_SIGNAL` specifies a protocol that defines how self-diagnostic data is communicated between ECUs.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnDecoderManifest.NetworkInterfacesItemsProperty.CanInterface`.
+	// (Optional) Information about a network interface specified by the Controller Area Network (CAN) protocol.
 	CanInterface interface{} `field:"optional" json:"canInterface" yaml:"canInterface"`
-	// `CfnDecoderManifest.NetworkInterfacesItemsProperty.ObdInterface`.
+	// (Optional) Information about a network interface specified by the On-board diagnostic (OBD) II protocol.
 	ObdInterface interface{} `field:"optional" json:"obdInterface" yaml:"obdInterface"`
 }
 

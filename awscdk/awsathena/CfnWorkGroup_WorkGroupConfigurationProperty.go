@@ -49,6 +49,8 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	// > This property currently supports integer types. Support for long values is planned.
 	BytesScannedCutoffPerQuery *float64 `field:"optional" json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
 	// Specifies the KMS key that is used to encrypt the user's data stores in Athena.
+	//
+	// This setting does not apply to Athena SQL workgroups.
 	CustomerContentEncryptionConfiguration interface{} `field:"optional" json:"customerContentEncryptionConfiguration" yaml:"customerContentEncryptionConfiguration"`
 	// If set to "true", the settings for the workgroup override client-side settings.
 	//

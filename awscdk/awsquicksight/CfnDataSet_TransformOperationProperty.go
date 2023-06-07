@@ -30,6 +30,26 @@ package awsquicksight
 //   	FilterOperation: &FilterOperationProperty{
 //   		ConditionExpression: jsii.String("conditionExpression"),
 //   	},
+//   	OverrideDatasetParameterOperation: &OverrideDatasetParameterOperationProperty{
+//   		ParameterName: jsii.String("parameterName"),
+//
+//   		// the properties below are optional
+//   		NewDefaultValues: &NewDefaultValuesProperty{
+//   			DateTimeStaticValues: []*string{
+//   				jsii.String("dateTimeStaticValues"),
+//   			},
+//   			DecimalStaticValues: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			IntegerStaticValues: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			StringStaticValues: []*string{
+//   				jsii.String("stringStaticValues"),
+//   			},
+//   		},
+//   		NewParameterName: jsii.String("newParameterName"),
+//   	},
 //   	ProjectOperation: &ProjectOperationProperty{
 //   		ProjectedColumns: []*string{
 //   			jsii.String("projectedColumns"),
@@ -61,6 +81,8 @@ type CfnDataSet_TransformOperationProperty struct {
 	CreateColumnsOperation interface{} `field:"optional" json:"createColumnsOperation" yaml:"createColumnsOperation"`
 	// An operation that filters rows based on some condition.
 	FilterOperation interface{} `field:"optional" json:"filterOperation" yaml:"filterOperation"`
+	// `CfnDataSet.TransformOperationProperty.OverrideDatasetParameterOperation`.
+	OverrideDatasetParameterOperation interface{} `field:"optional" json:"overrideDatasetParameterOperation" yaml:"overrideDatasetParameterOperation"`
 	// An operation that projects columns.
 	//
 	// Operations that come after a projection can only refer to projected columns.

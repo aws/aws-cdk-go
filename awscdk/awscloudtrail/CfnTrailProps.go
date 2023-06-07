@@ -16,6 +16,38 @@ import (
 //   	S3BucketName: jsii.String("s3BucketName"),
 //
 //   	// the properties below are optional
+//   	AdvancedEventSelectors: []interface{}{
+//   		&AdvancedEventSelectorProperty{
+//   			FieldSelectors: []interface{}{
+//   				&AdvancedFieldSelectorProperty{
+//   					Field: jsii.String("field"),
+//
+//   					// the properties below are optional
+//   					EndsWith: []*string{
+//   						jsii.String("endsWith"),
+//   					},
+//   					EqualTo: []*string{
+//   						jsii.String("equalTo"),
+//   					},
+//   					NotEndsWith: []*string{
+//   						jsii.String("notEndsWith"),
+//   					},
+//   					NotEquals: []*string{
+//   						jsii.String("notEquals"),
+//   					},
+//   					NotStartsWith: []*string{
+//   						jsii.String("notStartsWith"),
+//   					},
+//   					StartsWith: []*string{
+//   						jsii.String("startsWith"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	CloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   	CloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
 //   	EnableLogFileValidation: jsii.Boolean(false),
@@ -65,6 +97,8 @@ type CfnTrailProps struct {
 	//
 	// See [Amazon S3 Bucket Naming Requirements](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html) .
 	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
+	// `AWS::CloudTrail::Trail.AdvancedEventSelectors`.
+	AdvancedEventSelectors interface{} `field:"optional" json:"advancedEventSelectors" yaml:"advancedEventSelectors"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
 	// You must use a log group that exists in your account.
@@ -97,9 +131,9 @@ type CfnTrailProps struct {
 	//
 	// The `ApiErrorRateInsight` Insights type analyzes management API calls that result in error codes. The error is shown if the API call is unsuccessful.
 	InsightSelectors interface{} `field:"optional" json:"insightSelectors" yaml:"insightSelectors"`
-	// Specifies whether the trail applies only to the current region or to all regions.
+	// Specifies whether the trail applies only to the current Region or to all Regions.
 	//
-	// The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
+	// The default is false. If the trail exists only in the current Region and this value is set to true, shadow trails (replications of the trail) will be created in the other Regions. If the trail exists in all Regions and this value is set to false, the trail will remain in the Region where it was created, and its shadow trails in other Regions will be deleted. As a best practice, consider using trails that log events in all Regions.
 	IsMultiRegionTrail interface{} `field:"optional" json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
 	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	//

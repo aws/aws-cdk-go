@@ -35,7 +35,6 @@ type CfnConnectionAlias interface {
 	awscdk.IInspectable
 	// The identifier of the connection alias, returned as a string.
 	AttrAliasId() *string
-	// The association status of the connection alias, returned as an array of `ConnectionAliasAssociation` objects.
 	AttrAssociations() awscdk.IResolvable
 	// The current state of the connection alias, returned as a string.
 	AttrConnectionAliasState() *string

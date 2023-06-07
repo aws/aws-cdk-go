@@ -80,6 +80,10 @@ func validateCfnTrail_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrail) validateSetAdvancedEventSelectorsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrail) validateSetEnableLogFileValidationParameters(val interface{}) error {
 	return nil
 }

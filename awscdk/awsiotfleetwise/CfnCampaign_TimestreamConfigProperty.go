@@ -1,6 +1,10 @@
 package awsiotfleetwise
 
 
+// The Amazon Timestream table where the AWS IoT FleetWise campaign sends data.
+//
+// Timestream stores and organizes data to optimize query processing time and to reduce storage costs. For more information, see [Data modeling](https://docs.aws.amazon.com/timestream/latest/developerguide/data-modeling.html) in the *Amazon Timestream Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +16,9 @@ package awsiotfleetwise
 //   }
 //
 type CfnCampaign_TimestreamConfigProperty struct {
-	// `CfnCampaign.TimestreamConfigProperty.ExecutionRoleArn`.
+	// The Amazon Resource Name (ARN) of the task execution role that grants AWS IoT FleetWise permission to deliver data to the Amazon Timestream table.
 	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
-	// `CfnCampaign.TimestreamConfigProperty.TimestreamTableArn`.
+	// The Amazon Resource Name (ARN) of the Amazon Timestream table.
 	TimestreamTableArn *string `field:"required" json:"timestreamTableArn" yaml:"timestreamTableArn"`
 }
 

@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// Information about a signal decoder.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -40,15 +42,17 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_SignalDecodersItemsProperty struct {
-	// `CfnDecoderManifest.SignalDecodersItemsProperty.FullyQualifiedName`.
+	// The fully qualified name of a signal decoder as defined in a vehicle model.
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// `CfnDecoderManifest.SignalDecodersItemsProperty.InterfaceId`.
+	// The ID of a network interface that specifies what network protocol a vehicle follows.
 	InterfaceId *string `field:"required" json:"interfaceId" yaml:"interfaceId"`
-	// `CfnDecoderManifest.SignalDecodersItemsProperty.Type`.
+	// The network protocol for the vehicle.
+	//
+	// For example, `CAN_SIGNAL` specifies a protocol that defines how data is communicated between electronic control units (ECUs). `OBD_SIGNAL` specifies a protocol that defines how self-diagnostic data is communicated between ECUs.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnDecoderManifest.SignalDecodersItemsProperty.CanSignal`.
+	// (Optional) Information about a single controller area network (CAN) signal and the messages it receives and transmits.
 	CanSignal interface{} `field:"optional" json:"canSignal" yaml:"canSignal"`
-	// `CfnDecoderManifest.SignalDecodersItemsProperty.ObdSignal`.
+	// (Optional) Information about signal messages using the on-board diagnostics (OBD) II protocol in a vehicle.
 	ObdSignal interface{} `field:"optional" json:"obdSignal" yaml:"obdSignal"`
 }
 

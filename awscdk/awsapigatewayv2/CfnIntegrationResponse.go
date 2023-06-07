@@ -39,6 +39,7 @@ type CfnIntegrationResponse interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The integration response ID.
 	AttrIntegrationResponseId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

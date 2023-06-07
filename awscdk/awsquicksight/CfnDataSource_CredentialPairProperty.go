@@ -22,6 +22,7 @@ package awsquicksight
 //   				Domain: jsii.String("domain"),
 //   			},
 //   			AthenaParameters: &AthenaParametersProperty{
+//   				RoleArn: jsii.String("roleArn"),
 //   				WorkGroup: jsii.String("workGroup"),
 //   			},
 //   			AuroraParameters: &AuroraParametersProperty{
@@ -81,6 +82,9 @@ package awsquicksight
 //   					Bucket: jsii.String("bucket"),
 //   					Key: jsii.String("key"),
 //   				},
+//
+//   				// the properties below are optional
+//   				RoleArn: jsii.String("roleArn"),
 //   			},
 //   			SnowflakeParameters: &SnowflakeParametersProperty{
 //   				Database: jsii.String("database"),

@@ -100,7 +100,7 @@ package awsemr
 type CfnCluster_InstanceGroupConfigProperty struct {
 	// Target number of instances for the instance group.
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
-	// The EC2 instance type for all instances in the instance group.
+	// The Amazon EC2 instance type for all instances in the instance group.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// `AutoScalingPolicy` is a subproperty of the [InstanceGroupConfig](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html) property type that specifies the constraints and rules of an automatic scaling policy in Amazon EMR . The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. Only core and task instance groups can use automatic scaling policies. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) .
 	AutoScalingPolicy interface{} `field:"optional" json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
@@ -110,13 +110,13 @@ type CfnCluster_InstanceGroupConfigProperty struct {
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
 	// > Amazon EMR releases 4.x or later.
 	//
-	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+	// The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 	// The custom AMI ID to use for the provisioned instance group.
 	CustomAmiId *string `field:"optional" json:"customAmiId" yaml:"customAmiId"`
-	// EBS configurations that will be attached to each EC2 instance in the instance group.
+	// EBS configurations that will be attached to each Amazon EC2 instance in the instance group.
 	EbsConfiguration interface{} `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
-	// Market type of the EC2 instances used to create a cluster node.
+	// Market type of the Amazon EC2 instances used to create a cluster node.
 	Market *string `field:"optional" json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
 	Name *string `field:"optional" json:"name" yaml:"name"`

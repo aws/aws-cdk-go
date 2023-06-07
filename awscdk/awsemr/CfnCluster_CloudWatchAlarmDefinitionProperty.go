@@ -36,7 +36,7 @@ type CfnCluster_CloudWatchAlarmDefinitionProperty struct {
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The period, in seconds, over which the statistic is applied.
 	//
-	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify `300` .
+	// CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
 	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// The value against which the specified statistic is compared.
 	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`

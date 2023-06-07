@@ -40,7 +40,7 @@ Alternatively, an entry file and handler can be specified:
 ```go
 nodejs.NewNodejsFunction(this, jsii.String("MyFunction"), &NodejsFunctionProps{
 	Entry: jsii.String("/path/to/my/file.ts"),
-	 // accepts .js, .jsx, .ts, .tsx and .mjs files
+	 // accepts .js, .jsx, .cjs, .mjs, .ts, .tsx, .cts and .mts files
 	Handler: jsii.String("myExportedFunc"),
 })
 ```

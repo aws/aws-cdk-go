@@ -1,7 +1,7 @@
 package awsguardduty
 
 
-// Specifies the condition to apply to a single field when filtering through  findings.
+// Specifies the condition to apply to a single field when filtering through GuardDuty findings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -31,19 +31,19 @@ type CfnSignalCatalog_AttributeProperty struct {
 	//
 	// For example, the fully qualified name of an attribute might be `Vehicle.Body.Engine.Type` .
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// A list of possible values an attribute can be assigned.
+	// (Optional) A list of possible values an attribute can be assigned.
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// A specified value for the attribute.
+	// (Optional) A specified value for the attribute.
 	AssignedValue *string `field:"optional" json:"assignedValue" yaml:"assignedValue"`
-	// The default value of the attribute.
+	// (Optional) The default value of the attribute.
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// A brief description of the attribute.
+	// (Optional) A brief description of the attribute.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The specified possible maximum value of the attribute.
+	// (Optional) The specified possible maximum value of the attribute.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// The specified possible minimum value of the attribute.
+	// (Optional) The specified possible minimum value of the attribute.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// The scientific unit for the attribute.
+	// (Optional) The scientific unit for the attribute.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

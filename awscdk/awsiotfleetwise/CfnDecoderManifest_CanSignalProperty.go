@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 
-// Information about a single controller area network (CAN) signal and the messages it receives and transmits.
+// (Optional) Information about a single controller area network (CAN) signal and the messages it receives and transmits.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,11 +32,13 @@ type CfnDecoderManifest_CanSignalProperty struct {
 	Length *string `field:"required" json:"length" yaml:"length"`
 	// The ID of the message.
 	MessageId *string `field:"required" json:"messageId" yaml:"messageId"`
-	// Indicates where data appears in the CAN message.
+	// The offset used to calculate the signal value.
+	//
+	// Combined with factor, the calculation is `value = raw_value * factor + offset` .
 	Offset *string `field:"required" json:"offset" yaml:"offset"`
 	// Indicates the beginning of the CAN message.
 	StartBit *string `field:"required" json:"startBit" yaml:"startBit"`
-	// The name of the signal.
+	// (Optional) The name of the signal.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

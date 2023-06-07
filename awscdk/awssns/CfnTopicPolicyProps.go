@@ -22,7 +22,7 @@ type CfnTopicPolicyProps struct {
 	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
 	//
-	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html)` resource.
+	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html)` resource.
 	Topics *[]*string `field:"required" json:"topics" yaml:"topics"`
 }
 

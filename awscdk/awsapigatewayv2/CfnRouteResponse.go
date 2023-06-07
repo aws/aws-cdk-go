@@ -19,7 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseModels interface{}
-//   var responseParameters interface{}
 //
 //   cfnRouteResponse := awscdk.Aws_apigatewayv2.NewCfnRouteResponse(this, jsii.String("MyCfnRouteResponse"), &CfnRouteResponseProps{
 //   	ApiId: jsii.String("apiId"),
@@ -29,7 +28,11 @@ import (
 //   	// the properties below are optional
 //   	ModelSelectionExpression: jsii.String("modelSelectionExpression"),
 //   	ResponseModels: responseModels,
-//   	ResponseParameters: responseParameters,
+//   	ResponseParameters: map[string]interface{}{
+//   		"responseParametersKey": &ParameterConstraintsProperty{
+//   			"required": jsii.Boolean(false),
+//   		},
+//   	},
 //   })
 //
 type CfnRouteResponse interface {
@@ -38,6 +41,8 @@ type CfnRouteResponse interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The route response ID.
+	AttrRouteResponseId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -236,6 +241,16 @@ func (j *jsiiProxy_CfnRouteResponse) ApiId() *string {
 	_jsii_.Get(
 		j,
 		"apiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouteResponse) AttrRouteResponseId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRouteResponseId",
 		&returns,
 	)
 	return returns

@@ -32,17 +32,17 @@ import (
 type CfnVehicleProps struct {
 	// The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.
 	DecoderManifestArn *string `field:"required" json:"decoderManifestArn" yaml:"decoderManifestArn"`
-	// The ARN of the vehicle model (model manifest) to create the vehicle from.
+	// The Amazon Resource Name (ARN) of the vehicle model (model manifest) to create the vehicle from.
 	ModelManifestArn *string `field:"required" json:"modelManifestArn" yaml:"modelManifestArn"`
-	// `AWS::IoTFleetWise::Vehicle.Name`.
+	// The unique ID of the vehicle.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
+	// (Optional) An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
 	AssociationBehavior *string `field:"optional" json:"associationBehavior" yaml:"associationBehavior"`
-	// Static information about a vehicle in a key-value pair.
+	// (Optional) Static information about a vehicle in a key-value pair.
 	//
 	// For example: `"engine Type"` : `"v6"`.
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
-	// Metadata which can be used to manage the vehicle.
+	// (Optional) Metadata which can be used to manage the vehicle.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

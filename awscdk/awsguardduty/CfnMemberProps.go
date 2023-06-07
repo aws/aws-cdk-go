@@ -20,7 +20,7 @@ package awsguardduty
 //   }
 //
 type CfnMemberProps struct {
-	// The ID of the detector associated with the  service to add the member to.
+	// The ID of the detector associated with the GuardDuty service to add the member to.
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The email address associated with the member account.
 	Email *string `field:"required" json:"email" yaml:"email"`

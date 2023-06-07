@@ -23,21 +23,10 @@ package awsfis
 //
 type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {
 	// The schema version.
-	//
-	// The supported value is 1.
 	LogSchemaVersion *float64 `field:"required" json:"logSchemaVersion" yaml:"logSchemaVersion"`
-	// The configuration for experiment logging to Amazon CloudWatch Logs. The supported field is `LogGroupArn` . For example:.
-	//
-	// `{"LogGroupArn": "aws:arn:logs: *region_name* : *account_id* :log-group: *log_group_name* "}`.
+	// The configuration for experiment logging to CloudWatch Logs .
 	CloudWatchLogsConfiguration interface{} `field:"optional" json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
-	// The configuration for experiment logging to Amazon S3. The following fields are supported:.
-	//
-	// - `bucketName` - The name of the destination bucket.
-	// - `prefix` - An optional bucket prefix.
-	//
-	// For example:
-	//
-	// `{"BucketName": " *my-s3-bucket* ", "Prefix": " *log-folder* "}`.
+	// The configuration for experiment logging to Amazon S3 .
 	S3Configuration interface{} `field:"optional" json:"s3Configuration" yaml:"s3Configuration"`
 }
 

@@ -41,8 +41,11 @@ import (
 type CfnModelManifest interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the vehicle model.
 	AttrArn() *string
+	// The time the vehicle model was created, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The time the vehicle model was last updated, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,7 +56,7 @@ type CfnModelManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A brief description of the vehicle model.
+	// (Optional) A brief description of the vehicle model.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -71,7 +74,7 @@ type CfnModelManifest interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::IoTFleetWise::ModelManifest.Nodes`.
+	// (Optional) A list of nodes, which are a general abstraction of signals.
 	Nodes() *[]*string
 	SetNodes(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -79,19 +82,19 @@ type CfnModelManifest interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ARN of the signal catalog associated with the vehicle model.
+	// The Amazon Resource Name (ARN) of the signal catalog associated with the vehicle model.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The state of the vehicle model.
+	// (Optional) The state of the vehicle model.
 	//
 	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
 	Status() *string
 	SetStatus(val *string)
-	// `AWS::IoTFleetWise::ModelManifest.Tags`.
+	// (Optional) Metadata that can be used to manage the vehicle model.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

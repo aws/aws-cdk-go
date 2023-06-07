@@ -30,9 +30,11 @@ type CfnInstanceFleetConfig_SpotProvisioningSpecificationProperty struct {
 	//
 	// If Spot Instances are not provisioned within this time period, the `TimeOutAction` is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
 	TimeoutDurationMinutes *float64 `field:"required" json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
-	// Specifies the strategy to use in launching Spot Instance fleets.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized` , `capacity-optimized` , `lowest-price` , or `diversified` .
 	//
-	// Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+	// For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	//
+	// > When you launch a Spot Instance fleet with the old console, it automatically launches with the `capacity-optimized` strategy. You can't change the allocation strategy from the old console.
 	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The defined duration for Spot Instances (also known as Spot blocks) in minutes.
 	//

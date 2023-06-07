@@ -82,15 +82,15 @@ import (
 //   }
 //
 type CfnSignalCatalogProps struct {
-	// `AWS::IoTFleetWise::SignalCatalog.Description`.
+	// (Optional) A brief description of the signal catalog.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the signal catalog.
+	// (Optional) The name of the signal catalog.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::IoTFleetWise::SignalCatalog.NodeCounts`.
+	// (Optional) Information about the number of nodes and node types in a vehicle network.
 	NodeCounts interface{} `field:"optional" json:"nodeCounts" yaml:"nodeCounts"`
-	// `AWS::IoTFleetWise::SignalCatalog.Nodes`.
+	// (Optional) A list of information about nodes, which are a general abstraction of signals.
 	Nodes interface{} `field:"optional" json:"nodes" yaml:"nodes"`
-	// `AWS::IoTFleetWise::SignalCatalog.Tags`.
+	// (Optional) Metadata that can be used to manage the signal catalog.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

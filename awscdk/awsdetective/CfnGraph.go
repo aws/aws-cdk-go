@@ -33,7 +33,9 @@ type CfnGraph interface {
 	awscdk.IInspectable
 	// The ARN of the new behavior graph.
 	AttrArn() *string
-	// `AWS::Detective::Graph.AutoEnableMembers`.
+	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+	//
+	// By default, this property is set to `false` . If you want to change the value of this property, you must be the Detective administrator for the organization. For more information on setting a Detective administrator account, see [AWS::Detective::OrganizationAdmin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html)
 	AutoEnableMembers() interface{}
 	SetAutoEnableMembers(val interface{})
 	// Options for this resource, such as condition, update policy etc.

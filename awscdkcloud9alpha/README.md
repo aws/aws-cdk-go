@@ -146,3 +146,20 @@ cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 	Owner: cloud9.Owner_User(user),
 })
 ```
+
+## Auto-Hibernation
+
+A Cloud9 environemnt can automatically start and stop the associated EC2 instance to reduce costs.
+
+Use `automaticStop` to specify the number of minutes until the running instance is shut down after the environment was last used.
+
+```go
+defaultVpc := ec2.Vpc_FromLookup(this, jsii.String("DefaultVPC"), &VpcLookupOptions{
+	IsDefault: jsii.Boolean(true),
+})
+cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &Ec2EnvironmentProps{
+	Vpc: defaultVpc,
+	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
+	AutomaticStop: awscdk.Duration_Minutes(jsii.Number(30)),
+})
+```

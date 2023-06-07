@@ -618,14 +618,13 @@ type CfnDBInstance interface {
 	//
 	// Valid Values:
 	//
-	// - `aurora` (for MySQL 5.6-compatible Aurora)
-	// - `aurora-mysql` (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)
-	// - `aurora-postgresql`
-	// - `custom-oracle-ee`
-	// - `custom-oracle-ee-cdb`
-	// - `custom-sqlserver-ee`
-	// - `custom-sqlserver-se`
-	// - `custom-sqlserver-web`
+	// - `aurora-mysql` (for Aurora MySQL DB instances)
+	// - `aurora-postgresql` (for Aurora PostgreSQL DB instances)
+	// - `custom-oracle-ee` (for RDS Custom for Oracle DB instances)
+	// - `custom-oracle-ee-cdb` (for RDS Custom for Oracle DB instances)
+	// - `custom-sqlserver-ee` (for RDS Custom for SQL Server DB instances)
+	// - `custom-sqlserver-se` (for RDS Custom for SQL Server DB instances)
+	// - `custom-sqlserver-web` (for RDS Custom for SQL Server DB instances)
 	// - `mariadb`
 	// - `mysql`
 	// - `oracle-ee`

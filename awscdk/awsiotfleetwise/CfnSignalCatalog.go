@@ -91,13 +91,21 @@ import (
 type CfnSignalCatalog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the signal catalog.
 	AttrArn() *string
+	// The time the signal catalog was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The time the signal catalog was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
+	// The total number of nodes in a vehicle network that represent actuators.
 	AttrNodeCountsTotalActuators() awscdk.IResolvable
+	// The total number of nodes in a vehicle network that represent attributes.
 	AttrNodeCountsTotalAttributes() awscdk.IResolvable
+	// The total number of nodes in a vehicle network that represent branches.
 	AttrNodeCountsTotalBranches() awscdk.IResolvable
+	// The total number of nodes in a vehicle network.
 	AttrNodeCountsTotalNodes() awscdk.IResolvable
+	// The total number of nodes in a vehicle network that represent sensors.
 	AttrNodeCountsTotalSensors() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -108,7 +116,7 @@ type CfnSignalCatalog interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTFleetWise::SignalCatalog.Description`.
+	// (Optional) A brief description of the signal catalog.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -121,15 +129,15 @@ type CfnSignalCatalog interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the signal catalog.
+	// (Optional) The name of the signal catalog.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::IoTFleetWise::SignalCatalog.NodeCounts`.
+	// (Optional) Information about the number of nodes and node types in a vehicle network.
 	NodeCounts() interface{}
 	SetNodeCounts(val interface{})
-	// `AWS::IoTFleetWise::SignalCatalog.Nodes`.
+	// (Optional) A list of information about nodes, which are a general abstraction of signals.
 	Nodes() interface{}
 	SetNodes(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -141,7 +149,7 @@ type CfnSignalCatalog interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTFleetWise::SignalCatalog.Tags`.
+	// (Optional) Metadata that can be used to manage the signal catalog.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

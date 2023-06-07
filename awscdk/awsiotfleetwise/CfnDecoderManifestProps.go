@@ -87,21 +87,21 @@ import (
 //   }
 //
 type CfnDecoderManifestProps struct {
-	// The ARN of a vehicle model (model manifest) associated with the decoder manifest.
+	// The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with the decoder manifest.
 	ModelManifestArn *string `field:"required" json:"modelManifestArn" yaml:"modelManifestArn"`
 	// The name of the decoder manifest.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A brief description of the decoder manifest.
+	// (Optional) A brief description of the decoder manifest.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTFleetWise::DecoderManifest.NetworkInterfaces`.
+	// (Optional) A list of information about available network interfaces.
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
-	// `AWS::IoTFleetWise::DecoderManifest.SignalDecoders`.
+	// (Optional) A list of information about signal decoders.
 	SignalDecoders interface{} `field:"optional" json:"signalDecoders" yaml:"signalDecoders"`
-	// The state of the decoder manifest.
+	// (Optional) The state of the decoder manifest.
 	//
 	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// `AWS::IoTFleetWise::DecoderManifest.Tags`.
+	// (Optional) Metadata that can be used to manage the decoder manifest.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -42,14 +42,13 @@ type CfnIPAM interface {
 	AttrArn() *string
 	// The ID of the IPAM.
 	AttrIpamId() *string
-	// The ID of the IPAM's default private scope.
+	// The ID of the default private scope.
 	AttrPrivateDefaultScopeId() *string
-	// The ID of the IPAM's default public scope.
+	// The ID of the default public scope.
 	AttrPublicDefaultScopeId() *string
+	// The number of resource discovery associations.
 	AttrResourceDiscoveryAssociationCount() *float64
-	// The number of scopes in the IPAM.
-	//
-	// The scope quota is 5.
+	// The number of scopes.
 	AttrScopeCount() *float64
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

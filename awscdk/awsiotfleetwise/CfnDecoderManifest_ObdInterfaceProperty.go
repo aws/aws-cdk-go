@@ -25,15 +25,15 @@ type CfnDecoderManifest_ObdInterfaceProperty struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ID of the message requesting vehicle data.
 	RequestMessageId *string `field:"required" json:"requestMessageId" yaml:"requestMessageId"`
-	// The maximum number message requests per diagnostic trouble code per second.
+	// (Optional) The maximum number message requests per diagnostic trouble code per second.
 	DtcRequestIntervalSeconds *string `field:"optional" json:"dtcRequestIntervalSeconds" yaml:"dtcRequestIntervalSeconds"`
-	// Whether the vehicle has a transmission control module (TCM).
+	// (Optional) Whether the vehicle has a transmission control module (TCM).
 	HasTransmissionEcu *string `field:"optional" json:"hasTransmissionEcu" yaml:"hasTransmissionEcu"`
-	// The standard OBD II PID.
+	// (Optional) The standard OBD II PID.
 	ObdStandard *string `field:"optional" json:"obdStandard" yaml:"obdStandard"`
-	// The maximum number message requests per second.
+	// (Optional) The maximum number message requests per second.
 	PidRequestIntervalSeconds *string `field:"optional" json:"pidRequestIntervalSeconds" yaml:"pidRequestIntervalSeconds"`
-	// Whether to use extended IDs in the message.
+	// (Optional) Whether to use extended IDs in the message.
 	UseExtendedIds *string `field:"optional" json:"useExtendedIds" yaml:"useExtendedIds"`
 }
 

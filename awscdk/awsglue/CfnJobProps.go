@@ -16,6 +16,7 @@ package awsglue
 //   	Command: &JobCommandProperty{
 //   		Name: jsii.String("name"),
 //   		PythonVersion: jsii.String("pythonVersion"),
+//   		Runtime: jsii.String("runtime"),
 //   		ScriptLocation: jsii.String("scriptLocation"),
 //   	},
 //   	Role: jsii.String("role"),

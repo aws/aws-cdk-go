@@ -11,6 +11,7 @@ package awsglue
 //   jobCommandProperty := &JobCommandProperty{
 //   	Name: jsii.String("name"),
 //   	PythonVersion: jsii.String("pythonVersion"),
+//   	Runtime: jsii.String("runtime"),
 //   	ScriptLocation: jsii.String("scriptLocation"),
 //   }
 //
@@ -23,6 +24,8 @@ type CfnJob_JobCommandProperty struct {
 	//
 	// Allowed values are 3 or 3.9. Version 2 is deprecated.
 	PythonVersion *string `field:"optional" json:"pythonVersion" yaml:"pythonVersion"`
+	// `CfnJob.JobCommandProperty.Runtime`.
+	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
 	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
 	ScriptLocation *string `field:"optional" json:"scriptLocation" yaml:"scriptLocation"`
 }

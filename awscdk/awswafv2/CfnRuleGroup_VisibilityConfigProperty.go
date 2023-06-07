@@ -15,7 +15,7 @@ package awswafv2
 //   }
 //
 type CfnRuleGroup_VisibilityConfigProperty struct {
-	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
+	// Indicates whether the associated resource sends metrics to Amazon CloudWatch.
 	//
 	// For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
 	//
@@ -26,7 +26,7 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 	//
 	// The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
-	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules.
+	// Indicates whether AWS WAF should store a sampling of the web requests that match the rules.
 	//
 	// You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled interface{} `field:"required" json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`

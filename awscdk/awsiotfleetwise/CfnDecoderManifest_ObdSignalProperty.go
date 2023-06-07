@@ -25,7 +25,9 @@ package awsiotfleetwise
 type CfnDecoderManifest_ObdSignalProperty struct {
 	// The length of a message.
 	ByteLength *string `field:"required" json:"byteLength" yaml:"byteLength"`
-	// Indicates where data appears in the message.
+	// The offset used to calculate the signal value.
+	//
+	// Combined with scaling, the calculation is `value = raw_value * scaling + offset` .
 	Offset *string `field:"required" json:"offset" yaml:"offset"`
 	// The diagnostic code used to request data from a vehicle for this signal.
 	Pid *string `field:"required" json:"pid" yaml:"pid"`
@@ -37,9 +39,9 @@ type CfnDecoderManifest_ObdSignalProperty struct {
 	ServiceMode *string `field:"required" json:"serviceMode" yaml:"serviceMode"`
 	// Indicates the beginning of the message.
 	StartByte *string `field:"required" json:"startByte" yaml:"startByte"`
-	// The number of bits to mask in a message.
+	// (Optional) The number of bits to mask in a message.
 	BitMaskLength *string `field:"optional" json:"bitMaskLength" yaml:"bitMaskLength"`
-	// The number of positions to shift bits in the message.
+	// (Optional) The number of positions to shift bits in the message.
 	BitRightShift *string `field:"optional" json:"bitRightShift" yaml:"bitRightShift"`
 }
 

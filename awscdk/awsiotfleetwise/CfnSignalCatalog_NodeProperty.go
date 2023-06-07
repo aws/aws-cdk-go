@@ -62,19 +62,21 @@ package awsiotfleetwise
 //   }
 //
 type CfnSignalCatalog_NodeProperty struct {
-	// Information about a node specified as an actuator.
+	// (Optional) Information about a node specified as an actuator.
 	//
 	// > An actuator is a digital representation of a vehicle device.
 	Actuator interface{} `field:"optional" json:"actuator" yaml:"actuator"`
-	// Information about a node specified as an attribute.
+	// (Optional) Information about a node specified as an attribute.
 	//
 	// > An attribute represents static information about a vehicle.
 	Attribute interface{} `field:"optional" json:"attribute" yaml:"attribute"`
-	// Information about a node specified as a branch.
+	// (Optional) Information about a node specified as a branch.
 	//
 	// > A group of signals that are defined in a hierarchical structure.
 	Branch interface{} `field:"optional" json:"branch" yaml:"branch"`
-	// `CfnSignalCatalog.NodeProperty.Sensor`.
+	// (Optional) An input component that reports the environmental condition of a vehicle.
+	//
+	// > You can collect data about fluid levels, temperatures, vibrations, or battery voltage from sensors.
 	Sensor interface{} `field:"optional" json:"sensor" yaml:"sensor"`
 }
 

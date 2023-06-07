@@ -11,13 +11,13 @@ import (
 
 // A CloudFormation `AWS::EC2::VPCEndpoint`.
 //
-// Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS , an AWS Marketplace Partner, or another AWS account. For more information, see the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/) .
+// Specifies a VPC endpoint. A VPC endpoint provides a private connection between your VPC and an endpoint service. You can use an endpoint service provided by AWS , an AWS Marketplace Partner, or another AWS accounts in your organization. For more information, see the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/) .
 //
-// An interface endpoint establishes connections between the subnets in your VPC and an AWS service, your own service, or a service hosted by another AWS account . You can specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interface.
+// An endpoint of type `Interface` establishes connections between the subnets in your VPC and an AWS service , your own service, or a service hosted by another AWS account . With an interface VPC endpoint, you specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interfaces.
 //
-// A gateway endpoint serves as a target for a route in your route table for traffic destined for Amazon S3 or Amazon DynamoDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For information about connectivity to Amazon S3, see [Why can’t I connect to an S3 bucket using a gateway VPC endpoint?](https://docs.aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint)
+// An endpoint of type `gateway` serves as a target for a route in your route table for traffic destined for Amazon S3 or DynamoDB . You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For more information about connectivity to Amazon S3 , see [Why can't I connect to an S3 bucket using a gateway VPC endpoint?](https://docs.aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint)
 //
-// A Gateway Load Balancer endpoint provides private connectivity between your VPC and virtual appliances from a service provider.
+// An endpoint of type `GatewayLoadBalancer` provides private connectivity between your VPC and virtual appliances from a service provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -89,9 +89,9 @@ type CfnVPCEndpoint interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// A policy that controls access to the service from the VPC.
+	// An endpoint policy, which controls access to the service from the VPC.
 	//
-	// If this parameter is not specified, the default policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
+	// The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//
 	// For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
 	PolicyDocument() interface{}
@@ -122,7 +122,7 @@ type CfnVPCEndpoint interface {
 	// If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// The service name.
+	// The name of the endpoint service.
 	ServiceName() *string
 	SetServiceName(val *string)
 	// The stack in which this element is defined.
@@ -152,7 +152,7 @@ type CfnVPCEndpoint interface {
 	// Default: Gateway.
 	VpcEndpointType() *string
 	SetVpcEndpointType(val *string)
-	// The ID of the VPC for the endpoint.
+	// The ID of the VPC.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

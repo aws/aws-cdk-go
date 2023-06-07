@@ -36,6 +36,7 @@ import (
 type CfnVpcLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The VPC link ID.
 	AttrVpcLinkId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

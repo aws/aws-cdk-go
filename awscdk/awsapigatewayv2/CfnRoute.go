@@ -51,6 +51,7 @@ type CfnRoute interface {
 	// Supported only for WebSocket APIs.
 	ApiKeyRequired() interface{}
 	SetApiKeyRequired(val interface{})
+	// The route ID.
 	AttrRouteId() *string
 	// The authorization scopes supported by this route.
 	AuthorizationScopes() *[]*string

@@ -53,13 +53,13 @@ package awsemr
 //   }
 //
 type CfnInstanceFleetConfig_InstanceTypeConfigProperty struct {
-	// An EC2 instance type, such as `m3.xlarge` .
+	// An Amazon EC2 instance type, such as `m3.xlarge` .
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
-	// The bid price for each EC2 Spot Instance type as defined by `InstanceType` .
+	// The bid price for each Amazon EC2 Spot Instance type as defined by `InstanceType` .
 	//
 	// Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
-	// The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by `InstanceType` .
+	// The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by `InstanceType` .
 	//
 	// Expressed as a number (for example, 20 specifies 20%). If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice *float64 `field:"optional" json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`

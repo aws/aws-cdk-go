@@ -87,41 +87,76 @@ import (
 type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::IoTFleetWise::Campaign.Action`.
+	// Specifies how to update a campaign. The action can be one of the following:.
+	//
+	// - `APPROVE` - To approve delivering a data collection scheme to vehicles.
+	// - `SUSPEND` - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.
+	// - `RESUME` - To reactivate the `SUSPEND` campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.
+	// - `UPDATE` - To update a campaign.
 	Action() *string
 	SetAction(val *string)
+	// The Amazon Resource Name (ARN) of the campaign.
 	AttrArn() *string
+	// The time the campaign was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The last time the campaign was modified.
 	AttrLastModificationTime() *string
+	// The state of the campaign.
+	//
+	// The status can be one of: `CREATING` , `WAITING_FOR_APPROVAL` , `RUNNING` , and `SUSPENDED` .
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::IoTFleetWise::Campaign.CollectionScheme`.
+	// The data collection scheme associated with the campaign.
+	//
+	// You can specify a scheme that collects data based on time or an event.
 	CollectionScheme() interface{}
 	SetCollectionScheme(val interface{})
-	// `AWS::IoTFleetWise::Campaign.Compression`.
+	// (Optional) Whether to compress signals before transmitting data to AWS IoT FleetWise .
+	//
+	// If you don't want to compress the signals, use `OFF` . If it's not specified, `SNAPPY` is used.
+	//
+	// Default: `SNAPPY`.
 	Compression() *string
 	SetCompression(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTFleetWise::Campaign.DataDestinationConfigs`.
+	// (Optional) The destination where the campaign sends data.
+	//
+	// You can choose to send data to be stored in Amazon S3 or Amazon Timestream .
+	//
+	// Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. AWS IoT FleetWise supports at-least-once file delivery to S3. Your vehicle data is stored on multiple AWS IoT FleetWise servers for redundancy and high availability.
+	//
+	// You can use Amazon Timestream to access and analyze time series data, and Timestream to query vehicle data so that you can identify trends and patterns.
 	DataDestinationConfigs() interface{}
 	SetDataDestinationConfigs(val interface{})
-	// `AWS::IoTFleetWise::Campaign.DataExtraDimensions`.
+	// (Optional) A list of vehicle attributes to associate with a campaign.
+	//
+	// Enrich the data with specified vehicle attributes. For example, add `make` and `model` to the campaign, and AWS IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream . You can then query the data against `make` and `model` .
+	//
+	// Default: An empty array.
 	DataExtraDimensions() *[]*string
 	SetDataExtraDimensions(val *[]*string)
-	// The description of the campaign.
+	// (Optional) The description of the campaign.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::IoTFleetWise::Campaign.DiagnosticsMode`.
+	// (Optional) Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
+	//
+	// If you want to send diagnostic trouble codes, use `SEND_ACTIVE_DTCS` . If it's not specified, `OFF` is used.
+	//
+	// Default: `OFF`.
 	DiagnosticsMode() *string
 	SetDiagnosticsMode(val *string)
-	// `AWS::IoTFleetWise::Campaign.ExpiryTime`.
+	// (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
+	//
+	// Vehicle data isn't collected after the campaign expires.
+	//
+	// Default: 253402214400 (December 31, 9999, 00:00:00 UTC).
 	ExpiryTime() *string
 	SetExpiryTime(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -139,10 +174,18 @@ type CfnCampaign interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::IoTFleetWise::Campaign.PostTriggerCollectionDuration`.
+	// (Optional) How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
+	//
+	// If it's not specified, `0` is used.
+	//
+	// Default: `0`.
 	PostTriggerCollectionDuration() *float64
 	SetPostTriggerCollectionDuration(val *float64)
-	// `AWS::IoTFleetWise::Campaign.Priority`.
+	// (Optional) A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
+	//
+	// A campaign with the lowest value is deployed to vehicles before any other campaigns. If it's not specified, `0` is used.
+	//
+	// Default: `0`.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -150,25 +193,33 @@ type CfnCampaign interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ARN of the signal catalog associated with the campaign.
+	// The Amazon Resource Name (ARN) of the signal catalog associated with the campaign.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
-	// `AWS::IoTFleetWise::Campaign.SignalsToCollect`.
+	// (Optional) A list of information about signals to collect.
 	SignalsToCollect() interface{}
 	SetSignalsToCollect(val interface{})
-	// `AWS::IoTFleetWise::Campaign.SpoolingMode`.
+	// (Optional) Whether to store collected data after a vehicle lost a connection with the cloud.
+	//
+	// After a connection is re-established, the data is automatically forwarded to AWS IoT FleetWise . If you want to store collected data when a vehicle loses connection with the cloud, use `TO_DISK` . If it's not specified, `OFF` is used.
+	//
+	// Default: `OFF`.
 	SpoolingMode() *string
 	SetSpoolingMode(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTFleetWise::Campaign.StartTime`.
+	// (Optional) The time, in milliseconds, to deliver a campaign after it was approved.
+	//
+	// If it's not specified, `0` is used.
+	//
+	// Default: `0`.
 	StartTime() *string
 	SetStartTime(val *string)
-	// `AWS::IoTFleetWise::Campaign.Tags`.
+	// (Optional) Metadata that can be used to manage the campaign.
 	Tags() awscdk.TagManager
-	// The ARN of a vehicle or fleet to which the campaign is deployed.
+	// The Amazon Resource Name (ARN) of a vehicle or fleet to which the campaign is deployed.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// Deprecated.

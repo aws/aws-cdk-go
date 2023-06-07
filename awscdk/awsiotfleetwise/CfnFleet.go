@@ -39,8 +39,11 @@ import (
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the created fleet.
 	AttrArn() *string
+	// The time the fleet was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The time the fleet was last updated, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,7 +54,7 @@ type CfnFleet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A brief description of the fleet.
+	// (Optional) A brief description of the fleet.
 	Description() *string
 	SetDescription(val *string)
 	// The unique ID of the fleet.
@@ -81,7 +84,7 @@ type CfnFleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTFleetWise::Fleet.Tags`.
+	// (Optional) Metadata that can be used to manage the fleet.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

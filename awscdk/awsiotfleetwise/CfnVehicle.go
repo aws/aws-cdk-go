@@ -13,9 +13,9 @@ import (
 //
 // Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.
 //
-// > If you have an existing AWS IoT Thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing.
+// > If you have an existing AWS IoT thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing.
 //
-// For more information, see [Create a vehicle (CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html) in the *AWS IoT FleetWise Developer Guide* .
+// For more information, see [Create a vehicle (console)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-console.html) in the *AWS IoT FleetWise Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,16 +43,19 @@ import (
 type CfnVehicle interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
+	// (Optional) An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
 	AssociationBehavior() *string
 	SetAssociationBehavior(val *string)
+	// The Amazon Resource Name (ARN) of the vehicle.
 	AttrArn() *string
+	// The time the vehicle was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
-	// Static information about a vehicle in a key-value pair.
+	// (Optional) Static information about a vehicle in a key-value pair.
 	//
 	// For example: `"engine Type"` : `"v6"`.
 	Attributes() interface{}
 	SetAttributes(val interface{})
+	// The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -76,10 +79,10 @@ type CfnVehicle interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The ARN of the vehicle model (model manifest) to create the vehicle from.
+	// The Amazon Resource Name (ARN) of the vehicle model (model manifest) to create the vehicle from.
 	ModelManifestArn() *string
 	SetModelManifestArn(val *string)
-	// `AWS::IoTFleetWise::Vehicle.Name`.
+	// The unique ID of the vehicle.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -93,7 +96,7 @@ type CfnVehicle interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata which can be used to manage the vehicle.
+	// (Optional) Metadata which can be used to manage the vehicle.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -473,7 +473,7 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	CoreInstanceFleet interface{} `field:"optional" json:"coreInstanceFleet" yaml:"coreInstanceFleet"`
 	// Describes the EC2 instances and instance configurations for core instance groups when using clusters with the uniform instance group configuration.
 	CoreInstanceGroup interface{} `field:"optional" json:"coreInstanceGroup" yaml:"coreInstanceGroup"`
-	// The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop.".
+	// The name of the Amazon EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop.".
 	Ec2KeyName *string `field:"optional" json:"ec2KeyName" yaml:"ec2KeyName"`
 	// Applies to clusters that use the uniform instance group configuration.
 	//
@@ -481,9 +481,9 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	Ec2SubnetId *string `field:"optional" json:"ec2SubnetId" yaml:"ec2SubnetId"`
 	// Applies to clusters that use the instance fleet configuration.
 	//
-	// When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+	// When multiple Amazon EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
 	//
-	// > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
+	// > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
 	Ec2SubnetIds *[]*string `field:"optional" json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
 	// The identifier of the Amazon EC2 security group for the master node.
 	//

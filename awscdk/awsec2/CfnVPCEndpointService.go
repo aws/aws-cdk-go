@@ -50,7 +50,7 @@ type CfnVPCEndpointService interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Indicates whether to enable the built-in Contributor Insights rules.
+	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
 	ContributorInsightsEnabled() interface{}
 	SetContributorInsightsEnabled(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

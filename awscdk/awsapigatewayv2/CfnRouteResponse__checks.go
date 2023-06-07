@@ -196,8 +196,60 @@ func (j *jsiiProxy_CfnRouteResponse) validateSetResponseModelsParameters(val int
 }
 
 func (j *jsiiProxy_CfnRouteResponse) validateSetResponseParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *map[string]interface{}:
+		val := val.(*map[string]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnRouteResponse_ParameterConstraintsProperty:
+				v := v.(*CfnRouteResponse_ParameterConstraintsProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnRouteResponse_ParameterConstraintsProperty:
+				v_ := v.(CfnRouteResponse_ParameterConstraintsProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnRouteResponse_ParameterConstraintsProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case map[string]interface{}:
+		val_ := val.(map[string]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnRouteResponse_ParameterConstraintsProperty:
+				v := v.(*CfnRouteResponse_ParameterConstraintsProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnRouteResponse_ParameterConstraintsProperty:
+				v_ := v.(CfnRouteResponse_ParameterConstraintsProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnRouteResponse_ParameterConstraintsProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]interface{}; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

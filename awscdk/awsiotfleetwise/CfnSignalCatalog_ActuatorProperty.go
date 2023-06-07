@@ -34,17 +34,17 @@ type CfnSignalCatalog_ActuatorProperty struct {
 	//
 	// For example, the fully qualified name of an actuator might be `Vehicle.Front.Left.Door.Lock` .
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// A list of possible values an actuator can take.
+	// (Optional) A list of possible values an actuator can take.
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// A specified value for the actuator.
+	// (Optional) A specified value for the actuator.
 	AssignedValue *string `field:"optional" json:"assignedValue" yaml:"assignedValue"`
-	// A brief description of the actuator.
+	// (Optional) A brief description of the actuator.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The specified possible maximum value of an actuator.
+	// (Optional) The specified possible maximum value of an actuator.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// The specified possible minimum value of an actuator.
+	// (Optional) The specified possible minimum value of an actuator.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// The scientific unit for the actuator.
+	// (Optional) The scientific unit for the actuator.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

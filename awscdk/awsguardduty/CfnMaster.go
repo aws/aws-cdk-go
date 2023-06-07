@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::GuardDuty::Master`.
 //
-// You can use the `AWS::GuardDuty::Master` resource in a  member account to accept an invitation from a  administrator account. The invitation to the member account must be sent prior to using the `AWS::GuardDuty::Master` resource to accept the administrator account's invitation. You can invite a member account by using the `InviteMembers` operation of the  API, or by creating an `AWS::GuardDuty::Member` resource.
+// You can use the `AWS::GuardDuty::Master` resource in a GuardDuty member account to accept an invitation from a GuardDuty administrator account. The invitation to the member account must be sent prior to using the `AWS::GuardDuty::Master` resource to accept the administrator account's invitation. You can invite a member account by using the `InviteMembers` operation of the GuardDuty API, or by creating an `AWS::GuardDuty::Member` resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,7 +43,7 @@ type CfnMaster interface {
 	SetDetectorId(val *string)
 	// The ID of the invitation that is sent to the account designated as a member account.
 	//
-	// You can find the invitation ID by using the ListInvitation action of the  API.
+	// You can find the invitation ID by using the ListInvitation action of the GuardDuty API.
 	InvitationId() *string
 	SetInvitationId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -56,7 +56,7 @@ type CfnMaster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The AWS account ID of the account designated as the  administrator account.
+	// The AWS account ID of the account designated as the GuardDuty administrator account.
 	MasterId() *string
 	SetMasterId(val *string)
 	// The tree node.

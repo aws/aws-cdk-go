@@ -101,8 +101,11 @@ import (
 type CfnDecoderManifest interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the decoder manifest.
 	AttrArn() *string
+	// The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The time the decoder manifest was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -113,7 +116,7 @@ type CfnDecoderManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A brief description of the decoder manifest.
+	// (Optional) A brief description of the decoder manifest.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -126,13 +129,13 @@ type CfnDecoderManifest interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The ARN of a vehicle model (model manifest) associated with the decoder manifest.
+	// The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with the decoder manifest.
 	ModelManifestArn() *string
 	SetModelManifestArn(val *string)
 	// The name of the decoder manifest.
 	Name() *string
 	SetName(val *string)
-	// `AWS::IoTFleetWise::DecoderManifest.NetworkInterfaces`.
+	// (Optional) A list of information about available network interfaces.
 	NetworkInterfaces() interface{}
 	SetNetworkInterfaces(val interface{})
 	// The tree node.
@@ -142,19 +145,19 @@ type CfnDecoderManifest interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::IoTFleetWise::DecoderManifest.SignalDecoders`.
+	// (Optional) A list of information about signal decoders.
 	SignalDecoders() interface{}
 	SetSignalDecoders(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The state of the decoder manifest.
+	// (Optional) The state of the decoder manifest.
 	//
 	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	Status() *string
 	SetStatus(val *string)
-	// `AWS::IoTFleetWise::DecoderManifest.Tags`.
+	// (Optional) Metadata that can be used to manage the decoder manifest.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

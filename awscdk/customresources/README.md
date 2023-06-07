@@ -648,6 +648,40 @@ getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHoste
 })
 ```
 
+#### Using AWS SDK for JavaScript v3
+
+`AwsCustomResource` experimentally supports AWS SDK for JavaScript v3 (NODEJS_18_X or higher). In AWS SDK for JavaScript v3, packages are installed for each service. Therefore, specify the package name for `service`. Also, `action` specifies the XxxClient operations provided in the package. This example is the same as `SSM.getParameter` in v2.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// change custom resource default runtime
+regionInfo.Fact_Register(map[string]interface{}{
+	"region": jsii.String("us-east-1"),
+	 // your region
+	"name": regionInfo.FactName_DEFAULT_CR_NODE_VERSION(),
+	"value": lambda.Runtime_NODEJS_18_X().name,
+}, jsii.Boolean(true))
+NewAwsCustomResource(this, jsii.String("GetParameter"), map[string]interface{}{
+	"resourceType": jsii.String("Custom::SSMParameter"),
+	"onUpdate": map[string]interface{}{
+		"service": jsii.String("@aws-sdk/client-ssm"),
+		 // 'SSM' in v2
+		"action": jsii.String("GetParameterCommand"),
+		 // 'getParameter' in v2
+		"parameters": map[string]interface{}{
+			"Name": jsii.String("foo"),
+			"WithDecryption": jsii.Boolean(true),
+		},
+		"physicalResourceId": PhysicalResourceId_fromResponse(jsii.String("Parameter.ARN")),
+	},
+})
+```
+
+If you are using `NODEJS_18_X` or higher, you can also use the existing AWS SDK for JavaScript v2 style.
+
 ---
 
 

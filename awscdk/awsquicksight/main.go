@@ -3821,6 +3821,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "columnLevelPermissionRules", GoGetter: "ColumnLevelPermissionRules"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSetId", GoGetter: "DataSetId"},
+			_jsii_.MemberProperty{JsiiProperty: "datasetParameters", GoGetter: "DatasetParameters"},
+			_jsii_.MemberProperty{JsiiProperty: "dataSetRefreshProperties", GoGetter: "DataSetRefreshProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSetUsageConfiguration", GoGetter: "DataSetUsageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "fieldFolders", GoGetter: "FieldFolders"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -3842,6 +3844,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "rowLevelPermissionDataSet", GoGetter: "RowLevelPermissionDataSet"},
+			_jsii_.MemberProperty{JsiiProperty: "rowLevelPermissionTagConfiguration", GoGetter: "RowLevelPermissionTagConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -3890,8 +3893,32 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_CustomSqlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetRefreshPropertiesProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetRefreshPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetUsageConfigurationProperty",
 		reflect.TypeOf((*CfnDataSet_DataSetUsageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DatasetParameterProperty",
+		reflect.TypeOf((*CfnDataSet_DatasetParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DateTimeDatasetParameterDefaultValuesProperty",
+		reflect.TypeOf((*CfnDataSet_DateTimeDatasetParameterDefaultValuesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DateTimeDatasetParameterProperty",
+		reflect.TypeOf((*CfnDataSet_DateTimeDatasetParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DecimalDatasetParameterDefaultValuesProperty",
+		reflect.TypeOf((*CfnDataSet_DecimalDatasetParameterDefaultValuesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DecimalDatasetParameterProperty",
+		reflect.TypeOf((*CfnDataSet_DecimalDatasetParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.FieldFolderProperty",
@@ -3906,12 +3933,24 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_GeoSpatialColumnGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.IncrementalRefreshProperty",
+		reflect.TypeOf((*CfnDataSet_IncrementalRefreshProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.IngestionWaitPolicyProperty",
 		reflect.TypeOf((*CfnDataSet_IngestionWaitPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.InputColumnProperty",
 		reflect.TypeOf((*CfnDataSet_InputColumnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.IntegerDatasetParameterDefaultValuesProperty",
+		reflect.TypeOf((*CfnDataSet_IntegerDatasetParameterDefaultValuesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.IntegerDatasetParameterProperty",
+		reflect.TypeOf((*CfnDataSet_IntegerDatasetParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.JoinInstructionProperty",
@@ -3930,8 +3969,20 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_LogicalTableSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.LookbackWindowProperty",
+		reflect.TypeOf((*CfnDataSet_LookbackWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.NewDefaultValuesProperty",
+		reflect.TypeOf((*CfnDataSet_NewDefaultValuesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.OutputColumnProperty",
 		reflect.TypeOf((*CfnDataSet_OutputColumnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.OverrideDatasetParameterOperationProperty",
+		reflect.TypeOf((*CfnDataSet_OverrideDatasetParameterOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.PhysicalTableProperty",
@@ -3940,6 +3991,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.ProjectOperationProperty",
 		reflect.TypeOf((*CfnDataSet_ProjectOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.RefreshConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_RefreshConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.RelationalTableProperty",
@@ -3958,8 +4013,24 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_RowLevelPermissionDataSetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.RowLevelPermissionTagConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_RowLevelPermissionTagConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.RowLevelPermissionTagRuleProperty",
+		reflect.TypeOf((*CfnDataSet_RowLevelPermissionTagRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.S3SourceProperty",
 		reflect.TypeOf((*CfnDataSet_S3SourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.StringDatasetParameterDefaultValuesProperty",
+		reflect.TypeOf((*CfnDataSet_StringDatasetParameterDefaultValuesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.StringDatasetParameterProperty",
+		reflect.TypeOf((*CfnDataSet_StringDatasetParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.TagColumnOperationProperty",

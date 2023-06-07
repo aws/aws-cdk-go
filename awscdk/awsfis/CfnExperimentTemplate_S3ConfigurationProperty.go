@@ -1,6 +1,8 @@
 package awsfis
 
 
+// Specifies the configuration for experiment logging to Amazon S3 .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,9 @@ package awsfis
 //   }
 //
 type CfnExperimentTemplate_S3ConfigurationProperty struct {
-	// `CfnExperimentTemplate.S3ConfigurationProperty.BucketName`.
+	// The name of the destination bucket.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
-	// `CfnExperimentTemplate.S3ConfigurationProperty.Prefix`.
+	// The bucket prefix.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

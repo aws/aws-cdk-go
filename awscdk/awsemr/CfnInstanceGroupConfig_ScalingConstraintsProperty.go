@@ -16,11 +16,11 @@ package awsemr
 //   }
 //
 type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
-	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
+	// The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
 	//
 	// Scale-out activities will not add instances beyond this boundary.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
-	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink.
+	// The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in activities will not terminate instances below this boundary.
 	MinCapacity *float64 `field:"required" json:"minCapacity" yaml:"minCapacity"`

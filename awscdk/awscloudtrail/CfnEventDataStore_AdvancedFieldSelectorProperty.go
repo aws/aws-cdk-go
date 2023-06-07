@@ -56,9 +56,11 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
 	// - `AWS::CloudTrail::Channel`
+	// - `AWS::CodeWhisperer::Profile`
 	// - `AWS::Cognito::IdentityPool`
 	// - `AWS::DynamoDB::Stream`
 	// - `AWS::EC2::Snapshot`
+	// - `AWS::EMRWAL::Workspace`
 	// - `AWS::FinSpace::Environment`
 	// - `AWS::Glue::Table`
 	// - `AWS::GuardDuty::Detector`
@@ -90,6 +92,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID>`
 	//
+	// When resources.type equals `AWS::CodeWhisperer::Profile` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:codewhisperer:<region>:<account_ID>:profile/<profile_ID>`
+	//
 	// When resources.type equals `AWS::Cognito::IdentityPool` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:cognito-identity:<region>:<account_ID>:identitypool/<identity_pool_ID>`
@@ -101,6 +107,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::EC2::Snapshot` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:ec2:<region>::snapshot/<snapshot_ID>`
+	//
+	// When `resources.type` equals `AWS::EMRWAL::Workspace` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:emrwal:<region>::workspace/<workspace_name>`
 	//
 	// When `resources.type` equals `AWS::FinSpace::Environment` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

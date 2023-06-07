@@ -3,6 +3,8 @@ package awsathena
 
 // Specifies the KMS key that is used to encrypt the user's data stores in Athena.
 //
+// This setting does not apply to Athena SQL workgroups.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

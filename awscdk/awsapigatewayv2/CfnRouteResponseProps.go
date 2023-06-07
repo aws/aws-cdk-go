@@ -9,7 +9,6 @@ package awsapigatewayv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseModels interface{}
-//   var responseParameters interface{}
 //
 //   cfnRouteResponseProps := &CfnRouteResponseProps{
 //   	ApiId: jsii.String("apiId"),
@@ -19,7 +18,11 @@ package awsapigatewayv2
 //   	// the properties below are optional
 //   	ModelSelectionExpression: jsii.String("modelSelectionExpression"),
 //   	ResponseModels: responseModels,
-//   	ResponseParameters: responseParameters,
+//   	ResponseParameters: map[string]interface{}{
+//   		"responseParametersKey": &ParameterConstraintsProperty{
+//   			"required": jsii.Boolean(false),
+//   		},
+//   	},
 //   }
 //
 type CfnRouteResponseProps struct {

@@ -593,7 +593,7 @@ type CfnCluster interface {
 	AttrMasterPublicDns() *string
 	// An IAM role for automatic scaling policies.
 	//
-	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.
 	AutoScalingRole() *string
 	SetAutoScalingRole(val *string)
 	// `AWS::EMR::Cluster.AutoTerminationPolicy`.
@@ -607,27 +607,27 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.
+	// Applies only to Amazon EMR releases 4.x and later. The list of configurations that are supplied to the Amazon EMR cluster.
 	Configurations() interface{}
 	SetConfigurations(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
+	// Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
 	CustomAmiId() *string
 	SetCustomAmiId(val *string)
-	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance.
+	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	//
-	// Available in Amazon EMR version 4.x and later.
+	// Available in Amazon EMR releases 4.x and later.
 	EbsRootVolumeSize() *float64
 	SetEbsRootVolumeSize(val *float64)
 	// A specification of the number and type of Amazon EC2 instances.
 	Instances() interface{}
 	SetInstances(val interface{})
-	// Also called instance profile and EC2 role.
+	// Also called instance profile and Amazon EC2 role.
 	//
-	// An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is `EMR_EC2_DefaultRole` . In order to use the default role, you must have already created it using the CLI or console.
+	// An IAM role for an Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this role. The default role is `EMR_EC2_DefaultRole` . In order to use the default role, you must have already created it using the AWS CLI or console.
 	JobFlowRole() *string
 	SetJobFlowRole(val *string)
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
@@ -637,7 +637,7 @@ type CfnCluster interface {
 	SetKerberosAttributes(val interface{})
 	// The AWS KMS key used for encrypting log files.
 	//
-	// This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+	// This attribute is only available with Amazon EMR 5.30.0 and later, excluding Amazon EMR 6.0.0.
 	LogEncryptionKmsKeyId() *string
 	SetLogEncryptionKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -655,7 +655,7 @@ type CfnCluster interface {
 	SetLogUri(val *string)
 	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
 	//
-	// The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	// The managed scaling policy defines the limits for resources, such as Amazon EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 	ManagedScalingPolicy() interface{}
 	SetManagedScalingPolicy(val interface{})
 	// The name of the cluster.
@@ -678,7 +678,7 @@ type CfnCluster interface {
 	SetReleaseLabel(val *string)
 	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
 	//
-	// `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+	// `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` is available only in Amazon EMR releases 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 	ScaleDownBehavior() *string
 	SetScaleDownBehavior(val *string)
 	// The name of the security configuration applied to the cluster.
