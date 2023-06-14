@@ -72,6 +72,15 @@ bucket := s3.NewBucket(this, jsii.String("Buck"), &BucketProps{
 assert(bucket.EncryptionKey == nil)
 ```
 
+Enable DSSE encryption:
+
+```
+const bucket = new s3.Bucket(stack, 'MyDSSEBucket', {
+  encryption: s3.BucketEncryption.DSSE_MANAGED,
+  bucketKeyEnabled: true,
+});
+```
+
 ## Permissions
 
 A bucket policy will be automatically created for the bucket upon the first call to

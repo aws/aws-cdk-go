@@ -69,6 +69,10 @@ type FargateClusterProps struct {
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
 	EndpointAccess EndpointAccess `field:"optional" json:"endpointAccess" yaml:"endpointAccess"`
+	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	IpFamily IpFamily `field:"optional" json:"ipFamily" yaml:"ipFamily"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.

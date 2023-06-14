@@ -8,7 +8,7 @@ package awsdevopsguru
 // Each AWS tag has two parts.
 //
 // - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
-// - An optional field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive.
+// - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when *AppBoundaryKey* is specified.
 //
 // Together these are known as *key* - *value* pairs.
 //
@@ -35,7 +35,7 @@ type CfnResourceCollection_TagCollectionProperty struct {
 	AppBoundaryKey *string `field:"optional" json:"appBoundaryKey" yaml:"appBoundaryKey"`
 	// The values in an AWS tag collection.
 	//
-	// The tag's *value* is an optional field used to associate a string with the tag *key* (for example, `111122223333` , `Production` , or a team name). The *key* and *value* are the tag's *key* pair. Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. You can specify a maximum of 256 characters for a tag value.
+	// The tag's *value* is a field used to associate a string with the tag *key* (for example, `111122223333` , `Production` , or a team name). The *key* and *value* are the tag's *key* pair. Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. You can specify a maximum of 256 characters for a tag value. The tag value is a required property when *AppBoundaryKey* is specified.
 	TagValues *[]*string `field:"optional" json:"tagValues" yaml:"tagValues"`
 }
 

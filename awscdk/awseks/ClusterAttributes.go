@@ -44,6 +44,10 @@ type ClusterAttributes struct {
 	ClusterHandlerSecurityGroupId *string `field:"optional" json:"clusterHandlerSecurityGroupId" yaml:"clusterHandlerSecurityGroupId"`
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId *string `field:"optional" json:"clusterSecurityGroupId" yaml:"clusterSecurityGroupId"`
+	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	IpFamily IpFamily `field:"optional" json:"ipFamily" yaml:"ipFamily"`
 	// Environment variables to use when running `kubectl` against this cluster.
 	KubectlEnvironment *map[string]*string `field:"optional" json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
 	// An IAM role that can perform kubectl operations against this cluster.

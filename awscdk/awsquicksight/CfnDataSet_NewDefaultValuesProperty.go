@@ -22,9 +22,7 @@ package awsquicksight
 //   }
 //
 type CfnDataSet_NewDefaultValuesProperty struct {
-	// A list of static default values for a given date time parameter.
-	//
-	// The valid format for this property is `yyyy-MM-dd’T’HH:mm:ss’Z’` .
+	// `CfnDataSet.NewDefaultValuesProperty.DateTimeStaticValues`.
 	DateTimeStaticValues *[]*string `field:"optional" json:"dateTimeStaticValues" yaml:"dateTimeStaticValues"`
 	// `CfnDataSet.NewDefaultValuesProperty.DecimalStaticValues`.
 	DecimalStaticValues interface{} `field:"optional" json:"decimalStaticValues" yaml:"decimalStaticValues"`

@@ -17,6 +17,8 @@ import (
 //
 // The Groups, Roles, and Users properties are optional. However, you must specify at least one of these properties.
 //
+// For information about policy documents see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide* .
+//
 // For information about limits on the number of inline policies that you can embed in an identity, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
 //
 // Example:

@@ -86,6 +86,25 @@ func FactName_CloudwatchLambdaInsightsVersion(version *string, arch *string) *st
 	return returns
 }
 
+// The ARN of Parameters and Secrets Lambda layer for a given lambda architecture.
+func FactName_ParamsAndSecretsLambdaLayer(version *string, architecture *string) *string {
+	_init_.Initialize()
+
+	if err := validateFactName_ParamsAndSecretsLambdaLayerParameters(version, architecture); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.region_info.FactName",
+		"paramsAndSecretsLambdaLayer",
+		[]interface{}{version, architecture},
+		&returns,
+	)
+
+	return returns
+}
+
 // The name of the regional service principal for a given service.
 func FactName_ServicePrincipal(service *string) *string {
 	_init_.Initialize()

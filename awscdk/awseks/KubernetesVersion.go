@@ -8,9 +8,17 @@ import (
 // Kubernetes cluster version.
 //
 // Example:
-//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   var vpc vpc
+//
+//
+//   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 //   	Version: eks.KubernetesVersion_V1_26(),
-//   	DefaultCapacityType: eks.DefaultCapacityType_EC2,
+//   	Vpc: Vpc,
+//   	VpcSubnets: []subnetSelection{
+//   		&subnetSelection{
+//   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   		},
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar

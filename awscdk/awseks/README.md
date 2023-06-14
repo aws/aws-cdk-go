@@ -16,6 +16,7 @@ In addition, the library also supports defining Kubernetes resource manifests wi
   * [Endpoint Access](#endpoint-access)
   * [ALB Controller](#alb-controller)
   * [VPC Support](#vpc-support)
+  * [IPv6 Support](#ipv6-support)
   * [Kubectl Support](#kubectl-support)
   * [ARM64 Support](#arm64-support)
   * [Masters Role](#masters-role)
@@ -219,6 +220,55 @@ cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions
 			Value: jsii.String("bar"),
 		},
 	},
+})
+```
+
+#### Node Groups with IPv6 Support
+
+Node groups are available with IPv6 configured networks.  For custom roles assigned to node groups additional permissions are necessary in order for pods to obtain an IPv6 address.  The default node role will include these permissions.
+
+> For more details visit [Configuring the Amazon VPC CNI plugin for Kubernetes to use IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-role)
+
+```go
+ipv6Management := iam.NewPolicyDocument(&PolicyDocumentProps{
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Resources: []*string{
+				jsii.String("arn:aws:ec2:*:*:network-interface/*"),
+			},
+			Actions: []*string{
+				jsii.String("ec2:AssignIpv6Addresses"),
+				jsii.String("ec2:UnassignIpv6Addresses"),
+			},
+		}),
+	},
+})
+
+eksClusterNodeGroupRole := iam.NewRole(this, jsii.String("eksClusterNodeGroupRole"), &RoleProps{
+	RoleName: jsii.String("eksClusterNodeGroupRole"),
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+	ManagedPolicies: []iManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonEKSWorkerNodePolicy")),
+		iam.ManagedPolicy_*FromAwsManagedPolicyName(jsii.String("AmazonEC2ContainerRegistryReadOnly")),
+		iam.ManagedPolicy_*FromAwsManagedPolicyName(jsii.String("AmazonEKS_CNI_Policy")),
+	},
+	InlinePolicies: map[string]policyDocument{
+		"ipv6Management": ipv6Management,
+	},
+})
+
+cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_26(),
+	DefaultCapacity: jsii.Number(0),
+})
+
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
+		ec2.NewInstanceType(jsii.String("m5.large")),
+	},
+	MinSize: jsii.Number(2),
+	DiskSize: jsii.Number(100),
+	NodeRole: eksClusterNodeGroupRole,
 })
 ```
 
@@ -677,6 +727,50 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 })
 ```
 
+### IPv6 Support
+
+You can optionally choose to configure your cluster to use IPv6 using the [`ipFamily`](https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily) definition for your cluster.  Note that this will require the underlying subnets to have an associated IPv6 CIDR.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var vpc vpc
+
+
+// make an ipv6 cidr
+ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockProps{
+	VpcId: vpc.VpcId,
+	AmazonProvidedIpv6CidrBlock: jsii.Boolean(true),
+})
+
+// connect the ipv6 cidr to all vpc subnets
+subnetcount := 0
+subnets := []iSubnet{
+	(SpreadElement ...vpc.publicSubnets
+			vpc.PublicSubnets),
+	(SpreadElement ...vpc.privateSubnets
+			vpc.PrivateSubnets),
+}
+for _, subnet := range subnets {
+	// Wait for the ipv6 cidr to complete
+	subnet.Node.AddDependency(ipv6cidr)
+	this._associate_subnet_with_v6_cidr(subnetcount, subnet)
+	subnetcount++
+}
+
+cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+	Vpc: vpc,
+	IpFamily: eks.IpFamily_IP_V6,
+	VpcSubnets: []subnetSelection{
+		&subnetSelection{
+			Subnets: []*iSubnet{
+				(SpreadElement ...vpc.publicSubnets
+						vpc.*PublicSubnets),
+			},
+		},
+	},
+})
+```
+
 ### Kubectl Support
 
 The resources are created in the cluster by running `kubectl apply` from a python lambda function.
@@ -685,8 +779,10 @@ By default, CDK will create a new python lambda function to apply your k8s manif
 
 ```go
 handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
+// get the serivceToken from the custom resource provider
+functionArn := lambda.Function_FromFunctionName(this, jsii.String("ProviderOnEventFunc"), jsii.String("ProviderframeworkonEvent-XXX")).FunctionArn
 kubectlProvider := eks.KubectlProvider_FromKubectlProviderAttributes(this, jsii.String("KubectlProvider"), &KubectlProviderAttributes{
-	FunctionArn: jsii.String("arn:aws:lambda:us-east-2:123456789012:function:my-function:1"),
+	FunctionArn: jsii.String(FunctionArn),
 	KubectlRoleArn: jsii.String("arn:aws:iam::123456789012:role/kubectl-role"),
 	HandlerRole: HandlerRole,
 })

@@ -90,6 +90,8 @@ type CfnPricingRule interface {
 	// Operation is the specific AWS action covered by this line item.
 	//
 	// This describes the specific usage of the line item.
+	//
+	// If the `Scope` attribute is set to `SKU` , this attribute indicates which operation the `PricingRule` is modifying. For example, a value of `RunInstances:0202` indicates the operation of running an Amazon EC2 instance.
 	Operation() *string
 	SetOperation(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -97,7 +99,7 @@ type CfnPricingRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
+	// The scope of pricing rule that indicates if it's globally applicable or service-specific.
 	Scope() *string
 	SetScope(val *string)
 	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.

@@ -24,7 +24,7 @@ type CfnCanary_BaseScreenshotProperty struct {
 	ScreenshotName *string `field:"required" json:"screenshotName" yaml:"screenshotName"`
 	// Coordinates that define the part of a screen to ignore during screenshot comparisons.
 	//
-	// To obtain the coordinates to use here, use the CloudWatch Logs console to draw the boundaries on the screen. For more information, see {LINK}
+	// To obtain the coordinates to use here, use the CloudWatch console to draw the boundaries on the screen. For more information, see [Edit or delete a canary](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/synthetics_canaries_deletion.html) .
 	IgnoreCoordinates *[]*string `field:"optional" json:"ignoreCoordinates" yaml:"ignoreCoordinates"`
 }
 

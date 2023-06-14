@@ -12,6 +12,10 @@ func (r *jsiiProxy_RegionInfo) validateCloudwatchLambdaInsightsArnParameters(ins
 	return nil
 }
 
+func (r *jsiiProxy_RegionInfo) validateParamsAndSecretsLambdaLayerArnParameters(version *string, architecture *string) error {
+	return nil
+}
+
 func (r *jsiiProxy_RegionInfo) validateServicePrincipalParameters(service *string) error {
 	return nil
 }

@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The incremental refresh configuration for a dataset.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,7 +15,7 @@ package awsquicksight
 //   }
 //
 type CfnDataSet_IncrementalRefreshProperty struct {
-	// The lookback window setup for an incremental refresh configuration.
+	// `CfnDataSet.IncrementalRefreshProperty.LookbackWindow`.
 	LookbackWindow interface{} `field:"optional" json:"lookbackWindow" yaml:"lookbackWindow"`
 }
 

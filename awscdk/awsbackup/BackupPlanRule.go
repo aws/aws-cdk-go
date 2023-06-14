@@ -10,8 +10,10 @@ import (
 // Example:
 //   var plan backupPlan
 //
-//   plan.AddRule(backup.BackupPlanRule_Daily())
-//   plan.AddRule(backup.BackupPlanRule_Weekly())
+//   plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+//   	EnableContinuousBackup: jsii.Boolean(true),
+//   	DeleteAfter: awscdk.Duration_Days(jsii.Number(14)),
+//   }))
 //
 type BackupPlanRule interface {
 	// Properties of BackupPlanRule.

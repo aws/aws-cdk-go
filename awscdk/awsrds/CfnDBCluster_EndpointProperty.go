@@ -1,7 +1,7 @@
 package awsrds
 
 
-// Specifies the connection endpoint for the primary instance of the DB cluster.
+// The `Endpoint` return value specifies the connection endpoint for the primary instance of the DB cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

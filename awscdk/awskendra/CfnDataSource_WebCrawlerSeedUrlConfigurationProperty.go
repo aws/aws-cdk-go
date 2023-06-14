@@ -26,9 +26,9 @@ type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 	SeedUrls *[]*string `field:"required" json:"seedUrls" yaml:"seedUrls"`
 	// You can choose one of the following modes:.
 	//
-	// - `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
-	// - `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
-	// - `EVERYTHING` – crawl the website host names with subdomains and other domains that the web pages link to.
+	// - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+	// - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+	// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
 	//
 	// The default mode is set to `HOST_ONLY` .
 	WebCrawlerMode *string `field:"optional" json:"webCrawlerMode" yaml:"webCrawlerMode"`

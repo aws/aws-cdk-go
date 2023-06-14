@@ -95,7 +95,7 @@ type ApplicationTargetGroup interface {
 	// The average number of requests received by each target in a target group.
 	//
 	// The only valid statistic is Sum. Note that this represents the average not the sum.
-	// Deprecated: Use ``ApplicationTargetGroup.metrics.ipv6RequestCount`` instead
+	// Deprecated: Use `ApplicationTargetGroup.metrics.requestCountPerTarget` instead
 	MetricRequestCountPerTarget(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of connections that were not successfully established between the load balancer and target.
 	// Deprecated: Use ``ApplicationTargetGroup.metrics.targetConnectionErrorCount`` instead

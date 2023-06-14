@@ -39,7 +39,7 @@ import (
 type CfnPricingRuleProps struct {
 	// The name of a pricing rule.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
+	// The scope of pricing rule that indicates if it's globally applicable or service-specific.
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// The type of pricing rule.
 	Type *string `field:"required" json:"type" yaml:"type"`
@@ -52,6 +52,8 @@ type CfnPricingRuleProps struct {
 	// Operation is the specific AWS action covered by this line item.
 	//
 	// This describes the specific usage of the line item.
+	//
+	// If the `Scope` attribute is set to `SKU` , this attribute indicates which operation the `PricingRule` is modifying. For example, a value of `RunInstances:0202` indicates the operation of running an Amazon EC2 instance.
 	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service *string `field:"optional" json:"service" yaml:"service"`

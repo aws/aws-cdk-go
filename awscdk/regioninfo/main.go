@@ -58,6 +58,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "firehoseCidrBlock", GoGetter: "FirehoseCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "isOptInRegion", GoGetter: "IsOptInRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "paramsAndSecretsLambdaLayerArn", GoMethod: "ParamsAndSecretsLambdaLayerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "partition", GoGetter: "Partition"},
 			_jsii_.MemberProperty{JsiiProperty: "s3StaticWebsiteEndpoint", GoGetter: "S3StaticWebsiteEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "s3StaticWebsiteHostedZoneId", GoGetter: "S3StaticWebsiteHostedZoneId"},

@@ -179,7 +179,7 @@ type CfnFileSystemProps struct {
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The Lustre configuration for the file system being created.
 	//
-	// > The following parameters are not supported for file systems with the Lustre `Persistent_2` deployment type.
+	// > The following parameters are not supported for file systems with a data repository association.
 	// >
 	// > - `AutoImportPolicy`
 	// > - `ExportPath`

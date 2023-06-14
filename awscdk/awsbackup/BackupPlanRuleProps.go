@@ -41,6 +41,10 @@ type BackupPlanRuleProps struct {
 	EnableContinuousBackup *bool `field:"optional" json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
 	// Specifies the duration after creation that a recovery point is moved to cold storage.
 	MoveToColdStorageAfter awscdk.Duration `field:"optional" json:"moveToColdStorageAfter" yaml:"moveToColdStorageAfter"`
+	// To help organize your resources, you can assign your own metadata to the resources that you create.
+	//
+	// Each tag is a key-value pair.
+	RecoveryPointTags *map[string]*string `field:"optional" json:"recoveryPointTags" yaml:"recoveryPointTags"`
 	// A display name for the backup rule.
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.

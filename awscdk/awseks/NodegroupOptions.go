@@ -8,16 +8,18 @@ import (
 // The Nodegroup Options for addNodeGroup() method.
 //
 // Example:
-//   var cluster cluster
+//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_26(),
+//   	DefaultCapacity: jsii.Number(0),
+//   })
 //
-//   cluster.AddNodegroupCapacity(jsii.String("extra-ng-spot"), &NodegroupOptions{
+//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
 //   	InstanceTypes: []instanceType{
-//   		ec2.NewInstanceType(jsii.String("c5.large")),
-//   		ec2.NewInstanceType(jsii.String("c5a.large")),
-//   		ec2.NewInstanceType(jsii.String("c5d.large")),
+//   		ec2.NewInstanceType(jsii.String("m5.large")),
 //   	},
-//   	MinSize: jsii.Number(3),
-//   	CapacityType: eks.CapacityType_SPOT,
+//   	MinSize: jsii.Number(4),
+//   	DiskSize: jsii.Number(100),
+//   	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 //   })
 //
 type NodegroupOptions struct {

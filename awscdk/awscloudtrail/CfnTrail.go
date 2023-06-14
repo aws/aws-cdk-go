@@ -100,7 +100,9 @@ import (
 type CfnTrail interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::CloudTrail::Trail.AdvancedEventSelectors`.
+	// Specifies the settings for advanced event selectors.
+	//
+	// You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. You can use either `AdvancedEventSelectors` or `EventSelectors` , but not both. If you apply `AdvancedEventSelectors` to a trail, any existing `EventSelectors` are overwritten. For more information about advanced event selectors, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide* .
 	AdvancedEventSelectors() interface{}
 	SetAdvancedEventSelectors(val interface{})
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .

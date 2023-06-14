@@ -73,6 +73,10 @@ type ICluster interface {
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId() *string
+	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	IpFamily() IpFamily
 	// Custom environment variables when running `kubectl` against this cluster.
 	KubectlEnvironment() *map[string]*string
 	// An IAM role that can perform kubectl operations against this cluster.
@@ -304,6 +308,16 @@ func (j *jsiiProxy_ICluster) ClusterSecurityGroupId() *string {
 	_jsii_.Get(
 		j,
 		"clusterSecurityGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICluster) IpFamily() IpFamily {
+	var returns IpFamily
+	_jsii_.Get(
+		j,
+		"ipFamily",
 		&returns,
 	)
 	return returns

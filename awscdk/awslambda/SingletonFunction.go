@@ -42,6 +42,7 @@ import (
 //   var key key
 //   var lambdaInsightsVersion lambdaInsightsVersion
 //   var layerVersion layerVersion
+//   var paramsAndSecretsLayerVersion paramsAndSecretsLayerVersion
 //   var policyStatement policyStatement
 //   var profilingGroup profilingGroup
 //   var queue queue
@@ -112,6 +113,7 @@ import (
 //   	MemorySize: jsii.Number(123),
 //   	OnFailure: destination,
 //   	OnSuccess: destination,
+//   	ParamsAndSecrets: paramsAndSecretsLayerVersion,
 //   	Profiling: jsii.Boolean(false),
 //   	ProfilingGroup: profilingGroup,
 //   	ReservedConcurrentExecutions: jsii.Number(123),

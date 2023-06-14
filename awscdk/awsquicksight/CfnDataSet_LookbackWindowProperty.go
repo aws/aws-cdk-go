@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// The lookback window setup of an incremental refresh configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,13 +13,11 @@ package awsquicksight
 //   }
 //
 type CfnDataSet_LookbackWindowProperty struct {
-	// The name of the lookback window column.
+	// `CfnDataSet.LookbackWindowProperty.ColumnName`.
 	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
-	// The lookback window column size.
+	// `CfnDataSet.LookbackWindowProperty.Size`.
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
-	// The size unit that is used for the lookback window column.
-	//
-	// Valid values for this structure are `HOUR` , `DAY` , and `WEEK` .
+	// `CfnDataSet.LookbackWindowProperty.SizeUnit`.
 	SizeUnit *string `field:"optional" json:"sizeUnit" yaml:"sizeUnit"`
 }
 

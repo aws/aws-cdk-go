@@ -20,17 +20,20 @@ import (
 //   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(
-//   targets.NewEcsTask(&EcsTaskProps{
-//   	Cluster: cluster,
-//   	TaskDefinition: taskDefinition,
-//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
-//   	Tags: []tag{
-//   		&tag{
-//   			Key: jsii.String("my-tag"),
-//   			Value: jsii.String("my-tag-value"),
+//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	TaskCount: jsii.Number(1),
+//   	ContainerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			ContainerName: jsii.String("TheContainer"),
+//   			Command: []*string{
+//   				jsii.String("echo"),
+//   				events.EventField_FromPath(jsii.String("$.detail.event")),
+//   			},
 //   		},
 //   	},
+//   	EnableExecuteCommand: jsii.Boolean(true),
 //   }))
 //
 type EcsTaskProps struct {
@@ -54,6 +57,10 @@ type EcsTaskProps struct {
 	Cluster awsecs.ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// Task Definition of the task that should be started.
 	TaskDefinition awsecs.ITaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
+	// Specifies whether the task's elastic network interface receives a public IP address.
+	//
+	// You can specify true only when LaunchType is set to FARGATE.
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the

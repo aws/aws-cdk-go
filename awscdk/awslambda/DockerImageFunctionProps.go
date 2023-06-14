@@ -120,6 +120,10 @@ type DockerImageFunctionProps struct {
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
+	// Specify the configuration of Parameters and Secrets Extension.
+	// See: https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-integration-lambda-extensions.html
+	//
+	ParamsAndSecrets ParamsAndSecretsLayerVersion `field:"optional" json:"paramsAndSecrets" yaml:"paramsAndSecrets"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//

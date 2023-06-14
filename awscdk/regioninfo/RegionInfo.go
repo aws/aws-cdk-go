@@ -45,6 +45,8 @@ type RegionInfo interface {
 	AdotLambdaLayerArn(type_ *string, version *string, architecture *string) *string
 	// The ARN of the CloudWatch Lambda Insights extension, for the given version.
 	CloudwatchLambdaInsightsArn(insightsVersion *string, architecture *string) *string
+	// The ARN of the Parameters and Secrets Lambda layer for the given lambda architecture.
+	ParamsAndSecretsLambdaLayerArn(version *string, architecture *string) *string
 	// The name of the service principal for a given service in this region.
 	ServicePrincipal(service *string) *string
 }
@@ -285,6 +287,22 @@ func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *stri
 		r,
 		"cloudwatchLambdaInsightsArn",
 		[]interface{}{insightsVersion, architecture},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RegionInfo) ParamsAndSecretsLambdaLayerArn(version *string, architecture *string) *string {
+	if err := r.validateParamsAndSecretsLambdaLayerArnParameters(version, architecture); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"paramsAndSecretsLambdaLayerArn",
+		[]interface{}{version, architecture},
 		&returns,
 	)
 

@@ -12,6 +12,10 @@ func validateFactName_CloudwatchLambdaInsightsVersionParameters(version *string)
 	return nil
 }
 
+func validateFactName_ParamsAndSecretsLambdaLayerParameters(version *string, architecture *string) error {
+	return nil
+}
+
 func validateFactName_ServicePrincipalParameters(service *string) error {
 	return nil
 }

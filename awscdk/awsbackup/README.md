@@ -114,6 +114,18 @@ plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 }))
 ```
 
+You can assign your own metadata to the resources that are associated with the rule when restored from backup using `recoveryPointTags`. Each tag is a key-value pair.
+
+```go
+var plan backupPlan
+
+plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+	RecoveryPointTags: map[string]*string{
+		"key": jsii.String("value"),
+	},
+}))
+```
+
 Ready-made rules are also available:
 
 ```go

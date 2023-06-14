@@ -1664,6 +1664,36 @@ func init() {
 		"aws-cdk-lib.aws_lambda.LogRetentionRetryOptions",
 		reflect.TypeOf((*LogRetentionRetryOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion",
+		reflect.TypeOf((*ParamsAndSecretsLayerVersion)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ParamsAndSecretsLayerVersion{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.ParamsAndSecretsLogLevel",
+		reflect.TypeOf((*ParamsAndSecretsLogLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"DEBUG": ParamsAndSecretsLogLevel_DEBUG,
+			"INFO": ParamsAndSecretsLogLevel_INFO,
+			"WARN": ParamsAndSecretsLogLevel_WARN,
+			"ERROR": ParamsAndSecretsLogLevel_ERROR,
+			"NONE": ParamsAndSecretsLogLevel_NONE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.ParamsAndSecretsOptions",
+		reflect.TypeOf((*ParamsAndSecretsOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.ParamsAndSecretsVersions",
+		reflect.TypeOf((*ParamsAndSecretsVersions)(nil)).Elem(),
+		map[string]interface{}{
+			"V1_0_103": ParamsAndSecretsVersions_V1_0_103,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.Permission",
 		reflect.TypeOf((*Permission)(nil)).Elem(),

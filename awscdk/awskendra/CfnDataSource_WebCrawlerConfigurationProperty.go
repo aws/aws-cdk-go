@@ -69,11 +69,9 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	//
 	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
 	AuthenticationConfiguration interface{} `field:"optional" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
-	// Specifies the number of levels in a website that you want to crawl.
+	// The 'depth' or number of levels from the seed level to crawl.
 	//
-	// The first level begins from the website seed or starting point URL. For example, if a website has three levels—index level (the seed in this example), sections level, and subsections level—and you are only interested in crawling information up to the sections level (levels 0-1), you can set your depth to 1.
-	//
-	// The default crawl depth is set to 2.
+	// For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
 	CrawlDepth *float64 `field:"optional" json:"crawlDepth" yaml:"crawlDepth"`
 	// The maximum size (in MB) of a web page or attachment to crawl.
 	//

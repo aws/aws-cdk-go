@@ -30,5 +30,11 @@ const (
 	//
 	// If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
 	BucketEncryption_KMS BucketEncryption = "KMS"
+	// Double server-side KMS encryption with a master key managed by KMS.
+	BucketEncryption_DSSE_MANAGED BucketEncryption = "DSSE_MANAGED"
+	// Double server-side encryption with a KMS key managed by the user.
+	//
+	// If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
+	BucketEncryption_DSSE BucketEncryption = "DSSE"
 )
 

@@ -51,7 +51,7 @@ type ExecuteCommandLogConfiguration struct {
 	//
 	// The S3 bucket must already be created.
 	S3Bucket awss3.IBucket `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
-	// Whether or not to enable encryption on the CloudWatch logs.
+	// Whether or not to enable encryption on the S3 bucket.
 	S3EncryptionEnabled *bool `field:"optional" json:"s3EncryptionEnabled" yaml:"s3EncryptionEnabled"`
 	// An optional folder in the S3 bucket to place logs in.
 	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`

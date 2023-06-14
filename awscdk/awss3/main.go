@@ -163,6 +163,8 @@ func init() {
 			"KMS_MANAGED": BucketEncryption_KMS_MANAGED,
 			"S3_MANAGED": BucketEncryption_S3_MANAGED,
 			"KMS": BucketEncryption_KMS,
+			"DSSE_MANAGED": BucketEncryption_DSSE_MANAGED,
+			"DSSE": BucketEncryption_DSSE,
 		},
 	)
 	_jsii_.RegisterStruct(

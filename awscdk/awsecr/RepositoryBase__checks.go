@@ -76,6 +76,14 @@ func (r *jsiiProxy_RepositoryBase) validateGrantPullPushParameters(grantee awsia
 	return nil
 }
 
+func (r *jsiiProxy_RepositoryBase) validateGrantPushParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_RepositoryBase) validateGrantReadParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

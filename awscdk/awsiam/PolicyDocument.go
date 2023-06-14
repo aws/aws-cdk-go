@@ -11,17 +11,15 @@ import (
 // A PolicyDocument is a collection of statements.
 //
 // Example:
-//   myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
-//   // Creates a limited admin policy and assigns to the account root.
-//   myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
 //   	Statements: []policyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
-//   				jsii.String("kms:Create*"),
-//   				jsii.String("kms:Describe*"),
-//   				jsii.String("kms:Enable*"),
-//   				jsii.String("kms:List*"),
-//   				jsii.String("kms:Put*"),
+//   				jsii.String("elasticfilesystem:ClientWrite"),
+//   				jsii.String("elasticfilesystem:ClientMount"),
 //   			},
 //   			Principals: []iPrincipal{
 //   				iam.NewAccountRootPrincipal(),
@@ -29,11 +27,18 @@ import (
 //   			Resources: []*string{
 //   				jsii.String("*"),
 //   			},
+//   			Conditions: map[string]interface{}{
+//   				"Bool": map[string]*string{
+//   					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
+//   				},
+//   			},
 //   		}),
 //   	},
 //   })
-//   key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
-//   	Policy: myCustomPolicy,
+//
+//   fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
+//   	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
+//   	FileSystemPolicy: myFileSystemPolicy,
 //   })
 //
 type PolicyDocument interface {

@@ -100,6 +100,10 @@ type FargateCluster interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	IpFamily() IpFamily
 	// Custom environment variables when running `kubectl` against this cluster.
 	KubectlEnvironment() *map[string]*string
 	// An IAM role that can perform kubectl operations against this cluster.
@@ -428,6 +432,16 @@ func (j *jsiiProxy_FargateCluster) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateCluster) IpFamily() IpFamily {
+	var returns IpFamily
+	_jsii_.Get(
+		j,
+		"ipFamily",
 		&returns,
 	)
 	return returns

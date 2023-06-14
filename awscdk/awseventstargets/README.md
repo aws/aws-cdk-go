@@ -405,6 +405,35 @@ targets.NewEcsTask(&EcsTaskProps{
 }))
 ```
 
+### Assign public IP addresses to tasks
+
+You can set the `assignPublicIp` flag to assign public IP addresses to tasks.
+If you want to detach the public IP address from the task, you have to set the flag `false`.
+You can specify the flag `true` only when the launch type is set to FARGATE.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import ecs "github.com/aws/aws-cdk-go/awscdk"
+var cluster iCluster
+var taskDefinition taskDefinition
+var rule rule
+
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(
+targets.NewEcsTask(&EcsTaskProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	AssignPublicIp: jsii.Boolean(true),
+	SubnetSelection: &SubnetSelection{
+		SubnetType: ec2.subnetType_PUBLIC,
+	},
+}))
+```
+
 ### enable Amazon ECS Exec for ECS Task
 
 If you use Amazon ECS Exec, you can run commands in or get a shell to a container running on an Amazon EC2 instance or on AWS Fargate.
@@ -413,8 +442,11 @@ If you use Amazon ECS Exec, you can run commands in or get a shell to a containe
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 var cluster iCluster
 var taskDefinition taskDefinition
-var rule rule
 
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
 
 rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 	Cluster: Cluster,

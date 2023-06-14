@@ -492,6 +492,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getServiceLoadBalancerAddress", GoMethod: "GetServiceLoadBalancerAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlEnvironment", GoGetter: "KubectlEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLambdaRole", GoGetter: "KubectlLambdaRole"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLayer", GoGetter: "KubectlLayer"},
@@ -630,6 +631,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getServiceLoadBalancerAddress", GoMethod: "GetServiceLoadBalancerAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlEnvironment", GoGetter: "KubectlEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLambdaRole", GoGetter: "KubectlLambdaRole"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLayer", GoGetter: "KubectlLayer"},
@@ -725,6 +727,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "connectAutoScalingGroupCapacity", GoMethod: "ConnectAutoScalingGroupCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlEnvironment", GoGetter: "KubectlEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLambdaRole", GoGetter: "KubectlLambdaRole"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLayer", GoGetter: "KubectlLayer"},
@@ -781,6 +784,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.IngressLoadBalancerAddressOptions",
 		reflect.TypeOf((*IngressLoadBalancerAddressOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_eks.IpFamily",
+		reflect.TypeOf((*IpFamily)(nil)).Elem(),
+		map[string]interface{}{
+			"IP_V4": IpFamily_IP_V4,
+			"IP_V6": IpFamily_IP_V6,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_eks.KubectlProvider",

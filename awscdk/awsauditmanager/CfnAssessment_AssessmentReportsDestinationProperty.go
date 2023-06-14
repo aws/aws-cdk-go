@@ -14,7 +14,7 @@ package awsauditmanager
 //   }
 //
 type CfnAssessment_AssessmentReportsDestinationProperty struct {
-	// The destination of the assessment report.
+	// The destination bucket where Audit Manager stores assessment reports.
 	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 	// The destination type, such as Amazon S3.
 	DestinationType *string `field:"optional" json:"destinationType" yaml:"destinationType"`

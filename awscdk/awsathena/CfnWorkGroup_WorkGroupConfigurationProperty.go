@@ -58,7 +58,9 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	EnforceWorkGroupConfiguration interface{} `field:"optional" json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	EngineVersion interface{} `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// Role used in an Apache Spark session for accessing the user's resources.
+	// Role used to access user resources in an Athena for Apache Spark session.
+	//
+	// This property applies only to Spark-enabled workgroups in Athena.
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	PublishCloudWatchMetricsEnabled interface{} `field:"optional" json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`

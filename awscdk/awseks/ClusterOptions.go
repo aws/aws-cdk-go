@@ -55,6 +55,7 @@ import (
 //   	ClusterName: jsii.String("clusterName"),
 //   	CoreDnsComputeType: awscdk.*Aws_eks.CoreDnsComputeType_EC2,
 //   	EndpointAccess: endpointAccess,
+//   	IpFamily: awscdk.*Aws_eks.IpFamily_IP_V4,
 //   	KubectlEnvironment: map[string]*string{
 //   		"kubectlEnvironmentKey": jsii.String("kubectlEnvironment"),
 //   	},
@@ -144,6 +145,10 @@ type ClusterOptions struct {
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
 	EndpointAccess EndpointAccess `field:"optional" json:"endpointAccess" yaml:"endpointAccess"`
+	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	IpFamily IpFamily `field:"optional" json:"ipFamily" yaml:"ipFamily"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.

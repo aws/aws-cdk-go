@@ -24,9 +24,9 @@ package awsfsx
 //   }
 //
 type CfnFileSystem_LustreConfigurationProperty struct {
-	// (Optional) Available with `Scratch` and `Persistent_1` deployment types.
+	// (Optional) When you create your file system, your existing S3 objects appear as file and directory listings.
 	//
-	// When you create your file system, your existing S3 objects appear as file and directory listings. Use this property to choose how Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. `AutoImportPolicy` can have the following values:
+	// Use this property to choose how Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. `AutoImportPolicy` can have the following values:
 	//
 	// - `NONE` - (Default) AutoImport is off. Amazon FSx only updates file and directory listings from the linked S3 bucket when the file system is created. FSx does not update file and directory listings for any new or changed objects after choosing this option.
 	// - `NEW` - AutoImport is on. Amazon FSx automatically imports directory listings of any new objects added to the linked S3 bucket that do not currently exist in the FSx file system.
@@ -35,7 +35,7 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	//
 	// For more information, see [Automatically import updates from your S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) .
 	//
-	// > This parameter is not supported for Lustre file systems using the `Persistent_2` deployment type.
+	// > This parameter is not supported for Lustre file systems with a data repository association.
 	AutoImportPolicy *string `field:"optional" json:"autoImportPolicy" yaml:"autoImportPolicy"`
 	// The number of days to retain automatic backups.
 	//
@@ -76,13 +76,13 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	//
 	// This parameter is required when `StorageType` is set to `HDD` and `DeploymentType` is `PERSISTENT_1` .
 	DriveCacheType *string `field:"optional" json:"driveCacheType" yaml:"driveCacheType"`
-	// (Optional) Available with `Scratch` and `Persistent_1` deployment types.
+	// (Optional) Specifies the path in the Amazon S3 bucket where the root of your Amazon FSx file system is exported.
 	//
-	// Specifies the path in the Amazon S3 bucket where the root of your Amazon FSx file system is exported. The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which new and changed data is to be exported from your Amazon FSx for Lustre file system. If an `ExportPath` value is not provided, Amazon FSx sets a default export path, `s3://import-bucket/FSxLustre[creation-timestamp]` . The timestamp is in UTC format, for example `s3://import-bucket/FSxLustre20181105T222312Z` .
+	// The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which new and changed data is to be exported from your Amazon FSx for Lustre file system. If an `ExportPath` value is not provided, Amazon FSx sets a default export path, `s3://import-bucket/FSxLustre[creation-timestamp]` . The timestamp is in UTC format, for example `s3://import-bucket/FSxLustre20181105T222312Z` .
 	//
 	// The Amazon S3 export bucket must be the same as the import bucket specified by `ImportPath` . If you specify only a bucket name, such as `s3://import-bucket` , you get a 1:1 mapping of file system objects to S3 bucket objects. This mapping means that the input data in S3 is overwritten on export. If you provide a custom prefix in the export path, such as `s3://import-bucket/[custom-optional-prefix]` , Amazon FSx exports the contents of your file system to that export prefix in the Amazon S3 bucket.
 	//
-	// > This parameter is not supported for file systems using the `Persistent_2` deployment type.
+	// > This parameter is not supported for file systems with a data repository association.
 	ExportPath *string `field:"optional" json:"exportPath" yaml:"exportPath"`
 	// (Optional) For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
@@ -90,13 +90,13 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	//
 	// The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	//
-	// > This parameter is not supported for Lustre file systems using the `Persistent_2` deployment type.
+	// > This parameter is not supported for Lustre file systems with a data repository association.
 	ImportedFileChunkSize *float64 `field:"optional" json:"importedFileChunkSize" yaml:"importedFileChunkSize"`
 	// (Optional) The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system.
 	//
 	// The root of your FSx for Lustre file system will be mapped to the root of the Amazon S3 bucket you select. An example is `s3://import-bucket/optional-prefix` . If you specify a prefix after the Amazon S3 bucket name, only object keys with that prefix are loaded into the file system.
 	//
-	// > This parameter is not supported for Lustre file systems using the `Persistent_2` deployment type.
+	// > This parameter is not supported for Lustre file systems with a data repository association.
 	ImportPath *string `field:"optional" json:"importPath" yaml:"importPath"`
 	// Required with `PERSISTENT_1` and `PERSISTENT_2` deployment types, provisions the amount of read and write throughput for each 1 tebibyte (TiB) of file system storage capacity, in MB/s/TiB.
 	//

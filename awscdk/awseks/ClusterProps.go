@@ -11,17 +11,18 @@ import (
 // Common configuration props for EKS clusters.
 //
 // Example:
-//   var vpc vpc
-//
-//
-//   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 //   	Version: eks.KubernetesVersion_V1_26(),
-//   	Vpc: Vpc,
-//   	VpcSubnets: []subnetSelection{
-//   		&subnetSelection{
-//   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   		},
+//   	DefaultCapacity: jsii.Number(0),
+//   })
+//
+//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+//   	InstanceTypes: []instanceType{
+//   		ec2.NewInstanceType(jsii.String("m5.large")),
 //   	},
+//   	MinSize: jsii.Number(4),
+//   	DiskSize: jsii.Number(100),
+//   	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 //   })
 //
 type ClusterProps struct {
@@ -78,6 +79,10 @@ type ClusterProps struct {
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
 	EndpointAccess EndpointAccess `field:"optional" json:"endpointAccess" yaml:"endpointAccess"`
+	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
+	//
+	IpFamily IpFamily `field:"optional" json:"ipFamily" yaml:"ipFamily"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.

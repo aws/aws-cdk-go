@@ -97,7 +97,9 @@ type CfnEventDataStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::CloudTrail::EventDataStore.IngestionEnabled`.
+	// Specifies whether the event data store should start ingesting live events.
+	//
+	// The default is true.
 	IngestionEnabled() interface{}
 	SetIngestionEnabled(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.

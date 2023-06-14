@@ -628,6 +628,70 @@ lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 })
 ```
 
+### Parameters and Secrets Extension
+
+Lambda functions can be configured to use the Parameters and Secrets Extension. The Parameters and Secrets Extension can be used to retrieve and cache [secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_lambda.html) from Secrets Manager or [parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-integration-lambda-extensions.html) from Parameter Store in Lambda functions without using an SDK.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import sm "github.com/aws/aws-cdk-go/awscdk"
+import ssm "github.com/aws/aws-cdk-go/awscdk"
+
+
+secret := sm.NewSecret(stack, jsii.String("Secret"))
+parameter := ssm.NewStringParameter(stack, jsii.String("Parameter"), &StringParameterProps{
+	ParameterName: jsii.String("mySsmParameterName"),
+	StringValue: jsii.String("mySsmParameterValue"),
+})
+
+paramsAndSecrets := lambda.ParamsAndSecretsLayerVersion_FromVersion(lambda.ParamsAndSecretsVersions_V1_0_103, &ParamsAndSecretsOptions{
+	CacheSize: jsii.Number(500),
+	LogLevel: lamabda.paramsAndSecretsLogLevel_DEBUG,
+})
+
+lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Handler: jsii.String("index.handler"),
+	Architecture: lambda.Architecture_ARM_64(),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+	ParamsAndSecrets: ParamsAndSecrets,
+})
+
+secret.grantRead(lambdaFunction)
+parameter.grantRead(lambdaFunction)
+```
+
+If the version of Parameters and Secrets Extension is not yet available in the CDK, you can also provide the ARN directly as so:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import sm "github.com/aws/aws-cdk-go/awscdk"
+import ssm "github.com/aws/aws-cdk-go/awscdk"
+
+
+secret := sm.NewSecret(stack, jsii.String("Secret"))
+parameter := ssm.NewStringParameter(stack, jsii.String("Parameter"), &StringParameterProps{
+	ParameterName: jsii.String("mySsmParameterName"),
+	StringValue: jsii.String("mySsmParameterValue"),
+})
+
+layerArn := "arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4"
+paramsAndSecrets := lambda.ParamsAndSecretsLayerVersion_FromVersionArn(layerArn, &ParamsAndSecretsOptions{
+	CacheSize: jsii.Number(500),
+})
+
+lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Handler: jsii.String("index.handler"),
+	Architecture: lambda.Architecture_ARM_64(),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+	ParamsAndSecrets: ParamsAndSecrets,
+})
+
+secret.grantRead(lambdaFunction)
+parameters.grantRead(lambdaFunction)
+```
+
 ## Event Rule Target
 
 You can use an AWS Lambda function as a target for an Amazon CloudWatch event

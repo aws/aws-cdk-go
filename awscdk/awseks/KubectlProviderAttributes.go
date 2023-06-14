@@ -8,8 +8,10 @@ import (
 //
 // Example:
 //   handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
+//   // get the serivceToken from the custom resource provider
+//   functionArn := lambda.Function_FromFunctionName(this, jsii.String("ProviderOnEventFunc"), jsii.String("ProviderframeworkonEvent-XXX")).FunctionArn
 //   kubectlProvider := eks.KubectlProvider_FromKubectlProviderAttributes(this, jsii.String("KubectlProvider"), &KubectlProviderAttributes{
-//   	FunctionArn: jsii.String("arn:aws:lambda:us-east-2:123456789012:function:my-function:1"),
+//   	FunctionArn: jsii.String(FunctionArn),
 //   	KubectlRoleArn: jsii.String("arn:aws:iam::123456789012:role/kubectl-role"),
 //   	HandlerRole: HandlerRole,
 //   })
@@ -20,7 +22,7 @@ import (
 //   })
 //
 type KubectlProviderAttributes struct {
-	// The kubectl provider lambda arn.
+	// The custom resource provider's service token.
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The IAM execution role of the handler.
 	//

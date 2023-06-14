@@ -70,7 +70,9 @@ type CfnEventDataStoreProps struct {
 	//
 	// For more information about how to use advanced event selectors to include non- AWS events in your event data store, see [Create an integration to log events from outside AWS](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration) in the CloudTrail User Guide.
 	AdvancedEventSelectors interface{} `field:"optional" json:"advancedEventSelectors" yaml:"advancedEventSelectors"`
-	// `AWS::CloudTrail::EventDataStore.IngestionEnabled`.
+	// Specifies whether the event data store should start ingesting live events.
+	//
+	// The default is true.
 	IngestionEnabled interface{} `field:"optional" json:"ingestionEnabled" yaml:"ingestionEnabled"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
 	//

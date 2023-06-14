@@ -36,6 +36,10 @@ func (r *jsiiProxy_Repository) validateGrantPullPushParameters(grantee awsiam.IG
 	return nil
 }
 
+func (r *jsiiProxy_Repository) validateGrantPushParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (r *jsiiProxy_Repository) validateGrantReadParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

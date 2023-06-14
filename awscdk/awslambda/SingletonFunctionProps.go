@@ -36,6 +36,7 @@ import (
 //   var key key
 //   var lambdaInsightsVersion lambdaInsightsVersion
 //   var layerVersion layerVersion
+//   var paramsAndSecretsLayerVersion paramsAndSecretsLayerVersion
 //   var policyStatement policyStatement
 //   var profilingGroup profilingGroup
 //   var queue queue
@@ -106,6 +107,7 @@ import (
 //   	MemorySize: jsii.Number(123),
 //   	OnFailure: destination,
 //   	OnSuccess: destination,
+//   	ParamsAndSecrets: paramsAndSecretsLayerVersion,
 //   	Profiling: jsii.Boolean(false),
 //   	ProfilingGroup: profilingGroup,
 //   	ReservedConcurrentExecutions: jsii.Number(123),
@@ -236,6 +238,10 @@ type SingletonFunctionProps struct {
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
+	// Specify the configuration of Parameters and Secrets Extension.
+	// See: https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-integration-lambda-extensions.html
+	//
+	ParamsAndSecrets ParamsAndSecretsLayerVersion `field:"optional" json:"paramsAndSecrets" yaml:"paramsAndSecrets"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
