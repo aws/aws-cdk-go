@@ -12,8 +12,10 @@ package cloudassemblyschema
 //   	File: jsii.String("file"),
 //   }
 //
+// Experimental.
 type TreeArtifactProperties struct {
 	// Filename of the tree artifact.
+	// Experimental.
 	File *string `field:"required" json:"file" yaml:"file"`
 }
 

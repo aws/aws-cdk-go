@@ -4,8 +4,6 @@ package awscdk
 
 import (
 	"fmt"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (a *jsiiProxy_Aspects) validateAddParameters(aspect IAspect) error {
@@ -16,7 +14,7 @@ func (a *jsiiProxy_Aspects) validateAddParameters(aspect IAspect) error {
 	return nil
 }
 
-func validateAspects_OfParameters(scope constructs.IConstruct) error {
+func validateAspects_OfParameters(scope IConstruct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

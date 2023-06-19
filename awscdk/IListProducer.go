@@ -5,8 +5,10 @@ import (
 )
 
 // Interface for lazy list producers.
+// Experimental.
 type IListProducer interface {
 	// Produce the list value.
+	// Experimental.
 	Produce(context IResolveContext) *[]*string
 }
 

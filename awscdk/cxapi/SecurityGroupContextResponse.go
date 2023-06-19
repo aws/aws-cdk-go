@@ -13,14 +13,17 @@ package cxapi
 //   	SecurityGroupId: jsii.String("securityGroupId"),
 //   }
 //
+// Experimental.
 type SecurityGroupContextResponse struct {
 	// Whether the security group allows all outbound traffic.
 	//
 	// This will be true
 	// when the security group has all-protocol egress permissions to access both
 	// `0.0.0.0/0` and `::/0`.
+	// Experimental.
 	AllowAllOutbound *bool `field:"required" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// The security group's id.
+	// Experimental.
 	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
 }
 

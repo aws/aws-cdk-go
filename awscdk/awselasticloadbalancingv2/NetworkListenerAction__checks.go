@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (n *jsiiProxy_NetworkListenerAction) validateBindParameters(scope constructs.Construct, listener INetworkListener) error {
+func (n *jsiiProxy_NetworkListenerAction) validateBindParameters(scope awscdk.Construct, listener INetworkListener) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -64,11 +64,11 @@ func validateNetworkListenerAction_WeightedForwardParameters(targetGroups *[]*Ne
 	return nil
 }
 
-func validateNewNetworkListenerActionParameters(defaultActionJson *CfnListener_ActionProperty) error {
-	if defaultActionJson == nil {
-		return fmt.Errorf("parameter defaultActionJson is required, but nil was provided")
+func validateNewNetworkListenerActionParameters(actionJson *CfnListener_ActionProperty) error {
+	if actionJson == nil {
+		return fmt.Errorf("parameter actionJson is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(defaultActionJson, func() string { return "parameter defaultActionJson" }); err != nil {
+	if err := _jsii_.ValidateStruct(actionJson, func() string { return "parameter actionJson" }); err != nil {
 		return err
 	}
 

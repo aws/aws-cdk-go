@@ -19,13 +19,16 @@ package awsecs
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html
 //
+// Experimental.
 type ContainerDependency struct {
 	// The container to depend on.
+	// Experimental.
 	Container ContainerDefinition `field:"required" json:"container" yaml:"container"`
 	// The state the container needs to be in to satisfy the dependency and proceed with startup.
 	//
 	// Valid values are ContainerDependencyCondition.START, ContainerDependencyCondition.COMPLETE,
 	// ContainerDependencyCondition.SUCCESS and ContainerDependencyCondition.HEALTHY.
+	// Experimental.
 	Condition ContainerDependencyCondition `field:"optional" json:"condition" yaml:"condition"`
 }
 

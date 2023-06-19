@@ -46,12 +46,15 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html
 //
+// Experimental.
 type MessageAttribute struct {
 	// The value of the attribute.
+	// Experimental.
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The data type for the attribute.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
+	// Experimental.
 	DataType MessageAttributeDataType `field:"optional" json:"dataType" yaml:"dataType"`
 }
 

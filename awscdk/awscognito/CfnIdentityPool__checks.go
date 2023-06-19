@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnIdentityPool) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnIdentityPool) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnIdentityPool) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnIdentityPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPool) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnIdentityPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnIdentityPool) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPool) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnIdentityPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -232,8 +220,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnIdentityPool_CognitoIdentityProviderProperty:
 				v := v.(*CfnIdentityPool_CognitoIdentityProviderProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -245,9 +231,11 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_CognitoIdentityProviderProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnIdentityPool_CognitoIdentityProviderProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -256,8 +244,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnIdentityPool_CognitoIdentityProviderProperty:
 				v := v.(*CfnIdentityPool_CognitoIdentityProviderProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -269,9 +255,11 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_CognitoIdentityProviderProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnIdentityPool_CognitoIdentityProviderProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -286,8 +274,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameter
 
 func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnIdentityPool_CognitoStreamsProperty:
 		val := val.(*CfnIdentityPool_CognitoStreamsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -299,9 +285,11 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_CognitoStreamsProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIdentityPool_CognitoStreamsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -310,8 +298,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val inte
 
 func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnIdentityPool_PushSyncProperty:
 		val := val.(*CfnIdentityPool_PushSyncProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -323,9 +309,11 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityPool_PushSyncProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIdentityPool_PushSyncProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -340,7 +328,7 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetSupportedLoginProvidersParameters
 	return nil
 }
 
-func validateNewCfnIdentityPoolParameters(scope constructs.Construct, id *string, props *CfnIdentityPoolProps) error {
+func validateNewCfnIdentityPoolParameters(scope awscdk.Construct, id *string, props *CfnIdentityPoolProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -3,21 +3,28 @@ package awscdk
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
 )
 
 // Represents a single session of synthesis.
 //
 // Passed into `Construct.synthesize()` methods.
+// Experimental.
 type ISynthesisSession interface {
 	// Cloud assembly builder.
+	// Experimental.
 	Assembly() cxapi.CloudAssemblyBuilder
+	// Experimental.
 	SetAssembly(a cxapi.CloudAssemblyBuilder)
 	// The output directory for this synthesis session.
+	// Experimental.
 	Outdir() *string
+	// Experimental.
 	SetOutdir(o *string)
 	// Whether the stack should be validated after synthesis to check for error metadata.
+	// Experimental.
 	ValidateOnSynth() *bool
+	// Experimental.
 	SetValidateOnSynth(v *bool)
 }
 

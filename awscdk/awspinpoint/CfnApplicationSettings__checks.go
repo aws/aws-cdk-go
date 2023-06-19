@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnApplicationSettings) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnApplicationSettings) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnApplicationSettings) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnApplicationSettings) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationSettings) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnApplicationSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnApplicationSettings) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationSettings) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnApplicationSettings) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -189,8 +177,6 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetApplicationIdParameters(va
 
 func (j *jsiiProxy_CfnApplicationSettings) validateSetCampaignHookParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnApplicationSettings_CampaignHookProperty:
 		val := val.(*CfnApplicationSettings_CampaignHookProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -202,9 +188,11 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetCampaignHookParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationSettings_CampaignHookProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationSettings_CampaignHookProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -230,8 +218,6 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetCloudWatchMetricsEnabledPa
 
 func (j *jsiiProxy_CfnApplicationSettings) validateSetLimitsParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnApplicationSettings_LimitsProperty:
 		val := val.(*CfnApplicationSettings_LimitsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -243,9 +229,11 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetLimitsParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationSettings_LimitsProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationSettings_LimitsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -254,8 +242,6 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetLimitsParameters(val inter
 
 func (j *jsiiProxy_CfnApplicationSettings) validateSetQuietTimeParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnApplicationSettings_QuietTimeProperty:
 		val := val.(*CfnApplicationSettings_QuietTimeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -267,16 +253,18 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetQuietTimeParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationSettings_QuietTimeProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationSettings_QuietTimeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnApplicationSettingsParameters(scope constructs.Construct, id *string, props *CfnApplicationSettingsProps) error {
+func validateNewCfnApplicationSettingsParameters(scope awscdk.Construct, id *string, props *CfnApplicationSettingsProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

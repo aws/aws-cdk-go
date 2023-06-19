@@ -31,10 +31,13 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type ServiceDiscoveryConfig struct {
 	// Cloud Map based Service Discovery.
+	// Experimental.
 	Cloudmap *CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty `field:"optional" json:"cloudmap" yaml:"cloudmap"`
 	// DNS based Service Discovery.
+	// Experimental.
 	Dns *CfnVirtualNode_DnsServiceDiscoveryProperty `field:"optional" json:"dns" yaml:"dns"`
 }
 

@@ -7,12 +7,28 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
+
+func (s *jsiiProxy_Stage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
 
 func (s *jsiiProxy_Stage) validateSynthParameters(options *StageSynthesisOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateSynthesizeParameters(session ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

@@ -3,20 +3,25 @@ package awscodedeploy
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodedeploy/internal"
 )
 
 // Interface for a Lambda deployment groups.
+// Experimental.
 type ILambdaDeploymentGroup interface {
 	awscdk.IResource
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
+	// Experimental.
 	Application() ILambdaApplication
 	// The Deployment Configuration this Group uses.
+	// Experimental.
 	DeploymentConfig() ILambdaDeploymentConfig
 	// The ARN of this Deployment Group.
+	// Experimental.
 	DeploymentGroupArn() *string
 	// The physical name of the CodeDeploy Deployment Group.
+	// Experimental.
 	DeploymentGroupName() *string
 }
 

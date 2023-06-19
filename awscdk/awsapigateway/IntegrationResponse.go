@@ -20,23 +20,27 @@ package awsapigateway
 //   	SelectionPattern: jsii.String("selectionPattern"),
 //   }
 //
+// Experimental.
 type IntegrationResponse struct {
 	// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+	// Experimental.
 	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// Specifies how to handle request payload content type conversions.
+	// Experimental.
 	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// The response parameters from the backend response that API Gateway sends to the method response.
 	//
 	// Use the destination as the key and the source as the value:
 	//
 	// - The destination must be an existing response parameter in the
-	//   MethodResponse property.
+	//    MethodResponse property.
 	// - The source must be an existing method request parameter or a static
-	//   value. You must enclose static values in single quotation marks and
-	//   pre-encode these values based on the destination specified in the
-	//   request.
+	//    value. You must enclose static values in single quotation marks and
+	//    pre-encode these values based on the destination specified in the
+	//    request.
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
 	//
+	// Experimental.
 	ResponseParameters *map[string]*string `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The templates that are used to transform the integration response body.
 	//
@@ -44,6 +48,7 @@ type IntegrationResponse struct {
 	// a template as the value.
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
+	// Experimental.
 	ResponseTemplates *map[string]*string `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end.
 	//
@@ -53,6 +58,7 @@ type IntegrationResponse struct {
 	// header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-integration-settings-integration-response.html
 	//
+	// Experimental.
 	SelectionPattern *string `field:"optional" json:"selectionPattern" yaml:"selectionPattern"`
 }
 

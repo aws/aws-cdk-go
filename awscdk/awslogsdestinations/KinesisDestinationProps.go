@@ -1,7 +1,7 @@
 package awslogsdestinations
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Customize the Kinesis Logs Destination.
@@ -18,8 +18,10 @@ import (
 //   	Role: role,
 //   }
 //
+// Experimental.
 type KinesisDestinationProps struct {
 	// The role to assume to write log events to the destination.
+	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

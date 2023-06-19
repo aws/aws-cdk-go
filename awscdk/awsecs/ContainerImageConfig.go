@@ -17,10 +17,13 @@ package awsecs
 //   	},
 //   }
 //
+// Experimental.
 type ContainerImageConfig struct {
 	// Specifies the name of the container image.
+	// Experimental.
 	ImageName *string `field:"required" json:"imageName" yaml:"imageName"`
 	// Specifies the credentials used to access the image repository.
+	// Experimental.
 	RepositoryCredentials *CfnTaskDefinition_RepositoryCredentialsProperty `field:"optional" json:"repositoryCredentials" yaml:"repositoryCredentials"`
 }
 

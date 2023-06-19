@@ -88,6 +88,14 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) validateNextParameters(next awsst
 	return nil
 }
 
+func (s *jsiiProxy_SageMakerCreateTrainingJob) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SageMakerCreateTrainingJob) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (s *jsiiProxy_SageMakerCreateTrainingJob) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

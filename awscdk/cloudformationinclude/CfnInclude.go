@@ -1,17 +1,17 @@
 package cloudformationinclude
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudformationinclude/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/cloudformationinclude/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Construct to import an existing CloudFormation template file into a CDK application.
 //
-// All resources defined in the template file can be retrieved by calling the `getResource` method.
+// All resources defined in the template file can be retrieved by calling the {@link getResource} method.
 // Any modifications made on the returned resource objects will be reflected in the resulting CDK template.
 //
 // Example:
@@ -19,11 +19,13 @@ import (
 //   	TemplateFile: jsii.String("my-template.json"),
 //   })
 //
+// Experimental.
 type CfnInclude interface {
 	awscdk.CfnElement
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -34,12 +36,15 @@ type CfnInclude interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Returns the CfnCondition object from the 'Conditions' section of the CloudFormation template with the given name.
 	//
@@ -47,6 +52,7 @@ type CfnInclude interface {
 	//
 	// If a Condition with the given name is not present in the template,
 	// throws an exception.
+	// Experimental.
 	GetCondition(conditionName *string) awscdk.CfnCondition
 	// Returns the CfnHook object from the 'Hooks' section of the included CloudFormation template with the given logical ID.
 	//
@@ -54,6 +60,7 @@ type CfnInclude interface {
 	//
 	// If a Hook with the given logical ID is not present in the template,
 	// an exception will be thrown.
+	// Experimental.
 	GetHook(hookLogicalId *string) awscdk.CfnHook
 	// Returns the CfnMapping object from the 'Mappings' section of the included template.
 	//
@@ -61,12 +68,14 @@ type CfnInclude interface {
 	//
 	// If a Mapping with the given name is not present in the template,
 	// an exception will be thrown.
+	// Experimental.
 	GetMapping(mappingName *string) awscdk.CfnMapping
 	// Returns a loaded NestedStack with name logicalId.
 	//
 	// For a nested stack to be returned by this method,
-	// it must be specified either in the `CfnIncludeProps.loadNestedStacks` property,
-	// or through the `loadNestedStack` method.
+	// it must be specified either in the {@link CfnIncludeProps.loadNestedStacks} property,
+	// or through the {@link loadNestedStack} method.
+	// Experimental.
 	GetNestedStack(logicalId *string) *IncludedNestedStack
 	// Returns the CfnOutput object from the 'Outputs' section of the included template.
 	//
@@ -74,6 +83,7 @@ type CfnInclude interface {
 	//
 	// If an Output with the given name is not present in the template,
 	// throws an exception.
+	// Experimental.
 	GetOutput(logicalId *string) awscdk.CfnOutput
 	// Returns the CfnParameter object from the 'Parameters' section of the included template.
 	//
@@ -81,6 +91,7 @@ type CfnInclude interface {
 	//
 	// If a Parameter with the given name is not present in the template,
 	// throws an exception.
+	// Experimental.
 	GetParameter(parameterName *string) awscdk.CfnParameter
 	// Returns the low-level CfnResource from the template with the given logical ID.
 	//
@@ -89,12 +100,13 @@ type CfnInclude interface {
 	// The returned object will be of the proper underlying class;
 	// you can always cast it to the correct type in your code:
 	//
-	//     // assume the template contains an AWS::S3::Bucket with logical ID 'Bucket'
-	//     const cfnBucket = cfnTemplate.getResource('Bucket') as s3.CfnBucket;
-	//     // cfnBucket is of type s3.CfnBucket
+	//      // assume the template contains an AWS::S3::Bucket with logical ID 'Bucket'
+	//      const cfnBucket = cfnTemplate.getResource('Bucket') as s3.CfnBucket;
+	//      // cfnBucket is of type s3.CfnBucket
 	//
 	// If the template does not contain a resource with the given logical ID,
 	// an exception will be thrown.
+	// Experimental.
 	GetResource(logicalId *string) awscdk.CfnResource
 	// Returns the CfnRule object from the 'Rules' section of the CloudFormation template with the given name.
 	//
@@ -102,20 +114,72 @@ type CfnInclude interface {
 	//
 	// If a Rule with the given name is not present in the template,
 	// an exception will be thrown.
+	// Experimental.
 	GetRule(ruleName *string) awscdk.CfnRule
 	// Includes a template for a child stack inside of this parent template.
 	//
 	// A child with this logical ID must exist in the template,
 	// and be of type AWS::CloudFormation::Stack.
-	// This is equivalent to specifying the value in the `CfnIncludeProps.loadNestedStacks`
+	// This is equivalent to specifying the value in the {@link CfnIncludeProps.loadNestedStacks}
 	// property on object construction.
 	//
-	// Returns: the same `IncludedNestedStack` object that `getNestedStack` returns for this logical ID.
+	// Returns: the same {@link IncludedNestedStack} object that {@link getNestedStack} returns for this logical ID.
+	// Experimental.
 	LoadNestedStack(logicalId *string, nestedStackProps *CfnIncludeProps) *IncludedNestedStack
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CfnInclude
@@ -143,8 +207,8 @@ func (j *jsiiProxy_CfnInclude) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInclude) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInclude) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -164,6 +228,7 @@ func (j *jsiiProxy_CfnInclude) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProps) CfnInclude {
 	_init_.Initialize()
 
@@ -173,7 +238,7 @@ func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProp
 	j := jsiiProxy_CfnInclude{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -181,11 +246,12 @@ func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProp
 	return &j
 }
 
+// Experimental.
 func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string, props *CfnIncludeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -197,6 +263,7 @@ func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInclude_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -206,7 +273,7 @@ func CfnInclude_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -215,23 +282,8 @@ func CfnInclude_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInclude_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -241,7 +293,7 @@ func CfnInclude_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -394,6 +446,38 @@ func (c *jsiiProxy_CfnInclude) LoadNestedStack(logicalId *string, nestedStackPro
 	return returns
 }
 
+func (c *jsiiProxy_CfnInclude) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInclude) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnInclude) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -405,12 +489,44 @@ func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+func (c *jsiiProxy_CfnInclude) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInclude) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnInclude) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnInclude) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

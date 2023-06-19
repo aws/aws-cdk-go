@@ -18,12 +18,15 @@ package awscodebuild
 //   	},
 //   })
 //
+// Experimental.
 type WindowsImageType string
 
 const (
 	// The standard environment type, WINDOWS_CONTAINER.
+	// Experimental.
 	WindowsImageType_STANDARD WindowsImageType = "STANDARD"
 	// The WINDOWS_SERVER_2019_CONTAINER environment type.
+	// Experimental.
 	WindowsImageType_SERVER_2019 WindowsImageType = "SERVER_2019"
 )
 

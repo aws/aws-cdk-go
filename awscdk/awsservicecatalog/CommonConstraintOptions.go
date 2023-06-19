@@ -18,12 +18,15 @@ package awsservicecatalog
 //   	Description: jsii.String("description for topic2"),
 //   })
 //
+// Experimental.
 type CommonConstraintOptions struct {
 	// The description of the constraint.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
+	// Experimental.
 	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 }
 

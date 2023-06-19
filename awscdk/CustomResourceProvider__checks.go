@@ -7,12 +7,20 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
-func (c *jsiiProxy_CustomResourceProvider) validateAddToRolePolicyParameters(statement interface{}) error {
-	if statement == nil {
-		return fmt.Errorf("parameter statement is required, but nil was provided")
+func (c *jsiiProxy_CustomResourceProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CustomResourceProvider) validateSynthesizeParameters(session ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnGameServerGroup) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnGameServerGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnGameServerGroup) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameServerGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnGameServerGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameServerGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnGameServerGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnGameServerGroup) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnGameServerGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnGameServerGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -181,8 +169,6 @@ func validateCfnGameServerGroup_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnGameServerGroup) validateSetAutoScalingPolicyParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnGameServerGroup_AutoScalingPolicyProperty:
 		val := val.(*CfnGameServerGroup_AutoScalingPolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -194,9 +180,11 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetAutoScalingPolicyParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_AutoScalingPolicyProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGameServerGroup_AutoScalingPolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,8 +210,6 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnGameServerGroup_InstanceDefinitionProperty:
 				v := v.(*CfnGameServerGroup_InstanceDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -235,9 +221,11 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_InstanceDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGameServerGroup_InstanceDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -246,8 +234,6 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnGameServerGroup_InstanceDefinitionProperty:
 				v := v.(*CfnGameServerGroup_InstanceDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -259,9 +245,11 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_InstanceDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGameServerGroup_InstanceDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -276,8 +264,6 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetInstanceDefinitionsParameters(
 
 func (j *jsiiProxy_CfnGameServerGroup) validateSetLaunchTemplateParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnGameServerGroup_LaunchTemplateProperty:
 		val := val.(*CfnGameServerGroup_LaunchTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -289,9 +275,11 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetLaunchTemplateParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGameServerGroup_LaunchTemplateProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnGameServerGroup_LaunchTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -306,7 +294,7 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetRoleArnParameters(val *string)
 	return nil
 }
 
-func validateNewCfnGameServerGroupParameters(scope constructs.Construct, id *string, props *CfnGameServerGroupProps) error {
+func validateNewCfnGameServerGroupParameters(scope awscdk.Construct, id *string, props *CfnGameServerGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -21,12 +21,16 @@ package cloudassemblyschema
 //   	},
 //   }
 //
+// Experimental.
 type LoadBalancerFilter struct {
 	// Filter load balancers by their type.
+	// Experimental.
 	LoadBalancerType LoadBalancerType `field:"required" json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *[]*Tag `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 

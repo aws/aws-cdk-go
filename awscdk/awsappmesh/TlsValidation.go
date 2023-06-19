@@ -16,13 +16,13 @@ package awsappmesh
 //   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
-//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
+//   				Interval: cdk.Duration_Seconds(jsii.Number(5)),
 //   				Path: jsii.String("/ping"),
-//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
+//   				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),
 //   			Timeout: &HttpTimeout{
-//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
+//   				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
 //   			},
 //   		}),
 //   	},
@@ -38,12 +38,15 @@ package awsappmesh
 //
 //   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type TlsValidation struct {
 	// Reference to where to retrieve the trust chain.
+	// Experimental.
 	Trust TlsValidationTrust `field:"required" json:"trust" yaml:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
+	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 

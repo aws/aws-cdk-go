@@ -1,12 +1,12 @@
 package awscloudfrontorigins
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
 )
 
 // An Origin for a v2 load balancer.
@@ -29,13 +29,17 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type LoadBalancerV2Origin interface {
 	HttpOrigin
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	// Experimental.
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
+	// Experimental.
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
 
@@ -44,6 +48,7 @@ type jsiiProxy_LoadBalancerV2Origin struct {
 	jsiiProxy_HttpOrigin
 }
 
+// Experimental.
 func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, props *LoadBalancerV2OriginProps) LoadBalancerV2Origin {
 	_init_.Initialize()
 
@@ -53,7 +58,7 @@ func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalance
 	j := jsiiProxy_LoadBalancerV2Origin{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
 		[]interface{}{loadBalancer, props},
 		&j,
 	)
@@ -61,17 +66,18 @@ func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalance
 	return &j
 }
 
+// Experimental.
 func NewLoadBalancerV2Origin_Override(l LoadBalancerV2Origin, loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, props *LoadBalancerV2OriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
 		[]interface{}{loadBalancer, props},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	if err := l.validateBindParameters(_scope, options); err != nil {
 		panic(err)
 	}

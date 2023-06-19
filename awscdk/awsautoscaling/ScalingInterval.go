@@ -16,25 +16,29 @@ package awsautoscaling
 //   	Upper: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ScalingInterval struct {
 	// The capacity adjustment to apply in this interval.
 	//
 	// The number is interpreted differently based on AdjustmentType:
 	//
 	// - ChangeInCapacity: add the adjustment to the current capacity.
-	//  The number can be positive or negative.
+	//   The number can be positive or negative.
 	// - PercentChangeInCapacity: add or remove the given percentage of the current
-	//   capacity to itself. The number can be in the range [-100..100].
+	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
-	//   be positive.
+	//    be positive.
+	// Experimental.
 	Change *float64 `field:"required" json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
+	// Experimental.
 	Lower *float64 `field:"optional" json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
+	// Experimental.
 	Upper *float64 `field:"optional" json:"upper" yaml:"upper"`
 }
 

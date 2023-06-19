@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // The properties for an image hosted in a public or private repository.
@@ -18,10 +18,12 @@ import (
 //   	Credentials: secret,
 //   }
 //
+// Experimental.
 type RepositoryImageProps struct {
 	// The secret to expose to the container that contains the credentials for the image repository.
 	//
 	// The supported value is the full ARN of an AWS Secrets Manager secret.
+	// Experimental.
 	Credentials awssecretsmanager.ISecret `field:"optional" json:"credentials" yaml:"credentials"`
 }
 

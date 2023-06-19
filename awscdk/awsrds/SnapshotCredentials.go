@@ -1,12 +1,12 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Credentials to update the password for a ``DatabaseInstanceFromSnapshot``.
@@ -15,7 +15,7 @@ import (
 //   var vpc vpc
 //
 //   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_15_2(),
+//   	Version: rds.PostgresEngineVersion_VER_12_3(),
 //   })
 //   myKey := kms.NewKey(this, jsii.String("MyKey"))
 //
@@ -37,29 +37,38 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type SnapshotCredentials interface {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The characters to exclude from the generated password.
 	//
-	// Only used if `generatePassword` if true.
+	// Only used if {@link generatePassword} if true.
+	// Experimental.
 	ExcludeCharacters() *string
 	// Whether a new password should be generated.
+	// Experimental.
 	GeneratePassword() *bool
 	// The master user password.
 	//
 	// Do not put passwords in your CDK code directly.
+	// Experimental.
 	Password() awscdk.SecretValue
 	// Whether to replace the generated secret when the criteria for the password change.
+	// Experimental.
 	ReplaceOnPasswordCriteriaChanges() *bool
 	// A list of regions where to replicate the generated secret.
+	// Experimental.
 	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	// Secret used to instantiate this Login.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
 	// The master user name.
 	//
 	// Must be the **current** master user name of the snapshot.
 	// It is not possible to change the master user name of a RDS instance.
+	// Experimental.
 	Username() *string
 }
 
@@ -149,11 +158,12 @@ func (j *jsiiProxy_SnapshotCredentials) Username() *string {
 }
 
 
+// Experimental.
 func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		nil, // no parameters
 		s,
 	)
@@ -166,6 +176,7 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 // NOTE: use `fromGeneratedSecret()` for new Clusters and Instances. Switching from
 // `fromGeneratedPassword()` to `fromGeneratedSecret()` for already deployed Clusters
 // or Instances will update their master password.
+// Experimental.
 func SnapshotCredentials_FromGeneratedPassword(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -175,7 +186,7 @@ func SnapshotCredentials_FromGeneratedPassword(username *string, options *Snapsh
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromGeneratedPassword",
 		[]interface{}{username, options},
 		&returns,
@@ -189,6 +200,7 @@ func SnapshotCredentials_FromGeneratedPassword(username *string, options *Snapsh
 // The new credentials are stored in Secrets Manager.
 //
 // Note - The username must match the existing master username of the snapshot.
+// Experimental.
 func SnapshotCredentials_FromGeneratedSecret(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -198,7 +210,7 @@ func SnapshotCredentials_FromGeneratedSecret(username *string, options *Snapshot
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromGeneratedSecret",
 		[]interface{}{username, options},
 		&returns,
@@ -208,6 +220,7 @@ func SnapshotCredentials_FromGeneratedSecret(username *string, options *Snapshot
 }
 
 // Update the snapshot login with an existing password.
+// Experimental.
 func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -217,7 +230,7 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromPassword",
 		[]interface{}{password},
 		&returns,
@@ -231,10 +244,11 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 // The Secret must be a JSON string with a ``password`` field:
 // ```
 // {
-//   ...
-//   "password": <required: password>,
+//    ...
+//    "password": <required: password>,
 // }
 // ```.
+// Experimental.
 func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -244,7 +258,7 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCr
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromSecret",
 		[]interface{}{secret},
 		&returns,

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnConnectAttachment) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnConnectAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnConnectAttachment) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnConnectAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnConnectAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnConnectAttachment) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnConnectAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetTransportAttachmentIdParamet
 	return nil
 }
 
-func validateNewCfnConnectAttachmentParameters(scope constructs.Construct, id *string, props *CfnConnectAttachmentProps) error {
+func validateNewCfnConnectAttachmentParameters(scope awscdk.Construct, id *string, props *CfnConnectAttachmentProps) error {
 	return nil
 }
 

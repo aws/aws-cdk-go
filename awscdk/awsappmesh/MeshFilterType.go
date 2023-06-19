@@ -9,12 +9,15 @@ package awsappmesh
 //   	EgressFilter: appmesh.MeshFilterType_ALLOW_ALL,
 //   })
 //
+// Experimental.
 type MeshFilterType string
 
 const (
 	// Allows all outbound traffic.
+	// Experimental.
 	MeshFilterType_ALLOW_ALL MeshFilterType = "ALLOW_ALL"
 	// Allows traffic only to other resources inside the mesh, or API calls to amazon resources.
+	// Experimental.
 	MeshFilterType_DROP_ALL MeshFilterType = "DROP_ALL"
 )
 

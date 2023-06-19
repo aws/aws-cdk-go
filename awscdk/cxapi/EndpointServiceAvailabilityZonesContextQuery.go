@@ -14,12 +14,16 @@ package cxapi
 //   	ServiceName: jsii.String("serviceName"),
 //   }
 //
+// Experimental.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Query service name.
+	// Experimental.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

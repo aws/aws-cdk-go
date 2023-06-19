@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 func (i *jsiiProxy_ILogGroup) validateAddMetricFilterParameters(id *string, props *MetricFilterOptions) error {
@@ -69,14 +69,6 @@ func (i *jsiiProxy_ILogGroup) validateExtractMetricParameters(jsonField *string,
 }
 
 func (i *jsiiProxy_ILogGroup) validateGrantParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (i *jsiiProxy_ILogGroup) validateGrantReadParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}

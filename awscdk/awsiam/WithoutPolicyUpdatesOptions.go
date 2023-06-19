@@ -12,6 +12,7 @@ package awsiam
 //   	AddGrantsToResources: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type WithoutPolicyUpdatesOptions struct {
 	// Add grants to resources instead of dropping them.
 	//
@@ -19,6 +20,7 @@ type WithoutPolicyUpdatesOptions struct {
 	// It is your own responsibility to make sure the role has the required permissions.
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
+	// Experimental.
 	AddGrantsToResources *bool `field:"optional" json:"addGrantsToResources" yaml:"addGrantsToResources"`
 }
 

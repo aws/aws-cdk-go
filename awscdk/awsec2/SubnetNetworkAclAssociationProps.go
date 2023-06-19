@@ -19,14 +19,18 @@ package awsec2
 //   	SubnetNetworkAclAssociationName: jsii.String("subnetNetworkAclAssociationName"),
 //   }
 //
+// Experimental.
 type SubnetNetworkAclAssociationProps struct {
 	// The Network ACL this association is defined for.
+	// Experimental.
 	NetworkAcl INetworkAcl `field:"required" json:"networkAcl" yaml:"networkAcl"`
 	// ID of the Subnet.
+	// Experimental.
 	Subnet ISubnet `field:"required" json:"subnet" yaml:"subnet"`
 	// The name of the SubnetNetworkAclAssociation.
 	//
 	// It is not recommended to use an explicit name.
+	// Experimental.
 	SubnetNetworkAclAssociationName *string `field:"optional" json:"subnetNetworkAclAssociationName" yaml:"subnetNetworkAclAssociationName"`
 }
 

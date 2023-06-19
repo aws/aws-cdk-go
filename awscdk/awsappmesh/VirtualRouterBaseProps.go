@@ -12,10 +12,13 @@ package awsappmesh
 //   	},
 //   })
 //
+// Experimental.
 type VirtualRouterBaseProps struct {
 	// Listener specification for the VirtualRouter.
+	// Experimental.
 	Listeners *[]VirtualRouterListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// The name of the VirtualRouter.
+	// Experimental.
 	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 

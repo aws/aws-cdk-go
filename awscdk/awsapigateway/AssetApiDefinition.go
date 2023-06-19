@@ -1,12 +1,12 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
 // OpenAPI specification from a local file.
@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
@@ -24,12 +25,11 @@ import (
 //
 //   assetApiDefinition := awscdk.Aws_apigateway.NewAssetApiDefinition(jsii.String("path"), &AssetOptions{
 //   	AssetHash: jsii.String("assetHash"),
-//   	AssetHashType: cdk.AssetHashType_SOURCE,
+//   	AssetHashType: monocdk.AssetHashType_SOURCE,
 //   	Bundling: &BundlingOptions{
 //   		Image: dockerImage,
 //
 //   		// the properties below are optional
-//   		BundlingFileAccess: cdk.BundlingFileAccess_VOLUME_COPY,
 //   		Command: []*string{
 //   			jsii.String("command"),
 //   		},
@@ -40,8 +40,7 @@ import (
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		Local: localBundling,
-//   		Network: jsii.String("network"),
-//   		OutputType: cdk.BundlingOutput_ARCHIVED,
+//   		OutputType: monocdk.BundlingOutput_ARCHIVED,
 //   		SecurityOpt: jsii.String("securityOpt"),
 //   		User: jsii.String("user"),
 //   		Volumes: []dockerVolume{
@@ -50,34 +49,35 @@ import (
 //   				HostPath: jsii.String("hostPath"),
 //
 //   				// the properties below are optional
-//   				Consistency: cdk.DockerVolumeConsistency_CONSISTENT,
+//   				Consistency: monocdk.DockerVolumeConsistency_CONSISTENT,
 //   			},
-//   		},
-//   		VolumesFrom: []*string{
-//   			jsii.String("volumesFrom"),
 //   		},
 //   		WorkingDirectory: jsii.String("workingDirectory"),
 //   	},
-//   	DeployTime: jsii.Boolean(false),
 //   	Exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	FollowSymlinks: cdk.SymlinkFollowMode_NEVER,
-//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   	Follow: awscdk.Assets.FollowMode_NEVER,
+//   	FollowSymlinks: monocdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: monocdk.IgnoreMode_GLOB,
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
+//   	SourceHash: jsii.String("sourceHash"),
 //   })
 //
+// Experimental.
 type AssetApiDefinition interface {
 	ApiDefinition
 	// Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(scope constructs.Construct) *ApiDefinitionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *ApiDefinitionConfig
 	// Called after the CFN RestApi resource has been created to allow the Api Definition to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindAfterCreate(scope constructs.Construct, restApi IRestApi)
+	// Experimental.
+	BindAfterCreate(scope awscdk.Construct, restApi IRestApi)
 }
 
 // The jsii proxy struct for AssetApiDefinition
@@ -85,6 +85,7 @@ type jsiiProxy_AssetApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
+// Experimental.
 func NewAssetApiDefinition(path *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -94,7 +95,7 @@ func NewAssetApiDefinition(path *string, options *awss3assets.AssetOptions) Asse
 	j := jsiiProxy_AssetApiDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.AssetApiDefinition",
+		"monocdk.aws_apigateway.AssetApiDefinition",
 		[]interface{}{path, options},
 		&j,
 	)
@@ -102,17 +103,19 @@ func NewAssetApiDefinition(path *string, options *awss3assets.AssetOptions) Asse
 	return &j
 }
 
+// Experimental.
 func NewAssetApiDefinition_Override(a AssetApiDefinition, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.AssetApiDefinition",
+		"monocdk.aws_apigateway.AssetApiDefinition",
 		[]interface{}{path, options},
 		a,
 	)
 }
 
 // Loads the API specification from a local disk asset.
+// Experimental.
 func AssetApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -122,7 +125,7 @@ func AssetApiDefinition_FromAsset(file *string, options *awss3assets.AssetOption
 	var returns AssetApiDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.AssetApiDefinition",
+		"monocdk.aws_apigateway.AssetApiDefinition",
 		"fromAsset",
 		[]interface{}{file, options},
 		&returns,
@@ -132,6 +135,7 @@ func AssetApiDefinition_FromAsset(file *string, options *awss3assets.AssetOption
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
+// Experimental.
 func AssetApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -141,7 +145,7 @@ func AssetApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVers
 	var returns S3ApiDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.AssetApiDefinition",
+		"monocdk.aws_apigateway.AssetApiDefinition",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -197,6 +201,7 @@ func AssetApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVers
 //       },
 //     });
 //
+// Experimental.
 func AssetApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -206,7 +211,7 @@ func AssetApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	var returns InlineApiDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.AssetApiDefinition",
+		"monocdk.aws_apigateway.AssetApiDefinition",
 		"fromInline",
 		[]interface{}{definition},
 		&returns,
@@ -215,7 +220,7 @@ func AssetApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	return returns
 }
 
-func (a *jsiiProxy_AssetApiDefinition) Bind(scope constructs.Construct) *ApiDefinitionConfig {
+func (a *jsiiProxy_AssetApiDefinition) Bind(scope awscdk.Construct) *ApiDefinitionConfig {
 	if err := a.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
@@ -231,7 +236,7 @@ func (a *jsiiProxy_AssetApiDefinition) Bind(scope constructs.Construct) *ApiDefi
 	return returns
 }
 
-func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(scope constructs.Construct, restApi IRestApi) {
+func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(scope awscdk.Construct, restApi IRestApi) {
 	if err := a.validateBindAfterCreateParameters(scope, restApi); err != nil {
 		panic(err)
 	}

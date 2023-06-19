@@ -29,9 +29,10 @@ package awscdk
 //
 // ```ts
 // new sqs.Queue(this, 'MyQueue', {
-//   queueName: Fn.conditionIf('Condition', 'Hello', 'World').toString()
+//    queueName: Fn.conditionIf('Condition', 'Hello', 'World').toString()
 // });
 // ```.
+// Experimental.
 type ICfnConditionExpression interface {
 	IResolvable
 }

@@ -1,7 +1,7 @@
 package awssecretsmanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,10 +14,13 @@ import (
 //
 //   hostedRotationType := awscdk.Aws_secretsmanager.HostedRotationType_MARIADB_MULTI_USER()
 //
+// Experimental.
 type HostedRotationType interface {
 	// Whether the rotation uses the mutli user scheme.
+	// Experimental.
 	IsMultiUser() *bool
 	// The type of rotation.
+	// Experimental.
 	Name() *string
 }
 
@@ -51,7 +54,7 @@ func HostedRotationType_MARIADB_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"MARIADB_MULTI_USER",
 		&returns,
 	)
@@ -62,7 +65,7 @@ func HostedRotationType_MARIADB_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"MARIADB_SINGLE_USER",
 		&returns,
 	)
@@ -73,7 +76,7 @@ func HostedRotationType_MONGODB_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"MONGODB_MULTI_USER",
 		&returns,
 	)
@@ -84,7 +87,7 @@ func HostedRotationType_MONGODB_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"MONGODB_SINGLE_USER",
 		&returns,
 	)
@@ -95,7 +98,7 @@ func HostedRotationType_MYSQL_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"MYSQL_MULTI_USER",
 		&returns,
 	)
@@ -106,7 +109,7 @@ func HostedRotationType_MYSQL_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"MYSQL_SINGLE_USER",
 		&returns,
 	)
@@ -117,7 +120,7 @@ func HostedRotationType_ORACLE_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"ORACLE_MULTI_USER",
 		&returns,
 	)
@@ -128,7 +131,7 @@ func HostedRotationType_ORACLE_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"ORACLE_SINGLE_USER",
 		&returns,
 	)
@@ -139,7 +142,7 @@ func HostedRotationType_POSTGRESQL_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"POSTGRESQL_MULTI_USER",
 		&returns,
 	)
@@ -150,7 +153,7 @@ func HostedRotationType_POSTGRESQL_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"POSTGRESQL_SINGLE_USER",
 		&returns,
 	)
@@ -161,7 +164,7 @@ func HostedRotationType_REDSHIFT_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"REDSHIFT_MULTI_USER",
 		&returns,
 	)
@@ -172,7 +175,7 @@ func HostedRotationType_REDSHIFT_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"REDSHIFT_SINGLE_USER",
 		&returns,
 	)
@@ -183,7 +186,7 @@ func HostedRotationType_SQLSERVER_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"SQLSERVER_MULTI_USER",
 		&returns,
 	)
@@ -194,7 +197,7 @@ func HostedRotationType_SQLSERVER_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
+		"monocdk.aws_secretsmanager.HostedRotationType",
 		"SQLSERVER_SINGLE_USER",
 		&returns,
 	)

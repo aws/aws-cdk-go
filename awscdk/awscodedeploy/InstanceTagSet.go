@@ -1,7 +1,7 @@
 package awscodedeploy
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -71,7 +71,9 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type InstanceTagSet interface {
+	// Experimental.
 	InstanceTagGroups() *[]*map[string]*[]*string
 }
 
@@ -91,6 +93,7 @@ func (j *jsiiProxy_InstanceTagSet) InstanceTagGroups() *[]*map[string]*[]*string
 }
 
 
+// Experimental.
 func NewInstanceTagSet(instanceTagGroups ...*map[string]*[]*string) InstanceTagSet {
 	_init_.Initialize()
 
@@ -102,7 +105,7 @@ func NewInstanceTagSet(instanceTagGroups ...*map[string]*[]*string) InstanceTagS
 	j := jsiiProxy_InstanceTagSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.InstanceTagSet",
+		"monocdk.aws_codedeploy.InstanceTagSet",
 		args,
 		&j,
 	)
@@ -110,6 +113,7 @@ func NewInstanceTagSet(instanceTagGroups ...*map[string]*[]*string) InstanceTagS
 	return &j
 }
 
+// Experimental.
 func NewInstanceTagSet_Override(i InstanceTagSet, instanceTagGroups ...*map[string]*[]*string) {
 	_init_.Initialize()
 
@@ -119,7 +123,7 @@ func NewInstanceTagSet_Override(i InstanceTagSet, instanceTagGroups ...*map[stri
 	}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.InstanceTagSet",
+		"monocdk.aws_codedeploy.InstanceTagSet",
 		args,
 		i,
 	)

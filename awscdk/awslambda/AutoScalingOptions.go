@@ -29,10 +29,13 @@ package awslambda
 //   	MinCapacity: jsii.Number(20),
 //   })
 //
+// Experimental.
 type AutoScalingOptions struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 

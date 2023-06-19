@@ -1,52 +1,34 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // A Reference to a Stack Output.
 //
 // Example:
-//   type myLambdaStep struct {
-//   	step
-//   	stackOutputReference stackOutputReference
-//   }
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   func newMyLambdaStep(fn function, stackOutput cfnOutput) *myLambdaStep {
-//   	this := &myLambdaStep{}
-//   	pipelines.NewStep_Override(this, jsii.String("MyLambdaStep"))
-//   	this.stackOutputReference = pipelines.stackOutputReference_FromCfnOutput(stackOutput)
-//   	return this
-//   }
+//   var cfnOutput cfnOutput
 //
-//   func (this *myLambdaStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
+//   stackOutputReference := awscdk.Pipelines.StackOutputReference_FromCfnOutput(cfnOutput)
 //
-//   	*stage.AddAction(cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
-//   		ActionName: options.ActionName,
-//   		RunOrder: options.RunOrder,
-//   		// Map the reference to the variable name the CDK has generated for you.
-//   		UserParameters: map[string]interface{}{
-//   			"stackOutput": options.stackOutputsMap.toCodePipeline(this.stackOutputReference),
-//   		},
-//   		Lambda: this.fn,
-//   	}))
-//
-//   	return &codePipelineActionFactoryResult{
-//   		RunOrdersConsumed: jsii.Number(1),
-//   	}
-//   }public get consumedStackOutputs(): pipelines.StackOutputReference[] {
-//       return [this.stackOutputReference];
-//     }
-//
+// Experimental.
 type StackOutputReference interface {
 	// Output name of the producing stack.
+	// Experimental.
 	OutputName() *string
 	// A human-readable description of the producing stack.
+	// Experimental.
 	StackDescription() *string
 	// Whether or not this stack output is being produced by the given Stack deployment.
+	// Experimental.
 	IsProducedBy(stack StackDeployment) *bool
 }
 
@@ -77,6 +59,7 @@ func (j *jsiiProxy_StackOutputReference) StackDescription() *string {
 
 
 // Create a StackOutputReference that references the given CfnOutput.
+// Experimental.
 func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputReference {
 	_init_.Initialize()
 
@@ -86,7 +69,7 @@ func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputRefe
 	var returns StackOutputReference
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.StackOutputReference",
+		"monocdk.pipelines.StackOutputReference",
 		"fromCfnOutput",
 		[]interface{}{output},
 		&returns,

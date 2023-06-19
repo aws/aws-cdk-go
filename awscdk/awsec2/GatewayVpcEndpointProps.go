@@ -28,16 +28,19 @@ package awsec2
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
+//   			SubnetName: jsii.String("subnetName"),
 //   			Subnets: []iSubnet{
 //   				subnet,
 //   			},
-//   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
+//   			SubnetType: awscdk.Aws_ec2.SubnetType_ISOLATED,
 //   		},
 //   	},
 //   }
 //
+// Experimental.
 type GatewayVpcEndpointProps struct {
 	// The service to use for this gateway VPC endpoint.
+	// Experimental.
 	Service IGatewayVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Where to add endpoint routing.
 	//
@@ -55,8 +58,10 @@ type GatewayVpcEndpointProps struct {
 	//     ]
 	//   });
 	//
+	// Experimental.
 	Subnets *[]*SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 	// The VPC network in which the gateway endpoint will be used.
+	// Experimental.
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 

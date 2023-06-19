@@ -20,6 +20,14 @@ func (a *jsiiProxy_AwsAuth) validateAddUserMappingParameters(user awsiam.IUser, 
 	return nil
 }
 
+func (a *jsiiProxy_AwsAuth) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsAuth) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAwsAuth_IsConstructParameters(x interface{}) error {
 	return nil
 }

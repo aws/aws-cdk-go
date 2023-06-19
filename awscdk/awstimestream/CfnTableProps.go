@@ -1,7 +1,7 @@
 package awstimestream
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnTable`.
@@ -11,15 +11,29 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var magneticStoreWriteProperties interface{}
-//   var retentionProperties interface{}
-//
 //   cfnTableProps := &CfnTableProps{
 //   	DatabaseName: jsii.String("databaseName"),
 //
 //   	// the properties below are optional
-//   	MagneticStoreWriteProperties: magneticStoreWriteProperties,
-//   	RetentionProperties: retentionProperties,
+//   	MagneticStoreWriteProperties: &MagneticStoreWritePropertiesProperty{
+//   		EnableMagneticStoreWrites: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		MagneticStoreRejectedDataLocation: &MagneticStoreRejectedDataLocationProperty{
+//   			S3Configuration: &S3ConfigurationProperty{
+//   				BucketName: jsii.String("bucketName"),
+//   				EncryptionOption: jsii.String("encryptionOption"),
+//
+//   				// the properties below are optional
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				ObjectKeyPrefix: jsii.String("objectKeyPrefix"),
+//   			},
+//   		},
+//   	},
+//   	RetentionProperties: &RetentionPropertiesProperty{
+//   		MagneticStoreRetentionPeriodInDays: jsii.String("magneticStoreRetentionPeriodInDays"),
+//   		MemoryStoreRetentionPeriodInHours: jsii.String("memoryStoreRetentionPeriodInHours"),
+//   	},
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{

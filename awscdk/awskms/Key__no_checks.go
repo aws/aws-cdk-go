@@ -44,11 +44,11 @@ func (k *jsiiProxy_Key) validateGrantEncryptDecryptParameters(grantee awsiam.IGr
 	return nil
 }
 
-func (k *jsiiProxy_Key) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+func (k *jsiiProxy_Key) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (k *jsiiProxy_Key) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
+func (k *jsiiProxy_Key) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -68,11 +68,7 @@ func validateKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateKey_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateKey_IsResourceParameters(construct constructs.IConstruct) error {
+func validateKey_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

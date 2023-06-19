@@ -1,12 +1,12 @@
 package awscloudwatchactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatchactions/internal"
 )
 
 // Use an EC2 action as an Alarm action.
@@ -19,10 +19,12 @@ import (
 //   alarm.AddAlarmAction(
 //   actions.NewEc2Action(actions.Ec2InstanceAction_REBOOT))
 //
+// Experimental.
 type Ec2Action interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an EC2 action as an alarm action.
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for Ec2Action
@@ -30,6 +32,7 @@ type jsiiProxy_Ec2Action struct {
 	internal.Type__awscloudwatchIAlarmAction
 }
 
+// Experimental.
 func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	_init_.Initialize()
 
@@ -39,7 +42,7 @@ func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	j := jsiiProxy_Ec2Action{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.Ec2Action",
+		"monocdk.aws_cloudwatch_actions.Ec2Action",
 		[]interface{}{instanceAction},
 		&j,
 	)
@@ -47,17 +50,18 @@ func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	return &j
 }
 
+// Experimental.
 func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.Ec2Action",
+		"monocdk.aws_cloudwatch_actions.Ec2Action",
 		[]interface{}{instanceAction},
 		e,
 	)
 }
 
-func (e *jsiiProxy_Ec2Action) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (e *jsiiProxy_Ec2Action) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	if err := e.validateBindParameters(_scope, _alarm); err != nil {
 		panic(err)
 	}

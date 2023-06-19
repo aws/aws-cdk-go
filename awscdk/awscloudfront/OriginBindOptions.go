@@ -12,8 +12,10 @@ package awscloudfront
 //   	OriginId: jsii.String("originId"),
 //   }
 //
+// Experimental.
 type OriginBindOptions struct {
 	// The identifier of this Origin, as assigned by the Distribution this Origin has been used added to.
+	// Experimental.
 	OriginId *string `field:"required" json:"originId" yaml:"originId"`
 }
 

@@ -17,14 +17,19 @@ package awsevents
 //   	InputTemplate: jsii.String("inputTemplate"),
 //   }
 //
+// Experimental.
 type RuleTargetInputProperties struct {
 	// Literal input to the target service (must be valid JSON).
+	// Experimental.
 	Input *string `field:"optional" json:"input" yaml:"input"`
 	// JsonPath to take input from the input event.
+	// Experimental.
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// Paths map to extract values from event and insert into `inputTemplate`.
+	// Experimental.
 	InputPathsMap *map[string]*string `field:"optional" json:"inputPathsMap" yaml:"inputPathsMap"`
 	// Input template to insert paths map into.
+	// Experimental.
 	InputTemplate *string `field:"optional" json:"inputTemplate" yaml:"inputTemplate"`
 }
 

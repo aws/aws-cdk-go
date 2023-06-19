@@ -22,26 +22,33 @@ package awsec2
 //   	RuleAction: awscdk.*Aws_ec2.Action_ALLOW,
 //   }
 //
+// Experimental.
 type CommonNetworkAclEntryOptions struct {
 	// The CIDR range to allow or deny.
+	// Experimental.
 	Cidr AclCidr `field:"required" json:"cidr" yaml:"cidr"`
 	// Rule number to assign to the entry, such as 100.
 	//
 	// ACL entries are processed in ascending order by rule number.
 	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
+	// Experimental.
 	RuleNumber *float64 `field:"required" json:"ruleNumber" yaml:"ruleNumber"`
 	// What kind of traffic this ACL rule applies to.
+	// Experimental.
 	Traffic AclTraffic `field:"required" json:"traffic" yaml:"traffic"`
 	// Traffic direction, with respect to the subnet, this rule applies to.
+	// Experimental.
 	Direction TrafficDirection `field:"optional" json:"direction" yaml:"direction"`
 	// The name of the NetworkAclEntry.
 	//
 	// It is not recommended to use an explicit group name.
+	// Experimental.
 	NetworkAclEntryName *string `field:"optional" json:"networkAclEntryName" yaml:"networkAclEntryName"`
 	// Whether to allow or deny traffic that matches the rule; valid values are "allow" or "deny".
 	//
 	// Any traffic that is not explicitly allowed is automatically denied in a custom
 	// ACL, all traffic is automatically allowed in a default ACL.
+	// Experimental.
 	RuleAction Action `field:"optional" json:"ruleAction" yaml:"ruleAction"`
 }
 

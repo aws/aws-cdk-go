@@ -24,18 +24,25 @@ package cloudassemblyschema
 //   	LookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
+// Experimental.
 type LoadBalancerContextQuery struct {
 	// Filter load balancers by their type.
+	// Experimental.
 	LoadBalancerType LoadBalancerType `field:"required" json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *[]*Tag `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Query account.
+	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 

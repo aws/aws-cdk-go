@@ -24,6 +24,18 @@ func (d *jsiiProxy_DockerImage) validateRunParameters(options *DockerRunOptions)
 	return nil
 }
 
+func validateDockerImage_FromAssetParameters(path *string, options *DockerBuildOptions) error {
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateDockerImage_FromBuildParameters(path *string, options *DockerBuildOptions) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")

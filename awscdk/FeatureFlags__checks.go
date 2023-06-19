@@ -5,7 +5,7 @@ package awscdk
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (f *jsiiProxy_FeatureFlags) validateIsEnabledParameters(featureFlag *string) error {

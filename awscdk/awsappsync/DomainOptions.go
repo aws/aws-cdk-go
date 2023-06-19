@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
 )
 
 // Domain name configuration for AppSync.
@@ -19,12 +19,8 @@ import (
 //   certificate := acm.NewCertificate(this, jsii.String("cert"), &CertificateProps{
 //   	DomainName: myDomainName,
 //   })
-//   schema := appsync.NewSchemaFile(&SchemaProps{
-//   	FilePath: jsii.String("mySchemaFile"),
-//   })
 //   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("myApi"),
-//   	Schema: Schema,
 //   	DomainName: &DomainOptions{
 //   		Certificate: *Certificate,
 //   		DomainName: myDomainName,
@@ -42,15 +38,18 @@ import (
 //   route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &CnameRecordProps{
 //   	RecordName: jsii.String("api"),
 //   	Zone: Zone,
-//   	DomainName: api.appSyncDomainName,
+//   	DomainName: myDomainName,
 //   })
 //
+// Experimental.
 type DomainOptions struct {
 	// The certificate to use with the domain name.
+	// Experimental.
 	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The actual domain name.
 	//
 	// For example, `api.example.com`.
+	// Experimental.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 

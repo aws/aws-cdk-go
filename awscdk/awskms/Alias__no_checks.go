@@ -40,11 +40,11 @@ func (a *jsiiProxy_Alias) validateGrantEncryptDecryptParameters(grantee awsiam.I
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+func (a *jsiiProxy_Alias) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
+func (a *jsiiProxy_Alias) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -60,11 +60,7 @@ func validateAlias_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAlias_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAlias_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAlias_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

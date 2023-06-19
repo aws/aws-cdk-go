@@ -31,6 +31,14 @@ func validateArn_FormatParameters(components *ArnComponents) error {
 	return nil
 }
 
+func validateArn_ParseParameters(arn *string) error {
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateArn_SplitParameters(arn *string, arnFormat ArnFormat) error {
 	if arn == nil {
 		return fmt.Errorf("parameter arn is required, but nil was provided")

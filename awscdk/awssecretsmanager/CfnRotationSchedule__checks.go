@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnRotationSchedule) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnRotationSchedule) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnRotationSchedule) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnRotationSchedule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnRotationSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnRotationSchedule) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnRotationSchedule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -181,8 +169,6 @@ func validateCfnRotationSchedule_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnRotationSchedule) validateSetHostedRotationLambdaParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnRotationSchedule_HostedRotationLambdaProperty:
 		val := val.(*CfnRotationSchedule_HostedRotationLambdaProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -194,9 +180,11 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetHostedRotationLambdaParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRotationSchedule_HostedRotationLambdaProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRotationSchedule_HostedRotationLambdaProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -222,8 +210,6 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetRotateImmediatelyOnUpdatePara
 
 func (j *jsiiProxy_CfnRotationSchedule) validateSetRotationRulesParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnRotationSchedule_RotationRulesProperty:
 		val := val.(*CfnRotationSchedule_RotationRulesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -235,9 +221,11 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetRotationRulesParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRotationSchedule_RotationRulesProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRotationSchedule_RotationRulesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -252,7 +240,7 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetSecretIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnRotationScheduleParameters(scope constructs.Construct, id *string, props *CfnRotationScheduleProps) error {
+func validateNewCfnRotationScheduleParameters(scope awscdk.Construct, id *string, props *CfnRotationScheduleProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

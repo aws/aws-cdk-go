@@ -10,23 +10,30 @@ package awscdk
 //   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
-//   })
-//   provider.AddToRolePolicy(map[string]*string{
-//   	"Effect": jsii.String("Allow"),
-//   	"Action": jsii.String("s3:GetObject"),
-//   	"Resource": jsii.String("*"),
+//   	PolicyStatements: []interface{}{
+//   		map[string]*string{
+//   			"Effect": jsii.String("Allow"),
+//   			"Action": jsii.String("s3:PutObject*"),
+//   			"Resource": jsii.String("*"),
+//   		},
+//   	},
 //   })
 //
+// Experimental.
 type CustomResourceProviderRuntime string
 
 const (
 	// Node.js 12.x.
+	// Deprecated: Use {@link NODEJS_14_X}.
+	CustomResourceProviderRuntime_NODEJS_12 CustomResourceProviderRuntime = "NODEJS_12"
+	// Node.js 12.x.
+	// Experimental.
 	CustomResourceProviderRuntime_NODEJS_12_X CustomResourceProviderRuntime = "NODEJS_12_X"
 	// Node.js 14.x.
+	// Experimental.
 	CustomResourceProviderRuntime_NODEJS_14_X CustomResourceProviderRuntime = "NODEJS_14_X"
 	// Node.js 16.x.
+	// Experimental.
 	CustomResourceProviderRuntime_NODEJS_16_X CustomResourceProviderRuntime = "NODEJS_16_X"
-	// Node.js 18.x.
-	CustomResourceProviderRuntime_NODEJS_18_X CustomResourceProviderRuntime = "NODEJS_18_X"
 )
 

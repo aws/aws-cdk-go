@@ -17,15 +17,18 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_PlacementType.html
 //
+// Experimental.
 type EmrCreateCluster_PlacementTypeProperty struct {
 	// The Amazon EC2 Availability Zone for the cluster.
 	//
 	// AvailabilityZone is used for uniform instance groups, while AvailabilityZones
 	// (plural) is used for instance fleets.
+	// Experimental.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone.
 	//
 	// AvailabilityZones is used for instance fleets, while AvailabilityZone (singular) is used for uniform instance groups.
+	// Experimental.
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 }
 

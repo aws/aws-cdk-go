@@ -16,12 +16,16 @@ package awsec2
 //   	UserData: userData,
 //   }
 //
+// Experimental.
 type MachineImageConfig struct {
 	// The AMI ID of the image to use.
+	// Experimental.
 	ImageId *string `field:"required" json:"imageId" yaml:"imageId"`
 	// Operating system type for this image.
+	// Experimental.
 	OsType OperatingSystemType `field:"required" json:"osType" yaml:"osType"`
 	// Initial UserData for this image.
+	// Experimental.
 	UserData UserData `field:"required" json:"userData" yaml:"userData"`
 }
 

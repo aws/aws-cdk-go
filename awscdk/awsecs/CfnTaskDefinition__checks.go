@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnTaskDefinition) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnTaskDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnTaskDefinition) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnTaskDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnTaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnTaskDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnTaskDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnTaskDefinition) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnTaskDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnTaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -187,8 +175,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetContainerDefinitionsParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_ContainerDefinitionProperty:
 				v := v.(*CfnTaskDefinition_ContainerDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -200,9 +186,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetContainerDefinitionsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_ContainerDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_ContainerDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -211,8 +199,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetContainerDefinitionsParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_ContainerDefinitionProperty:
 				v := v.(*CfnTaskDefinition_ContainerDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -224,9 +210,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetContainerDefinitionsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_ContainerDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_ContainerDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -241,8 +229,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetContainerDefinitionsParameters(
 
 func (j *jsiiProxy_CfnTaskDefinition) validateSetEphemeralStorageParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnTaskDefinition_EphemeralStorageProperty:
 		val := val.(*CfnTaskDefinition_EphemeralStorageProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -254,9 +240,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetEphemeralStorageParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_EphemeralStorageProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTaskDefinition_EphemeralStorageProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -271,8 +259,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetInferenceAcceleratorsParameters
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_InferenceAcceleratorProperty:
 				v := v.(*CfnTaskDefinition_InferenceAcceleratorProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -284,9 +270,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetInferenceAcceleratorsParameters
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_InferenceAcceleratorProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_InferenceAcceleratorProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -295,8 +283,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetInferenceAcceleratorsParameters
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_InferenceAcceleratorProperty:
 				v := v.(*CfnTaskDefinition_InferenceAcceleratorProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -308,9 +294,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetInferenceAcceleratorsParameters
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_InferenceAcceleratorProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_InferenceAcceleratorProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -331,8 +319,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetPlacementConstraintsParameters(
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty:
 				v := v.(*CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -344,9 +330,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetPlacementConstraintsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -355,8 +343,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetPlacementConstraintsParameters(
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty:
 				v := v.(*CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -368,9 +354,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetPlacementConstraintsParameters(
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -385,8 +373,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetPlacementConstraintsParameters(
 
 func (j *jsiiProxy_CfnTaskDefinition) validateSetProxyConfigurationParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnTaskDefinition_ProxyConfigurationProperty:
 		val := val.(*CfnTaskDefinition_ProxyConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -398,9 +384,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetProxyConfigurationParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_ProxyConfigurationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTaskDefinition_ProxyConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -409,8 +397,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetProxyConfigurationParameters(va
 
 func (j *jsiiProxy_CfnTaskDefinition) validateSetRuntimePlatformParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnTaskDefinition_RuntimePlatformProperty:
 		val := val.(*CfnTaskDefinition_RuntimePlatformProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -422,9 +408,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetRuntimePlatformParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_RuntimePlatformProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTaskDefinition_RuntimePlatformProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -439,8 +427,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_VolumeProperty:
 				v := v.(*CfnTaskDefinition_VolumeProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -452,9 +438,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_VolumeProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_VolumeProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -463,8 +451,6 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnTaskDefinition_VolumeProperty:
 				v := v.(*CfnTaskDefinition_VolumeProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -476,9 +462,11 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_VolumeProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnTaskDefinition_VolumeProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -491,7 +479,7 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface
 	return nil
 }
 
-func validateNewCfnTaskDefinitionParameters(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) error {
+func validateNewCfnTaskDefinitionParameters(scope awscdk.Construct, id *string, props *CfnTaskDefinitionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

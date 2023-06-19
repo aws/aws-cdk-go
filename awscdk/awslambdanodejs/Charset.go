@@ -4,13 +4,13 @@ package awslambdanodejs
 // Charset for esbuild's output.
 //
 // Example:
-//   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+//   lambda.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 //   	Bundling: &BundlingOptions{
 //   		Minify: jsii.Boolean(true),
 //   		 // minify code, defaults to false
 //   		SourceMap: jsii.Boolean(true),
 //   		 // include source map, defaults to false
-//   		SourceMapMode: nodejs.SourceMapMode_INLINE,
+//   		SourceMapMode: lambda.SourceMapMode_INLINE,
 //   		 // defaults to SourceMapMode.DEFAULT
 //   		SourcesContent: jsii.Boolean(false),
 //   		 // do not include original source into source map, defaults to true
@@ -26,7 +26,7 @@ package awslambdanodejs
 //   			"process.env.PRODUCTION": JSON.stringify(jsii.Boolean(true)),
 //   			"process.env.NUMBER": JSON.stringify(jsii.Number(123)),
 //   		},
-//   		LogLevel: nodejs.LogLevel_SILENT,
+//   		LogLevel: lambda.LogLevel_SILENT,
 //   		 // defaults to LogLevel.WARNING
 //   		KeepNames: jsii.Boolean(true),
 //   		 // defaults to false
@@ -38,9 +38,9 @@ package awslambdanodejs
 //   		 // requires esbuild >= 0.9.0, defaults to none
 //   		Footer: jsii.String("/* comments */"),
 //   		 // requires esbuild >= 0.9.0, defaults to none
-//   		Charset: nodejs.Charset_UTF8,
+//   		Charset: lambda.Charset_UTF8,
 //   		 // do not escape non-ASCII characters, defaults to Charset.ASCII
-//   		Format: nodejs.OutputFormat_ESM,
+//   		Format: lambda.OutputFormat_ESM,
 //   		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js 14.x)
 //   		MainFields: []*string{
 //   			jsii.String("module"),
@@ -60,16 +60,19 @@ package awslambdanodejs
 //   	},
 //   })
 //
+// Experimental.
 type Charset string
 
 const (
 	// ASCII.
 	//
 	// Any non-ASCII characters are escaped using backslash escape sequences.
+	// Experimental.
 	Charset_ASCII Charset = "ASCII"
 	// UTF-8.
 	//
 	// Keep original characters without using escape sequences.
+	// Experimental.
 	Charset_UTF8 Charset = "UTF8"
 )
 

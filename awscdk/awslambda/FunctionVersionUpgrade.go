@@ -1,12 +1,11 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda/internal"
 )
 
 // Aspect for upgrading function versions when the feature flag provided feature flag present.
@@ -18,12 +17,14 @@ import (
 //
 // Example:
 //   stack := awscdk.Newstack()
-//   awscdk.Aspects_Of(stack).Add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
+//   awscdk.Aspects_Of(stack).Add(lambda.NewFunctionVersionUpgrade(monocdkcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
 //
+// Experimental.
 type FunctionVersionUpgrade interface {
 	awscdk.IAspect
 	// All aspects can visit an IConstruct.
-	Visit(node constructs.IConstruct)
+	// Experimental.
+	Visit(node awscdk.IConstruct)
 }
 
 // The jsii proxy struct for FunctionVersionUpgrade
@@ -31,6 +32,7 @@ type jsiiProxy_FunctionVersionUpgrade struct {
 	internal.Type__awscdkIAspect
 }
 
+// Experimental.
 func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersionUpgrade {
 	_init_.Initialize()
 
@@ -40,7 +42,7 @@ func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersi
 	j := jsiiProxy_FunctionVersionUpgrade{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
+		"monocdk.aws_lambda.FunctionVersionUpgrade",
 		[]interface{}{featureFlag, enabled},
 		&j,
 	)
@@ -48,17 +50,18 @@ func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersi
 	return &j
 }
 
+// Experimental.
 func NewFunctionVersionUpgrade_Override(f FunctionVersionUpgrade, featureFlag *string, enabled *bool) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
+		"monocdk.aws_lambda.FunctionVersionUpgrade",
 		[]interface{}{featureFlag, enabled},
 		f,
 	)
 }
 
-func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node constructs.IConstruct) {
+func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node awscdk.IConstruct) {
 	if err := f.validateVisitParameters(node); err != nil {
 		panic(err)
 	}

@@ -15,18 +15,21 @@ package awsservicediscovery
 //   	ServiceArn: jsii.String("serviceArn"),
 //   	ServiceId: jsii.String("serviceId"),
 //   	ServiceName: jsii.String("serviceName"),
-//
-//   	// the properties below are optional
-//   	DiscoveryType: awscdk.*Aws_servicediscovery.DiscoveryType_API,
 //   }
 //
+// Experimental.
 type ServiceAttributes struct {
+	// Experimental.
 	DnsRecordType DnsRecordType `field:"required" json:"dnsRecordType" yaml:"dnsRecordType"`
+	// Experimental.
 	Namespace INamespace `field:"required" json:"namespace" yaml:"namespace"`
+	// Experimental.
 	RoutingPolicy RoutingPolicy `field:"required" json:"routingPolicy" yaml:"routingPolicy"`
+	// Experimental.
 	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
+	// Experimental.
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
+	// Experimental.
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
-	DiscoveryType DiscoveryType `field:"optional" json:"discoveryType" yaml:"discoveryType"`
 }
 

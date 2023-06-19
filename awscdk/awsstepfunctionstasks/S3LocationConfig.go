@@ -12,8 +12,10 @@ package awsstepfunctionstasks
 //   	Uri: jsii.String("uri"),
 //   }
 //
+// Experimental.
 type S3LocationConfig struct {
 	// Uniquely identifies the resource in Amazon S3.
+	// Experimental.
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 

@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -184,8 +172,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetJobResourcesParameters(
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_MonitoringResourcesProperty:
 		val := val.(*CfnModelBiasJobDefinition_MonitoringResourcesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -197,9 +183,11 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetJobResourcesParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_MonitoringResourcesProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_MonitoringResourcesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,8 +199,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasAppSpecificati
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty:
 		val := val.(*CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,9 +210,11 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasAppSpecificati
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -235,8 +223,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasAppSpecificati
 
 func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasBaselineConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty:
 		val := val.(*CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,9 +234,11 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasBaselineConfig
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -262,8 +250,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasJobInputParame
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_ModelBiasJobInputProperty:
 		val := val.(*CfnModelBiasJobDefinition_ModelBiasJobInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -275,9 +261,11 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasJobInputParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_ModelBiasJobInputProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_ModelBiasJobInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,8 +277,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasJobOutputConfi
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_MonitoringOutputConfigProperty:
 		val := val.(*CfnModelBiasJobDefinition_MonitoringOutputConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -302,9 +288,11 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasJobOutputConfi
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_MonitoringOutputConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_MonitoringOutputConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -313,8 +301,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetModelBiasJobOutputConfi
 
 func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetNetworkConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_NetworkConfigProperty:
 		val := val.(*CfnModelBiasJobDefinition_NetworkConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -326,9 +312,11 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetNetworkConfigParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_NetworkConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_NetworkConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -345,8 +333,6 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetRoleArnParameters(val *
 
 func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetStoppingConditionParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelBiasJobDefinition_StoppingConditionProperty:
 		val := val.(*CfnModelBiasJobDefinition_StoppingConditionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -358,16 +344,18 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetStoppingConditionParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelBiasJobDefinition_StoppingConditionProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelBiasJobDefinition_StoppingConditionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnModelBiasJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
+func validateNewCfnModelBiasJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

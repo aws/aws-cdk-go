@@ -12,7 +12,3 @@ func validateInitService_EnableParameters(serviceName *string, options *InitServ
 	return nil
 }
 
-func validateInitService_SystemdConfigFileParameters(serviceName *string, options *SystemdConfigFileOptions) error {
-	return nil
-}
-

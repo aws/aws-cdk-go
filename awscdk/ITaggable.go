@@ -5,8 +5,10 @@ import (
 )
 
 // Interface to implement tags.
+// Experimental.
 type ITaggable interface {
 	// TagManager to set, remove and format tags.
+	// Experimental.
 	Tags() TagManager
 }
 

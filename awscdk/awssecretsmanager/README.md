@@ -6,37 +6,31 @@ import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 
 ## Create a new Secret in a Stack
 
-To have SecretsManager generate a new secret value automatically,
-follow this example:
+In order to have SecretsManager generate a new secret value automatically,
+you can get started with the following:
 
 ```go
-var vpc iVpc
-
-
-instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
-	// Generate the secret with admin username `postgres` and random password
-	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres")),
-	Vpc: Vpc,
+// Default secret
+secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
+// Using the default secret
+// Using the default secret
+iam.NewUser(this, jsii.String("User"), &UserProps{
+	Password: secret.secretValue,
 })
-// Templated secret with username and password fields
+// Templated secret
 templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &SecretProps{
 	GenerateSecretString: &SecretStringGenerator{
 		SecretStringTemplate: jSON.stringify(map[string]*string{
-			"username": jsii.String("postgres"),
+			"username": jsii.String("user"),
 		}),
 		GenerateStringKey: jsii.String("password"),
-		ExcludeCharacters: jsii.String("/@\""),
 	},
 })
-// Using the templated secret as credentials
-instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
-	Credentials: map[string]interface{}{
-		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
-		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
-	},
-	Vpc: Vpc,
+// Using the templated secret
+// Using the templated secret
+iam.NewUser(this, jsii.String("OtherUser"), &UserProps{
+	UserName: templatedSecret.secretValueFromJson(jsii.String("username")).ToString(),
+	Password: templatedSecret.secretValueFromJson(jsii.String("password")),
 })
 ```
 
@@ -57,7 +51,7 @@ secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("Imported
 SecretsManager secret values can only be used in select set of properties. For the
 list of properties, see [the CloudFormation Dynamic References documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html).
 
-A secret can set `RemovalPolicy`. If it set to `RETAIN`, removing that secret will fail.
+A secret can set `RemovalPolicy`. If it set to `RETAIN`, that removing a secret will fail.
 
 ## Grant permission to use the secret to a role
 
@@ -134,7 +128,6 @@ secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 
 secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOptions{
 	HostedRotation: secretsmanager.HostedRotation_MysqlSingleUser(),
-	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 })
 ```
 
@@ -144,7 +137,7 @@ MariaDB, SQLServer, Redshift and MongoDB (both for the single and multi user sch
 When deployed in a VPC, the hosted rotation implements `ec2.IConnectable`:
 
 ```go
-var myVpc iVpc
+var myVpc vpc
 var dbConnections connections
 var secret secret
 
@@ -157,11 +150,6 @@ secret.addRotationSchedule(jsii.String("RotationSchedule"), &RotationScheduleOpt
 })
 dbConnections.AllowDefaultPortFrom(myHostedRotation)
 ```
-
-Use the `excludeCharacters` option to customize the characters excluded from
-the generated password when it is rotated. By default, the rotation excludes
-the same characters as the ones excluded for the secret. If none are defined
-then the following set is used: `% +~`#$&*()|[]{}:;<>?!'/@"\`.
 
 See also [Automating secret creation in AWS CloudFormation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_cloudformation.html).
 
@@ -221,13 +209,13 @@ secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRot
 })
 ```
 
-See also [aws-rds](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-rds/README.md) where
+See also [aws-rds](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-rds/README.md) where
 credentials generation and rotation is integrated.
 
 ## Importing Secrets
 
 Existing secrets can be imported by ARN, name, and other attributes (including the KMS key used to encrypt the secret).
-Secrets imported by name should use the short-form of the name (without the SecretsManager-provided suffix);
+Secrets imported by name should use the short-form of the name (without the SecretsManager-provided suffx);
 the secret name must exist in the same account and region as the stack.
 Importing by name makes it easier to reference secrets created in different regions, each with their own suffix and ARN.
 
@@ -270,38 +258,3 @@ Alternatively, use `addReplicaRegion()`:
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 secret.AddReplicaRegion(jsii.String("eu-west-1"))
 ```
-
-## Creating JSON Secrets
-
-Sometimes it is necessary to create a secret in SecretsManager that contains a JSON object.
-For example:
-
-```json
-{
-  "username": "myUsername",
-  "database": "foo",
-  "password": "mypassword"
-}
-```
-
-In order to create this type of secret, use the `secretObjectValue` input prop.
-
-```go
-var stack stack
-user := iam.NewUser(this, jsii.String("User"))
-accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
-	User: User,
-})
-
-secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
-	SecretObjectValue: map[string]secretValue{
-		"username": awscdk.SecretValue_unsafePlainText(user.userName),
-		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),
-		"password": accessKey.secretAccessKey,
-	},
-})
-```
-
-In this case both the `username` and `database` are not a `Secret` so `SecretValue.unsafePlainText` needs to be used.
-This means that they will be rendered as plain text in the template, but in this case neither of those
-are actual "secrets".

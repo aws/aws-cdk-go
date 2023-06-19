@@ -12,10 +12,12 @@ package awscodebuild
 //   	Identifier: jsii.String("identifier"),
 //   }
 //
+// Experimental.
 type ArtifactsProps struct {
 	// The artifact identifier.
 	//
 	// This property is required on secondary artifacts.
+	// Experimental.
 	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 }
 

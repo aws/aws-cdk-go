@@ -1,7 +1,7 @@
 package awsapplicationautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Properties for a scalable target.
@@ -35,10 +35,13 @@ import (
 //   	PredefinedMetric: appscaling.PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
 //   })
 //
+// Experimental.
 type ScalableTargetProps struct {
 	// The maximum value that Application Auto Scaling can use to scale a target during a scaling activity.
+	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum value that Application Auto Scaling can use to scale a target during a scaling activity.
+	// Experimental.
 	MinCapacity *float64 `field:"required" json:"minCapacity" yaml:"minCapacity"`
 	// The resource identifier to associate with this scalable target.
 	//
@@ -47,6 +50,7 @@ type ScalableTargetProps struct {
 	// Example value: `service/ecsStack-MyECSCluster-AB12CDE3F4GH/ecsStack-MyECSService-AB12CDE3F4GH`.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 	//
+	// Experimental.
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The scalable dimension that's associated with the scalable target.
 	//
@@ -55,6 +59,7 @@ type ScalableTargetProps struct {
 	// Example value: `ecs:service:DesiredCount`.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_ScalingPolicy.html
 	//
+	// Experimental.
 	ScalableDimension *string `field:"required" json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource or custom-resource for a resource provided by your own application or service.
 	//
@@ -62,8 +67,10 @@ type ScalableTargetProps struct {
 	// action in the Application Auto Scaling API Reference.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 	//
+	// Experimental.
 	ServiceNamespace ServiceNamespace `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`
 	// Role that allows Application Auto Scaling to modify your scalable target.
+	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

@@ -3,16 +3,16 @@ package awselasticloadbalancingv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2/internal"
 )
 
 // Properties to reference an existing listener.
+// Experimental.
 type IApplicationListener interface {
 	awsec2.IConnectable
-	IListener
+	awscdk.IResource
 	// Perform the given action on incoming requests.
 	//
 	// This allows full control of the default action of the load balancer,
@@ -24,13 +24,19 @@ type IApplicationListener interface {
 	// It is not possible to add a default action to an imported IApplicationListener.
 	// In order to add actions to an imported IApplicationListener a `priority`
 	// must be provided.
+	// Experimental.
 	AddAction(id *string, props *AddApplicationActionProps)
 	// Add one or more certificates to this listener.
+	// Deprecated: use `addCertificates()`.
+	AddCertificateArns(id *string, arns *[]*string)
+	// Add one or more certificates to this listener.
+	// Experimental.
 	AddCertificates(id *string, certificates *[]IListenerCertificate)
 	// Load balance incoming requests to the given target groups.
 	//
 	// It's possible to add conditions to the TargetGroups added in this way.
 	// At least one TargetGroup must be added without conditions.
+	// Experimental.
 	AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps)
 	// Load balance incoming requests to the given load balancing targets.
 	//
@@ -41,17 +47,22 @@ type IApplicationListener interface {
 	// one set of targets must be added without conditions.
 	//
 	// Returns: The newly created target group.
+	// Experimental.
 	AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup
 	// Register that a connectable that has been added to this load balancer.
 	//
 	// Don't call this directly. It is called by ApplicationTargetGroup.
+	// Experimental.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
+	// ARN of the listener.
+	// Experimental.
+	ListenerArn() *string
 }
 
 // The jsii proxy for IApplicationListener
 type jsiiProxy_IApplicationListener struct {
 	internal.Type__awsec2IConnectable
-	jsiiProxy_IListener
+	internal.Type__awscdkIResource
 }
 
 func (i *jsiiProxy_IApplicationListener) AddAction(id *string, props *AddApplicationActionProps) {
@@ -62,6 +73,17 @@ func (i *jsiiProxy_IApplicationListener) AddAction(id *string, props *AddApplica
 		i,
 		"addAction",
 		[]interface{}{id, props},
+	)
+}
+
+func (i *jsiiProxy_IApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
+	if err := i.validateAddCertificateArnsParameters(id, arns); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"addCertificateArns",
+		[]interface{}{id, arns},
 	)
 }
 
@@ -125,6 +147,16 @@ func (i *jsiiProxy_IApplicationListener) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
+func (j *jsiiProxy_IApplicationListener) ListenerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"listenerArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IApplicationListener) Connections() awsec2.Connections {
 	var returns awsec2.Connections
 	_jsii_.Get(
@@ -145,18 +177,8 @@ func (j *jsiiProxy_IApplicationListener) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IApplicationListener) ListenerArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"listenerArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IApplicationListener) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IApplicationListener) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

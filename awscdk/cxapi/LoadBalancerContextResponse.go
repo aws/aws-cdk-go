@@ -19,18 +19,25 @@ package cxapi
 //   	VpcId: jsii.String("vpcId"),
 //   }
 //
+// Experimental.
 type LoadBalancerContextResponse struct {
 	// Type of IP address.
+	// Experimental.
 	IpAddressType LoadBalancerIpAddressType `field:"required" json:"ipAddressType" yaml:"ipAddressType"`
 	// The ARN of the load balancer.
+	// Experimental.
 	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The hosted zone ID of the load balancer's name.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId *string `field:"required" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// Load balancer's DNS name.
+	// Experimental.
 	LoadBalancerDnsName *string `field:"required" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Load balancer's security groups.
+	// Experimental.
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Load balancer's VPC.
+	// Experimental.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 

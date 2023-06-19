@@ -7,8 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (n *jsiiProxy_NetworkTargetGroup) validateAddLoadBalancerTargetParameters(props *LoadBalancerTargetProps) error {
@@ -49,6 +50,14 @@ func (n *jsiiProxy_NetworkTargetGroup) validateMetricUnHealthyHostCountParameter
 	return nil
 }
 
+func (n *jsiiProxy_NetworkTargetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListener) error {
 	if listener == nil {
 		return fmt.Errorf("parameter listener is required, but nil was provided")
@@ -60,6 +69,14 @@ func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listen
 func (n *jsiiProxy_NetworkTargetGroup) validateSetAttributeParameters(key *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NetworkTargetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -78,6 +95,25 @@ func validateNetworkTargetGroup_FromTargetGroupAttributesParameters(scope constr
 		return fmt.Errorf("parameter attrs is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateNetworkTargetGroup_ImportParameters(scope constructs.Construct, id *string, props *TargetGroupImportProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}
 

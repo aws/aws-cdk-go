@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) validateAddDeletionOverrideParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecretTargetAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSecretTargetAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecretTargetAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSecretTargetAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecretTargetAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSecretTargetAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecretTargetAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSecretTargetAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) validateSetTargetTypeParameters(va
 	return nil
 }
 
-func validateNewCfnSecretTargetAttachmentParameters(scope constructs.Construct, id *string, props *CfnSecretTargetAttachmentProps) error {
+func validateNewCfnSecretTargetAttachmentParameters(scope awscdk.Construct, id *string, props *CfnSecretTargetAttachmentProps) error {
 	return nil
 }
 

@@ -16,14 +16,17 @@ package awscodepipelineactions
 //   	Type: codepipeline_actions.CodeBuildActionType_TEST,
 //   })
 //
+// Experimental.
 type CodeBuildActionType string
 
 const (
 	// The action will have the Build Category.
 	//
 	// This is the default.
+	// Experimental.
 	CodeBuildActionType_BUILD CodeBuildActionType = "BUILD"
 	// The action will have the Test Category.
+	// Experimental.
 	CodeBuildActionType_TEST CodeBuildActionType = "TEST"
 )
 

@@ -4,11 +4,19 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CfnCondition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCondition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCondition) validateResolveParameters(_context IResolveContext) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCondition) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 

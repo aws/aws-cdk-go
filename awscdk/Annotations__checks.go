@@ -5,7 +5,7 @@ package awscdk
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_Annotations) validateAddDeprecationParameters(api *string, message *string) error {

@@ -4,11 +4,7 @@ package awselasticloadbalancingv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (l *jsiiProxy_ListenerAction) validateAddRuleActionParameters(actionJson *CfnListenerRule_ActionProperty) error {
-	return nil
-}
-
-func (l *jsiiProxy_ListenerAction) validateBindParameters(scope constructs.Construct, listener IApplicationListener) error {
+func (l *jsiiProxy_ListenerAction) validateBindParameters(scope awscdk.Construct, listener IApplicationListener) error {
 	return nil
 }
 
@@ -36,7 +32,7 @@ func validateListenerAction_WeightedForwardParameters(targetGroups *[]*WeightedT
 	return nil
 }
 
-func validateNewListenerActionParameters(defaultActionJson *CfnListener_ActionProperty) error {
+func validateNewListenerActionParameters(actionJson *CfnListener_ActionProperty) error {
 	return nil
 }
 

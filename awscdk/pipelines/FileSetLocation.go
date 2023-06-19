@@ -15,10 +15,13 @@ package pipelines
 //   	FileSet: fileSet,
 //   }
 //
+// Experimental.
 type FileSetLocation struct {
 	// The (relative) directory where the FileSet is found.
+	// Experimental.
 	Directory *string `field:"required" json:"directory" yaml:"directory"`
 	// The FileSet object.
+	// Experimental.
 	FileSet FileSet `field:"required" json:"fileSet" yaml:"fileSet"`
 }
 

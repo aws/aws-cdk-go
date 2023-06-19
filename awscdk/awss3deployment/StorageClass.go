@@ -16,9 +16,9 @@ package awss3deployment
 //   	DestinationBucket: websiteBucket,
 //   	DestinationKeyPrefix: jsii.String("web/static"),
 //   	 // optional prefix in destination bucket
-//   	Metadata: map[string]*string{
-//   		"A": jsii.String("1"),
-//   		"b": jsii.String("2"),
+//   	Metadata: &UserDefinedObjectMetadata{
+//   		A: jsii.String("1"),
+//   		B: jsii.String("2"),
 //   	},
 //   	 // user-defined metadata
 //
@@ -36,22 +36,30 @@ package awss3deployment
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
+// Experimental.
 type StorageClass string
 
 const (
 	// 'STANDARD'.
+	// Experimental.
 	StorageClass_STANDARD StorageClass = "STANDARD"
 	// 'REDUCED_REDUNDANCY'.
+	// Experimental.
 	StorageClass_REDUCED_REDUNDANCY StorageClass = "REDUCED_REDUNDANCY"
 	// 'STANDARD_IA'.
+	// Experimental.
 	StorageClass_STANDARD_IA StorageClass = "STANDARD_IA"
 	// 'ONEZONE_IA'.
+	// Experimental.
 	StorageClass_ONEZONE_IA StorageClass = "ONEZONE_IA"
 	// 'INTELLIGENT_TIERING'.
+	// Experimental.
 	StorageClass_INTELLIGENT_TIERING StorageClass = "INTELLIGENT_TIERING"
 	// 'GLACIER'.
+	// Experimental.
 	StorageClass_GLACIER StorageClass = "GLACIER"
 	// 'DEEP_ARCHIVE'.
+	// Experimental.
 	StorageClass_DEEP_ARCHIVE StorageClass = "DEEP_ARCHIVE"
 )
 

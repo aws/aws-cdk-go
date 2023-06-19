@@ -1,13 +1,13 @@
 package awslogsdestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogsdestinations/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awslogsdestinations/internal"
 )
 
 // Use a Kinesis stream as the destination for a log subscription.
@@ -26,6 +26,7 @@ import (
 //   	Role: role,
 //   })
 //
+// Experimental.
 type KinesisDestination interface {
 	awslogs.ILogSubscriptionDestination
 	// Return the properties required to send subscription events to this destination.
@@ -36,7 +37,8 @@ type KinesisDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for KinesisDestination
@@ -44,6 +46,7 @@ type jsiiProxy_KinesisDestination struct {
 	internal.Type__awslogsILogSubscriptionDestination
 }
 
+// Experimental.
 func NewKinesisDestination(stream awskinesis.IStream, props *KinesisDestinationProps) KinesisDestination {
 	_init_.Initialize()
 
@@ -53,7 +56,7 @@ func NewKinesisDestination(stream awskinesis.IStream, props *KinesisDestinationP
 	j := jsiiProxy_KinesisDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
+		"monocdk.aws_logs_destinations.KinesisDestination",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -61,17 +64,18 @@ func NewKinesisDestination(stream awskinesis.IStream, props *KinesisDestinationP
 	return &j
 }
 
+// Experimental.
 func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStream, props *KinesisDestinationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
+		"monocdk.aws_logs_destinations.KinesisDestination",
 		[]interface{}{stream, props},
 		k,
 	)
 }
 
-func (k *jsiiProxy_KinesisDestination) Bind(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+func (k *jsiiProxy_KinesisDestination) Bind(scope awscdk.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
 	if err := k.validateBindParameters(scope, _sourceLogGroup); err != nil {
 		panic(err)
 	}

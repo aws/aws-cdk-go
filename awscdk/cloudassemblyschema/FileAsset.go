@@ -29,10 +29,13 @@ package cloudassemblyschema
 //   	},
 //   }
 //
+// Experimental.
 type FileAsset struct {
 	// Destinations for this file asset.
+	// Experimental.
 	Destinations *map[string]*FileDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
+	// Experimental.
 	Source *FileSource `field:"required" json:"source" yaml:"source"`
 }
 

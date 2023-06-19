@@ -11,8 +11,10 @@ package awss3
 //   	Regional: jsii.Boolean(false),
 //   })
 //
+// Experimental.
 type VirtualHostedStyleUrlOptions struct {
 	// Specifies the URL includes the region.
+	// Experimental.
 	Regional *bool `field:"optional" json:"regional" yaml:"regional"`
 }
 

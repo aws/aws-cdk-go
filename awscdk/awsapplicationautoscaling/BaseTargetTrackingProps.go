@@ -1,7 +1,7 @@
 package awsapplicationautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Base interface for target tracking props.
@@ -15,16 +15,19 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var duration duration
 //
 //   baseTargetTrackingProps := &BaseTargetTrackingProps{
 //   	DisableScaleIn: jsii.Boolean(false),
 //   	PolicyName: jsii.String("policyName"),
-//   	ScaleInCooldown: cdk.Duration_Minutes(jsii.Number(30)),
-//   	ScaleOutCooldown: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	ScaleInCooldown: duration,
+//   	ScaleOutCooldown: duration,
 //   }
 //
+// Experimental.
 type BaseTargetTrackingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -32,12 +35,16 @@ type BaseTargetTrackingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `field:"optional" json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `field:"optional" json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `field:"optional" json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 }
 

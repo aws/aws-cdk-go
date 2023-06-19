@@ -7,10 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (m *jsiiProxy_Method) validateAddMethodResponseParameters(methodResponse *MethodResponse) error {
@@ -55,109 +53,17 @@ func (m *jsiiProxy_Method) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateGrantExecuteParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (m *jsiiProxy_Method) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricParameters(metricName *string, stage IStage, props *awscloudwatch.MetricOptions) error {
-	if metricName == nil {
-		return fmt.Errorf("parameter metricName is required, but nil was provided")
-	}
-
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricCacheHitCountParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricCacheMissCountParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricClientErrorParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricCountParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricIntegrationLatencyParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricLatencyParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Method) validateMetricServerErrorParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
-	if stage == nil {
-		return fmt.Errorf("parameter stage is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
+func (m *jsiiProxy_Method) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -171,15 +77,7 @@ func validateMethod_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateMethod_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateMethod_IsResourceParameters(construct constructs.IConstruct) error {
+func validateMethod_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

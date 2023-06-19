@@ -27,15 +27,18 @@ package awsappmesh
 //   			// Retry five times
 //   			RetryAttempts: jsii.Number(5),
 //   			// Use a 1 second timeout per retry
-//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })
 //
+// Experimental.
 type RouteBaseProps struct {
 	// Protocol specific spec.
+	// Experimental.
 	RouteSpec RouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the route.
+	// Experimental.
 	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 }
 

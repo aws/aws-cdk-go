@@ -12,10 +12,6 @@ func validateCloudFormationStackArtifact_FromManifestParameters(assembly CloudAs
 	return nil
 }
 
-func validateCloudFormationStackArtifact_IsCloudFormationStackArtifactParameters(art interface{}) error {
-	return nil
-}
-
 func validateNewCloudFormationStackArtifactParameters(assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) error {
 	return nil
 }

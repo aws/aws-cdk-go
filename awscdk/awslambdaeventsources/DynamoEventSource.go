@@ -1,62 +1,51 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 )
 
 // Use an Amazon DynamoDB stream as an event source for AWS Lambda.
 //
 // Example:
-//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var table table
 //
 //   var fn function
 //
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
-//   	Stream: dynamodb.StreamViewType_NEW_IMAGE,
-//   })
-//   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
-//   	StartingPosition: lambda.StartingPosition_LATEST,
-//   	Filters: []map[string]interface{}{
-//   		lambda.FilterCriteria_Filter(map[string]interface{}{
-//   			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
-//   		}),
-//   	},
+//
+//   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
+//   fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
+//   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+//   	BatchSize: jsii.Number(5),
+//   	BisectBatchOnError: jsii.Boolean(true),
+//   	OnFailure: awscdk.NewSqsDlq(deadLetterQueue),
+//   	RetryAttempts: jsii.Number(10),
 //   }))
 //
+// Experimental.
 type DynamoEventSource interface {
 	StreamEventSource
-	// The ARN for this EventSourceMapping.
-	EventSourceMappingArn() *string
 	// The identifier for this EventSourceMapping.
+	// Experimental.
 	EventSourceMappingId() *string
+	// Experimental.
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
+	// Experimental.
 	Bind(target awslambda.IFunction)
+	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
 // The jsii proxy struct for DynamoEventSource
 type jsiiProxy_DynamoEventSource struct {
 	jsiiProxy_StreamEventSource
-}
-
-func (j *jsiiProxy_DynamoEventSource) EventSourceMappingArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"eventSourceMappingArn",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_DynamoEventSource) EventSourceMappingId() *string {
@@ -80,6 +69,7 @@ func (j *jsiiProxy_DynamoEventSource) Props() *StreamEventSourceProps {
 }
 
 
+// Experimental.
 func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProps) DynamoEventSource {
 	_init_.Initialize()
 
@@ -89,7 +79,7 @@ func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProp
 	j := jsiiProxy_DynamoEventSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
+		"monocdk.aws_lambda_event_sources.DynamoEventSource",
 		[]interface{}{table, props},
 		&j,
 	)
@@ -97,11 +87,12 @@ func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProp
 	return &j
 }
 
+// Experimental.
 func NewDynamoEventSource_Override(d DynamoEventSource, table awsdynamodb.ITable, props *DynamoEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
+		"monocdk.aws_lambda_event_sources.DynamoEventSource",
 		[]interface{}{table, props},
 		d,
 	)

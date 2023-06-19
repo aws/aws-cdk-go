@@ -1,7 +1,7 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,8 +16,8 @@ import (
 //
 //   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
 //   	LambdaFunction: submitLambda,
-//   	// Lambda's result is in the attribute `guid`
-//   	OutputPath: jsii.String("$.guid"),
+//   	// Lambda's result is in the attribute `Payload`
+//   	OutputPath: jsii.String("$.Payload"),
 //   })
 //
 //   waitX := sfn.NewWait(this, jsii.String("Wait X Seconds"), &WaitProps{
@@ -29,7 +29,7 @@ import (
 //   	// Pass just the field named "guid" into the Lambda, put the
 //   	// Lambda's result in a field called "status" in the response
 //   	InputPath: jsii.String("$.guid"),
-//   	OutputPath: jsii.String("$.status"),
+//   	OutputPath: jsii.String("$.Payload"),
 //   })
 //
 //   jobFailed := sfn.NewFail(this, jsii.String("Job Failed"), &FailProps{
@@ -51,8 +51,10 @@ import (
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
+// Experimental.
 type Condition interface {
 	// Render Amazon States Language JSON for the condition.
+	// Experimental.
 	RenderCondition() interface{}
 }
 
@@ -61,17 +63,19 @@ type jsiiProxy_Condition struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewCondition_Override(c Condition) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Combine two or more conditions with a logical AND.
+// Experimental.
 func Condition_And(conditions ...Condition) Condition {
 	_init_.Initialize()
 
@@ -83,7 +87,7 @@ func Condition_And(conditions ...Condition) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"and",
 		args,
 		&returns,
@@ -93,6 +97,7 @@ func Condition_And(conditions ...Condition) Condition {
 }
 
 // Matches if a boolean field has the given value.
+// Experimental.
 func Condition_BooleanEquals(variable *string, value *bool) Condition {
 	_init_.Initialize()
 
@@ -102,7 +107,7 @@ func Condition_BooleanEquals(variable *string, value *bool) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"booleanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -112,6 +117,7 @@ func Condition_BooleanEquals(variable *string, value *bool) Condition {
 }
 
 // Matches if a boolean field equals to a value at a given mapping path.
+// Experimental.
 func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -121,7 +127,7 @@ func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"booleanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -131,6 +137,7 @@ func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition 
 }
 
 // Matches if variable is boolean.
+// Experimental.
 func Condition_IsBoolean(variable *string) Condition {
 	_init_.Initialize()
 
@@ -140,7 +147,7 @@ func Condition_IsBoolean(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isBoolean",
 		[]interface{}{variable},
 		&returns,
@@ -150,6 +157,7 @@ func Condition_IsBoolean(variable *string) Condition {
 }
 
 // Matches if variable is not boolean.
+// Experimental.
 func Condition_IsNotBoolean(variable *string) Condition {
 	_init_.Initialize()
 
@@ -159,7 +167,7 @@ func Condition_IsNotBoolean(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotBoolean",
 		[]interface{}{variable},
 		&returns,
@@ -169,6 +177,7 @@ func Condition_IsNotBoolean(variable *string) Condition {
 }
 
 // Matches if variable is not null.
+// Experimental.
 func Condition_IsNotNull(variable *string) Condition {
 	_init_.Initialize()
 
@@ -178,7 +187,7 @@ func Condition_IsNotNull(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotNull",
 		[]interface{}{variable},
 		&returns,
@@ -188,6 +197,7 @@ func Condition_IsNotNull(variable *string) Condition {
 }
 
 // Matches if variable is not numeric.
+// Experimental.
 func Condition_IsNotNumeric(variable *string) Condition {
 	_init_.Initialize()
 
@@ -197,7 +207,7 @@ func Condition_IsNotNumeric(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotNumeric",
 		[]interface{}{variable},
 		&returns,
@@ -207,6 +217,7 @@ func Condition_IsNotNumeric(variable *string) Condition {
 }
 
 // Matches if variable is not present.
+// Experimental.
 func Condition_IsNotPresent(variable *string) Condition {
 	_init_.Initialize()
 
@@ -216,7 +227,7 @@ func Condition_IsNotPresent(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotPresent",
 		[]interface{}{variable},
 		&returns,
@@ -226,6 +237,7 @@ func Condition_IsNotPresent(variable *string) Condition {
 }
 
 // Matches if variable is not a string.
+// Experimental.
 func Condition_IsNotString(variable *string) Condition {
 	_init_.Initialize()
 
@@ -235,7 +247,7 @@ func Condition_IsNotString(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotString",
 		[]interface{}{variable},
 		&returns,
@@ -245,6 +257,7 @@ func Condition_IsNotString(variable *string) Condition {
 }
 
 // Matches if variable is not a timestamp.
+// Experimental.
 func Condition_IsNotTimestamp(variable *string) Condition {
 	_init_.Initialize()
 
@@ -254,7 +267,7 @@ func Condition_IsNotTimestamp(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotTimestamp",
 		[]interface{}{variable},
 		&returns,
@@ -264,6 +277,7 @@ func Condition_IsNotTimestamp(variable *string) Condition {
 }
 
 // Matches if variable is Null.
+// Experimental.
 func Condition_IsNull(variable *string) Condition {
 	_init_.Initialize()
 
@@ -273,7 +287,7 @@ func Condition_IsNull(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNull",
 		[]interface{}{variable},
 		&returns,
@@ -283,6 +297,7 @@ func Condition_IsNull(variable *string) Condition {
 }
 
 // Matches if variable is numeric.
+// Experimental.
 func Condition_IsNumeric(variable *string) Condition {
 	_init_.Initialize()
 
@@ -292,7 +307,7 @@ func Condition_IsNumeric(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNumeric",
 		[]interface{}{variable},
 		&returns,
@@ -302,6 +317,7 @@ func Condition_IsNumeric(variable *string) Condition {
 }
 
 // Matches if variable is present.
+// Experimental.
 func Condition_IsPresent(variable *string) Condition {
 	_init_.Initialize()
 
@@ -311,7 +327,7 @@ func Condition_IsPresent(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isPresent",
 		[]interface{}{variable},
 		&returns,
@@ -321,6 +337,7 @@ func Condition_IsPresent(variable *string) Condition {
 }
 
 // Matches if variable is a string.
+// Experimental.
 func Condition_IsString(variable *string) Condition {
 	_init_.Initialize()
 
@@ -330,7 +347,7 @@ func Condition_IsString(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isString",
 		[]interface{}{variable},
 		&returns,
@@ -340,6 +357,7 @@ func Condition_IsString(variable *string) Condition {
 }
 
 // Matches if variable is a timestamp.
+// Experimental.
 func Condition_IsTimestamp(variable *string) Condition {
 	_init_.Initialize()
 
@@ -349,7 +367,7 @@ func Condition_IsTimestamp(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isTimestamp",
 		[]interface{}{variable},
 		&returns,
@@ -359,6 +377,7 @@ func Condition_IsTimestamp(variable *string) Condition {
 }
 
 // Negate a condition.
+// Experimental.
 func Condition_Not(condition Condition) Condition {
 	_init_.Initialize()
 
@@ -368,7 +387,7 @@ func Condition_Not(condition Condition) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"not",
 		[]interface{}{condition},
 		&returns,
@@ -378,6 +397,7 @@ func Condition_Not(condition Condition) Condition {
 }
 
 // Matches if a numeric field has the given value.
+// Experimental.
 func Condition_NumberEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -387,7 +407,7 @@ func Condition_NumberEquals(variable *string, value *float64) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -397,6 +417,7 @@ func Condition_NumberEquals(variable *string, value *float64) Condition {
 }
 
 // Matches if a numeric field has the value in a given mapping path.
+// Experimental.
 func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -406,7 +427,7 @@ func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -416,6 +437,7 @@ func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 }
 
 // Matches if a numeric field is greater than the given value.
+// Experimental.
 func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -425,7 +447,7 @@ func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -435,6 +457,7 @@ func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 }
 
 // Matches if a numeric field is greater than or equal to the given value.
+// Experimental.
 func Condition_NumberGreaterThanEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -444,7 +467,7 @@ func Condition_NumberGreaterThanEquals(variable *string, value *float64) Conditi
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -454,6 +477,7 @@ func Condition_NumberGreaterThanEquals(variable *string, value *float64) Conditi
 }
 
 // Matches if a numeric field is greater than or equal to the value at a given mapping path.
+// Experimental.
 func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -463,7 +487,7 @@ func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -473,6 +497,7 @@ func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) 
 }
 
 // Matches if a numeric field is greater than the value at a given mapping path.
+// Experimental.
 func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -482,7 +507,7 @@ func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condit
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -492,6 +517,7 @@ func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condit
 }
 
 // Matches if a numeric field is less than the given value.
+// Experimental.
 func Condition_NumberLessThan(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -501,7 +527,7 @@ func Condition_NumberLessThan(variable *string, value *float64) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -511,6 +537,7 @@ func Condition_NumberLessThan(variable *string, value *float64) Condition {
 }
 
 // Matches if a numeric field is less than or equal to the given value.
+// Experimental.
 func Condition_NumberLessThanEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -520,7 +547,7 @@ func Condition_NumberLessThanEquals(variable *string, value *float64) Condition 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -530,6 +557,7 @@ func Condition_NumberLessThanEquals(variable *string, value *float64) Condition 
 }
 
 // Matches if a numeric field is less than or equal to the numeric value at given mapping path.
+// Experimental.
 func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -539,7 +567,7 @@ func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Con
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -549,6 +577,7 @@ func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Con
 }
 
 // Matches if a numeric field is less than the value at the given mapping path.
+// Experimental.
 func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -558,7 +587,7 @@ func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -568,6 +597,7 @@ func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition
 }
 
 // Combine two or more conditions with a logical OR.
+// Experimental.
 func Condition_Or(conditions ...Condition) Condition {
 	_init_.Initialize()
 
@@ -579,7 +609,7 @@ func Condition_Or(conditions ...Condition) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"or",
 		args,
 		&returns,
@@ -589,6 +619,7 @@ func Condition_Or(conditions ...Condition) Condition {
 }
 
 // Matches if a string field has the given value.
+// Experimental.
 func Condition_StringEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -598,7 +629,7 @@ func Condition_StringEquals(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -608,6 +639,7 @@ func Condition_StringEquals(variable *string, value *string) Condition {
 }
 
 // Matches if a string field equals to a value at a given mapping path.
+// Experimental.
 func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -617,7 +649,7 @@ func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -627,6 +659,7 @@ func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts after a given value.
+// Experimental.
 func Condition_StringGreaterThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -636,7 +669,7 @@ func Condition_StringGreaterThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -646,6 +679,7 @@ func Condition_StringGreaterThan(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts after or equal to a given value.
+// Experimental.
 func Condition_StringGreaterThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -655,7 +689,7 @@ func Condition_StringGreaterThanEquals(variable *string, value *string) Conditio
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -665,6 +699,7 @@ func Condition_StringGreaterThanEquals(variable *string, value *string) Conditio
 }
 
 // Matches if a string field sorts after or equal to value at a given mapping path.
+// Experimental.
 func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -674,7 +709,7 @@ func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -684,6 +719,7 @@ func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) 
 }
 
 // Matches if a string field sorts after a value at a given mapping path.
+// Experimental.
 func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -693,7 +729,7 @@ func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condit
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -703,6 +739,7 @@ func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condit
 }
 
 // Matches if a string field sorts before a given value.
+// Experimental.
 func Condition_StringLessThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -712,7 +749,7 @@ func Condition_StringLessThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -722,6 +759,7 @@ func Condition_StringLessThan(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts equal to or before a given value.
+// Experimental.
 func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -731,7 +769,7 @@ func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -741,6 +779,7 @@ func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts equal to or before a given mapping.
+// Experimental.
 func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -750,7 +789,7 @@ func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Con
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -760,6 +799,7 @@ func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Con
 }
 
 // Matches if a string field sorts before a given value at a particular mapping.
+// Experimental.
 func Condition_StringLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -769,7 +809,7 @@ func Condition_StringLessThanJsonPath(variable *string, value *string) Condition
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -779,6 +819,7 @@ func Condition_StringLessThanJsonPath(variable *string, value *string) Condition
 }
 
 // Matches if a field matches a string pattern that can contain a wild card (*) e.g: log-*.txt or *LATEST*. No other characters other than "*" have any special meaning - * can be escaped: \\*.
+// Experimental.
 func Condition_StringMatches(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -788,7 +829,7 @@ func Condition_StringMatches(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringMatches",
 		[]interface{}{variable, value},
 		&returns,
@@ -798,6 +839,7 @@ func Condition_StringMatches(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is the same time as the given timestamp.
+// Experimental.
 func Condition_TimestampEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -807,7 +849,7 @@ func Condition_TimestampEquals(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -817,6 +859,7 @@ func Condition_TimestampEquals(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is the same time as the timestamp at a given mapping path.
+// Experimental.
 func Condition_TimestampEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -826,7 +869,7 @@ func Condition_TimestampEqualsJsonPath(variable *string, value *string) Conditio
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -836,6 +879,7 @@ func Condition_TimestampEqualsJsonPath(variable *string, value *string) Conditio
 }
 
 // Matches if a timestamp field is after the given timestamp.
+// Experimental.
 func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -845,7 +889,7 @@ func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -855,6 +899,7 @@ func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is after or equal to the given timestamp.
+// Experimental.
 func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -864,7 +909,7 @@ func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condi
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -874,6 +919,7 @@ func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condi
 }
 
 // Matches if a timestamp field is after or equal to the timestamp at a given mapping path.
+// Experimental.
 func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -883,7 +929,7 @@ func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *strin
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -893,6 +939,7 @@ func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *strin
 }
 
 // Matches if a timestamp field is after the timestamp at a given mapping path.
+// Experimental.
 func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -902,7 +949,7 @@ func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Con
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -912,6 +959,7 @@ func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Con
 }
 
 // Matches if a timestamp field is before the given timestamp.
+// Experimental.
 func Condition_TimestampLessThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -921,7 +969,7 @@ func Condition_TimestampLessThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -931,6 +979,7 @@ func Condition_TimestampLessThan(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is before or equal to the given timestamp.
+// Experimental.
 func Condition_TimestampLessThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -940,7 +989,7 @@ func Condition_TimestampLessThanEquals(variable *string, value *string) Conditio
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -950,6 +999,7 @@ func Condition_TimestampLessThanEquals(variable *string, value *string) Conditio
 }
 
 // Matches if a timestamp field is before or equal to the timestamp at a given mapping path.
+// Experimental.
 func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -959,7 +1009,7 @@ func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -969,6 +1019,7 @@ func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) 
 }
 
 // Matches if a timestamp field is before the timestamp at a given mapping path.
+// Experimental.
 func Condition_TimestampLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -978,7 +1029,7 @@ func Condition_TimestampLessThanJsonPath(variable *string, value *string) Condit
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,

@@ -19,14 +19,19 @@ package cxapi
 //   	TerminationProtection: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
+	// Experimental.
 	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
+	// Experimental.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name to use for the CloudFormation stack.
+	// Experimental.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Whether to enable termination protection for this stack.
+	// Experimental.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 

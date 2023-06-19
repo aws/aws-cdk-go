@@ -10,54 +10,23 @@ To set up a clustered database (like Aurora), define a `DatabaseCluster`. You mu
 always launch a database in a VPC. Use the `vpcSubnets` attribute to control whether
 your instances will be launched privately or publicly:
 
-You must specify the instance to use as the writer, along with an optional list
-of readers (up to 15).
-
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"),
-Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-	Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-}),
-Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
- // Optional - will default to 'admin' username and generated password
-Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-	Readers: []iClusterInstance{
-		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
-			PromotionTier: jsii.Number(1),
-		}),
-		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
-	},
-	VpcSubnets: map[string]subnetType{
-		"subnetType": ec2.*subnetType_PRIVATE_WITH_EGRESS,
-	},
-	Vpc: *Vpc,
-}),
-```
-
-To adopt Aurora I/O-Optimized. Speicify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
-		Version: rds.AuroraPostgresEngineVersion_VER_15_2(),
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
 	}),
-	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
-		Password: cdk.secretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
-	}),
+	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+	 // Optional - will default to 'admin' username and generated password
 	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_X2G, ec2.InstanceSize_XLARGE),
+		// optional , defaults to t3.medium
+		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
 		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PUBLIC,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 		},
 		Vpc: *Vpc,
 	},
-	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
 })
 ```
 
@@ -73,25 +42,6 @@ By default, the master password will be generated and stored in AWS Secrets Mana
 Your cluster will be empty by default. To add a default database upon construction, specify the
 `defaultDatabaseName` attribute.
 
-To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
-
-```go
-var vpc vpc
-// VPC and subnets must have IPv6 CIDR blocks
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_02_1(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-		PubliclyAccessible: jsii.Boolean(false),
-	}),
-	Vpc: Vpc,
-	NetworkType: rds.NetworkType_DUAL,
-})
-```
-
-For more information about dual-stack mode, see [Working with a DB cluster in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
-
 Use `DatabaseClusterFromSnapshot` to create a cluster from a snapshot:
 
 ```go
@@ -101,310 +51,16 @@ rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClust
 	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{
 		Version: rds.AuroraEngineVersion_VER_1_22_2(),
 	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Vpc: Vpc,
-	SnapshotIdentifier: jsii.String("mySnapshot"),
-})
-```
-
-### Updating the database instances in a cluster
-
-Database cluster instances may be updated in bulk or on a rolling basis.
-
-An update to all instances in a cluster may cause significant downtime. To reduce the downtime, set the `instanceUpdateBehavior` property in `DatabaseClusterBaseProps` to `InstanceUpdateBehavior.ROLLING`. This adds a dependency between each instance so the update is performed on only one instance at a time.
-
-Use `InstanceUpdateBehavior.BULK` to update all instances at once.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(map[string]instanceType{
-		"instanceType": ec2.*instanceType_of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-	}),
-	Readers: Readers,
-	Rds.ClusterInstance_Provisioned(jsii.String("reader")): ,
-	InstanceUpdateBehaviour: *Rds.InstanceUpdateBehaviour_ROLLING,
-	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
-	Vpc: Vpc,
-})
-```
-
-### Serverless V2 instances in a Cluster
-
-It is possible to create an RDS cluster with *both* serverlessV2 and provisioned
-instances. For example, this will create a cluster with a provisioned writer and
-a serverless v2 reader.
-
-> *Note* Before getting starting with this type of cluster it is
-> highly recommended that you read through the [Developer Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html)
-> which goes into much more detail on the things you need to take into
-> consideration.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Readers: []iClusterInstance{
-		rds.ClusterInstance_ServerlessV2(jsii.String("reader")),
-	},
-	Vpc: Vpc,
-})
-```
-
-### Monitoring
-
-There are some CloudWatch metrics that are [important for Aurora Serverless
-v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.viewing.monitoring).
-
-* `ServerlessDatabaseCapacity`: An instance-level metric that can also be
-  evaluated at the cluster level. At the cluster-level it represents the average
-  capacity of all the instances in the cluster.
-* `ACUUtilization`: Value of the `ServerlessDatabaseCapacity`/ max ACU of the
-  cluster.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Readers: []iClusterInstance{
-		rds.ClusterInstance_ServerlessV2(jsii.String("reader")),
-	},
-	Vpc: Vpc,
-})
-
-cluster.metricServerlessDatabaseCapacity(&MetricOptions{
-	Period: awscdk.Duration_Minutes(jsii.Number(10)),
-}).CreateAlarm(this, jsii.String("capacity"), &CreateAlarmOptions{
-	Threshold: jsii.Number(1.5),
-	EvaluationPeriods: jsii.Number(3),
-})
-cluster.metricACUUtilization(&MetricOptions{
-	Period: awscdk.Duration_*Minutes(jsii.Number(10)),
-}).CreateAlarm(this, jsii.String("alarm"), &CreateAlarmOptions{
-	EvaluationPeriods: jsii.Number(3),
-	Threshold: jsii.Number(90),
-})
-```
-
-#### Capacity & Scaling
-
-There are some things to take into consideration with Aurora Serverless v2.
-
-To create a cluster that can support serverless v2 instances you configure a
-minimum and maximum capacity range on the cluster. This is an example showing
-the default values:
-
-```go
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
-	}),
-	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
-	ServerlessV2MinCapacity: jsii.Number(0.5),
-	ServerlessV2MaxCapacity: jsii.Number(2),
-	Vpc: Vpc,
-})
-```
-
-The capacity is defined as a number of Aurora capacity units (ACUs). You can
-specify in half-step increments (40, 40.5, 41, etc). Each serverless instance in
-the cluster inherits the capacity that is defined on the cluster. It is not
-possible to configure separate capacity at the instance level.
-
-The maximum capacity is mainly used for budget control since it allows you to
-set a cap on how high your instance can scale.
-
-The minimum capacity is a little more involved. This controls a couple different
-things.
-
-* The scale-up rate is proportional to the current capacity (larger instances
-  scale up faster)
-
-  * Adjust the minimum capacity to obtain a suitable scaling rate
-* Network throughput is proportional to capacity
-
-> *Info* More complete details can be found [in the docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2-examples-setting-capacity-range-for-cluster)
-
-Another way that you control the capacity/scaling of your serverless v2 reader
-instances is based on the [promotion tier](https://aws.amazon.com/blogs/aws/additional-failover-control-for-amazon-aurora/)
-which can be between 0-15. Any serverless v2 instance in the 0-1 tiers will scale alongside the
-writer even if the current read load does not require the capacity. This is
-because instances in the 0-1 tier are first priority for failover and Aurora
-wants to ensure that in the event of a failover the reader that gets promoted is
-scaled to handle the write load.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-	}),
-	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
-	Readers: []iClusterInstance{
-		rds.ClusterInstance_*ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
-			ScaleWithWriter: jsii.Boolean(true),
-		}),
-		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
-	},
-	Vpc: Vpc,
-})
-```
-
-* When the writer scales up, any readers in tier 0-1 will scale up to match
-* Scaling for tier 2-15 is independent of what is happening on the writer
-* Readers in tier 2-15 scale up based on read load against the individual reader
-
-When configuring your cluster it is important to take this into consideration
-and ensure that in the event of a failover there is an instance that is scaled
-up to take over.
-
-### Mixing Serverless v2 and Provisioned instances
-
-You are able to create a cluster that has both provisioned and serverless
-instances. [This blog post](https://aws.amazon.com/blogs/database/evaluate-amazon-aurora-serverless-v2-for-your-provisioned-aurora-clusters/)
-has an excellent guide on choosing between serverless and provisioned instances
-based on use case.
-
-There are a couple of high level differences:
-
-* Engine Version (serverless only supports MySQL 8+ & PostgreSQL 13+)
-* Memory up to 256GB can be supported by serverless
-
-#### Provisioned writer
-
-With a provisioned writer and serverless v2 readers, some of the serverless
-readers will need to be configured to scale with the writer so they can act as
-failover targets. You will need to determine the correct capacity based on the
-provisioned instance type and it's utilization.
-
-As an example, if the CPU utilization for a db.r6g.4xlarge (128 GB) instance
-stays at 10% most times, then the minimum ACUs may be set at 6.5 ACUs
-(10% of 128 GB) and maximum may be set at 64 ACUs (64x2GB=128GB). Keep in mind
-that the speed at which the serverless instance can scale up is determined by
-the minimum capacity so if your cluster has spiky workloads you may need to set
-a higher minimum capacity.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
-	}),
-	ServerlessV2MinCapacity: jsii.Number(6.5),
-	ServerlessV2MaxCapacity: jsii.Number(64),
-	Readers: []iClusterInstance{
-		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
-			ScaleWithWriter: jsii.Boolean(true),
-		}),
-		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
-	},
-	Vpc: Vpc,
-})
-```
-
-In the above example `reader1` will scale with the writer based on the writer's
-utilization. So if the writer were to go to `50%` utilization then `reader1`
-would scale up to use `32` ACUs. If the read load stayed consistent then
-`reader2` may remain at `6.5` since it is not configured to scale with the
-writer.
-
-If one of your Aurora Serverless v2 DB instances consistently reaches the
-limit of its maximum capacity, Aurora indicates this condition by setting the
-DB instance to a status of `incompatible-parameters`. While the DB instance has
-the incompatible-parameters status, some operations are blocked. For example,
-you can't upgrade the engine version.
-
-### Migrating from instanceProps
-
-Creating instances in a `DatabaseCluster` using `instanceProps` & `instances` is
-deprecated. To migrate to the new properties you can provide the
-`isFromLegacyInstanceProps` property.
-
-For example, in order to migrate from this deprecated config:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-
-cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
-	}),
-	Instances: jsii.Number(2),
 	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PUBLIC,
-		},
 		Vpc: *Vpc,
 	},
-})
-```
-
-You would need to migrate to this. The old method of providing `instanceProps`
-and `instances` will create the number of `instances` that you provide. The
-first instance will be the writer and the rest will be the readers. It's
-important that the `id` that you provide is `Instance{NUMBER}`. The writer
-should always be `Instance1` and the readers will increment from there.
-
-Make sure to run a `cdk diff` before deploying to make sure that all changes are
-expected. **Always test the migration in a non-production environment first.**
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-instanceProps := map[string]interface{}{
-	"instanceType": ec2.InstanceType_of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-	"isFromLegacyInstanceProps": jsii.Boolean(true),
-}
-cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
-	}),
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PUBLIC,
-	},
-	Vpc: Vpc,
-	Writer: clusterInstance_Provisioned(jsii.String("Instance1"), map[string]interface{}{
-		(SpreadAssignment ...instanceProps
-				instanceProps),
-	}),
-	Readers: []iClusterInstance{
-		*clusterInstance_*Provisioned(jsii.String("Instance2"), map[string]interface{}{
-			(SpreadAssignment ...instanceProps
-					instanceProps),
-		}),
-	},
+	SnapshotIdentifier: jsii.String("mySnapshot"),
 })
 ```
 
 ## Starting an instance database
 
-To set up an instance database, define a `DatabaseInstance`. You must
+To set up a instance database, define a `DatabaseInstance`. You must
 always launch a database in a VPC. Use the `vpcSubnets` attribute to control whether
 your instances will be launched privately or publicly:
 
@@ -421,7 +77,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 	 // Optional - will default to 'admin' username and generated password
 	Vpc: Vpc,
 	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 	},
 })
 ```
@@ -445,7 +101,7 @@ var vpc vpc
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
+		Version: rds.PostgresEngineVersion_VER_12_3(),
 	}),
 	// optional, defaults to m5.large
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_SMALL),
@@ -453,23 +109,6 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 	MaxAllocatedStorage: jsii.Number(200),
 })
 ```
-
-To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
-
-```go
-var vpc vpc
-// VPC and subnets must have IPv6 CIDR blocks
-instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
-	}),
-	Vpc: Vpc,
-	NetworkType: rds.NetworkType_DUAL,
-	PubliclyAccessible: jsii.Boolean(false),
-})
-```
-
-For more information about dual-stack mode, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
 
 Use `DatabaseInstanceFromSnapshot` and `DatabaseInstanceReadReplica` to create an instance from snapshot or
 a source database respectively:
@@ -482,7 +121,7 @@ var sourceInstance databaseInstance
 rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
 	SnapshotIdentifier: jsii.String("my-snapshot"),
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
+		Version: rds.PostgresEngineVersion_VER_12_3(),
 	}),
 	// optional, defaults to m5.large
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
@@ -689,33 +328,6 @@ availabilityRule.AddEventPattern(&EventPattern{
 })
 ```
 
-Use the `storageType` property to specify the [type of storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html)
-to use for the instance:
-
-```go
-var vpc vpc
-
-
-iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
-	}),
-	Vpc: Vpc,
-	StorageType: rds.StorageType_IO1,
-	Iops: jsii.Number(5000),
-})
-
-gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
-	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
-	}),
-	Vpc: Vpc,
-	AllocatedStorage: jsii.Number(500),
-	StorageType: rds.StorageType_GP3,
-	StorageThroughput: jsii.Number(500),
-})
-```
-
 ## Setting Public Accessibility
 
 You can set public accessibility for the database instance or cluster using the `publiclyAccessible` property.
@@ -735,7 +347,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	}),
 	Vpc: Vpc,
 	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 	},
 	PubliclyAccessible: jsii.Boolean(true),
 })
@@ -743,13 +355,11 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 // Setting public accessibility for DB cluster
 // Setting public accessibility for DB cluster
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
-	}),
+	Engine: rds.DatabaseClusterEngine_AURORA(),
 	InstanceProps: &InstanceProps{
 		Vpc: *Vpc,
 		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 		},
 		PubliclyAccessible: jsii.Boolean(true),
 	},
@@ -781,7 +391,7 @@ The following examples use a `DatabaseInstance`, but the same usage is applicabl
 var vpc vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_15_2(),
+	Version: rds.PostgresEngineVersion_VER_12_3(),
 })
 rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &DatabaseInstanceProps{
 	Engine: Engine,
@@ -809,7 +419,7 @@ Secrets generated by `fromGeneratedSecret()` can be customized:
 var vpc vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_15_2(),
+	Version: rds.PostgresEngineVersion_VER_12_3(),
 })
 myKey := kms.NewKey(this, jsii.String("MyKey"))
 
@@ -840,7 +450,7 @@ As noted above, Databases created with `DatabaseInstanceFromSnapshot` or `Server
 var vpc vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-	Version: rds.PostgresEngineVersion_VER_15_2(),
+	Version: rds.PostgresEngineVersion_VER_12_3(),
 })
 myKey := kms.NewKey(this, jsii.String("MyKey"))
 
@@ -899,14 +509,11 @@ When the master password is generated and stored in AWS Secrets Manager, it can 
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
 var instance databaseInstance
-var mySecurityGroup securityGroup
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
-	AutomaticallyAfter: awscdk.Duration_Days(jsii.Number(7)),
+	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
 	 // defaults to 30 days
 	ExcludeCharacters: jsii.String("!@#$%^&*"),
-	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
-	SecurityGroup: mySecurityGroup,
 })
 ```
 
@@ -920,23 +527,6 @@ cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClust
 })
 
 cluster.addRotationSingleUser()
-
-clusterWithCustomRotationOptions := rds.NewDatabaseCluster(stack, jsii.String("CustomRotationOptions"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AURORA(),
-	InstanceProps: &InstanceProps{
-		InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-		Vpc: *Vpc,
-	},
-})
-clusterWithCustomRotationOptions.addRotationSingleUser(&RotationSingleUserOptions{
-	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
-	ExcludeCharacters: jsii.String("!@#$%^&*"),
-	SecurityGroup: SecurityGroup,
-	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-	},
-	Endpoint: endpoint,
-})
 ```
 
 The multi user rotation scheme is also available:
@@ -959,8 +549,6 @@ myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &Databa
 	Username: jsii.String("myuser"),
 	SecretName: jsii.String("my-user-secret"),
 	 // optional, defaults to a CloudFormation-generated name
-	Dbname: jsii.String("mydb"),
-	 //optional, defaults to the main database of the RDS cluster this secret gets attached to
 	MasterSecret: instance.Secret,
 	ExcludeCharacters: jsii.String("{}[]()'\"/\\"),
 })
@@ -987,14 +575,14 @@ var myEndpoint interfaceVpcEndpoint
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
 	VpcSubnets: &SubnetSelection{
-		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 	},
 	 // Place rotation Lambda in private subnets
 	Endpoint: myEndpoint,
 })
 ```
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
 
 ## IAM Authentication
 
@@ -1019,7 +607,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
 	AssumedBy: iam.NewAccountPrincipal(this.Account),
 })
-instance.grantConnect(role)
+instance.GrantConnect(role)
 ```
 
 The following example shows granting connection access for RDS Proxy to an IAM role.
@@ -1028,11 +616,10 @@ The following example shows granting connection access for RDS Proxy to an IAM r
 var vpc vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Vpc: Vpc,
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	InstanceProps: &InstanceProps{
+		Vpc: *Vpc,
+	},
 })
 
 proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
@@ -1136,11 +723,10 @@ var vpc vpc
 importBucket := s3.NewBucket(this, jsii.String("importbucket"))
 exportBucket := s3.NewBucket(this, jsii.String("exportbucket"))
 rds.NewDatabaseCluster(this, jsii.String("dbcluster"), &DatabaseClusterProps{
-	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
-	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Vpc: Vpc,
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	InstanceProps: &InstanceProps{
+		Vpc: *Vpc,
+	},
 	S3ImportBuckets: []iBucket{
 		importBucket,
 	},
@@ -1189,8 +775,9 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{
 		Version: rds.AuroraEngineVersion_VER_1_17_9(),
 	}),
-	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Vpc: Vpc,
+	InstanceProps: &InstanceProps{
+		Vpc: *Vpc,
+	},
 	CloudwatchLogsExports: []*string{
 		jsii.String("error"),
 		jsii.String("general"),
@@ -1206,7 +793,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 // Exporting logs from an instance
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-		Version: rds.PostgresEngineVersion_VER_15_2(),
+		Version: rds.PostgresEngineVersion_VER_12_3(),
 	}),
 	Vpc: Vpc,
 	CloudwatchLogsExports: []*string{
@@ -1309,8 +896,6 @@ var vpc vpc
 
 cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
-	CopyTagsToSnapshot: jsii.Boolean(true),
-	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 	Vpc: Vpc,
 	Scaling: &ServerlessScalingOptions{

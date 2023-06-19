@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for a MathExpression.
@@ -14,12 +14,14 @@ import (
 //   	Expression: jsii.String("errors + throttles"),
 //   	UsingMetrics: map[string]iMetric{
 //   		"errors": fn.metricErrors(),
-//   		"throttles": fn.metricThrottles(),
+//   		"faults": fn.metricThrottles(),
 //   	},
 //   })
 //
+// Experimental.
 type MathExpressionProps struct {
 	// Color for this metric when added to a Graph in a Dashboard.
+	// Experimental.
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Label for this expression when added to a Graph in a Dashboard.
 	//
@@ -43,31 +45,37 @@ type MathExpressionProps struct {
 	// math expression produces more than one time series, the maximum
 	// will be shown for each individual time series produce by this
 	// math expression.
+	// Experimental.
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
+	// Experimental.
 	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
+	// Experimental.
 	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
+	// Experimental.
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 	// The expression defining the metric.
 	//
 	// When an expression contains a SEARCH function, it cannot be used
 	// within an Alarm.
+	// Experimental.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The metrics used in the expression, in a map.
 	//
 	// The key is the identifier that represents the given metric in the
 	// expression, and the value is the actual Metric object.
+	// Experimental.
 	UsingMetrics *map[string]IMetric `field:"optional" json:"usingMetrics" yaml:"usingMetrics"`
 }
 

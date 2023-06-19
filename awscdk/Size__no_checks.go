@@ -4,10 +4,6 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_Size) validateToBytesParameters(opts *SizeConversionOptions) error {
-	return nil
-}
-
 func (s *jsiiProxy_Size) validateToGibibytesParameters(opts *SizeConversionOptions) error {
 	return nil
 }
@@ -28,10 +24,6 @@ func (s *jsiiProxy_Size) validateToTebibytesParameters(opts *SizeConversionOptio
 	return nil
 }
 
-func validateSize_BytesParameters(amount *float64) error {
-	return nil
-}
-
 func validateSize_GibibytesParameters(amount *float64) error {
 	return nil
 }
@@ -41,6 +33,10 @@ func validateSize_KibibytesParameters(amount *float64) error {
 }
 
 func validateSize_MebibytesParameters(amount *float64) error {
+	return nil
+}
+
+func validateSize_PebibyteParameters(amount *float64) error {
 	return nil
 }
 

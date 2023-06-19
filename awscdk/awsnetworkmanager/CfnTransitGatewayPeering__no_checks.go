@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnTransitGatewayPeering) validateAddDeletionOverrideParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeering) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTransitGatewayPeering) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnTransitGatewayPeering) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeering) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTransitGatewayPeering) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeering) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTransitGatewayPeering) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnTransitGatewayPeering) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeering) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTransitGatewayPeering) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) validateSetTransitGatewayArnParamet
 	return nil
 }
 
-func validateNewCfnTransitGatewayPeeringParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringProps) error {
+func validateNewCfnTransitGatewayPeeringParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayPeeringProps) error {
 	return nil
 }
 

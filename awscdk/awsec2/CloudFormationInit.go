@@ -1,38 +1,41 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // A CloudFormation-init configuration.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
+//   var myBucket bucket
 //
 //
-//   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: InstanceType,
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2022(),
+//   handle := ec2.NewInitServiceRestartHandle()
 //
-//   	Init: ec2.CloudFormationInit_FromElements(ec2.InitService_SystemdConfigFile(jsii.String("simpleserver"), &SystemdConfigFileOptions{
-//   		Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
-//   		Cwd: jsii.String("/var/www/html"),
-//   	}), ec2.InitService_Enable(jsii.String("simpleserver"), &InitServiceOptions{
-//   		ServiceManager: ec2.ServiceManager_SYSTEMD,
-//   	}), ec2.InitFile_FromString(jsii.String("/var/www/html/index.html"), jsii.String("Hello! It's working!"))),
-//   })
+//   ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/nginx/nginx.conf"), jsii.String("..."), &InitFileOptions{
+//   	ServiceRestartHandles: []initServiceRestartHandle{
+//   		handle,
+//   	},
+//   }), ec2.InitSource_FromS3Object(jsii.String("/var/www/html"), myBucket, jsii.String("html.zip"), &InitSourceOptions{
+//   	ServiceRestartHandles: []*initServiceRestartHandle{
+//   		handle,
+//   	},
+//   }), ec2.InitService_Enable(jsii.String("nginx"), &InitServiceOptions{
+//   	ServiceRestartHandle: handle,
+//   }))
 //
+// Experimental.
 type CloudFormationInit interface {
 	// Add a config with the given name to this CloudFormationInit object.
+	// Experimental.
 	AddConfig(configName *string, config InitConfig)
 	// Add a config set with the given name to this CloudFormationInit object.
 	//
 	// The new configset will reference the given configs in the given order.
+	// Experimental.
 	AddConfigSet(configSetName *string, configNames *[]*string)
 	// Attach the CloudFormation Init config to the given resource.
 	//
@@ -42,12 +45,13 @@ type CloudFormationInit interface {
 	// This method does the following:
 	//
 	// - Renders the `AWS::CloudFormation::Init` object to the given resource's
-	//   metadata, potentially adding a `AWS::CloudFormation::Authentication` object
-	//   next to it if required.
+	//    metadata, potentially adding a `AWS::CloudFormation::Authentication` object
+	//    next to it if required.
 	// - Updates the instance role policy to be able to call the APIs required for
-	//   `cfn-init` and `cfn-signal` to work, and potentially add permissions to download
-	//   referenced asset and bucket resources.
+	//    `cfn-init` and `cfn-signal` to work, and potentially add permissions to download
+	//    referenced asset and bucket resources.
 	// - Updates the given UserData with commands to execute the `cfn-init` script.
+	// Experimental.
 	Attach(attachedResource awscdk.CfnResource, attachOptions *AttachInitOptions)
 }
 
@@ -57,6 +61,7 @@ type jsiiProxy_CloudFormationInit struct {
 }
 
 // Use an existing InitConfig object as the default and only config.
+// Experimental.
 func CloudFormationInit_FromConfig(config InitConfig) CloudFormationInit {
 	_init_.Initialize()
 
@@ -66,7 +71,7 @@ func CloudFormationInit_FromConfig(config InitConfig) CloudFormationInit {
 	var returns CloudFormationInit
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CloudFormationInit",
+		"monocdk.aws_ec2.CloudFormationInit",
 		"fromConfig",
 		[]interface{}{config},
 		&returns,
@@ -76,6 +81,7 @@ func CloudFormationInit_FromConfig(config InitConfig) CloudFormationInit {
 }
 
 // Build a CloudFormationInit from config sets.
+// Experimental.
 func CloudFormationInit_FromConfigSets(props *ConfigSetProps) CloudFormationInit {
 	_init_.Initialize()
 
@@ -85,7 +91,7 @@ func CloudFormationInit_FromConfigSets(props *ConfigSetProps) CloudFormationInit
 	var returns CloudFormationInit
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CloudFormationInit",
+		"monocdk.aws_ec2.CloudFormationInit",
 		"fromConfigSets",
 		[]interface{}{props},
 		&returns,
@@ -95,6 +101,7 @@ func CloudFormationInit_FromConfigSets(props *ConfigSetProps) CloudFormationInit
 }
 
 // Build a new config from a set of Init Elements.
+// Experimental.
 func CloudFormationInit_FromElements(elements ...InitElement) CloudFormationInit {
 	_init_.Initialize()
 
@@ -106,7 +113,7 @@ func CloudFormationInit_FromElements(elements ...InitElement) CloudFormationInit
 	var returns CloudFormationInit
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CloudFormationInit",
+		"monocdk.aws_ec2.CloudFormationInit",
 		"fromElements",
 		args,
 		&returns,

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateAddDeletionOverrideP
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateInspectParameters(in
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateRenderPropertiesPara
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +76,7 @@ func validateCfnEnvironmentAccountConnection_IsConstructParameters(x interface{}
 	return nil
 }
 
-func validateNewCfnEnvironmentAccountConnectionParameters(scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) error {
+func validateNewCfnEnvironmentAccountConnectionParameters(scope awscdk.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) error {
 	return nil
 }
 

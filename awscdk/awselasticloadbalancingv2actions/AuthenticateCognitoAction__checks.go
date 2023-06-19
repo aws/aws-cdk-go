@@ -7,22 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
 )
 
-func (a *jsiiProxy_AuthenticateCognitoAction) validateAddRuleActionParameters(actionJson *awselasticloadbalancingv2.CfnListenerRule_ActionProperty) error {
-	if actionJson == nil {
-		return fmt.Errorf("parameter actionJson is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(actionJson, func() string { return "parameter actionJson" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (a *jsiiProxy_AuthenticateCognitoAction) validateBindParameters(scope constructs.Construct, listener awselasticloadbalancingv2.IApplicationListener) error {
+func (a *jsiiProxy_AuthenticateCognitoAction) validateBindParameters(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

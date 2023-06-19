@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnIdentityProviderConfig) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnIdentityProviderConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnIdentityProviderConfig) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityProviderConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnIdentityProviderConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityProviderConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnIdentityProviderConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnIdentityProviderConfig) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityProviderConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnIdentityProviderConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -189,8 +177,6 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetClusterNameParameters(v
 
 func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetOidcParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty:
 		val := val.(*CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -202,9 +188,11 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetOidcParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -219,7 +207,7 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) validateSetTypeParameters(val *str
 	return nil
 }
 
-func validateNewCfnIdentityProviderConfigParameters(scope constructs.Construct, id *string, props *CfnIdentityProviderConfigProps) error {
+func validateNewCfnIdentityProviderConfigParameters(scope awscdk.Construct, id *string, props *CfnIdentityProviderConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

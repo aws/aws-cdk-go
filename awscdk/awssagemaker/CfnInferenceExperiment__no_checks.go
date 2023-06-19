@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnInferenceExperiment) validateAddDeletionOverrideParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceExperiment) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnInferenceExperiment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnInferenceExperiment) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceExperiment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnInferenceExperiment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceExperiment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnInferenceExperiment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnInferenceExperiment) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceExperiment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnInferenceExperiment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -112,7 +108,7 @@ func (j *jsiiProxy_CfnInferenceExperiment) validateSetTypeParameters(val *string
 	return nil
 }
 
-func validateNewCfnInferenceExperimentParameters(scope constructs.Construct, id *string, props *CfnInferenceExperimentProps) error {
+func validateNewCfnInferenceExperimentParameters(scope awscdk.Construct, id *string, props *CfnInferenceExperimentProps) error {
 	return nil
 }
 

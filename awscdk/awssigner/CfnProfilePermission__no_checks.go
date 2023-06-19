@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnProfilePermission) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnProfilePermission) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnProfilePermission) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnProfilePermission) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnProfilePermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnProfilePermission) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnProfilePermission) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnProfilePermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnProfilePermission) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnProfilePermission) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnProfilePermission) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnProfilePermission) validateSetStatementIdParameters(val *s
 	return nil
 }
 
-func validateNewCfnProfilePermissionParameters(scope constructs.Construct, id *string, props *CfnProfilePermissionProps) error {
+func validateNewCfnProfilePermissionParameters(scope awscdk.Construct, id *string, props *CfnProfilePermissionProps) error {
 	return nil
 }
 

@@ -13,10 +13,13 @@ package awsappsync
 //   	Name: jsii.String("name"),
 //   }
 //
+// Experimental.
 type DataSourceOptions struct {
 	// The description of the data source.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source, overrides the id given by cdk.
+	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

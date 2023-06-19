@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateInspectParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateRenderProperties
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -184,8 +172,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetJobResourcesP
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -197,9 +183,11 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetJobResourcesP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,8 +199,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -224,9 +210,11 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -235,8 +223,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 
 func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplainabilityBaselineConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -248,9 +234,11 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -262,8 +250,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -275,9 +261,11 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,8 +277,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -302,9 +288,11 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -313,8 +301,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetModelExplaina
 
 func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetNetworkConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_NetworkConfigProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_NetworkConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -326,9 +312,11 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetNetworkConfig
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_NetworkConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_NetworkConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -345,8 +333,6 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetRoleArnParame
 
 func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetStoppingConditionParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelExplainabilityJobDefinition_StoppingConditionProperty:
 		val := val.(*CfnModelExplainabilityJobDefinition_StoppingConditionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -358,16 +344,18 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetStoppingCondi
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelExplainabilityJobDefinition_StoppingConditionProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelExplainabilityJobDefinition_StoppingConditionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnModelExplainabilityJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) error {
+func validateNewCfnModelExplainabilityJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

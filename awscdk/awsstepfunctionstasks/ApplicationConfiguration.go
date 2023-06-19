@@ -39,18 +39,22 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html
 //
+// Experimental.
 type ApplicationConfiguration struct {
 	// The classification within a configuration.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 1024.
+	// Experimental.
 	Classification Classification `field:"required" json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
 	//
 	// Array Members: Maximum number of 100 items.
+	// Experimental.
 	NestedConfig *[]*ApplicationConfiguration `field:"optional" json:"nestedConfig" yaml:"nestedConfig"`
 	// A set of properties specified within a configuration classification.
 	//
 	// Map Entries: Maximum number of 100 items.
+	// Experimental.
 	Properties *map[string]*string `field:"optional" json:"properties" yaml:"properties"`
 }
 

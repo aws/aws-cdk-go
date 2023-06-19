@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -24,13 +24,17 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type InterfaceVpcEndpointService interface {
 	IInterfaceVpcEndpointService
 	// The name of the service.
+	// Experimental.
 	Name() *string
 	// The port of the service.
+	// Experimental.
 	Port() *float64
 	// Whether Private DNS is supported by default.
+	// Experimental.
 	PrivateDnsDefault() *bool
 }
 
@@ -70,6 +74,7 @@ func (j *jsiiProxy_InterfaceVpcEndpointService) PrivateDnsDefault() *bool {
 }
 
 
+// Experimental.
 func NewInterfaceVpcEndpointService(name *string, port *float64) InterfaceVpcEndpointService {
 	_init_.Initialize()
 
@@ -79,7 +84,7 @@ func NewInterfaceVpcEndpointService(name *string, port *float64) InterfaceVpcEnd
 	j := jsiiProxy_InterfaceVpcEndpointService{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointService",
+		"monocdk.aws_ec2.InterfaceVpcEndpointService",
 		[]interface{}{name, port},
 		&j,
 	)
@@ -87,11 +92,12 @@ func NewInterfaceVpcEndpointService(name *string, port *float64) InterfaceVpcEnd
 	return &j
 }
 
+// Experimental.
 func NewInterfaceVpcEndpointService_Override(i InterfaceVpcEndpointService, name *string, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointService",
+		"monocdk.aws_ec2.InterfaceVpcEndpointService",
 		[]interface{}{name, port},
 		i,
 	)

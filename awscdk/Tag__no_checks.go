@@ -8,11 +8,15 @@ func (t *jsiiProxy_Tag) validateApplyTagParameters(resource ITaggable) error {
 	return nil
 }
 
-func (t *jsiiProxy_Tag) validateApplyTagV2Parameters(resource ITaggableV2) error {
+func (t *jsiiProxy_Tag) validateVisitParameters(construct IConstruct) error {
 	return nil
 }
 
-func (t *jsiiProxy_Tag) validateVisitParameters(construct constructs.IConstruct) error {
+func validateTag_AddParameters(scope Construct, key *string, value *string, props *TagProps) error {
+	return nil
+}
+
+func validateTag_RemoveParameters(scope Construct, key *string, props *TagProps) error {
 	return nil
 }
 

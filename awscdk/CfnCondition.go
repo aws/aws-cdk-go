@@ -1,27 +1,23 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Represents a CloudFormation condition, for resources which must be conditionally created and the determination must be made at deploy time.
 //
 // Example:
-//   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
-//   })
-//   // -or-
-//   rawBucketAlt := myBucket.Node.defaultChild.(cfnBucket)
+//   var cfnTemplate cfnInclude
 //
-//   // then
-//   rawBucket.CfnOptions.Condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &CfnConditionProps{
-//   })
-//   rawBucket.CfnOptions.Metadata = map[string]interface{}{
-//   	"metadataKey": jsii.String("MetadataValue"),
-//   }
+//   condition := cfnTemplate.GetCondition(jsii.String("MyCondition"))
 //
+//   // mutating the condition
+//   condition.Expression = core.Fn_ConditionEquals(jsii.Number(1), jsii.Number(2))
+//
+// Experimental.
 type CfnCondition interface {
 	CfnElement
 	ICfnConditionExpression
@@ -29,9 +25,12 @@ type CfnCondition interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The condition statement.
+	// Experimental.
 	Expression() ICfnConditionExpression
+	// Experimental.
 	SetExpression(val ICfnConditionExpression)
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -42,19 +41,73 @@ type CfnCondition interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() ConstructNode
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() Stack
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Synthesizes the condition.
+	// Experimental.
 	Resolve(_context IResolveContext) interface{}
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CfnCondition
@@ -94,8 +147,8 @@ func (j *jsiiProxy_CfnCondition) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCondition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCondition) Node() ConstructNode {
+	var returns ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -119,6 +172,7 @@ func (j *jsiiProxy_CfnCondition) Stack() Stack {
 //
 // The condition must be constructed with a condition token,
 // that the condition is based on.
+// Experimental.
 func NewCfnCondition(scope constructs.Construct, id *string, props *CfnConditionProps) CfnCondition {
 	_init_.Initialize()
 
@@ -128,7 +182,7 @@ func NewCfnCondition(scope constructs.Construct, id *string, props *CfnCondition
 	j := jsiiProxy_CfnCondition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.CfnCondition",
+		"monocdk.CfnCondition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -140,11 +194,12 @@ func NewCfnCondition(scope constructs.Construct, id *string, props *CfnCondition
 //
 // The condition must be constructed with a condition token,
 // that the condition is based on.
+// Experimental.
 func NewCfnCondition_Override(c CfnCondition, scope constructs.Construct, id *string, props *CfnConditionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.CfnCondition",
+		"monocdk.CfnCondition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -164,6 +219,7 @@ func (j *jsiiProxy_CfnCondition)SetExpression(val ICfnConditionExpression) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCondition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -173,7 +229,7 @@ func CfnCondition_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.CfnCondition",
+		"monocdk.CfnCondition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -182,23 +238,8 @@ func CfnCondition_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCondition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -208,9 +249,41 @@ func CfnCondition_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.CfnCondition",
+		"monocdk.CfnCondition",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCondition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCondition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnCondition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -225,6 +298,14 @@ func (c *jsiiProxy_CfnCondition) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnCondition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -244,12 +325,36 @@ func (c *jsiiProxy_CfnCondition) Resolve(_context IResolveContext) interface{} {
 	return returns
 }
 
+func (c *jsiiProxy_CfnCondition) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnCondition) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCondition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

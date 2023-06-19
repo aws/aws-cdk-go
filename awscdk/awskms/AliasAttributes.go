@@ -15,12 +15,15 @@ package awskms
 //   	AliasTargetKey: key,
 //   }
 //
+// Experimental.
 type AliasAttributes struct {
 	// Specifies the alias name.
 	//
 	// This value must begin with alias/ followed by a name (i.e. alias/ExampleAlias)
+	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// The customer master key (CMK) to which the Alias refers.
+	// Experimental.
 	AliasTargetKey IKey `field:"required" json:"aliasTargetKey" yaml:"aliasTargetKey"`
 }
 

@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,71 +13,97 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   import ecs "github.com/aws/aws-cdk-go/awscdk"
-//   var cluster iCluster
-//   var taskDefinition taskDefinition
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 //   })
 //
-//   rule.AddTarget(
-//   targets.NewEcsTask(&EcsTaskProps{
-//   	Cluster: cluster,
-//   	TaskDefinition: taskDefinition,
-//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
-//   	Tags: []tag{
-//   		&tag{
-//   			Key: jsii.String("my-tag"),
-//   			Value: jsii.String("my-tag-value"),
+//   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+//   	EventPattern: &EventPattern{
+//   		Source: []*string{
+//   			jsii.String("aws.ec2"),
 //   		},
 //   	},
+//   })
+//
+//   queue := sqs.NewQueue(this, jsii.String("Queue"))
+//
+//   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
+//   	DeadLetterQueue: queue,
+//   	 // Optional: add a dead letter queue
+//   	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
+//   	 // Optional: set the maxEventAge retry policy
+//   	RetryAttempts: jsii.Number(2),
 //   }))
 //
+// Experimental.
 type Duration interface {
 	// Returns stringified number of duration.
+	// Experimental.
 	FormatTokenToNumber() *string
 	// Checks if duration is a token or a resolvable object.
+	// Experimental.
 	IsUnresolved() *bool
 	// Substract two Durations together.
+	// Experimental.
 	Minus(rhs Duration) Duration
 	// Add two Durations together.
+	// Experimental.
 	Plus(rhs Duration) Duration
 	// Return the total number of days in this Duration.
 	//
 	// Returns: the value of this `Duration` expressed in Days.
+	// Experimental.
 	ToDays(opts *TimeConversionOptions) *float64
 	// Return the total number of hours in this Duration.
 	//
 	// Returns: the value of this `Duration` expressed in Hours.
+	// Experimental.
 	ToHours(opts *TimeConversionOptions) *float64
 	// Turn this duration into a human-readable string.
+	// Experimental.
 	ToHumanString() *string
 	// Return an ISO 8601 representation of this period.
 	//
 	// Returns: a string starting with 'P' describing the period.
-	// See: https://www.iso.org/standard/70907.html
+	// See: https://www.iso.org/fr/standard/70907.html
 	//
+	// Experimental.
 	ToIsoString() *string
+	// Return an ISO 8601 representation of this period.
+	//
+	// Returns: a string starting with 'P' describing the period.
+	// See: https://www.iso.org/fr/standard/70907.html
+	//
+	// Deprecated: Use `toIsoString()` instead.
+	ToISOString() *string
 	// Return the total number of milliseconds in this Duration.
 	//
 	// Returns: the value of this `Duration` expressed in Milliseconds.
+	// Experimental.
 	ToMilliseconds(opts *TimeConversionOptions) *float64
 	// Return the total number of minutes in this Duration.
 	//
 	// Returns: the value of this `Duration` expressed in Minutes.
+	// Experimental.
 	ToMinutes(opts *TimeConversionOptions) *float64
 	// Return the total number of seconds in this Duration.
 	//
 	// Returns: the value of this `Duration` expressed in Seconds.
+	// Experimental.
 	ToSeconds(opts *TimeConversionOptions) *float64
 	// Returns a string representation of this `Duration`.
 	//
 	// This is is never the right function to use when you want to use the `Duration`
 	// object in a template. Use `toSeconds()`, `toMinutes()`, `toDays()`, etc. instead.
+	// Experimental.
 	ToString() *string
 	// Returns unit of the duration.
+	// Experimental.
 	UnitLabel() *string
 }
 
@@ -89,6 +115,7 @@ type jsiiProxy_Duration struct {
 // Create a Duration representing an amount of days.
 //
 // Returns: a new `Duration` representing `amount` Days.
+// Experimental.
 func Duration_Days(amount *float64) Duration {
 	_init_.Initialize()
 
@@ -98,7 +125,7 @@ func Duration_Days(amount *float64) Duration {
 	var returns Duration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Duration",
+		"monocdk.Duration",
 		"days",
 		[]interface{}{amount},
 		&returns,
@@ -110,6 +137,7 @@ func Duration_Days(amount *float64) Duration {
 // Create a Duration representing an amount of hours.
 //
 // Returns: a new `Duration` representing `amount` Hours.
+// Experimental.
 func Duration_Hours(amount *float64) Duration {
 	_init_.Initialize()
 
@@ -119,7 +147,7 @@ func Duration_Hours(amount *float64) Duration {
 	var returns Duration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Duration",
+		"monocdk.Duration",
 		"hours",
 		[]interface{}{amount},
 		&returns,
@@ -131,6 +159,7 @@ func Duration_Hours(amount *float64) Duration {
 // Create a Duration representing an amount of milliseconds.
 //
 // Returns: a new `Duration` representing `amount` ms.
+// Experimental.
 func Duration_Millis(amount *float64) Duration {
 	_init_.Initialize()
 
@@ -140,7 +169,7 @@ func Duration_Millis(amount *float64) Duration {
 	var returns Duration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Duration",
+		"monocdk.Duration",
 		"millis",
 		[]interface{}{amount},
 		&returns,
@@ -152,6 +181,7 @@ func Duration_Millis(amount *float64) Duration {
 // Create a Duration representing an amount of minutes.
 //
 // Returns: a new `Duration` representing `amount` Minutes.
+// Experimental.
 func Duration_Minutes(amount *float64) Duration {
 	_init_.Initialize()
 
@@ -161,7 +191,7 @@ func Duration_Minutes(amount *float64) Duration {
 	var returns Duration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Duration",
+		"monocdk.Duration",
 		"minutes",
 		[]interface{}{amount},
 		&returns,
@@ -173,8 +203,9 @@ func Duration_Minutes(amount *float64) Duration {
 // Parse a period formatted according to the ISO 8601 standard.
 //
 // Returns: the parsed `Duration`.
-// See: https://www.iso.org/standard/70907.html
+// See: https://www.iso.org/fr/standard/70907.html
 //
+// Experimental.
 func Duration_Parse(duration *string) Duration {
 	_init_.Initialize()
 
@@ -184,7 +215,7 @@ func Duration_Parse(duration *string) Duration {
 	var returns Duration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Duration",
+		"monocdk.Duration",
 		"parse",
 		[]interface{}{duration},
 		&returns,
@@ -196,6 +227,7 @@ func Duration_Parse(duration *string) Duration {
 // Create a Duration representing an amount of seconds.
 //
 // Returns: a new `Duration` representing `amount` Seconds.
+// Experimental.
 func Duration_Seconds(amount *float64) Duration {
 	_init_.Initialize()
 
@@ -205,7 +237,7 @@ func Duration_Seconds(amount *float64) Duration {
 	var returns Duration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Duration",
+		"monocdk.Duration",
 		"seconds",
 		[]interface{}{amount},
 		&returns,
@@ -323,6 +355,19 @@ func (d *jsiiProxy_Duration) ToIsoString() *string {
 	_jsii_.Invoke(
 		d,
 		"toIsoString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Duration) ToISOString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		d,
+		"toISOString",
 		nil, // no parameters
 		&returns,
 	)

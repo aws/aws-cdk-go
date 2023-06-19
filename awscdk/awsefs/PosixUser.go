@@ -36,18 +36,22 @@ package awsefs
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	Filesystem: lambda.FileSystem_FromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	Vpc: Vpc,
 //   })
 //
+// Experimental.
 type PosixUser struct {
 	// The POSIX group ID used for all file system operations using this access point.
+	// Experimental.
 	Gid *string `field:"required" json:"gid" yaml:"gid"`
 	// The POSIX user ID used for all file system operations using this access point.
+	// Experimental.
 	Uid *string `field:"required" json:"uid" yaml:"uid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
+	// Experimental.
 	SecondaryGids *[]*string `field:"optional" json:"secondaryGids" yaml:"secondaryGids"`
 }
 

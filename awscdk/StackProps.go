@@ -2,44 +2,49 @@ package awscdk
 
 
 // Example:
-//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("us-east-1"),
+//   type stackUnderTestProps struct {
+//   	stackProps
+//   	architecture architecture
+//   }
+//
+//   type stackUnderTest struct {
+//   	stack
+//   }
+//
+//   func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
+//   	this := &stackUnderTest{}
+//   	newStack_Override(this, scope, id, props)
+//
+//   	lambda.NewFunction(this, jsii.String("Handler"), &FunctionProps{
+//   		Runtime: lambda.Runtime_NODEJS_14_X(),
+//   		Handler: jsii.String("index.handler"),
+//   		Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   		Architecture: props.architecture,
+//   	})
+//   	return this
+//   }
+//
+//   // Beginning of the test suite
+//   app := awscdk.NewApp()
+//
+//   awscdk.NewIntegTest(app, jsii.String("DifferentArchitectures"), &IntegTestProps{
+//   	TestCases: []*stack{
+//   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_ARM_64(),
+//   		}),
+//   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_X86_64(),
+//   		}),
 //   	},
-//   	CrossRegionReferences: jsii.Boolean(true),
-//   })
-//   cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
-//   	DomainName: jsii.String("*.example.com"),
-//   	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 //   })
 //
-//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("us-east-2"),
-//   	},
-//   	CrossRegionReferences: jsii.Boolean(true),
-//   })
-//   cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewHttpOrigin(jsii.String("example.com")),
-//   	},
-//   	DomainNames: []*string{
-//   		jsii.String("dev.example.com"),
-//   	},
-//   	Certificate: cert,
-//   })
-//
+// Experimental.
 type StackProps struct {
 	// Include runtime versioning information in this Stack.
+	// Experimental.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
-	// Enable this flag to allow native cross region stack references.
-	//
-	// Enabling this will create a CloudFormation custom resource
-	// in both the producing stack and consuming stack in order to perform the export/import
-	//
-	// This feature is currently experimental.
-	CrossRegionReferences *bool `field:"optional" json:"crossRegionReferences" yaml:"crossRegionReferences"`
 	// A description of the stack.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.
 	//
@@ -110,26 +115,19 @@ type StackProps struct {
 	//   // which will only resolve to actual values by CloudFormation during deployment.
 	//   NewMyStack(app, jsii.String("Stack1"))
 	//
+	// Experimental.
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
-	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
-	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Name to deploy the stack with.
+	// Experimental.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Synthesis method to use while deploying this stack.
-	//
-	// The Stack Synthesizer controls aspects of synthesis and deployment,
-	// like how assets are referenced and what IAM roles to use. For more
-	// information, see the README of the main CDK package.
-	//
-	// If not specified, the `defaultStackSynthesizer` from `App` will be used.
-	// If that is not specified, `DefaultStackSynthesizer` is used if
-	// `@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
-	// version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
-	// other synthesizer is specified.
+	// Experimental.
 	Synthesizer IStackSynthesizer `field:"optional" json:"synthesizer" yaml:"synthesizer"`
 	// Stack tags that will be applied to all the taggable resources and the stack itself.
+	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
+	// Experimental.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 

@@ -1,8 +1,8 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Properties that describe an existing cluster instance.
@@ -30,18 +30,25 @@ import (
 //   	},
 //   }
 //
+// Experimental.
 type ServerlessClusterAttributes struct {
 	// Identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
+	// Experimental.
 	ClusterEndpointAddress *string `field:"optional" json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The database port.
+	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Reader endpoint address.
+	// Experimental.
 	ReaderEndpointAddress *string `field:"optional" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The secret attached to the database cluster.
+	// Experimental.
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// The security groups of the database cluster.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

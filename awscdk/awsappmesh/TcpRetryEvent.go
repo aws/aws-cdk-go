@@ -27,15 +27,17 @@ package awsappmesh
 //   			// Retry five times
 //   			RetryAttempts: jsii.Number(5),
 //   			// Use a 1 second timeout per retry
-//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })
 //
+// Experimental.
 type TcpRetryEvent string
 
 const (
 	// A connection error.
+	// Experimental.
 	TcpRetryEvent_CONNECTION_ERROR TcpRetryEvent = "CONNECTION_ERROR"
 )
 

@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnModelBiasJobDefinition`.
@@ -10,6 +10,8 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var json interface{}
 //
 //   cfnModelBiasJobDefinitionProps := &CfnModelBiasJobDefinitionProps{
 //   	JobResources: &MonitoringResourcesProperty{
@@ -43,9 +45,7 @@ import (
 //   				Csv: &CsvProperty{
 //   					Header: jsii.Boolean(false),
 //   				},
-//   				Json: &JsonProperty{
-//   					Line: jsii.Boolean(false),
-//   				},
+//   				Json: json,
 //   				Parquet: jsii.Boolean(false),
 //   			},
 //   			LocalPath: jsii.String("localPath"),

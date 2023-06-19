@@ -23,20 +23,25 @@ package awscognito
 //   	},
 //   }
 //
+// Experimental.
 type CustomAttributeConfig struct {
 	// The data type of the custom attribute.
 	// See: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html#CognitoUserPools-Type-SchemaAttributeType-AttributeDataType
 	//
+	// Experimental.
 	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
+	// Experimental.
 	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 	// The constraints for a custom attribute of the 'Number' data type.
+	// Experimental.
 	NumberConstraints *NumberAttributeConstraints `field:"optional" json:"numberConstraints" yaml:"numberConstraints"`
 	// The constraints for a custom attribute of 'String' data type.
+	// Experimental.
 	StringConstraints *StringAttributeConstraints `field:"optional" json:"stringConstraints" yaml:"stringConstraints"`
 }
 

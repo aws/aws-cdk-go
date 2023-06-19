@@ -5,11 +5,13 @@ import (
 )
 
 // Local bundling.
+// Experimental.
 type ILocalBundling interface {
 	// This method is called before attempting docker bundling to allow the bundler to be executed locally.
 	//
 	// If the local bundler exists, and bundling
 	// was performed locally, return `true`. Otherwise, return `false`.
+	// Experimental.
 	TryBundle(outputDir *string, options *BundlingOptions) *bool
 }
 

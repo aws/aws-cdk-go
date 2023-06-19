@@ -1,10 +1,10 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Represents the properties needed to define listeners for a VirtualGateway.
@@ -20,7 +20,7 @@ import (
 //   		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
 //   			Port: jsii.Number(443),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
-//   				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
+//   				Interval: cdk.Duration_Seconds(jsii.Number(10)),
 //   			}),
 //   		}),
 //   	},
@@ -41,12 +41,14 @@ import (
 //   	VirtualGatewayName: jsii.String("virtualGateway"),
 //   })
 //
+// Experimental.
 type VirtualGatewayListener interface {
 	// Called when the GatewayListener type is initialized.
 	//
 	// Can be used to enforce
 	// mutual exclusivity.
-	Bind(scope constructs.Construct) *VirtualGatewayListenerConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *VirtualGatewayListenerConfig
 }
 
 // The jsii proxy struct for VirtualGatewayListener
@@ -54,17 +56,19 @@ type jsiiProxy_VirtualGatewayListener struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewVirtualGatewayListener_Override(v VirtualGatewayListener) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayListener",
+		"monocdk.aws_appmesh.VirtualGatewayListener",
 		nil, // no parameters
 		v,
 	)
 }
 
 // Returns a GRPC Listener for a VirtualGateway.
+// Experimental.
 func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
@@ -74,7 +78,7 @@ func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGat
 	var returns VirtualGatewayListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayListener",
+		"monocdk.aws_appmesh.VirtualGatewayListener",
 		"grpc",
 		[]interface{}{options},
 		&returns,
@@ -84,6 +88,7 @@ func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGat
 }
 
 // Returns an HTTP Listener for a VirtualGateway.
+// Experimental.
 func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
@@ -93,7 +98,7 @@ func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGat
 	var returns VirtualGatewayListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayListener",
+		"monocdk.aws_appmesh.VirtualGatewayListener",
 		"http",
 		[]interface{}{options},
 		&returns,
@@ -103,6 +108,7 @@ func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGat
 }
 
 // Returns an HTTP2 Listener for a VirtualGateway.
+// Experimental.
 func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
@@ -112,7 +118,7 @@ func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualG
 	var returns VirtualGatewayListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayListener",
+		"monocdk.aws_appmesh.VirtualGatewayListener",
 		"http2",
 		[]interface{}{options},
 		&returns,
@@ -121,7 +127,7 @@ func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualG
 	return returns
 }
 
-func (v *jsiiProxy_VirtualGatewayListener) Bind(scope constructs.Construct) *VirtualGatewayListenerConfig {
+func (v *jsiiProxy_VirtualGatewayListener) Bind(scope awscdk.Construct) *VirtualGatewayListenerConfig {
 	if err := v.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

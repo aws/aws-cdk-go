@@ -15,14 +15,19 @@ package awsec2
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type PrivateSubnetProps struct {
 	// The availability zone for the subnet.
+	// Experimental.
 	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The CIDR notation for this subnet.
+	// Experimental.
 	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// The VPC which this subnet is part of.
+	// Experimental.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
+	// Experimental.
 	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 }
 

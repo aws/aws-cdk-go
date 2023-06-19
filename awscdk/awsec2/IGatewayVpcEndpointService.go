@@ -5,8 +5,10 @@ import (
 )
 
 // A service for a gateway VPC endpoint.
+// Experimental.
 type IGatewayVpcEndpointService interface {
 	// The name of the service.
+	// Experimental.
 	Name() *string
 }
 

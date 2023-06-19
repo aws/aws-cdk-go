@@ -4,7 +4,11 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CustomResourceProvider) validateAddToRolePolicyParameters(statement interface{}) error {
+func (c *jsiiProxy_CustomResourceProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CustomResourceProvider) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 

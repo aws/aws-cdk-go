@@ -16,6 +16,7 @@ package awsec2
 //   	TransferEncoding: jsii.String("transferEncoding"),
 //   }
 //
+// Experimental.
 type MultipartBodyOptions struct {
 	// `Content-Type` header of this part.
 	//
@@ -24,10 +25,13 @@ type MultipartBodyOptions struct {
 	// * `text/cloud-boothook; charset="utf-8"` (shell script executed during boot phase)
 	//
 	// For Linux shell scripts use `text/x-shellscript`.
+	// Experimental.
 	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 	// The body of message.
+	// Experimental.
 	Body *string `field:"optional" json:"body" yaml:"body"`
 	// `Content-Transfer-Encoding` header specifying part encoding.
+	// Experimental.
 	TransferEncoding *string `field:"optional" json:"transferEncoding" yaml:"transferEncoding"`
 }
 

@@ -26,10 +26,12 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
+// Experimental.
 type JobDriver struct {
 	// The job driver parameters specified for spark submit.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_SparkSubmitJobDriver.html
 	//
+	// Experimental.
 	SparkSubmitJobDriver *SparkSubmitJobDriver `field:"required" json:"sparkSubmitJobDriver" yaml:"sparkSubmitJobDriver"`
 }
 

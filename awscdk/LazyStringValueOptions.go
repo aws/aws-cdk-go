@@ -6,14 +6,16 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   lazyStringValueOptions := &LazyStringValueOptions{
 //   	DisplayHint: jsii.String("displayHint"),
 //   }
 //
+// Experimental.
 type LazyStringValueOptions struct {
 	// Use the given name as a display hint.
+	// Experimental.
 	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 }
 

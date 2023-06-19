@@ -13,10 +13,13 @@ package awscloudfront
 //   	DomainName: jsii.String("domainName"),
 //   }
 //
+// Experimental.
 type CloudFrontWebDistributionAttributes struct {
 	// The distribution ID for this distribution.
+	// Experimental.
 	DistributionId *string `field:"required" json:"distributionId" yaml:"distributionId"`
 	// The generated domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
+	// Experimental.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 

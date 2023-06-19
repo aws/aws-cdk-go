@@ -11,8 +11,10 @@ package awsses
 //   	},
 //   })
 //
+// Experimental.
 type AllowListReceiptFilterProps struct {
 	// A list of ip addresses or ranges to allow list.
+	// Experimental.
 	Ips *[]*string `field:"required" json:"ips" yaml:"ips"`
 }
 

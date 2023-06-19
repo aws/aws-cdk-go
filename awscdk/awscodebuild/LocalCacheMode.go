@@ -31,14 +31,18 @@ package awscodebuild
 //   	}),
 //   })
 //
+// Experimental.
 type LocalCacheMode string
 
 const (
 	// Caches Git metadata for primary and secondary sources.
+	// Experimental.
 	LocalCacheMode_SOURCE LocalCacheMode = "SOURCE"
 	// Caches existing Docker layers.
+	// Experimental.
 	LocalCacheMode_DOCKER_LAYER LocalCacheMode = "DOCKER_LAYER"
 	// Caches directories you specify in the buildspec file.
+	// Experimental.
 	LocalCacheMode_CUSTOM LocalCacheMode = "CUSTOM"
 )
 

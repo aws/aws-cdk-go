@@ -23,12 +23,15 @@ package awsapigateway
 //   	},
 //   })
 //
+// Experimental.
 type ConnectionType string
 
 const (
 	// For connections through the public routable internet.
+	// Experimental.
 	ConnectionType_INTERNET ConnectionType = "INTERNET"
 	// For private connections between API Gateway and a network load balancer in a VPC.
+	// Experimental.
 	ConnectionType_VPC_LINK ConnectionType = "VPC_LINK"
 )
 

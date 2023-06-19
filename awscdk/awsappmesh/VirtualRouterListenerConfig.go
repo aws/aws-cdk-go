@@ -17,8 +17,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type VirtualRouterListenerConfig struct {
 	// Single listener config for a VirtualRouter.
+	// Experimental.
 	Listener *CfnVirtualRouter_VirtualRouterListenerProperty `field:"required" json:"listener" yaml:"listener"`
 }
 

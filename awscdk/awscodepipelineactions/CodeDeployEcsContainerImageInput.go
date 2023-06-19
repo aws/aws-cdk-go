@@ -1,7 +1,7 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
 )
 
 // Configuration for replacing a placeholder string in the ECS task definition template file with an image URI.
@@ -21,12 +21,14 @@ import (
 //   	TaskDefinitionPlaceholder: jsii.String("taskDefinitionPlaceholder"),
 //   }
 //
+// Experimental.
 type CodeDeployEcsContainerImageInput struct {
 	// The artifact that contains an `imageDetails.json` file with the image URI.
 	//
 	// The artifact's `imageDetails.json` file must be a JSON file containing an
 	// `ImageURI` property.  For example:
 	// `{ "ImageURI": "ACCOUNTID.dkr.ecr.us-west-2.amazonaws.com/dk-image-repo@sha256:example3" }`
+	// Experimental.
 	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The placeholder string in the ECS task definition template file that will be replaced with the image URI.
 	//
@@ -34,6 +36,7 @@ type CodeDeployEcsContainerImageInput struct {
 	// For example, if the task definition template file contains a placeholder like
 	// `"image": "<PLACEHOLDER>"`, then the `taskDefinitionPlaceholder` value should
 	// be `PLACEHOLDER`.
+	// Experimental.
 	TaskDefinitionPlaceholder *string `field:"optional" json:"taskDefinitionPlaceholder" yaml:"taskDefinitionPlaceholder"`
 }
 

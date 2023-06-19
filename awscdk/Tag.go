@@ -1,10 +1,8 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The Tag Aspect will handle adding a tag to this node and cascading tags to children.
@@ -12,9 +10,9 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   tag := cdk.NewTag(jsii.String("key"), jsii.String("value"), &TagProps{
+//   tag := monocdk.NewTag(jsii.String("key"), jsii.String("value"), &TagProps{
 //   	ApplyToLaunchedInstances: jsii.Boolean(false),
 //   	ExcludeResourceTypes: []*string{
 //   		jsii.String("excludeResourceTypes"),
@@ -25,17 +23,22 @@ import (
 //   	Priority: jsii.Number(123),
 //   })
 //
+// Experimental.
 type Tag interface {
 	IAspect
 	// The string key for the tag.
+	// Experimental.
 	Key() *string
+	// Experimental.
 	Props() *TagProps
 	// The string value of the tag.
+	// Experimental.
 	Value() *string
+	// Experimental.
 	ApplyTag(resource ITaggable)
-	ApplyTagV2(resource ITaggableV2)
 	// All aspects can visit an IConstruct.
-	Visit(construct constructs.IConstruct)
+	// Experimental.
+	Visit(construct IConstruct)
 }
 
 // The jsii proxy struct for Tag
@@ -74,6 +77,7 @@ func (j *jsiiProxy_Tag) Value() *string {
 }
 
 
+// Experimental.
 func NewTag(key *string, value *string, props *TagProps) Tag {
 	_init_.Initialize()
 
@@ -83,7 +87,7 @@ func NewTag(key *string, value *string, props *TagProps) Tag {
 	j := jsiiProxy_Tag{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.Tag",
+		"monocdk.Tag",
 		[]interface{}{key, value, props},
 		&j,
 	)
@@ -91,13 +95,44 @@ func NewTag(key *string, value *string, props *TagProps) Tag {
 	return &j
 }
 
+// Experimental.
 func NewTag_Override(t Tag, key *string, value *string, props *TagProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.Tag",
+		"monocdk.Tag",
 		[]interface{}{key, value, props},
 		t,
+	)
+}
+
+// DEPRECATED: add tags to the node of a construct and all its the taggable children.
+// Deprecated: use `Tags.of(scope).add()`
+func Tag_Add(scope Construct, key *string, value *string, props *TagProps) {
+	_init_.Initialize()
+
+	if err := validateTag_AddParameters(scope, key, value, props); err != nil {
+		panic(err)
+	}
+	_jsii_.StaticInvokeVoid(
+		"monocdk.Tag",
+		"add",
+		[]interface{}{scope, key, value, props},
+	)
+}
+
+// DEPRECATED: remove tags to the node of a construct and all its the taggable children.
+// Deprecated: use `Tags.of(scope).remove()`
+func Tag_Remove(scope Construct, key *string, props *TagProps) {
+	_init_.Initialize()
+
+	if err := validateTag_RemoveParameters(scope, key, props); err != nil {
+		panic(err)
+	}
+	_jsii_.StaticInvokeVoid(
+		"monocdk.Tag",
+		"remove",
+		[]interface{}{scope, key, props},
 	)
 }
 
@@ -112,18 +147,7 @@ func (t *jsiiProxy_Tag) ApplyTag(resource ITaggable) {
 	)
 }
 
-func (t *jsiiProxy_Tag) ApplyTagV2(resource ITaggableV2) {
-	if err := t.validateApplyTagV2Parameters(resource); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		t,
-		"applyTagV2",
-		[]interface{}{resource},
-	)
-}
-
-func (t *jsiiProxy_Tag) Visit(construct constructs.IConstruct) {
+func (t *jsiiProxy_Tag) Visit(construct IConstruct) {
 	if err := t.validateVisitParameters(construct); err != nil {
 		panic(err)
 	}

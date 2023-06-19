@@ -15,10 +15,13 @@ package awselasticloadbalancingv2
 //   	},
 //   }
 //
+// Experimental.
 type BaseLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 

@@ -28,12 +28,16 @@ package cloudassemblyschema
 //   	Provider: awscdk.Cloud_assembly_schema.ContextProvider_AMI_PROVIDER,
 //   }
 //
+// Experimental.
 type MissingContext struct {
 	// The missing context key.
+	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// A set of provider-specific options.
+	// Experimental.
 	Props interface{} `field:"required" json:"props" yaml:"props"`
 	// The provider from which we expect this context key to be obtained.
+	// Experimental.
 	Provider ContextProvider `field:"required" json:"provider" yaml:"provider"`
 }
 

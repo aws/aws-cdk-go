@@ -12,8 +12,10 @@ package awslambda
 //   	Destination: jsii.String("destination"),
 //   }
 //
+// Experimental.
 type DestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
+	// Experimental.
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 

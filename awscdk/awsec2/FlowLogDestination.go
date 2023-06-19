@@ -1,13 +1,13 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // The destination type for the flow log.
@@ -27,9 +27,11 @@ import (
 //   	Destination: ec2.FlowLogDestination_ToCloudWatchLogs(logGroup, role),
 //   })
 //
+// Experimental.
 type FlowLogDestination interface {
 	// Generates a flow log destination configuration.
-	Bind(scope constructs.Construct, flowLog FlowLog) *FlowLogDestinationConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, flowLog FlowLog) *FlowLogDestinationConfig
 }
 
 // The jsii proxy struct for FlowLogDestination
@@ -37,24 +39,26 @@ type jsiiProxy_FlowLogDestination struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewFlowLogDestination_Override(f FlowLogDestination) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.FlowLogDestination",
+		"monocdk.aws_ec2.FlowLogDestination",
 		nil, // no parameters
 		f,
 	)
 }
 
 // Use CloudWatch logs as the destination.
+// Experimental.
 func FlowLogDestination_ToCloudWatchLogs(logGroup awslogs.ILogGroup, iamRole awsiam.IRole) FlowLogDestination {
 	_init_.Initialize()
 
 	var returns FlowLogDestination
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.FlowLogDestination",
+		"monocdk.aws_ec2.FlowLogDestination",
 		"toCloudWatchLogs",
 		[]interface{}{logGroup, iamRole},
 		&returns,
@@ -64,25 +68,23 @@ func FlowLogDestination_ToCloudWatchLogs(logGroup awslogs.ILogGroup, iamRole aws
 }
 
 // Use S3 as the destination.
-func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string, options *S3DestinationOptions) FlowLogDestination {
+// Experimental.
+func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string) FlowLogDestination {
 	_init_.Initialize()
 
-	if err := validateFlowLogDestination_ToS3Parameters(options); err != nil {
-		panic(err)
-	}
 	var returns FlowLogDestination
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.FlowLogDestination",
+		"monocdk.aws_ec2.FlowLogDestination",
 		"toS3",
-		[]interface{}{bucket, keyPrefix, options},
+		[]interface{}{bucket, keyPrefix},
 		&returns,
 	)
 
 	return returns
 }
 
-func (f *jsiiProxy_FlowLogDestination) Bind(scope constructs.Construct, flowLog FlowLog) *FlowLogDestinationConfig {
+func (f *jsiiProxy_FlowLogDestination) Bind(scope awscdk.Construct, flowLog FlowLog) *FlowLogDestinationConfig {
 	if err := f.validateBindParameters(scope, flowLog); err != nil {
 		panic(err)
 	}

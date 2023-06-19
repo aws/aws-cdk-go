@@ -41,25 +41,3 @@ lb.AddListener(&LoadBalancerListener{
 	},
 })
 ```
-
-### Adding Ec2 Instance as a target for the load balancer
-
-You can add an EC2 instance to the load balancer by calling using `new InstanceTarget` as the argument to `addTarget()`:
-
-```go
-var vpc iVpc
-
-lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
-	Vpc: Vpc,
-})
-
-// instance to add as the target for load balancer.
-instance := ec2.NewInstance(this, jsii.String("targetInstance"), &InstanceProps{
-	Vpc: vpc,
-	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
-	}),
-})
-lb.AddTarget(elb.NewInstanceTarget(instance))
-```

@@ -1,11 +1,12 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An Appsync datasource backed by OpenSearch.
@@ -18,7 +19,7 @@ import (
 //
 //   user := iam.NewUser(this, jsii.String("User"))
 //   domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
+//   	Version: opensearch.EngineVersion_OPENSEARCH_1_2(),
 //   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 //   	FineGrainedAccessControl: &AdvancedSecurityOptions{
 //   		MasterUserArn: user.UserArn,
@@ -31,7 +32,7 @@ import (
 //   })
 //   ds := api.AddOpenSearchDataSource(jsii.String("ds"), domain)
 //
-//   ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
+//   ds.CreateResolver(&BaseResolverProps{
 //   	TypeName: jsii.String("Query"),
 //   	FieldName: jsii.String("getTests"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jSON.stringify(map[string]interface{}{
@@ -57,26 +58,86 @@ import (
 //   	  ]`)),
 //   })
 //
+// Experimental.
 type OpenSearchDataSource interface {
 	BackedDataSource
+	// Experimental.
 	Api() IGraphqlApi
+	// Experimental.
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.
+	// Experimental.
 	Ds() CfnDataSource
 	// the principal of the data source to be IGrantable.
+	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// the name of the data source.
+	// Experimental.
 	Name() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	ServiceRole() awsiam.IRole
+	// Experimental.
 	SetServiceRole(val awsiam.IRole)
 	// creates a new appsync function for this datasource and API using the given properties.
-	CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction
+	// Experimental.
+	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	// creates a new resolver for this datasource and API using the given properties.
-	CreateResolver(id *string, props *BaseResolverProps) Resolver
+	// Experimental.
+	CreateResolver(props *BaseResolverProps) Resolver
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for OpenSearchDataSource
@@ -124,8 +185,8 @@ func (j *jsiiProxy_OpenSearchDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_OpenSearchDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_OpenSearchDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -145,6 +206,7 @@ func (j *jsiiProxy_OpenSearchDataSource) ServiceRole() awsiam.IRole {
 }
 
 
+// Experimental.
 func NewOpenSearchDataSource(scope constructs.Construct, id *string, props *OpenSearchDataSourceProps) OpenSearchDataSource {
 	_init_.Initialize()
 
@@ -154,7 +216,7 @@ func NewOpenSearchDataSource(scope constructs.Construct, id *string, props *Open
 	j := jsiiProxy_OpenSearchDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.OpenSearchDataSource",
+		"monocdk.aws_appsync.OpenSearchDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -162,11 +224,12 @@ func NewOpenSearchDataSource(scope constructs.Construct, id *string, props *Open
 	return &j
 }
 
+// Experimental.
 func NewOpenSearchDataSource_Override(o OpenSearchDataSource, scope constructs.Construct, id *string, props *OpenSearchDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.OpenSearchDataSource",
+		"monocdk.aws_appsync.OpenSearchDataSource",
 		[]interface{}{scope, id, props},
 		o,
 	)
@@ -191,23 +254,8 @@ func (j *jsiiProxy_OpenSearchDataSource)SetServiceRole(val awsiam.IRole) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func OpenSearchDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -217,7 +265,7 @@ func OpenSearchDataSource_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.OpenSearchDataSource",
+		"monocdk.aws_appsync.OpenSearchDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -226,8 +274,8 @@ func OpenSearchDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (o *jsiiProxy_OpenSearchDataSource) CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction {
-	if err := o.validateCreateFunctionParameters(id, props); err != nil {
+func (o *jsiiProxy_OpenSearchDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := o.validateCreateFunctionParameters(props); err != nil {
 		panic(err)
 	}
 	var returns AppsyncFunction
@@ -235,15 +283,15 @@ func (o *jsiiProxy_OpenSearchDataSource) CreateFunction(id *string, props *BaseA
 	_jsii_.Invoke(
 		o,
 		"createFunction",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (o *jsiiProxy_OpenSearchDataSource) CreateResolver(id *string, props *BaseResolverProps) Resolver {
-	if err := o.validateCreateResolverParameters(id, props); err != nil {
+func (o *jsiiProxy_OpenSearchDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := o.validateCreateResolverParameters(props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -251,11 +299,62 @@ func (o *jsiiProxy_OpenSearchDataSource) CreateResolver(id *string, props *BaseR
 	_jsii_.Invoke(
 		o,
 		"createResolver",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := o.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		o,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := o.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		o,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 func (o *jsiiProxy_OpenSearchDataSource) ToString() *string {
@@ -264,6 +363,19 @@ func (o *jsiiProxy_OpenSearchDataSource) ToString() *string {
 	_jsii_.Invoke(
 		o,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

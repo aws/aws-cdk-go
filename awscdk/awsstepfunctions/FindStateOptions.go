@@ -12,8 +12,10 @@ package awsstepfunctions
 //   	IncludeErrorHandlers: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type FindStateOptions struct {
 	// Whether or not to follow error-handling transitions.
+	// Experimental.
 	IncludeErrorHandlers *bool `field:"optional" json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
 }
 

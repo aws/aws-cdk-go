@@ -4,15 +4,6 @@ package awsroute53
 // Reference to a hosted zone.
 //
 // Example:
-//   var app app
-//
-//   stack := awscdk.Newstack(app, jsii.String("Stack"), &StackProps{
-//   	CrossRegionReferences: jsii.Boolean(true),
-//   	Env: &Environment{
-//   		Region: jsii.String("us-east-2"),
-//   	},
-//   })
-//
 //   patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &HttpsRedirectProps{
 //   	RecordNames: []*string{
 //   		jsii.String("foo.example.com"),
@@ -24,10 +15,13 @@ package awsroute53
 //   	}),
 //   })
 //
+// Experimental.
 type HostedZoneAttributes struct {
 	// Identifier of the hosted zone.
+	// Experimental.
 	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// Name of the hosted zone.
+	// Experimental.
 	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 }
 

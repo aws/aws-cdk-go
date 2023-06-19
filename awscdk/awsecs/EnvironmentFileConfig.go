@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Configuration for the environment file.
@@ -22,10 +22,13 @@ import (
 //   	},
 //   }
 //
+// Experimental.
 type EnvironmentFileConfig struct {
 	// The type of environment file.
+	// Experimental.
 	FileType EnvironmentFileType `field:"required" json:"fileType" yaml:"fileType"`
 	// The location of the environment file in S3.
+	// Experimental.
 	S3Location *awss3.Location `field:"required" json:"s3Location" yaml:"s3Location"`
 }
 

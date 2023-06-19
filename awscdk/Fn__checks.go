@@ -158,14 +158,6 @@ func validateFn_JoinParameters(delimiter *string, listOfValues *[]*string) error
 	return nil
 }
 
-func validateFn_LenParameters(array interface{}) error {
-	if array == nil {
-		return fmt.Errorf("parameter array is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateFn_ParseDomainNameParameters(url *string) error {
 	if url == nil {
 		return fmt.Errorf("parameter url is required, but nil was provided")
@@ -217,14 +209,6 @@ func validateFn_SplitParameters(delimiter *string, source *string) error {
 func validateFn_SubParameters(body *string) error {
 	if body == nil {
 		return fmt.Errorf("parameter body is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateFn_ToJsonStringParameters(object interface{}) error {
-	if object == nil {
-		return fmt.Errorf("parameter object is required, but nil was provided")
 	}
 
 	return nil

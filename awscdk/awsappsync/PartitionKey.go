@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -19,12 +19,16 @@ import (
 //
 //   partitionKey := awscdk.Aws_appsync.NewPartitionKey(assign)
 //
+// Experimental.
 type PartitionKey interface {
 	PrimaryKey
+	// Experimental.
 	Pkey() Assign
 	// Renders the key assignment to a VTL string.
+	// Experimental.
 	RenderTemplate() *string
 	// Allows assigning a value to the sort key.
+	// Experimental.
 	Sort(key *string) SortKeyStep
 }
 
@@ -44,6 +48,7 @@ func (j *jsiiProxy_PartitionKey) Pkey() Assign {
 }
 
 
+// Experimental.
 func NewPartitionKey(pkey Assign) PartitionKey {
 	_init_.Initialize()
 
@@ -53,7 +58,7 @@ func NewPartitionKey(pkey Assign) PartitionKey {
 	j := jsiiProxy_PartitionKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.PartitionKey",
+		"monocdk.aws_appsync.PartitionKey",
 		[]interface{}{pkey},
 		&j,
 	)
@@ -61,17 +66,19 @@ func NewPartitionKey(pkey Assign) PartitionKey {
 	return &j
 }
 
+// Experimental.
 func NewPartitionKey_Override(p PartitionKey, pkey Assign) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.PartitionKey",
+		"monocdk.aws_appsync.PartitionKey",
 		[]interface{}{pkey},
 		p,
 	)
 }
 
 // Allows assigning a value to the partition key.
+// Experimental.
 func PartitionKey_Partition(key *string) PartitionKeyStep {
 	_init_.Initialize()
 
@@ -81,7 +88,7 @@ func PartitionKey_Partition(key *string) PartitionKeyStep {
 	var returns PartitionKeyStep
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.PartitionKey",
+		"monocdk.aws_appsync.PartitionKey",
 		"partition",
 		[]interface{}{key},
 		&returns,

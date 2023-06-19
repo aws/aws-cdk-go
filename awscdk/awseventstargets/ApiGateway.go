@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
 )
 
 // Use an API Gateway REST APIs as a target for Amazon EventBridge rules.
@@ -17,7 +17,7 @@ import (
 //
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 //   })
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
@@ -49,12 +49,15 @@ import (
 //   	DeadLetterQueue: dlq,
 //   }))
 //
+// Experimental.
 type ApiGateway interface {
 	awsevents.IRuleTarget
+	// Experimental.
 	RestApi() awsapigateway.RestApi
 	// Returns a RuleTarget that can be used to trigger this API Gateway REST APIs as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 	//
+	// Experimental.
 	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -74,6 +77,7 @@ func (j *jsiiProxy_ApiGateway) RestApi() awsapigateway.RestApi {
 }
 
 
+// Experimental.
 func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGateway {
 	_init_.Initialize()
 
@@ -83,7 +87,7 @@ func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGat
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		"monocdk.aws_events_targets.ApiGateway",
 		[]interface{}{restApi, props},
 		&j,
 	)
@@ -91,11 +95,12 @@ func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGat
 	return &j
 }
 
+// Experimental.
 func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *ApiGatewayProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		"monocdk.aws_events_targets.ApiGateway",
 		[]interface{}{restApi, props},
 		a,
 	)

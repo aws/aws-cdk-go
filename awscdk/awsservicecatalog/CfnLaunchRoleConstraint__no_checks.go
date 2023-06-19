@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) validateAddDeletionOverrideParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchRoleConstraint) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLaunchRoleConstraint) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchRoleConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLaunchRoleConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchRoleConstraint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchRoleConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchRoleConstraint) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchRoleConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) validateSetProductIdParameters(val *
 	return nil
 }
 
-func validateNewCfnLaunchRoleConstraintParameters(scope constructs.Construct, id *string, props *CfnLaunchRoleConstraintProps) error {
+func validateNewCfnLaunchRoleConstraintParameters(scope awscdk.Construct, id *string, props *CfnLaunchRoleConstraintProps) error {
 	return nil
 }
 

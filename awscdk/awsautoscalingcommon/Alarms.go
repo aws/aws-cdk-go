@@ -11,8 +11,11 @@ package awsautoscalingcommon
 //   	UpperAlarmIntervalIndex: jsii.Number(123),
 //   }
 //
+// Experimental.
 type Alarms struct {
+	// Experimental.
 	LowerAlarmIntervalIndex *float64 `field:"optional" json:"lowerAlarmIntervalIndex" yaml:"lowerAlarmIntervalIndex"`
+	// Experimental.
 	UpperAlarmIntervalIndex *float64 `field:"optional" json:"upperAlarmIntervalIndex" yaml:"upperAlarmIntervalIndex"`
 }
 

@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (f *jsiiProxy_FileSystem) validateAddAccessPointParameters(id *string, accessPointOptions *AccessPointOptions) error {
@@ -19,14 +19,6 @@ func (f *jsiiProxy_FileSystem) validateAddAccessPointParameters(id *string, acce
 
 	if err := _jsii_.ValidateStruct(accessPointOptions, func() string { return "parameter accessPointOptions" }); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (f *jsiiProxy_FileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
-	if statement == nil {
-		return fmt.Errorf("parameter statement is required, but nil was provided")
 	}
 
 	return nil
@@ -71,6 +63,22 @@ func (f *jsiiProxy_FileSystem) validateGrantParameters(grantee awsiam.IGrantable
 	return nil
 }
 
+func (f *jsiiProxy_FileSystem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FileSystem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFileSystem_FromFileSystemAttributesParameters(scope constructs.Construct, id *string, attrs *FileSystemAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -98,15 +106,7 @@ func validateFileSystem_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFileSystem_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateFileSystem_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFileSystem_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

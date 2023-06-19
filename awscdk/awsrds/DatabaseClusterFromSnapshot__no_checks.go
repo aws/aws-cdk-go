@@ -32,10 +32,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricParameters(metricN
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricACUUtilizationParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricCPUUtilizationParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
@@ -72,10 +68,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricNetworkTransmitThr
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricServerlessDatabaseCapacityParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricSnapshotStorageUsedParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
@@ -96,15 +88,19 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricVolumeWriteIOPsPar
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDatabaseClusterFromSnapshot_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDatabaseClusterFromSnapshot_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDatabaseClusterFromSnapshot_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseClusterFromSnapshot_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

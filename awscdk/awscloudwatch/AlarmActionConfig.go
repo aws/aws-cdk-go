@@ -12,8 +12,10 @@ package awscloudwatch
 //   	AlarmActionArn: jsii.String("alarmActionArn"),
 //   }
 //
+// Experimental.
 type AlarmActionConfig struct {
 	// Return the ARN that should be used for a CloudWatch Alarm action.
+	// Experimental.
 	AlarmActionArn *string `field:"required" json:"alarmActionArn" yaml:"alarmActionArn"`
 }
 

@@ -16,15 +16,19 @@ func (c *jsiiProxy_ClientVpnAuthorizationRule) validateGetResourceNameAttributeP
 	return nil
 }
 
+func (c *jsiiProxy_ClientVpnAuthorizationRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_ClientVpnAuthorizationRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateClientVpnAuthorizationRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateClientVpnAuthorizationRule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateClientVpnAuthorizationRule_IsResourceParameters(construct constructs.IConstruct) error {
+func validateClientVpnAuthorizationRule_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

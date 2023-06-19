@@ -83,10 +83,6 @@ package awscloudfront
 //   			Override: jsii.Boolean(true),
 //   		},
 //   	},
-//   	RemoveHeaders: []*string{
-//   		jsii.String("Server"),
-//   	},
-//   	ServerTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
@@ -95,18 +91,25 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseSecurityHeadersBehavior struct {
 	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+	// Experimental.
 	ContentSecurityPolicy *ResponseHeadersContentSecurityPolicy `field:"optional" json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
+	// Experimental.
 	ContentTypeOptions *ResponseHeadersContentTypeOptions `field:"optional" json:"contentTypeOptions" yaml:"contentTypeOptions"`
 	// Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
+	// Experimental.
 	FrameOptions *ResponseHeadersFrameOptions `field:"optional" json:"frameOptions" yaml:"frameOptions"`
 	// Determines whether CloudFront includes the Referrer-Policy HTTP response header and the header’s value.
+	// Experimental.
 	ReferrerPolicy *ResponseHeadersReferrerPolicy `field:"optional" json:"referrerPolicy" yaml:"referrerPolicy"`
 	// Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
+	// Experimental.
 	StrictTransportSecurity *ResponseHeadersStrictTransportSecurity `field:"optional" json:"strictTransportSecurity" yaml:"strictTransportSecurity"`
 	// Determines whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value.
+	// Experimental.
 	XssProtection *ResponseHeadersXSSProtection `field:"optional" json:"xssProtection" yaml:"xssProtection"`
 }
 

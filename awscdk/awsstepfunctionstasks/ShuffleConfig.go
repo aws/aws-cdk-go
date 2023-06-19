@@ -12,8 +12,10 @@ package awsstepfunctionstasks
 //   	Seed: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ShuffleConfig struct {
 	// Determines the shuffling order.
+	// Experimental.
 	Seed *float64 `field:"required" json:"seed" yaml:"seed"`
 }
 

@@ -3,7 +3,7 @@ package awscodepipelineactions
 
 // How should the S3 Action detect changes.
 //
-// This is the type of the `S3SourceAction.trigger` property.
+// This is the type of the {@link S3SourceAction.trigger} property.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -29,19 +29,23 @@ package awscodepipelineactions
 //   	Trigger: codepipeline_actions.S3Trigger_EVENTS,
 //   })
 //
+// Experimental.
 type S3Trigger string
 
 const (
 	// The Action will never detect changes - the Pipeline it's part of will only begin a run when explicitly started.
+	// Experimental.
 	S3Trigger_NONE S3Trigger = "NONE"
 	// CodePipeline will poll S3 to detect changes.
 	//
 	// This is the default method of detecting changes.
+	// Experimental.
 	S3Trigger_POLL S3Trigger = "POLL"
 	// CodePipeline will use CloudWatch Events to be notified of changes.
 	//
 	// Note that the Bucket that the Action uses needs to be part of a CloudTrail Trail
 	// for the events to be delivered.
+	// Experimental.
 	S3Trigger_EVENTS S3Trigger = "EVENTS"
 )
 

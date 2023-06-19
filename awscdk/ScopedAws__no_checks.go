@@ -4,7 +4,7 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateNewScopedAwsParameters(scope constructs.Construct) error {
+func validateNewScopedAwsParameters(scope Construct) error {
 	return nil
 }
 

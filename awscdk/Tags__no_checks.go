@@ -12,7 +12,7 @@ func (t *jsiiProxy_Tags) validateRemoveParameters(key *string, props *TagProps) 
 	return nil
 }
 
-func validateTags_OfParameters(scope constructs.IConstruct) error {
+func validateTags_OfParameters(scope IConstruct) error {
 	return nil
 }
 

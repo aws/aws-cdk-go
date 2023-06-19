@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnOrganizationConfigRule) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationConfigRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -189,8 +177,6 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationConfigRuleN
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomPolicyRuleMetadataParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty:
 		val := val.(*CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -202,9 +188,11 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomPolic
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOrganizationConfigRule_OrganizationCustomPolicyRuleMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -213,8 +201,6 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomPolic
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomRuleMetadataParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty:
 		val := val.(*CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -226,9 +212,11 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomRuleM
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -237,8 +225,6 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationCustomRuleM
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationManagedRuleMetadataParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty:
 		val := val.(*CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -250,16 +236,18 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationManagedRule
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnOrganizationConfigRuleParameters(scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) error {
+func validateNewCfnOrganizationConfigRuleParameters(scope awscdk.Construct, id *string, props *CfnOrganizationConfigRuleProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

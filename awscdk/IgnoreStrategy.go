@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -12,20 +12,23 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   ignoreStrategy := cdk.IgnoreStrategy_FromCopyOptions(&CopyOptions{
+//   ignoreStrategy := monocdk.IgnoreStrategy_FromCopyOptions(&CopyOptions{
 //   	Exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	Follow: cdk.SymlinkFollowMode_NEVER,
-//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   	Follow: monocdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: monocdk.IgnoreMode_GLOB,
 //   }, jsii.String("absoluteRootPath"))
 //
+// Experimental.
 type IgnoreStrategy interface {
 	// Adds another pattern.
+	// Experimental.
 	Add(pattern *string)
 	// Determines whether a given file path should be ignored or not.
 	//
 	// Returns: `true` if the file should be ignored.
+	// Experimental.
 	Ignores(absoluteFilePath *string) *bool
 }
 
@@ -34,11 +37,12 @@ type jsiiProxy_IgnoreStrategy struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewIgnoreStrategy_Override(i IgnoreStrategy) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.IgnoreStrategy",
+		"monocdk.IgnoreStrategy",
 		nil, // no parameters
 		i,
 	)
@@ -47,6 +51,7 @@ func NewIgnoreStrategy_Override(i IgnoreStrategy) {
 // Ignores file paths based on the [`.dockerignore specification`](https://docs.docker.com/engine/reference/builder/#dockerignore-file).
 //
 // Returns: `DockerIgnorePattern` associated with the given patterns.
+// Experimental.
 func IgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) DockerIgnoreStrategy {
 	_init_.Initialize()
 
@@ -56,7 +61,7 @@ func IgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) Docker
 	var returns DockerIgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.IgnoreStrategy",
+		"monocdk.IgnoreStrategy",
 		"docker",
 		[]interface{}{absoluteRootPath, patterns},
 		&returns,
@@ -68,6 +73,7 @@ func IgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) Docker
 // Creates an IgnoreStrategy based on the `ignoreMode` and `exclude` in a `CopyOptions`.
 //
 // Returns: `IgnoreStrategy` based on the `CopyOptions`.
+// Experimental.
 func IgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *string) IgnoreStrategy {
 	_init_.Initialize()
 
@@ -77,7 +83,7 @@ func IgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *stri
 	var returns IgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.IgnoreStrategy",
+		"monocdk.IgnoreStrategy",
 		"fromCopyOptions",
 		[]interface{}{options, absoluteRootPath},
 		&returns,
@@ -89,6 +95,7 @@ func IgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *stri
 // Ignores file paths based on the [`.gitignore specification`](https://git-scm.com/docs/gitignore).
 //
 // Returns: `GitIgnorePattern` associated with the given patterns.
+// Experimental.
 func IgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIgnoreStrategy {
 	_init_.Initialize()
 
@@ -98,7 +105,7 @@ func IgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIgnore
 	var returns GitIgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.IgnoreStrategy",
+		"monocdk.IgnoreStrategy",
 		"git",
 		[]interface{}{absoluteRootPath, patterns},
 		&returns,
@@ -110,6 +117,7 @@ func IgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIgnore
 // Ignores file paths based on simple glob patterns.
 //
 // Returns: `GlobIgnorePattern` associated with the given patterns.
+// Experimental.
 func IgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) GlobIgnoreStrategy {
 	_init_.Initialize()
 
@@ -119,7 +127,7 @@ func IgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) GlobIgno
 	var returns GlobIgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.IgnoreStrategy",
+		"monocdk.IgnoreStrategy",
 		"glob",
 		[]interface{}{absoluteRootPath, patterns},
 		&returns,

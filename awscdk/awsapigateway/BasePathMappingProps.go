@@ -2,33 +2,36 @@ package awsapigateway
 
 
 // Example:
-//   var api restApi
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var domainName domainName
+//   var restApi restApi
+//   var stage stage
 //
-//   domainName := apigateway.DomainName_FromDomainNameAttributes(this, jsii.String("DomainName"), &DomainNameAttributes{
-//   	DomainName: jsii.String("domainName"),
-//   	DomainNameAliasHostedZoneId: jsii.String("domainNameAliasHostedZoneId"),
-//   	DomainNameAliasTarget: jsii.String("domainNameAliasTarget"),
-//   })
-//
-//   apigateway.NewBasePathMapping(this, jsii.String("BasePathMapping"), &BasePathMappingProps{
+//   basePathMappingProps := &BasePathMappingProps{
 //   	DomainName: domainName,
-//   	RestApi: api,
-//   })
+//   	RestApi: restApi,
 //
+//   	// the properties below are optional
+//   	BasePath: jsii.String("basePath"),
+//   	Stage: stage,
+//   }
+//
+// Experimental.
 type BasePathMappingProps struct {
-	// Whether to attach the base path mapping to a stage.
-	//
-	// Use this property to create a base path mapping without attaching it to the Rest API default stage.
-	// This property is ignored if `stage` is provided.
-	AttachToStage *bool `field:"optional" json:"attachToStage" yaml:"attachToStage"`
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
+	// Experimental.
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// The Deployment stage of API [disable-awslint:ref-via-interface].
+	// Experimental.
 	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
 	// The DomainName to associate with this base path mapping.
+	// Experimental.
 	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
 	// The RestApi resource to target.
+	// Experimental.
 	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 

@@ -10,20 +10,22 @@ package awsec2
 //   	Destination: ec2.FlowLogDestination_ToS3(),
 //   })
 //
-//   // Only reject traffic and interval every minute.
 //   vpc.addFlowLog(jsii.String("FlowLogCloudWatch"), &FlowLogOptions{
 //   	TrafficType: ec2.FlowLogTrafficType_REJECT,
-//   	MaxAggregationInterval: ec2.FlowLogMaxAggregationInterval_ONE_MINUTE,
 //   })
 //
+// Experimental.
 type FlowLogTrafficType string
 
 const (
 	// Only log accepts.
+	// Experimental.
 	FlowLogTrafficType_ACCEPT FlowLogTrafficType = "ACCEPT"
 	// Log all requests.
+	// Experimental.
 	FlowLogTrafficType_ALL FlowLogTrafficType = "ALL"
 	// Only log rejects.
+	// Experimental.
 	FlowLogTrafficType_REJECT FlowLogTrafficType = "REJECT"
 )
 

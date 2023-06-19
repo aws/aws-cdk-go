@@ -15,12 +15,14 @@ package awsefs
 //
 // See: https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes
 //
+// Experimental.
 type PerformanceMode string
 
 const (
 	// General Purpose is ideal for latency-sensitive use cases, like web serving environments, content management systems, home directories, and general file serving.
 	//
 	// Recommended for the majority of Amazon EFS file systems.
+	// Experimental.
 	PerformanceMode_GENERAL_PURPOSE PerformanceMode = "GENERAL_PURPOSE"
 	// File systems in the Max I/O mode can scale to higher levels of aggregate throughput and operations per second.
 	//
@@ -28,6 +30,7 @@ const (
 	// of slightly higher latencies for file metadata operations.
 	// Highly parallelized applications and workloads, such as big data analysis,
 	// media processing, and genomics analysis, can benefit from this mode.
+	// Experimental.
 	PerformanceMode_MAX_IO PerformanceMode = "MAX_IO"
 )
 

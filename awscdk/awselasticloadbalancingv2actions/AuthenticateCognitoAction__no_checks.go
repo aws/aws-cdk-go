@@ -4,11 +4,7 @@ package awselasticloadbalancingv2actions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AuthenticateCognitoAction) validateAddRuleActionParameters(actionJson *awselasticloadbalancingv2.CfnListenerRule_ActionProperty) error {
-	return nil
-}
-
-func (a *jsiiProxy_AuthenticateCognitoAction) validateBindParameters(scope constructs.Construct, listener awselasticloadbalancingv2.IApplicationListener) error {
+func (a *jsiiProxy_AuthenticateCognitoAction) validateBindParameters(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener) error {
 	return nil
 }
 

@@ -27,7 +27,7 @@ EventBridge.
 
 ## Event retry policy and using dead-letter queues
 
-The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup, SQSQueue, SNSTopic and ECSTask targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
+The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup and SQSQueue targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
 Use [escape hatches](https://docs.aws.amazon.com/cdk/latest/guide/cfn_layer.html) for the other target types.
 
 ## Invoke a Lambda function
@@ -61,7 +61,7 @@ queue := sqs.NewQueue(this, jsii.String("Queue"))
 rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
 	DeadLetterQueue: queue,
 	 // Optional: add a dead letter queue
-	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
+	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
 	 // Optional: set the maxEventAge retry policy
 	RetryAttempts: jsii.Number(2),
 }))
@@ -91,41 +91,6 @@ rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
 })
 
 rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup))
-```
-
-A rule target input can also be specified to modify the event that is sent to the log group.
-Unlike other event targets, CloudWatchLogs requires a specific input template format.
-
-```go
-import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
-
-
-rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
-		Timestamp: events.EventField_FromPath(jsii.String("$.time")),
-		Message: events.EventField_*FromPath(jsii.String("$.detail-type")),
-	}),
-}))
-```
-
-If you want to use static values to overwrite the `message` make sure that you provide a `string`
-value.
-
-```go
-import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
-
-
-rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
-		Message: jSON.stringify(map[string]*string{
-			"CustomField": jsii.String("CustomValue"),
-		}),
-	}),
-}))
 ```
 
 ## Start a CodeBuild build
@@ -199,7 +164,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 })
 
 dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
@@ -209,7 +174,7 @@ role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 })
 stateMachine := sfn.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
 	Definition: sfn.NewWait(this, jsii.String("Hello"), &WaitProps{
-		Time: sfn.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
+		Time: sfn.WaitTime_Duration(cdk.Duration_Seconds(jsii.Number(10))),
 	}),
 })
 
@@ -233,40 +198,31 @@ You can optionally attach a
 to the target.
 
 ```go
-import ec2 "github.com/aws/aws-cdk-go/awscdk"
-import ecs "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdkbatchalpha"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
 
-
-computeEnvironment := batch.NewFargateComputeEnvironment(this, jsii.String("ComputeEnv"), &FargateComputeEnvironmentProps{
-	Vpc: Vpc,
-})
-
-jobQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-	Priority: jsii.Number(1),
-	ComputeEnvironments: []orderedComputeEnvironment{
-		&orderedComputeEnvironment{
-			ComputeEnvironment: *ComputeEnvironment,
+jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), &JobQueueProps{
+	ComputeEnvironments: []jobQueueComputeEnvironment{
+		&jobQueueComputeEnvironment{
+			ComputeEnvironment: batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), &ComputeEnvironmentProps{
+				Managed: jsii.Boolean(false),
+			}),
 			Order: jsii.Number(1),
 		},
 	},
 })
 
-jobDefinition := batch.NewEcsJobDefinition(this, jsii.String("MyJob"), &EcsJobDefinitionProps{
-	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("Container"), &EcsEc2ContainerDefinitionProps{
-		Image: ecs.ContainerImage_FromRegistry(jsii.String("test-repo")),
-		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
-		Cpu: jsii.Number(256),
-	}),
+jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), &JobDefinitionProps{
+	Container: &JobDefinitionContainer{
+		Image: awscdk.ContainerImage_FromRegistry(jsii.String("test-repo")),
+	},
 })
 
 queue := sqs.NewQueue(this, jsii.String("Queue"))
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 })
 
 rule.AddTarget(targets.NewBatchJob(jobQueue.JobQueueArn, jobQueue, jobDefinition.JobDefinitionArn, jobDefinition, &BatchJobProps{
@@ -275,7 +231,7 @@ rule.AddTarget(targets.NewBatchJob(jobQueue.JobQueueArn, jobQueue, jobDefinition
 		"SomeParam": jsii.String("SomeValue"),
 	}),
 	RetryAttempts: jsii.Number(2),
-	MaxEventAge: awscdk.Duration_*Hours(jsii.Number(2)),
+	MaxEventAge: cdk.Duration_*Hours(jsii.Number(2)),
 }))
 ```
 
@@ -291,7 +247,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 })
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
@@ -344,7 +300,7 @@ destination := events.NewApiDestination(this, jsii.String("Destination"), &ApiDe
 })
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 	Targets: []iRuleTarget{
 		targets.NewApiDestination(destination),
 	},
@@ -363,104 +319,4 @@ rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 })
 
 rule.AddTarget(targets.NewEventBus(events.EventBus_FromEventBusArn(this, jsii.String("External"), jsii.String("arn:aws:events:eu-west-1:999999999999:event-bus/test-bus"))))
-```
-
-## Run an ECS Task
-
-Use the `EcsTask` target to run an ECS Task.
-
-The code snippet below creates a scheduled event rule that will run the task described in `taskDefinition` every hour.
-
-### Tagging Tasks
-
-By default, ECS tasks run from EventBridge targets will not have tags applied to
-them. You can set the `propagateTags` field to propagate the tags set on the task
-definition to the task initialized by the event trigger.
-
-If you want to set tags independent of those applied to the TaskDefinition, you
-can use the `tags` array. Both of these fields can be used together or separately
-to set tags on the triggered task.
-
-```go
-import ecs "github.com/aws/aws-cdk-go/awscdk"
-var cluster iCluster
-var taskDefinition taskDefinition
-
-
-rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
-})
-
-rule.AddTarget(
-targets.NewEcsTask(&EcsTaskProps{
-	Cluster: cluster,
-	TaskDefinition: taskDefinition,
-	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
-	Tags: []tag{
-		&tag{
-			Key: jsii.String("my-tag"),
-			Value: jsii.String("my-tag-value"),
-		},
-	},
-}))
-```
-
-### Assign public IP addresses to tasks
-
-You can set the `assignPublicIp` flag to assign public IP addresses to tasks.
-If you want to detach the public IP address from the task, you have to set the flag `false`.
-You can specify the flag `true` only when the launch type is set to FARGATE.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import ecs "github.com/aws/aws-cdk-go/awscdk"
-var cluster iCluster
-var taskDefinition taskDefinition
-var rule rule
-
-
-rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
-})
-
-rule.AddTarget(
-targets.NewEcsTask(&EcsTaskProps{
-	Cluster: Cluster,
-	TaskDefinition: TaskDefinition,
-	AssignPublicIp: jsii.Boolean(true),
-	SubnetSelection: &SubnetSelection{
-		SubnetType: ec2.subnetType_PUBLIC,
-	},
-}))
-```
-
-### enable Amazon ECS Exec for ECS Task
-
-If you use Amazon ECS Exec, you can run commands in or get a shell to a container running on an Amazon EC2 instance or on AWS Fargate.
-
-```go
-import ecs "github.com/aws/aws-cdk-go/awscdk"
-var cluster iCluster
-var taskDefinition taskDefinition
-
-
-rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
-})
-
-rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
-	Cluster: Cluster,
-	TaskDefinition: TaskDefinition,
-	TaskCount: jsii.Number(1),
-	ContainerOverrides: []containerOverride{
-		&containerOverride{
-			ContainerName: jsii.String("TheContainer"),
-			Command: []*string{
-				jsii.String("echo"),
-				events.EventField_FromPath(jsii.String("$.detail.event")),
-			},
-		},
-	},
-	EnableExecuteCommand: jsii.Boolean(true),
-}))
 ```

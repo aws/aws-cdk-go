@@ -12,8 +12,10 @@ package awslambda
 //   	Type: awscdk.Aws_lambda.DestinationType_FAILURE,
 //   }
 //
+// Experimental.
 type DestinationOptions struct {
 	// The destination type.
+	// Experimental.
 	Type DestinationType `field:"required" json:"type" yaml:"type"`
 }
 

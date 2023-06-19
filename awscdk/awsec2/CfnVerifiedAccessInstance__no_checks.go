@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnVerifiedAccessInstance) validateAddDeletionOverrideParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstance) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVerifiedAccessInstance) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnVerifiedAccessInstance) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVerifiedAccessInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstance) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVerifiedAccessInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnVerifiedAccessInstance) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstance) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVerifiedAccessInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) validateSetVerifiedAccessTrustProv
 	return nil
 }
 
-func validateNewCfnVerifiedAccessInstanceParameters(scope constructs.Construct, id *string, props *CfnVerifiedAccessInstanceProps) error {
+func validateNewCfnVerifiedAccessInstanceParameters(scope awscdk.Construct, id *string, props *CfnVerifiedAccessInstanceProps) error {
 	return nil
 }
 

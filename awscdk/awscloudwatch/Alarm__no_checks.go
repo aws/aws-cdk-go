@@ -16,11 +16,15 @@ func (a *jsiiProxy_Alarm) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func validateAlarm_FromAlarmArnParameters(scope constructs.Construct, id *string, alarmArn *string) error {
+func (a *jsiiProxy_Alarm) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func validateAlarm_FromAlarmNameParameters(scope constructs.Construct, id *string, alarmName *string) error {
+func (a *jsiiProxy_Alarm) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func validateAlarm_FromAlarmArnParameters(scope constructs.Construct, id *string, alarmArn *string) error {
 	return nil
 }
 
@@ -28,11 +32,7 @@ func validateAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAlarm_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAlarm_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAlarm_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

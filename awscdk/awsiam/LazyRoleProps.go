@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a LazyRole.
@@ -9,9 +9,10 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
 //   var managedPolicy managedPolicy
 //   var policyDocument policyDocument
 //   var principal iPrincipal
@@ -21,6 +22,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ExternalId: jsii.String("externalId"),
 //   	ExternalIds: []*string{
 //   		jsii.String("externalIds"),
 //   	},
@@ -30,26 +32,36 @@ import (
 //   	ManagedPolicies: []iManagedPolicy{
 //   		managedPolicy,
 //   	},
-//   	MaxSessionDuration: cdk.Duration_Minutes(jsii.Number(30)),
+//   	MaxSessionDuration: duration,
 //   	Path: jsii.String("path"),
 //   	PermissionsBoundary: managedPolicy,
 //   	RoleName: jsii.String("roleName"),
 //   }
 //
+// Experimental.
 type LazyRoleProps struct {
 	// The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.
 	//
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
+	// Experimental.
 	AssumedBy IPrincipal `field:"required" json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// ID that the role assumer needs to provide when assuming this role.
+	//
+	// If the configured and provided external IDs do not match, the
+	// AssumeRole operation will fail.
+	// Deprecated: see {@link externalIds}.
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
+	// Experimental.
 	ExternalIds *[]*string `field:"optional" json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
@@ -57,11 +69,13 @@ type LazyRoleProps struct {
 	// created with the role, whereas those added by ``addToPolicy`` are added
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
+	// Experimental.
 	InlinePolicies *map[string]PolicyDocument `field:"optional" json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
+	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
@@ -77,11 +91,13 @@ type LazyRoleProps struct {
 	// security credentials are valid for one hour by default. This applies when
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
+	// Experimental.
 	MaxSessionDuration awscdk.Duration `field:"optional" json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
+	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
@@ -90,6 +106,7 @@ type LazyRoleProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
+	// Experimental.
 	PermissionsBoundary IManagedPolicy `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
@@ -103,6 +120,7 @@ type LazyRoleProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
+	// Experimental.
 	RoleName *string `field:"optional" json:"roleName" yaml:"roleName"`
 }
 

@@ -40,22 +40,30 @@ package awscodepipeline
 //   	},
 //   })
 //
+// Experimental.
 type CustomActionRegistrationProps struct {
 	// The artifact bounds of the Action.
+	// Experimental.
 	ArtifactBounds *ActionArtifactBounds `field:"required" json:"artifactBounds" yaml:"artifactBounds"`
 	// The category of the Action.
+	// Experimental.
 	Category ActionCategory `field:"required" json:"category" yaml:"category"`
 	// The provider of the Action.
 	//
 	// For example, `'MyCustomActionProvider'`.
+	// Experimental.
 	Provider *string `field:"required" json:"provider" yaml:"provider"`
 	// The properties used for customizing the instance of your Action.
+	// Experimental.
 	ActionProperties *[]*CustomActionProperty `field:"optional" json:"actionProperties" yaml:"actionProperties"`
 	// The URL shown for the entire Action in the Pipeline UI.
+	// Experimental.
 	EntityUrl *string `field:"optional" json:"entityUrl" yaml:"entityUrl"`
 	// The URL shown for a particular execution of an Action in the Pipeline UI.
+	// Experimental.
 	ExecutionUrl *string `field:"optional" json:"executionUrl" yaml:"executionUrl"`
 	// The version of your Action.
+	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

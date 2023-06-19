@@ -1,7 +1,7 @@
 package awselasticloadbalancingv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // Properties to reference an existing listener.
@@ -16,18 +16,32 @@ import (
 //
 //   applicationListenerAttributes := &ApplicationListenerAttributes{
 //   	ListenerArn: jsii.String("listenerArn"),
-//   	SecurityGroup: securityGroup,
 //
 //   	// the properties below are optional
 //   	DefaultPort: jsii.Number(123),
+//   	SecurityGroup: securityGroup,
+//   	SecurityGroupAllowsAllOutbound: jsii.Boolean(false),
+//   	SecurityGroupId: jsii.String("securityGroupId"),
 //   }
 //
+// Experimental.
 type ApplicationListenerAttributes struct {
 	// ARN of the listener.
+	// Experimental.
 	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
-	// Security group of the load balancer this listener is associated with.
-	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 	// The default port on which this listener is listening.
+	// Experimental.
 	DefaultPort *float64 `field:"optional" json:"defaultPort" yaml:"defaultPort"`
+	// Security group of the load balancer this listener is associated with.
+	// Experimental.
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
+	// Whether the imported security group allows all outbound traffic or not when imported using `securityGroupId`.
+	//
+	// Unless set to `false`, no egress rules will be added to the security group.
+	// Deprecated: use `securityGroup` instead.
+	SecurityGroupAllowsAllOutbound *bool `field:"optional" json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
+	// Security group ID of the load balancer this listener is associated with.
+	// Deprecated: use `securityGroup` instead.
+	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 }
 

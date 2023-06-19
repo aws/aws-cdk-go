@@ -1,11 +1,12 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Base class for reusable state machine fragments.
@@ -60,24 +61,71 @@ import (
 //   	return this
 //   }
 //
+// Experimental.
 type StateMachineFragment interface {
-	constructs.Construct
+	awscdk.Construct
 	IChainable
 	// The states to chain onto if this fragment is used.
+	// Experimental.
 	EndStates() *[]INextable
 	// Descriptive identifier for this chainable.
+	// Experimental.
 	Id() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The start state of this state machine fragment.
+	// Experimental.
 	StartState() State
 	// Continue normal execution with the given state.
+	// Experimental.
 	Next(next IChainable) Chain
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Prefix the IDs of all states in this state machine fragment.
 	//
 	// Use this to avoid multiple copies of the state machine all having the
 	// same state IDs.
+	// Experimental.
 	PrefixStates(prefix *string) StateMachineFragment
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Wrap all states in this state machine fragment up into a single state.
 	//
 	// This can be used to add retry or error handling onto this state
@@ -87,14 +135,24 @@ type StateMachineFragment interface {
 	// to be an array with the result of the state machine in it. Adjust
 	// your paths accordingly. For example, change 'outputPath' to
 	// '$[0]'.
+	// Experimental.
 	ToSingleState(options *SingleStateOptions) Parallel
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for StateMachineFragment
 type jsiiProxy_StateMachineFragment struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	jsiiProxy_IChainable
 }
 
@@ -118,8 +176,8 @@ func (j *jsiiProxy_StateMachineFragment) Id() *string {
 	return returns
 }
 
-func (j *jsiiProxy_StateMachineFragment) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StateMachineFragment) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -139,34 +197,19 @@ func (j *jsiiProxy_StateMachineFragment) StartState() State {
 }
 
 
-// Creates a new construct node.
+// Experimental.
 func NewStateMachineFragment_Override(s StateMachineFragment, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineFragment",
+		"monocdk.aws_stepfunctions.StateMachineFragment",
 		[]interface{}{scope, id},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func StateMachineFragment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -176,7 +219,7 @@ func StateMachineFragment_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineFragment",
+		"monocdk.aws_stepfunctions.StateMachineFragment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -201,6 +244,38 @@ func (s *jsiiProxy_StateMachineFragment) Next(next IChainable) Chain {
 	return returns
 }
 
+func (s *jsiiProxy_StateMachineFragment) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_StateMachineFragment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_StateMachineFragment) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_StateMachineFragment) PrefixStates(prefix *string) StateMachineFragment {
 	var returns StateMachineFragment
 
@@ -212,6 +287,25 @@ func (s *jsiiProxy_StateMachineFragment) PrefixStates(prefix *string) StateMachi
 	)
 
 	return returns
+}
+
+func (s *jsiiProxy_StateMachineFragment) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_StateMachineFragment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 func (s *jsiiProxy_StateMachineFragment) ToSingleState(options *SingleStateOptions) Parallel {
@@ -236,6 +330,19 @@ func (s *jsiiProxy_StateMachineFragment) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StateMachineFragment) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

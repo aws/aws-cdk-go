@@ -5,23 +5,26 @@ import (
 )
 
 // Encodes information how a certain Stack should be deployed.
+// Experimental.
 type IStackSynthesizer interface {
 	// Register a Docker Image Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
+	// Experimental.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
+	// Experimental.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
-	// Must be called before any of the other methods are called, and can only be called once.
+	// Must be called before any of the other methods are called.
+	// Experimental.
 	Bind(stack Stack)
 	// Synthesize the associated stack to the session.
+	// Experimental.
 	Synthesize(session ISynthesisSession)
-	// The qualifier used to bootstrap this stack.
-	BootstrapQualifier() *string
 }
 
 // The jsii proxy for IStackSynthesizer
@@ -81,15 +84,5 @@ func (i *jsiiProxy_IStackSynthesizer) Synthesize(session ISynthesisSession) {
 		"synthesize",
 		[]interface{}{session},
 	)
-}
-
-func (j *jsiiProxy_IStackSynthesizer) BootstrapQualifier() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bootstrapQualifier",
-		&returns,
-	)
-	return returns
 }
 

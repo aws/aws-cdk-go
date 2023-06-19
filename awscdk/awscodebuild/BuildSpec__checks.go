@@ -6,14 +6,6 @@ import (
 	"fmt"
 )
 
-func validateBuildSpec_FromAssetParameters(path *string) error {
-	if path == nil {
-		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateBuildSpec_FromObjectParameters(value *map[string]interface{}) error {
 	if value == nil {
 		return fmt.Errorf("parameter value is required, but nil was provided")

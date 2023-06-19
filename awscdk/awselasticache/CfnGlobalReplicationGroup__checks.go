@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnGlobalReplicationGroup) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -207,8 +195,6 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetMembersParameters(val i
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty:
 				v := v.(*CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -220,9 +206,11 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetMembersParameters(val i
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -231,8 +219,6 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetMembersParameters(val i
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty:
 				v := v.(*CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -244,9 +230,11 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetMembersParameters(val i
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -267,8 +255,6 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnGlobalReplicationGroup_RegionalConfigurationProperty:
 				v := v.(*CfnGlobalReplicationGroup_RegionalConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -280,9 +266,11 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGlobalReplicationGroup_RegionalConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGlobalReplicationGroup_RegionalConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -291,8 +279,6 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnGlobalReplicationGroup_RegionalConfigurationProperty:
 				v := v.(*CfnGlobalReplicationGroup_RegionalConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -304,9 +290,11 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnGlobalReplicationGroup_RegionalConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnGlobalReplicationGroup_RegionalConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -319,7 +307,7 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 	return nil
 }
 
-func validateNewCfnGlobalReplicationGroupParameters(scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) error {
+func validateNewCfnGlobalReplicationGroupParameters(scope awscdk.Construct, id *string, props *CfnGlobalReplicationGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

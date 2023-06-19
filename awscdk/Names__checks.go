@@ -5,12 +5,10 @@ package awscdk
 import (
 	"fmt"
 
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
-func validateNames_NodeUniqueIdParameters(node constructs.Node) error {
+func validateNames_NodeUniqueIdParameters(node ConstructNode) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}
@@ -18,24 +16,9 @@ func validateNames_NodeUniqueIdParameters(node constructs.Node) error {
 	return nil
 }
 
-func validateNames_UniqueIdParameters(construct constructs.IConstruct) error {
+func validateNames_UniqueIdParameters(construct constructs.Construct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateNames_UniqueResourceNameParameters(construct constructs.IConstruct, options *UniqueResourceNameOptions) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	if options == nil {
-		return fmt.Errorf("parameter options is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
 	}
 
 	return nil

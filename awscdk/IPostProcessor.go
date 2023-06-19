@@ -5,8 +5,10 @@ import (
 )
 
 // A Token that can post-process the complete resolved value, after resolve() has recursed over it.
+// Experimental.
 type IPostProcessor interface {
 	// Process the completely resolved value, after full recursion/resolution has happened.
+	// Experimental.
 	PostProcess(input interface{}, context IResolveContext) interface{}
 }
 

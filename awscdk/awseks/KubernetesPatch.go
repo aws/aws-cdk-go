@@ -1,11 +1,12 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation resource which applies/restores a JSON patch into a Kubernetes resource.
@@ -30,21 +31,72 @@ import (
 //
 // See: https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/
 //
+// Experimental.
 type KubernetesPatch interface {
-	constructs.Construct
-	// The tree node.
-	Node() constructs.Node
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubernetesPatch
 type jsiiProxy_KubernetesPatch struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_KubernetesPatch) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_KubernetesPatch) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -54,6 +106,7 @@ func (j *jsiiProxy_KubernetesPatch) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewKubernetesPatch(scope constructs.Construct, id *string, props *KubernetesPatchProps) KubernetesPatch {
 	_init_.Initialize()
 
@@ -63,7 +116,7 @@ func NewKubernetesPatch(scope constructs.Construct, id *string, props *Kubernete
 	j := jsiiProxy_KubernetesPatch{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesPatch",
+		"monocdk.aws_eks.KubernetesPatch",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -71,33 +124,19 @@ func NewKubernetesPatch(scope constructs.Construct, id *string, props *Kubernete
 	return &j
 }
 
+// Experimental.
 func NewKubernetesPatch_Override(k KubernetesPatch, scope constructs.Construct, id *string, props *KubernetesPatchProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesPatch",
+		"monocdk.aws_eks.KubernetesPatch",
 		[]interface{}{scope, id, props},
 		k,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -107,7 +146,7 @@ func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.KubernetesPatch",
+		"monocdk.aws_eks.KubernetesPatch",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -116,12 +155,76 @@ func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (k *jsiiProxy_KubernetesPatch) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (k *jsiiProxy_KubernetesPatch) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (k *jsiiProxy_KubernetesPatch) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_KubernetesPatch) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (k *jsiiProxy_KubernetesPatch) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (k *jsiiProxy_KubernetesPatch) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		k,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_KubernetesPatch) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

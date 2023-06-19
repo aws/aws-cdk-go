@@ -10,10 +10,13 @@ package awss3
 //   	},
 //   })
 //
+// Experimental.
 type RedirectTarget struct {
 	// Name of the host where requests are redirected.
+	// Experimental.
 	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// Protocol to use when redirecting requests.
+	// Experimental.
 	Protocol RedirectProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

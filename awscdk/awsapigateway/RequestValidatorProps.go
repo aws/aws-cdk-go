@@ -17,12 +17,16 @@ package awsapigateway
 //   	ValidateRequestParameters: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type RequestValidatorProps struct {
 	// The name of this request validator.
+	// Experimental.
 	RequestValidatorName *string `field:"optional" json:"requestValidatorName" yaml:"requestValidatorName"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+	// Experimental.
 	ValidateRequestBody *bool `field:"optional" json:"validateRequestBody" yaml:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
+	// Experimental.
 	ValidateRequestParameters *bool `field:"optional" json:"validateRequestParameters" yaml:"validateRequestParameters"`
 	// The rest API that this model is part of.
 	//
@@ -30,6 +34,7 @@ type RequestValidatorProps struct {
 	// is being tracked by the top-level RestApi object for the purpose of calculating it's
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
+	// Experimental.
 	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 

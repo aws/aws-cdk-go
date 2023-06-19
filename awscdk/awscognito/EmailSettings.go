@@ -13,12 +13,15 @@ package awscognito
 //   	ReplyTo: jsii.String("replyTo"),
 //   }
 //
+// Experimental.
 type EmailSettings struct {
 	// The 'from' address on the emails received by the user.
+	// Experimental.
 	From *string `field:"optional" json:"from" yaml:"from"`
 	// The 'replyTo' address on the emails received by the user as defined by IETF RFC-5322.
 	//
 	// When set, most email clients recognize to change 'to' line to this address when a reply is drafted.
+	// Experimental.
 	ReplyTo *string `field:"optional" json:"replyTo" yaml:"replyTo"`
 }
 

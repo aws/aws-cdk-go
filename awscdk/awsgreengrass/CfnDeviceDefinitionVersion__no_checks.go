@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateAddDeletionOverrideParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateRenderPropertiesParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) validateSetDevicesParameters(val 
 	return nil
 }
 
-func validateNewCfnDeviceDefinitionVersionParameters(scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) error {
+func validateNewCfnDeviceDefinitionVersionParameters(scope awscdk.Construct, id *string, props *CfnDeviceDefinitionVersionProps) error {
 	return nil
 }
 

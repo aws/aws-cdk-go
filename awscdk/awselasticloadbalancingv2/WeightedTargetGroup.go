@@ -17,12 +17,15 @@ package awselasticloadbalancingv2
 //   	Weight: jsii.Number(123),
 //   }
 //
+// Experimental.
 type WeightedTargetGroup struct {
 	// The target group.
+	// Experimental.
 	TargetGroup IApplicationTargetGroup `field:"required" json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
+	// Experimental.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

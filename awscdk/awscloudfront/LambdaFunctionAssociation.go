@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 )
 
 // Example:
@@ -20,15 +20,19 @@ import (
 //   	IncludeBody: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type LambdaFunctionAssociation struct {
 	// The lambda event type defines at which event the lambda is called during the request lifecycle.
+	// Experimental.
 	EventType LambdaEdgeEventType `field:"required" json:"eventType" yaml:"eventType"`
 	// A version of the lambda to associate.
+	// Experimental.
 	LambdaFunction awslambda.IVersion `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Allows a Lambda function to have read access to the body content.
 	//
 	// Only valid for "request" event types (`ORIGIN_REQUEST` or `VIEWER_REQUEST`).
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html
+	// Experimental.
 	IncludeBody *bool `field:"optional" json:"includeBody" yaml:"includeBody"`
 }
 

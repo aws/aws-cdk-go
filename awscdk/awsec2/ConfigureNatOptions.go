@@ -22,14 +22,18 @@ package awsec2
 //   	Vpc: vpc,
 //   }
 //
+// Experimental.
 type ConfigureNatOptions struct {
 	// The public subnets where the NAT providers need to be placed.
+	// Experimental.
 	NatSubnets *[]PublicSubnet `field:"required" json:"natSubnets" yaml:"natSubnets"`
 	// The private subnets that need to route through the NAT providers.
 	//
 	// There may be more private subnets than public subnets with NAT providers.
+	// Experimental.
 	PrivateSubnets *[]PrivateSubnet `field:"required" json:"privateSubnets" yaml:"privateSubnets"`
 	// The VPC we're configuring NAT for.
+	// Experimental.
 	Vpc Vpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 

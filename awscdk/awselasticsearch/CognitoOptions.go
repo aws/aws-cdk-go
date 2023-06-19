@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Configures Amazon ES to use Amazon Cognito authentication for Kibana.

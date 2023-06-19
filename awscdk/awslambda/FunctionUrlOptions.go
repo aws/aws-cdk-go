@@ -4,20 +4,25 @@ package awslambda
 // Options to add a url to a Lambda function.
 //
 // Example:
+//   // Can be a Function or an Alias
 //   var fn function
 //
 //
-//   fn.AddFunctionUrl(&FunctionUrlOptions{
+//   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 //   	AuthType: lambda.FunctionUrlAuthType_NONE,
-//   	InvokeMode: lambda.InvokeMode_RESPONSE_STREAM,
 //   })
 //
+//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &CfnOutputProps{
+//   	Value: fnUrl.Url,
+//   })
+//
+// Experimental.
 type FunctionUrlOptions struct {
 	// The type of authentication that your function URL uses.
+	// Experimental.
 	AuthType FunctionUrlAuthType `field:"optional" json:"authType" yaml:"authType"`
 	// The cross-origin resource sharing (CORS) settings for your function URL.
+	// Experimental.
 	Cors *FunctionUrlCorsOptions `field:"optional" json:"cors" yaml:"cors"`
-	// The type of invocation mode that your Lambda function uses.
-	InvokeMode InvokeMode `field:"optional" json:"invokeMode" yaml:"invokeMode"`
 }
 

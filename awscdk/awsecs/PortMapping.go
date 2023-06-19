@@ -4,34 +4,14 @@ package awsecs
 // Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 //
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var container containerDefinition
 //
 //
-//   // Add a container to the task definition
-//   specificContainer := taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("/aws/aws-example-app")),
-//   	MemoryLimitMiB: jsii.Number(2048),
+//   container.AddPortMappings(&PortMapping{
+//   	ContainerPort: jsii.Number(3000),
 //   })
 //
-//   // Add a port mapping
-//   specificContainer.AddPortMappings(&PortMapping{
-//   	ContainerPort: jsii.Number(7600),
-//   	Protocol: ecs.Protocol_TCP,
-//   })
-//
-//   ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	CloudMapOptions: &CloudMapOptions{
-//   		// Create SRV records - useful for bridge networking
-//   		DnsRecordType: cloudmap.DnsRecordType_SRV,
-//   		// Targets port TCP port 7600 `specificContainer`
-//   		Container: specificContainer,
-//   		ContainerPort: jsii.Number(7600),
-//   	},
-//   })
-//
+// Experimental.
 type PortMapping struct {
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
@@ -41,15 +21,8 @@ type PortMapping struct {
 	//
 	// For more information, see hostPort.
 	// Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
+	// Experimental.
 	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
-	// The protocol used by Service Connect.
-	//
-	// Valid values are AppProtocol.http, AppProtocol.http2, and
-	// AppProtocol.grpc. The protocol determines what telemetry will be shown in the ECS Console for
-	// Service Connect services using this port mapping.
-	//
-	// This field may only be set when the task definition uses Bridge or Awsvpc network modes.
-	AppProtocol AppProtocol `field:"optional" json:"appProtocol" yaml:"appProtocol"`
 	// The port number on the container instance to reserve for your container.
 	//
 	// If you are using containers in a task with the awsvpc or host network mode,
@@ -60,15 +33,12 @@ type PortMapping struct {
 	// you can omit the hostPort (or set it to 0) while specifying a containerPort and
 	// your container automatically receives a port in the ephemeral port range for
 	// your container instance operating system and Docker version.
+	// Experimental.
 	HostPort *float64 `field:"optional" json:"hostPort" yaml:"hostPort"`
-	// The name to give the port mapping.
-	//
-	// Name is required in order to use the port mapping with ECS Service Connect.
-	// This field may only be set when the task definition uses Bridge or Awsvpc network modes.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are Protocol.TCP and Protocol.UDP.
+	// Experimental.
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

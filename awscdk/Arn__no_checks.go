@@ -12,6 +12,10 @@ func validateArn_FormatParameters(components *ArnComponents) error {
 	return nil
 }
 
+func validateArn_ParseParameters(arn *string) error {
+	return nil
+}
+
 func validateArn_SplitParameters(arn *string, arnFormat ArnFormat) error {
 	return nil
 }

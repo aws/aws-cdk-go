@@ -1,11 +1,11 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 )
 
 // Use an Amazon Kinesis stream as an event source for AWS Lambda.
@@ -24,32 +24,26 @@ import (
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
 //   }))
 //
+// Experimental.
 type KinesisEventSource interface {
 	StreamEventSource
-	// The ARN for this EventSourceMapping.
-	EventSourceMappingArn() *string
 	// The identifier for this EventSourceMapping.
+	// Experimental.
 	EventSourceMappingId() *string
+	// Experimental.
 	Props() *StreamEventSourceProps
+	// Experimental.
 	Stream() awskinesis.IStream
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
+	// Experimental.
 	Bind(target awslambda.IFunction)
+	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
 // The jsii proxy struct for KinesisEventSource
 type jsiiProxy_KinesisEventSource struct {
 	jsiiProxy_StreamEventSource
-}
-
-func (j *jsiiProxy_KinesisEventSource) EventSourceMappingArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"eventSourceMappingArn",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_KinesisEventSource) EventSourceMappingId() *string {
@@ -83,6 +77,7 @@ func (j *jsiiProxy_KinesisEventSource) Stream() awskinesis.IStream {
 }
 
 
+// Experimental.
 func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceProps) KinesisEventSource {
 	_init_.Initialize()
 
@@ -92,7 +87,7 @@ func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceP
 	j := jsiiProxy_KinesisEventSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
+		"monocdk.aws_lambda_event_sources.KinesisEventSource",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -100,11 +95,12 @@ func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceP
 	return &j
 }
 
+// Experimental.
 func NewKinesisEventSource_Override(k KinesisEventSource, stream awskinesis.IStream, props *KinesisEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
+		"monocdk.aws_lambda_event_sources.KinesisEventSource",
 		[]interface{}{stream, props},
 		k,
 	)

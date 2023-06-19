@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,6 +13,7 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type Cors interface {
 }
 
@@ -25,7 +26,7 @@ func Cors_ALL_METHODS() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.Cors",
+		"monocdk.aws_apigateway.Cors",
 		"ALL_METHODS",
 		&returns,
 	)
@@ -36,7 +37,7 @@ func Cors_ALL_ORIGINS() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.Cors",
+		"monocdk.aws_apigateway.Cors",
 		"ALL_ORIGINS",
 		&returns,
 	)
@@ -47,7 +48,7 @@ func Cors_DEFAULT_HEADERS() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.Cors",
+		"monocdk.aws_apigateway.Cors",
 		"DEFAULT_HEADERS",
 		&returns,
 	)

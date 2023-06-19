@@ -9,8 +9,8 @@ package awsapigateway
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 //   	CustomerId: jsii.String("hello-customer"),
-//   	Stages: []iStage{
-//   		api.DeploymentStage,
+//   	Resources: []iRestApi{
+//   		api,
 //   	},
 //   	Quota: &QuotaSettings{
 //   		Limit: jsii.Number(10000),
@@ -18,11 +18,15 @@ package awsapigateway
 //   	},
 //   })
 //
+// Experimental.
 type Period string
 
 const (
+	// Experimental.
 	Period_DAY Period = "DAY"
+	// Experimental.
 	Period_WEEK Period = "WEEK"
+	// Experimental.
 	Period_MONTH Period = "MONTH"
 )
 

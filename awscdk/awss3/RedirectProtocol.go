@@ -19,10 +19,13 @@ package awss3
 //   	},
 //   })
 //
+// Experimental.
 type RedirectProtocol string
 
 const (
+	// Experimental.
 	RedirectProtocol_HTTP RedirectProtocol = "HTTP"
+	// Experimental.
 	RedirectProtocol_HTTPS RedirectProtocol = "HTTPS"
 )
 

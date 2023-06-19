@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnAccountAuditConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnAccountAuditConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnAccountAuditConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnAccountAuditConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnAccountAuditConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) validateRenderPropertiesParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnAccountAuditConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnAccountAuditConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -192,8 +180,6 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditCheckConfigurat
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty:
 		val := val.(*CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -205,9 +191,11 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditCheckConfigurat
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,8 +204,6 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditCheckConfigurat
 
 func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditNotificationTargetConfigurationsParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty:
 		val := val.(*CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -229,9 +215,11 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetAuditNotificationTar
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -246,7 +234,7 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) validateSetRoleArnParameters(va
 	return nil
 }
 
-func validateNewCfnAccountAuditConfigurationParameters(scope constructs.Construct, id *string, props *CfnAccountAuditConfigurationProps) error {
+func validateNewCfnAccountAuditConfigurationParameters(scope awscdk.Construct, id *string, props *CfnAccountAuditConfigurationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

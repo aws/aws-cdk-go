@@ -1,7 +1,7 @@
 package awss3
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -21,8 +21,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type ReplaceKey interface {
+	// Experimental.
 	PrefixWithKey() *string
+	// Experimental.
 	WithKey() *string
 }
 
@@ -53,6 +56,7 @@ func (j *jsiiProxy_ReplaceKey) WithKey() *string {
 
 
 // The object key prefix to use in the redirect request.
+// Experimental.
 func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 	_init_.Initialize()
 
@@ -62,7 +66,7 @@ func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3.ReplaceKey",
+		"monocdk.aws_s3.ReplaceKey",
 		"prefixWith",
 		[]interface{}{keyReplacement},
 		&returns,
@@ -72,6 +76,7 @@ func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 }
 
 // The specific object key to use in the redirect request.
+// Experimental.
 func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 	_init_.Initialize()
 
@@ -81,7 +86,7 @@ func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3.ReplaceKey",
+		"monocdk.aws_s3.ReplaceKey",
 		"with",
 		[]interface{}{keyReplacement},
 		&returns,

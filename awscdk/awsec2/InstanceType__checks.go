@@ -6,14 +6,6 @@ import (
 	"fmt"
 )
 
-func (i *jsiiProxy_InstanceType) validateSameInstanceClassAsParameters(other InstanceType) error {
-	if other == nil {
-		return fmt.Errorf("parameter other is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateInstanceType_OfParameters(instanceClass InstanceClass, instanceSize InstanceSize) error {
 	if instanceClass == "" {
 		return fmt.Errorf("parameter instanceClass is required, but nil was provided")

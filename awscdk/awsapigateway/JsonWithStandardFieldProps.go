@@ -34,24 +34,34 @@ package awsapigateway
 //   	}),
 //   })
 //
+// Experimental.
 type JsonWithStandardFieldProps struct {
 	// If this flag is enabled, the principal identifier of the caller will be output to the log.
+	// Experimental.
 	Caller *bool `field:"required" json:"caller" yaml:"caller"`
 	// If this flag is enabled, the http method will be output to the log.
+	// Experimental.
 	HttpMethod *bool `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// If this flag is enabled, the source IP of request will be output to the log.
+	// Experimental.
 	Ip *bool `field:"required" json:"ip" yaml:"ip"`
 	// If this flag is enabled, the request protocol will be output to the log.
+	// Experimental.
 	Protocol *bool `field:"required" json:"protocol" yaml:"protocol"`
 	// If this flag is enabled, the CLF-formatted request time((dd/MMM/yyyy:HH:mm:ss +-hhmm) will be output to the log.
+	// Experimental.
 	RequestTime *bool `field:"required" json:"requestTime" yaml:"requestTime"`
 	// If this flag is enabled, the path to your resource will be output to the log.
+	// Experimental.
 	ResourcePath *bool `field:"required" json:"resourcePath" yaml:"resourcePath"`
 	// If this flag is enabled, the response payload length will be output to the log.
+	// Experimental.
 	ResponseLength *bool `field:"required" json:"responseLength" yaml:"responseLength"`
 	// If this flag is enabled, the method response status will be output to the log.
+	// Experimental.
 	Status *bool `field:"required" json:"status" yaml:"status"`
 	// If this flag is enabled, the principal identifier of the user will be output to the log.
+	// Experimental.
 	User *bool `field:"required" json:"user" yaml:"user"`
 }
 

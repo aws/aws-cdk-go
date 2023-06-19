@@ -1,11 +1,12 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An AppSync datasource backed by a DynamoDB table.
@@ -13,7 +14,7 @@ import (
 // Example:
 //   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
 //   	Name: jsii.String("demo"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   	Schema: appsync.Schema_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
 //   	AuthorizationConfig: &AuthorizationConfig{
 //   		DefaultAuthorization: &AuthorizationMode{
 //   			AuthorizationType: appsync.AuthorizationType_IAM,
@@ -32,9 +33,7 @@ import (
 //   demoDS := api.AddDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
 //
 //   // Resolver for the Query "getDemos" that scans the DynamoDb table and returns the entire list.
-//   // Resolver Mapping Template Reference:
-//   // https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html
-//   demoDS.CreateResolver(jsii.String("QueryGetDemosResolver"), &BaseResolverProps{
+//   demoDS.CreateResolver(&BaseResolverProps{
 //   	TypeName: jsii.String("Query"),
 //   	FieldName: jsii.String("getDemos"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbScanTable(),
@@ -42,41 +41,93 @@ import (
 //   })
 //
 //   // Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
-//   demoDS.CreateResolver(jsii.String("MutationAddDemoResolver"), &BaseResolverProps{
+//   demoDS.CreateResolver(&BaseResolverProps{
 //   	TypeName: jsii.String("Mutation"),
 //   	FieldName: jsii.String("addDemo"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbPutItem(appsync.PrimaryKey_Partition(jsii.String("id")).Auto(), appsync.Values_Projecting(jsii.String("input"))),
 //   	ResponseMappingTemplate: appsync.MappingTemplate_DynamoDbResultItem(),
 //   })
 //
-//   //To enable DynamoDB read consistency with the `MappingTemplate`:
-//   demoDS.CreateResolver(jsii.String("QueryGetDemosConsistentResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getDemosConsistent"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_*DynamoDbScanTable(jsii.Boolean(true)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*DynamoDbResultList(),
-//   })
-//
+// Experimental.
 type DynamoDbDataSource interface {
 	BackedDataSource
+	// Experimental.
 	Api() IGraphqlApi
+	// Experimental.
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.
+	// Experimental.
 	Ds() CfnDataSource
 	// the principal of the data source to be IGrantable.
+	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// the name of the data source.
+	// Experimental.
 	Name() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	ServiceRole() awsiam.IRole
+	// Experimental.
 	SetServiceRole(val awsiam.IRole)
 	// creates a new appsync function for this datasource and API using the given properties.
-	CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction
+	// Experimental.
+	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	// creates a new resolver for this datasource and API using the given properties.
-	CreateResolver(id *string, props *BaseResolverProps) Resolver
+	// Experimental.
+	CreateResolver(props *BaseResolverProps) Resolver
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DynamoDbDataSource
@@ -124,8 +175,8 @@ func (j *jsiiProxy_DynamoDbDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoDbDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DynamoDbDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -145,6 +196,7 @@ func (j *jsiiProxy_DynamoDbDataSource) ServiceRole() awsiam.IRole {
 }
 
 
+// Experimental.
 func NewDynamoDbDataSource(scope constructs.Construct, id *string, props *DynamoDbDataSourceProps) DynamoDbDataSource {
 	_init_.Initialize()
 
@@ -154,7 +206,7 @@ func NewDynamoDbDataSource(scope constructs.Construct, id *string, props *Dynamo
 	j := jsiiProxy_DynamoDbDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.DynamoDbDataSource",
+		"monocdk.aws_appsync.DynamoDbDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -162,11 +214,12 @@ func NewDynamoDbDataSource(scope constructs.Construct, id *string, props *Dynamo
 	return &j
 }
 
+// Experimental.
 func NewDynamoDbDataSource_Override(d DynamoDbDataSource, scope constructs.Construct, id *string, props *DynamoDbDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.DynamoDbDataSource",
+		"monocdk.aws_appsync.DynamoDbDataSource",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -191,23 +244,8 @@ func (j *jsiiProxy_DynamoDbDataSource)SetServiceRole(val awsiam.IRole) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func DynamoDbDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -217,7 +255,7 @@ func DynamoDbDataSource_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.DynamoDbDataSource",
+		"monocdk.aws_appsync.DynamoDbDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -226,8 +264,8 @@ func DynamoDbDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoDbDataSource) CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction {
-	if err := d.validateCreateFunctionParameters(id, props); err != nil {
+func (d *jsiiProxy_DynamoDbDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := d.validateCreateFunctionParameters(props); err != nil {
 		panic(err)
 	}
 	var returns AppsyncFunction
@@ -235,15 +273,15 @@ func (d *jsiiProxy_DynamoDbDataSource) CreateFunction(id *string, props *BaseApp
 	_jsii_.Invoke(
 		d,
 		"createFunction",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (d *jsiiProxy_DynamoDbDataSource) CreateResolver(id *string, props *BaseResolverProps) Resolver {
-	if err := d.validateCreateResolverParameters(id, props); err != nil {
+func (d *jsiiProxy_DynamoDbDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := d.validateCreateResolverParameters(props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -251,11 +289,62 @@ func (d *jsiiProxy_DynamoDbDataSource) CreateResolver(id *string, props *BaseRes
 	_jsii_.Invoke(
 		d,
 		"createResolver",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DynamoDbDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DynamoDbDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DynamoDbDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DynamoDbDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DynamoDbDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 func (d *jsiiProxy_DynamoDbDataSource) ToString() *string {
@@ -264,6 +353,19 @@ func (d *jsiiProxy_DynamoDbDataSource) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DynamoDbDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

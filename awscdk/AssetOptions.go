@@ -13,12 +13,11 @@ package awscdk
 //
 //   assetOptions := &AssetOptions{
 //   	AssetHash: jsii.String("assetHash"),
-//   	AssetHashType: cdk.AssetHashType_SOURCE,
+//   	AssetHashType: monocdk.AssetHashType_SOURCE,
 //   	Bundling: &BundlingOptions{
 //   		Image: dockerImage,
 //
 //   		// the properties below are optional
-//   		BundlingFileAccess: cdk.BundlingFileAccess_VOLUME_COPY,
 //   		Command: []*string{
 //   			jsii.String("command"),
 //   		},
@@ -29,8 +28,7 @@ package awscdk
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		Local: localBundling,
-//   		Network: jsii.String("network"),
-//   		OutputType: cdk.BundlingOutput_ARCHIVED,
+//   		OutputType: monocdk.BundlingOutput_ARCHIVED,
 //   		SecurityOpt: jsii.String("securityOpt"),
 //   		User: jsii.String("user"),
 //   		Volumes: []dockerVolume{
@@ -39,16 +37,14 @@ package awscdk
 //   				HostPath: jsii.String("hostPath"),
 //
 //   				// the properties below are optional
-//   				Consistency: cdk.DockerVolumeConsistency_CONSISTENT,
+//   				Consistency: monocdk.DockerVolumeConsistency_CONSISTENT,
 //   			},
-//   		},
-//   		VolumesFrom: []*string{
-//   			jsii.String("volumesFrom"),
 //   		},
 //   		WorkingDirectory: jsii.String("workingDirectory"),
 //   	},
 //   }
 //
+// Experimental.
 type AssetOptions struct {
 	// Specify a custom hash for this asset.
 	//
@@ -62,11 +58,13 @@ type AssetOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
+	// Experimental.
 	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
+	// Experimental.
 	AssetHashType AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
@@ -74,6 +72,7 @@ type AssetOptions struct {
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
+	// Experimental.
 	Bundling *BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 }
 

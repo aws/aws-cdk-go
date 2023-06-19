@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,10 +30,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CacheHeaderBehavior interface {
 	// If no headers will be passed, or an allow list of headers.
+	// Experimental.
 	Behavior() *string
 	// The headers for the allow/deny list, if applicable.
+	// Experimental.
 	Headers() *[]*string
 }
 
@@ -64,6 +67,7 @@ func (j *jsiiProxy_CacheHeaderBehavior) Headers() *[]*string {
 
 
 // Listed headers are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
+// Experimental.
 func CacheHeaderBehavior_AllowList(headers ...*string) CacheHeaderBehavior {
 	_init_.Initialize()
 
@@ -75,7 +79,7 @@ func CacheHeaderBehavior_AllowList(headers ...*string) CacheHeaderBehavior {
 	var returns CacheHeaderBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CacheHeaderBehavior",
+		"monocdk.aws_cloudfront.CacheHeaderBehavior",
 		"allowList",
 		args,
 		&returns,
@@ -85,13 +89,14 @@ func CacheHeaderBehavior_AllowList(headers ...*string) CacheHeaderBehavior {
 }
 
 // HTTP headers are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin.
+// Experimental.
 func CacheHeaderBehavior_None() CacheHeaderBehavior {
 	_init_.Initialize()
 
 	var returns CacheHeaderBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CacheHeaderBehavior",
+		"monocdk.aws_cloudfront.CacheHeaderBehavior",
 		"none",
 		nil, // no parameters
 		&returns,

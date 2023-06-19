@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateAddDeletionOverrid
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateInspectParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateRenderPropertiesPa
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateSetCloudFrontOrigi
 	return nil
 }
 
-func validateNewCfnCloudFrontOriginAccessIdentityParameters(scope constructs.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) error {
+func validateNewCfnCloudFrontOriginAccessIdentityParameters(scope awscdk.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) error {
 	return nil
 }
 

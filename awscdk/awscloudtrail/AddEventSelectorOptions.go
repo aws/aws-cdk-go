@@ -27,12 +27,16 @@ package awscloudtrail
 //   	Trigger: codepipeline_actions.S3Trigger_EVENTS,
 //   })
 //
+// Experimental.
 type AddEventSelectorOptions struct {
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
+	// Experimental.
 	ExcludeManagementEventSources *[]ManagementEventSources `field:"optional" json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specifies whether the event selector includes management events for the trail.
+	// Experimental.
 	IncludeManagementEvents *bool `field:"optional" json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specifies whether to log read-only events, write-only events, or all events.
+	// Experimental.
 	ReadWriteType ReadWriteType `field:"optional" json:"readWriteType" yaml:"readWriteType"`
 }
 

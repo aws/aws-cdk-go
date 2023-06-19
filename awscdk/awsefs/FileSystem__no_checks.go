@@ -8,10 +8,6 @@ func (f *jsiiProxy_FileSystem) validateAddAccessPointParameters(id *string, acce
 	return nil
 }
 
-func (f *jsiiProxy_FileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
-	return nil
-}
-
 func (f *jsiiProxy_FileSystem) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
@@ -28,6 +24,14 @@ func (f *jsiiProxy_FileSystem) validateGrantParameters(grantee awsiam.IGrantable
 	return nil
 }
 
+func (f *jsiiProxy_FileSystem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (f *jsiiProxy_FileSystem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateFileSystem_FromFileSystemAttributesParameters(scope constructs.Construct, id *string, attrs *FileSystemAttributes) error {
 	return nil
 }
@@ -36,11 +40,7 @@ func validateFileSystem_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFileSystem_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateFileSystem_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFileSystem_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

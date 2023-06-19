@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -32,38 +32,53 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type Connections interface {
 	IConnectable
 	// The network connections associated with this resource.
+	// Experimental.
 	Connections() Connections
 	// The default port configured for this connection peer, if available.
+	// Experimental.
 	DefaultPort() Port
+	// Experimental.
 	SecurityGroups() *[]ISecurityGroup
 	// Add a security group to the list of security groups managed by this object.
+	// Experimental.
 	AddSecurityGroup(securityGroups ...ISecurityGroup)
 	// Allow connections from the peer on our default port.
 	//
 	// Even if the peer has a default port, we will always use our default port.
+	// Experimental.
 	AllowDefaultPortFrom(other IConnectable, description *string)
 	// Allow default connections from all IPv4 ranges.
+	// Experimental.
 	AllowDefaultPortFromAnyIpv4(description *string)
 	// Allow hosts inside the security group to connect to each other.
+	// Experimental.
 	AllowDefaultPortInternally(description *string)
 	// Allow connections from the peer on our default port.
 	//
 	// Even if the peer has a default port, we will always use our default port.
+	// Experimental.
 	AllowDefaultPortTo(other IConnectable, description *string)
 	// Allow connections from the peer on the given port.
+	// Experimental.
 	AllowFrom(other IConnectable, portRange Port, description *string)
 	// Allow from any IPv4 ranges.
+	// Experimental.
 	AllowFromAnyIpv4(portRange Port, description *string)
 	// Allow hosts inside the security group to connect to each other on the given port.
+	// Experimental.
 	AllowInternally(portRange Port, description *string)
 	// Allow connections to the peer on the given port.
+	// Experimental.
 	AllowTo(other IConnectable, portRange Port, description *string)
 	// Allow to all IPv4 ranges.
+	// Experimental.
 	AllowToAnyIpv4(portRange Port, description *string)
 	// Allow connections to the security group on their default port.
+	// Experimental.
 	AllowToDefaultPort(other IConnectable, description *string)
 }
 
@@ -103,6 +118,7 @@ func (j *jsiiProxy_Connections) SecurityGroups() *[]ISecurityGroup {
 }
 
 
+// Experimental.
 func NewConnections(props *ConnectionsProps) Connections {
 	_init_.Initialize()
 
@@ -112,7 +128,7 @@ func NewConnections(props *ConnectionsProps) Connections {
 	j := jsiiProxy_Connections{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.Connections",
+		"monocdk.aws_ec2.Connections",
 		[]interface{}{props},
 		&j,
 	)
@@ -120,11 +136,12 @@ func NewConnections(props *ConnectionsProps) Connections {
 	return &j
 }
 
+// Experimental.
 func NewConnections_Override(c Connections, props *ConnectionsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.Connections",
+		"monocdk.aws_ec2.Connections",
 		[]interface{}{props},
 		c,
 	)

@@ -1,11 +1,11 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53targets/internal"
 )
 
 // Use another Route 53 record as an alias record target.
@@ -19,9 +19,11 @@ import (
 //   	Target: route53.RecordTarget_FromAlias(targets.NewRoute53RecordTarget(record)),
 //   })
 //
+// Experimental.
 type Route53RecordTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
+	// Experimental.
 	Bind(_record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
@@ -30,6 +32,7 @@ type jsiiProxy_Route53RecordTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
+// Experimental.
 func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	_init_.Initialize()
 
@@ -39,7 +42,7 @@ func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	j := jsiiProxy_Route53RecordTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53_targets.Route53RecordTarget",
+		"monocdk.aws_route53_targets.Route53RecordTarget",
 		[]interface{}{record},
 		&j,
 	)
@@ -47,11 +50,12 @@ func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	return &j
 }
 
+// Experimental.
 func NewRoute53RecordTarget_Override(r Route53RecordTarget, record awsroute53.IRecordSet) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53_targets.Route53RecordTarget",
+		"monocdk.aws_route53_targets.Route53RecordTarget",
 		[]interface{}{record},
 		r,
 	)

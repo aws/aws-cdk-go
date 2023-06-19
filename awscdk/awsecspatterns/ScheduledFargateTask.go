@@ -1,25 +1,22 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A scheduled Fargate task that will be initiated off of CloudWatch Events.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(1),
-//   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   })
+//   var cluster cluster
+//
 //   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 //   	Cluster: Cluster,
 //   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
@@ -27,52 +24,100 @@ import (
 //   		MemoryLimitMiB: jsii.Number(512),
 //   	},
 //   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-//   	Tags: []tag{
-//   		&tag{
-//   			Key: jsii.String("my-tag"),
-//   			Value: jsii.String("my-tag-value"),
-//   		},
-//   	},
+//   	PlatformVersion: ecs.FargatePlatformVersion_LATEST,
 //   })
 //
+// Experimental.
 type ScheduledFargateTask interface {
 	ScheduledTaskBase
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster() awsecs.ICluster
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1.
+	// Experimental.
 	DesiredTaskCount() *float64
 	// The CloudWatch Events rule for the service.
+	// Experimental.
 	EventRule() awsevents.Rule
-	// The tree node.
-	Node() constructs.Node
-	// Specifies whether to propagate the tags from the task definition to the task.
-	//
-	// If no value is specified, the tags are not propagated.
-	PropagateTags() awsecs.PropagatedTagSource
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
+	// Experimental.
 	SubnetSelection() *awsec2.SubnetSelection
-	// The metadata that you apply to the task to help you categorize and organize them.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
-	Tags() *[]*awseventstargets.Tag
 	// The ECS task in this construct.
+	// Experimental.
 	Task() awseventstargets.EcsTask
 	// The Fargate task definition in this construct.
+	// Experimental.
 	TaskDefinition() awsecs.FargateTaskDefinition
 	// Adds task as a target of the scheduled event rule.
+	// Experimental.
 	AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask)
 	// Create an ECS task using the task definition provided and add it to the scheduled event rule.
+	// Experimental.
 	AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask
 	// Create an AWS Log Driver with the provided streamPrefix.
+	// Experimental.
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	// Returns the default cluster.
-	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
+	// Experimental.
+	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScheduledFargateTask
@@ -110,21 +155,11 @@ func (j *jsiiProxy_ScheduledFargateTask) EventRule() awsevents.Rule {
 	return returns
 }
 
-func (j *jsiiProxy_ScheduledFargateTask) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ScheduledFargateTask) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ScheduledFargateTask) PropagateTags() awsecs.PropagatedTagSource {
-	var returns awsecs.PropagatedTagSource
-	_jsii_.Get(
-		j,
-		"propagateTags",
 		&returns,
 	)
 	return returns
@@ -135,16 +170,6 @@ func (j *jsiiProxy_ScheduledFargateTask) SubnetSelection() *awsec2.SubnetSelecti
 	_jsii_.Get(
 		j,
 		"subnetSelection",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ScheduledFargateTask) Tags() *[]*awseventstargets.Tag {
-	var returns *[]*awseventstargets.Tag
-	_jsii_.Get(
-		j,
-		"tags",
 		&returns,
 	)
 	return returns
@@ -172,6 +197,7 @@ func (j *jsiiProxy_ScheduledFargateTask) TaskDefinition() awsecs.FargateTaskDefi
 
 
 // Constructs a new instance of the ScheduledFargateTask class.
+// Experimental.
 func NewScheduledFargateTask(scope constructs.Construct, id *string, props *ScheduledFargateTaskProps) ScheduledFargateTask {
 	_init_.Initialize()
 
@@ -181,7 +207,7 @@ func NewScheduledFargateTask(scope constructs.Construct, id *string, props *Sche
 	j := jsiiProxy_ScheduledFargateTask{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.ScheduledFargateTask",
+		"monocdk.aws_ecs_patterns.ScheduledFargateTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -190,33 +216,19 @@ func NewScheduledFargateTask(scope constructs.Construct, id *string, props *Sche
 }
 
 // Constructs a new instance of the ScheduledFargateTask class.
+// Experimental.
 func NewScheduledFargateTask_Override(s ScheduledFargateTask, scope constructs.Construct, id *string, props *ScheduledFargateTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.ScheduledFargateTask",
+		"monocdk.aws_ecs_patterns.ScheduledFargateTask",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func ScheduledFargateTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -226,7 +238,7 @@ func ScheduledFargateTask_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs_patterns.ScheduledFargateTask",
+		"monocdk.aws_ecs_patterns.ScheduledFargateTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -278,7 +290,7 @@ func (s *jsiiProxy_ScheduledFargateTask) CreateAWSLogDriver(prefix *string) awse
 	return returns
 }
 
-func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	if err := s.validateGetDefaultClusterParameters(scope); err != nil {
 		panic(err)
 	}
@@ -294,12 +306,76 @@ func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope constructs.Cons
 	return returns
 }
 
+func (s *jsiiProxy_ScheduledFargateTask) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ScheduledFargateTask) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ScheduledFargateTask) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScheduledFargateTask) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ScheduledFargateTask) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ScheduledFargateTask) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScheduledFargateTask) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

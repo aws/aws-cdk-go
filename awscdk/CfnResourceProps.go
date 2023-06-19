@@ -2,29 +2,48 @@ package awscdk
 
 
 // Example:
-//   type myConstruct struct {
-//   	resource
-//   	tags
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
+//
+//   type myAspect struct {
 //   }
 //
-//   func newMyConstruct(scope construct, id *string) *myConstruct {
-//   	this := &myConstruct{}
-//   	newResource_Override(this, scope, id)
+//   func (this *myAspect) visit(node iConstruct) {
+//   	if *node instanceof cdk.CfnResource && *node.CfnResourceType == "Foo::Bar" {
+//   		this.error(*node, jsii.String("we do not want a Foo::Bar resource"))
+//   	}
+//   }
 //
-//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
-//   		Type: jsii.String("Whatever::The::Type"),
+//   func (this *myAspect) error(node iConstruct, message *string) {
+//   	cdk.Annotations_Of(*node).AddError(*message)
+//   }
+//
+//   type myStack struct {
+//   	stack
+//   }
+//
+//   func newMyStack(scope construct, id *string) *myStack {
+//   	this := &myStack{}
+//   	cdk.NewStack_Override(this, scope, id)
+//
+//   	stack := cdk.NewStack()
+//   	cdk.NewCfnResource(stack, jsii.String("Foo"), &CfnResourceProps{
+//   		Type: jsii.String("Foo::Bar"),
 //   		Properties: map[string]interface{}{
-//   			// ...
-//   			"Tags": this.tags.renderedTags,
+//   			"Fred": jsii.String("Thud"),
 //   		},
 //   	})
+//   	cdk.Aspects_Of(stack).Add(NewMyAspect())
 //   	return this
 //   }
 //
+// Experimental.
 type CfnResourceProps struct {
 	// CloudFormation resource type (e.g. `AWS::S3::Bucket`).
+	// Experimental.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Resource properties.
+	// Experimental.
 	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 }
 

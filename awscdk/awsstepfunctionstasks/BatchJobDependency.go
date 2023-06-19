@@ -13,10 +13,13 @@ package awsstepfunctionstasks
 //   	Type: jsii.String("type"),
 //   }
 //
+// Experimental.
 type BatchJobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
+	// Experimental.
 	JobId *string `field:"optional" json:"jobId" yaml:"jobId"`
 	// The type of the job dependency.
+	// Experimental.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

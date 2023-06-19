@@ -4,23 +4,37 @@ package awscdk
 // Initialization props for a stage.
 //
 // Example:
-//   var app app
+//   var pipeline codePipeline
+//   type myOutputStage struct {
+//   	stage
+//   	loadBalancerAddress cfnOutput
+//   }
 //
+//   func newMyOutputStage(scope construct, id *string, props stageProps) *myOutputStage {
+//   	this := &myOutputStage{}
+//   	newStage_Override(this, scope, id, props)
+//   	this.loadBalancerAddress = awscdk.NewCfnOutput(this, jsii.String("Output"), &CfnOutputProps{
+//   		Value: jsii.String("value"),
+//   	})
+//   	return this
+//   }
 //
-//   awscdk.NewStage(app, jsii.String("DevStage"))
-//
-//   awscdk.NewStage(app, jsii.String("BetaStage"), &StageProps{
-//   	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("beta-permissions-boundary")),
+//   lbApp := NewMyOutputStage(this, jsii.String("MyApp"))
+//   pipeline.AddStage(lbApp, &AddStageOpts{
+//   	Post: []step{
+//   		pipelines.NewShellStep(jsii.String("HitEndpoint"), &ShellStepProps{
+//   			EnvFromCfnOutputs: map[string]*cfnOutput{
+//   				// Make the load balancer address available as $URL inside the commands
+//   				"URL": lbApp.loadBalancerAddress,
+//   			},
+//   			Commands: []*string{
+//   				jsii.String("curl -Ssf $URL"),
+//   			},
+//   		}),
+//   	},
 //   })
 //
-//   awscdk.NewStage(app, jsii.String("GammaStage"), &StageProps{
-//   	PermissionsBoundary: awscdk.PermissionsBoundary_*FromName(jsii.String("prod-permissions-boundary")),
-//   })
-//
-//   awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
-//   	PermissionsBoundary: awscdk.PermissionsBoundary_*FromName(jsii.String("prod-permissions-boundary")),
-//   })
-//
+// Experimental.
 type StageProps struct {
 	// Default AWS environment (account/region) for `Stack`s in this `Stage`.
 	//
@@ -56,21 +70,14 @@ type StageProps struct {
 	//   	},
 	//   })
 	//
+	// Experimental.
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// Can only be specified if this stage is the root stage (the app). If this is
 	// specified and this stage is nested within another stage, an error will be
 	// thrown.
+	// Experimental.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
-	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
-	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
-	// Validation plugins to run during synthesis.
-	//
-	// If any plugin reports any violation,
-	// synthesis will be interrupted and the report displayed to the user.
-	PolicyValidationBeta1 *[]IPolicyValidationPluginBeta1 `field:"optional" json:"policyValidationBeta1" yaml:"policyValidationBeta1"`
-	// Name of this stage.
-	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

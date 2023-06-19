@@ -5,16 +5,19 @@ package awseks
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_26(),
+//   	Version: eks.KubernetesVersion_V1_21(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_EC2,
 //   })
 //
+// Experimental.
 type DefaultCapacityType string
 
 const (
 	// managed node group.
+	// Experimental.
 	DefaultCapacityType_NODEGROUP DefaultCapacityType = "NODEGROUP"
 	// EC2 autoscaling group.
+	// Experimental.
 	DefaultCapacityType_EC2 DefaultCapacityType = "EC2"
 )
 

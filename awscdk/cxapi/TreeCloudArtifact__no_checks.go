@@ -12,10 +12,6 @@ func validateTreeCloudArtifact_FromManifestParameters(assembly CloudAssembly, id
 	return nil
 }
 
-func validateTreeCloudArtifact_IsTreeCloudArtifactParameters(art interface{}) error {
-	return nil
-}
-
 func validateNewTreeCloudArtifactParameters(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) error {
 	return nil
 }

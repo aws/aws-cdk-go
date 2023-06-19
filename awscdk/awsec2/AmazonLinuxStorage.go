@@ -1,8 +1,6 @@
 package awsec2
 
 
-// Available storage options for Amazon Linux images Only applies to Amazon Linux & Amazon Linux 2.
-//
 // Example:
 //   // Pick a Windows edition to use
 //   windows := ec2.NewWindowsImage(ec2.WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE)
@@ -24,14 +22,18 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
+// Experimental.
 type AmazonLinuxStorage string
 
 const (
 	// EBS-backed storage.
+	// Experimental.
 	AmazonLinuxStorage_EBS AmazonLinuxStorage = "EBS"
 	// S3-backed storage.
+	// Experimental.
 	AmazonLinuxStorage_S3 AmazonLinuxStorage = "S3"
 	// General Purpose-based storage (recommended).
+	// Experimental.
 	AmazonLinuxStorage_GENERAL_PURPOSE AmazonLinuxStorage = "GENERAL_PURPOSE"
 )
 

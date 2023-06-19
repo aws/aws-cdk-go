@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnModelPackage) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnModelPackage) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnModelPackage) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnModelPackage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackage) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnModelPackage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnModelPackage) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackage) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnModelPackage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -181,8 +169,6 @@ func validateCfnModelPackage_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecificationDefinitionParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty:
 		val := val.(*CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -194,9 +180,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecificationD
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -211,8 +199,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty:
 				v := v.(*CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -224,9 +210,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -235,8 +223,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty:
 				v := v.(*CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -248,9 +234,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -271,8 +259,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty:
 				v := v.(*CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -284,9 +270,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -295,8 +283,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty:
 				v := v.(*CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -308,9 +294,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecifications
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -342,8 +330,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetCertifyForMarketplaceParameters(v
 
 func (j *jsiiProxy_CfnModelPackage) validateSetCreatedByParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_UserContextProperty:
 		val := val.(*CfnModelPackage_UserContextProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -355,9 +341,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetCreatedByParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_UserContextProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_UserContextProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -383,8 +371,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetCustomerMetadataPropertiesParamet
 
 func (j *jsiiProxy_CfnModelPackage) validateSetDriftCheckBaselinesParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_DriftCheckBaselinesProperty:
 		val := val.(*CfnModelPackage_DriftCheckBaselinesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -396,9 +382,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetDriftCheckBaselinesParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_DriftCheckBaselinesProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_DriftCheckBaselinesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -424,8 +412,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetEnvironmentParameters(val interfa
 
 func (j *jsiiProxy_CfnModelPackage) validateSetInferenceSpecificationParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_InferenceSpecificationProperty:
 		val := val.(*CfnModelPackage_InferenceSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -437,9 +423,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetInferenceSpecificationParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_InferenceSpecificationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_InferenceSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -448,8 +436,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetInferenceSpecificationParameters(
 
 func (j *jsiiProxy_CfnModelPackage) validateSetLastModifiedByParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_UserContextProperty:
 		val := val.(*CfnModelPackage_UserContextProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -461,9 +447,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetLastModifiedByParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_UserContextProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_UserContextProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -472,8 +460,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetLastModifiedByParameters(val inte
 
 func (j *jsiiProxy_CfnModelPackage) validateSetMetadataPropertiesParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_MetadataPropertiesProperty:
 		val := val.(*CfnModelPackage_MetadataPropertiesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -485,9 +471,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetMetadataPropertiesParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_MetadataPropertiesProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_MetadataPropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -496,8 +484,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetMetadataPropertiesParameters(val 
 
 func (j *jsiiProxy_CfnModelPackage) validateSetModelMetricsParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_ModelMetricsProperty:
 		val := val.(*CfnModelPackage_ModelMetricsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -509,9 +495,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelMetricsParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_ModelMetricsProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_ModelMetricsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -520,8 +508,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelMetricsParameters(val interf
 
 func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusDetailsParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_ModelPackageStatusDetailsProperty:
 		val := val.(*CfnModelPackage_ModelPackageStatusDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -533,9 +519,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusDetailsParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_ModelPackageStatusDetailsProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_ModelPackageStatusDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -544,8 +532,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusDetailsParamete
 
 func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusItemParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_ModelPackageStatusItemProperty:
 		val := val.(*CfnModelPackage_ModelPackageStatusItemProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -557,9 +543,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusItemParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_ModelPackageStatusItemProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_ModelPackageStatusItemProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -568,8 +556,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusItemParameters(
 
 func (j *jsiiProxy_CfnModelPackage) validateSetSourceAlgorithmSpecificationParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_SourceAlgorithmSpecificationProperty:
 		val := val.(*CfnModelPackage_SourceAlgorithmSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -581,9 +567,11 @@ func (j *jsiiProxy_CfnModelPackage) validateSetSourceAlgorithmSpecificationParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_SourceAlgorithmSpecificationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_SourceAlgorithmSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -592,8 +580,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetSourceAlgorithmSpecificationParam
 
 func (j *jsiiProxy_CfnModelPackage) validateSetValidationSpecificationParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnModelPackage_ValidationSpecificationProperty:
 		val := val.(*CfnModelPackage_ValidationSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -605,16 +591,18 @@ func (j *jsiiProxy_CfnModelPackage) validateSetValidationSpecificationParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_ValidationSpecificationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnModelPackage_ValidationSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnModelPackageParameters(scope constructs.Construct, id *string, props *CfnModelPackageProps) error {
+func validateNewCfnModelPackageParameters(scope awscdk.Construct, id *string, props *CfnModelPackageProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

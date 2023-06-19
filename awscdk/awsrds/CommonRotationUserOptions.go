@@ -1,8 +1,8 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // Properties common to single-user and multi-user rotation options.
@@ -10,20 +10,19 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
 //   var interfaceVpcEndpoint interfaceVpcEndpoint
-//   var securityGroup securityGroup
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //
 //   commonRotationUserOptions := &CommonRotationUserOptions{
-//   	AutomaticallyAfter: cdk.Duration_Minutes(jsii.Number(30)),
+//   	AutomaticallyAfter: duration,
 //   	Endpoint: interfaceVpcEndpoint,
 //   	ExcludeCharacters: jsii.String("excludeCharacters"),
-//   	SecurityGroup: securityGroup,
 //   	VpcSubnets: &SubnetSelection{
 //   		AvailabilityZones: []*string{
 //   			jsii.String("availabilityZones"),
@@ -33,15 +32,18 @@ import (
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
+//   		SubnetName: jsii.String("subnetName"),
 //   		Subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
+//   		SubnetType: awscdk.Aws_ec2.SubnetType_ISOLATED,
 //   	},
 //   }
 //
+// Experimental.
 type CommonRotationUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -49,12 +51,13 @@ type CommonRotationUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
+	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
+	// Experimental.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
-	// The security group for the Lambda rotation function.
-	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Where to place the rotation Lambda function.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

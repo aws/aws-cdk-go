@@ -4,10 +4,6 @@ package awsiam
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_Grant) validateCombineParameters(rhs Grant) error {
-	return nil
-}
-
 func validateGrant_AddToPrincipalParameters(options *GrantOnPrincipalOptions) error {
 	return nil
 }

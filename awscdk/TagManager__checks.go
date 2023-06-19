@@ -40,22 +40,6 @@ func validateTagManager_IsTaggableParameters(construct interface{}) error {
 	return nil
 }
 
-func validateTagManager_IsTaggableV2Parameters(construct interface{}) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateTagManager_OfParameters(construct interface{}) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewTagManagerParameters(tagType TagType, resourceTypeName *string, options *TagManagerOptions) error {
 	if tagType == "" {
 		return fmt.Errorf("parameter tagType is required, but nil was provided")

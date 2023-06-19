@@ -15,10 +15,13 @@ package awsecspatterns
 //   	Port: jsii.Number(123),
 //   }
 //
+// Experimental.
 type NetworkListenerProps struct {
 	// Name of the listener.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

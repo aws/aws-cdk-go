@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnIPAMAllocation) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMAllocation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnIPAMAllocation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnIPAMAllocation) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMAllocation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnIPAMAllocation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMAllocation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnIPAMAllocation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnIPAMAllocation) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMAllocation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnIPAMAllocation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnIPAMAllocation) validateSetIpamPoolIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnIPAMAllocationParameters(scope constructs.Construct, id *string, props *CfnIPAMAllocationProps) error {
+func validateNewCfnIPAMAllocationParameters(scope awscdk.Construct, id *string, props *CfnIPAMAllocationProps) error {
 	return nil
 }
 

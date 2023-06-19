@@ -71,6 +71,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
+	// - `AWS::VerifiedPermissions::PolicyStore`
 	//
 	// You can have only one `resources.type` ﬁeld per selector. To log data events on more than one resource type, add another selector.
 	// - *`resources.ARN`* - You can use any operator with `resources.ARN` , but if you use `Equals` or `NotEquals` , the value must exactly match the ARN of a valid resource of the type you've speciﬁed in the template as the value of resources.type. For example, if resources.type equals `AWS::S3::Object` , the ARN must be in one of the following formats. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value.
@@ -151,7 +152,11 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// When `resources.type` equals `AWS::S3Outposts::Object` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
-	// - `arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path>`.
+	// - `arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path>`
+	//
+	// When resources.type equals `AWS::VerifiedPermissions::PolicyStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:verifiedpermissions:<region>:<account_ID>:policy-store/<policy_store_UUID>`.
 	Field *string `field:"required" json:"field" yaml:"field"`
 	// An operator that includes events that match the last few characters of the event record field specified as the value of `Field` .
 	EndsWith *[]*string `field:"optional" json:"endsWith" yaml:"endsWith"`

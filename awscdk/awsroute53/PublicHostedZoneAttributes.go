@@ -12,10 +12,13 @@ package awsroute53
 //   // Does not know zoneName
 //   zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 //
+// Experimental.
 type PublicHostedZoneAttributes struct {
 	// Identifier of the hosted zone.
+	// Experimental.
 	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// Name of the hosted zone.
+	// Experimental.
 	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 }
 

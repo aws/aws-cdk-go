@@ -8,10 +8,6 @@ func (i *jsiiProxy_IFileSystem) validateGrantParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
-func (i *jsiiProxy_IFileSystem) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
-	return nil
-}
-
 func (i *jsiiProxy_IFileSystem) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

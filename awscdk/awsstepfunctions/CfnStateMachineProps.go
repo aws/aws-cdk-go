@@ -9,6 +9,7 @@ package awsstepfunctions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
+//   var definitionSubstitutions interface{}
 //
 //   cfnStateMachineProps := &CfnStateMachineProps{
 //   	RoleArn: jsii.String("roleArn"),
@@ -23,8 +24,8 @@ package awsstepfunctions
 //   		Version: jsii.String("version"),
 //   	},
 //   	DefinitionString: jsii.String("definitionString"),
-//   	DefinitionSubstitutions: map[string]*string{
-//   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
+//   	DefinitionSubstitutions: map[string]interface{}{
+//   		"definitionSubstitutionsKey": definitionSubstitutions,
 //   	},
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		Destinations: []interface{}{

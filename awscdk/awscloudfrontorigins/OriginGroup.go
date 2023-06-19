@@ -1,12 +1,12 @@
 package awscloudfrontorigins
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfrontorigins/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfrontorigins/internal"
 )
 
 // An Origin that represents a group.
@@ -29,10 +29,12 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type OriginGroup interface {
 	awscloudfront.IOrigin
 	// The method called when a given Origin is added (for the first time) to a Distribution.
-	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 }
 
 // The jsii proxy struct for OriginGroup
@@ -40,6 +42,7 @@ type jsiiProxy_OriginGroup struct {
 	internal.Type__awscloudfrontIOrigin
 }
 
+// Experimental.
 func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	_init_.Initialize()
 
@@ -49,7 +52,7 @@ func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	j := jsiiProxy_OriginGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
+		"monocdk.aws_cloudfront_origins.OriginGroup",
 		[]interface{}{props},
 		&j,
 	)
@@ -57,17 +60,18 @@ func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	return &j
 }
 
+// Experimental.
 func NewOriginGroup_Override(o OriginGroup, props *OriginGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
+		"monocdk.aws_cloudfront_origins.OriginGroup",
 		[]interface{}{props},
 		o,
 	)
 }
 
-func (o *jsiiProxy_OriginGroup) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (o *jsiiProxy_OriginGroup) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	if err := o.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}

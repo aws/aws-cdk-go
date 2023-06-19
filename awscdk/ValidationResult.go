@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,21 +13,28 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var validationResults validationResults
 //
-//   validationResult := cdk.NewValidationResult(jsii.String("errorMessage"), validationResults)
+//   validationResult := monocdk.NewValidationResult(jsii.String("errorMessage"), validationResults)
 //
+// Experimental.
 type ValidationResult interface {
+	// Experimental.
 	ErrorMessage() *string
+	// Experimental.
 	IsSuccess() *bool
+	// Experimental.
 	Results() ValidationResults
 	// Turn a failed validation into an exception.
+	// Experimental.
 	AssertSuccess()
 	// Return a string rendering of the tree of validation failures.
+	// Experimental.
 	ErrorTree() *string
 	// Wrap this result with an error message, if it concerns an error.
+	// Experimental.
 	Prefix(message *string) ValidationResult
 }
 
@@ -67,13 +74,14 @@ func (j *jsiiProxy_ValidationResult) Results() ValidationResults {
 }
 
 
+// Experimental.
 func NewValidationResult(errorMessage *string, results ValidationResults) ValidationResult {
 	_init_.Initialize()
 
 	j := jsiiProxy_ValidationResult{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.ValidationResult",
+		"monocdk.ValidationResult",
 		[]interface{}{errorMessage, results},
 		&j,
 	)
@@ -81,11 +89,12 @@ func NewValidationResult(errorMessage *string, results ValidationResults) Valida
 	return &j
 }
 
+// Experimental.
 func NewValidationResult_Override(v ValidationResult, errorMessage *string, results ValidationResults) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.ValidationResult",
+		"monocdk.ValidationResult",
 		[]interface{}{errorMessage, results},
 		v,
 	)

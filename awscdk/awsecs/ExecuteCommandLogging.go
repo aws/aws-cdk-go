@@ -36,16 +36,20 @@ package awsecs
 //   	},
 //   })
 //
+// Experimental.
 type ExecuteCommandLogging string
 
 const (
 	// The execute command session is not logged.
+	// Experimental.
 	ExecuteCommandLogging_NONE ExecuteCommandLogging = "NONE"
 	// The awslogs configuration in the task definition is used.
 	//
 	// If no logging parameter is specified, it defaults to this value. If no awslogs log driver is configured in the task definition, the output won't be logged.
+	// Experimental.
 	ExecuteCommandLogging_DEFAULT ExecuteCommandLogging = "DEFAULT"
 	// Specify the logging details as a part of logConfiguration.
+	// Experimental.
 	ExecuteCommandLogging_OVERRIDE ExecuteCommandLogging = "OVERRIDE"
 )
 

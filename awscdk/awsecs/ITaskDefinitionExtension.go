@@ -10,9 +10,11 @@ import (
 // adding helper containers) can implement this interface, and can
 // then be "added" to a TaskDefinition like so:
 //
-//    taskDefinition.addExtension(new MyExtension("some_parameter"));
+//     taskDefinition.addExtension(new MyExtension("some_parameter"));
+// Experimental.
 type ITaskDefinitionExtension interface {
 	// Apply the extension to the given TaskDefinition.
+	// Experimental.
 	Extend(taskDefinition TaskDefinition)
 }
 

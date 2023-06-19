@@ -23,6 +23,7 @@ package awsecs
 //   	},
 //   }
 //
+// Experimental.
 type LogDriverConfig struct {
 	// The log driver to use for the container.
 	//
@@ -40,10 +41,13 @@ type LogDriverConfig struct {
 	// For more information about using the awsfirelens log driver, see
 	// [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html)
 	// in the Amazon Elastic Container Service Developer Guide.
+	// Experimental.
 	LogDriver *string `field:"required" json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
+	// Experimental.
 	Options *map[string]*string `field:"optional" json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
+	// Experimental.
 	SecretOptions *[]*CfnTaskDefinition_SecretProperty `field:"optional" json:"secretOptions" yaml:"secretOptions"`
 }
 

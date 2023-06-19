@@ -7,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (t *jsiiProxy_TriggerFunction) validateAddAliasParameters(aliasName *string, options *awslambda.AliasOptions) error {
@@ -96,6 +96,18 @@ func (t *jsiiProxy_TriggerFunction) validateAddToRolePolicyParameters(statement 
 	return nil
 }
 
+func (t *jsiiProxy_TriggerFunction) validateAddVersionParameters(name *string, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(asyncInvokeConfig, func() string { return "parameter asyncInvokeConfig" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TriggerFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
@@ -115,7 +127,7 @@ func (t *jsiiProxy_TriggerFunction) validateConfigureAsyncInvokeParameters(optio
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (t *jsiiProxy_TriggerFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -166,14 +178,6 @@ func (t *jsiiProxy_TriggerFunction) validateGrantInvokeUrlParameters(grantee aws
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (t *jsiiProxy_TriggerFunction) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")
@@ -218,7 +222,23 @@ func (t *jsiiProxy_TriggerFunction) validateMetricThrottlesParameters(props *aws
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (t *jsiiProxy_TriggerFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (t *jsiiProxy_TriggerFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (t *jsiiProxy_TriggerFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -297,15 +317,7 @@ func validateTriggerFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTriggerFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateTriggerFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateTriggerFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

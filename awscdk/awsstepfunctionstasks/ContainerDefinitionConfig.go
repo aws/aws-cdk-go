@@ -16,8 +16,10 @@ package awsstepfunctionstasks
 //   	},
 //   }
 //
+// Experimental.
 type ContainerDefinitionConfig struct {
 	// Additional parameters to pass to the base task.
+	// Experimental.
 	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

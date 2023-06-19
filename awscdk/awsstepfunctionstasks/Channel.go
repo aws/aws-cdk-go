@@ -35,23 +35,31 @@ package awsstepfunctionstasks
 //   	},
 //   }
 //
+// Experimental.
 type Channel struct {
 	// Name of the channel.
+	// Experimental.
 	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
 	// Location of the channel data.
+	// Experimental.
 	DataSource *DataSource `field:"required" json:"dataSource" yaml:"dataSource"`
 	// Compression type if training data is compressed.
+	// Experimental.
 	CompressionType CompressionType `field:"optional" json:"compressionType" yaml:"compressionType"`
 	// The MIME type of the data.
+	// Experimental.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// Input mode to use for the data channel in a training job.
+	// Experimental.
 	InputMode InputMode `field:"optional" json:"inputMode" yaml:"inputMode"`
 	// Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format.
 	//
 	// In this case, Amazon SageMaker wraps each individual S3 object in a RecordIO record.
 	// If the input data is already in RecordIO format, you don't need to set this attribute.
+	// Experimental.
 	RecordWrapperType RecordWrapperType `field:"optional" json:"recordWrapperType" yaml:"recordWrapperType"`
 	// Shuffle config option for input data in a channel.
+	// Experimental.
 	ShuffleConfig *ShuffleConfig `field:"optional" json:"shuffleConfig" yaml:"shuffleConfig"`
 }
 

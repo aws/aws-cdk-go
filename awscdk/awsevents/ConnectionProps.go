@@ -18,24 +18,31 @@ package awsevents
 //   })
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
 //   	Targets: []iRuleTarget{
 //   		targets.NewApiDestination(destination),
 //   	},
 //   })
 //
+// Experimental.
 type ConnectionProps struct {
 	// The authorization type for the connection.
+	// Experimental.
 	Authorization Authorization `field:"required" json:"authorization" yaml:"authorization"`
 	// Additional string parameters to add to the invocation bodies.
+	// Experimental.
 	BodyParameters *map[string]HttpParameter `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// The name of the connection.
+	// Experimental.
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The name of the connection.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional string parameters to add to the invocation headers.
+	// Experimental.
 	HeaderParameters *map[string]HttpParameter `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Additional string parameters to add to the invocation query strings.
+	// Experimental.
 	QueryStringParameters *map[string]HttpParameter `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 

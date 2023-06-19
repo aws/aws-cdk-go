@@ -33,33 +33,39 @@ package awsappmesh
 //   				appmesh.*grpcRetryEvent_UNAVAILABLE,
 //   			},
 //   			RetryAttempts: jsii.Number(5),
-//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })
 //
+// Experimental.
 type GrpcRetryEvent string
 
 const (
 	// Request was cancelled.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
+	// Experimental.
 	GrpcRetryEvent_CANCELLED GrpcRetryEvent = "CANCELLED"
 	// The deadline was exceeded.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
+	// Experimental.
 	GrpcRetryEvent_DEADLINE_EXCEEDED GrpcRetryEvent = "DEADLINE_EXCEEDED"
 	// Internal error.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
+	// Experimental.
 	GrpcRetryEvent_INTERNAL_ERROR GrpcRetryEvent = "INTERNAL_ERROR"
 	// A resource was exhausted.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
+	// Experimental.
 	GrpcRetryEvent_RESOURCE_EXHAUSTED GrpcRetryEvent = "RESOURCE_EXHAUSTED"
 	// The service is unavailable.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
+	// Experimental.
 	GrpcRetryEvent_UNAVAILABLE GrpcRetryEvent = "UNAVAILABLE"
 )
 

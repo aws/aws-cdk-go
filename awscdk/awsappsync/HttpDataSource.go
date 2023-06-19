@@ -1,11 +1,12 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An AppSync datasource backed by a http endpoint.
@@ -13,7 +14,7 @@ import (
 // Example:
 //   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("api"),
-//   	Schema: appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   	Schema: appsync.Schema_FromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
 //   })
 //
 //   httpDs := api.AddHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &HttpDataSourceOptions{
@@ -25,33 +26,93 @@ import (
 //   	},
 //   })
 //
-//   httpDs.CreateResolver(jsii.String("MutationCallStepFunctionResolver"), &BaseResolverProps{
+//   httpDs.CreateResolver(&BaseResolverProps{
 //   	TypeName: jsii.String("Mutation"),
 //   	FieldName: jsii.String("callStepFunction"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
 //   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
 //   })
 //
+// Experimental.
 type HttpDataSource interface {
 	BackedDataSource
+	// Experimental.
 	Api() IGraphqlApi
+	// Experimental.
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.
+	// Experimental.
 	Ds() CfnDataSource
 	// the principal of the data source to be IGrantable.
+	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// the name of the data source.
+	// Experimental.
 	Name() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	ServiceRole() awsiam.IRole
+	// Experimental.
 	SetServiceRole(val awsiam.IRole)
 	// creates a new appsync function for this datasource and API using the given properties.
-	CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction
+	// Experimental.
+	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	// creates a new resolver for this datasource and API using the given properties.
-	CreateResolver(id *string, props *BaseResolverProps) Resolver
+	// Experimental.
+	CreateResolver(props *BaseResolverProps) Resolver
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for HttpDataSource
@@ -99,8 +160,8 @@ func (j *jsiiProxy_HttpDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_HttpDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_HttpDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -120,6 +181,7 @@ func (j *jsiiProxy_HttpDataSource) ServiceRole() awsiam.IRole {
 }
 
 
+// Experimental.
 func NewHttpDataSource(scope constructs.Construct, id *string, props *HttpDataSourceProps) HttpDataSource {
 	_init_.Initialize()
 
@@ -129,7 +191,7 @@ func NewHttpDataSource(scope constructs.Construct, id *string, props *HttpDataSo
 	j := jsiiProxy_HttpDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.HttpDataSource",
+		"monocdk.aws_appsync.HttpDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -137,11 +199,12 @@ func NewHttpDataSource(scope constructs.Construct, id *string, props *HttpDataSo
 	return &j
 }
 
+// Experimental.
 func NewHttpDataSource_Override(h HttpDataSource, scope constructs.Construct, id *string, props *HttpDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.HttpDataSource",
+		"monocdk.aws_appsync.HttpDataSource",
 		[]interface{}{scope, id, props},
 		h,
 	)
@@ -166,23 +229,8 @@ func (j *jsiiProxy_HttpDataSource)SetServiceRole(val awsiam.IRole) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func HttpDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -192,7 +240,7 @@ func HttpDataSource_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.HttpDataSource",
+		"monocdk.aws_appsync.HttpDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -201,8 +249,8 @@ func HttpDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (h *jsiiProxy_HttpDataSource) CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction {
-	if err := h.validateCreateFunctionParameters(id, props); err != nil {
+func (h *jsiiProxy_HttpDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := h.validateCreateFunctionParameters(props); err != nil {
 		panic(err)
 	}
 	var returns AppsyncFunction
@@ -210,15 +258,15 @@ func (h *jsiiProxy_HttpDataSource) CreateFunction(id *string, props *BaseAppsync
 	_jsii_.Invoke(
 		h,
 		"createFunction",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (h *jsiiProxy_HttpDataSource) CreateResolver(id *string, props *BaseResolverProps) Resolver {
-	if err := h.validateCreateResolverParameters(id, props); err != nil {
+func (h *jsiiProxy_HttpDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := h.validateCreateResolverParameters(props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -226,11 +274,62 @@ func (h *jsiiProxy_HttpDataSource) CreateResolver(id *string, props *BaseResolve
 	_jsii_.Invoke(
 		h,
 		"createResolver",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
+}
+
+func (h *jsiiProxy_HttpDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (h *jsiiProxy_HttpDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		h,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (h *jsiiProxy_HttpDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (h *jsiiProxy_HttpDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (h *jsiiProxy_HttpDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		h,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 func (h *jsiiProxy_HttpDataSource) ToString() *string {
@@ -239,6 +338,19 @@ func (h *jsiiProxy_HttpDataSource) ToString() *string {
 	_jsii_.Invoke(
 		h,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (h *jsiiProxy_HttpDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

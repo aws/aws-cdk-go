@@ -6,10 +6,11 @@ package awsapigateway
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
 //   var role role
 //   var vpcLink vpcLink
 //
@@ -50,14 +51,16 @@ package awsapigateway
 //   		RequestTemplates: map[string]*string{
 //   			"requestTemplatesKey": jsii.String("requestTemplates"),
 //   		},
-//   		Timeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   		Timeout: duration,
 //   		VpcLink: vpcLink,
 //   	},
 //   	Uri: jsii.String("uri"),
 //   }
 //
+// Experimental.
 type IntegrationConfig struct {
 	// Specifies an API method integration type.
+	// Experimental.
 	Type IntegrationType `field:"required" json:"type" yaml:"type"`
 	// This value is included in computing the Deployment's fingerprint.
 	//
@@ -65,14 +68,18 @@ type IntegrationConfig struct {
 	// changes, a new deployment is triggered.
 	// This property should contain values associated with the Integration that upon changing
 	// should trigger a fresh the Deployment needs to be refreshed.
+	// Experimental.
 	DeploymentToken *string `field:"optional" json:"deploymentToken" yaml:"deploymentToken"`
 	// The integration's HTTP method type.
+	// Experimental.
 	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// Integration options.
+	// Experimental.
 	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
+	// Experimental.
 	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 

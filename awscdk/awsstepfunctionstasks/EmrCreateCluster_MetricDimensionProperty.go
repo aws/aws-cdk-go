@@ -19,10 +19,13 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_MetricDimension.html
 //
+// Experimental.
 type EmrCreateCluster_MetricDimensionProperty struct {
 	// The dimension name.
+	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The dimension value.
+	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

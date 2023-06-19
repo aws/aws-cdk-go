@@ -12,6 +12,10 @@ func (d *jsiiProxy_DockerImage) validateRunParameters(options *DockerRunOptions)
 	return nil
 }
 
+func validateDockerImage_FromAssetParameters(path *string, options *DockerBuildOptions) error {
+	return nil
+}
+
 func validateDockerImage_FromBuildParameters(path *string, options *DockerBuildOptions) error {
 	return nil
 }

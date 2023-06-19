@@ -1,48 +1,55 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // BuildSpec for CodeBuild projects.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   codebuildProject := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
-//   	ProjectName: jsii.String("MyTestProject"),
-//   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
-//   		"version": jsii.String("0.2"),
-//   		"phases": map[string]map[string][]*string{
-//   			"build": map[string][]*string{
-//   				"commands": []*string{
-//   					jsii.String("echo \"Hello, CodeBuild!\""),
+//   // later:
+//   var project pipelineProject
+//   sourceOutput := codepipeline.NewArtifact()
+//   buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+//   	ActionName: jsii.String("Build1"),
+//   	Input: sourceOutput,
+//   	Project: codebuild.NewPipelineProject(this, jsii.String("Project"), &PipelineProjectProps{
+//   		BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+//   			"version": jsii.String("0.2"),
+//   			"env": map[string][]*string{
+//   				"exported-variables": []*string{
+//   					jsii.String("MY_VAR"),
 //   				},
 //   			},
-//   		},
+//   			"phases": map[string]map[string]*string{
+//   				"build": map[string]*string{
+//   					"commands": jsii.String("export MY_VAR=\"some value\""),
+//   				},
+//   			},
+//   		}),
 //   	}),
+//   	VariablesNamespace: jsii.String("MyNamespace"),
 //   })
-//
-//   task := tasks.NewCodeBuildStartBuild(this, jsii.String("Task"), &CodeBuildStartBuildProps{
-//   	Project: codebuildProject,
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
-//   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
-//   		"ZONE": &buildEnvironmentVariable{
-//   			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
-//   			"value": sfn.JsonPath_stringAt(jsii.String("$.envVariables.zone")),
+//   codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+//   	ActionName: jsii.String("CodeBuild"),
+//   	Project: Project,
+//   	Input: sourceOutput,
+//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
+//   		"MyVar": &buildEnvironmentVariable{
+//   			"value": buildAction.variable(jsii.String("MY_VAR")),
 //   		},
 //   	},
 //   })
 //
+// Experimental.
 type BuildSpec interface {
 	// Whether the buildspec is directly available or deferred until build-time.
+	// Experimental.
 	IsImmediate() *bool
 	// Render the represented BuildSpec.
-	ToBuildSpec(scope constructs.Construct) *string
+	// Experimental.
+	ToBuildSpec() *string
 }
 
 // The jsii proxy struct for BuildSpec
@@ -61,37 +68,18 @@ func (j *jsiiProxy_BuildSpec) IsImmediate() *bool {
 }
 
 
+// Experimental.
 func NewBuildSpec_Override(b BuildSpec) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codebuild.BuildSpec",
+		"monocdk.aws_codebuild.BuildSpec",
 		nil, // no parameters
 		b,
 	)
 }
 
-// Use the contents of a local file as the build spec string.
-//
-// Use this if you have a local .yml or .json file that you want to use as the buildspec
-func BuildSpec_FromAsset(path *string) BuildSpec {
-	_init_.Initialize()
-
-	if err := validateBuildSpec_FromAssetParameters(path); err != nil {
-		panic(err)
-	}
-	var returns BuildSpec
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.BuildSpec",
-		"fromAsset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
+// Experimental.
 func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 	_init_.Initialize()
 
@@ -101,7 +89,7 @@ func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.BuildSpec",
+		"monocdk.aws_codebuild.BuildSpec",
 		"fromObject",
 		[]interface{}{value},
 		&returns,
@@ -111,6 +99,7 @@ func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 }
 
 // Create a buildspec from an object that will be rendered as YAML in the resulting CloudFormation template.
+// Experimental.
 func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 	_init_.Initialize()
 
@@ -120,7 +109,7 @@ func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.BuildSpec",
+		"monocdk.aws_codebuild.BuildSpec",
 		"fromObjectToYaml",
 		[]interface{}{value},
 		&returns,
@@ -132,6 +121,7 @@ func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 // Use a file from the source as buildspec.
 //
 // Use this if you want to use a file different from 'buildspec.yml'`
+// Experimental.
 func BuildSpec_FromSourceFilename(filename *string) BuildSpec {
 	_init_.Initialize()
 
@@ -141,7 +131,7 @@ func BuildSpec_FromSourceFilename(filename *string) BuildSpec {
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.BuildSpec",
+		"monocdk.aws_codebuild.BuildSpec",
 		"fromSourceFilename",
 		[]interface{}{filename},
 		&returns,
@@ -150,13 +140,13 @@ func BuildSpec_FromSourceFilename(filename *string) BuildSpec {
 	return returns
 }
 
-func (b *jsiiProxy_BuildSpec) ToBuildSpec(scope constructs.Construct) *string {
+func (b *jsiiProxy_BuildSpec) ToBuildSpec() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		b,
 		"toBuildSpec",
-		[]interface{}{scope},
+		nil, // no parameters
 		&returns,
 	)
 

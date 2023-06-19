@@ -7,20 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnCustomResource) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnCustomResource) validateAddDependencyParameters(target CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -110,17 +102,17 @@ func (c *jsiiProxy_CfnCustomResource) validateInspectParameters(inspector TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnCustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateRemoveDependencyParameters(target CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnCustomResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -134,13 +126,9 @@ func (c *jsiiProxy_CfnCustomResource) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnCustomResource) validateSynthesizeParameters(session ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -186,7 +174,7 @@ func (j *jsiiProxy_CfnCustomResource) validateSetServiceTokenParameters(val *str
 	return nil
 }
 
-func validateNewCfnCustomResourceParameters(scope constructs.Construct, id *string, props *CfnCustomResourceProps) error {
+func validateNewCfnCustomResourceParameters(scope Construct, id *string, props *CfnCustomResourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -6,17 +6,16 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   intrinsicProps := &IntrinsicProps{
 //   	StackTrace: jsii.Boolean(false),
-//   	TypeHint: cdk.ResolutionTypeHint_STRING,
 //   }
 //
+// Experimental.
 type IntrinsicProps struct {
 	// Capture the stack trace of where this token is created.
+	// Experimental.
 	StackTrace *bool `field:"optional" json:"stackTrace" yaml:"stackTrace"`
-	// Type that this token is expected to evaluate to.
-	TypeHint ResolutionTypeHint `field:"optional" json:"typeHint" yaml:"typeHint"`
 }
 

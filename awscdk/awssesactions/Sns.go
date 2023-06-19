@@ -1,11 +1,11 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
 )
 
 // Publishes the email content within a notification to Amazon SNS.
@@ -49,9 +49,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type Sns interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -60,6 +62,7 @@ type jsiiProxy_Sns struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
+// Experimental.
 func NewSns(props *SnsProps) Sns {
 	_init_.Initialize()
 
@@ -69,7 +72,7 @@ func NewSns(props *SnsProps) Sns {
 	j := jsiiProxy_Sns{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Sns",
+		"monocdk.aws_ses_actions.Sns",
 		[]interface{}{props},
 		&j,
 	)
@@ -77,11 +80,12 @@ func NewSns(props *SnsProps) Sns {
 	return &j
 }
 
+// Experimental.
 func NewSns_Override(s Sns, props *SnsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Sns",
+		"monocdk.aws_ses_actions.Sns",
 		[]interface{}{props},
 		s,
 	)

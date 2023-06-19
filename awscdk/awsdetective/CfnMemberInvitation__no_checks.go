@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnMemberInvitation) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnMemberInvitation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMemberInvitation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnMemberInvitation) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnMemberInvitation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMemberInvitation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMemberInvitation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMemberInvitation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnMemberInvitation) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnMemberInvitation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMemberInvitation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnMemberInvitation) validateSetMemberIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnMemberInvitationParameters(scope constructs.Construct, id *string, props *CfnMemberInvitationProps) error {
+func validateNewCfnMemberInvitationParameters(scope awscdk.Construct, id *string, props *CfnMemberInvitationProps) error {
 	return nil
 }
 

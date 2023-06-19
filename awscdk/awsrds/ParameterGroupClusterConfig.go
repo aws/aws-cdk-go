@@ -1,7 +1,7 @@
 package awsrds
 
 
-// The type returned from `IParameterGroup.bindToCluster`.
+// The type returned from {@link IParameterGroup.bindToCluster}.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -12,8 +12,10 @@ package awsrds
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
 //   }
 //
+// Experimental.
 type ParameterGroupClusterConfig struct {
 	// The name of this parameter group.
+	// Experimental.
 	ParameterGroupName *string `field:"required" json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 

@@ -61,8 +61,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type BackendConfig struct {
 	// Config for a Virtual Service backend.
+	// Experimental.
 	VirtualServiceBackend *CfnVirtualNode_BackendProperty `field:"required" json:"virtualServiceBackend" yaml:"virtualServiceBackend"`
 }
 

@@ -18,12 +18,16 @@ package awsappsync
 //   	Name: jsii.String("name"),
 //   }
 //
+// Experimental.
 type BaseDataSourceProps struct {
 	// The API to attach this data source to.
+	// Experimental.
 	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
+	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

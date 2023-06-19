@@ -1,12 +1,13 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // The scalable attribute representing task count.
@@ -37,31 +38,92 @@ import (
 //   	TargetUtilizationPercent: jsii.Number(50),
 //   })
 //
+// Experimental.
 type ScalableTaskCount interface {
 	awsapplicationautoscaling.BaseScalableAttribute
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	Props() *awsapplicationautoscaling.BaseScalableAttributeProps
 	// Scale out or in based on a metric value.
+	// Experimental.
 	DoScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps)
 	// Scale out or in based on time.
+	// Experimental.
 	DoScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in in order to keep a metric around a target value.
+	// Experimental.
 	DoScaleToTrackMetric(id *string, props *awsapplicationautoscaling.BasicTargetTrackingScalingPolicyProps)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Scales in or out to achieve a target CPU utilization.
+	// Experimental.
 	ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps)
 	// Scales in or out to achieve a target memory utilization.
+	// Experimental.
 	ScaleOnMemoryUtilization(id *string, props *MemoryUtilizationScalingProps)
 	// Scales in or out based on a specified metric value.
+	// Experimental.
 	ScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps)
 	// Scales in or out to achieve a target Application Load Balancer request count per target.
+	// Experimental.
 	ScaleOnRequestCount(id *string, props *RequestCountScalingProps)
 	// Scales in or out based on a specified scheduled time.
+	// Experimental.
 	ScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule)
 	// Scales in or out to achieve a target on a custom metric.
+	// Experimental.
 	ScaleToTrackCustomMetric(id *string, props *TrackCustomMetricProps)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScalableTaskCount
@@ -69,8 +131,8 @@ type jsiiProxy_ScalableTaskCount struct {
 	internal.Type__awsapplicationautoscalingBaseScalableAttribute
 }
 
-func (j *jsiiProxy_ScalableTaskCount) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ScalableTaskCount) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -91,6 +153,7 @@ func (j *jsiiProxy_ScalableTaskCount) Props() *awsapplicationautoscaling.BaseSca
 
 
 // Constructs a new instance of the ScalableTaskCount class.
+// Experimental.
 func NewScalableTaskCount(scope constructs.Construct, id *string, props *ScalableTaskCountProps) ScalableTaskCount {
 	_init_.Initialize()
 
@@ -100,7 +163,7 @@ func NewScalableTaskCount(scope constructs.Construct, id *string, props *Scalabl
 	j := jsiiProxy_ScalableTaskCount{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -109,33 +172,19 @@ func NewScalableTaskCount(scope constructs.Construct, id *string, props *Scalabl
 }
 
 // Constructs a new instance of the ScalableTaskCount class.
+// Experimental.
 func NewScalableTaskCount_Override(s ScalableTaskCount, scope constructs.Construct, id *string, props *ScalableTaskCountProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func ScalableTaskCount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -145,7 +194,7 @@ func ScalableTaskCount_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -184,6 +233,46 @@ func (s *jsiiProxy_ScalableTaskCount) DoScaleToTrackMetric(id *string, props *aw
 		s,
 		"doScaleToTrackMetric",
 		[]interface{}{id, props},
+	)
+}
+
+func (s *jsiiProxy_ScalableTaskCount) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ScalableTaskCount) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ScalableTaskCount) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScalableTaskCount) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -253,12 +342,36 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleToTrackCustomMetric(id *string, props
 	)
 }
 
+func (s *jsiiProxy_ScalableTaskCount) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ScalableTaskCount) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScalableTaskCount) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

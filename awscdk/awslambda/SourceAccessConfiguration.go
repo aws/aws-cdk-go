@@ -15,10 +15,12 @@ package awslambda
 //   	Uri: jsii.String("uri"),
 //   }
 //
+// Experimental.
 type SourceAccessConfiguration struct {
 	// The type of authentication protocol or the VPC components for your event source.
 	//
 	// For example: "SASL_SCRAM_512_AUTH".
+	// Experimental.
 	Type SourceAccessConfigurationType `field:"required" json:"type" yaml:"type"`
 	// The value for your chosen configuration in type.
 	//
@@ -26,6 +28,7 @@ type SourceAccessConfiguration struct {
 	// The exact string depends on the type.
 	// See: SourceAccessConfigurationType.
 	//
+	// Experimental.
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 

@@ -1,53 +1,46 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
-// Construction properties for `ReportGroup`.
+// Construction properties for {@link ReportGroup}.
 //
 // Example:
-//   var source source
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var bucket bucket
 //
-//   // create a new ReportGroup
-//   reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"), &ReportGroupProps{
-//   	Type: codebuild.ReportGroupType_CODE_COVERAGE,
-//   })
+//   reportGroupProps := &ReportGroupProps{
+//   	ExportBucket: bucket,
+//   	RemovalPolicy: monocdk.RemovalPolicy_DESTROY,
+//   	ReportGroupName: jsii.String("reportGroupName"),
+//   	ZipExport: jsii.Boolean(false),
+//   }
 //
-//   project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
-//   	Source: Source,
-//   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
-//   		// ...
-//   		"reports": map[string]map[string]*string{
-//   			reportGroup.reportGroupArn: map[string]*string{
-//   				"files": jsii.String("**/*"),
-//   				"base-directory": jsii.String("build/coverage-report.xml"),
-//   				"file-format": jsii.String("JACOCOXML"),
-//   			},
-//   		},
-//   	}),
-//   })
-//
+// Experimental.
 type ReportGroupProps struct {
 	// An optional S3 bucket to export the reports to.
+	// Experimental.
 	ExportBucket awss3.IBucket `field:"optional" json:"exportBucket" yaml:"exportBucket"`
 	// What to do when this resource is deleted from a stack.
 	//
 	// As CodeBuild does not allow deleting a ResourceGroup that has reports inside of it,
 	// this is set to retain the resource by default.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The physical name of the report group.
+	// Experimental.
 	ReportGroupName *string `field:"optional" json:"reportGroupName" yaml:"reportGroupName"`
-	// The type of report group. This can be one of the following values:.
-	//
-	// - **TEST** - The report group contains test reports.
-	// - **CODE_COVERAGE** - The report group contains code coverage reports.
-	Type ReportGroupType `field:"optional" json:"type" yaml:"type"`
 	// Whether to output the report files into the export bucket as-is, or create a ZIP from them before doing the export.
 	//
-	// Ignored if `exportBucket` has not been provided.
+	// Ignored if {@link exportBucket} has not been provided.
+	// Experimental.
 	ZipExport *bool `field:"optional" json:"zipExport" yaml:"zipExport"`
 }
 

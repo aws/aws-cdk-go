@@ -32,12 +32,16 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_Configuration.html
 //
+// Experimental.
 type EmrCreateCluster_ConfigurationProperty struct {
 	// The classification within a configuration.
+	// Experimental.
 	Classification *string `field:"optional" json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
+	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `field:"optional" json:"configurations" yaml:"configurations"`
 	// A set of properties specified within a configuration classification.
+	// Experimental.
 	Properties *map[string]*string `field:"optional" json:"properties" yaml:"properties"`
 }
 

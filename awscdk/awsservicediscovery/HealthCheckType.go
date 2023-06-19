@@ -9,7 +9,7 @@ package awsservicediscovery
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 //
 //   namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &HttpNamespaceProps{
-//   	Name: jsii.String("MyHTTPNamespace"),
+//   	Name: jsii.String("covfefe"),
 //   })
 //
 //   service1 := namespace.CreateService(jsii.String("NonIpService"), &BaseServiceProps{
@@ -36,6 +36,7 @@ package awsservicediscovery
 //
 //   app.Synth()
 //
+// Experimental.
 type HealthCheckType string
 
 const (
@@ -43,16 +44,19 @@ const (
 	//
 	// If successful, Route 53 submits an HTTP request and waits for an HTTP
 	// status code of 200 or greater and less than 400.
+	// Experimental.
 	HealthCheckType_HTTP HealthCheckType = "HTTP"
 	// Route 53 tries to establish a TCP connection.
 	//
 	// If successful, Route 53 submits an HTTPS request and waits for an
 	// HTTP status code of 200 or greater and less than 400.  If you specify HTTPS for the value of Type, the endpoint
 	// must support TLS v1.0 or later.
+	// Experimental.
 	HealthCheckType_HTTPS HealthCheckType = "HTTPS"
 	// Route 53 tries to establish a TCP connection.
 	//
 	// If you specify TCP for Type, don't specify a value for ResourcePath.
+	// Experimental.
 	HealthCheckType_TCP HealthCheckType = "TCP"
 )
 

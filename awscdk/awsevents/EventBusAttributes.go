@@ -17,14 +17,19 @@ package awsevents
 //   	EventSourceName: jsii.String("eventSourceName"),
 //   }
 //
+// Experimental.
 type EventBusAttributes struct {
 	// The ARN of this event bus resource.
+	// Experimental.
 	EventBusArn *string `field:"required" json:"eventBusArn" yaml:"eventBusArn"`
 	// The physical ID of this event bus resource.
+	// Experimental.
 	EventBusName *string `field:"required" json:"eventBusName" yaml:"eventBusName"`
 	// The JSON policy of this event bus resource.
+	// Experimental.
 	EventBusPolicy *string `field:"required" json:"eventBusPolicy" yaml:"eventBusPolicy"`
 	// The partner event source to associate with this event bus resource.
+	// Experimental.
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
 }
 

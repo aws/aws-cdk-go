@@ -53,14 +53,18 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("gateway2"),
 //   })
 //
+// Experimental.
 type ListenerTlsOptions struct {
 	// Represents TLS certificate.
+	// Experimental.
 	Certificate TlsCertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The TLS mode.
+	// Experimental.
 	Mode TlsMode `field:"required" json:"mode" yaml:"mode"`
 	// Represents a listener's TLS validation context.
 	//
 	// The client certificate will only be validated if the client provides it, enabling mutual TLS.
+	// Experimental.
 	MutualTlsValidation *MutualTlsValidation `field:"optional" json:"mutualTlsValidation" yaml:"mutualTlsValidation"`
 }
 

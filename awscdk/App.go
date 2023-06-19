@@ -1,11 +1,11 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A construct which represents an entire CDK app. This construct is normally the root of the construct tree.
@@ -20,67 +20,145 @@ import (
 // the AWS cloud.
 //
 // Example:
+//   import path "github.com/aws-samples/dummy/path"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
+//   /*
+//    * Stack verification steps:
+//    * * `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
+//    * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>` should return 403
+//    * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>` should return 200
+//    */
 //
-//   namespace := servicediscovery.NewPublicDnsNamespace(stack, jsii.String("Namespace"), &PublicDnsNamespaceProps{
-//   	Name: jsii.String("foobar.com"),
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("TokenAuthorizerInteg"))
+//
+//   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
 //   })
 //
-//   service := namespace.CreateService(jsii.String("Service"), &DnsServiceProps{
-//   	Name: jsii.String("foo"),
-//   	DnsRecordType: servicediscovery.DnsRecordType_CNAME,
-//   	DnsTtl: cdk.Duration_Seconds(jsii.Number(30)),
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+//
+//   authorizer := awscdk.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), &TokenAuthorizerProps{
+//   	Handler: authorizerFn,
 //   })
 //
-//   service.RegisterCnameInstance(jsii.String("CnameInstance"), &CnameInstanceBaseProps{
-//   	InstanceCname: jsii.String("service.pizza"),
+//   restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+//   	IntegrationResponses: []integrationResponse{
+//   		&integrationResponse{
+//   			StatusCode: jsii.String("200"),
+//   		},
+//   	},
+//   	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+//   	RequestTemplates: map[string]*string{
+//   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
+//   	},
+//   }), &MethodOptions{
+//   	MethodResponses: []methodResponse{
+//   		&methodResponse{
+//   			StatusCode: jsii.String("200"),
+//   		},
+//   	},
+//   	Authorizer: Authorizer,
 //   })
-//
-//   app.Synth()
 //
 // See: https://docs.aws.amazon.com/cdk/latest/guide/apps.html
 //
+// Experimental.
 type App interface {
 	Stage
 	// The default account for all resources defined within this stage.
+	// Experimental.
 	Account() *string
 	// Artifact ID of the assembly if it is a nested stage. The root stage (app) will return an empty string.
 	//
 	// Derived from the construct path.
+	// Experimental.
 	ArtifactId() *string
 	// The cloud assembly asset output directory.
+	// Experimental.
 	AssetOutdir() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() ConstructNode
 	// The cloud assembly output directory.
+	// Experimental.
 	Outdir() *string
 	// The parent stage or `undefined` if this is the app.
 	//
 	// *.
+	// Experimental.
 	ParentStage() Stage
-	// Validation plugins to run during synthesis.
-	//
-	// If any plugin reports any violation,
-	// synthesis will be interrupted and the report displayed to the user.
-	PolicyValidationBeta1() *[]IPolicyValidationPluginBeta1
 	// The default region for all resources defined within this stage.
+	// Experimental.
 	Region() *string
 	// The name of the stage.
 	//
 	// Based on names of the parent stages separated by
 	// hypens.
+	// Experimental.
 	StageName() *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Synthesize this stage into a cloud assembly.
 	//
 	// Once an assembly has been synthesized, it cannot be modified. Subsequent
 	// calls will return the same assembly.
+	// Experimental.
 	Synth(options *StageSynthesisOptions) cxapi.CloudAssembly
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for App
@@ -118,8 +196,8 @@ func (j *jsiiProxy_App) AssetOutdir() *string {
 	return returns
 }
 
-func (j *jsiiProxy_App) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_App) Node() ConstructNode {
+	var returns ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -148,16 +226,6 @@ func (j *jsiiProxy_App) ParentStage() Stage {
 	return returns
 }
 
-func (j *jsiiProxy_App) PolicyValidationBeta1() *[]IPolicyValidationPluginBeta1 {
-	var returns *[]IPolicyValidationPluginBeta1
-	_jsii_.Get(
-		j,
-		"policyValidationBeta1",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_App) Region() *string {
 	var returns *string
 	_jsii_.Get(
@@ -180,6 +248,7 @@ func (j *jsiiProxy_App) StageName() *string {
 
 
 // Initializes a CDK application.
+// Experimental.
 func NewApp(props *AppProps) App {
 	_init_.Initialize()
 
@@ -189,7 +258,7 @@ func NewApp(props *AppProps) App {
 	j := jsiiProxy_App{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.App",
+		"monocdk.App",
 		[]interface{}{props},
 		&j,
 	)
@@ -198,11 +267,12 @@ func NewApp(props *AppProps) App {
 }
 
 // Initializes a CDK application.
+// Experimental.
 func NewApp_Override(a App, props *AppProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.App",
+		"monocdk.App",
 		[]interface{}{props},
 		a,
 	)
@@ -211,6 +281,7 @@ func NewApp_Override(a App, props *AppProps) {
 // Checks if an object is an instance of the `App` class.
 //
 // Returns: `true` if `obj` is an `App`.
+// Experimental.
 func App_IsApp(obj interface{}) *bool {
 	_init_.Initialize()
 
@@ -220,7 +291,7 @@ func App_IsApp(obj interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.App",
+		"monocdk.App",
 		"isApp",
 		[]interface{}{obj},
 		&returns,
@@ -229,23 +300,8 @@ func App_IsApp(obj interface{}) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func App_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -255,7 +311,7 @@ func App_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.App",
+		"monocdk.App",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -265,6 +321,7 @@ func App_IsConstruct(x interface{}) *bool {
 }
 
 // Test whether the given construct is a stage.
+// Experimental.
 func App_IsStage(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -274,7 +331,7 @@ func App_IsStage(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.App",
+		"monocdk.App",
 		"isStage",
 		[]interface{}{x},
 		&returns,
@@ -287,6 +344,7 @@ func App_IsStage(x interface{}) *bool {
 //
 // If called
 // on a nested stage, returns its parent.
+// Experimental.
 func App_Of(construct constructs.IConstruct) Stage {
 	_init_.Initialize()
 
@@ -296,13 +354,53 @@ func App_Of(construct constructs.IConstruct) Stage {
 	var returns Stage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.App",
+		"monocdk.App",
 		"of",
 		[]interface{}{construct},
 		&returns,
 	)
 
 	return returns
+}
+
+func (a *jsiiProxy_App) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_App) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_App) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_App) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 func (a *jsiiProxy_App) Synth(options *StageSynthesisOptions) cxapi.CloudAssembly {
@@ -321,12 +419,36 @@ func (a *jsiiProxy_App) Synth(options *StageSynthesisOptions) cxapi.CloudAssembl
 	return returns
 }
 
+func (a *jsiiProxy_App) Synthesize(session ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_App) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_App) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

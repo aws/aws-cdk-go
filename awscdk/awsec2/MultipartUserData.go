@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Mime multipart user data.
@@ -31,19 +31,26 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type MultipartUserData interface {
 	UserData
 	// Add one or more commands to the user data.
+	// Experimental.
 	AddCommands(commands ...*string)
 	// Adds commands to execute a file.
+	// Experimental.
 	AddExecuteFileCommand(params *ExecuteFileOptions)
 	// Add one or more commands to the user data that will run when the script exits.
+	// Experimental.
 	AddOnExitCommands(commands ...*string)
 	// Adds a part to the list of parts.
+	// Experimental.
 	AddPart(part MultipartBody)
 	// Adds commands to download a file from S3.
+	// Experimental.
 	AddS3DownloadCommand(params *S3DownloadOptions) *string
 	// Adds a command which will send a cfn-signal when the user data script ends.
+	// Experimental.
 	AddSignalOnExitCommand(resource awscdk.Resource)
 	// Adds a multipart part based on a UserData object.
 	//
@@ -64,8 +71,10 @@ type MultipartUserData interface {
 	// An undefined `makeDefault` defaults to either:
 	// - `true` if no default UserData has been set yet; or
 	// - `false` if there is no default UserData set.
+	// Experimental.
 	AddUserDataPart(userData UserData, contentType *string, makeDefault *bool)
 	// Render the UserData for use in a construct.
+	// Experimental.
 	Render() *string
 }
 
@@ -74,6 +83,7 @@ type jsiiProxy_MultipartUserData struct {
 	jsiiProxy_UserData
 }
 
+// Experimental.
 func NewMultipartUserData(opts *MultipartUserDataOptions) MultipartUserData {
 	_init_.Initialize()
 
@@ -83,7 +93,7 @@ func NewMultipartUserData(opts *MultipartUserDataOptions) MultipartUserData {
 	j := jsiiProxy_MultipartUserData{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.MultipartUserData",
+		"monocdk.aws_ec2.MultipartUserData",
 		[]interface{}{opts},
 		&j,
 	)
@@ -91,17 +101,19 @@ func NewMultipartUserData(opts *MultipartUserDataOptions) MultipartUserData {
 	return &j
 }
 
+// Experimental.
 func NewMultipartUserData_Override(m MultipartUserData, opts *MultipartUserDataOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.MultipartUserData",
+		"monocdk.aws_ec2.MultipartUserData",
 		[]interface{}{opts},
 		m,
 	)
 }
 
 // Create a userdata object with custom content.
+// Experimental.
 func MultipartUserData_Custom(content *string) UserData {
 	_init_.Initialize()
 
@@ -111,7 +123,7 @@ func MultipartUserData_Custom(content *string) UserData {
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.MultipartUserData",
+		"monocdk.aws_ec2.MultipartUserData",
 		"custom",
 		[]interface{}{content},
 		&returns,
@@ -121,6 +133,7 @@ func MultipartUserData_Custom(content *string) UserData {
 }
 
 // Create a userdata object for Linux hosts.
+// Experimental.
 func MultipartUserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	_init_.Initialize()
 
@@ -130,7 +143,7 @@ func MultipartUserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.MultipartUserData",
+		"monocdk.aws_ec2.MultipartUserData",
 		"forLinux",
 		[]interface{}{options},
 		&returns,
@@ -139,6 +152,7 @@ func MultipartUserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	return returns
 }
 
+// Experimental.
 func MultipartUserData_ForOperatingSystem(os OperatingSystemType) UserData {
 	_init_.Initialize()
 
@@ -148,7 +162,7 @@ func MultipartUserData_ForOperatingSystem(os OperatingSystemType) UserData {
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.MultipartUserData",
+		"monocdk.aws_ec2.MultipartUserData",
 		"forOperatingSystem",
 		[]interface{}{os},
 		&returns,
@@ -158,18 +172,16 @@ func MultipartUserData_ForOperatingSystem(os OperatingSystemType) UserData {
 }
 
 // Create a userdata object for Windows hosts.
-func MultipartUserData_ForWindows(options *WindowsUserDataOptions) UserData {
+// Experimental.
+func MultipartUserData_ForWindows() UserData {
 	_init_.Initialize()
 
-	if err := validateMultipartUserData_ForWindowsParameters(options); err != nil {
-		panic(err)
-	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.MultipartUserData",
+		"monocdk.aws_ec2.MultipartUserData",
 		"forWindows",
-		[]interface{}{options},
+		nil, // no parameters
 		&returns,
 	)
 

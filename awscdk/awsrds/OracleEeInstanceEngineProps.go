@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for Oracle Enterprise Edition instance engines.
 //
-// Used in `DatabaseInstanceEngine.oracleEe`.
+// Used in {@link DatabaseInstanceEngine.oracleEe}.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,8 +16,10 @@ package awsrds
 //   	Version: oracleEngineVersion,
 //   }
 //
+// Experimental.
 type OracleEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version OracleEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -1,7 +1,7 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -9,17 +9,20 @@ import (
 //
 // Example:
 //   lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Architecture: lambda.Architecture_ARM_64(),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	InsightsVersion: lambda.LambdaInsightsVersion_VERSION_1_0_119_0(),
 //   })
 //
+// Experimental.
 type Architecture interface {
 	// The platform to use for this architecture when building with Docker.
+	// Experimental.
 	DockerPlatform() *string
 	// The name of the architecture as recognized by the AWS Lambda service APIs.
+	// Experimental.
 	Name() *string
 }
 
@@ -52,6 +55,7 @@ func (j *jsiiProxy_Architecture) Name() *string {
 // Used to specify a custom architecture name.
 //
 // Use this if the architecture name is not yet supported by the CDK.
+// Experimental.
 func Architecture_Custom(name *string, dockerPlatform *string) Architecture {
 	_init_.Initialize()
 
@@ -61,7 +65,7 @@ func Architecture_Custom(name *string, dockerPlatform *string) Architecture {
 	var returns Architecture
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.Architecture",
+		"monocdk.aws_lambda.Architecture",
 		"custom",
 		[]interface{}{name, dockerPlatform},
 		&returns,
@@ -74,7 +78,7 @@ func Architecture_ARM_64() Architecture {
 	_init_.Initialize()
 	var returns Architecture
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.Architecture",
+		"monocdk.aws_lambda.Architecture",
 		"ARM_64",
 		&returns,
 	)
@@ -85,7 +89,7 @@ func Architecture_X86_64() Architecture {
 	_init_.Initialize()
 	var returns Architecture
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.Architecture",
+		"monocdk.aws_lambda.Architecture",
 		"X86_64",
 		&returns,
 	)

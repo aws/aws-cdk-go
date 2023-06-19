@@ -36,14 +36,6 @@ func (p *jsiiProxy_PolicyStatement) validateAddServicePrincipalParameters(servic
 	return nil
 }
 
-func (p *jsiiProxy_PolicyStatement) validateAddSourceAccountConditionParameters(accountId *string) error {
-	return nil
-}
-
-func (p *jsiiProxy_PolicyStatement) validateAddSourceArnConditionParameters(arn *string) error {
-	return nil
-}
-
 func (p *jsiiProxy_PolicyStatement) validateCopyParameters(overrides *PolicyStatementProps) error {
 	return nil
 }

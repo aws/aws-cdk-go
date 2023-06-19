@@ -29,29 +29,17 @@ package awscodebuild
 //   	// Control the build environment
 //   	BuildEnvironment: &BuildEnvironment{
 //   		ComputeType: codebuild.ComputeType_LARGE,
-//   		Privileged: jsii.Boolean(true),
 //   	},
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
-//   	FileSystemLocations: []iFileSystemLocation{
-//   		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
-//   			Identifier: jsii.String("myidentifier2"),
-//   			Location: jsii.String("myclodation.mydnsroot.com:/loc"),
-//   			MountPoint: jsii.String("/media"),
-//   			MountOptions: jsii.String("opts"),
-//   		}),
-//   	},
 //
 //   	// Control Elastic Network Interface creation
 //   	Vpc: vpc,
 //   	SubnetSelection: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
 //   	},
 //   	SecurityGroups: []iSecurityGroup{
 //   		mySecurityGroup,
 //   	},
-//
-//   	// Control caching
-//   	Cache: codebuild.Cache_Bucket(s3.NewBucket(this, jsii.String("Cache"))),
 //
 //   	// Additional policy statements for the execution role
 //   	RolePolicyStatements: []policyStatement{
@@ -60,12 +48,17 @@ package awscodebuild
 //   	},
 //   })
 //
+// Experimental.
 type ComputeType string
 
 const (
+	// Experimental.
 	ComputeType_SMALL ComputeType = "SMALL"
+	// Experimental.
 	ComputeType_MEDIUM ComputeType = "MEDIUM"
+	// Experimental.
 	ComputeType_LARGE ComputeType = "LARGE"
+	// Experimental.
 	ComputeType_X2_LARGE ComputeType = "X2_LARGE"
 )
 

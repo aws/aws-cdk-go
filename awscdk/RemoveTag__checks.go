@@ -6,8 +6,6 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (r *jsiiProxy_RemoveTag) validateApplyTagParameters(resource ITaggable) error {
@@ -18,15 +16,7 @@ func (r *jsiiProxy_RemoveTag) validateApplyTagParameters(resource ITaggable) err
 	return nil
 }
 
-func (r *jsiiProxy_RemoveTag) validateApplyTagV2Parameters(resource ITaggableV2) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (r *jsiiProxy_RemoveTag) validateVisitParameters(construct constructs.IConstruct) error {
+func (r *jsiiProxy_RemoveTag) validateVisitParameters(construct IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

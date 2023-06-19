@@ -24,10 +24,13 @@ package awsdynamodb
 //   	TargetUtilizationPercent: jsii.Number(75),
 //   })
 //
+// Experimental.
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `field:"required" json:"minCapacity" yaml:"minCapacity"`
 }
 

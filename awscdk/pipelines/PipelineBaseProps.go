@@ -14,6 +14,7 @@ package pipelines
 //   	Synth: fileSetProducer,
 //   }
 //
+// Experimental.
 type PipelineBaseProps struct {
 	// The build step that produces the CDK Cloud Assembly.
 	//
@@ -22,6 +23,7 @@ type PipelineBaseProps struct {
 	//
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
+	// Experimental.
 	Synth IFileSetProducer `field:"required" json:"synth" yaml:"synth"`
 }
 

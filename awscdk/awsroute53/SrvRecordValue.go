@@ -15,14 +15,19 @@ package awsroute53
 //   	Weight: jsii.Number(123),
 //   }
 //
+// Experimental.
 type SrvRecordValue struct {
 	// The server host name.
+	// Experimental.
 	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// The port.
+	// Experimental.
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The priority.
+	// Experimental.
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The weight.
+	// Experimental.
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 

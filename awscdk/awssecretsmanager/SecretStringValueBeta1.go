@@ -1,7 +1,7 @@
 package awssecretsmanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,15 +11,15 @@ import (
 // about the dangers of using plaintext strings as initial secret seed values via CDK/CloudFormation.
 //
 // Example:
+//   // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
 //   user := iam.NewUser(this, jsii.String("User"))
 //   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
 //   	User: User,
 //   })
-//   secretValue := secretsmanager.SecretStringValueBeta1_FromToken(jSON.stringify(map[string]interface{}{
-//   	"username": user.userName,
-//   	"database": jsii.String("foo"),
-//   	"password": accessKey.secretAccessKey.unsafeUnwrap(),
-//   }))
+//   secretValue := secretsmanager.SecretStringValueBeta1_FromToken(accessKey.SecretAccessKey.ToString())
+//   secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
+//   	SecretStringBeta1: secretValue,
+//   })
 //
 // Deprecated: Use `cdk.SecretValue` instead.
 type SecretStringValueBeta1 interface {
@@ -45,8 +45,9 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
 // const user = new iam.User(this, 'User');
 // const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
-// const secret = new secretsmanager.Secret(this, 'Secret', {
-// 	secretStringValue: accessKey.secretAccessKey,
+// const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(accessKey.secretAccessKey.toString());
+// new secretsmanager.Secret(this, 'Secret', {
+//    secretStringBeta1: secretValue,
 // });
 // ```
 //
@@ -56,9 +57,9 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // const user = new iam.User(this, 'User');
 // const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
 // const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(JSON.stringify({
-//   username: user.userName,
-//   database: 'foo',
-//   password: accessKey.secretAccessKey.unsafeUnwrap(),
+//    username: user.userName,
+//    database: 'foo',
+//    password: accessKey.secretAccessKey.unsafeUnwrap(),
 // }));
 // ```
 //
@@ -75,7 +76,7 @@ func SecretStringValueBeta1_FromToken(secretValueFromToken *string) SecretString
 	var returns SecretStringValueBeta1
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.SecretStringValueBeta1",
+		"monocdk.aws_secretsmanager.SecretStringValueBeta1",
 		"fromToken",
 		[]interface{}{secretValueFromToken},
 		&returns,
@@ -99,7 +100,7 @@ func SecretStringValueBeta1_FromUnsafePlaintext(secretValue *string) SecretStrin
 	var returns SecretStringValueBeta1
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.SecretStringValueBeta1",
+		"monocdk.aws_secretsmanager.SecretStringValueBeta1",
 		"fromUnsafePlaintext",
 		[]interface{}{secretValue},
 		&returns,

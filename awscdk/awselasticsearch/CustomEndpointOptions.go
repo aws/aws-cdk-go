@@ -1,8 +1,8 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 // Configures a custom domain endpoint for the ES domain.

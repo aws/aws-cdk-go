@@ -1,33 +1,19 @@
 package awscdk
 
 
-// Example:
-//   type myConstruct struct {
-//   	resource
-//   	tags
-//   }
-//
-//   func newMyConstruct(scope construct, id *string) *myConstruct {
-//   	this := &myConstruct{}
-//   	newResource_Override(this, scope, id)
-//
-//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
-//   		Type: jsii.String("Whatever::The::Type"),
-//   		Properties: map[string]interface{}{
-//   			// ...
-//   			"Tags": this.tags.renderedTags,
-//   		},
-//   	})
-//   	return this
-//   }
-//
+// Experimental.
 type TagType string
 
 const (
+	// Experimental.
 	TagType_STANDARD TagType = "STANDARD"
+	// Experimental.
 	TagType_AUTOSCALING_GROUP TagType = "AUTOSCALING_GROUP"
+	// Experimental.
 	TagType_MAP TagType = "MAP"
+	// Experimental.
 	TagType_KEY_VALUE TagType = "KEY_VALUE"
+	// Experimental.
 	TagType_NOT_TAGGABLE TagType = "NOT_TAGGABLE"
 )
 

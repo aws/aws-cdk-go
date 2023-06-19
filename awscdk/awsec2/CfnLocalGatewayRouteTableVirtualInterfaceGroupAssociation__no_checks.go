@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
-func validateNewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationParameters(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) error {
+func validateNewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationParameters(scope awscdk.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) error {
 	return nil
 }
 

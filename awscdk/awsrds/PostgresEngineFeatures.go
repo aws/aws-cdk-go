@@ -13,10 +13,13 @@ package awsrds
 //   	S3Import: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type PostgresEngineFeatures struct {
 	// Whether this version of the Postgres engine supports the S3 data export feature.
+	// Experimental.
 	S3Export *bool `field:"optional" json:"s3Export" yaml:"s3Export"`
 	// Whether this version of the Postgres engine supports the S3 data import feature.
+	// Experimental.
 	S3Import *bool `field:"optional" json:"s3Import" yaml:"s3Import"`
 }
 

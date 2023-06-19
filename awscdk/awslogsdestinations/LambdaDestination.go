@@ -1,13 +1,13 @@
 package awslogsdestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogsdestinations/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awslogsdestinations/internal"
 )
 
 // Use a Lambda Function as the destination for a log subscription.
@@ -24,6 +24,7 @@ import (
 //   	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
 //   })
 //
+// Experimental.
 type LambdaDestination interface {
 	awslogs.ILogSubscriptionDestination
 	// Return the properties required to send subscription events to this destination.
@@ -34,7 +35,8 @@ type LambdaDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -43,6 +45,7 @@ type jsiiProxy_LambdaDestination struct {
 }
 
 // LambdaDestinationOptions.
+// Experimental.
 func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOptions) LambdaDestination {
 	_init_.Initialize()
 
@@ -52,7 +55,7 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 	j := jsiiProxy_LambdaDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.LambdaDestination",
+		"monocdk.aws_logs_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		&j,
 	)
@@ -61,17 +64,18 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 }
 
 // LambdaDestinationOptions.
+// Experimental.
 func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, options *LambdaDestinationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.LambdaDestination",
+		"monocdk.aws_logs_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
 	if err := l.validateBindParameters(scope, logGroup); err != nil {
 		panic(err)
 	}

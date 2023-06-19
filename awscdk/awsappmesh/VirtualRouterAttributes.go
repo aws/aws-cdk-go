@@ -15,10 +15,13 @@ package awsappmesh
 //   	VirtualRouterName: jsii.String("virtualRouterName"),
 //   }
 //
+// Experimental.
 type VirtualRouterAttributes struct {
 	// The Mesh which the VirtualRouter belongs to.
+	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualRouter.
+	// Experimental.
 	VirtualRouterName *string `field:"required" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 

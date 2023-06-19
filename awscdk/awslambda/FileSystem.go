@@ -1,10 +1,10 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/awsefs"
 )
 
 // Represents the filesystem for the Lambda function.
@@ -42,14 +42,16 @@ import (
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	Filesystem: lambda.FileSystem_FromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	Vpc: Vpc,
 //   })
 //
+// Experimental.
 type FileSystem interface {
 	// the FileSystem configurations for the Lambda function.
+	// Experimental.
 	Config() *FileSystemConfig
 }
 
@@ -69,6 +71,7 @@ func (j *jsiiProxy_FileSystem) Config() *FileSystemConfig {
 }
 
 
+// Experimental.
 func NewFileSystem(config *FileSystemConfig) FileSystem {
 	_init_.Initialize()
 
@@ -78,7 +81,7 @@ func NewFileSystem(config *FileSystemConfig) FileSystem {
 	j := jsiiProxy_FileSystem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.FileSystem",
+		"monocdk.aws_lambda.FileSystem",
 		[]interface{}{config},
 		&j,
 	)
@@ -86,17 +89,19 @@ func NewFileSystem(config *FileSystemConfig) FileSystem {
 	return &j
 }
 
+// Experimental.
 func NewFileSystem_Override(f FileSystem, config *FileSystemConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.FileSystem",
+		"monocdk.aws_lambda.FileSystem",
 		[]interface{}{config},
 		f,
 	)
 }
 
 // mount the filesystem from Amazon EFS.
+// Experimental.
 func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) FileSystem {
 	_init_.Initialize()
 
@@ -106,7 +111,7 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 	var returns FileSystem
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.FileSystem",
+		"monocdk.aws_lambda.FileSystem",
 		"fromEfsAccessPoint",
 		[]interface{}{ap, mountPath},
 		&returns,

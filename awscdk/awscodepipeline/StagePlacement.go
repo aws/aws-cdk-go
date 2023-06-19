@@ -22,12 +22,15 @@ package awscodepipeline
 //   	},
 //   })
 //
-// See:  #justAfter.
+// See: #justAfter.
 //
+// Experimental.
 type StagePlacement struct {
 	// Inserts the new Stage as a child of the given Stage (changing its current child Stage, if it had one).
+	// Experimental.
 	JustAfter IStage `field:"optional" json:"justAfter" yaml:"justAfter"`
 	// Inserts the new Stage as a parent of the given Stage (changing its current parent Stage, if it had one).
+	// Experimental.
 	RightBefore IStage `field:"optional" json:"rightBefore" yaml:"rightBefore"`
 }
 

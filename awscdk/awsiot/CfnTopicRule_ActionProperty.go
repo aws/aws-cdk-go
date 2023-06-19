@@ -161,12 +161,7 @@ package awsiot
 //   		TrackerName: jsii.String("trackerName"),
 //
 //   		// the properties below are optional
-//   		Timestamp: &TimestampProperty{
-//   			Value: jsii.String("value"),
-//
-//   			// the properties below are optional
-//   			Unit: jsii.String("unit"),
-//   		},
+//   		Timestamp: NewDate(),
 //   	},
 //   	OpenSearch: &OpenSearchActionProperty{
 //   		Endpoint: jsii.String("endpoint"),

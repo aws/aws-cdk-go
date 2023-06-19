@@ -1,7 +1,7 @@
 package awssns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -47,8 +47,10 @@ import (
 //   	},
 //   }))
 //
+// Experimental.
 type SubscriptionFilter interface {
 	// conditions that specify the message attributes that should be included, excluded, matched, etc.
+	// Experimental.
 	Conditions() *[]interface{}
 }
 
@@ -68,13 +70,14 @@ func (j *jsiiProxy_SubscriptionFilter) Conditions() *[]interface{} {
 }
 
 
+// Experimental.
 func NewSubscriptionFilter(conditions *[]interface{}) SubscriptionFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_SubscriptionFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns.SubscriptionFilter",
+		"monocdk.aws_sns.SubscriptionFilter",
 		[]interface{}{conditions},
 		&j,
 	)
@@ -82,24 +85,26 @@ func NewSubscriptionFilter(conditions *[]interface{}) SubscriptionFilter {
 	return &j
 }
 
+// Experimental.
 func NewSubscriptionFilter_Override(s SubscriptionFilter, conditions *[]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns.SubscriptionFilter",
+		"monocdk.aws_sns.SubscriptionFilter",
 		[]interface{}{conditions},
 		s,
 	)
 }
 
 // Returns a subscription filter for attribute key matching.
+// Experimental.
 func SubscriptionFilter_ExistsFilter() SubscriptionFilter {
 	_init_.Initialize()
 
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sns.SubscriptionFilter",
+		"monocdk.aws_sns.SubscriptionFilter",
 		"existsFilter",
 		nil, // no parameters
 		&returns,
@@ -109,6 +114,7 @@ func SubscriptionFilter_ExistsFilter() SubscriptionFilter {
 }
 
 // Returns a subscription filter for a numeric attribute.
+// Experimental.
 func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) SubscriptionFilter {
 	_init_.Initialize()
 
@@ -118,7 +124,7 @@ func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) Subs
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sns.SubscriptionFilter",
+		"monocdk.aws_sns.SubscriptionFilter",
 		"numericFilter",
 		[]interface{}{numericConditions},
 		&returns,
@@ -128,6 +134,7 @@ func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) Subs
 }
 
 // Returns a subscription filter for a string attribute.
+// Experimental.
 func SubscriptionFilter_StringFilter(stringConditions *StringConditions) SubscriptionFilter {
 	_init_.Initialize()
 
@@ -137,7 +144,7 @@ func SubscriptionFilter_StringFilter(stringConditions *StringConditions) Subscri
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sns.SubscriptionFilter",
+		"monocdk.aws_sns.SubscriptionFilter",
 		"stringFilter",
 		[]interface{}{stringConditions},
 		&returns,

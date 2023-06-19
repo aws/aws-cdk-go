@@ -13,10 +13,13 @@ package awslambda
 //   	Version: jsii.String("version"),
 //   }
 //
+// Experimental.
 type VersionAttributes struct {
 	// The lambda function.
+	// Experimental.
 	Lambda IFunction `field:"required" json:"lambda" yaml:"lambda"`
 	// The version.
+	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 }
 

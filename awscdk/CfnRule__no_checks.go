@@ -8,7 +8,15 @@ func (c *jsiiProxy_CfnRule) validateAddAssertionParameters(condition ICfnConditi
 	return nil
 }
 
+func (c *jsiiProxy_CfnRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRule) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 

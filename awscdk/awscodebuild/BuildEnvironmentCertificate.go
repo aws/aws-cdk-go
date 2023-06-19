@@ -1,7 +1,7 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Location of a PEM certificate on S3.
@@ -21,10 +21,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type BuildEnvironmentCertificate struct {
 	// The bucket where the certificate is.
+	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The full path and name of the key file.
+	// Experimental.
 	ObjectKey *string `field:"required" json:"objectKey" yaml:"objectKey"`
 }
 

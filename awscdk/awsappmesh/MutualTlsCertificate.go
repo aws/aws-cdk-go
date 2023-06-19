@@ -1,11 +1,11 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
 )
 
 // Represents a TLS certificate that is supported for mutual TLS authentication.
@@ -54,11 +54,14 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type MutualTlsCertificate interface {
 	TlsCertificate
+	// Experimental.
 	Differentiator() *bool
 	// Returns TLS certificate based provider.
-	Bind(_scope constructs.Construct) *TlsCertificateConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct) *TlsCertificateConfig
 }
 
 // The jsii proxy struct for MutualTlsCertificate
@@ -77,17 +80,19 @@ func (j *jsiiProxy_MutualTlsCertificate) Differentiator() *bool {
 }
 
 
+// Experimental.
 func NewMutualTlsCertificate_Override(m MutualTlsCertificate) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.MutualTlsCertificate",
+		"monocdk.aws_appmesh.MutualTlsCertificate",
 		nil, // no parameters
 		m,
 	)
 }
 
 // Returns an ACM TLS Certificate.
+// Experimental.
 func MutualTlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCertificate {
 	_init_.Initialize()
 
@@ -97,7 +102,7 @@ func MutualTlsCertificate_Acm(certificate awscertificatemanager.ICertificate) Tl
 	var returns TlsCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.MutualTlsCertificate",
+		"monocdk.aws_appmesh.MutualTlsCertificate",
 		"acm",
 		[]interface{}{certificate},
 		&returns,
@@ -107,6 +112,7 @@ func MutualTlsCertificate_Acm(certificate awscertificatemanager.ICertificate) Tl
 }
 
 // Returns an File TLS Certificate.
+// Experimental.
 func MutualTlsCertificate_File(certificateChainPath *string, privateKeyPath *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -116,7 +122,7 @@ func MutualTlsCertificate_File(certificateChainPath *string, privateKeyPath *str
 	var returns MutualTlsCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.MutualTlsCertificate",
+		"monocdk.aws_appmesh.MutualTlsCertificate",
 		"file",
 		[]interface{}{certificateChainPath, privateKeyPath},
 		&returns,
@@ -126,6 +132,7 @@ func MutualTlsCertificate_File(certificateChainPath *string, privateKeyPath *str
 }
 
 // Returns an SDS TLS Certificate.
+// Experimental.
 func MutualTlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -135,7 +142,7 @@ func MutualTlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	var returns MutualTlsCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.MutualTlsCertificate",
+		"monocdk.aws_appmesh.MutualTlsCertificate",
 		"sds",
 		[]interface{}{secretName},
 		&returns,
@@ -144,7 +151,7 @@ func MutualTlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	return returns
 }
 
-func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope constructs.Construct) *TlsCertificateConfig {
+func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope awscdk.Construct) *TlsCertificateConfig {
 	if err := m.validateBindParameters(_scope); err != nil {
 		panic(err)
 	}

@@ -5,8 +5,10 @@ import (
 )
 
 // Interface for (stable) lazy list producers.
+// Experimental.
 type IStableListProducer interface {
 	// Produce the list value.
+	// Experimental.
 	Produce() *[]*string
 }
 

@@ -19,8 +19,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type QueryParameterMatchConfig struct {
 	// Route CFN configuration for route query parameter match.
+	// Experimental.
 	QueryParameterMatch *CfnRoute_QueryParameterProperty `field:"required" json:"queryParameterMatch" yaml:"queryParameterMatch"`
 }
 

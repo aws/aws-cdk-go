@@ -10,7 +10,7 @@ package cloudassemblyschema
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &IntegTestProps{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &IntegTestProps{
 //   	TestCases: []stack{
 //   		stackUnderTest,
 //   	},
@@ -31,10 +31,13 @@ package cloudassemblyschema
 //   	},
 //   })
 //
+// Experimental.
 type CdkCommands struct {
 	// Options to for the cdk deploy command.
+	// Experimental.
 	Deploy *DeployCommand `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options to for the cdk destroy command.
+	// Experimental.
 	Destroy *DestroyCommand `field:"optional" json:"destroy" yaml:"destroy"`
 }
 

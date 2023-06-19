@@ -1,53 +1,41 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery"
 )
 
 // The options for creating an AWS Cloud Map namespace.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var containerOptions containerDefinitionOptions
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var vpc vpc
 //
-//   container := taskDefinition.AddContainer(jsii.String("MyContainer"), containerOptions)
+//   cloudMapNamespaceOptions := &CloudMapNamespaceOptions{
+//   	Name: jsii.String("name"),
 //
-//   container.AddPortMappings(&PortMapping{
-//   	Name: jsii.String("api"),
-//   	ContainerPort: jsii.Number(8080),
-//   })
+//   	// the properties below are optional
+//   	Type: awscdk.Aws_servicediscovery.NamespaceType_HTTP,
+//   	Vpc: vpc,
+//   }
 //
-//   cluster.AddDefaultCloudMapNamespace(&CloudMapNamespaceOptions{
-//   	Name: jsii.String("local"),
-//   })
-//
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	ServiceConnectConfiguration: &ServiceConnectProps{
-//   		Services: []serviceConnectService{
-//   			&serviceConnectService{
-//   				PortMappingName: jsii.String("api"),
-//   				DnsName: jsii.String("http-api"),
-//   				Port: jsii.Number(80),
-//   			},
-//   		},
-//   	},
-//   })
-//
+// Experimental.
 type CloudMapNamespaceOptions struct {
 	// The name of the namespace, such as example.com.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of CloudMap Namespace to create.
+	// Experimental.
 	Type awsservicediscovery.NamespaceType `field:"optional" json:"type" yaml:"type"`
-	// This property specifies whether to set the provided namespace as the service connect default in the cluster properties.
-	UseForServiceConnect *bool `field:"optional" json:"useForServiceConnect" yaml:"useForServiceConnect"`
 	// The VPC to associate the namespace with.
 	//
 	// This property is required for private DNS namespaces.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

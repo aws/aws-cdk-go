@@ -16,11 +16,3 @@ func validateCacheControl_SMaxAgeParameters(t awscdk.Duration) error {
 	return nil
 }
 
-func validateCacheControl_StaleIfErrorParameters(t awscdk.Duration) error {
-	return nil
-}
-
-func validateCacheControl_StaleWhileRevalidateParameters(t awscdk.Duration) error {
-	return nil
-}
-

@@ -1,8 +1,8 @@
 package awscodepipeline
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Example:
@@ -20,8 +20,11 @@ import (
 //   	Role: role,
 //   }
 //
+// Experimental.
 type ActionBindOptions struct {
+	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
+	// Experimental.
 	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 }
 

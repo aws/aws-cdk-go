@@ -16,6 +16,14 @@ func (c *jsiiProxy_ClusterParameterGroup) validateGetResourceNameAttributeParame
 	return nil
 }
 
+func (c *jsiiProxy_ClusterParameterGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_ClusterParameterGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateClusterParameterGroup_FromParameterGroupNameParameters(scope constructs.Construct, id *string, parameterGroupName *string) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateClusterParameterGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateClusterParameterGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateClusterParameterGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateClusterParameterGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

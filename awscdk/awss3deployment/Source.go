@@ -1,23 +1,22 @@
 package awss3deployment
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
 // Specifies bucket deployment source.
 //
 // Usage:
 //
-//     Source.bucket(bucket, key)
-//     Source.asset('/local/path/to/directory')
-//     Source.asset('/local/path/to/a/file.zip')
-//     Source.data('hello/world/file.txt', 'Hello, world!')
-//     Source.dataJson('config.json', { baz: topic.topicArn })
-//     Source.dataYaml('config.yaml', { baz: topic.topicArn })
+//      Source.bucket(bucket, key)
+//      Source.asset('/local/path/to/directory')
+//      Source.asset('/local/path/to/a/file.zip')
+//      Source.data('hello/world/file.txt', 'Hello, world!')
+//      Source.data('config.json', { baz: topic.topicArn })
 //
 // Example:
 //   var websiteBucket bucket
@@ -35,6 +34,7 @@ import (
 //   	"bucket": deployment.deployedBucket,
 //   })
 //
+// Experimental.
 type Source interface {
 }
 
@@ -47,6 +47,7 @@ type jsiiProxy_Source struct {
 //
 // If the local asset is a .zip archive, make sure you trust the
 // producer of the archive.
+// Experimental.
 func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	_init_.Initialize()
 
@@ -56,7 +57,7 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_deployment.Source",
+		"monocdk.aws_s3_deployment.Source",
 		"asset",
 		[]interface{}{path, options},
 		&returns,
@@ -68,6 +69,7 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 // Uses a .zip file stored in an S3 bucket as the source for the destination bucket contents.
 //
 // Make sure you trust the producer of the archive.
+// Experimental.
 func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	_init_.Initialize()
 
@@ -77,7 +79,7 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_deployment.Source",
+		"monocdk.aws_s3_deployment.Source",
 		"bucket",
 		[]interface{}{bucket, zipObjectKey},
 		&returns,
@@ -93,7 +95,7 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 // will get resolved only during deployment.
 //
 // To store a JSON object use `Source.jsonData()`.
-// To store YAML content use `Source.yamlData()`.
+// Experimental.
 func Source_Data(objectKey *string, data *string) ISource {
 	_init_.Initialize()
 
@@ -103,7 +105,7 @@ func Source_Data(objectKey *string, data *string) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_deployment.Source",
+		"monocdk.aws_s3_deployment.Source",
 		"data",
 		[]interface{}{objectKey, data},
 		&returns,
@@ -117,6 +119,7 @@ func Source_Data(objectKey *string, data *string) ISource {
 // The
 // object can include deploy-time values (such as `snsTopic.topicArn`) that
 // will get resolved only during deployment.
+// Experimental.
 func Source_JsonData(objectKey *string, obj interface{}) ISource {
 	_init_.Initialize()
 
@@ -126,30 +129,8 @@ func Source_JsonData(objectKey *string, obj interface{}) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_deployment.Source",
+		"monocdk.aws_s3_deployment.Source",
 		"jsonData",
-		[]interface{}{objectKey, obj},
-		&returns,
-	)
-
-	return returns
-}
-
-// Deploys an object with the specified JSON object formatted as YAML into the bucket.
-//
-// The object can include deploy-time values (such as `snsTopic.topicArn`) that
-// will get resolved only during deployment.
-func Source_YamlData(objectKey *string, obj interface{}) ISource {
-	_init_.Initialize()
-
-	if err := validateSource_YamlDataParameters(objectKey, obj); err != nil {
-		panic(err)
-	}
-	var returns ISource
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_deployment.Source",
-		"yamlData",
 		[]interface{}{objectKey, obj},
 		&returns,
 	)

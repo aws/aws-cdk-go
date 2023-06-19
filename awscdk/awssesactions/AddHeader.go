@@ -1,11 +1,11 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
 )
 
 // Adds a header to the received email.
@@ -49,9 +49,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type AddHeader interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -60,6 +62,7 @@ type jsiiProxy_AddHeader struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
+// Experimental.
 func NewAddHeader(props *AddHeaderProps) AddHeader {
 	_init_.Initialize()
 
@@ -69,7 +72,7 @@ func NewAddHeader(props *AddHeaderProps) AddHeader {
 	j := jsiiProxy_AddHeader{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.AddHeader",
+		"monocdk.aws_ses_actions.AddHeader",
 		[]interface{}{props},
 		&j,
 	)
@@ -77,11 +80,12 @@ func NewAddHeader(props *AddHeaderProps) AddHeader {
 	return &j
 }
 
+// Experimental.
 func NewAddHeader_Override(a AddHeader, props *AddHeaderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.AddHeader",
+		"monocdk.aws_ses_actions.AddHeader",
 		[]interface{}{props},
 		a,
 	)

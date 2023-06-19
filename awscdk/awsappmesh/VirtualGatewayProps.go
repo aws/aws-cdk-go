@@ -14,7 +14,7 @@ package awsappmesh
 //   		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
 //   			Port: jsii.Number(443),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
-//   				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
+//   				Interval: cdk.Duration_Seconds(jsii.Number(10)),
 //   			}),
 //   		}),
 //   	},
@@ -35,18 +35,24 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("virtualGateway"),
 //   })
 //
+// Experimental.
 type VirtualGatewayProps struct {
 	// Access Logging Configuration for the VirtualGateway.
+	// Experimental.
 	AccessLog AccessLog `field:"optional" json:"accessLog" yaml:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
+	// Experimental.
 	BackendDefaults *BackendDefaults `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// Listeners for the VirtualGateway.
 	//
 	// Only one is supported.
+	// Experimental.
 	Listeners *[]VirtualGatewayListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// Name of the VirtualGateway.
+	// Experimental.
 	VirtualGatewayName *string `field:"optional" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 	// The Mesh which the VirtualGateway belongs to.
+	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 }
 

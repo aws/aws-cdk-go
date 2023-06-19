@@ -13,10 +13,13 @@ package awsroute53
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   }
 //
+// Experimental.
 type AliasRecordTargetConfig struct {
 	// DNS name of the target.
+	// Experimental.
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// Hosted zone ID of the target.
+	// Experimental.
 	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 }
 

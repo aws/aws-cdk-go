@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for creating a Cache Policy.
@@ -29,32 +29,43 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CachePolicyProps struct {
 	// A unique name to identify the cache policy.
 	//
 	// The name must only include '-', '_', or alphanumeric characters.
+	// Experimental.
 	CachePolicyName *string `field:"optional" json:"cachePolicyName" yaml:"cachePolicyName"`
 	// A comment to describe the cache policy.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+	// Experimental.
 	CookieBehavior CacheCookieBehavior `field:"optional" json:"cookieBehavior" yaml:"cookieBehavior"`
 	// The default amount of time for objects to stay in the CloudFront cache.
 	//
 	// Only used when the origin does not send Cache-Control or Expires headers with the object.
+	// Experimental.
 	DefaultTtl awscdk.Duration `field:"optional" json:"defaultTtl" yaml:"defaultTtl"`
 	// Whether to normalize and include the `Accept-Encoding` header in the cache key when the `Accept-Encoding` header is 'br'.
+	// Experimental.
 	EnableAcceptEncodingBrotli *bool `field:"optional" json:"enableAcceptEncodingBrotli" yaml:"enableAcceptEncodingBrotli"`
 	// Whether to normalize and include the `Accept-Encoding` header in the cache key when the `Accept-Encoding` header is 'gzip'.
+	// Experimental.
 	EnableAcceptEncodingGzip *bool `field:"optional" json:"enableAcceptEncodingGzip" yaml:"enableAcceptEncodingGzip"`
 	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+	// Experimental.
 	HeaderBehavior CacheHeaderBehavior `field:"optional" json:"headerBehavior" yaml:"headerBehavior"`
 	// The maximum amount of time for objects to stay in the CloudFront cache.
 	//
 	// CloudFront uses this value only when the origin sends Cache-Control or Expires headers with the object.
+	// Experimental.
 	MaxTtl awscdk.Duration `field:"optional" json:"maxTtl" yaml:"maxTtl"`
 	// The minimum amount of time for objects to stay in the CloudFront cache.
+	// Experimental.
 	MinTtl awscdk.Duration `field:"optional" json:"minTtl" yaml:"minTtl"`
 	// Determines whether any query strings are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+	// Experimental.
 	QueryStringBehavior CacheQueryStringBehavior `field:"optional" json:"queryStringBehavior" yaml:"queryStringBehavior"`
 }
 

@@ -16,6 +16,7 @@ and adding Targets to the Listener:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 var asg autoScalingGroup
+
 var vpc vpc
 
 
@@ -164,7 +165,7 @@ listener.AddAction(jsii.String("Fixed"), &AddApplicationActionProps{
 		}),
 	},
 	Action: elbv2.ListenerAction_FixedResponse(jsii.Number(200), &FixedResponseOptions{
-		ContentType: jsii.String("text/plain"),
+		ContentType: elbv2.ContentType_TEXT_PLAIN,
 		MessageBody: jsii.String("OK"),
 	}),
 })
@@ -213,36 +214,6 @@ If you do not provide any options for this method, it redirects HTTP port 80 to 
 
 By default all ingress traffic will be allowed on the source port. If you want to be more selective with your
 ingress rules then set `open: false` and use the listener's `connections` object to selectively grant access to the listener.
-
-### Load Balancer attributes
-
-You can modify attributes of Application Load Balancers:
-
-```go
-var vpc vpc
-
-
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
-	Vpc: Vpc,
-	InternetFacing: jsii.Boolean(true),
-
-	// Whether HTTP/2 is enabled
-	Http2Enabled: jsii.Boolean(false),
-
-	// The idle timeout value, in seconds
-	IdleTimeout: awscdk.Duration_Seconds(jsii.Number(1000)),
-
-	// Whether HTTP headers with header fields thatare not valid
-	// are removed by the load balancer (true), or routed to targets
-	DropInvalidHeaderFields: jsii.Boolean(true),
-
-	// How the load balancer handles requests that might
-	// pose a security risk to your application
-	DesyncMitigationMode: elbv2.DesyncMitigationMode_DEFENSIVE,
-})
-```
-
-For more information, see [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
 
 ## Defining a Network Load Balancer
 
@@ -654,55 +625,4 @@ listener := elbv2.NetworkListener_FromLookup(this, jsii.String("ALBListener"), &
 	ListenerProtocol: elbv2.Protocol_TCP,
 	ListenerPort: jsii.Number(12345),
 })
-```
-
-## Metrics
-
-You may create metrics for Load Balancers and Target Groups through the `metrics` attribute:
-
-**Load Balancer:**
-
-```go
-var alb iApplicationLoadBalancer
-
-
-albMetrics := alb.Metrics
-metricConnectionCount := albMetrics.ActiveConnectionCount()
-```
-
-**Target Group:**
-
-```go
-var targetGroup iApplicationTargetGroup
-
-
-targetGroupMetrics := targetGroup.Metrics
-metricHealthyHostCount := targetGroupMetrics.HealthyHostCount()
-```
-
-Metrics are also available to imported resources:
-
-```go
-var stack stack
-
-
-targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
-	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
-	LoadBalancerArns: awscdk.Fn_*ImportValue(jsii.String("LoadBalancerArn")),
-})
-
-targetGroupMetrics := targetGroup.Metrics
-```
-
-Notice that TargetGroups must be imported by supplying the Load Balancer too, otherwise accessing the `metrics` will
-throw an error:
-
-```go
-var stack stack
-
-targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
-	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
-})
-
-targetGroupMetrics := targetGroup.Metrics
 ```

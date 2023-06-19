@@ -15,16 +15,19 @@ package awsec2
 //   	ToPort: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ConnectionRule struct {
 	// Start of port range for the TCP and UDP protocols, or an ICMP type number.
 	//
 	// If you specify icmp for the IpProtocol property, you can specify
 	// -1 as a wildcard (i.e., any ICMP type number).
+	// Experimental.
 	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// Description of this connection.
 	//
 	// It is applied to both the ingress rule
 	// and the egress rule.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 	//
@@ -34,11 +37,13 @@ type ConnectionRule struct {
 	// must specify a port range. For protocol 58 (ICMPv6), you can optionally
 	// specify a port range; if you don't, traffic for all types and codes is
 	// allowed.
+	// Experimental.
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// End of port range for the TCP and UDP protocols, or an ICMP code.
 	//
 	// If you specify icmp for the IpProtocol property, you can specify -1 as a
 	// wildcard (i.e., any ICMP code).
+	// Experimental.
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

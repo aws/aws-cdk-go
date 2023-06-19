@@ -16,25 +16,26 @@ package awslambda
 //   	ImagePath: jsii.String("imagePath"),
 //   	OutputPath: jsii.String("outputPath"),
 //   	Platform: jsii.String("platform"),
-//   	TargetStage: jsii.String("targetStage"),
 //   }
 //
+// Experimental.
 type DockerBuildAssetOptions struct {
 	// Build args.
+	// Experimental.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
+	// Experimental.
 	File *string `field:"optional" json:"file" yaml:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`.
+	// Experimental.
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
-	// Set build target for multi-stage container builds. Any stage defined afterwards will be ignored.
-	//
-	// Example value: `build-env`.
-	TargetStage *string `field:"optional" json:"targetStage" yaml:"targetStage"`
 	// The path in the Docker image where the asset is located after the build operation.
+	// Experimental.
 	ImagePath *string `field:"optional" json:"imagePath" yaml:"imagePath"`
 	// The path on the local filesystem where the asset will be copied using `docker cp`.
+	// Experimental.
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 }
 

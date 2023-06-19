@@ -14,12 +14,16 @@ package cxapi
 //   	Region: jsii.String("region"),
 //   }
 //
+// Experimental.
 type Environment struct {
 	// The AWS account this environment deploys into.
+	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// The arbitrary name of this environment (user-set, or at least user-meaningful).
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The AWS region name where this environment deploys into.
+	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 }
 

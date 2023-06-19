@@ -16,9 +16,9 @@ package awss3deployment
 //   	DestinationBucket: websiteBucket,
 //   	DestinationKeyPrefix: jsii.String("web/static"),
 //   	 // optional prefix in destination bucket
-//   	Metadata: map[string]*string{
-//   		"A": jsii.String("1"),
-//   		"b": jsii.String("2"),
+//   	Metadata: &UserDefinedObjectMetadata{
+//   		A: jsii.String("1"),
+//   		B: jsii.String("2"),
 //   	},
 //   	 // user-defined metadata
 //
@@ -36,12 +36,15 @@ package awss3deployment
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
+// Experimental.
 type ServerSideEncryption string
 
 const (
 	// 'AES256'.
+	// Experimental.
 	ServerSideEncryption_AES_256 ServerSideEncryption = "AES_256"
 	// 'aws:kms'.
+	// Experimental.
 	ServerSideEncryption_AWS_KMS ServerSideEncryption = "AWS_KMS"
 )
 

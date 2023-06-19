@@ -1,7 +1,7 @@
 package awsecr
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,8 +14,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
+// Experimental.
 type RepositoryEncryption interface {
 	// the string value of the encryption.
+	// Experimental.
 	Value() *string
 }
 
@@ -35,6 +37,7 @@ func (j *jsiiProxy_RepositoryEncryption) Value() *string {
 }
 
 
+// Experimental.
 func NewRepositoryEncryption(value *string) RepositoryEncryption {
 	_init_.Initialize()
 
@@ -44,7 +47,7 @@ func NewRepositoryEncryption(value *string) RepositoryEncryption {
 	j := jsiiProxy_RepositoryEncryption{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr.RepositoryEncryption",
+		"monocdk.aws_ecr.RepositoryEncryption",
 		[]interface{}{value},
 		&j,
 	)
@@ -52,11 +55,12 @@ func NewRepositoryEncryption(value *string) RepositoryEncryption {
 	return &j
 }
 
+// Experimental.
 func NewRepositoryEncryption_Override(r RepositoryEncryption, value *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr.RepositoryEncryption",
+		"monocdk.aws_ecr.RepositoryEncryption",
 		[]interface{}{value},
 		r,
 	)
@@ -66,7 +70,7 @@ func RepositoryEncryption_AES_256() RepositoryEncryption {
 	_init_.Initialize()
 	var returns RepositoryEncryption
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecr.RepositoryEncryption",
+		"monocdk.aws_ecr.RepositoryEncryption",
 		"AES_256",
 		&returns,
 	)
@@ -77,7 +81,7 @@ func RepositoryEncryption_KMS() RepositoryEncryption {
 	_init_.Initialize()
 	var returns RepositoryEncryption
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecr.RepositoryEncryption",
+		"monocdk.aws_ecr.RepositoryEncryption",
 		"KMS",
 		&returns,
 	)

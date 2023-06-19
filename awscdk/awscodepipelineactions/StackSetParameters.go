@@ -1,10 +1,10 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
 )
 
 // Base parameters for the StackSet.
@@ -15,6 +15,7 @@ import (
 //   	"Asset1": jsii.String("true"),
 //   })
 //
+// Experimental.
 type StackSetParameters interface {
 }
 
@@ -23,11 +24,12 @@ type jsiiProxy_StackSetParameters struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStackSetParameters_Override(s StackSetParameters) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		nil, // no parameters
 		s,
 	)
@@ -40,18 +42,18 @@ func NewStackSetParameters_Override(s StackSetParameters) {
 //
 // ```
 // [
-//     {
-//         "ParameterKey": "BucketName",
-//         "ParameterValue": "my-bucket"
-//     },
-//     {
-//         "ParameterKey": "Asset1",
-//         "ParameterValue": "true"
-//     },
-//     {
-//         "ParameterKey": "Asset2",
-//         "UsePreviousValue": true
-//     }
+//      {
+//          "ParameterKey": "BucketName",
+//          "ParameterValue": "my-bucket"
+//      },
+//      {
+//          "ParameterKey": "Asset1",
+//          "ParameterValue": "true"
+//      },
+//      {
+//          "ParameterKey": "Asset2",
+//          "UsePreviousValue": true
+//      }
 // ]
 // ```
 //
@@ -63,6 +65,7 @@ func NewStackSetParameters_Override(s StackSetParameters) {
 // Use of this feature is discouraged. CDK is for
 // specifying desired-state infrastructure, and use of this feature makes the
 // parameter values unmanaged.
+// Experimental.
 func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetParameters {
 	_init_.Initialize()
 
@@ -72,7 +75,7 @@ func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPa
 	var returns StackSetParameters
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		"fromArtifactPath",
 		[]interface{}{artifactPath},
 		&returns,
@@ -98,6 +101,7 @@ func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPa
 //   	"Asset1": jsii.String("true"),
 //   })
 //
+// Experimental.
 func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousValues *[]*string) StackSetParameters {
 	_init_.Initialize()
 
@@ -107,7 +111,7 @@ func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousV
 	var returns StackSetParameters
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		"fromLiteral",
 		[]interface{}{parameters, usePreviousValues},
 		&returns,

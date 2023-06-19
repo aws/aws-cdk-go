@@ -36,14 +36,6 @@ func (r *jsiiProxy_Repository) validateGrantPullPushParameters(grantee awsiam.IG
 	return nil
 }
 
-func (r *jsiiProxy_Repository) validateGrantPushParameters(grantee awsiam.IGrantable) error {
-	return nil
-}
-
-func (r *jsiiProxy_Repository) validateGrantReadParameters(grantee awsiam.IGrantable) error {
-	return nil
-}
-
 func (r *jsiiProxy_Repository) validateOnCloudTrailEventParameters(id *string, options *awsevents.OnEventOptions) error {
 	return nil
 }
@@ -57,6 +49,14 @@ func (r *jsiiProxy_Repository) validateOnEventParameters(id *string, options *aw
 }
 
 func (r *jsiiProxy_Repository) validateOnImageScanCompletedParameters(id *string, options *OnImageScanCompletedOptions) error {
+	return nil
+}
+
+func (r *jsiiProxy_Repository) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_Repository) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,11 +80,7 @@ func validateRepository_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRepository_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateRepository_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRepository_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

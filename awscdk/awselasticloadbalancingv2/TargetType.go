@@ -19,16 +19,21 @@ package awselasticloadbalancingv2
 //   	Vpc: Vpc,
 //   })
 //
+// Experimental.
 type TargetType string
 
 const (
 	// Targets identified by instance ID.
+	// Experimental.
 	TargetType_INSTANCE TargetType = "INSTANCE"
 	// Targets identified by IP address.
+	// Experimental.
 	TargetType_IP TargetType = "IP"
 	// Target is a single Lambda Function.
+	// Experimental.
 	TargetType_LAMBDA TargetType = "LAMBDA"
 	// Target is a single Application Load Balancer.
+	// Experimental.
 	TargetType_ALB TargetType = "ALB"
 )
 

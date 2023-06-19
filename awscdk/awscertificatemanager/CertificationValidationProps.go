@@ -1,7 +1,7 @@
 package awscertificatemanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 // Properties for certificate validation.
@@ -25,14 +25,19 @@ import (
 //   	},
 //   }
 //
+// Experimental.
 type CertificationValidationProps struct {
 	// Hosted zone to use for DNS validation.
+	// Experimental.
 	HostedZone awsroute53.IHostedZone `field:"optional" json:"hostedZone" yaml:"hostedZone"`
 	// A map of hosted zones to use for DNS validation.
+	// Experimental.
 	HostedZones *map[string]awsroute53.IHostedZone `field:"optional" json:"hostedZones" yaml:"hostedZones"`
 	// Validation method.
+	// Experimental.
 	Method ValidationMethod `field:"optional" json:"method" yaml:"method"`
 	// Validation domains to use for email validation.
+	// Experimental.
 	ValidationDomains *map[string]*string `field:"optional" json:"validationDomains" yaml:"validationDomains"`
 }
 

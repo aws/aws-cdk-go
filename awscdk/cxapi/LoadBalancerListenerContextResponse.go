@@ -16,12 +16,16 @@ package cxapi
 //   	},
 //   }
 //
+// Experimental.
 type LoadBalancerListenerContextResponse struct {
 	// The ARN of the listener.
+	// Experimental.
 	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
 	// The port the listener is listening on.
+	// Experimental.
 	ListenerPort *float64 `field:"required" json:"listenerPort" yaml:"listenerPort"`
 	// The security groups of the load balancer.
+	// Experimental.
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 }
 

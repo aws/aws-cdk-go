@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // LaunchTemplateOverrides is a subproperty of LaunchTemplate that describes an override for a launch template.
@@ -23,14 +23,17 @@ import (
 //   	WeightedCapacity: jsii.Number(123),
 //   }
 //
+// Experimental.
 type LaunchTemplateOverrides struct {
 	// The instance type, such as m3.xlarge. You must use an instance type that is supported in your requested Region and Availability Zones.
+	// Experimental.
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Provides the launch template to be used when launching the instance type.
 	//
 	// For example, some instance types might
 	// require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template
 	// that's defined for your mixed instances policy.
+	// Experimental.
 	LaunchTemplate awsec2.ILaunchTemplate `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
 	// The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.
 	//
@@ -43,6 +46,7 @@ type LaunchTemplateOverrides struct {
 	// by 3 units.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html
 	//
+	// Experimental.
 	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 

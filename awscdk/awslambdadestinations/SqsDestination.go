@@ -1,13 +1,13 @@
 package awslambdadestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdadestinations/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambdadestinations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
 // Use a SQS queue as a Lambda destination.
@@ -27,10 +27,12 @@ import (
 //   	OnFailure: destinations.NewSqsDestination(deadLetterQueue),
 //   })
 //
+// Experimental.
 type SqsDestination interface {
 	awslambda.IDestination
 	// Returns a destination configuration.
-	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for SqsDestination
@@ -38,6 +40,7 @@ type jsiiProxy_SqsDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
+// Experimental.
 func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	_init_.Initialize()
 
@@ -47,7 +50,7 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	j := jsiiProxy_SqsDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_destinations.SqsDestination",
+		"monocdk.aws_lambda_destinations.SqsDestination",
 		[]interface{}{queue},
 		&j,
 	)
@@ -55,17 +58,18 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	return &j
 }
 
+// Experimental.
 func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_destinations.SqsDestination",
+		"monocdk.aws_lambda_destinations.SqsDestination",
 		[]interface{}{queue},
 		s,
 	)
 }
 
-func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (s *jsiiProxy_SqsDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	if err := s.validateBindParameters(_scope, fn, _options); err != nil {
 		panic(err)
 	}

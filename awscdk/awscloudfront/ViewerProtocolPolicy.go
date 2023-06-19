@@ -15,14 +15,18 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ViewerProtocolPolicy string
 
 const (
 	// HTTPS only.
+	// Experimental.
 	ViewerProtocolPolicy_HTTPS_ONLY ViewerProtocolPolicy = "HTTPS_ONLY"
 	// Will redirect HTTP requests to HTTPS.
+	// Experimental.
 	ViewerProtocolPolicy_REDIRECT_TO_HTTPS ViewerProtocolPolicy = "REDIRECT_TO_HTTPS"
 	// Both HTTP and HTTPS supported.
+	// Experimental.
 	ViewerProtocolPolicy_ALLOW_ALL ViewerProtocolPolicy = "ALLOW_ALL"
 )
 

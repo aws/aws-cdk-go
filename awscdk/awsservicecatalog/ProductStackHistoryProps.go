@@ -4,6 +4,10 @@ package awsservicecatalog
 // Properties for a ProductStackHistory.
 //
 // Example:
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//
 //   type s3BucketProduct struct {
 //   	productStack
 //   }
@@ -30,20 +34,27 @@ package awsservicecatalog
 //   	},
 //   })
 //
+// Experimental.
 type ProductStackHistoryProps struct {
 	// If this is set to true, the ProductStack will not be overwritten if a snapshot is found for the currentVersionName.
+	// Experimental.
 	CurrentVersionLocked *bool `field:"required" json:"currentVersionLocked" yaml:"currentVersionLocked"`
 	// The current version name of the ProductStack.
+	// Experimental.
 	CurrentVersionName *string `field:"required" json:"currentVersionName" yaml:"currentVersionName"`
 	// The ProductStack whose history will be retained as a snapshot.
+	// Experimental.
 	ProductStack ProductStack `field:"required" json:"productStack" yaml:"productStack"`
 	// The description of the product version.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The directory where template snapshots will be stored.
+	// Experimental.
 	Directory *string `field:"optional" json:"directory" yaml:"directory"`
 	// Whether the specified product template will be validated by CloudFormation.
 	//
 	// If turned off, an invalid template configuration can be stored.
+	// Experimental.
 	ValidateTemplate *bool `field:"optional" json:"validateTemplate" yaml:"validateTemplate"`
 }
 

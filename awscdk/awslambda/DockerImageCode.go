@@ -1,10 +1,10 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
 )
 
 // Code property for the DockerImageFunction construct.
@@ -14,6 +14,7 @@ import (
 //   	Code: lambda.DockerImageCode_FromImageAsset(path.join(__dirname, jsii.String("docker-handler"))),
 //   })
 //
+// Experimental.
 type DockerImageCode interface {
 }
 
@@ -22,17 +23,19 @@ type jsiiProxy_DockerImageCode struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewDockerImageCode_Override(d DockerImageCode) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.DockerImageCode",
+		"monocdk.aws_lambda.DockerImageCode",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Use an existing ECR image as the Lambda code.
+// Experimental.
 func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
@@ -42,7 +45,7 @@ func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeP
 	var returns DockerImageCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.DockerImageCode",
+		"monocdk.aws_lambda.DockerImageCode",
 		"fromEcr",
 		[]interface{}{repository, props},
 		&returns,
@@ -52,6 +55,7 @@ func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeP
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
+// Experimental.
 func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
@@ -61,7 +65,7 @@ func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProp
 	var returns DockerImageCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.DockerImageCode",
+		"monocdk.aws_lambda.DockerImageCode",
 		"fromImageAsset",
 		[]interface{}{directory, props},
 		&returns,

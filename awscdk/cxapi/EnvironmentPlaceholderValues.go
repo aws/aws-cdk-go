@@ -14,12 +14,16 @@ package cxapi
 //   	Region: jsii.String("region"),
 //   }
 //
+// Experimental.
 type EnvironmentPlaceholderValues struct {
 	// Return the account.
+	// Experimental.
 	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// Return the partition.
+	// Experimental.
 	Partition *string `field:"required" json:"partition" yaml:"partition"`
 	// Return the region.
+	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 }
 

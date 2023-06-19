@@ -80,10 +80,6 @@ package awscloudfront
 //   			Override: jsii.Boolean(true),
 //   		},
 //   	},
-//   	RemoveHeaders: []*string{
-//   		jsii.String("Server"),
-//   	},
-//   	ServerTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
@@ -92,8 +88,10 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseCustomHeadersBehavior struct {
 	// The list of HTTP response headers and their values.
+	// Experimental.
 	CustomHeaders *[]*ResponseCustomHeader `field:"required" json:"customHeaders" yaml:"customHeaders"`
 }
 

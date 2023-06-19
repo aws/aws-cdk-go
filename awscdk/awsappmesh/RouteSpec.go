@@ -1,10 +1,10 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Used to generate specs with different protocols for a RouteSpec.
@@ -33,17 +33,19 @@ import (
 //   			// Retry five times
 //   			RetryAttempts: jsii.Number(5),
 //   			// Use a 1 second timeout per retry
-//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })
 //
+// Experimental.
 type RouteSpec interface {
 	// Called when the RouteSpec type is initialized.
 	//
 	// Can be used to enforce
 	// mutual exclusivity with future properties.
-	Bind(scope constructs.Construct) *RouteSpecConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *RouteSpecConfig
 }
 
 // The jsii proxy struct for RouteSpec
@@ -51,17 +53,19 @@ type jsiiProxy_RouteSpec struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewRouteSpec_Override(r RouteSpec) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.RouteSpec",
+		"monocdk.aws_appmesh.RouteSpec",
 		nil, // no parameters
 		r,
 	)
 }
 
 // Creates a GRPC Based RouteSpec.
+// Experimental.
 func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -71,7 +75,7 @@ func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.RouteSpec",
+		"monocdk.aws_appmesh.RouteSpec",
 		"grpc",
 		[]interface{}{options},
 		&returns,
@@ -81,6 +85,7 @@ func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 }
 
 // Creates an HTTP Based RouteSpec.
+// Experimental.
 func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -90,7 +95,7 @@ func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.RouteSpec",
+		"monocdk.aws_appmesh.RouteSpec",
 		"http",
 		[]interface{}{options},
 		&returns,
@@ -100,6 +105,7 @@ func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 }
 
 // Creates an HTTP2 Based RouteSpec.
+// Experimental.
 func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -109,7 +115,7 @@ func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.RouteSpec",
+		"monocdk.aws_appmesh.RouteSpec",
 		"http2",
 		[]interface{}{options},
 		&returns,
@@ -119,6 +125,7 @@ func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 }
 
 // Creates a TCP Based RouteSpec.
+// Experimental.
 func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -128,7 +135,7 @@ func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.RouteSpec",
+		"monocdk.aws_appmesh.RouteSpec",
 		"tcp",
 		[]interface{}{options},
 		&returns,
@@ -137,7 +144,7 @@ func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	return returns
 }
 
-func (r *jsiiProxy_RouteSpec) Bind(scope constructs.Construct) *RouteSpecConfig {
+func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
 	if err := r.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

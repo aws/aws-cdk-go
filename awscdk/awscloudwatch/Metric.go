@@ -1,12 +1,12 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A metric emitted by a service.
@@ -27,34 +27,46 @@ import (
 //
 //
 //   minuteErrorRate := fn.metricErrors(&MetricOptions{
-//   	Statistic: cloudwatch.Stats_AVERAGE(),
+//   	Statistic: jsii.String("avg"),
 //   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
 //   	Label: jsii.String("Lambda failure rate"),
 //   })
 //
+// Experimental.
 type Metric interface {
 	IMetric
 	// Account which this metric comes from.
+	// Experimental.
 	Account() *string
 	// The hex color code used when this metric is rendered on a graph.
+	// Experimental.
 	Color() *string
 	// Dimensions of this metric.
+	// Experimental.
 	Dimensions() *map[string]interface{}
 	// Label for this metric when added to a Graph in a Dashboard.
+	// Experimental.
 	Label() *string
 	// Name of this metric.
+	// Experimental.
 	MetricName() *string
 	// Namespace of this metric.
+	// Experimental.
 	Namespace() *string
 	// Period of this metric.
+	// Experimental.
 	Period() awscdk.Duration
 	// Region which this metric comes from.
+	// Experimental.
 	Region() *string
 	// Statistic of this metric.
+	// Experimental.
 	Statistic() *string
 	// Unit of the metric.
+	// Experimental.
 	Unit() Unit
 	// Warnings attached to this metric.
+	// Experimental.
 	Warnings() *[]*string
 	// Attach the metric object to the given construct scope.
 	//
@@ -66,19 +78,30 @@ type Metric interface {
 	//
 	// If the scope we attach to is in an environment-agnostic stack,
 	// nothing is done and the same Metric object is returned.
+	// Experimental.
 	AttachTo(scope constructs.IConstruct) Metric
 	// Make a new Alarm for this metric.
 	//
 	// Combines both properties that may adjust the metric (aggregation) as well
 	// as alarm properties.
-	CreateAlarm(scope constructs.Construct, id *string, props *CreateAlarmOptions) Alarm
+	// Experimental.
+	CreateAlarm(scope awscdk.Construct, id *string, props *CreateAlarmOptions) Alarm
+	// Turn this metric object into an alarm configuration.
+	// Deprecated: use toMetricConfig().
+	ToAlarmConfig() *MetricAlarmConfig
+	// Turn this metric object into a graph configuration.
+	// Deprecated: use toMetricConfig().
+	ToGraphConfig() *MetricGraphConfig
 	// Inspect the details of the metric object.
+	// Experimental.
 	ToMetricConfig() *MetricConfig
 	// Returns a string representation of an object.
+	// Experimental.
 	ToString() *string
 	// Return a copy of Metric `with` properties changed.
 	//
 	// All properties except namespace and metricName can be changed.
+	// Experimental.
 	With(props *MetricOptions) Metric
 }
 
@@ -198,6 +221,7 @@ func (j *jsiiProxy_Metric) Warnings() *[]*string {
 }
 
 
+// Experimental.
 func NewMetric(props *MetricProps) Metric {
 	_init_.Initialize()
 
@@ -207,7 +231,7 @@ func NewMetric(props *MetricProps) Metric {
 	j := jsiiProxy_Metric{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.Metric",
+		"monocdk.aws_cloudwatch.Metric",
 		[]interface{}{props},
 		&j,
 	)
@@ -215,17 +239,19 @@ func NewMetric(props *MetricProps) Metric {
 	return &j
 }
 
+// Experimental.
 func NewMetric_Override(m Metric, props *MetricProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.Metric",
+		"monocdk.aws_cloudwatch.Metric",
 		[]interface{}{props},
 		m,
 	)
 }
 
 // Grant permissions to the given identity to write metrics.
+// Experimental.
 func Metric_GrantPutMetricData(grantee awsiam.IGrantable) awsiam.Grant {
 	_init_.Initialize()
 
@@ -235,7 +261,7 @@ func Metric_GrantPutMetricData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.Metric",
+		"monocdk.aws_cloudwatch.Metric",
 		"grantPutMetricData",
 		[]interface{}{grantee},
 		&returns,
@@ -260,7 +286,7 @@ func (m *jsiiProxy_Metric) AttachTo(scope constructs.IConstruct) Metric {
 	return returns
 }
 
-func (m *jsiiProxy_Metric) CreateAlarm(scope constructs.Construct, id *string, props *CreateAlarmOptions) Alarm {
+func (m *jsiiProxy_Metric) CreateAlarm(scope awscdk.Construct, id *string, props *CreateAlarmOptions) Alarm {
 	if err := m.validateCreateAlarmParameters(scope, id, props); err != nil {
 		panic(err)
 	}
@@ -270,6 +296,32 @@ func (m *jsiiProxy_Metric) CreateAlarm(scope constructs.Construct, id *string, p
 		m,
 		"createAlarm",
 		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Metric) ToAlarmConfig() *MetricAlarmConfig {
+	var returns *MetricAlarmConfig
+
+	_jsii_.Invoke(
+		m,
+		"toAlarmConfig",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Metric) ToGraphConfig() *MetricGraphConfig {
+	var returns *MetricGraphConfig
+
+	_jsii_.Invoke(
+		m,
+		"toGraphConfig",
+		nil, // no parameters
 		&returns,
 	)
 

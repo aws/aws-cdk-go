@@ -1,13 +1,13 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CodeBuild image running x86-64 Linux.
@@ -56,24 +56,33 @@ import (
 //
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
 //
+// Experimental.
 type LinuxBuildImage interface {
 	IBuildImage
-	// The default `ComputeType` to use with this image, if one was not specified in `BuildEnvironment#computeType` explicitly.
+	// The default {@link ComputeType} to use with this image, if one was not specified in {@link BuildEnvironment#computeType} explicitly.
+	// Experimental.
 	DefaultComputeType() ComputeType
 	// The Docker image identifier that the build environment uses.
+	// Experimental.
 	ImageId() *string
 	// The type of principal that CodeBuild will use to pull this build Docker image.
+	// Experimental.
 	ImagePullPrincipalType() ImagePullPrincipalType
 	// An optional ECR repository that the image is hosted in.
+	// Experimental.
 	Repository() awsecr.IRepository
 	// The secretsManagerCredentials for access to a private registry.
+	// Experimental.
 	SecretsManagerCredentials() awssecretsmanager.ISecret
 	// The type of build environment.
+	// Experimental.
 	Type() *string
 	// Make a buildspec to run the indicated script.
+	// Experimental.
 	RunScriptBuildspec(entrypoint *string) BuildSpec
 	// Allows the image a chance to validate whether the passed configuration is correct.
-	Validate(_env *BuildEnvironment) *[]*string
+	// Experimental.
+	Validate(_arg *BuildEnvironment) *[]*string
 }
 
 // The jsii proxy struct for LinuxBuildImage
@@ -143,6 +152,7 @@ func (j *jsiiProxy_LinuxBuildImage) Type() *string {
 
 
 // Uses an Docker image asset as a x86-64 Linux build image.
+// Experimental.
 func LinuxBuildImage_FromAsset(scope constructs.Construct, id *string, props *awsecrassets.DockerImageAssetProps) IBuildImage {
 	_init_.Initialize()
 
@@ -152,7 +162,7 @@ func LinuxBuildImage_FromAsset(scope constructs.Construct, id *string, props *aw
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"fromAsset",
 		[]interface{}{scope, id, props},
 		&returns,
@@ -170,6 +180,7 @@ func LinuxBuildImage_FromAsset(scope constructs.Construct, id *string, props *aw
 //
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
 //
+// Experimental.
 func LinuxBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 	_init_.Initialize()
 
@@ -179,7 +190,7 @@ func LinuxBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"fromCodeBuildImageId",
 		[]interface{}{id},
 		&returns,
@@ -189,6 +200,7 @@ func LinuxBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 }
 
 // Returns: a x86-64 Linux build image from a Docker Hub image.
+// Experimental.
 func LinuxBuildImage_FromDockerRegistry(name *string, options *DockerImageOptions) IBuildImage {
 	_init_.Initialize()
 
@@ -198,7 +210,7 @@ func LinuxBuildImage_FromDockerRegistry(name *string, options *DockerImageOption
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"fromDockerRegistry",
 		[]interface{}{name, options},
 		&returns,
@@ -213,6 +225,7 @@ func LinuxBuildImage_FromDockerRegistry(name *string, options *DockerImageOption
 // a resource policy statement for it so CodeBuild can pull the image.
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html
 //
+// Experimental.
 func LinuxBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) IBuildImage {
 	_init_.Initialize()
 
@@ -222,7 +235,7 @@ func LinuxBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDiges
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tagOrDigest},
 		&returns,
@@ -235,7 +248,7 @@ func LinuxBuildImage_AMAZON_LINUX_2() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"AMAZON_LINUX_2",
 		&returns,
 	)
@@ -246,7 +259,7 @@ func LinuxBuildImage_AMAZON_LINUX_2_2() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"AMAZON_LINUX_2_2",
 		&returns,
 	)
@@ -257,19 +270,8 @@ func LinuxBuildImage_AMAZON_LINUX_2_3() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"AMAZON_LINUX_2_3",
-		&returns,
-	)
-	return returns
-}
-
-func LinuxBuildImage_AMAZON_LINUX_2_4() IBuildImage {
-	_init_.Initialize()
-	var returns IBuildImage
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
-		"AMAZON_LINUX_2_4",
 		&returns,
 	)
 	return returns
@@ -279,7 +281,7 @@ func LinuxBuildImage_AMAZON_LINUX_2_ARM() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"AMAZON_LINUX_2_ARM",
 		&returns,
 	)
@@ -290,19 +292,8 @@ func LinuxBuildImage_AMAZON_LINUX_2_ARM_2() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"AMAZON_LINUX_2_ARM_2",
-		&returns,
-	)
-	return returns
-}
-
-func LinuxBuildImage_AMAZON_LINUX_2_ARM_3() IBuildImage {
-	_init_.Initialize()
-	var returns IBuildImage
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
-		"AMAZON_LINUX_2_ARM_3",
 		&returns,
 	)
 	return returns
@@ -312,7 +303,7 @@ func LinuxBuildImage_STANDARD_1_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"STANDARD_1_0",
 		&returns,
 	)
@@ -323,7 +314,7 @@ func LinuxBuildImage_STANDARD_2_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"STANDARD_2_0",
 		&returns,
 	)
@@ -334,7 +325,7 @@ func LinuxBuildImage_STANDARD_3_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"STANDARD_3_0",
 		&returns,
 	)
@@ -345,7 +336,7 @@ func LinuxBuildImage_STANDARD_4_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"STANDARD_4_0",
 		&returns,
 	)
@@ -356,30 +347,338 @@ func LinuxBuildImage_STANDARD_5_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"monocdk.aws_codebuild.LinuxBuildImage",
 		"STANDARD_5_0",
 		&returns,
 	)
 	return returns
 }
 
-func LinuxBuildImage_STANDARD_6_0() IBuildImage {
+func LinuxBuildImage_UBUNTU_14_04_ANDROID_JAVA8_24_4_1() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
-		"STANDARD_6_0",
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_ANDROID_JAVA8_24_4_1",
 		&returns,
 	)
 	return returns
 }
 
-func LinuxBuildImage_STANDARD_7_0() IBuildImage {
+func LinuxBuildImage_UBUNTU_14_04_ANDROID_JAVA8_26_1_1() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
-		"STANDARD_7_0",
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_ANDROID_JAVA8_26_1_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_BASE() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_BASE",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_DOCKER_17_09_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_DOCKER_17_09_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_DOCKER_18_09_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_DOCKER_18_09_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_DOTNET_CORE_1_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_DOTNET_CORE_1_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_DOTNET_CORE_2_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_DOTNET_CORE_2_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_DOTNET_CORE_2_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_DOTNET_CORE_2_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_GOLANG_1_10() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_GOLANG_1_10",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_GOLANG_1_11() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_GOLANG_1_11",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_NODEJS_10_1_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_NODEJS_10_14_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_NODEJS_10_14_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_NODEJS_6_3_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_NODEJS_6_3_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_NODEJS_8_11_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_NODEJS_8_11_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_OPEN_JDK_11() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_OPEN_JDK_11",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_OPEN_JDK_8() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_OPEN_JDK_8",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_OPEN_JDK_9() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_OPEN_JDK_9",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PHP_5_6() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PHP_5_6",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PHP_7_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PHP_7_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PHP_7_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PHP_7_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PYTHON_2_7_12() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PYTHON_2_7_12",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PYTHON_3_3_6() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PYTHON_3_3_6",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PYTHON_3_4_5() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PYTHON_3_4_5",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PYTHON_3_5_2() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PYTHON_3_5_2",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PYTHON_3_6_5() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PYTHON_3_6_5",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_PYTHON_3_7_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_PYTHON_3_7_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_RUBY_2_2_5() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_RUBY_2_2_5",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_RUBY_2_3_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_RUBY_2_3_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_RUBY_2_5_1() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_RUBY_2_5_1",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_UBUNTU_14_04_RUBY_2_5_3() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"monocdk.aws_codebuild.LinuxBuildImage",
+		"UBUNTU_14_04_RUBY_2_5_3",
 		&returns,
 	)
 	return returns
@@ -401,8 +700,8 @@ func (l *jsiiProxy_LinuxBuildImage) RunScriptBuildspec(entrypoint *string) Build
 	return returns
 }
 
-func (l *jsiiProxy_LinuxBuildImage) Validate(_env *BuildEnvironment) *[]*string {
-	if err := l.validateValidateParameters(_env); err != nil {
+func (l *jsiiProxy_LinuxBuildImage) Validate(_arg *BuildEnvironment) *[]*string {
+	if err := l.validateValidateParameters(_arg); err != nil {
 		panic(err)
 	}
 	var returns *[]*string
@@ -410,7 +709,7 @@ func (l *jsiiProxy_LinuxBuildImage) Validate(_env *BuildEnvironment) *[]*string 
 	_jsii_.Invoke(
 		l,
 		"validate",
-		[]interface{}{_env},
+		[]interface{}{_arg},
 		&returns,
 	)
 

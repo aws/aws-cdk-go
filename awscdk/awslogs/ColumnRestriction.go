@@ -14,16 +14,20 @@ package awslogs
 //   	StringValue: jsii.String("stringValue"),
 //   }
 //
+// Experimental.
 type ColumnRestriction struct {
 	// Comparison operator to use.
+	// Experimental.
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// Number value to compare to.
 	//
 	// Exactly one of 'stringValue' and 'numberValue' must be set.
+	// Experimental.
 	NumberValue *float64 `field:"optional" json:"numberValue" yaml:"numberValue"`
 	// String value to compare to.
 	//
 	// Exactly one of 'stringValue' and 'numberValue' must be set.
+	// Experimental.
 	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 

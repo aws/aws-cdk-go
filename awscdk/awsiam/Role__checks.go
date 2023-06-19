@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (r *jsiiProxy_Role) validateAddManagedPolicyParameters(policy IManagedPolicy) error {
@@ -98,19 +98,23 @@ func (r *jsiiProxy_Role) validateGrantPassRoleParameters(identity IPrincipal) er
 	return nil
 }
 
-func (r *jsiiProxy_Role) validateWithoutPolicyUpdatesParameters(options *WithoutPolicyUpdatesOptions) error {
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
+func (r *jsiiProxy_Role) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func validateRole_CustomizeRolesParameters(scope constructs.Construct, options *CustomizeRolesOptions) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
+func (r *jsiiProxy_Role) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
+	return nil
+}
+
+func (r *jsiiProxy_Role) validateWithoutPolicyUpdatesParameters(options *WithoutPolicyUpdatesOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -138,7 +142,7 @@ func validateRole_FromRoleArnParameters(scope constructs.Construct, id *string, 
 	return nil
 }
 
-func validateRole_FromRoleNameParameters(scope constructs.Construct, id *string, roleName *string, options *FromRoleNameOptions) error {
+func validateRole_FromRoleNameParameters(scope constructs.Construct, id *string, roleName *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -149,10 +153,6 @@ func validateRole_FromRoleNameParameters(scope constructs.Construct, id *string,
 
 	if roleName == nil {
 		return fmt.Errorf("parameter roleName is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
 	}
 
 	return nil
@@ -166,25 +166,9 @@ func validateRole_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRole_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+func validateRole_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateRole_IsResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateRole_IsRoleParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

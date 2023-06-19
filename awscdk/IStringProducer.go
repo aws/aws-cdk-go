@@ -5,8 +5,10 @@ import (
 )
 
 // Interface for lazy string producers.
+// Experimental.
 type IStringProducer interface {
 	// Produce the string value.
+	// Experimental.
 	Produce(context IResolveContext) *string
 }
 

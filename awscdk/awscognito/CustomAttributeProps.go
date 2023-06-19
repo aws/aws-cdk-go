@@ -34,12 +34,14 @@ package awscognito
 //   	},
 //   })
 //
+// Experimental.
 type CustomAttributeProps struct {
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
+	// Experimental.
 	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 

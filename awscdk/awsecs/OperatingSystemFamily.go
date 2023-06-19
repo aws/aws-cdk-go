@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,6 +30,7 @@ import (
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
 //   })
 //
+// Experimental.
 type OperatingSystemFamily interface {
 }
 
@@ -41,6 +42,7 @@ type jsiiProxy_OperatingSystemFamily struct {
 // Other operating system family.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-operatingsystemfamily for all available operating system family.
 //
+// Experimental.
 func OperatingSystemFamily_Of(family *string) OperatingSystemFamily {
 	_init_.Initialize()
 
@@ -50,7 +52,7 @@ func OperatingSystemFamily_Of(family *string) OperatingSystemFamily {
 	var returns OperatingSystemFamily
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"of",
 		[]interface{}{family},
 		&returns,
@@ -63,7 +65,7 @@ func OperatingSystemFamily_LINUX() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"LINUX",
 		&returns,
 	)
@@ -74,7 +76,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2004_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2004_CORE",
 		&returns,
 	)
@@ -85,7 +87,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2016_FULL() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2016_FULL",
 		&returns,
 	)
@@ -96,7 +98,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2019_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2019_CORE",
 		&returns,
 	)
@@ -107,7 +109,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2019_FULL() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2019_FULL",
 		&returns,
 	)
@@ -118,7 +120,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2022_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2022_CORE",
 		&returns,
 	)
@@ -129,7 +131,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2022_FULL() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2022_FULL",
 		&returns,
 	)
@@ -140,7 +142,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_20H2_CORE",
 		&returns,
 	)

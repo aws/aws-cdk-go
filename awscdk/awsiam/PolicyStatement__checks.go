@@ -84,22 +84,6 @@ func (p *jsiiProxy_PolicyStatement) validateAddServicePrincipalParameters(servic
 	return nil
 }
 
-func (p *jsiiProxy_PolicyStatement) validateAddSourceAccountConditionParameters(accountId *string) error {
-	if accountId == nil {
-		return fmt.Errorf("parameter accountId is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (p *jsiiProxy_PolicyStatement) validateAddSourceArnConditionParameters(arn *string) error {
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (p *jsiiProxy_PolicyStatement) validateCopyParameters(overrides *PolicyStatementProps) error {
 	if err := _jsii_.ValidateStruct(overrides, func() string { return "parameter overrides" }); err != nil {
 		return err

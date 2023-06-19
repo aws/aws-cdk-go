@@ -1,7 +1,7 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // HTTP retry policy.
@@ -30,20 +30,24 @@ import (
 //   			// Retry five times
 //   			RetryAttempts: jsii.Number(5),
 //   			// Use a 1 second timeout per retry
-//   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
+//   			RetryTimeout: cdk.Duration_Seconds(jsii.Number(1)),
 //   		},
 //   	}),
 //   })
 //
+// Experimental.
 type HttpRetryPolicy struct {
 	// The maximum number of retry attempts.
+	// Experimental.
 	RetryAttempts *float64 `field:"required" json:"retryAttempts" yaml:"retryAttempts"`
 	// The timeout for each retry attempt.
+	// Experimental.
 	RetryTimeout awscdk.Duration `field:"required" json:"retryTimeout" yaml:"retryTimeout"`
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
+	// Experimental.
 	HttpRetryEvents *[]HttpRetryEvent `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// TCP events on which to retry.
 	//
@@ -51,6 +55,7 @@ type HttpRetryPolicy struct {
 	// request has started and is encountered when the upstream is temporarily or
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
+	// Experimental.
 	TcpRetryEvents *[]TcpRetryEvent `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 

@@ -95,12 +95,16 @@ package awsrds
 //   	},
 //   })
 //
+// Experimental.
 type ParameterGroupProps struct {
 	// The database engine for this parameter group.
+	// Experimental.
 	Engine IEngine `field:"required" json:"engine" yaml:"engine"`
 	// Description for this parameter group.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The parameters in this parameter group.
+	// Experimental.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

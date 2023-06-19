@@ -3,34 +3,39 @@ package awseks
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An EKS cluster.
+// Experimental.
 type ICluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Defines a CDK8s chart in this cluster.
 	//
 	// Returns: a `KubernetesManifest` construct representing the chart.
+	// Experimental.
 	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	// Defines a Helm chart in this cluster.
 	//
 	// Returns: a `HelmChart` construct.
+	// Experimental.
 	AddHelmChart(id *string, options *HelmChartOptions) HelmChart
 	// Defines a Kubernetes resource in this cluster.
 	//
 	// The manifest will be applied/deleted using kubectl as needed.
 	//
 	// Returns: a `KubernetesManifest` object.
+	// Experimental.
 	AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest
 	// Creates a new service account with corresponding IAM Role (IRSA).
+	// Experimental.
 	AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount
 	// Connect capacity in the form of an existing AutoScalingGroup to the EKS cluster.
 	//
@@ -48,72 +53,83 @@ type ICluster interface {
 	// Prefer to use `addAutoScalingGroupCapacity` if possible.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 	//
+	// Experimental.
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
-	// An AWS Lambda layer that contains the `aws` CLI.
-	//
-	// If not defined, a default layer will be used containing the AWS CLI 1.x.
-	AwscliLayer() awslambda.ILayerVersion
 	// The unique ARN assigned to the service by AWS in the form of arn:aws:eks:.
+	// Experimental.
 	ClusterArn() *string
 	// The certificate-authority-data for your cluster.
+	// Experimental.
 	ClusterCertificateAuthorityData() *string
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
+	// Experimental.
 	ClusterEncryptionConfigKeyArn() *string
 	// The API Server endpoint URL.
+	// Experimental.
 	ClusterEndpoint() *string
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
 	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	// The physical name of the Cluster.
+	// Experimental.
 	ClusterName() *string
 	// The cluster security group that was created by Amazon EKS for the cluster.
+	// Experimental.
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
+	// Experimental.
 	ClusterSecurityGroupId() *string
-	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
-	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
-	//
-	IpFamily() IpFamily
 	// Custom environment variables when running `kubectl` against this cluster.
+	// Experimental.
 	KubectlEnvironment() *map[string]*string
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
 	//
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands to the cluster.
+	// Experimental.
 	KubectlLambdaRole() awsiam.IRole
-	// An AWS Lambda layer that includes `kubectl` and `helm`.
+	// An AWS Lambda layer that includes `kubectl`, `helm` and the `aws` CLI.
 	//
-	// If not defined, a default layer will be used containing Kubectl 1.20 and Helm 3.8
+	// If not defined, a default layer will be used.
+	// Experimental.
 	KubectlLayer() awslambda.ILayerVersion
 	// Amount of memory to allocate to the provider's lambda function.
+	// Experimental.
 	KubectlMemory() awscdk.Size
 	// Subnets to host the `kubectl` compute resources.
 	//
 	// If this is undefined, the k8s endpoint is expected to be accessible
 	// publicly.
+	// Experimental.
 	KubectlPrivateSubnets() *[]awsec2.ISubnet
 	// Kubectl Provider for issuing kubectl commands against it.
 	//
 	// If not defined, a default provider will be used.
+	// Experimental.
 	KubectlProvider() IKubectlProvider
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
+	// Experimental.
 	KubectlRole() awsiam.IRole
 	// A security group to use for `kubectl` execution.
 	//
 	// If this is undefined, the k8s endpoint is expected to be accessible
 	// publicly.
+	// Experimental.
 	KubectlSecurityGroup() awsec2.ISecurityGroup
 	// An AWS Lambda layer that includes the NPM dependency `proxy-agent`.
 	//
 	// If not defined, a default layer will be used.
+	// Experimental.
 	OnEventLayer() awslambda.ILayerVersion
 	// The Open ID Connect Provider of the cluster used to configure Service Accounts.
+	// Experimental.
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	// Indicates whether Kubernetes resources can be automatically pruned.
 	//
@@ -121,8 +137,10 @@ type ICluster interface {
 	// this is enabled (default), prune labels will be allocated and injected to
 	// each resource. These labels will then be used when issuing the `kubectl
 	// apply` operation with the `--prune` switch.
+	// Experimental.
 	Prune() *bool
 	// The VPC in which this Cluster was created.
+	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -223,16 +241,6 @@ func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-func (j *jsiiProxy_ICluster) AwscliLayer() awslambda.ILayerVersion {
-	var returns awslambda.ILayerVersion
-	_jsii_.Get(
-		j,
-		"awscliLayer",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ICluster) ClusterArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -308,16 +316,6 @@ func (j *jsiiProxy_ICluster) ClusterSecurityGroupId() *string {
 	_jsii_.Get(
 		j,
 		"clusterSecurityGroupId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ICluster) IpFamily() IpFamily {
-	var returns IpFamily
-	_jsii_.Get(
-		j,
-		"ipFamily",
 		&returns,
 	)
 	return returns
@@ -463,8 +461,8 @@ func (j *jsiiProxy_ICluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ICluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ICluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

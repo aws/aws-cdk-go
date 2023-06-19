@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnHookVersion) validateAddDeletionOverrideParameters(path *s
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookVersion) validateAddDependencyParameters(target CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnHookVersion) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnHookVersion) validateInspectParameters(inspector TreeInspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnHookVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookVersion) validateRemoveDependencyParameters(target CfnResource) error {
+func (c *jsiiProxy_CfnHookVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnHookVersion) validateRenderPropertiesParameters(props *map
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookVersion) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
+func (c *jsiiProxy_CfnHookVersion) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnHookVersion) validateSetTypeNameParameters(val *string) er
 	return nil
 }
 
-func validateNewCfnHookVersionParameters(scope constructs.Construct, id *string, props *CfnHookVersionProps) error {
+func validateNewCfnHookVersionParameters(scope Construct, id *string, props *CfnHookVersionProps) error {
 	return nil
 }
 

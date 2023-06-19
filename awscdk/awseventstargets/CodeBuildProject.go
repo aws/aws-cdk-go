@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
 )
 
 // Start a CodeBuild build when an Amazon EventBridge rule is triggered.
@@ -20,11 +20,11 @@ import (
 //   var myTopic topic
 //
 //
-//   // starts a CodeBuild project when a commit is pushed to the "main" branch of the repo
-//   repo.onCommit(jsii.String("CommitToMain"), &OnCommitOptions{
+//   // starts a CodeBuild project when a commit is pushed to the "master" branch of the repo
+//   repo.onCommit(jsii.String("CommitToMaster"), &OnCommitOptions{
 //   	Target: targets.NewCodeBuildProject(project),
 //   	Branches: []*string{
-//   		jsii.String("main"),
+//   		jsii.String("master"),
 //   	},
 //   })
 //
@@ -33,9 +33,11 @@ import (
 //   	Target: targets.NewSnsTopic(myTopic),
 //   })
 //
+// Experimental.
 type CodeBuildProject interface {
 	awsevents.IRuleTarget
 	// Allows using build projects as event rule targets.
+	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -44,6 +46,7 @@ type jsiiProxy_CodeBuildProject struct {
 	internal.Type__awseventsIRuleTarget
 }
 
+// Experimental.
 func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectProps) CodeBuildProject {
 	_init_.Initialize()
 
@@ -53,7 +56,7 @@ func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectP
 	j := jsiiProxy_CodeBuildProject{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		[]interface{}{project, props},
 		&j,
 	)
@@ -61,11 +64,12 @@ func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectP
 	return &j
 }
 
+// Experimental.
 func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProject, props *CodeBuildProjectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		[]interface{}{project, props},
 		c,
 	)

@@ -12,8 +12,10 @@ package awsappmesh
 //   	MaxRequests: jsii.Number(123),
 //   }
 //
+// Experimental.
 type Http2ConnectionPool struct {
 	// The maximum requests in the pool.
+	// Experimental.
 	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 

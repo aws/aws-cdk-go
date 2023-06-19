@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // Identifies a model that you want to host and the resources to deploy for hosting it.
@@ -28,20 +28,27 @@ import (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html
 //
+// Experimental.
 type ProductionVariant struct {
 	// The ML compute instance type.
+	// Experimental.
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The name of the model that you want to host.
 	//
 	// This is the name that you specified when creating the model.
+	// Experimental.
 	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`
 	// The name of the production variant.
+	// Experimental.
 	VariantName *string `field:"required" json:"variantName" yaml:"variantName"`
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	// Experimental.
 	AcceleratorType AcceleratorType `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
 	// Number of instances to launch initially.
+	// Experimental.
 	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+	// Experimental.
 	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
 }
 

@@ -1,95 +1,64 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Create an Aurora Serverless Cluster.
 //
 // Example:
-//   // Build a data source for AppSync to access the database.
-//   var api graphqlApi
-//   // Create username and password secret for DB Cluster
-//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
-//   	Username: jsii.String("clusteradmin"),
-//   })
+//   var vpc vpc
 //
-//   // The VPC to place the cluster in
-//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
+//   var code code
 //
-//   // Create the serverless cluster, provide all values needed to customise the database.
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &ServerlessClusterProps{
+//
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
 //   	Vpc: Vpc,
-//   	Credentials: map[string]*string{
-//   		"username": jsii.String("clusteradmin"),
+//   	 // this parameter is optional for serverless Clusters
+//   	EnableDataApi: jsii.Boolean(true),
+//   })
+//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: Code,
+//   	Environment: map[string]*string{
+//   		"CLUSTER_ARN": cluster.clusterArn,
+//   		"SECRET_ARN": cluster.secret.secretArn,
 //   	},
-//   	ClusterIdentifier: jsii.String("db-endpoint-test"),
-//   	DefaultDatabaseName: jsii.String("demos"),
 //   })
-//   rdsDS := api.AddRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//   cluster.grantDataApiAccess(fn)
 //
-//   // Set up a resolver for an RDS query.
-//   rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getDemosRds"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
-//   	  {
-//   	    "version": "2018-05-29",
-//   	    "statements": [
-//   	      "SELECT * FROM demos"
-//   	    ]
-//   	  }
-//   	  `)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
-//   	  `)),
-//   })
-//
-//   // Set up a resolver for an RDS mutation.
-//   rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("addDemoRds"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	  {
-//   	    "version": "2018-05-29",
-//   	    "statements": [
-//   	      "INSERT INTO demos VALUES (:id, :version)",
-//   	      "SELECT * WHERE id = :id"
-//   	    ],
-//   	    "variableMap": {
-//   	      ":id": $util.toJson($util.autoId()),
-//   	      ":version": $util.toJson($ctx.args.version)
-//   	    }
-//   	  }
-//   	  `)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
-//   	  `)),
-//   })
-//
+// Experimental.
 type ServerlessCluster interface {
 	awscdk.Resource
 	IServerlessCluster
 	// The ARN of the cluster.
+	// Experimental.
 	ClusterArn() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
+	// Experimental.
 	Connections() awsec2.Connections
+	// Experimental.
 	EnableDataApi() *bool
+	// Experimental.
 	SetEnableDataApi(val *bool)
 	// The environment this resource belongs to.
 	//
@@ -99,26 +68,35 @@ type ServerlessCluster interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
 	// - a concrete value (e.g. `"my-awesome-bucket"`)
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
-	//   cross-environment scenarios.
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The secret attached to this cluster.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
+	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds the multi user rotation to this cluster.
+	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	// Adds the single user rotation of the master password to this cluster.
+	// Experimental.
 	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
@@ -129,9 +107,12 @@ type ServerlessCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -139,17 +120,69 @@ type ServerlessCluster interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity to access to the Data API, including read access to the secret attached to the cluster if present.
+	// Experimental.
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerlessCluster
@@ -238,8 +271,8 @@ func (j *jsiiProxy_ServerlessCluster) NewCfnProps() *CfnDBClusterProps {
 	return returns
 }
 
-func (j *jsiiProxy_ServerlessCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerlessCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -289,6 +322,7 @@ func (j *jsiiProxy_ServerlessCluster) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewServerlessCluster(scope constructs.Construct, id *string, props *ServerlessClusterProps) ServerlessCluster {
 	_init_.Initialize()
 
@@ -298,7 +332,7 @@ func NewServerlessCluster(scope constructs.Construct, id *string, props *Serverl
 	j := jsiiProxy_ServerlessCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -306,11 +340,12 @@ func NewServerlessCluster(scope constructs.Construct, id *string, props *Serverl
 	return &j
 }
 
+// Experimental.
 func NewServerlessCluster_Override(s ServerlessCluster, scope constructs.Construct, id *string, props *ServerlessClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -325,6 +360,7 @@ func (j *jsiiProxy_ServerlessCluster)SetEnableDataApi(val *bool) {
 }
 
 // Import an existing DatabaseCluster from properties.
+// Experimental.
 func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construct, id *string, attrs *ServerlessClusterAttributes) IServerlessCluster {
 	_init_.Initialize()
 
@@ -334,7 +370,7 @@ func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construc
 	var returns IServerlessCluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"fromServerlessClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -343,23 +379,8 @@ func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construc
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerlessCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -369,7 +390,7 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -378,27 +399,9 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns true if the construct was created by CDK, and false otherwise.
-func ServerlessCluster_IsOwnedResource(construct constructs.IConstruct) *bool {
-	_init_.Initialize()
-
-	if err := validateServerlessCluster_IsOwnedResourceParameters(construct); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
-		"isOwnedResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
 // Check whether the given construct is a Resource.
-func ServerlessCluster_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ServerlessCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	if err := validateServerlessCluster_IsResourceParameters(construct); err != nil {
@@ -407,7 +410,7 @@ func ServerlessCluster_IsResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -533,12 +536,76 @@ func (s *jsiiProxy_ServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantab
 	return returns
 }
 
+func (s *jsiiProxy_ServerlessCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerlessCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServerlessCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerlessCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

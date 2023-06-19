@@ -39,16 +39,19 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("gateway"),
 //   })
 //
+// Experimental.
 type DnsResponseType string
 
 const (
 	// DNS resolver returns a loadbalanced set of endpoints and the traffic would be sent to the given endpoints.
 	//
 	// It would not drain existing connections to other endpoints that are not part of this list.
+	// Experimental.
 	DnsResponseType_LOAD_BALANCER DnsResponseType = "LOAD_BALANCER"
 	// DNS resolver is returning all the endpoints.
 	//
 	// This also means that if an endpoint is missing, it would drain the current connections to the missing endpoint.
+	// Experimental.
 	DnsResponseType_ENDPOINTS DnsResponseType = "ENDPOINTS"
 )
 

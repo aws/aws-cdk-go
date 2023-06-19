@@ -3,13 +3,14 @@ package awss3
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awss3/internal"
 )
 
+// Experimental.
 type IBucket interface {
 	awscdk.IResource
 	// Adds a bucket notification event destination.
@@ -24,16 +25,19 @@ type IBucket interface {
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//
+	// Experimental.
 	AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is created in the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(s3.EventType.OBJECT_CREATED)`.
+	// Experimental.
 	AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is removed from the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
+	// Experimental.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	//
@@ -48,25 +52,15 @@ type IBucket interface {
 	// should always check this value to make sure that the operation was
 	// actually carried out. Otherwise, synthesis and deploy will terminate
 	// silently, which may be confusing.
+	// Experimental.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 	//
 	// To represent all keys, specify ``"*"``.
+	// Experimental.
 	ArnForObjects(keyPattern *string) *string
-	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
-	//
-	// - Object Deleted (DeleteObject)
-	// - Object Deleted (Lifecycle expiration)
-	// - Object Restore Initiated
-	// - Object Restore Completed
-	// - Object Restore Expired
-	// - Object Storage Class Changed
-	// - Object Access Tier Changed
-	// - Object ACL Updated
-	// - Object Tags Added
-	// - Object Tags Deleted.
-	EnableEventBridgeNotification()
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+	// Experimental.
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
 	//
@@ -82,26 +76,30 @@ type IBucket interface {
 	// as needed. For example, you can add a condition that will restrict access only
 	// to an IPv4 range like this:
 	//
-	//     const grant = bucket.grantPublicAccess();
-	//     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+	//      const grant = bucket.grantPublicAccess();
+	//      grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
 	//
 	// Returns: The `iam.PolicyStatement` object, which can be used to apply e.g. conditions.
+	// Experimental.
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
 	//
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
+	// Experimental.
 	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 	//
 	// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-	// calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+	// calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
+	// Experimental.
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
+	// Experimental.
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
@@ -114,7 +112,8 @@ type IBucket interface {
 	// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-	// use the `grantPutAcl` method.
+	// use the {@link grantPutAcl} method.
+	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant write permissions to this bucket to an IAM principal.
 	//
@@ -127,12 +126,14 @@ type IBucket interface {
 	// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-	// use the `grantPutAcl` method.
-	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant
+	// use the {@link grantPutAcl} method.
+	// Experimental.
+	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Defines a CloudWatch event that triggers when something happens to this bucket.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
+	// Experimental.
 	OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 	//
@@ -142,6 +143,7 @@ type IBucket interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
+	// Experimental.
 	OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 	//
@@ -154,6 +156,7 @@ type IBucket interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
+	// Experimental.
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// The S3 URL of an S3 object.
 	//
@@ -162,6 +165,7 @@ type IBucket interface {
 	// - `s3://bucket/key`.
 	//
 	// Returns: an ObjectS3Url token.
+	// Experimental.
 	S3UrlForObject(key *string) *string
 	// The https Transfer Acceleration URL of an S3 object.
 	//
@@ -172,6 +176,7 @@ type IBucket interface {
 	// - `https://bucket.s3-accelerate.amazonaws.com/key`
 	//
 	// Returns: an TransferAccelerationUrl token.
+	// Experimental.
 	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	// The https URL of an S3 object. For example:.
 	//
@@ -180,6 +185,7 @@ type IBucket interface {
 	// - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 	//
 	// Returns: an ObjectS3Url token.
+	// Experimental.
 	UrlForObject(key *string) *string
 	// The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 	//
@@ -189,30 +195,42 @@ type IBucket interface {
 	// - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
 	//
 	// Returns: an ObjectS3Url token.
+	// Experimental.
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 	// The ARN of the bucket.
+	// Experimental.
 	BucketArn() *string
 	// The IPv4 DNS name of the specified bucket.
+	// Experimental.
 	BucketDomainName() *string
 	// The IPv6 DNS name of the specified bucket.
+	// Experimental.
 	BucketDualStackDomainName() *string
 	// The name of the bucket.
+	// Experimental.
 	BucketName() *string
 	// The regional domain name of the specified bucket.
+	// Experimental.
 	BucketRegionalDomainName() *string
 	// The Domain name of the static website.
+	// Experimental.
 	BucketWebsiteDomainName() *string
 	// The URL of the static website.
+	// Experimental.
 	BucketWebsiteUrl() *string
 	// Optional KMS encryption key associated with this bucket.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// If this bucket has been configured for static website hosting.
+	// Experimental.
 	IsWebsite() *bool
 	// The resource policy associated with this bucket.
 	//
 	// If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
 	// first call to addToResourcePolicy(s).
+	// Experimental.
 	Policy() BucketPolicy
+	// Experimental.
 	SetPolicy(p BucketPolicy)
 }
 
@@ -299,14 +317,6 @@ func (i *jsiiProxy_IBucket) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
-}
-
-func (i *jsiiProxy_IBucket) EnableEventBridgeNotification() {
-	_jsii_.InvokeVoid(
-		i,
-		"enableEventBridgeNotification",
-		nil, // no parameters
-	)
 }
 
 func (i *jsiiProxy_IBucket) GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
@@ -407,7 +417,7 @@ func (i *jsiiProxy_IBucket) GrantReadWrite(identity awsiam.IGrantable, objectsKe
 	return returns
 }
 
-func (i *jsiiProxy_IBucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant {
+func (i *jsiiProxy_IBucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
 	if err := i.validateGrantWriteParameters(identity); err != nil {
 		panic(err)
 	}
@@ -416,7 +426,7 @@ func (i *jsiiProxy_IBucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPat
 	_jsii_.Invoke(
 		i,
 		"grantWrite",
-		[]interface{}{identity, objectsKeyPattern, allowedActionPatterns},
+		[]interface{}{identity, objectsKeyPattern},
 		&returns,
 	)
 

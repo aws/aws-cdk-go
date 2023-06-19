@@ -1,11 +1,11 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
 )
 
 // Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
@@ -22,9 +22,11 @@ import (
 //   	Topic: topic,
 //   })
 //
+// Experimental.
 type Stop interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -33,6 +35,7 @@ type jsiiProxy_Stop struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
+// Experimental.
 func NewStop(props *StopProps) Stop {
 	_init_.Initialize()
 
@@ -42,7 +45,7 @@ func NewStop(props *StopProps) Stop {
 	j := jsiiProxy_Stop{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Stop",
+		"monocdk.aws_ses_actions.Stop",
 		[]interface{}{props},
 		&j,
 	)
@@ -50,11 +53,12 @@ func NewStop(props *StopProps) Stop {
 	return &j
 }
 
+// Experimental.
 func NewStop_Override(s Stop, props *StopProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Stop",
+		"monocdk.aws_ses_actions.Stop",
 		[]interface{}{props},
 		s,
 	)

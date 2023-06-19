@@ -1,7 +1,7 @@
 package regioninfo
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,8 +14,9 @@ import (
 //   	value
 //   }
 //
-//   regionInfo.Fact_Register(NewMyFact(), jsii.Boolean(true))
+//   regionInfo.Fact_Register(NewMyFact())
 //
+// Experimental.
 type Fact interface {
 }
 
@@ -27,6 +28,7 @@ type jsiiProxy_Fact struct {
 // Retrieves a fact from this Fact database.
 //
 // Returns: the fact value if it is known, and `undefined` otherwise.
+// Experimental.
 func Fact_Find(region *string, name *string) *string {
 	_init_.Initialize()
 
@@ -36,7 +38,7 @@ func Fact_Find(region *string, name *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"find",
 		[]interface{}{region, name},
 		&returns,
@@ -46,6 +48,7 @@ func Fact_Find(region *string, name *string) *string {
 }
 
 // Registers a new fact in this Fact database.
+// Experimental.
 func Fact_Register(fact IFact, allowReplacing *bool) {
 	_init_.Initialize()
 
@@ -53,7 +56,7 @@ func Fact_Register(fact IFact, allowReplacing *bool) {
 		panic(err)
 	}
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"register",
 		[]interface{}{fact, allowReplacing},
 	)
@@ -63,6 +66,7 @@ func Fact_Register(fact IFact, allowReplacing *bool) {
 //
 // (retrieval will fail if the specified region or
 // fact name does not exist.)
+// Experimental.
 func Fact_RequireFact(region *string, name *string) *string {
 	_init_.Initialize()
 
@@ -72,7 +76,7 @@ func Fact_RequireFact(region *string, name *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"requireFact",
 		[]interface{}{region, name},
 		&returns,
@@ -82,6 +86,7 @@ func Fact_RequireFact(region *string, name *string) *string {
 }
 
 // Removes a fact from the database.
+// Experimental.
 func Fact_Unregister(region *string, name *string, value *string) {
 	_init_.Initialize()
 
@@ -89,7 +94,7 @@ func Fact_Unregister(region *string, name *string, value *string) {
 		panic(err)
 	}
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"unregister",
 		[]interface{}{region, name, value},
 	)
@@ -99,7 +104,7 @@ func Fact_Regions() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"regions",
 		&returns,
 	)

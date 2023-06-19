@@ -1,25 +1,26 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // factory methods for access log format.
 //
 // Example:
-//   apigateway.AccessLogFormat_Custom(jSON.stringify(map[string]interface{}{
-//   	"requestId": apigateway.AccessLogField_contextRequestId(),
-//   	"sourceIp": apigateway.AccessLogField_contextIdentitySourceIp(),
-//   	"method": apigateway.AccessLogField_contextHttpMethod(),
-//   	"userContext": map[string]*string{
-//   		"sub": apigateway.AccessLogField_contextAuthorizerClaims(jsii.String("sub")),
-//   		"email": apigateway.AccessLogField_contextAuthorizerClaims(jsii.String("email")),
+//   logGroup := logs.NewLogGroup(this, jsii.String("ApiGatewayAccessLogs"))
+//   apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+//   	DeployOptions: &StageOptions{
+//   		AccessLogDestination: apigateway.NewLogGroupLogDestination(logGroup),
+//   		AccessLogFormat: apigateway.AccessLogFormat_Custom(
+//   		fmt.Sprintf("%v %v %v", apigateway.AccessLogField_ContextRequestId(), apigateway.AccessLogField_ContextErrorMessage(), apigateway.AccessLogField_ContextErrorMessageString())),
 //   	},
-//   }))
+//   })
 //
+// Experimental.
 type AccessLogFormat interface {
 	// Output a format string to be used with CloudFormation.
+	// Experimental.
 	ToString() *string
 }
 
@@ -29,13 +30,14 @@ type jsiiProxy_AccessLogFormat struct {
 }
 
 // Generate Common Log Format.
+// Experimental.
 func AccessLogFormat_Clf() AccessLogFormat {
 	_init_.Initialize()
 
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
+		"monocdk.aws_apigateway.AccessLogFormat",
 		"clf",
 		nil, // no parameters
 		&returns,
@@ -59,6 +61,7 @@ func AccessLogFormat_Clf() AccessLogFormat {
 //   	},
 //   }))
 //
+// Experimental.
 func AccessLogFormat_Custom(format *string) AccessLogFormat {
 	_init_.Initialize()
 
@@ -68,7 +71,7 @@ func AccessLogFormat_Custom(format *string) AccessLogFormat {
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
+		"monocdk.aws_apigateway.AccessLogFormat",
 		"custom",
 		[]interface{}{format},
 		&returns,
@@ -81,6 +84,7 @@ func AccessLogFormat_Custom(format *string) AccessLogFormat {
 //
 // All fields are turned on by default with the
 // option to turn off specific fields.
+// Experimental.
 func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) AccessLogFormat {
 	_init_.Initialize()
 
@@ -90,7 +94,7 @@ func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) 
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
+		"monocdk.aws_apigateway.AccessLogFormat",
 		"jsonWithStandardFields",
 		[]interface{}{fields},
 		&returns,

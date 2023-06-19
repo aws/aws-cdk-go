@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (e *jsiiProxy_EcsApplication) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -42,17 +42,17 @@ func (e *jsiiProxy_EcsApplication) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func validateEcsApplication_FromEcsApplicationArnParameters(scope constructs.Construct, id *string, ecsApplicationArn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
+func (e *jsiiProxy_EcsApplication) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
+	return nil
+}
 
-	if ecsApplicationArn == nil {
-		return fmt.Errorf("parameter ecsApplicationArn is required, but nil was provided")
+func (e *jsiiProxy_EcsApplication) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -82,15 +82,7 @@ func validateEcsApplication_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEcsApplication_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateEcsApplication_IsResourceParameters(construct constructs.IConstruct) error {
+func validateEcsApplication_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

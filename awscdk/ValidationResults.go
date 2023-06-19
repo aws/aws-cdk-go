@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -10,24 +10,31 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var validationResult validationResult
 //
-//   validationResults := cdk.NewValidationResults([]validationResult{
+//   validationResults := monocdk.NewValidationResults([]validationResult{
 //   	validationResult,
 //   })
 //
+// Experimental.
 type ValidationResults interface {
+	// Experimental.
 	IsSuccess() *bool
+	// Experimental.
 	Results() *[]ValidationResult
+	// Experimental.
 	SetResults(val *[]ValidationResult)
+	// Experimental.
 	Collect(result ValidationResult)
+	// Experimental.
 	ErrorTreeList() *string
 	// Wrap up all validation results into a single tree node.
 	//
 	// If there are failures in the collection, add a message, otherwise
 	// return a success.
+	// Experimental.
 	Wrap(message *string) ValidationResult
 }
 
@@ -57,13 +64,14 @@ func (j *jsiiProxy_ValidationResults) Results() *[]ValidationResult {
 }
 
 
+// Experimental.
 func NewValidationResults(results *[]ValidationResult) ValidationResults {
 	_init_.Initialize()
 
 	j := jsiiProxy_ValidationResults{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.ValidationResults",
+		"monocdk.ValidationResults",
 		[]interface{}{results},
 		&j,
 	)
@@ -71,11 +79,12 @@ func NewValidationResults(results *[]ValidationResult) ValidationResults {
 	return &j
 }
 
+// Experimental.
 func NewValidationResults_Override(v ValidationResults, results *[]ValidationResult) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.ValidationResults",
+		"monocdk.ValidationResults",
 		[]interface{}{results},
 		v,
 	)

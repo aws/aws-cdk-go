@@ -39,10 +39,13 @@ package awscognito
 //   	},
 //   }
 //
+// Experimental.
 type UserPoolIdentityProviderProps struct {
 	// The user pool to which this construct provides identities.
+	// Experimental.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
+	// Experimental.
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 }
 

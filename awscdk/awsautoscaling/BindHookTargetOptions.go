@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Options needed to bind a target to a lifecycle hook.
@@ -24,14 +24,17 @@ import (
 //   	Role: role,
 //   }
 //
+// Experimental.
 type BindHookTargetOptions struct {
 	// The lifecycle hook to attach to.
 	//
 	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	LifecycleHook LifecycleHook `field:"required" json:"lifecycleHook" yaml:"lifecycleHook"`
 	// The role to use when attaching to the lifecycle hook.
 	//
 	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

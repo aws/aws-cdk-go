@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -15,41 +15,38 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var value interface{}
 //
-//   intrinsic := cdk.NewIntrinsic(value, &IntrinsicProps{
+//   intrinsic := monocdk.NewIntrinsic(value, &IntrinsicProps{
 //   	StackTrace: jsii.Boolean(false),
-//   	TypeHint: cdk.ResolutionTypeHint_STRING,
 //   })
 //
+// Experimental.
 type Intrinsic interface {
 	IResolvable
 	// The captured stack trace which represents the location in which this token was created.
+	// Experimental.
 	CreationStack() *[]*string
-	// Type that the Intrinsic is expected to evaluate to.
-	TypeHint() ResolutionTypeHint
 	// Creates a throwable Error object that contains the token creation stack trace.
+	// Experimental.
 	NewError(message *string) interface{}
 	// Produce the Token's value at resolution time.
+	// Experimental.
 	Resolve(_context IResolveContext) interface{}
 	// Turn this Token into JSON.
 	//
 	// Called automatically when JSON.stringify() is called on a Token.
+	// Experimental.
 	ToJSON() interface{}
 	// Convert an instance of this Token to a string.
 	//
 	// This method will be called implicitly by language runtimes if the object
 	// is embedded into a string. We treat it the same as an explicit
 	// stringification.
+	// Experimental.
 	ToString() *string
-	// Convert an instance of this Token to a string list.
-	//
-	// This method will be called implicitly by language runtimes if the object
-	// is embedded into a list. We treat it the same as an explicit
-	// stringification.
-	ToStringList() *[]*string
 }
 
 // The jsii proxy struct for Intrinsic
@@ -67,17 +64,8 @@ func (j *jsiiProxy_Intrinsic) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_Intrinsic) TypeHint() ResolutionTypeHint {
-	var returns ResolutionTypeHint
-	_jsii_.Get(
-		j,
-		"typeHint",
-		&returns,
-	)
-	return returns
-}
 
-
+// Experimental.
 func NewIntrinsic(value interface{}, options *IntrinsicProps) Intrinsic {
 	_init_.Initialize()
 
@@ -87,7 +75,7 @@ func NewIntrinsic(value interface{}, options *IntrinsicProps) Intrinsic {
 	j := jsiiProxy_Intrinsic{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.Intrinsic",
+		"monocdk.Intrinsic",
 		[]interface{}{value, options},
 		&j,
 	)
@@ -95,11 +83,12 @@ func NewIntrinsic(value interface{}, options *IntrinsicProps) Intrinsic {
 	return &j
 }
 
+// Experimental.
 func NewIntrinsic_Override(i Intrinsic, value interface{}, options *IntrinsicProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.Intrinsic",
+		"monocdk.Intrinsic",
 		[]interface{}{value, options},
 		i,
 	)
@@ -156,19 +145,6 @@ func (i *jsiiProxy_Intrinsic) ToString() *string {
 	_jsii_.Invoke(
 		i,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_Intrinsic) ToStringList() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		i,
-		"toStringList",
 		nil, // no parameters
 		&returns,
 	)

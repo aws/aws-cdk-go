@@ -8,7 +8,7 @@ func (l *jsiiProxy_LinuxBuildImage) validateRunScriptBuildspecParameters(entrypo
 	return nil
 }
 
-func (l *jsiiProxy_LinuxBuildImage) validateValidateParameters(_env *BuildEnvironment) error {
+func (l *jsiiProxy_LinuxBuildImage) validateValidateParameters(_arg *BuildEnvironment) error {
 	return nil
 }
 

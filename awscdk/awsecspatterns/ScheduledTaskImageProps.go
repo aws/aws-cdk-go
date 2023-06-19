@@ -1,7 +1,7 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
 )
 
 // Example:
@@ -30,20 +30,26 @@ import (
 //   	},
 //   }
 //
+// Experimental.
 type ScheduledTaskImageProps struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
+	// Experimental.
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
+	// Experimental.
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The log driver to use.
+	// Experimental.
 	LogDriver awsecs.LogDriver `field:"optional" json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
+	// Experimental.
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 }
 

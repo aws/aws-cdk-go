@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -32,9 +32,11 @@ import (
 //   	Authorizer: auth,
 //   })
 //
+// Experimental.
 type HttpIntegration interface {
 	Integration
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
+	// Experimental.
 	Bind(_method Method) *IntegrationConfig
 }
 
@@ -43,6 +45,7 @@ type jsiiProxy_HttpIntegration struct {
 	jsiiProxy_Integration
 }
 
+// Experimental.
 func NewHttpIntegration(url *string, props *HttpIntegrationProps) HttpIntegration {
 	_init_.Initialize()
 
@@ -52,7 +55,7 @@ func NewHttpIntegration(url *string, props *HttpIntegrationProps) HttpIntegratio
 	j := jsiiProxy_HttpIntegration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.HttpIntegration",
+		"monocdk.aws_apigateway.HttpIntegration",
 		[]interface{}{url, props},
 		&j,
 	)
@@ -60,11 +63,12 @@ func NewHttpIntegration(url *string, props *HttpIntegrationProps) HttpIntegratio
 	return &j
 }
 
+// Experimental.
 func NewHttpIntegration_Override(h HttpIntegration, url *string, props *HttpIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.HttpIntegration",
+		"monocdk.aws_apigateway.HttpIntegration",
 		[]interface{}{url, props},
 		h,
 	)

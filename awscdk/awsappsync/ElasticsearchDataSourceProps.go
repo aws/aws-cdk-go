@@ -1,8 +1,8 @@
 package awsappsync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticsearch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Properties for the Elasticsearch Data Source.

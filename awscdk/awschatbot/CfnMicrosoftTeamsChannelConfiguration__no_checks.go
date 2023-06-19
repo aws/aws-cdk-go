@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateAddDeletionOve
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateInspectParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateRenderProperti
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -104,7 +100,7 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateSetUserRoleReq
 	return nil
 }
 
-func validateNewCfnMicrosoftTeamsChannelConfigurationParameters(scope constructs.Construct, id *string, props *CfnMicrosoftTeamsChannelConfigurationProps) error {
+func validateNewCfnMicrosoftTeamsChannelConfigurationParameters(scope awscdk.Construct, id *string, props *CfnMicrosoftTeamsChannelConfigurationProps) error {
 	return nil
 }
 

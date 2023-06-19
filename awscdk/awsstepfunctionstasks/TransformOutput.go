@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
 )
 
 // S3 location where you want Amazon SageMaker to save the results from the transform job.
@@ -32,14 +32,19 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type TransformOutput struct {
 	// S3 path where you want Amazon SageMaker to store the results of the transform job.
+	// Experimental.
 	S3OutputPath *string `field:"required" json:"s3OutputPath" yaml:"s3OutputPath"`
 	// MIME type used to specify the output data.
+	// Experimental.
 	Accept *string `field:"optional" json:"accept" yaml:"accept"`
 	// Defines how to assemble the results of the transform job as a single S3 object.
+	// Experimental.
 	AssembleWith AssembleWith `field:"optional" json:"assembleWith" yaml:"assembleWith"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

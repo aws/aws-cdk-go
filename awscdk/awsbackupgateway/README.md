@@ -1,20 +1,9 @@
 # AWS::BackupGateway Construct Library
 
-<!--BEGIN STABILITY BANNER-->---
-
-
-![cfn-resources: Stable](https://img.shields.io/badge/cfn--resources-stable-success.svg?style=for-the-badge)
-
-> All classes with the `Cfn` prefix in this module ([CFN Resources](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) are always stable and safe to use.
-
----
-<!--END STABILITY BANNER-->
-
 This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import backupgateway "github.com/aws-samples/dummy/awscdkawsbackupgateway"
+import backupgateway "github.com/aws/aws-cdk-go/awscdk"
 ```
 
 <!--BEGIN CFNONLY DISCLAIMER-->
@@ -31,6 +20,6 @@ However, you can still use the automatically generated [L1](https://docs.aws.ama
 
 For more information on the resources and properties available for this service, see the [CloudFormation documentation for AWS::BackupGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BackupGateway.html).
 
-(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/main/CONTRIBUTING.md) and submit an RFC if you are interested in contributing to this construct library.)
+(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/master/CONTRIBUTING.md) and submit an RFC if you are interested in contributing to this construct library.)
 
 <!--END CFNONLY DISCLAIMER-->

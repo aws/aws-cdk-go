@@ -17,16 +17,19 @@ package awss3
 //   	},
 //   })
 //
+// Experimental.
 type RoutingRuleCondition struct {
 	// The HTTP error code when the redirect is applied.
 	//
 	// In the event of an error, if the error code equals this value, then the specified redirect is applied.
 	//
 	// If both condition properties are specified, both must be true for the redirect to be applied.
+	// Experimental.
 	HttpErrorCodeReturnedEquals *string `field:"optional" json:"httpErrorCodeReturnedEquals" yaml:"httpErrorCodeReturnedEquals"`
 	// The object key name prefix when the redirect is applied.
 	//
 	// If both condition properties are specified, both must be true for the redirect to be applied.
+	// Experimental.
 	KeyPrefixEquals *string `field:"optional" json:"keyPrefixEquals" yaml:"keyPrefixEquals"`
 }
 

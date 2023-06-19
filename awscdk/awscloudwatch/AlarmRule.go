@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,6 +20,7 @@ import (
 //   	AlarmRule: AlarmRule,
 //   })
 //
+// Experimental.
 type AlarmRule interface {
 }
 
@@ -28,13 +29,14 @@ type jsiiProxy_AlarmRule struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewAlarmRule() AlarmRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_AlarmRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		nil, // no parameters
 		&j,
 	)
@@ -42,17 +44,19 @@ func NewAlarmRule() AlarmRule {
 	return &j
 }
 
+// Experimental.
 func NewAlarmRule_Override(a AlarmRule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		nil, // no parameters
 		a,
 	)
 }
 
 // function to join all provided AlarmRules with AND operator.
+// Experimental.
 func AlarmRule_AllOf(operands ...IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
@@ -64,7 +68,7 @@ func AlarmRule_AllOf(operands ...IAlarmRule) IAlarmRule {
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		"allOf",
 		args,
 		&returns,
@@ -74,6 +78,7 @@ func AlarmRule_AllOf(operands ...IAlarmRule) IAlarmRule {
 }
 
 // function to join all provided AlarmRules with OR operator.
+// Experimental.
 func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
@@ -85,7 +90,7 @@ func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		"anyOf",
 		args,
 		&returns,
@@ -95,6 +100,7 @@ func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 }
 
 // function to build Rule Expression for given IAlarm and AlarmState.
+// Experimental.
 func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 	_init_.Initialize()
 
@@ -104,7 +110,7 @@ func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		"fromAlarm",
 		[]interface{}{alarm, alarmState},
 		&returns,
@@ -114,6 +120,7 @@ func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 }
 
 // function to build TRUE/FALSE intent for Rule Expression.
+// Experimental.
 func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 	_init_.Initialize()
 
@@ -123,7 +130,7 @@ func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		"fromBoolean",
 		[]interface{}{value},
 		&returns,
@@ -133,6 +140,7 @@ func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 }
 
 // function to build Rule Expression for given Alarm Rule string.
+// Experimental.
 func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 	_init_.Initialize()
 
@@ -142,7 +150,7 @@ func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		"fromString",
 		[]interface{}{alarmRule},
 		&returns,
@@ -152,6 +160,7 @@ func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 }
 
 // function to wrap provided AlarmRule in NOT operator.
+// Experimental.
 func AlarmRule_Not(operand IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
@@ -161,7 +170,7 @@ func AlarmRule_Not(operand IAlarmRule) IAlarmRule {
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		"not",
 		[]interface{}{operand},
 		&returns,

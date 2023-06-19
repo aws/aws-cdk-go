@@ -44,10 +44,6 @@ func (f *jsiiProxy_FargateTaskDefinition) validateFindContainerParameters(contai
 	return nil
 }
 
-func (f *jsiiProxy_FargateTaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
-	return nil
-}
-
 func (f *jsiiProxy_FargateTaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
@@ -56,7 +52,11 @@ func (f *jsiiProxy_FargateTaskDefinition) validateGetResourceNameAttributeParame
 	return nil
 }
 
-func (f *jsiiProxy_FargateTaskDefinition) validateGrantRunParameters(grantee awsiam.IGrantable) error {
+func (f *jsiiProxy_FargateTaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (f *jsiiProxy_FargateTaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,11 +80,7 @@ func validateFargateTaskDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFargateTaskDefinition_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateFargateTaskDefinition_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFargateTaskDefinition_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

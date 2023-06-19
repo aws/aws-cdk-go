@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // The endpoint configuration of a REST API, including VPCs and endpoint types.
@@ -17,10 +17,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type EndpointConfiguration struct {
 	// A list of endpoint types of an API or its custom domain name.
+	// Experimental.
 	Types *[]EndpointType `field:"required" json:"types" yaml:"types"`
 	// A list of VPC Endpoints against which to create Route53 ALIASes.
+	// Experimental.
 	VpcEndpoints *[]awsec2.IVpcEndpoint `field:"optional" json:"vpcEndpoints" yaml:"vpcEndpoints"`
 }
 

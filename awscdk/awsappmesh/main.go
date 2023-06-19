@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.AccessLog",
+		"monocdk.aws_appmesh.AccessLog",
 		reflect.TypeOf((*AccessLog)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -18,11 +18,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.AccessLogConfig",
+		"monocdk.aws_appmesh.AccessLogConfig",
 		reflect.TypeOf((*AccessLogConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.Backend",
+		"monocdk.aws_appmesh.Backend",
 		reflect.TypeOf((*Backend)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,19 +32,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.BackendConfig",
+		"monocdk.aws_appmesh.BackendConfig",
 		reflect.TypeOf((*BackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.BackendDefaults",
+		"monocdk.aws_appmesh.BackendDefaults",
 		reflect.TypeOf((*BackendDefaults)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute",
+		"monocdk.aws_appmesh.CfnGatewayRoute",
 		reflect.TypeOf((*CfnGatewayRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -70,20 +69,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "meshOwner", GoGetter: "MeshOwner"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayName", GoGetter: "VirtualGatewayName"},
 		},
@@ -95,107 +95,106 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteHostnameMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteHostnameMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteHostnameMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteHostnameRewriteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteHostnameRewriteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteHostnameRewriteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteMetadataMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteMetadataMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteMetadataMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteRangeMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteRangeMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteRangeMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteSpecProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteSpecProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteTargetProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteTargetProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GatewayRouteVirtualServiceProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GatewayRouteVirtualServiceProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GatewayRouteVirtualServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteActionProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteActionProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GrpcGatewayRouteActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GrpcGatewayRouteMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteMetadataProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteMetadataProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GrpcGatewayRouteMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GrpcGatewayRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteRewriteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.GrpcGatewayRouteRewriteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_GrpcGatewayRouteRewriteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteActionProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteActionProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRouteActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteHeaderMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteHeaderMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRouteHeaderMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteHeaderProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteHeaderProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRouteHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRouteMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRoutePathRewriteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRoutePathRewriteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRoutePrefixRewriteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRoutePrefixRewriteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteRewriteProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpGatewayRouteRewriteProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpGatewayRouteRewriteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpPathMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpPathMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpPathMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.HttpQueryParameterMatchProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.HttpQueryParameterMatchProperty",
 		reflect.TypeOf((*CfnGatewayRoute_HttpQueryParameterMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute.QueryParameterProperty",
+		"monocdk.aws_appmesh.CfnGatewayRoute.QueryParameterProperty",
 		reflect.TypeOf((*CfnGatewayRoute_QueryParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnGatewayRouteProps",
+		"monocdk.aws_appmesh.CfnGatewayRouteProps",
 		reflect.TypeOf((*CfnGatewayRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnMesh",
+		"monocdk.aws_appmesh.CfnMesh",
 		reflect.TypeOf((*CfnMesh)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -217,20 +216,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -241,27 +241,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnMesh.EgressFilterProperty",
+		"monocdk.aws_appmesh.CfnMesh.EgressFilterProperty",
 		reflect.TypeOf((*CfnMesh_EgressFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnMesh.MeshServiceDiscoveryProperty",
+		"monocdk.aws_appmesh.CfnMesh.MeshServiceDiscoveryProperty",
 		reflect.TypeOf((*CfnMesh_MeshServiceDiscoveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnMesh.MeshSpecProperty",
+		"monocdk.aws_appmesh.CfnMesh.MeshSpecProperty",
 		reflect.TypeOf((*CfnMesh_MeshSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnMeshProps",
+		"monocdk.aws_appmesh.CfnMeshProps",
 		reflect.TypeOf((*CfnMeshProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnRoute",
+		"monocdk.aws_appmesh.CfnRoute",
 		reflect.TypeOf((*CfnRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -286,21 +285,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "meshOwner", GoGetter: "MeshOwner"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "routeName", GoGetter: "RouteName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterName", GoGetter: "VirtualRouterName"},
 		},
@@ -312,115 +312,114 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.DurationProperty",
+		"monocdk.aws_appmesh.CfnRoute.DurationProperty",
 		reflect.TypeOf((*CfnRoute_DurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcRetryPolicyProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcRetryPolicyProperty",
 		reflect.TypeOf((*CfnRoute_GrpcRetryPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcRouteActionProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcRouteActionProperty",
 		reflect.TypeOf((*CfnRoute_GrpcRouteActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcRouteMatchProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcRouteMatchProperty",
 		reflect.TypeOf((*CfnRoute_GrpcRouteMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcRouteMetadataMatchMethodProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcRouteMetadataMatchMethodProperty",
 		reflect.TypeOf((*CfnRoute_GrpcRouteMetadataMatchMethodProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcRouteMetadataProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcRouteMetadataProperty",
 		reflect.TypeOf((*CfnRoute_GrpcRouteMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcRouteProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcRouteProperty",
 		reflect.TypeOf((*CfnRoute_GrpcRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.GrpcTimeoutProperty",
+		"monocdk.aws_appmesh.CfnRoute.GrpcTimeoutProperty",
 		reflect.TypeOf((*CfnRoute_GrpcTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HeaderMatchMethodProperty",
+		"monocdk.aws_appmesh.CfnRoute.HeaderMatchMethodProperty",
 		reflect.TypeOf((*CfnRoute_HeaderMatchMethodProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpPathMatchProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpPathMatchProperty",
 		reflect.TypeOf((*CfnRoute_HttpPathMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpQueryParameterMatchProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpQueryParameterMatchProperty",
 		reflect.TypeOf((*CfnRoute_HttpQueryParameterMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpRetryPolicyProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpRetryPolicyProperty",
 		reflect.TypeOf((*CfnRoute_HttpRetryPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpRouteActionProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpRouteActionProperty",
 		reflect.TypeOf((*CfnRoute_HttpRouteActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpRouteHeaderProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpRouteHeaderProperty",
 		reflect.TypeOf((*CfnRoute_HttpRouteHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpRouteMatchProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpRouteMatchProperty",
 		reflect.TypeOf((*CfnRoute_HttpRouteMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpRouteProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpRouteProperty",
 		reflect.TypeOf((*CfnRoute_HttpRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.HttpTimeoutProperty",
+		"monocdk.aws_appmesh.CfnRoute.HttpTimeoutProperty",
 		reflect.TypeOf((*CfnRoute_HttpTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.MatchRangeProperty",
+		"monocdk.aws_appmesh.CfnRoute.MatchRangeProperty",
 		reflect.TypeOf((*CfnRoute_MatchRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.QueryParameterProperty",
+		"monocdk.aws_appmesh.CfnRoute.QueryParameterProperty",
 		reflect.TypeOf((*CfnRoute_QueryParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.RouteSpecProperty",
+		"monocdk.aws_appmesh.CfnRoute.RouteSpecProperty",
 		reflect.TypeOf((*CfnRoute_RouteSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.TcpRouteActionProperty",
+		"monocdk.aws_appmesh.CfnRoute.TcpRouteActionProperty",
 		reflect.TypeOf((*CfnRoute_TcpRouteActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.TcpRouteMatchProperty",
+		"monocdk.aws_appmesh.CfnRoute.TcpRouteMatchProperty",
 		reflect.TypeOf((*CfnRoute_TcpRouteMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.TcpRouteProperty",
+		"monocdk.aws_appmesh.CfnRoute.TcpRouteProperty",
 		reflect.TypeOf((*CfnRoute_TcpRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.TcpTimeoutProperty",
+		"monocdk.aws_appmesh.CfnRoute.TcpTimeoutProperty",
 		reflect.TypeOf((*CfnRoute_TcpTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRoute.WeightedTargetProperty",
+		"monocdk.aws_appmesh.CfnRoute.WeightedTargetProperty",
 		reflect.TypeOf((*CfnRoute_WeightedTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnRouteProps",
+		"monocdk.aws_appmesh.CfnRouteProps",
 		reflect.TypeOf((*CfnRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway",
+		"monocdk.aws_appmesh.CfnVirtualGateway",
 		reflect.TypeOf((*CfnVirtualGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -444,20 +443,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "meshOwner", GoGetter: "MeshOwner"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayName", GoGetter: "VirtualGatewayName"},
 		},
@@ -469,139 +469,138 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.JsonFormatRefProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.JsonFormatRefProperty",
 		reflect.TypeOf((*CfnVirtualGateway_JsonFormatRefProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.LoggingFormatProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.LoggingFormatProperty",
 		reflect.TypeOf((*CfnVirtualGateway_LoggingFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.SubjectAlternativeNameMatchersProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.SubjectAlternativeNameMatchersProperty",
 		reflect.TypeOf((*CfnVirtualGateway_SubjectAlternativeNameMatchersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.SubjectAlternativeNamesProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.SubjectAlternativeNamesProperty",
 		reflect.TypeOf((*CfnVirtualGateway_SubjectAlternativeNamesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayAccessLogProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayAccessLogProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayAccessLogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayBackendDefaultsProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayBackendDefaultsProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayBackendDefaultsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayClientPolicyProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayClientPolicyProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayClientPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayClientPolicyTlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayClientTlsCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayClientTlsCertificateProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayClientTlsCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayFileAccessLogProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayFileAccessLogProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayFileAccessLogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayGrpcConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayGrpcConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayGrpcConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayHttp2ConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayHttp2ConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayHttp2ConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayHttpConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayHttpConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayHttpConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsAcmCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsAcmCertificateProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsAcmCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsCertificateProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsFileCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsFileCertificateProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsFileCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsSdsCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextTrustProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayLoggingProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayLoggingProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayLoggingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayPortMappingProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayPortMappingProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayPortMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewaySpecProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewaySpecProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewaySpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextAcmTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextAcmTrustProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayTlsValidationContextAcmTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextFileTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextFileTrustProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayTlsValidationContextFileTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayTlsValidationContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayTlsValidationContextSdsTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextTrustProperty",
 		reflect.TypeOf((*CfnVirtualGateway_VirtualGatewayTlsValidationContextTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualGatewayProps",
+		"monocdk.aws_appmesh.CfnVirtualGatewayProps",
 		reflect.TypeOf((*CfnVirtualGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode",
+		"monocdk.aws_appmesh.CfnVirtualNode",
 		reflect.TypeOf((*CfnVirtualNode)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -625,20 +624,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "meshOwner", GoGetter: "MeshOwner"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeName", GoGetter: "VirtualNodeName"},
 		},
@@ -650,191 +650,190 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.AccessLogProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.AccessLogProperty",
 		reflect.TypeOf((*CfnVirtualNode_AccessLogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.AwsCloudMapInstanceAttributeProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.AwsCloudMapInstanceAttributeProperty",
 		reflect.TypeOf((*CfnVirtualNode_AwsCloudMapInstanceAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty",
 		reflect.TypeOf((*CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.BackendDefaultsProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.BackendDefaultsProperty",
 		reflect.TypeOf((*CfnVirtualNode_BackendDefaultsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.BackendProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.BackendProperty",
 		reflect.TypeOf((*CfnVirtualNode_BackendProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ClientPolicyProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ClientPolicyProperty",
 		reflect.TypeOf((*CfnVirtualNode_ClientPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ClientPolicyTlsProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ClientPolicyTlsProperty",
 		reflect.TypeOf((*CfnVirtualNode_ClientPolicyTlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ClientTlsCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ClientTlsCertificateProperty",
 		reflect.TypeOf((*CfnVirtualNode_ClientTlsCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.DnsServiceDiscoveryProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.DnsServiceDiscoveryProperty",
 		reflect.TypeOf((*CfnVirtualNode_DnsServiceDiscoveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.DurationProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.DurationProperty",
 		reflect.TypeOf((*CfnVirtualNode_DurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.FileAccessLogProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.FileAccessLogProperty",
 		reflect.TypeOf((*CfnVirtualNode_FileAccessLogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.GrpcTimeoutProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.GrpcTimeoutProperty",
 		reflect.TypeOf((*CfnVirtualNode_GrpcTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.HealthCheckProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.HealthCheckProperty",
 		reflect.TypeOf((*CfnVirtualNode_HealthCheckProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.HttpTimeoutProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.HttpTimeoutProperty",
 		reflect.TypeOf((*CfnVirtualNode_HttpTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.JsonFormatRefProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.JsonFormatRefProperty",
 		reflect.TypeOf((*CfnVirtualNode_JsonFormatRefProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTimeoutProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTimeoutProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsAcmCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsAcmCertificateProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsAcmCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsCertificateProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsFileCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsFileCertificateProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsFileCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsSdsCertificateProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsSdsCertificateProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsSdsCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsValidationContextProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsValidationContextProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsValidationContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ListenerTlsValidationContextTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ListenerTlsValidationContextTrustProperty",
 		reflect.TypeOf((*CfnVirtualNode_ListenerTlsValidationContextTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.LoggingFormatProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.LoggingFormatProperty",
 		reflect.TypeOf((*CfnVirtualNode_LoggingFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.LoggingProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.LoggingProperty",
 		reflect.TypeOf((*CfnVirtualNode_LoggingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.OutlierDetectionProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.OutlierDetectionProperty",
 		reflect.TypeOf((*CfnVirtualNode_OutlierDetectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.PortMappingProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.PortMappingProperty",
 		reflect.TypeOf((*CfnVirtualNode_PortMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.ServiceDiscoveryProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.ServiceDiscoveryProperty",
 		reflect.TypeOf((*CfnVirtualNode_ServiceDiscoveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.SubjectAlternativeNameMatchersProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.SubjectAlternativeNameMatchersProperty",
 		reflect.TypeOf((*CfnVirtualNode_SubjectAlternativeNameMatchersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.SubjectAlternativeNamesProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.SubjectAlternativeNamesProperty",
 		reflect.TypeOf((*CfnVirtualNode_SubjectAlternativeNamesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.TcpTimeoutProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.TcpTimeoutProperty",
 		reflect.TypeOf((*CfnVirtualNode_TcpTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.TlsValidationContextAcmTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.TlsValidationContextAcmTrustProperty",
 		reflect.TypeOf((*CfnVirtualNode_TlsValidationContextAcmTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.TlsValidationContextFileTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.TlsValidationContextFileTrustProperty",
 		reflect.TypeOf((*CfnVirtualNode_TlsValidationContextFileTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.TlsValidationContextProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.TlsValidationContextProperty",
 		reflect.TypeOf((*CfnVirtualNode_TlsValidationContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.TlsValidationContextSdsTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.TlsValidationContextSdsTrustProperty",
 		reflect.TypeOf((*CfnVirtualNode_TlsValidationContextSdsTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.TlsValidationContextTrustProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.TlsValidationContextTrustProperty",
 		reflect.TypeOf((*CfnVirtualNode_TlsValidationContextTrustProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualNodeConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualNodeConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualNodeConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualNodeGrpcConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualNodeGrpcConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualNodeGrpcConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualNodeHttp2ConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualNodeHttp2ConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualNodeHttp2ConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualNodeHttpConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualNodeHttpConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualNodeHttpConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualNodeSpecProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualNodeSpecProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualNodeSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualNodeTcpConnectionPoolProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualNodeTcpConnectionPoolProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualNodeTcpConnectionPoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNode.VirtualServiceBackendProperty",
+		"monocdk.aws_appmesh.CfnVirtualNode.VirtualServiceBackendProperty",
 		reflect.TypeOf((*CfnVirtualNode_VirtualServiceBackendProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualNodeProps",
+		"monocdk.aws_appmesh.CfnVirtualNodeProps",
 		reflect.TypeOf((*CfnVirtualNodeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualRouter",
+		"monocdk.aws_appmesh.CfnVirtualRouter",
 		reflect.TypeOf((*CfnVirtualRouter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -858,20 +857,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "meshOwner", GoGetter: "MeshOwner"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterName", GoGetter: "VirtualRouterName"},
 		},
@@ -883,27 +883,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualRouter.PortMappingProperty",
+		"monocdk.aws_appmesh.CfnVirtualRouter.PortMappingProperty",
 		reflect.TypeOf((*CfnVirtualRouter_PortMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualRouter.VirtualRouterListenerProperty",
+		"monocdk.aws_appmesh.CfnVirtualRouter.VirtualRouterListenerProperty",
 		reflect.TypeOf((*CfnVirtualRouter_VirtualRouterListenerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualRouter.VirtualRouterSpecProperty",
+		"monocdk.aws_appmesh.CfnVirtualRouter.VirtualRouterSpecProperty",
 		reflect.TypeOf((*CfnVirtualRouter_VirtualRouterSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualRouterProps",
+		"monocdk.aws_appmesh.CfnVirtualRouterProps",
 		reflect.TypeOf((*CfnVirtualRouterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualService",
+		"monocdk.aws_appmesh.CfnVirtualService",
 		reflect.TypeOf((*CfnVirtualService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -927,20 +926,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "meshOwner", GoGetter: "MeshOwner"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spec", GoGetter: "Spec"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceName", GoGetter: "VirtualServiceName"},
 		},
@@ -952,31 +952,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualService.VirtualNodeServiceProviderProperty",
+		"monocdk.aws_appmesh.CfnVirtualService.VirtualNodeServiceProviderProperty",
 		reflect.TypeOf((*CfnVirtualService_VirtualNodeServiceProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualService.VirtualRouterServiceProviderProperty",
+		"monocdk.aws_appmesh.CfnVirtualService.VirtualRouterServiceProviderProperty",
 		reflect.TypeOf((*CfnVirtualService_VirtualRouterServiceProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualService.VirtualServiceProviderProperty",
+		"monocdk.aws_appmesh.CfnVirtualService.VirtualServiceProviderProperty",
 		reflect.TypeOf((*CfnVirtualService_VirtualServiceProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualService.VirtualServiceSpecProperty",
+		"monocdk.aws_appmesh.CfnVirtualService.VirtualServiceSpecProperty",
 		reflect.TypeOf((*CfnVirtualService_VirtualServiceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CfnVirtualServiceProps",
+		"monocdk.aws_appmesh.CfnVirtualServiceProps",
 		reflect.TypeOf((*CfnVirtualServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.CommonGatewayRouteSpecOptions",
+		"monocdk.aws_appmesh.CommonGatewayRouteSpecOptions",
 		reflect.TypeOf((*CommonGatewayRouteSpecOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.DnsResponseType",
+		"monocdk.aws_appmesh.DnsResponseType",
 		reflect.TypeOf((*DnsResponseType)(nil)).Elem(),
 		map[string]interface{}{
 			"LOAD_BALANCER": DnsResponseType_LOAD_BALANCER,
@@ -984,7 +984,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.GatewayRoute",
+		"monocdk.aws_appmesh.GatewayRoute",
 		reflect.TypeOf((*GatewayRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -995,9 +995,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGateway", GoGetter: "VirtualGateway"},
 		},
 		func() interface{} {
@@ -1008,15 +1014,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteAttributes",
+		"monocdk.aws_appmesh.GatewayRouteAttributes",
 		reflect.TypeOf((*GatewayRouteAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteBaseProps",
+		"monocdk.aws_appmesh.GatewayRouteBaseProps",
 		reflect.TypeOf((*GatewayRouteBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteHostnameMatch",
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
 		reflect.TypeOf((*GatewayRouteHostnameMatch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1026,15 +1032,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteHostnameMatchConfig",
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatchConfig",
 		reflect.TypeOf((*GatewayRouteHostnameMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteProps",
+		"monocdk.aws_appmesh.GatewayRouteProps",
 		reflect.TypeOf((*GatewayRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteSpec",
+		"monocdk.aws_appmesh.GatewayRouteSpec",
 		reflect.TypeOf((*GatewayRouteSpec)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1044,31 +1050,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteSpecConfig",
+		"monocdk.aws_appmesh.GatewayRouteSpecConfig",
 		reflect.TypeOf((*GatewayRouteSpecConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcConnectionPool",
+		"monocdk.aws_appmesh.GrpcConnectionPool",
 		reflect.TypeOf((*GrpcConnectionPool)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcGatewayListenerOptions",
+		"monocdk.aws_appmesh.GrpcGatewayListenerOptions",
 		reflect.TypeOf((*GrpcGatewayListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcGatewayRouteMatch",
+		"monocdk.aws_appmesh.GrpcGatewayRouteMatch",
 		reflect.TypeOf((*GrpcGatewayRouteMatch)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcGatewayRouteSpecOptions",
+		"monocdk.aws_appmesh.GrpcGatewayRouteSpecOptions",
 		reflect.TypeOf((*GrpcGatewayRouteSpecOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcHealthCheckOptions",
+		"monocdk.aws_appmesh.GrpcHealthCheckOptions",
 		reflect.TypeOf((*GrpcHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.GrpcRetryEvent",
+		"monocdk.aws_appmesh.GrpcRetryEvent",
 		reflect.TypeOf((*GrpcRetryEvent)(nil)).Elem(),
 		map[string]interface{}{
 			"CANCELLED": GrpcRetryEvent_CANCELLED,
@@ -1079,27 +1085,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcRetryPolicy",
+		"monocdk.aws_appmesh.GrpcRetryPolicy",
 		reflect.TypeOf((*GrpcRetryPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcRouteMatch",
+		"monocdk.aws_appmesh.GrpcRouteMatch",
 		reflect.TypeOf((*GrpcRouteMatch)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcRouteSpecOptions",
+		"monocdk.aws_appmesh.GrpcRouteSpecOptions",
 		reflect.TypeOf((*GrpcRouteSpecOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcTimeout",
+		"monocdk.aws_appmesh.GrpcTimeout",
 		reflect.TypeOf((*GrpcTimeout)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GrpcVirtualNodeListenerOptions",
+		"monocdk.aws_appmesh.GrpcVirtualNodeListenerOptions",
 		reflect.TypeOf((*GrpcVirtualNodeListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.HeaderMatch",
+		"monocdk.aws_appmesh.HeaderMatch",
 		reflect.TypeOf((*HeaderMatch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1109,11 +1115,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HeaderMatchConfig",
+		"monocdk.aws_appmesh.HeaderMatchConfig",
 		reflect.TypeOf((*HeaderMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.HealthCheck",
+		"monocdk.aws_appmesh.HealthCheck",
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1123,39 +1129,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HealthCheckBindOptions",
+		"monocdk.aws_appmesh.HealthCheckBindOptions",
 		reflect.TypeOf((*HealthCheckBindOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HealthCheckConfig",
+		"monocdk.aws_appmesh.HealthCheckConfig",
 		reflect.TypeOf((*HealthCheckConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.Http2ConnectionPool",
+		"monocdk.aws_appmesh.Http2ConnectionPool",
 		reflect.TypeOf((*Http2ConnectionPool)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.Http2GatewayListenerOptions",
+		"monocdk.aws_appmesh.Http2GatewayListenerOptions",
 		reflect.TypeOf((*Http2GatewayListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.Http2VirtualNodeListenerOptions",
+		"monocdk.aws_appmesh.Http2VirtualNodeListenerOptions",
 		reflect.TypeOf((*Http2VirtualNodeListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpConnectionPool",
+		"monocdk.aws_appmesh.HttpConnectionPool",
 		reflect.TypeOf((*HttpConnectionPool)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpGatewayListenerOptions",
+		"monocdk.aws_appmesh.HttpGatewayListenerOptions",
 		reflect.TypeOf((*HttpGatewayListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpGatewayRouteMatch",
+		"monocdk.aws_appmesh.HttpGatewayRouteMatch",
 		reflect.TypeOf((*HttpGatewayRouteMatch)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.HttpGatewayRoutePathMatch",
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatch",
 		reflect.TypeOf((*HttpGatewayRoutePathMatch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1165,19 +1171,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpGatewayRoutePathMatchConfig",
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatchConfig",
 		reflect.TypeOf((*HttpGatewayRoutePathMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpGatewayRouteSpecOptions",
+		"monocdk.aws_appmesh.HttpGatewayRouteSpecOptions",
 		reflect.TypeOf((*HttpGatewayRouteSpecOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpHealthCheckOptions",
+		"monocdk.aws_appmesh.HttpHealthCheckOptions",
 		reflect.TypeOf((*HttpHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.HttpRetryEvent",
+		"monocdk.aws_appmesh.HttpRetryEvent",
 		reflect.TypeOf((*HttpRetryEvent)(nil)).Elem(),
 		map[string]interface{}{
 			"SERVER_ERROR": HttpRetryEvent_SERVER_ERROR,
@@ -1187,15 +1193,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpRetryPolicy",
+		"monocdk.aws_appmesh.HttpRetryPolicy",
 		reflect.TypeOf((*HttpRetryPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpRouteMatch",
+		"monocdk.aws_appmesh.HttpRouteMatch",
 		reflect.TypeOf((*HttpRouteMatch)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.HttpRouteMethod",
+		"monocdk.aws_appmesh.HttpRouteMethod",
 		reflect.TypeOf((*HttpRouteMethod)(nil)).Elem(),
 		map[string]interface{}{
 			"GET": HttpRouteMethod_GET,
@@ -1210,7 +1216,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.HttpRoutePathMatch",
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
 		reflect.TypeOf((*HttpRoutePathMatch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1220,11 +1226,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpRoutePathMatchConfig",
+		"monocdk.aws_appmesh.HttpRoutePathMatchConfig",
 		reflect.TypeOf((*HttpRoutePathMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.HttpRouteProtocol",
+		"monocdk.aws_appmesh.HttpRouteProtocol",
 		reflect.TypeOf((*HttpRouteProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP": HttpRouteProtocol_HTTP,
@@ -1232,19 +1238,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpRouteSpecOptions",
+		"monocdk.aws_appmesh.HttpRouteSpecOptions",
 		reflect.TypeOf((*HttpRouteSpecOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpTimeout",
+		"monocdk.aws_appmesh.HttpTimeout",
 		reflect.TypeOf((*HttpTimeout)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.HttpVirtualNodeListenerOptions",
+		"monocdk.aws_appmesh.HttpVirtualNodeListenerOptions",
 		reflect.TypeOf((*HttpVirtualNodeListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IGatewayRoute",
+		"monocdk.aws_appmesh.IGatewayRoute",
 		reflect.TypeOf((*IGatewayRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1262,7 +1268,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IMesh",
+		"monocdk.aws_appmesh.IMesh",
 		reflect.TypeOf((*IMesh)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addVirtualGateway", GoMethod: "AddVirtualGateway"},
@@ -1282,7 +1288,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IRoute",
+		"monocdk.aws_appmesh.IRoute",
 		reflect.TypeOf((*IRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1300,7 +1306,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualGateway",
+		"monocdk.aws_appmesh.IVirtualGateway",
 		reflect.TypeOf((*IVirtualGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayRoute", GoMethod: "AddGatewayRoute"},
@@ -1320,7 +1326,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualNode",
+		"monocdk.aws_appmesh.IVirtualNode",
 		reflect.TypeOf((*IVirtualNode)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1339,7 +1345,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualRouter",
+		"monocdk.aws_appmesh.IVirtualRouter",
 		reflect.TypeOf((*IVirtualRouter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
@@ -1358,7 +1364,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualService",
+		"monocdk.aws_appmesh.IVirtualService",
 		reflect.TypeOf((*IVirtualService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1375,36 +1381,12 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.IpPreference",
-		reflect.TypeOf((*IpPreference)(nil)).Elem(),
-		map[string]interface{}{
-			"IPV4_ONLY": IpPreference_IPV4_ONLY,
-			"IPV4_PREFERRED": IpPreference_IPV4_PREFERRED,
-			"IPV6_ONLY": IpPreference_IPV6_ONLY,
-			"IPV6_PREFERRED": IpPreference_IPV6_PREFERRED,
-		},
-	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.ListenerTlsOptions",
+		"monocdk.aws_appmesh.ListenerTlsOptions",
 		reflect.TypeOf((*ListenerTlsOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.LoggingFormat",
-		reflect.TypeOf((*LoggingFormat)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			return &jsiiProxy_LoggingFormat{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.LoggingFormatConfig",
-		reflect.TypeOf((*LoggingFormatConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.Mesh",
+		"monocdk.aws_appmesh.Mesh",
 		reflect.TypeOf((*Mesh)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addVirtualGateway", GoMethod: "AddVirtualGateway"},
@@ -1418,9 +1400,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "meshArn", GoGetter: "MeshArn"},
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Mesh{}
@@ -1430,7 +1418,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.MeshFilterType",
+		"monocdk.aws_appmesh.MeshFilterType",
 		reflect.TypeOf((*MeshFilterType)(nil)).Elem(),
 		map[string]interface{}{
 			"ALLOW_ALL": MeshFilterType_ALLOW_ALL,
@@ -1438,15 +1426,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.MeshProps",
+		"monocdk.aws_appmesh.MeshProps",
 		reflect.TypeOf((*MeshProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.MeshServiceDiscovery",
-		reflect.TypeOf((*MeshServiceDiscovery)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.MutualTlsCertificate",
+		"monocdk.aws_appmesh.MutualTlsCertificate",
 		reflect.TypeOf((*MutualTlsCertificate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1459,11 +1443,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.MutualTlsValidation",
+		"monocdk.aws_appmesh.MutualTlsValidation",
 		reflect.TypeOf((*MutualTlsValidation)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.MutualTlsValidationTrust",
+		"monocdk.aws_appmesh.MutualTlsValidationTrust",
 		reflect.TypeOf((*MutualTlsValidationTrust)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1476,11 +1460,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.OutlierDetection",
+		"monocdk.aws_appmesh.OutlierDetection",
 		reflect.TypeOf((*OutlierDetection)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_appmesh.Protocol",
+		reflect.TypeOf((*Protocol)(nil)).Elem(),
+		map[string]interface{}{
+			"HTTP": Protocol_HTTP,
+			"TCP": Protocol_TCP,
+			"HTTP2": Protocol_HTTP2,
+			"GRPC": Protocol_GRPC,
+		},
+	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.QueryParameterMatch",
+		"monocdk.aws_appmesh.QueryParameterMatch",
 		reflect.TypeOf((*QueryParameterMatch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1490,11 +1484,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.QueryParameterMatchConfig",
+		"monocdk.aws_appmesh.QueryParameterMatchConfig",
 		reflect.TypeOf((*QueryParameterMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.Route",
+		"monocdk.aws_appmesh.Route",
 		reflect.TypeOf((*Route)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1503,11 +1497,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "routeArn", GoGetter: "RouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeName", GoGetter: "RouteName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouter", GoGetter: "VirtualRouter"},
 		},
 		func() interface{} {
@@ -1518,19 +1518,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.RouteAttributes",
+		"monocdk.aws_appmesh.RouteAttributes",
 		reflect.TypeOf((*RouteAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.RouteBaseProps",
+		"monocdk.aws_appmesh.RouteBaseProps",
 		reflect.TypeOf((*RouteBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.RouteProps",
+		"monocdk.aws_appmesh.RouteProps",
 		reflect.TypeOf((*RouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.RouteSpec",
+		"monocdk.aws_appmesh.RouteSpec",
 		reflect.TypeOf((*RouteSpec)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1540,15 +1540,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.RouteSpecConfig",
+		"monocdk.aws_appmesh.RouteSpecConfig",
 		reflect.TypeOf((*RouteSpecConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.RouteSpecOptionsBase",
+		"monocdk.aws_appmesh.RouteSpecOptionsBase",
 		reflect.TypeOf((*RouteSpecOptionsBase)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.ServiceDiscovery",
+		"monocdk.aws_appmesh.ServiceDiscovery",
 		reflect.TypeOf((*ServiceDiscovery)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1558,11 +1558,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.ServiceDiscoveryConfig",
+		"monocdk.aws_appmesh.ServiceDiscoveryConfig",
 		reflect.TypeOf((*ServiceDiscoveryConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.SubjectAlternativeNames",
+		"monocdk.aws_appmesh.SubjectAlternativeNames",
 		reflect.TypeOf((*SubjectAlternativeNames)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1572,38 +1572,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.SubjectAlternativeNamesMatcherConfig",
+		"monocdk.aws_appmesh.SubjectAlternativeNamesMatcherConfig",
 		reflect.TypeOf((*SubjectAlternativeNamesMatcherConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TcpConnectionPool",
+		"monocdk.aws_appmesh.TcpConnectionPool",
 		reflect.TypeOf((*TcpConnectionPool)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TcpHealthCheckOptions",
+		"monocdk.aws_appmesh.TcpHealthCheckOptions",
 		reflect.TypeOf((*TcpHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.TcpRetryEvent",
+		"monocdk.aws_appmesh.TcpRetryEvent",
 		reflect.TypeOf((*TcpRetryEvent)(nil)).Elem(),
 		map[string]interface{}{
 			"CONNECTION_ERROR": TcpRetryEvent_CONNECTION_ERROR,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TcpRouteSpecOptions",
+		"monocdk.aws_appmesh.TcpRouteSpecOptions",
 		reflect.TypeOf((*TcpRouteSpecOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TcpTimeout",
+		"monocdk.aws_appmesh.TcpTimeout",
 		reflect.TypeOf((*TcpTimeout)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TcpVirtualNodeListenerOptions",
+		"monocdk.aws_appmesh.TcpVirtualNodeListenerOptions",
 		reflect.TypeOf((*TcpVirtualNodeListenerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.TlsCertificate",
+		"monocdk.aws_appmesh.TlsCertificate",
 		reflect.TypeOf((*TlsCertificate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1613,15 +1613,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TlsCertificateConfig",
+		"monocdk.aws_appmesh.TlsCertificateConfig",
 		reflect.TypeOf((*TlsCertificateConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TlsClientPolicy",
+		"monocdk.aws_appmesh.TlsClientPolicy",
 		reflect.TypeOf((*TlsClientPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.TlsMode",
+		"monocdk.aws_appmesh.TlsMode",
 		reflect.TypeOf((*TlsMode)(nil)).Elem(),
 		map[string]interface{}{
 			"STRICT": TlsMode_STRICT,
@@ -1630,11 +1630,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TlsValidation",
+		"monocdk.aws_appmesh.TlsValidation",
 		reflect.TypeOf((*TlsValidation)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.TlsValidationTrust",
+		"monocdk.aws_appmesh.TlsValidationTrust",
 		reflect.TypeOf((*TlsValidationTrust)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1644,11 +1644,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.TlsValidationTrustConfig",
+		"monocdk.aws_appmesh.TlsValidationTrustConfig",
 		reflect.TypeOf((*TlsValidationTrustConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualGateway",
+		"monocdk.aws_appmesh.VirtualGateway",
 		reflect.TypeOf((*VirtualGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayRoute", GoMethod: "AddGatewayRoute"},
@@ -1661,9 +1661,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "listeners", GoGetter: "Listeners"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayArn", GoGetter: "VirtualGatewayArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayName", GoGetter: "VirtualGatewayName"},
 		},
@@ -1675,15 +1681,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayAttributes",
+		"monocdk.aws_appmesh.VirtualGatewayAttributes",
 		reflect.TypeOf((*VirtualGatewayAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayBaseProps",
+		"monocdk.aws_appmesh.VirtualGatewayBaseProps",
 		reflect.TypeOf((*VirtualGatewayBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayListener",
+		"monocdk.aws_appmesh.VirtualGatewayListener",
 		reflect.TypeOf((*VirtualGatewayListener)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1693,15 +1699,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayListenerConfig",
+		"monocdk.aws_appmesh.VirtualGatewayListenerConfig",
 		reflect.TypeOf((*VirtualGatewayListenerConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayProps",
+		"monocdk.aws_appmesh.VirtualGatewayProps",
 		reflect.TypeOf((*VirtualGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualNode",
+		"monocdk.aws_appmesh.VirtualNode",
 		reflect.TypeOf((*VirtualNode)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBackend", GoMethod: "AddBackend"},
@@ -1714,9 +1720,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamAggregatedResources", GoMethod: "GrantStreamAggregatedResources"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeArn", GoGetter: "VirtualNodeArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeName", GoGetter: "VirtualNodeName"},
 		},
@@ -1728,15 +1740,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualNodeAttributes",
+		"monocdk.aws_appmesh.VirtualNodeAttributes",
 		reflect.TypeOf((*VirtualNodeAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualNodeBaseProps",
+		"monocdk.aws_appmesh.VirtualNodeBaseProps",
 		reflect.TypeOf((*VirtualNodeBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualNodeListener",
+		"monocdk.aws_appmesh.VirtualNodeListener",
 		reflect.TypeOf((*VirtualNodeListener)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1746,15 +1758,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualNodeListenerConfig",
+		"monocdk.aws_appmesh.VirtualNodeListenerConfig",
 		reflect.TypeOf((*VirtualNodeListenerConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualNodeProps",
+		"monocdk.aws_appmesh.VirtualNodeProps",
 		reflect.TypeOf((*VirtualNodeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualRouter",
+		"monocdk.aws_appmesh.VirtualRouter",
 		reflect.TypeOf((*VirtualRouter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
@@ -1765,9 +1777,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterArn", GoGetter: "VirtualRouterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterName", GoGetter: "VirtualRouterName"},
 		},
@@ -1779,15 +1797,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualRouterAttributes",
+		"monocdk.aws_appmesh.VirtualRouterAttributes",
 		reflect.TypeOf((*VirtualRouterAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualRouterBaseProps",
+		"monocdk.aws_appmesh.VirtualRouterBaseProps",
 		reflect.TypeOf((*VirtualRouterBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualRouterListener",
+		"monocdk.aws_appmesh.VirtualRouterListener",
 		reflect.TypeOf((*VirtualRouterListener)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1797,15 +1815,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualRouterListenerConfig",
+		"monocdk.aws_appmesh.VirtualRouterListenerConfig",
 		reflect.TypeOf((*VirtualRouterListenerConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualRouterProps",
+		"monocdk.aws_appmesh.VirtualRouterProps",
 		reflect.TypeOf((*VirtualRouterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualService",
+		"monocdk.aws_appmesh.VirtualService",
 		reflect.TypeOf((*VirtualService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1815,9 +1833,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceArn", GoGetter: "VirtualServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceName", GoGetter: "VirtualServiceName"},
 		},
@@ -1829,19 +1853,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualServiceAttributes",
+		"monocdk.aws_appmesh.VirtualServiceAttributes",
 		reflect.TypeOf((*VirtualServiceAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualServiceBackendOptions",
+		"monocdk.aws_appmesh.VirtualServiceBackendOptions",
 		reflect.TypeOf((*VirtualServiceBackendOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualServiceProps",
+		"monocdk.aws_appmesh.VirtualServiceProps",
 		reflect.TypeOf((*VirtualServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_appmesh.VirtualServiceProvider",
+		"monocdk.aws_appmesh.VirtualServiceProvider",
 		reflect.TypeOf((*VirtualServiceProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1851,11 +1875,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualServiceProviderConfig",
+		"monocdk.aws_appmesh.VirtualServiceProviderConfig",
 		reflect.TypeOf((*VirtualServiceProviderConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.WeightedTarget",
+		"monocdk.aws_appmesh.WeightedTarget",
 		reflect.TypeOf((*WeightedTarget)(nil)).Elem(),
 	)
 }

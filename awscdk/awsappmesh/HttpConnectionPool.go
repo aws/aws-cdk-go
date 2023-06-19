@@ -39,10 +39,13 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("gateway"),
 //   })
 //
+// Experimental.
 type HttpConnectionPool struct {
 	// The maximum connections in the pool.
+	// Experimental.
 	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// The maximum pending requests in the pool.
+	// Experimental.
 	MaxPendingRequests *float64 `field:"required" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 

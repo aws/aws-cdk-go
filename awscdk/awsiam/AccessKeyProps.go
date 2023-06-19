@@ -9,26 +9,31 @@ package awsiam
 //   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
 //   	User: User,
 //   })
-//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretStringValue: accessKey.SecretAccessKey,
+//   secretValue := secretsmanager.SecretStringValueBeta1_FromToken(accessKey.SecretAccessKey.ToString())
+//   secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
+//   	SecretStringBeta1: secretValue,
 //   })
 //
+// Experimental.
 type AccessKeyProps struct {
 	// The IAM user this key will belong to.
 	//
 	// Changing this value will result in the access key being deleted and a new
 	// access key (with a different ID and secret value) being assigned to the new
 	// user.
+	// Experimental.
 	User IUser `field:"required" json:"user" yaml:"user"`
 	// A CloudFormation-specific value that signifies the access key should be replaced/rotated.
 	//
 	// This value can only be incremented. Incrementing this
 	// value will cause CloudFormation to replace the Access Key resource.
+	// Experimental.
 	Serial *float64 `field:"optional" json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// An Active access key is allowed to be used
 	// to make API calls; An Inactive key cannot.
+	// Experimental.
 	Status AccessKeyStatus `field:"optional" json:"status" yaml:"status"`
 }
 

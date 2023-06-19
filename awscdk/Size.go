@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -35,32 +35,35 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type Size interface {
 	// Checks if size is a token or a resolvable object.
+	// Experimental.
 	IsUnresolved() *bool
-	// Return this storage as a total number of bytes.
-	//
-	// Returns: the quantity expressed in bytes.
-	ToBytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of gibibytes.
 	//
 	// Returns: the quantity of bytes expressed in gibibytes.
+	// Experimental.
 	ToGibibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of kibibytes.
 	//
 	// Returns: the quantity of bytes expressed in kibibytes.
+	// Experimental.
 	ToKibibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of mebibytes.
 	//
 	// Returns: the quantity of bytes expressed in mebibytes.
+	// Experimental.
 	ToMebibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of pebibytes.
 	//
 	// Returns: the quantity of bytes expressed in pebibytes.
+	// Experimental.
 	ToPebibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of tebibytes.
 	//
 	// Returns: the quantity of bytes expressed in tebibytes.
+	// Experimental.
 	ToTebibytes(opts *SizeConversionOptions) *float64
 }
 
@@ -69,32 +72,12 @@ type jsiiProxy_Size struct {
 	_ byte // padding
 }
 
-// Create a Storage representing an amount bytes.
-//
-// Returns: a new `Size` instance.
-func Size_Bytes(amount *float64) Size {
-	_init_.Initialize()
-
-	if err := validateSize_BytesParameters(amount); err != nil {
-		panic(err)
-	}
-	var returns Size
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
-		"bytes",
-		[]interface{}{amount},
-		&returns,
-	)
-
-	return returns
-}
-
 // Create a Storage representing an amount gibibytes.
 //
 // 1 GiB = 1024 MiB.
 //
 // Returns: a new `Size` instance.
+// Experimental.
 func Size_Gibibytes(amount *float64) Size {
 	_init_.Initialize()
 
@@ -104,7 +87,7 @@ func Size_Gibibytes(amount *float64) Size {
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
+		"monocdk.Size",
 		"gibibytes",
 		[]interface{}{amount},
 		&returns,
@@ -118,6 +101,7 @@ func Size_Gibibytes(amount *float64) Size {
 // 1 KiB = 1024 bytes.
 //
 // Returns: a new `Size` instance.
+// Experimental.
 func Size_Kibibytes(amount *float64) Size {
 	_init_.Initialize()
 
@@ -127,7 +111,7 @@ func Size_Kibibytes(amount *float64) Size {
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
+		"monocdk.Size",
 		"kibibytes",
 		[]interface{}{amount},
 		&returns,
@@ -141,6 +125,7 @@ func Size_Kibibytes(amount *float64) Size {
 // 1 MiB = 1024 KiB.
 //
 // Returns: a new `Size` instance.
+// Experimental.
 func Size_Mebibytes(amount *float64) Size {
 	_init_.Initialize()
 
@@ -150,8 +135,30 @@ func Size_Mebibytes(amount *float64) Size {
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
+		"monocdk.Size",
 		"mebibytes",
+		[]interface{}{amount},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a Storage representing an amount pebibytes.
+//
+// 1 PiB = 1024 TiB.
+// Deprecated: use `pebibytes` instead.
+func Size_Pebibyte(amount *float64) Size {
+	_init_.Initialize()
+
+	if err := validateSize_PebibyteParameters(amount); err != nil {
+		panic(err)
+	}
+	var returns Size
+
+	_jsii_.StaticInvoke(
+		"monocdk.Size",
+		"pebibyte",
 		[]interface{}{amount},
 		&returns,
 	)
@@ -164,6 +171,7 @@ func Size_Mebibytes(amount *float64) Size {
 // 1 PiB = 1024 TiB.
 //
 // Returns: a new `Size` instance.
+// Experimental.
 func Size_Pebibytes(amount *float64) Size {
 	_init_.Initialize()
 
@@ -173,7 +181,7 @@ func Size_Pebibytes(amount *float64) Size {
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
+		"monocdk.Size",
 		"pebibytes",
 		[]interface{}{amount},
 		&returns,
@@ -187,6 +195,7 @@ func Size_Pebibytes(amount *float64) Size {
 // 1 TiB = 1024 GiB.
 //
 // Returns: a new `Size` instance.
+// Experimental.
 func Size_Tebibytes(amount *float64) Size {
 	_init_.Initialize()
 
@@ -196,7 +205,7 @@ func Size_Tebibytes(amount *float64) Size {
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
+		"monocdk.Size",
 		"tebibytes",
 		[]interface{}{amount},
 		&returns,
@@ -212,22 +221,6 @@ func (s *jsiiProxy_Size) IsUnresolved() *bool {
 		s,
 		"isUnresolved",
 		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Size) ToBytes(opts *SizeConversionOptions) *float64 {
-	if err := s.validateToBytesParameters(opts); err != nil {
-		panic(err)
-	}
-	var returns *float64
-
-	_jsii_.Invoke(
-		s,
-		"toBytes",
-		[]interface{}{opts},
 		&returns,
 	)
 

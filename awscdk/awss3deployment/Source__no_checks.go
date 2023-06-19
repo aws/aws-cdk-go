@@ -20,7 +20,3 @@ func validateSource_JsonDataParameters(objectKey *string, obj interface{}) error
 	return nil
 }
 
-func validateSource_YamlDataParameters(objectKey *string, obj interface{}) error {
-	return nil
-}
-

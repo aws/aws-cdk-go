@@ -1,8 +1,8 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Options for attaching a CloudFormationInit to a resource.
@@ -10,7 +10,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -35,14 +35,19 @@ import (
 //   	SignalResource: cfnResource,
 //   }
 //
+// Experimental.
 type AttachInitOptions struct {
 	// Instance role of the consuming instance or fleet.
+	// Experimental.
 	InstanceRole awsiam.IRole `field:"required" json:"instanceRole" yaml:"instanceRole"`
 	// OS Platform the init config will be used for.
+	// Experimental.
 	Platform OperatingSystemType `field:"required" json:"platform" yaml:"platform"`
 	// UserData to add commands to.
+	// Experimental.
 	UserData UserData `field:"required" json:"userData" yaml:"userData"`
 	// ConfigSet to activate.
+	// Experimental.
 	ConfigSets *[]*string `field:"optional" json:"configSets" yaml:"configSets"`
 	// Whether to embed a hash into the userData.
 	//
@@ -52,20 +57,24 @@ type AttachInitOptions struct {
 	//
 	// If `false`, no such hash will be embedded, and if the CloudFormation Init
 	// config changes nothing will happen to the running instance.
+	// Experimental.
 	EmbedFingerprint *bool `field:"optional" json:"embedFingerprint" yaml:"embedFingerprint"`
 	// Don't fail the instance creation when cfn-init fails.
 	//
 	// You can use this to prevent CloudFormation from rolling back when
 	// instances fail to start up, to help in debugging.
+	// Experimental.
 	IgnoreFailures *bool `field:"optional" json:"ignoreFailures" yaml:"ignoreFailures"`
 	// Include --role argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the IAM instance profile attached to the EC2 instance.
+	// Experimental.
 	IncludeRole *bool `field:"optional" json:"includeRole" yaml:"includeRole"`
 	// Include --url argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the cloudformation endpoint in the deployed region
 	// e.g. https://cloudformation.us-east-1.amazonaws.com
+	// Experimental.
 	IncludeUrl *bool `field:"optional" json:"includeUrl" yaml:"includeUrl"`
 	// Print the results of running cfn-init to the Instance System Log.
 	//
@@ -76,10 +85,12 @@ type AttachInitOptions struct {
 	// (Be aware that the system log is refreshed at certain points in
 	// time of the instance life cycle, and successful execution may
 	// not always show up).
+	// Experimental.
 	PrintLog *bool `field:"optional" json:"printLog" yaml:"printLog"`
 	// When provided, signals this resource instead of the attached resource.
 	//
 	// You can use this to support signaling LaunchTemplate while attaching AutoScalingGroup.
+	// Experimental.
 	SignalResource awscdk.CfnResource `field:"optional" json:"signalResource" yaml:"signalResource"`
 }
 

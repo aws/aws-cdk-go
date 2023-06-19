@@ -15,10 +15,13 @@ package awslambda
 //   	Weight: jsii.Number(123),
 //   }
 //
+// Experimental.
 type VersionWeight struct {
 	// The version to route traffic to.
+	// Experimental.
 	Version IVersion `field:"required" json:"version" yaml:"version"`
 	// How much weight to assign to this version (0..1).
+	// Experimental.
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 

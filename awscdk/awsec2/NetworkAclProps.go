@@ -26,24 +26,29 @@ package awsec2
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
+//   		SubnetName: jsii.String("subnetName"),
 //   		Subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
+//   		SubnetType: awscdk.Aws_ec2.SubnetType_ISOLATED,
 //   	},
 //   }
 //
+// Experimental.
 type NetworkAclProps struct {
 	// The VPC in which to create the NetworkACL.
+	// Experimental.
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The name of the NetworkAcl.
 	//
 	// It is not recommended to use an explicit name.
+	// Experimental.
 	NetworkAclName *string `field:"optional" json:"networkAclName" yaml:"networkAclName"`
 	// Subnets in the given VPC to associate the ACL with.
 	//
 	// More subnets can always be added later by calling
 	// `associateWithSubnets()`.
+	// Experimental.
 	SubnetSelection *SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }
 

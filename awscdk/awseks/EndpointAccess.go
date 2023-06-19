@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -9,14 +9,16 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_26(),
+//   	Version: eks.KubernetesVersion_V1_21(),
 //   	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 //   })
 //
+// Experimental.
 type EndpointAccess interface {
 	// Restrict public access to specific CIDR blocks.
 	//
 	// If public access is disabled, this method will result in an error.
+	// Experimental.
 	OnlyFrom(cidr ...*string) EndpointAccess
 }
 
@@ -29,7 +31,7 @@ func EndpointAccess_PRIVATE() EndpointAccess {
 	_init_.Initialize()
 	var returns EndpointAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.EndpointAccess",
+		"monocdk.aws_eks.EndpointAccess",
 		"PRIVATE",
 		&returns,
 	)
@@ -40,7 +42,7 @@ func EndpointAccess_PUBLIC() EndpointAccess {
 	_init_.Initialize()
 	var returns EndpointAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.EndpointAccess",
+		"monocdk.aws_eks.EndpointAccess",
 		"PUBLIC",
 		&returns,
 	)
@@ -51,7 +53,7 @@ func EndpointAccess_PUBLIC_AND_PRIVATE() EndpointAccess {
 	_init_.Initialize()
 	var returns EndpointAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.EndpointAccess",
+		"monocdk.aws_eks.EndpointAccess",
 		"PUBLIC_AND_PRIVATE",
 		&returns,
 	)

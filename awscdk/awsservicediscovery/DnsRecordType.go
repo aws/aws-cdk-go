@@ -24,18 +24,24 @@ package awsservicediscovery
 //
 //   app.Synth()
 //
+// Experimental.
 type DnsRecordType string
 
 const (
 	// An A record.
+	// Experimental.
 	DnsRecordType_A DnsRecordType = "A"
 	// An AAAA record.
+	// Experimental.
 	DnsRecordType_AAAA DnsRecordType = "AAAA"
 	// Both an A and AAAA record.
+	// Experimental.
 	DnsRecordType_A_AAAA DnsRecordType = "A_AAAA"
 	// A Srv record.
+	// Experimental.
 	DnsRecordType_SRV DnsRecordType = "SRV"
 	// A CNAME record.
+	// Experimental.
 	DnsRecordType_CNAME DnsRecordType = "CNAME"
 )
 

@@ -8,6 +8,10 @@ func validateMachineImage_FromSsmParameterParameters(parameterName *string, opti
 	return nil
 }
 
+func validateMachineImage_FromSSMParameterParameters(parameterName *string, os OperatingSystemType) error {
+	return nil
+}
+
 func validateMachineImage_GenericLinuxParameters(amiMap *map[string]*string, props *GenericLinuxImageProps) error {
 	return nil
 }
@@ -17,18 +21,6 @@ func validateMachineImage_GenericWindowsParameters(amiMap *map[string]*string, p
 }
 
 func validateMachineImage_LatestAmazonLinuxParameters(props *AmazonLinuxImageProps) error {
-	return nil
-}
-
-func validateMachineImage_LatestAmazonLinux2Parameters(props *AmazonLinux2ImageSsmParameterProps) error {
-	return nil
-}
-
-func validateMachineImage_LatestAmazonLinux2022Parameters(props *AmazonLinux2022ImageSsmParameterProps) error {
-	return nil
-}
-
-func validateMachineImage_LatestAmazonLinux2023Parameters(props *AmazonLinux2023ImageSsmParameterProps) error {
 	return nil
 }
 

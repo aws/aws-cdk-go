@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Policy for customizing shrink operations.
@@ -11,11 +11,13 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
+//
 //   shrinkPolicyProperty := &ShrinkPolicyProperty{
-//   	DecommissionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	DecommissionTimeout: duration,
 //   	InstanceResizePolicy: &InstanceResizePolicyProperty{
 //   		InstancesToProtect: []*string{
 //   			jsii.String("instancesToProtect"),
@@ -23,18 +25,21 @@ import (
 //   		InstancesToTerminate: []*string{
 //   			jsii.String("instancesToTerminate"),
 //   		},
-//   		InstanceTerminationTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   		InstanceTerminationTimeout: duration,
 //   	},
 //   }
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ShrinkPolicy.html
 //
+// Experimental.
 type EmrModifyInstanceGroupByName_ShrinkPolicyProperty struct {
 	// The desired timeout for decommissioning an instance.
 	//
 	// Overrides the default YARN decommissioning timeout.
+	// Experimental.
 	DecommissionTimeout awscdk.Duration `field:"optional" json:"decommissionTimeout" yaml:"decommissionTimeout"`
 	// Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
+	// Experimental.
 	InstanceResizePolicy *EmrModifyInstanceGroupByName_InstanceResizePolicyProperty `field:"optional" json:"instanceResizePolicy" yaml:"instanceResizePolicy"`
 }
 

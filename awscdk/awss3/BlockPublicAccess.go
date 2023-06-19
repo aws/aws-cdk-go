@@ -1,7 +1,7 @@
 package awss3
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -10,14 +10,23 @@ import (
 //   	BlockPublicAccess: s3.BlockPublicAccess_BLOCK_ALL(),
 //   })
 //
+// Experimental.
 type BlockPublicAccess interface {
+	// Experimental.
 	BlockPublicAcls() *bool
+	// Experimental.
 	SetBlockPublicAcls(val *bool)
+	// Experimental.
 	BlockPublicPolicy() *bool
+	// Experimental.
 	SetBlockPublicPolicy(val *bool)
+	// Experimental.
 	IgnorePublicAcls() *bool
+	// Experimental.
 	SetIgnorePublicAcls(val *bool)
+	// Experimental.
 	RestrictPublicBuckets() *bool
+	// Experimental.
 	SetRestrictPublicBuckets(val *bool)
 }
 
@@ -67,6 +76,7 @@ func (j *jsiiProxy_BlockPublicAccess) RestrictPublicBuckets() *bool {
 }
 
 
+// Experimental.
 func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	_init_.Initialize()
 
@@ -76,7 +86,7 @@ func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	j := jsiiProxy_BlockPublicAccess{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3.BlockPublicAccess",
+		"monocdk.aws_s3.BlockPublicAccess",
 		[]interface{}{options},
 		&j,
 	)
@@ -84,11 +94,12 @@ func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	return &j
 }
 
+// Experimental.
 func NewBlockPublicAccess_Override(b BlockPublicAccess, options *BlockPublicAccessOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3.BlockPublicAccess",
+		"monocdk.aws_s3.BlockPublicAccess",
 		[]interface{}{options},
 		b,
 	)
@@ -130,7 +141,7 @@ func BlockPublicAccess_BLOCK_ACLS() BlockPublicAccess {
 	_init_.Initialize()
 	var returns BlockPublicAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.BlockPublicAccess",
+		"monocdk.aws_s3.BlockPublicAccess",
 		"BLOCK_ACLS",
 		&returns,
 	)
@@ -141,7 +152,7 @@ func BlockPublicAccess_BLOCK_ALL() BlockPublicAccess {
 	_init_.Initialize()
 	var returns BlockPublicAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.BlockPublicAccess",
+		"monocdk.aws_s3.BlockPublicAccess",
 		"BLOCK_ALL",
 		&returns,
 	)

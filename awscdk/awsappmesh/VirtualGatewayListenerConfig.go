@@ -80,8 +80,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type VirtualGatewayListenerConfig struct {
 	// Single listener config for a VirtualGateway.
+	// Experimental.
 	Listener *CfnVirtualGateway_VirtualGatewayListenerProperty `field:"required" json:"listener" yaml:"listener"`
 }
 

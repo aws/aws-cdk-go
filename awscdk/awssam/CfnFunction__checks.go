@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnFunction) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnFunction) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnFunction) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnFunction) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnFunction) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnFunction) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnFunction) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnFunction) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -193,8 +181,6 @@ func (j *jsiiProxy_CfnFunction) validateSetCodeUriParameters(val interface{}) er
 		// ok
 	case string:
 		// ok
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_S3LocationProperty:
 		val := val.(*CfnFunction_S3LocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -206,9 +192,11 @@ func (j *jsiiProxy_CfnFunction) validateSetCodeUriParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *string, awscdk.IResolvable, *CfnFunction_S3LocationProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *string, *CfnFunction_S3LocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,8 +205,6 @@ func (j *jsiiProxy_CfnFunction) validateSetCodeUriParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnFunction) validateSetDeadLetterQueueParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_DeadLetterQueueProperty:
 		val := val.(*CfnFunction_DeadLetterQueueProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -230,9 +216,11 @@ func (j *jsiiProxy_CfnFunction) validateSetDeadLetterQueueParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_DeadLetterQueueProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_DeadLetterQueueProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -241,8 +229,6 @@ func (j *jsiiProxy_CfnFunction) validateSetDeadLetterQueueParameters(val interfa
 
 func (j *jsiiProxy_CfnFunction) validateSetDeploymentPreferenceParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_DeploymentPreferenceProperty:
 		val := val.(*CfnFunction_DeploymentPreferenceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -254,9 +240,11 @@ func (j *jsiiProxy_CfnFunction) validateSetDeploymentPreferenceParameters(val in
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_DeploymentPreferenceProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_DeploymentPreferenceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -265,8 +253,6 @@ func (j *jsiiProxy_CfnFunction) validateSetDeploymentPreferenceParameters(val in
 
 func (j *jsiiProxy_CfnFunction) validateSetEnvironmentParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_FunctionEnvironmentProperty:
 		val := val.(*CfnFunction_FunctionEnvironmentProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -278,9 +264,11 @@ func (j *jsiiProxy_CfnFunction) validateSetEnvironmentParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_FunctionEnvironmentProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_FunctionEnvironmentProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,8 +277,6 @@ func (j *jsiiProxy_CfnFunction) validateSetEnvironmentParameters(val interface{}
 
 func (j *jsiiProxy_CfnFunction) validateSetEventInvokeConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_EventInvokeConfigProperty:
 		val := val.(*CfnFunction_EventInvokeConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -302,9 +288,11 @@ func (j *jsiiProxy_CfnFunction) validateSetEventInvokeConfigParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_EventInvokeConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_EventInvokeConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -319,8 +307,6 @@ func (j *jsiiProxy_CfnFunction) validateSetEventsParameters(val interface{}) err
 		val := val.(*map[string]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnFunction_EventSourceProperty:
 				v := v.(*CfnFunction_EventSourceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -332,9 +318,11 @@ func (j *jsiiProxy_CfnFunction) validateSetEventsParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFunction_EventSourceProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFunction_EventSourceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -343,8 +331,6 @@ func (j *jsiiProxy_CfnFunction) validateSetEventsParameters(val interface{}) err
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnFunction_EventSourceProperty:
 				v := v.(*CfnFunction_EventSourceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -356,9 +342,11 @@ func (j *jsiiProxy_CfnFunction) validateSetEventsParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFunction_EventSourceProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFunction_EventSourceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -379,8 +367,6 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnFunction_FileSystemConfigProperty:
 				v := v.(*CfnFunction_FileSystemConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -392,9 +378,11 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFunction_FileSystemConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFunction_FileSystemConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -403,8 +391,6 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
 			case *CfnFunction_FileSystemConfigProperty:
 				v := v.(*CfnFunction_FileSystemConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -416,9 +402,11 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnFunction_FileSystemConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnFunction_FileSystemConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -433,8 +421,6 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 
 func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_ImageConfigProperty:
 		val := val.(*CfnFunction_ImageConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -446,9 +432,11 @@ func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_ImageConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_ImageConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -461,8 +449,6 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 		// ok
 	case string:
 		// ok
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_IAMPolicyDocumentProperty:
 		val := val.(*CfnFunction_IAMPolicyDocumentProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -474,6 +460,8 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	case *[]interface{}:
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
@@ -481,8 +469,6 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 			case *string:
 				// ok
 			case string:
-				// ok
-			case awscdk.IResolvable:
 				// ok
 			case *CfnFunction_IAMPolicyDocumentProperty:
 				v := v.(*CfnFunction_IAMPolicyDocumentProperty)
@@ -506,9 +492,11 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *string, awscdk.IResolvable, *CfnFunction_IAMPolicyDocumentProperty, *CfnFunction_SAMPolicyTemplateProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *string, *CfnFunction_IAMPolicyDocumentProperty, *CfnFunction_SAMPolicyTemplateProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -521,8 +509,6 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 				// ok
 			case string:
 				// ok
-			case awscdk.IResolvable:
-				// ok
 			case *CfnFunction_IAMPolicyDocumentProperty:
 				v := v.(*CfnFunction_IAMPolicyDocumentProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -545,15 +531,17 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
+			case awscdk.IResolvable:
+				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *string, awscdk.IResolvable, *CfnFunction_IAMPolicyDocumentProperty, *CfnFunction_SAMPolicyTemplateProperty; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *string, *CfnFunction_IAMPolicyDocumentProperty, *CfnFunction_SAMPolicyTemplateProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *string, awscdk.IResolvable, *CfnFunction_IAMPolicyDocumentProperty, *[]interface{}; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *string, *CfnFunction_IAMPolicyDocumentProperty, awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -562,8 +550,6 @@ func (j *jsiiProxy_CfnFunction) validateSetPoliciesParameters(val interface{}) e
 
 func (j *jsiiProxy_CfnFunction) validateSetProvisionedConcurrencyConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_ProvisionedConcurrencyConfigProperty:
 		val := val.(*CfnFunction_ProvisionedConcurrencyConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -575,9 +561,11 @@ func (j *jsiiProxy_CfnFunction) validateSetProvisionedConcurrencyConfigParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_ProvisionedConcurrencyConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_ProvisionedConcurrencyConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -586,8 +574,6 @@ func (j *jsiiProxy_CfnFunction) validateSetProvisionedConcurrencyConfigParameter
 
 func (j *jsiiProxy_CfnFunction) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
 	case *CfnFunction_VpcConfigProperty:
 		val := val.(*CfnFunction_VpcConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -599,16 +585,18 @@ func (j *jsiiProxy_CfnFunction) validateSetVpcConfigParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
+	case awscdk.IResolvable:
+		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_VpcConfigProperty; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_VpcConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnFunctionParameters(scope constructs.Construct, id *string, props *CfnFunctionProps) error {
+func validateNewCfnFunctionParameters(scope awscdk.Construct, id *string, props *CfnFunctionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

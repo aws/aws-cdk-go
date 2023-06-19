@@ -43,13 +43,16 @@ package awsapigateway
 //   	},
 //   })
 //
+// Experimental.
 type JsonSchemaVersion string
 
 const (
 	// In API Gateway models are defined using the JSON schema draft 4.
 	// See: https://tools.ietf.org/html/draft-zyp-json-schema-04
 	//
+	// Experimental.
 	JsonSchemaVersion_DRAFT4 JsonSchemaVersion = "DRAFT4"
+	// Experimental.
 	JsonSchemaVersion_DRAFT7 JsonSchemaVersion = "DRAFT7"
 )
 

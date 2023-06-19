@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateAddDeletionOverride
 	return nil
 }
 
-func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateInspectParameters(i
 	return nil
 }
 
-func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateRenderPropertiesPar
 	return nil
 }
 
-func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) validateSetLayerIdParameter
 	return nil
 }
 
-func validateNewCfnElasticLoadBalancerAttachmentParameters(scope constructs.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) error {
+func validateNewCfnElasticLoadBalancerAttachmentParameters(scope awscdk.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) error {
 	return nil
 }
 

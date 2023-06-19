@@ -1,8 +1,8 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Base CallApiGatewayEdnpoint Task Props.
@@ -10,14 +10,13 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
 //   var resultSelector interface{}
 //   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
 //
 //   callApiGatewayEndpointBaseProps := &CallApiGatewayEndpointBaseProps{
 //   	Method: awscdk.Aws_stepfunctions_tasks.HttpMethod_GET,
@@ -26,12 +25,8 @@ import (
 //   	ApiPath: jsii.String("apiPath"),
 //   	AuthType: awscdk.*Aws_stepfunctions_tasks.AuthType_NO_AUTH,
 //   	Comment: jsii.String("comment"),
-//   	Credentials: &Credentials{
-//   		Role: taskRole,
-//   	},
 //   	Headers: taskInput,
-//   	Heartbeat: cdk.Duration_Minutes(jsii.Number(30)),
-//   	HeartbeatTimeout: timeout,
+//   	Heartbeat: duration,
 //   	InputPath: jsii.String("inputPath"),
 //   	IntegrationPattern: awscdk.Aws_stepfunctions.IntegrationPattern_REQUEST_RESPONSE,
 //   	OutputPath: jsii.String("outputPath"),
@@ -41,47 +36,41 @@ import (
 //   	ResultSelector: map[string]interface{}{
 //   		"resultSelectorKey": resultSelector,
 //   	},
-//   	TaskTimeout: timeout,
-//   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	Timeout: duration,
 //   }
 //
+// Experimental.
 type CallApiGatewayEndpointBaseProps struct {
 	// An optional description for this state.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// Credentials for an IAM Role that the State Machine assumes for executing the task.
-	//
-	// This enables cross-account resource invocations.
-	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-access-cross-acct-resources.html
-	//
-	Credentials *awsstepfunctions.Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Timeout for the heartbeat.
-	// Deprecated: use `heartbeatTimeout`.
+	// Experimental.
 	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
-	// Timeout for the heartbeat.
-	//
-	// [disable-awslint:duration-prop-type] is needed because all props interface in
-	// aws-stepfunctions-tasks extend this interface.
-	HeartbeatTimeout awsstepfunctions.Timeout `field:"optional" json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
+	// Experimental.
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
+	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
+	// Experimental.
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
+	// Experimental.
 	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -89,26 +78,28 @@ type CallApiGatewayEndpointBaseProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
+	// Experimental.
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
-	// Timeout for the task.
-	//
-	// [disable-awslint:duration-prop-type] is needed because all props interface in
-	// aws-stepfunctions-tasks extend this interface.
-	TaskTimeout awsstepfunctions.Timeout `field:"optional" json:"taskTimeout" yaml:"taskTimeout"`
-	// Timeout for the task.
-	// Deprecated: use `taskTimeout`.
+	// Timeout for the state machine.
+	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Http method for the API.
+	// Experimental.
 	Method HttpMethod `field:"required" json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
+	// Experimental.
 	ApiPath *string `field:"optional" json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
+	// Experimental.
 	AuthType AuthType `field:"optional" json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
+	// Experimental.
 	Headers awsstepfunctions.TaskInput `field:"optional" json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
+	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `field:"optional" json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
+	// Experimental.
 	RequestBody awsstepfunctions.TaskInput `field:"optional" json:"requestBody" yaml:"requestBody"`
 }
 

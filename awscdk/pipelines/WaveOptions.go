@@ -37,10 +37,13 @@ package pipelines
 //   	},
 //   })
 //
+// Experimental.
 type WaveOptions struct {
 	// Additional steps to run after all of the stages in the wave.
+	// Experimental.
 	Post *[]Step `field:"optional" json:"post" yaml:"post"`
 	// Additional steps to run before any of the stages in the wave.
+	// Experimental.
 	Pre *[]Step `field:"optional" json:"pre" yaml:"pre"`
 }
 

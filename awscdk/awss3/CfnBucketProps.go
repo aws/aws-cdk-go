@@ -1,22 +1,396 @@
 package awss3
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnBucket`.
 //
 // Example:
-//   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
-//   })
-//   // -or-
-//   rawBucketAlt := myBucket.Node.defaultChild.(cfnBucket)
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // then
-//   rawBucket.CfnOptions.Condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &CfnConditionProps{
-//   })
-//   rawBucket.CfnOptions.Metadata = map[string]interface{}{
-//   	"metadataKey": jsii.String("MetadataValue"),
+//   cfnBucketProps := &CfnBucketProps{
+//   	AccelerateConfiguration: &AccelerateConfigurationProperty{
+//   		AccelerationStatus: jsii.String("accelerationStatus"),
+//   	},
+//   	AccessControl: jsii.String("accessControl"),
+//   	AnalyticsConfigurations: []interface{}{
+//   		&AnalyticsConfigurationProperty{
+//   			Id: jsii.String("id"),
+//   			StorageClassAnalysis: &StorageClassAnalysisProperty{
+//   				DataExport: &DataExportProperty{
+//   					Destination: &DestinationProperty{
+//   						BucketArn: jsii.String("bucketArn"),
+//   						Format: jsii.String("format"),
+//
+//   						// the properties below are optional
+//   						BucketAccountId: jsii.String("bucketAccountId"),
+//   						Prefix: jsii.String("prefix"),
+//   					},
+//   					OutputSchemaVersion: jsii.String("outputSchemaVersion"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			Prefix: jsii.String("prefix"),
+//   			TagFilters: []interface{}{
+//   				&TagFilterProperty{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	BucketEncryption: &BucketEncryptionProperty{
+//   		ServerSideEncryptionConfiguration: []interface{}{
+//   			&ServerSideEncryptionRuleProperty{
+//   				BucketKeyEnabled: jsii.Boolean(false),
+//   				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
+//   					SseAlgorithm: jsii.String("sseAlgorithm"),
+//
+//   					// the properties below are optional
+//   					KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	BucketName: jsii.String("bucketName"),
+//   	CorsConfiguration: &CorsConfigurationProperty{
+//   		CorsRules: []interface{}{
+//   			&CorsRuleProperty{
+//   				AllowedMethods: []*string{
+//   					jsii.String("allowedMethods"),
+//   				},
+//   				AllowedOrigins: []*string{
+//   					jsii.String("allowedOrigins"),
+//   				},
+//
+//   				// the properties below are optional
+//   				AllowedHeaders: []*string{
+//   					jsii.String("allowedHeaders"),
+//   				},
+//   				ExposedHeaders: []*string{
+//   					jsii.String("exposedHeaders"),
+//   				},
+//   				Id: jsii.String("id"),
+//   				MaxAge: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	IntelligentTieringConfigurations: []interface{}{
+//   		&IntelligentTieringConfigurationProperty{
+//   			Id: jsii.String("id"),
+//   			Status: jsii.String("status"),
+//   			Tierings: []interface{}{
+//   				&TieringProperty{
+//   					AccessTier: jsii.String("accessTier"),
+//   					Days: jsii.Number(123),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			Prefix: jsii.String("prefix"),
+//   			TagFilters: []interface{}{
+//   				&TagFilterProperty{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	InventoryConfigurations: []interface{}{
+//   		&InventoryConfigurationProperty{
+//   			Destination: &DestinationProperty{
+//   				BucketArn: jsii.String("bucketArn"),
+//   				Format: jsii.String("format"),
+//
+//   				// the properties below are optional
+//   				BucketAccountId: jsii.String("bucketAccountId"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Enabled: jsii.Boolean(false),
+//   			Id: jsii.String("id"),
+//   			IncludedObjectVersions: jsii.String("includedObjectVersions"),
+//   			ScheduleFrequency: jsii.String("scheduleFrequency"),
+//
+//   			// the properties below are optional
+//   			OptionalFields: []*string{
+//   				jsii.String("optionalFields"),
+//   			},
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
+//   	LifecycleConfiguration: &LifecycleConfigurationProperty{
+//   		Rules: []interface{}{
+//   			&RuleProperty{
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				AbortIncompleteMultipartUpload: &AbortIncompleteMultipartUploadProperty{
+//   					DaysAfterInitiation: jsii.Number(123),
+//   				},
+//   				ExpirationDate: NewDate(),
+//   				ExpirationInDays: jsii.Number(123),
+//   				ExpiredObjectDeleteMarker: jsii.Boolean(false),
+//   				Id: jsii.String("id"),
+//   				NoncurrentVersionExpiration: &NoncurrentVersionExpirationProperty{
+//   					NoncurrentDays: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					NewerNoncurrentVersions: jsii.Number(123),
+//   				},
+//   				NoncurrentVersionExpirationInDays: jsii.Number(123),
+//   				NoncurrentVersionTransition: &NoncurrentVersionTransitionProperty{
+//   					StorageClass: jsii.String("storageClass"),
+//   					TransitionInDays: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					NewerNoncurrentVersions: jsii.Number(123),
+//   				},
+//   				NoncurrentVersionTransitions: []interface{}{
+//   					&NoncurrentVersionTransitionProperty{
+//   						StorageClass: jsii.String("storageClass"),
+//   						TransitionInDays: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						NewerNoncurrentVersions: jsii.Number(123),
+//   					},
+//   				},
+//   				ObjectSizeGreaterThan: jsii.Number(123),
+//   				ObjectSizeLessThan: jsii.Number(123),
+//   				Prefix: jsii.String("prefix"),
+//   				TagFilters: []interface{}{
+//   					&TagFilterProperty{
+//   						Key: jsii.String("key"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				Transition: &TransitionProperty{
+//   					StorageClass: jsii.String("storageClass"),
+//
+//   					// the properties below are optional
+//   					TransitionDate: NewDate(),
+//   					TransitionInDays: jsii.Number(123),
+//   				},
+//   				Transitions: []interface{}{
+//   					&TransitionProperty{
+//   						StorageClass: jsii.String("storageClass"),
+//
+//   						// the properties below are optional
+//   						TransitionDate: NewDate(),
+//   						TransitionInDays: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	LoggingConfiguration: &LoggingConfigurationProperty{
+//   		DestinationBucketName: jsii.String("destinationBucketName"),
+//   		LogFilePrefix: jsii.String("logFilePrefix"),
+//   	},
+//   	MetricsConfigurations: []interface{}{
+//   		&MetricsConfigurationProperty{
+//   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			AccessPointArn: jsii.String("accessPointArn"),
+//   			Prefix: jsii.String("prefix"),
+//   			TagFilters: []interface{}{
+//   				&TagFilterProperty{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	NotificationConfiguration: &NotificationConfigurationProperty{
+//   		EventBridgeConfiguration: &EventBridgeConfigurationProperty{
+//   			EventBridgeEnabled: jsii.Boolean(false),
+//   		},
+//   		LambdaConfigurations: []interface{}{
+//   			&LambdaConfigurationProperty{
+//   				Event: jsii.String("event"),
+//   				Function: jsii.String("function"),
+//
+//   				// the properties below are optional
+//   				Filter: &NotificationFilterProperty{
+//   					S3Key: &S3KeyFilterProperty{
+//   						Rules: []interface{}{
+//   							&FilterRuleProperty{
+//   								Name: jsii.String("name"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		QueueConfigurations: []interface{}{
+//   			&QueueConfigurationProperty{
+//   				Event: jsii.String("event"),
+//   				Queue: jsii.String("queue"),
+//
+//   				// the properties below are optional
+//   				Filter: &NotificationFilterProperty{
+//   					S3Key: &S3KeyFilterProperty{
+//   						Rules: []interface{}{
+//   							&FilterRuleProperty{
+//   								Name: jsii.String("name"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		TopicConfigurations: []interface{}{
+//   			&TopicConfigurationProperty{
+//   				Event: jsii.String("event"),
+//   				Topic: jsii.String("topic"),
+//
+//   				// the properties below are optional
+//   				Filter: &NotificationFilterProperty{
+//   					S3Key: &S3KeyFilterProperty{
+//   						Rules: []interface{}{
+//   							&FilterRuleProperty{
+//   								Name: jsii.String("name"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	ObjectLockConfiguration: &ObjectLockConfigurationProperty{
+//   		ObjectLockEnabled: jsii.String("objectLockEnabled"),
+//   		Rule: &ObjectLockRuleProperty{
+//   			DefaultRetention: &DefaultRetentionProperty{
+//   				Days: jsii.Number(123),
+//   				Mode: jsii.String("mode"),
+//   				Years: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	ObjectLockEnabled: jsii.Boolean(false),
+//   	OwnershipControls: &OwnershipControlsProperty{
+//   		Rules: []interface{}{
+//   			&OwnershipControlsRuleProperty{
+//   				ObjectOwnership: jsii.String("objectOwnership"),
+//   			},
+//   		},
+//   	},
+//   	PublicAccessBlockConfiguration: &PublicAccessBlockConfigurationProperty{
+//   		BlockPublicAcls: jsii.Boolean(false),
+//   		BlockPublicPolicy: jsii.Boolean(false),
+//   		IgnorePublicAcls: jsii.Boolean(false),
+//   		RestrictPublicBuckets: jsii.Boolean(false),
+//   	},
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Role: jsii.String("role"),
+//   		Rules: []interface{}{
+//   			&ReplicationRuleProperty{
+//   				Destination: &ReplicationDestinationProperty{
+//   					Bucket: jsii.String("bucket"),
+//
+//   					// the properties below are optional
+//   					AccessControlTranslation: &AccessControlTranslationProperty{
+//   						Owner: jsii.String("owner"),
+//   					},
+//   					Account: jsii.String("account"),
+//   					EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   						ReplicaKmsKeyId: jsii.String("replicaKmsKeyId"),
+//   					},
+//   					Metrics: &MetricsProperty{
+//   						Status: jsii.String("status"),
+//
+//   						// the properties below are optional
+//   						EventThreshold: &ReplicationTimeValueProperty{
+//   							Minutes: jsii.Number(123),
+//   						},
+//   					},
+//   					ReplicationTime: &ReplicationTimeProperty{
+//   						Status: jsii.String("status"),
+//   						Time: &ReplicationTimeValueProperty{
+//   							Minutes: jsii.Number(123),
+//   						},
+//   					},
+//   					StorageClass: jsii.String("storageClass"),
+//   				},
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				DeleteMarkerReplication: &DeleteMarkerReplicationProperty{
+//   					Status: jsii.String("status"),
+//   				},
+//   				Filter: &ReplicationRuleFilterProperty{
+//   					And: &ReplicationRuleAndOperatorProperty{
+//   						Prefix: jsii.String("prefix"),
+//   						TagFilters: []interface{}{
+//   							&TagFilterProperty{
+//   								Key: jsii.String("key"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   					Prefix: jsii.String("prefix"),
+//   					TagFilter: &TagFilterProperty{
+//   						Key: jsii.String("key"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				Id: jsii.String("id"),
+//   				Prefix: jsii.String("prefix"),
+//   				Priority: jsii.Number(123),
+//   				SourceSelectionCriteria: &SourceSelectionCriteriaProperty{
+//   					ReplicaModifications: &ReplicaModificationsProperty{
+//   						Status: jsii.String("status"),
+//   					},
+//   					SseKmsEncryptedObjects: &SseKmsEncryptedObjectsProperty{
+//   						Status: jsii.String("status"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VersioningConfiguration: &VersioningConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
+//   	WebsiteConfiguration: &WebsiteConfigurationProperty{
+//   		ErrorDocument: jsii.String("errorDocument"),
+//   		IndexDocument: jsii.String("indexDocument"),
+//   		RedirectAllRequestsTo: &RedirectAllRequestsToProperty{
+//   			HostName: jsii.String("hostName"),
+//
+//   			// the properties below are optional
+//   			Protocol: jsii.String("protocol"),
+//   		},
+//   		RoutingRules: []interface{}{
+//   			&RoutingRuleProperty{
+//   				RedirectRule: &RedirectRuleProperty{
+//   					HostName: jsii.String("hostName"),
+//   					HttpRedirectCode: jsii.String("httpRedirectCode"),
+//   					Protocol: jsii.String("protocol"),
+//   					ReplaceKeyPrefixWith: jsii.String("replaceKeyPrefixWith"),
+//   					ReplaceKeyWith: jsii.String("replaceKeyWith"),
+//   				},
+//
+//   				// the properties below are optional
+//   				RoutingRuleCondition: &RoutingRuleConditionProperty{
+//   					HttpErrorCodeReturnedEquals: jsii.String("httpErrorCodeReturnedEquals"),
+//   					KeyPrefixEquals: jsii.String("keyPrefixEquals"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnBucketProps struct {

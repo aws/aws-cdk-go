@@ -39,8 +39,10 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("gateway"),
 //   })
 //
+// Experimental.
 type GrpcConnectionPool struct {
 	// The maximum requests in the pool.
+	// Experimental.
 	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 

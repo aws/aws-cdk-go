@@ -24,18 +24,24 @@ package awsecs
 //   	},
 //   }
 //
+// Experimental.
 type DockerVolumeConfiguration struct {
 	// The Docker volume driver to use.
+	// Experimental.
 	Driver *string `field:"required" json:"driver" yaml:"driver"`
 	// The scope for the Docker volume that determines its lifecycle.
+	// Experimental.
 	Scope Scope `field:"required" json:"scope" yaml:"scope"`
 	// Specifies whether the Docker volume should be created if it does not already exist.
 	//
 	// If true is specified, the Docker volume will be created for you.
+	// Experimental.
 	Autoprovision *bool `field:"optional" json:"autoprovision" yaml:"autoprovision"`
 	// A map of Docker driver-specific options passed through.
+	// Experimental.
 	DriverOpts *map[string]*string `field:"optional" json:"driverOpts" yaml:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
+	// Experimental.
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 }
 

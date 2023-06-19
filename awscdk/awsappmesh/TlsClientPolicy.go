@@ -16,13 +16,13 @@ package awsappmesh
 //   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
-//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
+//   				Interval: cdk.Duration_Seconds(jsii.Number(5)),
 //   				Path: jsii.String("/ping"),
-//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
+//   				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),
 //   			Timeout: &HttpTimeout{
-//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
+//   				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
 //   			},
 //   		}),
 //   	},
@@ -38,18 +38,23 @@ package awsappmesh
 //
 //   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type TlsClientPolicy struct {
 	// Represents the object for TLS validation context.
+	// Experimental.
 	Validation *TlsValidation `field:"required" json:"validation" yaml:"validation"`
 	// Whether the policy is enforced.
+	// Experimental.
 	Enforce *bool `field:"optional" json:"enforce" yaml:"enforce"`
 	// Represents a client TLS certificate.
 	//
 	// The certificate will be sent only if the server requests it, enabling mutual TLS.
+	// Experimental.
 	MutualTlsCertificate MutualTlsCertificate `field:"optional" json:"mutualTlsCertificate" yaml:"mutualTlsCertificate"`
 	// TLS is enforced on the ports specified here.
 	//
 	// If no ports are specified, TLS will be enforced on all the ports.
+	// Experimental.
 	Ports *[]*float64 `field:"optional" json:"ports" yaml:"ports"`
 }
 

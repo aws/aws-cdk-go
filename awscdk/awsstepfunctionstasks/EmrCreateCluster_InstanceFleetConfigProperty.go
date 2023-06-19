@@ -6,7 +6,7 @@ package awsstepfunctionstasks
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var configurationProperty_ configurationProperty
@@ -71,20 +71,27 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetConfig.html
 //
+// Experimental.
 type EmrCreateCluster_InstanceFleetConfigProperty struct {
 	// The node type that the instance fleet hosts.
 	//
 	// Valid values are MASTER,CORE,and TASK.
+	// Experimental.
 	InstanceFleetType EmrCreateCluster_InstanceRoleType `field:"required" json:"instanceFleetType" yaml:"instanceFleetType"`
 	// The instance type configurations that define the EC2 instances in the instance fleet.
+	// Experimental.
 	InstanceTypeConfigs *[]*EmrCreateCluster_InstanceTypeConfigProperty `field:"optional" json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
+	// Experimental.
 	LaunchSpecifications *EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty `field:"optional" json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The friendly name of the instance fleet.
+	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	// Experimental.
 	TargetOnDemandCapacity *float64 `field:"optional" json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	// Experimental.
 	TargetSpotCapacity *float64 `field:"optional" json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
