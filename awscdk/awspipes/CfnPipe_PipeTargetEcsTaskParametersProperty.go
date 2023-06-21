@@ -1,7 +1,7 @@
 package awspipes
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // The parameters for using an Amazon ECS task as a target.

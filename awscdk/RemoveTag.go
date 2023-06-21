@@ -1,8 +1,10 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The RemoveTag Aspect will handle removing tags from this node and children.
@@ -10,9 +12,9 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   removeTag := monocdk.NewRemoveTag(jsii.String("key"), &TagProps{
+//   removeTag := cdk.NewRemoveTag(jsii.String("key"), &TagProps{
 //   	ApplyToLaunchedInstances: jsii.Boolean(false),
 //   	ExcludeResourceTypes: []*string{
 //   		jsii.String("excludeResourceTypes"),
@@ -23,19 +25,15 @@ import (
 //   	Priority: jsii.Number(123),
 //   })
 //
-// Experimental.
 type RemoveTag interface {
 	IAspect
 	// The string key for the tag.
-	// Experimental.
 	Key() *string
-	// Experimental.
 	Props() *TagProps
-	// Experimental.
 	ApplyTag(resource ITaggable)
+	ApplyTagV2(resource ITaggableV2)
 	// All aspects can visit an IConstruct.
-	// Experimental.
-	Visit(construct IConstruct)
+	Visit(construct constructs.IConstruct)
 }
 
 // The jsii proxy struct for RemoveTag
@@ -64,7 +62,6 @@ func (j *jsiiProxy_RemoveTag) Props() *TagProps {
 }
 
 
-// Experimental.
 func NewRemoveTag(key *string, props *TagProps) RemoveTag {
 	_init_.Initialize()
 
@@ -74,7 +71,7 @@ func NewRemoveTag(key *string, props *TagProps) RemoveTag {
 	j := jsiiProxy_RemoveTag{}
 
 	_jsii_.Create(
-		"monocdk.RemoveTag",
+		"aws-cdk-lib.RemoveTag",
 		[]interface{}{key, props},
 		&j,
 	)
@@ -82,12 +79,11 @@ func NewRemoveTag(key *string, props *TagProps) RemoveTag {
 	return &j
 }
 
-// Experimental.
 func NewRemoveTag_Override(r RemoveTag, key *string, props *TagProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.RemoveTag",
+		"aws-cdk-lib.RemoveTag",
 		[]interface{}{key, props},
 		r,
 	)
@@ -104,7 +100,18 @@ func (r *jsiiProxy_RemoveTag) ApplyTag(resource ITaggable) {
 	)
 }
 
-func (r *jsiiProxy_RemoveTag) Visit(construct IConstruct) {
+func (r *jsiiProxy_RemoveTag) ApplyTagV2(resource ITaggableV2) {
+	if err := r.validateApplyTagV2Parameters(resource); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"applyTagV2",
+		[]interface{}{resource},
+	)
+}
+
+func (r *jsiiProxy_RemoveTag) Visit(construct constructs.IConstruct) {
 	if err := r.validateVisitParameters(construct); err != nil {
 		panic(err)
 	}

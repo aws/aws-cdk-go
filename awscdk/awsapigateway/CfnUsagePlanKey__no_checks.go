@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnUsagePlanKey) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
+func (c *jsiiProxy_CfnUsagePlanKey) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUsagePlanKey) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnUsagePlanKey) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnUsagePlanKey) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnUsagePlanKey) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnUsagePlanKey) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnUsagePlanKey) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnUsagePlanKey) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnUsagePlanKey) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnUsagePlanKey) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnUsagePlanKey) validateSetUsagePlanIdParameters(val *string
 	return nil
 }
 
-func validateNewCfnUsagePlanKeyParameters(scope awscdk.Construct, id *string, props *CfnUsagePlanKeyProps) error {
+func validateNewCfnUsagePlanKeyParameters(scope constructs.Construct, id *string, props *CfnUsagePlanKeyProps) error {
 	return nil
 }
 

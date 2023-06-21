@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnImagePipeline) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnImagePipeline) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnImagePipeline) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnImagePipeline) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnImagePipeline) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnImagePipeline) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnImagePipeline) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnImagePipeline) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnImagePipeline) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnImagePipeline) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -186,6 +198,8 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetEnhancedImageMetadataEnabledPara
 
 func (j *jsiiProxy_CfnImagePipeline) validateSetImageScanningConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImagePipeline_ImageScanningConfigurationProperty:
 		val := val.(*CfnImagePipeline_ImageScanningConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -197,11 +211,9 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetImageScanningConfigurationParame
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImagePipeline_ImageScanningConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImagePipeline_ImageScanningConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -210,6 +222,8 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetImageScanningConfigurationParame
 
 func (j *jsiiProxy_CfnImagePipeline) validateSetImageTestsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImagePipeline_ImageTestsConfigurationProperty:
 		val := val.(*CfnImagePipeline_ImageTestsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -221,11 +235,9 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetImageTestsConfigurationParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImagePipeline_ImageTestsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImagePipeline_ImageTestsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -250,6 +262,8 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetNameParameters(val *string) erro
 
 func (j *jsiiProxy_CfnImagePipeline) validateSetScheduleParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnImagePipeline_ScheduleProperty:
 		val := val.(*CfnImagePipeline_ScheduleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -261,18 +275,16 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetScheduleParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImagePipeline_ScheduleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImagePipeline_ScheduleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnImagePipelineParameters(scope awscdk.Construct, id *string, props *CfnImagePipelineProps) error {
+func validateNewCfnImagePipelineParameters(scope constructs.Construct, id *string, props *CfnImagePipelineProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

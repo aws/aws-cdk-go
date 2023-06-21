@@ -5,7 +5,7 @@ package awswafv2
 //
 // You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
 //
-// Example JSON: `"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }`.
+// Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

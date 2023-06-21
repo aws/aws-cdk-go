@@ -30,10 +30,8 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type VirtualServiceBackendOptions struct {
 	// TLS properties for  Client policy for the backend.
-	// Experimental.
 	TlsClientPolicy *TlsClientPolicy `field:"optional" json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
 }
 

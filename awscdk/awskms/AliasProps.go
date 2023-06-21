@@ -1,7 +1,7 @@
 package awskms
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Construction properties for a KMS Key Alias object.
@@ -25,24 +25,20 @@ import (
 //   	EncryptionKey: alias,
 //   })
 //
-// Experimental.
 type AliasProps struct {
 	// The name of the alias.
 	//
 	// The name must start with alias followed by a
 	// forward slash, such as alias/. You can't specify aliases that begin with
 	// alias/AWS. These aliases are reserved.
-	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
 	// globally unique identifier or Amazon Resource Name (ARN). You can't
 	// specify another alias.
-	// Experimental.
 	TargetKey IKey `field:"required" json:"targetKey" yaml:"targetKey"`
 	// Policy to apply when the alias is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

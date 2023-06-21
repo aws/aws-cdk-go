@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -35,51 +35,47 @@ import (
 // your Lamba's code, instead of using environment variables.)
 //
 // Example:
-//   // Read the secret from Secrets Manager
-//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-//   sourceOutput := codepipeline.NewArtifact()
-//   sourceAction := codepipeline_actions.NewGitHubSourceAction(&GitHubSourceActionProps{
-//   	ActionName: jsii.String("GitHub_Source"),
-//   	Owner: jsii.String("awslabs"),
-//   	Repo: jsii.String("aws-cdk"),
-//   	OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
-//   	Output: sourceOutput,
-//   	Branch: jsii.String("develop"),
-//   })
-//   pipeline.AddStage(&StageOptions{
-//   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
-//   		sourceAction,
-//   	},
+//   var myHostedZone iPublicHostedZone
+//
+//
+//   ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
+//   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
+//   	DkimIdentity: ses.DkimIdentity_ByoDkim(&ByoDkimOptions{
+//   		PrivateKey: awscdk.SecretValue_SecretsManager(jsii.String("dkim-private-key")),
+//   		PublicKey: jsii.String("...base64-encoded-public-key..."),
+//   		Selector: jsii.String("selector"),
+//   	}),
 //   })
 //
-// Experimental.
 type SecretValue interface {
 	Intrinsic
 	// The captured stack trace which represents the location in which this token was created.
-	// Experimental.
 	CreationStack() *[]*string
+	// Type that the Intrinsic is expected to evaluate to.
+	TypeHint() ResolutionTypeHint
 	// Creates a throwable Error object that contains the token creation stack trace.
-	// Experimental.
 	NewError(message *string) interface{}
 	// Resolve the secret.
 	//
 	// If the feature flag is not set, resolve as normal. Otherwise, throw a descriptive
 	// error that the usage guard is missing.
-	// Experimental.
 	Resolve(context IResolveContext) interface{}
 	// Turn this Token into JSON.
 	//
 	// Called automatically when JSON.stringify() is called on a Token.
-	// Experimental.
 	ToJSON() interface{}
 	// Convert an instance of this Token to a string.
 	//
 	// This method will be called implicitly by language runtimes if the object
 	// is embedded into a string. We treat it the same as an explicit
 	// stringification.
-	// Experimental.
 	ToString() *string
+	// Convert an instance of this Token to a string list.
+	//
+	// This method will be called implicitly by language runtimes if the object
+	// is embedded into a list. We treat it the same as an explicit
+	// stringification.
+	ToStringList() *[]*string
 	// Disable usage protection on this secret.
 	//
 	// Call this to indicate that you want to use the secret value held by this
@@ -94,7 +90,6 @@ type SecretValue interface {
 	//
 	// When in doubt, don't call this method and only pass the object to constructs that
 	// accept `SecretValue` parameters.
-	// Experimental.
 	UnsafeUnwrap() *string
 }
 
@@ -113,12 +108,21 @@ func (j *jsiiProxy_SecretValue) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_SecretValue) TypeHint() ResolutionTypeHint {
+	var returns ResolutionTypeHint
+	_jsii_.Get(
+		j,
+		"typeHint",
+		&returns,
+	)
+	return returns
+}
+
 
 // Construct a SecretValue (do not use!).
 //
 // Do not use the constructor directly: use one of the factory functions on the class
 // instead.
-// Experimental.
 func NewSecretValue(protectedValue interface{}, options *IntrinsicProps) SecretValue {
 	_init_.Initialize()
 
@@ -128,7 +132,7 @@ func NewSecretValue(protectedValue interface{}, options *IntrinsicProps) SecretV
 	j := jsiiProxy_SecretValue{}
 
 	_jsii_.Create(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		[]interface{}{protectedValue, options},
 		&j,
 	)
@@ -140,12 +144,11 @@ func NewSecretValue(protectedValue interface{}, options *IntrinsicProps) SecretV
 //
 // Do not use the constructor directly: use one of the factory functions on the class
 // instead.
-// Experimental.
 func NewSecretValue_Override(s SecretValue, protectedValue interface{}, options *IntrinsicProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		[]interface{}{protectedValue, options},
 		s,
 	)
@@ -154,7 +157,6 @@ func NewSecretValue_Override(s SecretValue, protectedValue interface{}, options 
 // Obtain the secret value through a CloudFormation dynamic reference.
 //
 // If possible, use `SecretValue.ssmSecure` or `SecretValue.secretsManager` directly.
-// Experimental.
 func SecretValue_CfnDynamicReference(ref CfnDynamicReference) SecretValue {
 	_init_.Initialize()
 
@@ -164,7 +166,7 @@ func SecretValue_CfnDynamicReference(ref CfnDynamicReference) SecretValue {
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"cfnDynamicReference",
 		[]interface{}{ref},
 		&returns,
@@ -177,7 +179,6 @@ func SecretValue_CfnDynamicReference(ref CfnDynamicReference) SecretValue {
 //
 // Generally, this is not a recommended approach. AWS Secrets Manager is the
 // recommended way to reference secrets.
-// Experimental.
 func SecretValue_CfnParameter(param CfnParameter) SecretValue {
 	_init_.Initialize()
 
@@ -187,7 +188,7 @@ func SecretValue_CfnParameter(param CfnParameter) SecretValue {
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"cfnParameter",
 		[]interface{}{param},
 		&returns,
@@ -197,7 +198,6 @@ func SecretValue_CfnParameter(param CfnParameter) SecretValue {
 }
 
 // Test whether an object is a SecretValue.
-// Experimental.
 func SecretValue_IsSecretValue(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -207,7 +207,7 @@ func SecretValue_IsSecretValue(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"isSecretValue",
 		[]interface{}{x},
 		&returns,
@@ -233,7 +233,7 @@ func SecretValue_PlainText(secret *string) SecretValue {
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"plainText",
 		[]interface{}{secret},
 		&returns,
@@ -243,7 +243,6 @@ func SecretValue_PlainText(secret *string) SecretValue {
 }
 
 // Use a resource's output as secret value.
-// Experimental.
 func SecretValue_ResourceAttribute(attr *string) SecretValue {
 	_init_.Initialize()
 
@@ -253,7 +252,7 @@ func SecretValue_ResourceAttribute(attr *string) SecretValue {
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"resourceAttribute",
 		[]interface{}{attr},
 		&returns,
@@ -263,7 +262,9 @@ func SecretValue_ResourceAttribute(attr *string) SecretValue {
 }
 
 // Creates a `SecretValue` with a value which is dynamically loaded from AWS Secrets Manager.
-// Experimental.
+//
+// If you rotate the value in the Secret, you must also change at least one property
+// on the resource where you are using the secret, to force CloudFormation to re-read the secret.
 func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretOptions) SecretValue {
 	_init_.Initialize()
 
@@ -273,7 +274,7 @@ func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretO
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"secretsManager",
 		[]interface{}{secretId, options},
 		&returns,
@@ -283,7 +284,10 @@ func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretO
 }
 
 // Use a secret value stored from a Systems Manager (SSM) parameter.
-// Experimental.
+//
+// This secret source in only supported in a limited set of resources and
+// properties. [Click here for the list of supported
+// properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#template-parameters-dynamic-patterns-resources).
 func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 	_init_.Initialize()
 
@@ -293,7 +297,7 @@ func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"ssmSecure",
 		[]interface{}{parameterName, version},
 		&returns,
@@ -308,8 +312,20 @@ func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 // will be visible to anyone who has access to the CloudFormation template
 // (via the AWS Console, SDKs, or CLI).
 //
-// The only reasonable use case for using this method is when you are testing.
-// Experimental.
+// The primary use case for using this method is when you are testing.
+//
+// The other use case where this is appropriate is when constructing a JSON secret.
+// For example, a JSON secret might have multiple fields where only some are actual
+// secret values.
+//
+// Example:
+//   var secret secretValue
+//
+//   jsonSecret := map[string]secretValue{
+//   	"username": awscdk.SecretValue_unsafePlainText(jsii.String("myUsername")),
+//   	"password": secret,
+//   }
+//
 func SecretValue_UnsafePlainText(secret *string) SecretValue {
 	_init_.Initialize()
 
@@ -319,7 +335,7 @@ func SecretValue_UnsafePlainText(secret *string) SecretValue {
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.SecretValue",
+		"aws-cdk-lib.SecretValue",
 		"unsafePlainText",
 		[]interface{}{secret},
 		&returns,
@@ -379,6 +395,19 @@ func (s *jsiiProxy_SecretValue) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SecretValue) ToStringList() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"toStringList",
 		nil, // no parameters
 		&returns,
 	)

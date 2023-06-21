@@ -8,11 +8,7 @@ func (k *jsiiProxy_KubectlProvider) validateAddDependencyParameters(target awscd
 	return nil
 }
 
-func (k *jsiiProxy_KubectlProvider) validateAddDockerImageAssetParameters(asset *awscdk.DockerImageAssetSource) error {
-	return nil
-}
-
-func (k *jsiiProxy_KubectlProvider) validateAddFileAssetParameters(asset *awscdk.FileAssetSource) error {
+func (k *jsiiProxy_KubectlProvider) validateAddMetadataParameters(key *string, value interface{}) error {
 	return nil
 }
 
@@ -21,6 +17,10 @@ func (k *jsiiProxy_KubectlProvider) validateAddTransformParameters(transform *st
 }
 
 func (k *jsiiProxy_KubectlProvider) validateAllocateLogicalIdParameters(cfnElement awscdk.CfnElement) error {
+	return nil
+}
+
+func (k *jsiiProxy_KubectlProvider) validateExportStringListValueParameters(exportedValue interface{}, options *awscdk.ExportValueOptions) error {
 	return nil
 }
 
@@ -36,27 +36,11 @@ func (k *jsiiProxy_KubectlProvider) validateGetLogicalIdParameters(element awscd
 	return nil
 }
 
-func (k *jsiiProxy_KubectlProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (k *jsiiProxy_KubectlProvider) validateParseArnParameters(arn *string) error {
-	return nil
-}
-
-func (k *jsiiProxy_KubectlProvider) validatePrepareCrossReferenceParameters(_sourceStack awscdk.Stack, reference awscdk.Reference) error {
-	return nil
-}
-
 func (k *jsiiProxy_KubectlProvider) validateRegionalFactParameters(factName *string) error {
 	return nil
 }
 
 func (k *jsiiProxy_KubectlProvider) validateRenameLogicalIdParameters(oldId *string, newId *string) error {
-	return nil
-}
-
-func (k *jsiiProxy_KubectlProvider) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
 	return nil
 }
 
@@ -76,11 +60,11 @@ func (k *jsiiProxy_KubectlProvider) validateSplitArnParameters(arn *string, arnF
 	return nil
 }
 
-func (k *jsiiProxy_KubectlProvider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (k *jsiiProxy_KubectlProvider) validateToJsonStringParameters(obj interface{}) error {
 	return nil
 }
 
-func (k *jsiiProxy_KubectlProvider) validateToJsonStringParameters(obj interface{}) error {
+func (k *jsiiProxy_KubectlProvider) validateToYamlStringParameters(obj interface{}) error {
 	return nil
 }
 

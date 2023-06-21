@@ -15,18 +15,14 @@ package awsstepfunctionstasks
 //
 // Here, they are named as TERMINATE_JOB_FLOW, TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE respectively.
 //
-// Experimental.
 type ActionOnFailure string
 
 const (
 	// Terminate the Cluster on Step Failure.
-	// Experimental.
 	ActionOnFailure_TERMINATE_CLUSTER ActionOnFailure = "TERMINATE_CLUSTER"
 	// Cancel Step execution and enter WAITING state.
-	// Experimental.
 	ActionOnFailure_CANCEL_AND_WAIT ActionOnFailure = "CANCEL_AND_WAIT"
 	// Continue to the next Step.
-	// Experimental.
 	ActionOnFailure_CONTINUE ActionOnFailure = "CONTINUE"
 )
 

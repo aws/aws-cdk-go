@@ -1,6 +1,8 @@
 package awspinpoint
 
 
+// Specifies the message template to use for the message, for each type of channel.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,13 +28,15 @@ package awspinpoint
 //   }
 //
 type CfnCampaign_TemplateConfigurationProperty struct {
-	// `CfnCampaign.TemplateConfigurationProperty.EmailTemplate`.
+	// The email template to use for the message.
 	EmailTemplate interface{} `field:"optional" json:"emailTemplate" yaml:"emailTemplate"`
-	// `CfnCampaign.TemplateConfigurationProperty.PushTemplate`.
+	// The push notification template to use for the message.
 	PushTemplate interface{} `field:"optional" json:"pushTemplate" yaml:"pushTemplate"`
-	// `CfnCampaign.TemplateConfigurationProperty.SMSTemplate`.
+	// The SMS template to use for the message.
 	SmsTemplate interface{} `field:"optional" json:"smsTemplate" yaml:"smsTemplate"`
-	// `CfnCampaign.TemplateConfigurationProperty.VoiceTemplate`.
+	// The voice template to use for the message.
+	//
+	// This object isn't supported for campaigns.
 	VoiceTemplate interface{} `field:"optional" json:"voiceTemplate" yaml:"voiceTemplate"`
 }
 

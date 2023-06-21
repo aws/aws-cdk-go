@@ -20,7 +20,9 @@ type CfnSecurityKeyProps struct {
 	//
 	// *Maximum* : `100`.
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
-	// A valid security key in PEM format.
+	// A valid security key in PEM format. For example:.
+	//
+	// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
 	//
 	// *Minimum* : `1`
 	//

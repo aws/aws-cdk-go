@@ -3,11 +3,10 @@ package awslogs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for classes that can be the destination of a log Subscription.
-// Experimental.
 type ILogSubscriptionDestination interface {
 	// Return the properties required to send subscription events to this destination.
 	//
@@ -17,8 +16,7 @@ type ILogSubscriptionDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	// Experimental.
-	Bind(scope awscdk.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy for ILogSubscriptionDestination
@@ -26,7 +24,7 @@ type jsiiProxy_ILogSubscriptionDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope awscdk.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
 	if err := i.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}

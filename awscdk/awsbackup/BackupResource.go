@@ -1,43 +1,62 @@
 package awsbackup
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsefs"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A resource to backup.
 //
 // Example:
 //   var plan backupPlan
+//   var vpc vpc
 //
 //   myTable := dynamodb.Table_FromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
+//   myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+//   		Version: rds.MysqlEngineVersion_VER_8_0_26(),
+//   	}),
+//   	Vpc: Vpc,
+//   })
+//   myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+//   	InstanceProps: &InstanceProps{
+//   		Vpc: *Vpc,
+//   	},
+//   })
+//   myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
+//   	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+//   	Vpc: Vpc,
+//   })
 //   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 //
 //   plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
 //   	Resources: []backupResource{
 //   		backup.*backupResource_FromDynamoDbTable(myTable),
+//   		backup.*backupResource_FromRdsDatabaseInstance(myDatabaseInstance),
+//   		backup.*backupResource_FromRdsDatabaseCluster(myDatabaseCluster),
+//   		backup.*backupResource_FromRdsServerlessCluster(myServerlessCluster),
 //   		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
 //   		backup.*backupResource_FromConstruct(myCoolConstruct),
 //   	},
 //   })
 //
-// Experimental.
 type BackupResource interface {
 	// A construct.
-	// Experimental.
-	Construct() awscdk.Construct
+	Construct() constructs.Construct
 	// A resource.
-	// Experimental.
 	Resource() *string
 	// A condition on a tag.
-	// Experimental.
 	TagCondition() *TagCondition
 }
 
@@ -46,8 +65,8 @@ type jsiiProxy_BackupResource struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_BackupResource) Construct() awscdk.Construct {
-	var returns awscdk.Construct
+func (j *jsiiProxy_BackupResource) Construct() constructs.Construct {
+	var returns constructs.Construct
 	_jsii_.Get(
 		j,
 		"construct",
@@ -77,7 +96,6 @@ func (j *jsiiProxy_BackupResource) TagCondition() *TagCondition {
 }
 
 
-// Experimental.
 func NewBackupResource(resource *string, tagCondition *TagCondition, construct constructs.Construct) BackupResource {
 	_init_.Initialize()
 
@@ -87,7 +105,7 @@ func NewBackupResource(resource *string, tagCondition *TagCondition, construct c
 	j := jsiiProxy_BackupResource{}
 
 	_jsii_.Create(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		[]interface{}{resource, tagCondition, construct},
 		&j,
 	)
@@ -95,19 +113,17 @@ func NewBackupResource(resource *string, tagCondition *TagCondition, construct c
 	return &j
 }
 
-// Experimental.
 func NewBackupResource_Override(b BackupResource, resource *string, tagCondition *TagCondition, construct constructs.Construct) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		[]interface{}{resource, tagCondition, construct},
 		b,
 	)
 }
 
 // A list of ARNs or match patterns such as `arn:aws:ec2:us-east-1:123456789012:volume/*`.
-// Experimental.
 func BackupResource_FromArn(arn *string) BackupResource {
 	_init_.Initialize()
 
@@ -117,7 +133,7 @@ func BackupResource_FromArn(arn *string) BackupResource {
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromArn",
 		[]interface{}{arn},
 		&returns,
@@ -127,7 +143,6 @@ func BackupResource_FromArn(arn *string) BackupResource {
 }
 
 // Adds all supported resources in a construct.
-// Experimental.
 func BackupResource_FromConstruct(construct constructs.Construct) BackupResource {
 	_init_.Initialize()
 
@@ -137,7 +152,7 @@ func BackupResource_FromConstruct(construct constructs.Construct) BackupResource
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromConstruct",
 		[]interface{}{construct},
 		&returns,
@@ -147,7 +162,6 @@ func BackupResource_FromConstruct(construct constructs.Construct) BackupResource
 }
 
 // A DynamoDB table.
-// Experimental.
 func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 	_init_.Initialize()
 
@@ -157,7 +171,7 @@ func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromDynamoDbTable",
 		[]interface{}{table},
 		&returns,
@@ -167,7 +181,6 @@ func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 }
 
 // An EC2 instance.
-// Experimental.
 func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 	_init_.Initialize()
 
@@ -177,7 +190,7 @@ func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromEc2Instance",
 		[]interface{}{instance},
 		&returns,
@@ -187,7 +200,6 @@ func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 }
 
 // An EFS file system.
-// Experimental.
 func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResource {
 	_init_.Initialize()
 
@@ -197,7 +209,7 @@ func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResou
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromEfsFileSystem",
 		[]interface{}{fileSystem},
 		&returns,
@@ -206,8 +218,26 @@ func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResou
 	return returns
 }
 
+// A RDS database cluter.
+func BackupResource_FromRdsDatabaseCluster(cluster awsrds.IDatabaseCluster) BackupResource {
+	_init_.Initialize()
+
+	if err := validateBackupResource_FromRdsDatabaseClusterParameters(cluster); err != nil {
+		panic(err)
+	}
+	var returns BackupResource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupResource",
+		"fromRdsDatabaseCluster",
+		[]interface{}{cluster},
+		&returns,
+	)
+
+	return returns
+}
+
 // A RDS database instance.
-// Experimental.
 func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) BackupResource {
 	_init_.Initialize()
 
@@ -217,7 +247,7 @@ func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) B
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromRdsDatabaseInstance",
 		[]interface{}{instance},
 		&returns,
@@ -226,8 +256,26 @@ func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) B
 	return returns
 }
 
+// An Aurora database instance.
+func BackupResource_FromRdsServerlessCluster(cluster awsrds.IServerlessCluster) BackupResource {
+	_init_.Initialize()
+
+	if err := validateBackupResource_FromRdsServerlessClusterParameters(cluster); err != nil {
+		panic(err)
+	}
+	var returns BackupResource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupResource",
+		"fromRdsServerlessCluster",
+		[]interface{}{cluster},
+		&returns,
+	)
+
+	return returns
+}
+
 // A tag condition.
-// Experimental.
 func BackupResource_FromTag(key *string, value *string, operation TagOperation) BackupResource {
 	_init_.Initialize()
 
@@ -237,7 +285,7 @@ func BackupResource_FromTag(key *string, value *string, operation TagOperation) 
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_backup.BackupResource",
+		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromTag",
 		[]interface{}{key, value, operation},
 		&returns,

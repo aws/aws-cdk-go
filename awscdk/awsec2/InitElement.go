@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -25,10 +25,8 @@ import (
 //   	ServiceRestartHandle: handle,
 //   }))
 //
-// Experimental.
 type InitElement interface {
 	// Returns the init element type for this element.
-	// Experimental.
 	ElementType() *string
 }
 
@@ -48,12 +46,11 @@ func (j *jsiiProxy_InitElement) ElementType() *string {
 }
 
 
-// Experimental.
 func NewInitElement_Override(i InitElement) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitElement",
+		"aws-cdk-lib.aws_ec2.InitElement",
 		nil, // no parameters
 		i,
 	)

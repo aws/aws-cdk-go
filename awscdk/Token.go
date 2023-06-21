@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,7 +13,6 @@ import (
 //
 // Tokens can be embedded into strings while retaining their original
 // semantics.
-// Experimental.
 type Token interface {
 }
 
@@ -23,7 +22,6 @@ type jsiiProxy_Token struct {
 }
 
 // Return a resolvable representation of the given value.
-// Experimental.
 func Token_AsAny(value interface{}) IResolvable {
 	_init_.Initialize()
 
@@ -33,7 +31,7 @@ func Token_AsAny(value interface{}) IResolvable {
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
-		"monocdk.Token",
+		"aws-cdk-lib.Token",
 		"asAny",
 		[]interface{}{value},
 		&returns,
@@ -43,7 +41,6 @@ func Token_AsAny(value interface{}) IResolvable {
 }
 
 // Return a reversible list representation of this token.
-// Experimental.
 func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 	_init_.Initialize()
 
@@ -53,7 +50,7 @@ func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"monocdk.Token",
+		"aws-cdk-lib.Token",
 		"asList",
 		[]interface{}{value, options},
 		&returns,
@@ -63,7 +60,6 @@ func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 }
 
 // Return a reversible number representation of this token.
-// Experimental.
 func Token_AsNumber(value interface{}) *float64 {
 	_init_.Initialize()
 
@@ -73,7 +69,7 @@ func Token_AsNumber(value interface{}) *float64 {
 	var returns *float64
 
 	_jsii_.StaticInvoke(
-		"monocdk.Token",
+		"aws-cdk-lib.Token",
 		"asNumber",
 		[]interface{}{value},
 		&returns,
@@ -91,7 +87,6 @@ func Token_AsNumber(value interface{}) *float64 {
 // Strings with quoted Tokens in them can be restored back into
 // complex values with the Tokens restored by calling `resolve()`
 // on the string.
-// Experimental.
 func Token_AsString(value interface{}, options *EncodingOptions) *string {
 	_init_.Initialize()
 
@@ -101,7 +96,7 @@ func Token_AsString(value interface{}, options *EncodingOptions) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.Token",
+		"aws-cdk-lib.Token",
 		"asString",
 		[]interface{}{value, options},
 		&returns,
@@ -111,7 +106,6 @@ func Token_AsString(value interface{}, options *EncodingOptions) *string {
 }
 
 // Compare two strings that might contain Tokens with each other.
-// Experimental.
 func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenComparison {
 	_init_.Initialize()
 
@@ -121,7 +115,7 @@ func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenC
 	var returns TokenComparison
 
 	_jsii_.StaticInvoke(
-		"monocdk.Token",
+		"aws-cdk-lib.Token",
 		"compareStrings",
 		[]interface{}{possibleToken1, possibleToken2},
 		&returns,
@@ -139,8 +133,7 @@ func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenC
 // - `obj` is either an encoded number or list
 //
 // This does NOT recurse into lists or objects to see if they
-// containing resolvables.
-// Experimental.
+// contain resolvables.
 func Token_IsUnresolved(obj interface{}) *bool {
 	_init_.Initialize()
 
@@ -150,7 +143,7 @@ func Token_IsUnresolved(obj interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.Token",
+		"aws-cdk-lib.Token",
 		"isUnresolved",
 		[]interface{}{obj},
 		&returns,

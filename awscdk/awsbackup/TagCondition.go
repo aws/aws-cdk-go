@@ -16,22 +16,18 @@ package awsbackup
 //   	Operation: awscdk.Aws_backup.TagOperation_STRING_EQUALS,
 //   }
 //
-// Experimental.
 type TagCondition struct {
 	// The key in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `ec2:ResourceTag/Department` is the key.
-	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `accounting` is the value.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// An operation that is applied to a key-value pair used to filter resources in a selection.
-	// Experimental.
 	Operation TagOperation `field:"optional" json:"operation" yaml:"operation"`
 }
 

@@ -13,13 +13,10 @@ package awss3
 //   	Value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type Tag struct {
 	// key to e tagged.
-	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// additional value.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

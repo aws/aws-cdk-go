@@ -18,13 +18,10 @@ package awsapigateway
 //   	},
 //   }
 //
-// Experimental.
 type ThrottlingPerMethod struct {
 	// [disable-awslint:ref-via-interface] The method for which you specify the throttling settings.
-	// Experimental.
 	Method Method `field:"required" json:"method" yaml:"method"`
 	// Specifies the overall request rate (average requests per second) and burst capacity.
-	// Experimental.
 	Throttle *ThrottleSettings `field:"required" json:"throttle" yaml:"throttle"`
 }
 

@@ -1,7 +1,7 @@
 package awsstepfunctions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
 // Defines what execution history events are logged and where they are logged.
@@ -20,16 +20,12 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type LogOptions struct {
 	// The log group where the execution history events will be logged.
-	// Experimental.
 	Destination awslogs.ILogGroup `field:"required" json:"destination" yaml:"destination"`
 	// Determines whether execution data is included in your log.
-	// Experimental.
 	IncludeExecutionData *bool `field:"optional" json:"includeExecutionData" yaml:"includeExecutionData"`
 	// Defines which category of execution history events are logged.
-	// Experimental.
 	Level LogLevel `field:"optional" json:"level" yaml:"level"`
 }
 

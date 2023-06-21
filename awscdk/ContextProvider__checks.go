@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func validateContextProvider_GetKeyParameters(scope constructs.Construct, options *GetContextKeyOptions) error {

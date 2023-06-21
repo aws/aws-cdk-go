@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnCanary) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnCanary) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnCanary) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
-func (c *jsiiProxy_CfnCanary) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnCanary) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnCanary) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnCanary) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnCanary) validateRenderPropertiesParameters(props *map[stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnCanary) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnCanary) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnCanary_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnCanary) validateSetArtifactConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_ArtifactConfigProperty:
 		val := val.(*CfnCanary_ArtifactConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnCanary) validateSetArtifactConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_ArtifactConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_ArtifactConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -204,6 +216,8 @@ func (j *jsiiProxy_CfnCanary) validateSetCodeParameters(val interface{}) error {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_CodeProperty:
 		val := val.(*CfnCanary_CodeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -215,11 +229,9 @@ func (j *jsiiProxy_CfnCanary) validateSetCodeParameters(val interface{}) error {
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_CodeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_CodeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -261,6 +273,8 @@ func (j *jsiiProxy_CfnCanary) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnCanary) validateSetRunConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_RunConfigProperty:
 		val := val.(*CfnCanary_RunConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -272,11 +286,9 @@ func (j *jsiiProxy_CfnCanary) validateSetRunConfigParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_RunConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_RunConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -296,6 +308,8 @@ func (j *jsiiProxy_CfnCanary) validateSetScheduleParameters(val interface{}) err
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_ScheduleProperty:
 		val := val.(*CfnCanary_ScheduleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -307,11 +321,9 @@ func (j *jsiiProxy_CfnCanary) validateSetScheduleParameters(val interface{}) err
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_ScheduleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_ScheduleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -337,6 +349,8 @@ func (j *jsiiProxy_CfnCanary) validateSetStartCanaryAfterCreationParameters(val 
 
 func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_VisualReferenceProperty:
 		val := val.(*CfnCanary_VisualReferenceProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -348,11 +362,9 @@ func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_VisualReferenceProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_VisualReferenceProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -361,6 +373,8 @@ func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface
 
 func (j *jsiiProxy_CfnCanary) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCanary_VPCConfigProperty:
 		val := val.(*CfnCanary_VPCConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -372,18 +386,16 @@ func (j *jsiiProxy_CfnCanary) validateSetVpcConfigParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCanary_VPCConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCanary_VPCConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnCanaryParameters(scope awscdk.Construct, id *string, props *CfnCanaryProps) error {
+func validateNewCfnCanaryParameters(scope constructs.Construct, id *string, props *CfnCanaryProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

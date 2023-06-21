@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -12,15 +12,13 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   stringConcat := monocdk.NewStringConcat()
+//   stringConcat := cdk.NewStringConcat()
 //
-// Experimental.
 type StringConcat interface {
 	IFragmentConcatenator
 	// Join the fragment on the left and on the right.
-	// Experimental.
 	Join(left interface{}, right interface{}) interface{}
 }
 
@@ -29,14 +27,13 @@ type jsiiProxy_StringConcat struct {
 	jsiiProxy_IFragmentConcatenator
 }
 
-// Experimental.
 func NewStringConcat() StringConcat {
 	_init_.Initialize()
 
 	j := jsiiProxy_StringConcat{}
 
 	_jsii_.Create(
-		"monocdk.StringConcat",
+		"aws-cdk-lib.StringConcat",
 		nil, // no parameters
 		&j,
 	)
@@ -44,12 +41,11 @@ func NewStringConcat() StringConcat {
 	return &j
 }
 
-// Experimental.
 func NewStringConcat_Override(s StringConcat) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.StringConcat",
+		"aws-cdk-lib.StringConcat",
 		nil, // no parameters
 		s,
 	)

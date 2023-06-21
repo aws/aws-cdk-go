@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnLoadBalancer) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnLoadBalancer) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnLoadBalancer) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnLoadBalancer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnLoadBalancer) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnLoadBalancer) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnLoadBalancer) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnLoadBalancer_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnLoadBalancer) validateSetAccessLoggingPolicyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnLoadBalancer_AccessLoggingPolicyProperty:
 		val := val.(*CfnLoadBalancer_AccessLoggingPolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetAccessLoggingPolicyParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnLoadBalancer_AccessLoggingPolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_AccessLoggingPolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -199,6 +211,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetAppCookieStickinessPolicyParamete
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_AppCookieStickinessPolicyProperty:
 				v := v.(*CfnLoadBalancer_AppCookieStickinessPolicyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -210,11 +224,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetAppCookieStickinessPolicyParamete
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_AppCookieStickinessPolicyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_AppCookieStickinessPolicyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -223,6 +235,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetAppCookieStickinessPolicyParamete
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_AppCookieStickinessPolicyProperty:
 				v := v.(*CfnLoadBalancer_AppCookieStickinessPolicyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -234,11 +248,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetAppCookieStickinessPolicyParamete
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_AppCookieStickinessPolicyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_AppCookieStickinessPolicyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -253,6 +265,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetAppCookieStickinessPolicyParamete
 
 func (j *jsiiProxy_CfnLoadBalancer) validateSetConnectionDrainingPolicyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnLoadBalancer_ConnectionDrainingPolicyProperty:
 		val := val.(*CfnLoadBalancer_ConnectionDrainingPolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -264,11 +278,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetConnectionDrainingPolicyParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnLoadBalancer_ConnectionDrainingPolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_ConnectionDrainingPolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -277,6 +289,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetConnectionDrainingPolicyParameter
 
 func (j *jsiiProxy_CfnLoadBalancer) validateSetConnectionSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnLoadBalancer_ConnectionSettingsProperty:
 		val := val.(*CfnLoadBalancer_ConnectionSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -288,11 +302,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetConnectionSettingsParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnLoadBalancer_ConnectionSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_ConnectionSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -318,6 +330,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetCrossZoneParameters(val interface
 
 func (j *jsiiProxy_CfnLoadBalancer) validateSetHealthCheckParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnLoadBalancer_HealthCheckProperty:
 		val := val.(*CfnLoadBalancer_HealthCheckProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -329,11 +343,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetHealthCheckParameters(val interfa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnLoadBalancer_HealthCheckProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_HealthCheckProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -348,6 +360,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetLbCookieStickinessPolicyParameter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_LBCookieStickinessPolicyProperty:
 				v := v.(*CfnLoadBalancer_LBCookieStickinessPolicyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -359,11 +373,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetLbCookieStickinessPolicyParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_LBCookieStickinessPolicyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_LBCookieStickinessPolicyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -372,6 +384,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetLbCookieStickinessPolicyParameter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_LBCookieStickinessPolicyProperty:
 				v := v.(*CfnLoadBalancer_LBCookieStickinessPolicyProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -383,11 +397,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetLbCookieStickinessPolicyParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_LBCookieStickinessPolicyProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_LBCookieStickinessPolicyProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -411,6 +423,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetListenersParameters(val interface
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_ListenersProperty:
 				v := v.(*CfnLoadBalancer_ListenersProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -422,11 +436,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetListenersParameters(val interface
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_ListenersProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_ListenersProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -435,6 +447,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetListenersParameters(val interface
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_ListenersProperty:
 				v := v.(*CfnLoadBalancer_ListenersProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -446,11 +460,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetListenersParameters(val interface
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_ListenersProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_ListenersProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -471,6 +483,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetPoliciesParameters(val interface{
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_PoliciesProperty:
 				v := v.(*CfnLoadBalancer_PoliciesProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -482,11 +496,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetPoliciesParameters(val interface{
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_PoliciesProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_PoliciesProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -495,6 +507,8 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetPoliciesParameters(val interface{
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnLoadBalancer_PoliciesProperty:
 				v := v.(*CfnLoadBalancer_PoliciesProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -506,11 +520,9 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetPoliciesParameters(val interface{
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnLoadBalancer_PoliciesProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnLoadBalancer_PoliciesProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -523,7 +535,7 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetPoliciesParameters(val interface{
 	return nil
 }
 
-func validateNewCfnLoadBalancerParameters(scope awscdk.Construct, id *string, props *CfnLoadBalancerProps) error {
+func validateNewCfnLoadBalancerParameters(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

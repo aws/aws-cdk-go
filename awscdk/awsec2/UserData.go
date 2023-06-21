@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Instance User Data.
@@ -18,27 +18,20 @@ import (
 //   multipartUserData.AddCommands(jsii.String("touch /root/multi.txt"))
 //   commandsUserData.AddCommands(jsii.String("touch /root/userdata.txt"))
 //
-// Experimental.
 type UserData interface {
 	// Add one or more commands to the user data.
-	// Experimental.
 	AddCommands(commands ...*string)
 	// Adds commands to execute a file.
-	// Experimental.
 	AddExecuteFileCommand(params *ExecuteFileOptions)
 	// Add one or more commands to the user data that will run when the script exits.
-	// Experimental.
 	AddOnExitCommands(commands ...*string)
 	// Adds commands to download a file from S3.
 	//
 	// Returns: : The local path that the file will be downloaded to.
-	// Experimental.
 	AddS3DownloadCommand(params *S3DownloadOptions) *string
 	// Adds a command which will send a cfn-signal when the user data script ends.
-	// Experimental.
 	AddSignalOnExitCommand(resource awscdk.Resource)
 	// Render the UserData for use in a construct.
-	// Experimental.
 	Render() *string
 }
 
@@ -47,19 +40,17 @@ type jsiiProxy_UserData struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewUserData_Override(u UserData) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.UserData",
+		"aws-cdk-lib.aws_ec2.UserData",
 		nil, // no parameters
 		u,
 	)
 }
 
 // Create a userdata object with custom content.
-// Experimental.
 func UserData_Custom(content *string) UserData {
 	_init_.Initialize()
 
@@ -69,7 +60,7 @@ func UserData_Custom(content *string) UserData {
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.UserData",
+		"aws-cdk-lib.aws_ec2.UserData",
 		"custom",
 		[]interface{}{content},
 		&returns,
@@ -79,7 +70,6 @@ func UserData_Custom(content *string) UserData {
 }
 
 // Create a userdata object for Linux hosts.
-// Experimental.
 func UserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	_init_.Initialize()
 
@@ -89,7 +79,7 @@ func UserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.UserData",
+		"aws-cdk-lib.aws_ec2.UserData",
 		"forLinux",
 		[]interface{}{options},
 		&returns,
@@ -98,7 +88,6 @@ func UserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	return returns
 }
 
-// Experimental.
 func UserData_ForOperatingSystem(os OperatingSystemType) UserData {
 	_init_.Initialize()
 
@@ -108,7 +97,7 @@ func UserData_ForOperatingSystem(os OperatingSystemType) UserData {
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.UserData",
+		"aws-cdk-lib.aws_ec2.UserData",
 		"forOperatingSystem",
 		[]interface{}{os},
 		&returns,
@@ -118,16 +107,18 @@ func UserData_ForOperatingSystem(os OperatingSystemType) UserData {
 }
 
 // Create a userdata object for Windows hosts.
-// Experimental.
-func UserData_ForWindows() UserData {
+func UserData_ForWindows(options *WindowsUserDataOptions) UserData {
 	_init_.Initialize()
 
+	if err := validateUserData_ForWindowsParameters(options); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.UserData",
+		"aws-cdk-lib.aws_ec2.UserData",
 		"forWindows",
-		nil, // no parameters
+		[]interface{}{options},
 		&returns,
 	)
 

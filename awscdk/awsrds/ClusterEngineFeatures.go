@@ -13,13 +13,10 @@ package awsrds
 //   	S3Import: jsii.String("s3Import"),
 //   }
 //
-// Experimental.
 type ClusterEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
-	// Experimental.
 	S3Export *string `field:"optional" json:"s3Export" yaml:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
-	// Experimental.
 	S3Import *string `field:"optional" json:"s3Import" yaml:"s3Import"`
 }
 

@@ -1,15 +1,15 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-// Creation properties for {@link GitHubEnterpriseSourceCredentials}.
+// Creation properties for `GitHubEnterpriseSourceCredentials`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
@@ -18,10 +18,8 @@ import (
 //   	AccessToken: secretValue,
 //   }
 //
-// Experimental.
 type GitHubEnterpriseSourceCredentialsProps struct {
 	// The personal access token to use when contacting the instance of the GitHub Enterprise API.
-	// Experimental.
 	AccessToken awscdk.SecretValue `field:"required" json:"accessToken" yaml:"accessToken"`
 }
 

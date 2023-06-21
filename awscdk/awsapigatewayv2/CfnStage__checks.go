@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnStage) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnStage) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnStage) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
-func (c *jsiiProxy_CfnStage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnStage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnStage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnStage) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnStage) validateRenderPropertiesParameters(props *map[strin
 	return nil
 }
 
-func (c *jsiiProxy_CfnStage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnStage) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnStage_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnStage) validateSetAccessLogSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStage_AccessLogSettingsProperty:
 		val := val.(*CfnStage_AccessLogSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnStage) validateSetAccessLogSettingsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStage_AccessLogSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStage_AccessLogSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -218,6 +230,8 @@ func (j *jsiiProxy_CfnStage) validateSetAutoDeployParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnStage) validateSetDefaultRouteSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnStage_RouteSettingsProperty:
 		val := val.(*CfnStage_RouteSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -229,11 +243,9 @@ func (j *jsiiProxy_CfnStage) validateSetDefaultRouteSettingsParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnStage_RouteSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStage_RouteSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -264,7 +276,7 @@ func (j *jsiiProxy_CfnStage) validateSetStageVariablesParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnStageParameters(scope awscdk.Construct, id *string, props *CfnStageProps) error {
+func validateNewCfnStageParameters(scope constructs.Construct, id *string, props *CfnStageProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

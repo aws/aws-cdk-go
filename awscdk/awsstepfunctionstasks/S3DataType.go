@@ -35,18 +35,14 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
-// Experimental.
 type S3DataType string
 
 const (
 	// Manifest File Data Type.
-	// Experimental.
 	S3DataType_MANIFEST_FILE S3DataType = "MANIFEST_FILE"
 	// S3 Prefix Data Type.
-	// Experimental.
 	S3DataType_S3_PREFIX S3DataType = "S3_PREFIX"
 	// Augmented Manifest File Data Type.
-	// Experimental.
 	S3DataType_AUGMENTED_MANIFEST_FILE S3DataType = "AUGMENTED_MANIFEST_FILE"
 )
 

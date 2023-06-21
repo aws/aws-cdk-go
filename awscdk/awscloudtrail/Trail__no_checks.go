@@ -36,23 +36,15 @@ func (t *jsiiProxy_Trail) validateLogAllS3DataEventsParameters(options *AddEvent
 	return nil
 }
 
-func (t *jsiiProxy_Trail) validateOnCloudTrailEventParameters(id *string, options *awsevents.OnEventOptions) error {
-	return nil
-}
-
-func (t *jsiiProxy_Trail) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (t *jsiiProxy_Trail) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateTrail_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTrail_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateTrail_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateTrail_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

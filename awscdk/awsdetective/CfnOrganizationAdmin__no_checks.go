@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnOrganizationAdmin) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnOrganizationAdmin) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOrganizationAdmin) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnOrganizationAdmin) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationAdmin) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnOrganizationAdmin) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationAdmin) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnOrganizationAdmin) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnOrganizationAdmin) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnOrganizationAdmin) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnOrganizationAdmin) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnOrganizationAdmin) validateSetAccountIdParameters(val *str
 	return nil
 }
 
-func validateNewCfnOrganizationAdminParameters(scope awscdk.Construct, id *string, props *CfnOrganizationAdminProps) error {
+func validateNewCfnOrganizationAdminParameters(scope constructs.Construct, id *string, props *CfnOrganizationAdminProps) error {
 	return nil
 }
 

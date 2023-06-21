@@ -1,7 +1,7 @@
 package awsdynamodb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Reference to a dynamodb table.
@@ -19,6 +19,7 @@ import (
 //   	GlobalIndexes: []*string{
 //   		jsii.String("globalIndexes"),
 //   	},
+//   	GrantIndexPermissions: jsii.Boolean(false),
 //   	LocalIndexes: []*string{
 //   		jsii.String("localIndexes"),
 //   	},
@@ -27,39 +28,37 @@ import (
 //   	TableStreamArn: jsii.String("tableStreamArn"),
 //   }
 //
-// Experimental.
 type TableAttributes struct {
 	// KMS encryption key, if this table uses a customer-managed encryption key.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The name of the global indexes set for this Table.
 	//
 	// Note that you need to set either this property,
-	// or {@link localIndexes},
+	// or `localIndexes`,
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
-	// Experimental.
 	GlobalIndexes *[]*string `field:"optional" json:"globalIndexes" yaml:"globalIndexes"`
+	// If set to true, grant methods always grant permissions for all indexes.
+	//
+	// If false is provided, grant methods grant the permissions
+	// only when `globalIndexes` or `localIndexes` is specified.
+	GrantIndexPermissions *bool `field:"optional" json:"grantIndexPermissions" yaml:"grantIndexPermissions"`
 	// The name of the local indexes set for this Table.
 	//
 	// Note that you need to set either this property,
-	// or {@link globalIndexes},
+	// or `globalIndexes`,
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
-	// Experimental.
 	LocalIndexes *[]*string `field:"optional" json:"localIndexes" yaml:"localIndexes"`
 	// The ARN of the dynamodb table.
 	//
-	// One of this, or {@link tableName}, is required.
-	// Experimental.
+	// One of this, or `tableName`, is required.
 	TableArn *string `field:"optional" json:"tableArn" yaml:"tableArn"`
 	// The table name of the dynamodb table.
 	//
-	// One of this, or {@link tableArn}, is required.
-	// Experimental.
+	// One of this, or `tableArn`, is required.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// The ARN of the table's stream.
-	// Experimental.
 	TableStreamArn *string `field:"optional" json:"tableStreamArn" yaml:"tableStreamArn"`
 }
 

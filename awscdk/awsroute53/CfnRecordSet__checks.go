@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnRecordSet) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnRecordSet) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnRecordSet) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnRecordSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnRecordSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnRecordSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnRecordSet) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnRecordSet) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnRecordSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnRecordSet) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnRecordSet_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnRecordSet) validateSetAliasTargetParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRecordSet_AliasTargetProperty:
 		val := val.(*CfnRecordSet_AliasTargetProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnRecordSet) validateSetAliasTargetParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRecordSet_AliasTargetProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRecordSet_AliasTargetProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -193,6 +205,8 @@ func (j *jsiiProxy_CfnRecordSet) validateSetAliasTargetParameters(val interface{
 
 func (j *jsiiProxy_CfnRecordSet) validateSetCidrRoutingConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRecordSet_CidrRoutingConfigProperty:
 		val := val.(*CfnRecordSet_CidrRoutingConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -204,11 +218,9 @@ func (j *jsiiProxy_CfnRecordSet) validateSetCidrRoutingConfigParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRecordSet_CidrRoutingConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRecordSet_CidrRoutingConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +229,8 @@ func (j *jsiiProxy_CfnRecordSet) validateSetCidrRoutingConfigParameters(val inte
 
 func (j *jsiiProxy_CfnRecordSet) validateSetGeoLocationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnRecordSet_GeoLocationProperty:
 		val := val.(*CfnRecordSet_GeoLocationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -228,11 +242,9 @@ func (j *jsiiProxy_CfnRecordSet) validateSetGeoLocationParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnRecordSet_GeoLocationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRecordSet_GeoLocationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -272,7 +284,7 @@ func (j *jsiiProxy_CfnRecordSet) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnRecordSetParameters(scope awscdk.Construct, id *string, props *CfnRecordSetProps) error {
+func validateNewCfnRecordSetParameters(scope constructs.Construct, id *string, props *CfnRecordSetProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

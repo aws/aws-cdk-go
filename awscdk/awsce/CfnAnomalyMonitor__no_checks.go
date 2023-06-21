@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnAnomalyMonitor) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnAnomalyMonitor) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAnomalyMonitor) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnAnomalyMonitor) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalyMonitor) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAnomalyMonitor) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalyMonitor) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAnomalyMonitor) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnAnomalyMonitor) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalyMonitor) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAnomalyMonitor) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnAnomalyMonitor) validateSetResourceTagsParameters(val inte
 	return nil
 }
 
-func validateNewCfnAnomalyMonitorParameters(scope awscdk.Construct, id *string, props *CfnAnomalyMonitorProps) error {
+func validateNewCfnAnomalyMonitorParameters(scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) error {
 	return nil
 }
 

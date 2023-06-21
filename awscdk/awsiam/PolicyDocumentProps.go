@@ -4,17 +4,15 @@ package awsiam
 // Properties for a new PolicyDocument.
 //
 // Example:
-//   myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
-//   // Creates a limited admin policy and assigns to the account root.
-//   myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
 //   	Statements: []policyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
-//   				jsii.String("kms:Create*"),
-//   				jsii.String("kms:Describe*"),
-//   				jsii.String("kms:Enable*"),
-//   				jsii.String("kms:List*"),
-//   				jsii.String("kms:Put*"),
+//   				jsii.String("elasticfilesystem:ClientWrite"),
+//   				jsii.String("elasticfilesystem:ClientMount"),
 //   			},
 //   			Principals: []iPrincipal{
 //   				iam.NewAccountRootPrincipal(),
@@ -22,17 +20,22 @@ package awsiam
 //   			Resources: []*string{
 //   				jsii.String("*"),
 //   			},
+//   			Conditions: map[string]interface{}{
+//   				"Bool": map[string]*string{
+//   					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
+//   				},
+//   			},
 //   		}),
 //   	},
 //   })
-//   key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
-//   	Policy: myCustomPolicy,
+//
+//   fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
+//   	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
+//   	FileSystemPolicy: myFileSystemPolicy,
 //   })
 //
-// Experimental.
 type PolicyDocumentProps struct {
 	// Automatically assign Statement Ids to all statements.
-	// Experimental.
 	AssignSids *bool `field:"optional" json:"assignSids" yaml:"assignSids"`
 	// Try to minimize the policy by merging statements.
 	//
@@ -45,11 +48,9 @@ type PolicyDocumentProps struct {
 	// - Combine Resources if the rest of the statement is exactly the same.
 	// - Combine Actions if the rest of the statement is exactly the same.
 	// - We will never combine NotPrincipals, NotResources or NotActions, because doing
-	//    so would change the meaning of the policy document.
-	// Experimental.
+	//   so would change the meaning of the policy document.
 	Minimize *bool `field:"optional" json:"minimize" yaml:"minimize"`
 	// Initial statements to add to the policy document.
-	// Experimental.
 	Statements *[]PolicyStatement `field:"optional" json:"statements" yaml:"statements"`
 }
 

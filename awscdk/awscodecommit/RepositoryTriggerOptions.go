@@ -19,22 +19,17 @@ package awscodecommit
 //   	Name: jsii.String("name"),
 //   }
 //
-// Experimental.
 type RepositoryTriggerOptions struct {
 	// The names of the branches in the AWS CodeCommit repository that contain events that you want to include in the trigger.
 	//
 	// If you don't specify at
 	// least one branch, the trigger applies to all branches.
-	// Experimental.
 	Branches *[]*string `field:"optional" json:"branches" yaml:"branches"`
 	// When an event is triggered, additional information that AWS CodeCommit includes when it sends information to the target.
-	// Experimental.
 	CustomData *string `field:"optional" json:"customData" yaml:"customData"`
 	// The repository events for which AWS CodeCommit sends information to the target, which you specified in the DestinationArn property.If you don't specify events, the trigger runs for all repository events.
-	// Experimental.
 	Events *[]RepositoryEventTrigger `field:"optional" json:"events" yaml:"events"`
 	// A name for the trigger.Triggers on a repository must have unique names.
-	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -4,6 +4,10 @@ package awscodebuild
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateBuildSpec_FromAssetParameters(path *string) error {
+	return nil
+}
+
 func validateBuildSpec_FromObjectParameters(value *map[string]interface{}) error {
 	return nil
 }

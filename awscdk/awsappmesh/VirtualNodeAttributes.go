@@ -10,13 +10,10 @@ package awsappmesh
 //   	VirtualNodeName: virtualNodeName,
 //   })
 //
-// Experimental.
 type VirtualNodeAttributes struct {
 	// The Mesh that the VirtualNode belongs to.
-	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualNode.
-	// Experimental.
 	VirtualNodeName *string `field:"required" json:"virtualNodeName" yaml:"virtualNodeName"`
 }
 

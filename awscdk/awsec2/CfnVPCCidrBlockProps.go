@@ -4,23 +4,43 @@ package awsec2
 // Properties for defining a `CfnVPCCidrBlock`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc vpc
 //
-//   cfnVPCCidrBlockProps := &CfnVPCCidrBlockProps{
-//   	VpcId: jsii.String("vpcId"),
 //
-//   	// the properties below are optional
-//   	AmazonProvidedIpv6CidrBlock: jsii.Boolean(false),
-//   	CidrBlock: jsii.String("cidrBlock"),
-//   	Ipv4IpamPoolId: jsii.String("ipv4IpamPoolId"),
-//   	Ipv4NetmaskLength: jsii.Number(123),
-//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
-//   	Ipv6IpamPoolId: jsii.String("ipv6IpamPoolId"),
-//   	Ipv6NetmaskLength: jsii.Number(123),
-//   	Ipv6Pool: jsii.String("ipv6Pool"),
+//   // make an ipv6 cidr
+//   ipv6cidr := ec2.NewCfnVPCCidrBlock(this, jsii.String("CIDR6"), &CfnVPCCidrBlockProps{
+//   	VpcId: vpc.VpcId,
+//   	AmazonProvidedIpv6CidrBlock: jsii.Boolean(true),
+//   })
+//
+//   // connect the ipv6 cidr to all vpc subnets
+//   subnetcount := 0
+//   subnets := []iSubnet{
+//   	(SpreadElement ...vpc.publicSubnets
+//   			vpc.PublicSubnets),
+//   	(SpreadElement ...vpc.privateSubnets
+//   			vpc.PrivateSubnets),
 //   }
+//   for _, subnet := range subnets {
+//   	// Wait for the ipv6 cidr to complete
+//   	subnet.Node.AddDependency(ipv6cidr)
+//   	this._associate_subnet_with_v6_cidr(subnetcount, subnet)
+//   	subnetcount++
+//   }
+//
+//   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
+//   	Vpc: vpc,
+//   	IpFamily: eks.IpFamily_IP_V6,
+//   	VpcSubnets: []subnetSelection{
+//   		&subnetSelection{
+//   			Subnets: []*iSubnet{
+//   				(SpreadElement ...vpc.publicSubnets
+//   						vpc.*PublicSubnets),
+//   			},
+//   		},
+//   	},
+//   })
 //
 type CfnVPCCidrBlockProps struct {
 	// The ID of the VPC.

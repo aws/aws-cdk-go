@@ -3,33 +3,31 @@ package awscodeguruprofiler
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // IResource represents a Profiling Group.
-// Experimental.
 type IProfilingGroup interface {
 	awscdk.IResource
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
 	//
 	// This will grant the following permissions:
 	//
-	//   - codeguru-profiler:ConfigureAgent
+	//  - codeguru-profiler:ConfigureAgent
 	// - codeguru-profiler:PostAgentProfile.
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
 	// This will grant the following permissions:
 	//
-	//   - codeguru-profiler:GetProfile
+	//  - codeguru-profiler:GetProfile
 	// - codeguru-profiler:DescribeProfilingGroup.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// A name for the profiling group.
-	// Experimental.
+	// The ARN of the profiling group.
+	ProfilingGroupArn() *string
+	// The name of the profiling group.
 	ProfilingGroupName() *string
 }
 
@@ -67,6 +65,16 @@ func (i *jsiiProxy_IProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IProfilingGroup) ProfilingGroupArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"profilingGroupArn",
+		&returns,
+	)
 	return returns
 }
 

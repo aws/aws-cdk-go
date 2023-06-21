@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateAddDeletionOverrid
 	return nil
 }
 
+func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateInspectParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateRenderPropertiesPa
 	return nil
 }
 
-func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnLogAnomalyDetectionIntegration_IsConstructParameters(x interface
 	return nil
 }
 
-func validateNewCfnLogAnomalyDetectionIntegrationParameters(scope awscdk.Construct, id *string) error {
+func validateNewCfnLogAnomalyDetectionIntegrationParameters(scope constructs.Construct, id *string) error {
 	return nil
 }
 

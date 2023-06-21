@@ -1,12 +1,12 @@
 package awsglobalacceleratorendpoints
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalacceleratorendpoints/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalacceleratorendpoints/internal"
 )
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -25,16 +25,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type InstanceEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -54,7 +51,6 @@ func (j *jsiiProxy_InstanceEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointProps) InstanceEndpoint {
 	_init_.Initialize()
 
@@ -64,7 +60,7 @@ func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointPro
 	j := jsiiProxy_InstanceEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		[]interface{}{instance, options},
 		&j,
 	)
@@ -72,12 +68,11 @@ func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointPro
 	return &j
 }
 
-// Experimental.
 func NewInstanceEndpoint_Override(i InstanceEndpoint, instance awsec2.IInstance, options *InstanceEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		[]interface{}{instance, options},
 		i,
 	)

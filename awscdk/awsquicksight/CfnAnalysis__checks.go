@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnAnalysis) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnAnalysis) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnAnalysis) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnalysis) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnAnalysis) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnalysis) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnAnalysis) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnAnalysis) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnalysis) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnAnalysis) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -185,6 +197,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetAwsAccountIdParameters(val *string) e
 
 func (j *jsiiProxy_CfnAnalysis) validateSetDefinitionParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnalysis_AnalysisDefinitionProperty:
 		val := val.(*CfnAnalysis_AnalysisDefinitionProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -196,11 +210,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetDefinitionParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnalysis_AnalysisDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_AnalysisDefinitionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +229,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnAnalysis) validateSetParametersParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnalysis_ParametersProperty:
 		val := val.(*CfnAnalysis_ParametersProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -228,11 +242,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetParametersParameters(val interface{})
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnalysis_ParametersProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ParametersProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -247,6 +259,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAnalysis_ResourcePermissionProperty:
 				v := v.(*CfnAnalysis_ResourcePermissionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -258,11 +272,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnalysis_ResourcePermissionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ResourcePermissionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -271,6 +283,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAnalysis_ResourcePermissionProperty:
 				v := v.(*CfnAnalysis_ResourcePermissionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -282,11 +296,9 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAnalysis_ResourcePermissionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_ResourcePermissionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -301,6 +313,8 @@ func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}
 
 func (j *jsiiProxy_CfnAnalysis) validateSetSourceEntityParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAnalysis_AnalysisSourceEntityProperty:
 		val := val.(*CfnAnalysis_AnalysisSourceEntityProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -312,18 +326,16 @@ func (j *jsiiProxy_CfnAnalysis) validateSetSourceEntityParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAnalysis_AnalysisSourceEntityProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysis_AnalysisSourceEntityProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnAnalysisParameters(scope awscdk.Construct, id *string, props *CfnAnalysisProps) error {
+func validateNewCfnAnalysisParameters(scope constructs.Construct, id *string, props *CfnAnalysisProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

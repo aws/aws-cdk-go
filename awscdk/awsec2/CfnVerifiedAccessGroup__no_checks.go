@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVerifiedAccessGroup) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnVerifiedAccessGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVerifiedAccessGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVerifiedAccessGroup) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVerifiedAccessGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVerifiedAccessGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVerifiedAccessGroup) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVerifiedAccessGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) validateSetVerifiedAccessInstanceIdPa
 	return nil
 }
 
-func validateNewCfnVerifiedAccessGroupParameters(scope awscdk.Construct, id *string, props *CfnVerifiedAccessGroupProps) error {
+func validateNewCfnVerifiedAccessGroupParameters(scope constructs.Construct, id *string, props *CfnVerifiedAccessGroupProps) error {
 	return nil
 }
 

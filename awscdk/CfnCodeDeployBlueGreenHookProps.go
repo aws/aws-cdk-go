@@ -1,12 +1,12 @@
 package awscdk
 
 
-// Construction properties of {@link CfnCodeDeployBlueGreenHook}.
+// Construction properties of `CfnCodeDeployBlueGreenHook`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCodeDeployBlueGreenHookProps := &CfnCodeDeployBlueGreenHookProps{
 //   	Applications: []cfnCodeDeployBlueGreenApplication{
@@ -52,7 +52,7 @@ package awscdk
 //   		BeforeInstall: jsii.String("beforeInstall"),
 //   	},
 //   	TrafficRoutingConfig: &CfnTrafficRoutingConfig{
-//   		Type: monocdk.CfnTrafficRoutingType_ALL_AT_ONCE,
+//   		Type: cdk.CfnTrafficRoutingType_ALL_AT_ONCE,
 //
 //   		// the properties below are optional
 //   		TimeBasedCanary: &CfnTrafficRoutingTimeBasedCanary{
@@ -66,27 +66,21 @@ package awscdk
 //   	},
 //   }
 //
-// Experimental.
 type CfnCodeDeployBlueGreenHookProps struct {
 	// Properties of the Amazon ECS applications being deployed.
-	// Experimental.
 	Applications *[]*CfnCodeDeployBlueGreenApplication `field:"required" json:"applications" yaml:"applications"`
 	// The IAM Role for CloudFormation to use to perform blue-green deployments.
-	// Experimental.
 	ServiceRole *string `field:"required" json:"serviceRole" yaml:"serviceRole"`
 	// Additional options for the blue/green deployment.
-	// Experimental.
 	AdditionalOptions *CfnCodeDeployBlueGreenAdditionalOptions `field:"optional" json:"additionalOptions" yaml:"additionalOptions"`
 	// Use lifecycle event hooks to specify a Lambda function that CodeDeploy can call to validate a deployment.
 	//
 	// You can use the same function or a different one for deployment lifecycle events.
 	// Following completion of the validation tests,
-	// the Lambda {@link CfnCodeDeployBlueGreenLifecycleEventHooks.afterAllowTraffic}
+	// the Lambda `CfnCodeDeployBlueGreenLifecycleEventHooks.afterAllowTraffic`
 	// function calls back CodeDeploy and delivers a result of 'Succeeded' or 'Failed'.
-	// Experimental.
 	LifecycleEventHooks *CfnCodeDeployBlueGreenLifecycleEventHooks `field:"optional" json:"lifecycleEventHooks" yaml:"lifecycleEventHooks"`
 	// Traffic routing configuration settings.
-	// Experimental.
 	TrafficRoutingConfig *CfnTrafficRoutingConfig `field:"optional" json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
 }
 

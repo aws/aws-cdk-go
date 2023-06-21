@@ -42,19 +42,15 @@ package awsses
 //   	},
 //   })
 //
-// Experimental.
 type ReceiptRuleSetProps struct {
 	// Whether to add a first rule to stop processing messages that have at least one spam indicator.
-	// Experimental.
 	DropSpam *bool `field:"optional" json:"dropSpam" yaml:"dropSpam"`
 	// The name for the receipt rule set.
-	// Experimental.
 	ReceiptRuleSetName *string `field:"optional" json:"receiptRuleSetName" yaml:"receiptRuleSetName"`
 	// The list of rules to add to this rule set.
 	//
 	// Rules are added in the same
 	// order as they appear in the list.
-	// Experimental.
 	Rules *[]*ReceiptRuleOptions `field:"optional" json:"rules" yaml:"rules"`
 }
 

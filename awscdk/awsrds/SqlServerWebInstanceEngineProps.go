@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for SQL Server Web Edition instance engines.
 //
-// Used in {@link DatabaseInstanceEngine.sqlServerWeb}.
+// Used in `DatabaseInstanceEngine.sqlServerWeb`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,10 +16,8 @@ package awsrds
 //   	Version: sqlServerEngineVersion,
 //   }
 //
-// Experimental.
 type SqlServerWebInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version SqlServerEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

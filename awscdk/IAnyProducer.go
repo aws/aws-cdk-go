@@ -5,10 +5,8 @@ import (
 )
 
 // Interface for lazy untyped value producers.
-// Experimental.
 type IAnyProducer interface {
 	// Produce the value.
-	// Experimental.
 	Produce(context IResolveContext) interface{}
 }
 

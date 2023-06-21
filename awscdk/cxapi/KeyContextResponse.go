@@ -12,10 +12,8 @@ package cxapi
 //   	KeyId: jsii.String("keyId"),
 //   }
 //
-// Experimental.
 type KeyContextResponse struct {
 	// Id of the key.
-	// Experimental.
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 

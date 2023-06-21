@@ -40,13 +40,10 @@ import (
 //   	MinCapacity: jsii.Number(10),
 //   })
 //
-// Experimental.
 type ScalingSchedule struct {
 	// When to perform this action.
-	// Experimental.
 	Schedule Schedule `field:"required" json:"schedule" yaml:"schedule"`
 	// When this scheduled action expires.
-	// Experimental.
 	EndTime *time.Time `field:"optional" json:"endTime" yaml:"endTime"`
 	// The new maximum capacity.
 	//
@@ -54,7 +51,6 @@ type ScalingSchedule struct {
 	// capacity, Application Auto Scaling scales in to the maximum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
-	// Experimental.
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The new minimum capacity.
 	//
@@ -62,10 +58,8 @@ type ScalingSchedule struct {
 	// capacity, Application Auto Scaling scales out to the minimum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
-	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 	// When this scheduled action becomes active.
-	// Experimental.
 	StartTime *time.Time `field:"optional" json:"startTime" yaml:"startTime"`
 }
 

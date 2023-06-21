@@ -1,44 +1,38 @@
 package customresources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // The IAM Policy that will be applied to the different calls.
 //
 // Example:
-//   awsCustom := cr.NewAwsCustomResource(this, jsii.String("aws-custom"), &AwsCustomResourceProps{
-//   	OnCreate: &AwsSdkCall{
-//   		Service: jsii.String("..."),
-//   		Action: jsii.String("..."),
-//   		Parameters: map[string]*string{
-//   			"text": jsii.String("..."),
-//   		},
-//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("...")),
-//   	},
+//   getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
 //   	OnUpdate: &AwsSdkCall{
-//   		Service: jsii.String("..."),
-//   		Action: jsii.String("..."),
+//   		 // will also be called for a CREATE event
+//   		Service: jsii.String("SSM"),
+//   		Action: jsii.String("getParameter"),
 //   		Parameters: map[string]interface{}{
-//   			"text": jsii.String("..."),
-//   			"resourceId": cr.NewPhysicalResourceIdReference(),
+//   			"Name": jsii.String("my-parameter"),
+//   			"WithDecryption": jsii.Boolean(true),
 //   		},
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(date.now().toString()),
 //   	},
 //   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
 //   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 //   	}),
 //   })
 //
-// Experimental.
+//   // Use the value in another construct with
+//   getParameter.GetResponseField(jsii.String("Parameter.Value"))
+//
 type AwsCustomResourcePolicy interface {
 	// resources for auto-generated from SDK calls.
-	// Experimental.
 	Resources() *[]*string
 	// statements for explicit policy.
-	// Experimental.
 	Statements() *[]awsiam.PolicyStatement
 }
 
@@ -78,7 +72,6 @@ func (j *jsiiProxy_AwsCustomResourcePolicy) Statements() *[]awsiam.PolicyStateme
 // `s3:PutLifecycleConfiguration` permissions, Lambda's `Invoke` requires
 // `lambda:InvokeFunction` permissions). Use `fromStatements` if you want to
 // do a call that requires different IAM action names.
-// Experimental.
 func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCustomResourcePolicy {
 	_init_.Initialize()
 
@@ -88,7 +81,7 @@ func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCus
 	var returns AwsCustomResourcePolicy
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.AwsCustomResourcePolicy",
+		"aws-cdk-lib.custom_resources.AwsCustomResourcePolicy",
 		"fromSdkCalls",
 		[]interface{}{options},
 		&returns,
@@ -98,7 +91,6 @@ func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCus
 }
 
 // Explicit IAM Policy Statements.
-// Experimental.
 func AwsCustomResourcePolicy_FromStatements(statements *[]awsiam.PolicyStatement) AwsCustomResourcePolicy {
 	_init_.Initialize()
 
@@ -108,7 +100,7 @@ func AwsCustomResourcePolicy_FromStatements(statements *[]awsiam.PolicyStatement
 	var returns AwsCustomResourcePolicy
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.AwsCustomResourcePolicy",
+		"aws-cdk-lib.custom_resources.AwsCustomResourcePolicy",
 		"fromStatements",
 		[]interface{}{statements},
 		&returns,
@@ -121,7 +113,7 @@ func AwsCustomResourcePolicy_ANY_RESOURCE() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"monocdk.custom_resources.AwsCustomResourcePolicy",
+		"aws-cdk-lib.custom_resources.AwsCustomResourcePolicy",
 		"ANY_RESOURCE",
 		&returns,
 	)

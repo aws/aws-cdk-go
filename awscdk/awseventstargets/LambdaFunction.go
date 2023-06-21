@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Use an AWS Lambda function as an event rule target.
@@ -34,16 +34,14 @@ import (
 //   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
 //   	DeadLetterQueue: queue,
 //   	 // Optional: add a dead letter queue
-//   	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
+//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
 //   	 // Optional: set the maxEventAge retry policy
 //   	RetryAttempts: jsii.Number(2),
 //   }))
 //
-// Experimental.
 type LambdaFunction interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Lambda as a result from an EventBridge event.
-	// Experimental.
 	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -52,7 +50,6 @@ type jsiiProxy_LambdaFunction struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) LambdaFunction {
 	_init_.Initialize()
 
@@ -62,7 +59,7 @@ func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) 
 	j := jsiiProxy_LambdaFunction{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.LambdaFunction",
+		"aws-cdk-lib.aws_events_targets.LambdaFunction",
 		[]interface{}{handler, props},
 		&j,
 	)
@@ -70,12 +67,11 @@ func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) 
 	return &j
 }
 
-// Experimental.
 func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, props *LambdaFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.LambdaFunction",
+		"aws-cdk-lib.aws_events_targets.LambdaFunction",
 		[]interface{}{handler, props},
 		l,
 	)

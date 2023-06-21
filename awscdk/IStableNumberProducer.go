@@ -5,10 +5,8 @@ import (
 )
 
 // Interface for (stable) lazy number producers.
-// Experimental.
 type IStableNumberProducer interface {
 	// Produce the number value.
-	// Experimental.
 	Produce() *float64
 }
 

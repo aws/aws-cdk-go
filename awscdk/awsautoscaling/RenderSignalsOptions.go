@@ -13,13 +13,10 @@ package awsautoscaling
 //   	MinCapacity: jsii.Number(123),
 //   }
 //
-// Experimental.
 type RenderSignalsOptions struct {
 	// The desiredCapacity of the ASG.
-	// Experimental.
 	DesiredCapacity *float64 `field:"optional" json:"desiredCapacity" yaml:"desiredCapacity"`
 	// The minSize of the ASG.
-	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 

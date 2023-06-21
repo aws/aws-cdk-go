@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnDeliveryStream) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnDeliveryStream) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnDeliveryStream) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDeliveryStream) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnDeliveryStream) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnDeliveryStream) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDeliveryStream) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnDeliveryStream_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonOpenSearchServerlessDestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_AmazonOpenSearchServerlessDestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_AmazonOpenSearchServerlessDestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonOpenSearchServerlessDesti
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_AmazonOpenSearchServerlessDestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_AmazonOpenSearchServerlessDestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -193,6 +205,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonOpenSearchServerlessDesti
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonopensearchserviceDestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -204,11 +218,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonopensearchserviceDestinat
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +229,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonopensearchserviceDestinat
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetDeliveryStreamEncryptionConfigurationInputParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty:
 		val := val.(*CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -228,11 +242,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetDeliveryStreamEncryptionConfigu
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -241,6 +253,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetDeliveryStreamEncryptionConfigu
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetElasticsearchDestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -252,11 +266,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetElasticsearchDestinationConfigu
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -265,6 +277,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetElasticsearchDestinationConfigu
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetExtendedS3DestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -276,11 +290,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetExtendedS3DestinationConfigurat
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,6 +301,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetExtendedS3DestinationConfigurat
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetHttpEndpointDestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -300,11 +314,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetHttpEndpointDestinationConfigur
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -313,6 +325,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetHttpEndpointDestinationConfigur
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetKinesisStreamSourceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_KinesisStreamSourceConfigurationProperty:
 		val := val.(*CfnDeliveryStream_KinesisStreamSourceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -324,11 +338,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetKinesisStreamSourceConfiguratio
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_KinesisStreamSourceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_KinesisStreamSourceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -337,6 +349,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetKinesisStreamSourceConfiguratio
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetRedshiftDestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_RedshiftDestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_RedshiftDestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -348,11 +362,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetRedshiftDestinationConfiguratio
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_RedshiftDestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_RedshiftDestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -361,6 +373,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetRedshiftDestinationConfiguratio
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetS3DestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_S3DestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_S3DestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -372,11 +386,9 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetS3DestinationConfigurationParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_S3DestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_S3DestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -385,6 +397,8 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetS3DestinationConfigurationParam
 
 func (j *jsiiProxy_CfnDeliveryStream) validateSetSplunkDestinationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeliveryStream_SplunkDestinationConfigurationProperty:
 		val := val.(*CfnDeliveryStream_SplunkDestinationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -396,18 +410,16 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetSplunkDestinationConfigurationP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeliveryStream_SplunkDestinationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_SplunkDestinationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnDeliveryStreamParameters(scope awscdk.Construct, id *string, props *CfnDeliveryStreamProps) error {
+func validateNewCfnDeliveryStreamParameters(scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

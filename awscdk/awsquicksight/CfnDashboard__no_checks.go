@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDashboard) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
+func (c *jsiiProxy_CfnDashboard) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDashboard) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDashboard) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnDashboard) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDashboard) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDashboard) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDashboard) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDashboard) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnDashboard) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDashboard) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -108,7 +112,7 @@ func (j *jsiiProxy_CfnDashboard) validateSetSourceEntityParameters(val interface
 	return nil
 }
 
-func validateNewCfnDashboardParameters(scope awscdk.Construct, id *string, props *CfnDashboardProps) error {
+func validateNewCfnDashboardParameters(scope constructs.Construct, id *string, props *CfnDashboardProps) error {
 	return nil
 }
 

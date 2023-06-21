@@ -1,7 +1,7 @@
 package awsec2
 
 
-// Describes the destinations for Verified Access logs.
+// Describes the options for Verified Access logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

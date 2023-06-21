@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Specifies options for fine-grained access control.

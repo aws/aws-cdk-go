@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Configures the timeout and maximum number of retries for processing a transform job invocation.
@@ -32,13 +32,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ModelClientOptions struct {
 	// The maximum number of retries when invocation requests are failing.
-	// Experimental.
 	InvocationsMaxRetries *float64 `field:"optional" json:"invocationsMaxRetries" yaml:"invocationsMaxRetries"`
 	// The timeout duration for an invocation request.
-	// Experimental.
 	InvocationsTimeout awscdk.Duration `field:"optional" json:"invocationsTimeout" yaml:"invocationsTimeout"`
 }
 

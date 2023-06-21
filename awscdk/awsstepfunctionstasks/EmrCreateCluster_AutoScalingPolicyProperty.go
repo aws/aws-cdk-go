@@ -6,10 +6,8 @@ package awsstepfunctionstasks
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   autoScalingPolicyProperty := &AutoScalingPolicyProperty{
 //   	Constraints: &ScalingConstraintsProperty{
@@ -35,7 +33,7 @@ package awsstepfunctionstasks
 //   				CloudWatchAlarmDefinition: &CloudWatchAlarmDefinitionProperty{
 //   					ComparisonOperator: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   					MetricName: jsii.String("metricName"),
-//   					Period: duration,
+//   					Period: cdk.Duration_Minutes(jsii.Number(30)),
 //
 //   					// the properties below are optional
 //   					Dimensions: []metricDimensionProperty{
@@ -60,16 +58,13 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_AutoScalingPolicy.html
 //
-// Experimental.
 type EmrCreateCluster_AutoScalingPolicyProperty struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
 	//
 	// Automatic scaling activity will not cause an instance
 	// group to grow above or below these limits.
-	// Experimental.
 	Constraints *EmrCreateCluster_ScalingConstraintsProperty `field:"required" json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
-	// Experimental.
 	Rules *[]*EmrCreateCluster_ScalingRuleProperty `field:"required" json:"rules" yaml:"rules"`
 }
 

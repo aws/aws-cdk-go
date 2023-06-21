@@ -8,11 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.AdjustmentTier",
+		"aws-cdk-lib.aws_applicationautoscaling.AdjustmentTier",
 		reflect.TypeOf((*AdjustmentTier)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_applicationautoscaling.AdjustmentType",
+		"aws-cdk-lib.aws_applicationautoscaling.AdjustmentType",
 		reflect.TypeOf((*AdjustmentType)(nil)).Elem(),
 		map[string]interface{}{
 			"CHANGE_IN_CAPACITY": AdjustmentType_CHANGE_IN_CAPACITY,
@@ -21,55 +21,51 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.BaseScalableAttribute",
+		"aws-cdk-lib.aws_applicationautoscaling.BaseScalableAttribute",
 		reflect.TypeOf((*BaseScalableAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "doScaleOnMetric", GoMethod: "DoScaleOnMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "doScaleOnSchedule", GoMethod: "DoScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "doScaleToTrackMetric", GoMethod: "DoScaleToTrackMetric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BaseScalableAttribute{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.BaseScalableAttributeProps",
+		"aws-cdk-lib.aws_applicationautoscaling.BaseScalableAttributeProps",
 		reflect.TypeOf((*BaseScalableAttributeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.BaseTargetTrackingProps",
+		"aws-cdk-lib.aws_applicationautoscaling.BaseTargetTrackingProps",
 		reflect.TypeOf((*BaseTargetTrackingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.BasicStepScalingPolicyProps",
+		"aws-cdk-lib.aws_applicationautoscaling.BasicStepScalingPolicyProps",
 		reflect.TypeOf((*BasicStepScalingPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.BasicTargetTrackingScalingPolicyProps",
+		"aws-cdk-lib.aws_applicationautoscaling.BasicTargetTrackingScalingPolicyProps",
 		reflect.TypeOf((*BasicTargetTrackingScalingPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
 		reflect.TypeOf((*CfnScalableTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -81,13 +77,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "maxCapacity", GoGetter: "MaxCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "minCapacity", GoGetter: "MinCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceId", GoGetter: "ResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "scalableDimension", GoGetter: "ScalableDimension"},
@@ -96,10 +92,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "suspendedState", GoGetter: "SuspendedState"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -110,26 +105,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalableTarget.ScalableTargetActionProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget.ScalableTargetActionProperty",
 		reflect.TypeOf((*CfnScalableTarget_ScalableTargetActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalableTarget.ScheduledActionProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget.ScheduledActionProperty",
 		reflect.TypeOf((*CfnScalableTarget_ScheduledActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalableTarget.SuspendedStateProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget.SuspendedStateProperty",
 		reflect.TypeOf((*CfnScalableTarget_SuspendedStateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalableTargetProps",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTargetProps",
 		reflect.TypeOf((*CfnScalableTargetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
 		reflect.TypeOf((*CfnScalingPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -145,15 +141,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyType", GoGetter: "PolicyType"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceId", GoGetter: "ResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "scalableDimension", GoGetter: "ScalableDimension"},
 			_jsii_.MemberProperty{JsiiProperty: "scalingTargetId", GoGetter: "ScalingTargetId"},
@@ -161,11 +157,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stepScalingPolicyConfiguration", GoGetter: "StepScalingPolicyConfiguration"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "targetTrackingScalingPolicyConfiguration", GoGetter: "TargetTrackingScalingPolicyConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -176,43 +171,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy.CustomizedMetricSpecificationProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.CustomizedMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_CustomizedMetricSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy.MetricDimensionProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.MetricDimensionProperty",
 		reflect.TypeOf((*CfnScalingPolicy_MetricDimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy.PredefinedMetricSpecificationProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredefinedMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_PredefinedMetricSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy.StepAdjustmentProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.StepAdjustmentProperty",
 		reflect.TypeOf((*CfnScalingPolicy_StepAdjustmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy.StepScalingPolicyConfigurationProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.StepScalingPolicyConfigurationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_StepScalingPolicyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CfnScalingPolicyProps",
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicyProps",
 		reflect.TypeOf((*CfnScalingPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.CronOptions",
+		"aws-cdk-lib.aws_applicationautoscaling.CronOptions",
 		reflect.TypeOf((*CronOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.EnableScalingProps",
+		"aws-cdk-lib.aws_applicationautoscaling.EnableScalingProps",
 		reflect.TypeOf((*EnableScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_applicationautoscaling.IScalableTarget",
+		"aws-cdk-lib.aws_applicationautoscaling.IScalableTarget",
 		reflect.TypeOf((*IScalableTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -228,7 +223,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_applicationautoscaling.MetricAggregationType",
+		"aws-cdk-lib.aws_applicationautoscaling.MetricAggregationType",
 		reflect.TypeOf((*MetricAggregationType)(nil)).Elem(),
 		map[string]interface{}{
 			"AVERAGE": MetricAggregationType_AVERAGE,
@@ -237,7 +232,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_applicationautoscaling.PredefinedMetric",
+		"aws-cdk-lib.aws_applicationautoscaling.PredefinedMetric",
 		reflect.TypeOf((*PredefinedMetric)(nil)).Elem(),
 		map[string]interface{}{
 			"APPSTREAM_AVERAGE_CAPACITY_UTILIZATION": PredefinedMetric_APPSTREAM_AVERAGE_CAPACITY_UTILIZATION,
@@ -265,7 +260,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.ScalableTarget",
+		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
 		reflect.TypeOf((*ScalableTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
@@ -275,20 +270,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "scalableTargetId", GoGetter: "ScalableTargetId"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnMetric", GoMethod: "ScaleOnMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnSchedule", GoMethod: "ScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleToTrackMetric", GoMethod: "ScaleToTrackMetric"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ScalableTarget{}
@@ -298,19 +287,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.ScalableTargetProps",
+		"aws-cdk-lib.aws_applicationautoscaling.ScalableTargetProps",
 		reflect.TypeOf((*ScalableTargetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.ScalingInterval",
+		"aws-cdk-lib.aws_applicationautoscaling.ScalingInterval",
 		reflect.TypeOf((*ScalingInterval)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.ScalingSchedule",
+		"aws-cdk-lib.aws_applicationautoscaling.ScalingSchedule",
 		reflect.TypeOf((*ScalingSchedule)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.Schedule",
+		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
 		reflect.TypeOf((*Schedule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
@@ -320,7 +309,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_applicationautoscaling.ServiceNamespace",
+		"aws-cdk-lib.aws_applicationautoscaling.ServiceNamespace",
 		reflect.TypeOf((*ServiceNamespace)(nil)).Elem(),
 		map[string]interface{}{
 			"ECS": ServiceNamespace_ECS,
@@ -335,82 +324,65 @@ func init() {
 			"COMPREHEND": ServiceNamespace_COMPREHEND,
 			"KAFKA": ServiceNamespace_KAFKA,
 			"ELASTICACHE": ServiceNamespace_ELASTICACHE,
+			"NEPTUNE": ServiceNamespace_NEPTUNE,
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.StepScalingAction",
+		"aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
 		reflect.TypeOf((*StepScalingAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAdjustment", GoMethod: "AddAdjustment"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "scalingPolicyArn", GoGetter: "ScalingPolicyArn"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_StepScalingAction{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.StepScalingActionProps",
+		"aws-cdk-lib.aws_applicationautoscaling.StepScalingActionProps",
 		reflect.TypeOf((*StepScalingActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.StepScalingPolicy",
+		"aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicy",
 		reflect.TypeOf((*StepScalingPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "lowerAction", GoGetter: "LowerAction"},
 			_jsii_.MemberProperty{JsiiProperty: "lowerAlarm", GoGetter: "LowerAlarm"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "upperAction", GoGetter: "UpperAction"},
 			_jsii_.MemberProperty{JsiiProperty: "upperAlarm", GoGetter: "UpperAlarm"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_StepScalingPolicy{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.StepScalingPolicyProps",
+		"aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicyProps",
 		reflect.TypeOf((*StepScalingPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_applicationautoscaling.TargetTrackingScalingPolicy",
+		"aws-cdk-lib.aws_applicationautoscaling.TargetTrackingScalingPolicy",
 		reflect.TypeOf((*TargetTrackingScalingPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "scalingPolicyArn", GoGetter: "ScalingPolicyArn"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TargetTrackingScalingPolicy{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_applicationautoscaling.TargetTrackingScalingPolicyProps",
+		"aws-cdk-lib.aws_applicationautoscaling.TargetTrackingScalingPolicyProps",
 		reflect.TypeOf((*TargetTrackingScalingPolicyProps)(nil)).Elem(),
 	)
 }

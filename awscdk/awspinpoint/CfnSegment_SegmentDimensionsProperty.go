@@ -79,6 +79,8 @@ package awspinpoint
 //
 type CfnSegment_SegmentDimensionsProperty struct {
 	// One or more custom attributes to use as criteria for the segment.
+	//
+	// For more information see [AttributeDimension](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments.html#apps-application-id-segments-model-attributedimension)
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The behavior-based criteria, such as how recently users have used your app, for the segment.
 	Behavior interface{} `field:"optional" json:"behavior" yaml:"behavior"`

@@ -13,13 +13,10 @@ package awscloudwatch
 //   	Width: jsii.Number(123),
 //   }
 //
-// Experimental.
 type SpacerProps struct {
 	// Height of the spacer.
-	// Experimental.
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Width of the spacer.
-	// Experimental.
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 

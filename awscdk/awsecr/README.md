@@ -5,7 +5,7 @@ This package contains constructs for working with Amazon Elastic Container Regis
 ## Repositories
 
 Define a repository by creating a new instance of `Repository`. A repository
-holds multiple verions of a single container image.
+holds multiple versions of a single container image.
 
 ```go
 repository := ecr.NewRepository(this, jsii.String("Repository"))
@@ -59,6 +59,62 @@ ecr.PublicGalleryAuthorizationToken_GrantRead(user)
 ```
 
 This user can then proceed to login to the registry using one of the [authentication methods](https://docs.aws.amazon.com/AmazonECR/latest/public/public-registries.html#public-registry-auth).
+
+### Other Grantee
+
+#### grantPush
+
+The grantPush method grants the specified IAM entity (the grantee) permission to push images to the ECR repository. Specifically, it grants permissions for the following actions:
+
+* 'ecr:CompleteLayerUpload'
+* 'ecr:UploadLayerPart'
+* 'ecr:InitiateLayerUpload'
+* 'ecr:BatchCheckLayerAvailability'
+* 'ecr:PutImage'
+* 'ecr:GetAuthorizationToken'
+
+Here is an example of granting a user push permissions:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("codebuild.amazonaws.com")),
+})
+repository.grantPush(role)
+```
+
+#### grantPull
+
+The grantPull method grants the specified IAM entity (the grantee) permission to pull images from the ECR repository. Specifically, it grants permissions for the following actions:
+
+* 'ecr:BatchCheckLayerAvailability'
+* 'ecr:GetDownloadUrlForLayer'
+* 'ecr:BatchGetImage'
+* 'ecr:GetAuthorizationToken'
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("codebuild.amazonaws.com")),
+})
+repository.grantPull(role)
+```
+
+#### grantPullPush
+
+The grantPullPush method grants the specified IAM entity (the grantee) permission to both pull and push images from/to the ECR repository. Specifically, it grants permissions for all the actions required for pull and push permissions.
+
+Here is an example of granting a user both pull and push permissions:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("codebuild.amazonaws.com")),
+})
+repository.grantPullPush(role)
+```
+
+By using these methods, you can grant specific operational permissions on the ECR repository to IAM entities. This allows for proper management of access to the repository and ensures security.
 
 ### Image tag immutability
 
@@ -117,4 +173,42 @@ repository.AddLifecycleRule(&LifecycleRule{
 repository.AddLifecycleRule(&LifecycleRule{
 	MaxImageAge: awscdk.Duration_Days(jsii.Number(30)),
 })
+```
+
+### Repository deletion
+
+When a repository is removed from a stack (or the stack is deleted), the ECR
+repository will be removed according to its removal policy (which by default will
+simply orphan the repository and leave it in your AWS account). If the removal
+policy is set to `RemovalPolicy.DESTROY`, the repository will be deleted as long
+as it does not contain any images.
+
+To override this and force all images to get deleted during repository deletion,
+enable the`autoDeleteImages` option.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("MyTempRepo"), &RepositoryProps{
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+	AutoDeleteImages: jsii.Boolean(true),
+})
+```
+
+## Managing the Resource Policy
+
+You can add statements to the resource policy of the repository using the
+`addToResourcePolicy` method. However, be advised that you must not include
+a `resources` section in the `PolicyStatement`.
+
+```go
+var repository repository
+
+repository.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("ecr:GetDownloadUrlForLayer"),
+	},
+	// resources: ['*'], // not currently allowed!
+	Principals: []iPrincipal{
+		iam.NewAnyPrincipal(),
+	},
+}))
 ```

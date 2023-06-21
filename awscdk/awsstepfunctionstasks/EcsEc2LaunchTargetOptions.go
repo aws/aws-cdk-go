@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 )
 
 // Options to run an ECS task on EC2 in StepFunctions and ECS.
@@ -44,15 +44,13 @@ import (
 //   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
 //   		},
 //   	}),
+//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
-// Experimental.
 type EcsEc2LaunchTargetOptions struct {
 	// Placement constraints.
-	// Experimental.
 	PlacementConstraints *[]awsecs.PlacementConstraint `field:"optional" json:"placementConstraints" yaml:"placementConstraints"`
 	// Placement strategies.
-	// Experimental.
 	PlacementStrategies *[]awsecs.PlacementStrategy `field:"optional" json:"placementStrategies" yaml:"placementStrategies"`
 }
 

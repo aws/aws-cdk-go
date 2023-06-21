@@ -1,37 +1,46 @@
 package awsevents
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Schedule for scheduled event rules.
 //
-// Example:
-//   connection := events.NewConnection(this, jsii.String("Connection"), &ConnectionProps{
-//   	Authorization: events.Authorization_ApiKey(jsii.String("x-api-key"), awscdk.SecretValue_SecretsManager(jsii.String("ApiSecretName"))),
-//   	Description: jsii.String("Connection with API Key x-api-key"),
-//   })
+// Note that rates cannot be defined in fractions of minutes.
 //
-//   destination := events.NewApiDestination(this, jsii.String("Destination"), &ApiDestinationProps{
-//   	Connection: Connection,
-//   	Endpoint: jsii.String("https://example.com"),
-//   	Description: jsii.String("Calling example.com with API key x-api-key"),
-//   })
+// Example:
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster iCluster
+//   var taskDefinition taskDefinition
+//
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
-//   	Targets: []iRuleTarget{
-//   		targets.NewApiDestination(destination),
-//   	},
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-// Experimental.
+//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	TaskCount: jsii.Number(1),
+//   	ContainerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			ContainerName: jsii.String("TheContainer"),
+//   			Command: []*string{
+//   				jsii.String("echo"),
+//   				events.EventField_FromPath(jsii.String("$.detail.event")),
+//   			},
+//   		},
+//   	},
+//   	EnableExecuteCommand: jsii.Boolean(true),
+//   }))
+//
+// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html
+//
 type Schedule interface {
 	// Retrieve the expression for this schedule.
-	// Experimental.
 	ExpressionString() *string
 }
 
@@ -51,19 +60,17 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 }
 
 
-// Experimental.
 func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events.Schedule",
+		"aws-cdk-lib.aws_events.Schedule",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Create a schedule from a set of cron fields.
-// Experimental.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
@@ -73,7 +80,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.Schedule",
+		"aws-cdk-lib.aws_events.Schedule",
 		"cron",
 		[]interface{}{options},
 		&returns,
@@ -83,7 +90,6 @@ func Schedule_Cron(options *CronOptions) Schedule {
 }
 
 // Construct a schedule from a literal schedule expression.
-// Experimental.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
@@ -93,7 +99,7 @@ func Schedule_Expression(expression *string) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.Schedule",
+		"aws-cdk-lib.aws_events.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,
@@ -103,7 +109,8 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Construct a schedule from an interval and a time unit.
-// Experimental.
+//
+// Rates may be defined with any unit of time, but when converted into minutes, the duration must be a positive whole number of minutes.
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 
@@ -113,7 +120,7 @@ func Schedule_Rate(duration awscdk.Duration) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.Schedule",
+		"aws-cdk-lib.aws_events.Schedule",
 		"rate",
 		[]interface{}{duration},
 		&returns,

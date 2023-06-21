@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnModelCard) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelCard) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelCard) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnModelCard) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelCard) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnModelCard) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelCard) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnModelCard) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnModelCard) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelCard) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnModelCard) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -100,7 +104,7 @@ func (j *jsiiProxy_CfnModelCard) validateSetSecurityConfigParameters(val interfa
 	return nil
 }
 
-func validateNewCfnModelCardParameters(scope awscdk.Construct, id *string, props *CfnModelCardProps) error {
+func validateNewCfnModelCardParameters(scope constructs.Construct, id *string, props *CfnModelCardProps) error {
 	return nil
 }
 

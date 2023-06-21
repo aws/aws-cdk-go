@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTypeActivation) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnTypeActivation) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTypeActivation) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnTypeActivation) validateInspectParameters(inspector TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnTypeActivation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTypeActivation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTypeActivation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTypeActivation) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnTypeActivation) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnTypeActivation) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnTypeActivation) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnTypeActivation) validateSetLoggingConfigParameters(val int
 	return nil
 }
 
-func validateNewCfnTypeActivationParameters(scope Construct, id *string, props *CfnTypeActivationProps) error {
+func validateNewCfnTypeActivationParameters(scope constructs.Construct, id *string, props *CfnTypeActivationProps) error {
 	return nil
 }
 

@@ -14,16 +14,12 @@ package awsevents
 //   	ConnectionSecretArn: jsii.String("connectionSecretArn"),
 //   }
 //
-// Experimental.
 type ConnectionAttributes struct {
 	// The ARN of the connection created.
-	// Experimental.
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The Name for the connection.
-	// Experimental.
 	ConnectionName *string `field:"required" json:"connectionName" yaml:"connectionName"`
 	// The ARN for the secret created for the connection.
-	// Experimental.
 	ConnectionSecretArn *string `field:"required" json:"connectionSecretArn" yaml:"connectionSecretArn"`
 }
 

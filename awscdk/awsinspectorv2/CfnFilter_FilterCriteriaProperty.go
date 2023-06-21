@@ -259,7 +259,7 @@ type CfnFilter_FilterCriteriaProperty struct {
 	InspectorScore interface{} `field:"optional" json:"inspectorScore" yaml:"inspectorScore"`
 	// Details on the date and time a finding was last seen used to filter findings.
 	LastObservedAt interface{} `field:"optional" json:"lastObservedAt" yaml:"lastObservedAt"`
-	// Details on the ingress source addresses used to filter findings.
+	// Details on network protocol used to filter findings.
 	NetworkProtocol interface{} `field:"optional" json:"networkProtocol" yaml:"networkProtocol"`
 	// Details on the port ranges used to filter findings.
 	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`

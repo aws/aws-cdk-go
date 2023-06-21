@@ -16,16 +16,12 @@ package awsapigateway
 //   	RestApi: restApi,
 //   }
 //
-// Experimental.
 type ResourceAttributes struct {
 	// The full path of this resource.
-	// Experimental.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// The ID of the resource.
-	// Experimental.
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The rest API that this resource is part of.
-	// Experimental.
 	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 

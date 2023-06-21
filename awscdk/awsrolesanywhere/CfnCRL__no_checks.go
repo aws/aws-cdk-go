@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCRL) validateAddDeletionOverrideParameters(path *string) e
 	return nil
 }
 
+func (c *jsiiProxy_CfnCRL) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCRL) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCRL) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnCRL) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCRL) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCRL) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCRL) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCRL) validateRenderPropertiesParameters(props *map[string]
 	return nil
 }
 
-func (c *jsiiProxy_CfnCRL) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCRL) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnCRL) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnCRLParameters(scope awscdk.Construct, id *string, props *CfnCRLProps) error {
+func validateNewCfnCRLParameters(scope constructs.Construct, id *string, props *CfnCRLProps) error {
 	return nil
 }
 

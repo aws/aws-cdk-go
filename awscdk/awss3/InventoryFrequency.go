@@ -26,15 +26,12 @@ package awss3
 //   	},
 //   })
 //
-// Experimental.
 type InventoryFrequency string
 
 const (
 	// A report is generated every day.
-	// Experimental.
 	InventoryFrequency_DAILY InventoryFrequency = "DAILY"
 	// A report is generated every Sunday (UTC timezone) after the initial report.
-	// Experimental.
 	InventoryFrequency_WEEKLY InventoryFrequency = "WEEKLY"
 )
 

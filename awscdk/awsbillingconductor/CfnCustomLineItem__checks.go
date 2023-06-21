@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnCustomLineItem) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnCustomLineItem) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnCustomLineItem) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomLineItem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnCustomLineItem) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomLineItem) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnCustomLineItem) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnCustomLineItem) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomLineItem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnCustomLineItem) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -177,6 +189,8 @@ func (j *jsiiProxy_CfnCustomLineItem) validateSetBillingGroupArnParameters(val *
 
 func (j *jsiiProxy_CfnCustomLineItem) validateSetBillingPeriodRangeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCustomLineItem_BillingPeriodRangeProperty:
 		val := val.(*CfnCustomLineItem_BillingPeriodRangeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -188,11 +202,9 @@ func (j *jsiiProxy_CfnCustomLineItem) validateSetBillingPeriodRangeParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCustomLineItem_BillingPeriodRangeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCustomLineItem_BillingPeriodRangeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -201,6 +213,8 @@ func (j *jsiiProxy_CfnCustomLineItem) validateSetBillingPeriodRangeParameters(va
 
 func (j *jsiiProxy_CfnCustomLineItem) validateSetCustomLineItemChargeDetailsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCustomLineItem_CustomLineItemChargeDetailsProperty:
 		val := val.(*CfnCustomLineItem_CustomLineItemChargeDetailsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -212,11 +226,9 @@ func (j *jsiiProxy_CfnCustomLineItem) validateSetCustomLineItemChargeDetailsPara
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCustomLineItem_CustomLineItemChargeDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCustomLineItem_CustomLineItemChargeDetailsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -231,7 +243,7 @@ func (j *jsiiProxy_CfnCustomLineItem) validateSetNameParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnCustomLineItemParameters(scope awscdk.Construct, id *string, props *CfnCustomLineItemProps) error {
+func validateNewCfnCustomLineItemParameters(scope constructs.Construct, id *string, props *CfnCustomLineItemProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

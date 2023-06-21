@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnStackSet) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
+func (c *jsiiProxy_CfnStackSet) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStackSet) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnStackSet) validateInspectParameters(inspector TreeInspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStackSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStackSet) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnStackSet) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackSet) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnStackSet) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -104,7 +108,7 @@ func (j *jsiiProxy_CfnStackSet) validateSetStackSetNameParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnStackSetParameters(scope Construct, id *string, props *CfnStackSetProps) error {
+func validateNewCfnStackSetParameters(scope constructs.Construct, id *string, props *CfnStackSetProps) error {
 	return nil
 }
 

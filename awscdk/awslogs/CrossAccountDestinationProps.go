@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for a CrossAccountDestination.
@@ -22,18 +22,14 @@ import (
 //   	DestinationName: jsii.String("destinationName"),
 //   }
 //
-// Experimental.
 type CrossAccountDestinationProps struct {
 	// The role to assume that grants permissions to write to 'target'.
 	//
 	// The role must be assumable by 'logs.{REGION}.amazonaws.com'.
-	// Experimental.
 	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 	// The log destination target's ARN.
-	// Experimental.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The name of the log destination.
-	// Experimental.
 	DestinationName *string `field:"optional" json:"destinationName" yaml:"destinationName"`
 }
 

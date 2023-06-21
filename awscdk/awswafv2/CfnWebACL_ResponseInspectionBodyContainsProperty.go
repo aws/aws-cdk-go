@@ -3,7 +3,7 @@ package awswafv2
 
 // Configures inspection of the response body.
 //
-// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` .
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
@@ -22,17 +22,17 @@ package awswafv2
 //   }
 //
 type CfnWebACL_ResponseInspectionBodyContainsProperty struct {
-	// Strings in the body of the response that indicate a failed login or account creation attempt.
+	// Strings in the body of the response that indicate a failed login attempt.
 	//
-	// To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+	// To be counted as a failed login, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
 	//
-	// JSON example: `"FailureStrings": [ "Request failed" ]`.
+	// JSON example: `"FailureStrings": [ "Login failed" ]`.
 	FailureStrings *[]*string `field:"required" json:"failureStrings" yaml:"failureStrings"`
-	// Strings in the body of the response that indicate a successful login or account creation attempt.
+	// Strings in the body of the response that indicate a successful login attempt.
 	//
-	// To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+	// To be counted as a successful login, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
 	//
-	// JSON examples: `"SuccessStrings": [ "Login successful" ]` and `"SuccessStrings": [ "Account creation successful", "Welcome to our site!" ]`
+	// JSON example: `"SuccessStrings": [ "Login successful", "Welcome to our site!" ]`
 	SuccessStrings *[]*string `field:"required" json:"successStrings" yaml:"successStrings"`
 }
 

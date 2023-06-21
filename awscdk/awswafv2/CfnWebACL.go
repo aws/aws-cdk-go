@@ -1,12 +1,12 @@
 package awswafv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awswafv2/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::WAFv2::WebACL`.
@@ -16,791 +16,7 @@ import (
 // Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you specify a default action to take (allow, block) for any request that doesn't match any of the rules. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups. You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , an AWS AppSync GraphQL API , an Amazon Cognito user pool, or an AWS App Runner service.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var all interface{}
-//   var allQueryArguments interface{}
-//   var count interface{}
-//   var method interface{}
-//   var none interface{}
-//   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
-//   var uriPath interface{}
-//
-//   cfnWebACL := awscdk.Aws_wafv2.NewCfnWebACL(this, jsii.String("MyCfnWebACL"), &CfnWebACLProps{
-//   	DefaultAction: &DefaultActionProperty{
-//   		Allow: &AllowActionProperty{
-//   			CustomRequestHandling: &CustomRequestHandlingProperty{
-//   				InsertHeaders: []interface{}{
-//   					&CustomHTTPHeaderProperty{
-//   						Name: jsii.String("name"),
-//   						Value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   		Block: &BlockActionProperty{
-//   			CustomResponse: &CustomResponseProperty{
-//   				ResponseCode: jsii.Number(123),
-//
-//   				// the properties below are optional
-//   				CustomResponseBodyKey: jsii.String("customResponseBodyKey"),
-//   				ResponseHeaders: []interface{}{
-//   					&CustomHTTPHeaderProperty{
-//   						Name: jsii.String("name"),
-//   						Value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	Scope: jsii.String("scope"),
-//   	VisibilityConfig: &VisibilityConfigProperty{
-//   		CloudWatchMetricsEnabled: jsii.Boolean(false),
-//   		MetricName: jsii.String("metricName"),
-//   		SampledRequestsEnabled: jsii.Boolean(false),
-//   	},
-//
-//   	// the properties below are optional
-//   	CaptchaConfig: &CaptchaConfigProperty{
-//   		ImmunityTimeProperty: &ImmunityTimePropertyProperty{
-//   			ImmunityTime: jsii.Number(123),
-//   		},
-//   	},
-//   	ChallengeConfig: &ChallengeConfigProperty{
-//   		ImmunityTimeProperty: &ImmunityTimePropertyProperty{
-//   			ImmunityTime: jsii.Number(123),
-//   		},
-//   	},
-//   	CustomResponseBodies: map[string]interface{}{
-//   		"customResponseBodiesKey": &CustomResponseBodyProperty{
-//   			"content": jsii.String("content"),
-//   			"contentType": jsii.String("contentType"),
-//   		},
-//   	},
-//   	Description: jsii.String("description"),
-//   	Name: jsii.String("name"),
-//   	Rules: []interface{}{
-//   		&RuleProperty{
-//   			Name: jsii.String("name"),
-//   			Priority: jsii.Number(123),
-//   			Statement: &statementProperty{
-//   				AndStatement: &AndStatementProperty{
-//   					Statements: []interface{}{
-//   						statementProperty_,
-//   					},
-//   				},
-//   				ByteMatchStatement: &ByteMatchStatementProperty{
-//   					FieldToMatch: &FieldToMatchProperty{
-//   						AllQueryArguments: allQueryArguments,
-//   						Body: &BodyProperty{
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Cookies: &CookiesProperty{
-//   							MatchPattern: &CookieMatchPatternProperty{
-//   								All: all,
-//   								ExcludedCookies: []*string{
-//   									jsii.String("excludedCookies"),
-//   								},
-//   								IncludedCookies: []*string{
-//   									jsii.String("includedCookies"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Headers: &HeadersProperty{
-//   							MatchPattern: &HeaderMatchPatternProperty{
-//   								All: all,
-//   								ExcludedHeaders: []*string{
-//   									jsii.String("excludedHeaders"),
-//   								},
-//   								IncludedHeaders: []*string{
-//   									jsii.String("includedHeaders"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						JsonBody: &JsonBodyProperty{
-//   							MatchPattern: &JsonMatchPatternProperty{
-//   								All: all,
-//   								IncludedPaths: []*string{
-//   									jsii.String("includedPaths"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//
-//   							// the properties below are optional
-//   							InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Method: method,
-//   						QueryString: queryString,
-//   						SingleHeader: singleHeader,
-//   						SingleQueryArgument: singleQueryArgument,
-//   						UriPath: uriPath,
-//   					},
-//   					PositionalConstraint: jsii.String("positionalConstraint"),
-//   					TextTransformations: []interface{}{
-//   						&TextTransformationProperty{
-//   							Priority: jsii.Number(123),
-//   							Type: jsii.String("type"),
-//   						},
-//   					},
-//
-//   					// the properties below are optional
-//   					SearchString: jsii.String("searchString"),
-//   					SearchStringBase64: jsii.String("searchStringBase64"),
-//   				},
-//   				GeoMatchStatement: &GeoMatchStatementProperty{
-//   					CountryCodes: []*string{
-//   						jsii.String("countryCodes"),
-//   					},
-//   					ForwardedIpConfig: &ForwardedIPConfigurationProperty{
-//   						FallbackBehavior: jsii.String("fallbackBehavior"),
-//   						HeaderName: jsii.String("headerName"),
-//   					},
-//   				},
-//   				IpSetReferenceStatement: map[string]interface{}{
-//   					"arn": jsii.String("arn"),
-//
-//   					// the properties below are optional
-//   					"ipSetForwardedIpConfig": map[string]*string{
-//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
-//   						"headerName": jsii.String("headerName"),
-//   						"position": jsii.String("position"),
-//   					},
-//   				},
-//   				LabelMatchStatement: &LabelMatchStatementProperty{
-//   					Key: jsii.String("key"),
-//   					Scope: jsii.String("scope"),
-//   				},
-//   				ManagedRuleGroupStatement: &ManagedRuleGroupStatementProperty{
-//   					Name: jsii.String("name"),
-//   					VendorName: jsii.String("vendorName"),
-//
-//   					// the properties below are optional
-//   					ExcludedRules: []interface{}{
-//   						&ExcludedRuleProperty{
-//   							Name: jsii.String("name"),
-//   						},
-//   					},
-//   					ManagedRuleGroupConfigs: []interface{}{
-//   						&ManagedRuleGroupConfigProperty{
-//   							AwsManagedRulesAtpRuleSet: &AWSManagedRulesATPRuleSetProperty{
-//   								LoginPath: jsii.String("loginPath"),
-//
-//   								// the properties below are optional
-//   								RequestInspection: &RequestInspectionProperty{
-//   									PasswordField: &FieldIdentifierProperty{
-//   										Identifier: jsii.String("identifier"),
-//   									},
-//   									PayloadType: jsii.String("payloadType"),
-//   									UsernameField: &FieldIdentifierProperty{
-//   										Identifier: jsii.String("identifier"),
-//   									},
-//   								},
-//   								ResponseInspection: &ResponseInspectionProperty{
-//   									BodyContains: &ResponseInspectionBodyContainsProperty{
-//   										FailureStrings: []*string{
-//   											jsii.String("failureStrings"),
-//   										},
-//   										SuccessStrings: []*string{
-//   											jsii.String("successStrings"),
-//   										},
-//   									},
-//   									Header: &ResponseInspectionHeaderProperty{
-//   										FailureValues: []*string{
-//   											jsii.String("failureValues"),
-//   										},
-//   										Name: jsii.String("name"),
-//   										SuccessValues: []*string{
-//   											jsii.String("successValues"),
-//   										},
-//   									},
-//   									Json: &ResponseInspectionJsonProperty{
-//   										FailureValues: []*string{
-//   											jsii.String("failureValues"),
-//   										},
-//   										Identifier: jsii.String("identifier"),
-//   										SuccessValues: []*string{
-//   											jsii.String("successValues"),
-//   										},
-//   									},
-//   									StatusCode: &ResponseInspectionStatusCodeProperty{
-//   										FailureCodes: []interface{}{
-//   											jsii.Number(123),
-//   										},
-//   										SuccessCodes: []interface{}{
-//   											jsii.Number(123),
-//   										},
-//   									},
-//   								},
-//   							},
-//   							AwsManagedRulesBotControlRuleSet: &AWSManagedRulesBotControlRuleSetProperty{
-//   								InspectionLevel: jsii.String("inspectionLevel"),
-//   							},
-//   							LoginPath: jsii.String("loginPath"),
-//   							PasswordField: &FieldIdentifierProperty{
-//   								Identifier: jsii.String("identifier"),
-//   							},
-//   							PayloadType: jsii.String("payloadType"),
-//   							UsernameField: &FieldIdentifierProperty{
-//   								Identifier: jsii.String("identifier"),
-//   							},
-//   						},
-//   					},
-//   					RuleActionOverrides: []interface{}{
-//   						&RuleActionOverrideProperty{
-//   							ActionToUse: &RuleActionProperty{
-//   								Allow: &AllowActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Block: &BlockActionProperty{
-//   									CustomResponse: &CustomResponseProperty{
-//   										ResponseCode: jsii.Number(123),
-//
-//   										// the properties below are optional
-//   										CustomResponseBodyKey: jsii.String("customResponseBodyKey"),
-//   										ResponseHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Captcha: &CaptchaActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Challenge: &ChallengeActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Count: &CountActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   							},
-//   							Name: jsii.String("name"),
-//   						},
-//   					},
-//   					ScopeDownStatement: statementProperty_,
-//   					Version: jsii.String("version"),
-//   				},
-//   				NotStatement: &NotStatementProperty{
-//   					Statement: statementProperty_,
-//   				},
-//   				OrStatement: &OrStatementProperty{
-//   					Statements: []interface{}{
-//   						statementProperty_,
-//   					},
-//   				},
-//   				RateBasedStatement: &RateBasedStatementProperty{
-//   					AggregateKeyType: jsii.String("aggregateKeyType"),
-//   					Limit: jsii.Number(123),
-//
-//   					// the properties below are optional
-//   					ForwardedIpConfig: &ForwardedIPConfigurationProperty{
-//   						FallbackBehavior: jsii.String("fallbackBehavior"),
-//   						HeaderName: jsii.String("headerName"),
-//   					},
-//   					ScopeDownStatement: statementProperty_,
-//   				},
-//   				RegexMatchStatement: &RegexMatchStatementProperty{
-//   					FieldToMatch: &FieldToMatchProperty{
-//   						AllQueryArguments: allQueryArguments,
-//   						Body: &BodyProperty{
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Cookies: &CookiesProperty{
-//   							MatchPattern: &CookieMatchPatternProperty{
-//   								All: all,
-//   								ExcludedCookies: []*string{
-//   									jsii.String("excludedCookies"),
-//   								},
-//   								IncludedCookies: []*string{
-//   									jsii.String("includedCookies"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Headers: &HeadersProperty{
-//   							MatchPattern: &HeaderMatchPatternProperty{
-//   								All: all,
-//   								ExcludedHeaders: []*string{
-//   									jsii.String("excludedHeaders"),
-//   								},
-//   								IncludedHeaders: []*string{
-//   									jsii.String("includedHeaders"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						JsonBody: &JsonBodyProperty{
-//   							MatchPattern: &JsonMatchPatternProperty{
-//   								All: all,
-//   								IncludedPaths: []*string{
-//   									jsii.String("includedPaths"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//
-//   							// the properties below are optional
-//   							InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Method: method,
-//   						QueryString: queryString,
-//   						SingleHeader: singleHeader,
-//   						SingleQueryArgument: singleQueryArgument,
-//   						UriPath: uriPath,
-//   					},
-//   					RegexString: jsii.String("regexString"),
-//   					TextTransformations: []interface{}{
-//   						&TextTransformationProperty{
-//   							Priority: jsii.Number(123),
-//   							Type: jsii.String("type"),
-//   						},
-//   					},
-//   				},
-//   				RegexPatternSetReferenceStatement: &RegexPatternSetReferenceStatementProperty{
-//   					Arn: jsii.String("arn"),
-//   					FieldToMatch: &FieldToMatchProperty{
-//   						AllQueryArguments: allQueryArguments,
-//   						Body: &BodyProperty{
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Cookies: &CookiesProperty{
-//   							MatchPattern: &CookieMatchPatternProperty{
-//   								All: all,
-//   								ExcludedCookies: []*string{
-//   									jsii.String("excludedCookies"),
-//   								},
-//   								IncludedCookies: []*string{
-//   									jsii.String("includedCookies"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Headers: &HeadersProperty{
-//   							MatchPattern: &HeaderMatchPatternProperty{
-//   								All: all,
-//   								ExcludedHeaders: []*string{
-//   									jsii.String("excludedHeaders"),
-//   								},
-//   								IncludedHeaders: []*string{
-//   									jsii.String("includedHeaders"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						JsonBody: &JsonBodyProperty{
-//   							MatchPattern: &JsonMatchPatternProperty{
-//   								All: all,
-//   								IncludedPaths: []*string{
-//   									jsii.String("includedPaths"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//
-//   							// the properties below are optional
-//   							InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Method: method,
-//   						QueryString: queryString,
-//   						SingleHeader: singleHeader,
-//   						SingleQueryArgument: singleQueryArgument,
-//   						UriPath: uriPath,
-//   					},
-//   					TextTransformations: []interface{}{
-//   						&TextTransformationProperty{
-//   							Priority: jsii.Number(123),
-//   							Type: jsii.String("type"),
-//   						},
-//   					},
-//   				},
-//   				RuleGroupReferenceStatement: &RuleGroupReferenceStatementProperty{
-//   					Arn: jsii.String("arn"),
-//
-//   					// the properties below are optional
-//   					ExcludedRules: []interface{}{
-//   						&ExcludedRuleProperty{
-//   							Name: jsii.String("name"),
-//   						},
-//   					},
-//   					RuleActionOverrides: []interface{}{
-//   						&RuleActionOverrideProperty{
-//   							ActionToUse: &RuleActionProperty{
-//   								Allow: &AllowActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Block: &BlockActionProperty{
-//   									CustomResponse: &CustomResponseProperty{
-//   										ResponseCode: jsii.Number(123),
-//
-//   										// the properties below are optional
-//   										CustomResponseBodyKey: jsii.String("customResponseBodyKey"),
-//   										ResponseHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Captcha: &CaptchaActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Challenge: &ChallengeActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   								Count: &CountActionProperty{
-//   									CustomRequestHandling: &CustomRequestHandlingProperty{
-//   										InsertHeaders: []interface{}{
-//   											&CustomHTTPHeaderProperty{
-//   												Name: jsii.String("name"),
-//   												Value: jsii.String("value"),
-//   											},
-//   										},
-//   									},
-//   								},
-//   							},
-//   							Name: jsii.String("name"),
-//   						},
-//   					},
-//   				},
-//   				SizeConstraintStatement: &SizeConstraintStatementProperty{
-//   					ComparisonOperator: jsii.String("comparisonOperator"),
-//   					FieldToMatch: &FieldToMatchProperty{
-//   						AllQueryArguments: allQueryArguments,
-//   						Body: &BodyProperty{
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Cookies: &CookiesProperty{
-//   							MatchPattern: &CookieMatchPatternProperty{
-//   								All: all,
-//   								ExcludedCookies: []*string{
-//   									jsii.String("excludedCookies"),
-//   								},
-//   								IncludedCookies: []*string{
-//   									jsii.String("includedCookies"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Headers: &HeadersProperty{
-//   							MatchPattern: &HeaderMatchPatternProperty{
-//   								All: all,
-//   								ExcludedHeaders: []*string{
-//   									jsii.String("excludedHeaders"),
-//   								},
-//   								IncludedHeaders: []*string{
-//   									jsii.String("includedHeaders"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						JsonBody: &JsonBodyProperty{
-//   							MatchPattern: &JsonMatchPatternProperty{
-//   								All: all,
-//   								IncludedPaths: []*string{
-//   									jsii.String("includedPaths"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//
-//   							// the properties below are optional
-//   							InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Method: method,
-//   						QueryString: queryString,
-//   						SingleHeader: singleHeader,
-//   						SingleQueryArgument: singleQueryArgument,
-//   						UriPath: uriPath,
-//   					},
-//   					Size: jsii.Number(123),
-//   					TextTransformations: []interface{}{
-//   						&TextTransformationProperty{
-//   							Priority: jsii.Number(123),
-//   							Type: jsii.String("type"),
-//   						},
-//   					},
-//   				},
-//   				SqliMatchStatement: &SqliMatchStatementProperty{
-//   					FieldToMatch: &FieldToMatchProperty{
-//   						AllQueryArguments: allQueryArguments,
-//   						Body: &BodyProperty{
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Cookies: &CookiesProperty{
-//   							MatchPattern: &CookieMatchPatternProperty{
-//   								All: all,
-//   								ExcludedCookies: []*string{
-//   									jsii.String("excludedCookies"),
-//   								},
-//   								IncludedCookies: []*string{
-//   									jsii.String("includedCookies"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Headers: &HeadersProperty{
-//   							MatchPattern: &HeaderMatchPatternProperty{
-//   								All: all,
-//   								ExcludedHeaders: []*string{
-//   									jsii.String("excludedHeaders"),
-//   								},
-//   								IncludedHeaders: []*string{
-//   									jsii.String("includedHeaders"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						JsonBody: &JsonBodyProperty{
-//   							MatchPattern: &JsonMatchPatternProperty{
-//   								All: all,
-//   								IncludedPaths: []*string{
-//   									jsii.String("includedPaths"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//
-//   							// the properties below are optional
-//   							InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Method: method,
-//   						QueryString: queryString,
-//   						SingleHeader: singleHeader,
-//   						SingleQueryArgument: singleQueryArgument,
-//   						UriPath: uriPath,
-//   					},
-//   					TextTransformations: []interface{}{
-//   						&TextTransformationProperty{
-//   							Priority: jsii.Number(123),
-//   							Type: jsii.String("type"),
-//   						},
-//   					},
-//
-//   					// the properties below are optional
-//   					SensitivityLevel: jsii.String("sensitivityLevel"),
-//   				},
-//   				XssMatchStatement: &XssMatchStatementProperty{
-//   					FieldToMatch: &FieldToMatchProperty{
-//   						AllQueryArguments: allQueryArguments,
-//   						Body: &BodyProperty{
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Cookies: &CookiesProperty{
-//   							MatchPattern: &CookieMatchPatternProperty{
-//   								All: all,
-//   								ExcludedCookies: []*string{
-//   									jsii.String("excludedCookies"),
-//   								},
-//   								IncludedCookies: []*string{
-//   									jsii.String("includedCookies"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Headers: &HeadersProperty{
-//   							MatchPattern: &HeaderMatchPatternProperty{
-//   								All: all,
-//   								ExcludedHeaders: []*string{
-//   									jsii.String("excludedHeaders"),
-//   								},
-//   								IncludedHeaders: []*string{
-//   									jsii.String("includedHeaders"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						JsonBody: &JsonBodyProperty{
-//   							MatchPattern: &JsonMatchPatternProperty{
-//   								All: all,
-//   								IncludedPaths: []*string{
-//   									jsii.String("includedPaths"),
-//   								},
-//   							},
-//   							MatchScope: jsii.String("matchScope"),
-//
-//   							// the properties below are optional
-//   							InvalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
-//   							OversizeHandling: jsii.String("oversizeHandling"),
-//   						},
-//   						Method: method,
-//   						QueryString: queryString,
-//   						SingleHeader: singleHeader,
-//   						SingleQueryArgument: singleQueryArgument,
-//   						UriPath: uriPath,
-//   					},
-//   					TextTransformations: []interface{}{
-//   						&TextTransformationProperty{
-//   							Priority: jsii.Number(123),
-//   							Type: jsii.String("type"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   			VisibilityConfig: &VisibilityConfigProperty{
-//   				CloudWatchMetricsEnabled: jsii.Boolean(false),
-//   				MetricName: jsii.String("metricName"),
-//   				SampledRequestsEnabled: jsii.Boolean(false),
-//   			},
-//
-//   			// the properties below are optional
-//   			Action: &RuleActionProperty{
-//   				Allow: &AllowActionProperty{
-//   					CustomRequestHandling: &CustomRequestHandlingProperty{
-//   						InsertHeaders: []interface{}{
-//   							&CustomHTTPHeaderProperty{
-//   								Name: jsii.String("name"),
-//   								Value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				Block: &BlockActionProperty{
-//   					CustomResponse: &CustomResponseProperty{
-//   						ResponseCode: jsii.Number(123),
-//
-//   						// the properties below are optional
-//   						CustomResponseBodyKey: jsii.String("customResponseBodyKey"),
-//   						ResponseHeaders: []interface{}{
-//   							&CustomHTTPHeaderProperty{
-//   								Name: jsii.String("name"),
-//   								Value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				Captcha: &CaptchaActionProperty{
-//   					CustomRequestHandling: &CustomRequestHandlingProperty{
-//   						InsertHeaders: []interface{}{
-//   							&CustomHTTPHeaderProperty{
-//   								Name: jsii.String("name"),
-//   								Value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				Challenge: &ChallengeActionProperty{
-//   					CustomRequestHandling: &CustomRequestHandlingProperty{
-//   						InsertHeaders: []interface{}{
-//   							&CustomHTTPHeaderProperty{
-//   								Name: jsii.String("name"),
-//   								Value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				Count: &CountActionProperty{
-//   					CustomRequestHandling: &CustomRequestHandlingProperty{
-//   						InsertHeaders: []interface{}{
-//   							&CustomHTTPHeaderProperty{
-//   								Name: jsii.String("name"),
-//   								Value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   			},
-//   			CaptchaConfig: &CaptchaConfigProperty{
-//   				ImmunityTimeProperty: &ImmunityTimePropertyProperty{
-//   					ImmunityTime: jsii.Number(123),
-//   				},
-//   			},
-//   			ChallengeConfig: &ChallengeConfigProperty{
-//   				ImmunityTimeProperty: &ImmunityTimePropertyProperty{
-//   					ImmunityTime: jsii.Number(123),
-//   				},
-//   			},
-//   			OverrideAction: &OverrideActionProperty{
-//   				Count: count,
-//   				None: none,
-//   			},
-//   			RuleLabels: []interface{}{
-//   				&LabelProperty{
-//   					Name: jsii.String("name"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	TokenDomains: []*string{
-//   		jsii.String("tokenDomains"),
-//   	},
-//   })
 //
 type CfnWebACL interface {
 	awscdk.CfnResource
@@ -827,11 +43,9 @@ type CfnWebACL interface {
 	CaptchaConfig() interface{}
 	SetCaptchaConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings.
 	//
@@ -841,7 +55,6 @@ type CfnWebACL interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A map of custom response keys and content bodies.
 	//
@@ -867,21 +80,18 @@ type CfnWebACL interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the web ACL.
 	//
 	// You cannot change the name of a web ACL after you create it.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
@@ -900,7 +110,6 @@ type CfnWebACL interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Key:value pairs associated with an AWS resource.
 	//
@@ -913,23 +122,31 @@ type CfnWebACL interface {
 	// This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
 	TokenDomains() *[]*string
 	SetTokenDomains(val *[]*string)
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig() interface{}
 	SetVisibilityConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -938,7 +155,6 @@ type CfnWebACL interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -961,20 +177,20 @@ type CfnWebACL interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -983,15 +199,12 @@ type CfnWebACL interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1001,15 +214,18 @@ type CfnWebACL interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
-	GetAtt(attributeName *string) awscdk.Reference
+	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -1017,74 +233,35 @@ type CfnWebACL interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
+	// Retrieves an array of resources this resource depends on.
 	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
+	// Indicates that this resource no longer depends on another resource.
 	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1244,8 +421,8 @@ func (j *jsiiProxy_CfnWebACL) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWebACL) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1324,6 +501,16 @@ func (j *jsiiProxy_CfnWebACL) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebACL) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1336,7 +523,7 @@ func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
+func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
 	if err := validateNewCfnWebACLParameters(scope, id, props); err != nil {
@@ -1345,7 +532,7 @@ func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) Cfn
 	j := jsiiProxy_CfnWebACL{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1354,11 +541,11 @@ func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) Cfn
 }
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL_Override(c CfnWebACL, scope awscdk.Construct, id *string, props *CfnWebACLProps) {
+func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1471,7 +658,6 @@ func (j *jsiiProxy_CfnWebACL)SetVisibilityConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnWebACL_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1481,7 +667,7 @@ func CfnWebACL_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1491,7 +677,6 @@ func CfnWebACL_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1501,7 +686,7 @@ func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1510,8 +695,23 @@ func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnWebACL_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1521,7 +721,7 @@ func CfnWebACL_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1534,7 +734,7 @@ func CfnWebACL_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1549,6 +749,17 @@ func (c *jsiiProxy_CfnWebACL) AddDeletionOverride(path *string) {
 		c,
 		"addDeletionOverride",
 		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnWebACL) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -1618,7 +829,7 @@ func (c *jsiiProxy_CfnWebACL) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 	)
 }
 
-func (c *jsiiProxy_CfnWebACL) GetAtt(attributeName *string) awscdk.Reference {
+func (c *jsiiProxy_CfnWebACL) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -1627,7 +838,7 @@ func (c *jsiiProxy_CfnWebACL) GetAtt(attributeName *string) awscdk.Reference {
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName},
+		[]interface{}{attributeName, typeHint},
 		&returns,
 	)
 
@@ -1661,31 +872,25 @@ func (c *jsiiProxy_CfnWebACL) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnWebACL) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnWebACL) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnWebACL) OnValidate() *[]*string {
-	var returns *[]*string
+func (c *jsiiProxy_CfnWebACL) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
 
 	_jsii_.Invoke(
 		c,
-		"onValidate",
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnWebACL) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
 		nil, // no parameters
 		&returns,
 	)
@@ -1704,11 +909,14 @@ func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-func (c *jsiiProxy_CfnWebACL) Prepare() {
+func (c *jsiiProxy_CfnWebACL) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
-		"prepare",
-		nil, // no parameters
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -1728,6 +936,17 @@ func (c *jsiiProxy_CfnWebACL) RenderProperties(props *map[string]interface{}) *m
 	return returns
 }
 
+func (c *jsiiProxy_CfnWebACL) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
+}
+
 func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1741,36 +960,12 @@ func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnWebACL) Synthesize(session awscdk.ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnWebACL) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnWebACL) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

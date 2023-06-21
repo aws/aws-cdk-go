@@ -5,10 +5,8 @@ import (
 )
 
 // Interface for (stable) lazy untyped value producers.
-// Experimental.
 type IStableAnyProducer interface {
 	// Produce the value.
-	// Experimental.
 	Produce() interface{}
 }
 

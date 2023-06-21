@@ -4,28 +4,20 @@ package awselasticloadbalancingv2
 // Properties to reference an existing target group.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var stack stack
 //
-//   targetGroupAttributes := &TargetGroupAttributes{
-//   	TargetGroupArn: jsii.String("targetGroupArn"),
 //
-//   	// the properties below are optional
-//   	DefaultPort: jsii.String("defaultPort"),
-//   	LoadBalancerArns: jsii.String("loadBalancerArns"),
-//   }
+//   targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
+//   	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
+//   	LoadBalancerArns: awscdk.Fn_*ImportValue(jsii.String("LoadBalancerArn")),
+//   })
 //
-// Experimental.
+//   targetGroupMetrics := targetGroup.Metrics
+//
 type TargetGroupAttributes struct {
 	// ARN of the target group.
-	// Experimental.
 	TargetGroupArn *string `field:"required" json:"targetGroupArn" yaml:"targetGroupArn"`
-	// Port target group is listening on.
-	// Deprecated: - This property is unused and the wrong type. No need to use it.
-	DefaultPort *string `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
-	// Experimental.
 	LoadBalancerArns *string `field:"optional" json:"loadBalancerArns" yaml:"loadBalancerArns"`
 }
 

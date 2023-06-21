@@ -1,12 +1,11 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An AppSync datasource backed by a Lambda function.
@@ -32,86 +31,26 @@ import (
 //   	ServiceRole: role,
 //   })
 //
-// Experimental.
 type LambdaDataSource interface {
 	BackedDataSource
-	// Experimental.
 	Api() IGraphqlApi
-	// Experimental.
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.
-	// Experimental.
 	Ds() CfnDataSource
 	// the principal of the data source to be IGrantable.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// the name of the data source.
-	// Experimental.
 	Name() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	ServiceRole() awsiam.IRole
-	// Experimental.
 	SetServiceRole(val awsiam.IRole)
 	// creates a new appsync function for this datasource and API using the given properties.
-	// Experimental.
-	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
+	CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction
 	// creates a new resolver for this datasource and API using the given properties.
-	// Experimental.
-	CreateResolver(props *BaseResolverProps) Resolver
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
+	CreateResolver(id *string, props *BaseResolverProps) Resolver
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for LambdaDataSource
@@ -159,8 +98,8 @@ func (j *jsiiProxy_LambdaDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LambdaDataSource) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_LambdaDataSource) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -180,7 +119,6 @@ func (j *jsiiProxy_LambdaDataSource) ServiceRole() awsiam.IRole {
 }
 
 
-// Experimental.
 func NewLambdaDataSource(scope constructs.Construct, id *string, props *LambdaDataSourceProps) LambdaDataSource {
 	_init_.Initialize()
 
@@ -190,7 +128,7 @@ func NewLambdaDataSource(scope constructs.Construct, id *string, props *LambdaDa
 	j := jsiiProxy_LambdaDataSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.LambdaDataSource",
+		"aws-cdk-lib.aws_appsync.LambdaDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -198,12 +136,11 @@ func NewLambdaDataSource(scope constructs.Construct, id *string, props *LambdaDa
 	return &j
 }
 
-// Experimental.
 func NewLambdaDataSource_Override(l LambdaDataSource, scope constructs.Construct, id *string, props *LambdaDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.LambdaDataSource",
+		"aws-cdk-lib.aws_appsync.LambdaDataSource",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -228,8 +165,23 @@ func (j *jsiiProxy_LambdaDataSource)SetServiceRole(val awsiam.IRole) {
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func LambdaDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -239,7 +191,7 @@ func LambdaDataSource_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.LambdaDataSource",
+		"aws-cdk-lib.aws_appsync.LambdaDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -248,8 +200,8 @@ func LambdaDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
-	if err := l.validateCreateFunctionParameters(props); err != nil {
+func (l *jsiiProxy_LambdaDataSource) CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := l.validateCreateFunctionParameters(id, props); err != nil {
 		panic(err)
 	}
 	var returns AppsyncFunction
@@ -257,15 +209,15 @@ func (l *jsiiProxy_LambdaDataSource) CreateFunction(props *BaseAppsyncFunctionPr
 	_jsii_.Invoke(
 		l,
 		"createFunction",
-		[]interface{}{props},
+		[]interface{}{id, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (l *jsiiProxy_LambdaDataSource) CreateResolver(props *BaseResolverProps) Resolver {
-	if err := l.validateCreateResolverParameters(props); err != nil {
+func (l *jsiiProxy_LambdaDataSource) CreateResolver(id *string, props *BaseResolverProps) Resolver {
+	if err := l.validateCreateResolverParameters(id, props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -273,62 +225,11 @@ func (l *jsiiProxy_LambdaDataSource) CreateResolver(props *BaseResolverProps) Re
 	_jsii_.Invoke(
 		l,
 		"createResolver",
-		[]interface{}{props},
+		[]interface{}{id, props},
 		&returns,
 	)
 
 	return returns
-}
-
-func (l *jsiiProxy_LambdaDataSource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LambdaDataSource) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := l.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (l *jsiiProxy_LambdaDataSource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LambdaDataSource) Prepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LambdaDataSource) Synthesize(session awscdk.ISynthesisSession) {
-	if err := l.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		l,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 func (l *jsiiProxy_LambdaDataSource) ToString() *string {
@@ -337,19 +238,6 @@ func (l *jsiiProxy_LambdaDataSource) ToString() *string {
 	_jsii_.Invoke(
 		l,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LambdaDataSource) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

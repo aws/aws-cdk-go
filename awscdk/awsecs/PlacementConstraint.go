@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -47,12 +47,11 @@ import (
 //   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
 //   		},
 //   	}),
+//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
-// Experimental.
 type PlacementConstraint interface {
 	// Return the placement JSON.
-	// Experimental.
 	ToJson() *[]*CfnService_PlacementConstraintProperty
 }
 
@@ -62,14 +61,13 @@ type jsiiProxy_PlacementConstraint struct {
 }
 
 // Use distinctInstance to ensure that each task in a particular group is running on a different container instance.
-// Experimental.
 func PlacementConstraint_DistinctInstances() PlacementConstraint {
 	_init_.Initialize()
 
 	var returns PlacementConstraint
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementConstraint",
+		"aws-cdk-lib.aws_ecs.PlacementConstraint",
 		"distinctInstances",
 		nil, // no parameters
 		&returns,
@@ -86,7 +84,6 @@ func PlacementConstraint_DistinctInstances() PlacementConstraint {
 // You can specify multiple expressions in one call. The tasks will only be placed on instances matching all expressions.
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html
 //
-// Experimental.
 func PlacementConstraint_MemberOf(expressions ...*string) PlacementConstraint {
 	_init_.Initialize()
 
@@ -98,7 +95,7 @@ func PlacementConstraint_MemberOf(expressions ...*string) PlacementConstraint {
 	var returns PlacementConstraint
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementConstraint",
+		"aws-cdk-lib.aws_ecs.PlacementConstraint",
 		"memberOf",
 		args,
 		&returns,

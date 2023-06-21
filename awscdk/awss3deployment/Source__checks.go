@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 )
 
 func validateSource_AssetParameters(path *string, options *awss3assets.AssetOptions) error {
@@ -48,6 +48,18 @@ func validateSource_DataParameters(objectKey *string, data *string) error {
 }
 
 func validateSource_JsonDataParameters(objectKey *string, obj interface{}) error {
+	if objectKey == nil {
+		return fmt.Errorf("parameter objectKey is required, but nil was provided")
+	}
+
+	if obj == nil {
+		return fmt.Errorf("parameter obj is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateSource_YamlDataParameters(objectKey *string, obj interface{}) error {
 	if objectKey == nil {
 		return fmt.Errorf("parameter objectKey is required, but nil was provided")
 	}

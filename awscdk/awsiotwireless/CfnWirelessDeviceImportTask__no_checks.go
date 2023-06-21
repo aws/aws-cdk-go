@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateAddDeletionOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) validateSetSidewalkParameters(va
 	return nil
 }
 
-func validateNewCfnWirelessDeviceImportTaskParameters(scope awscdk.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) error {
+func validateNewCfnWirelessDeviceImportTaskParameters(scope constructs.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) error {
 	return nil
 }
 

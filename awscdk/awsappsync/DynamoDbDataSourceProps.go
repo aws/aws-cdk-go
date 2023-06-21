@@ -1,8 +1,8 @@
 package awsappsync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for an AppSync DynamoDB datasource.
@@ -30,28 +30,20 @@ import (
 //   	UseCallerCredentials: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type DynamoDbDataSourceProps struct {
 	// The API to attach this data source to.
-	// Experimental.
 	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
-	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
-	// Experimental.
 	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The DynamoDB table backing this data source.
-	// Experimental.
 	Table awsdynamodb.ITable `field:"required" json:"table" yaml:"table"`
 	// Specify whether this DS is read only or has read and write permissions to the DynamoDB table.
-	// Experimental.
 	ReadOnlyAccess *bool `field:"optional" json:"readOnlyAccess" yaml:"readOnlyAccess"`
 	// use credentials of caller to access DynamoDB.
-	// Experimental.
 	UseCallerCredentials *bool `field:"optional" json:"useCallerCredentials" yaml:"useCallerCredentials"`
 }
 

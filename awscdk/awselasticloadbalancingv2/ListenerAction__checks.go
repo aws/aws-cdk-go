@@ -7,10 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_ListenerAction) validateBindParameters(scope awscdk.Construct, listener IApplicationListener) error {
+func (l *jsiiProxy_ListenerAction) validateAddRuleActionParameters(actionJson *CfnListenerRule_ActionProperty) error {
+	if actionJson == nil {
+		return fmt.Errorf("parameter actionJson is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(actionJson, func() string { return "parameter actionJson" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (l *jsiiProxy_ListenerAction) validateBindParameters(scope constructs.Construct, listener IApplicationListener) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -98,11 +109,11 @@ func validateListenerAction_WeightedForwardParameters(targetGroups *[]*WeightedT
 	return nil
 }
 
-func validateNewListenerActionParameters(actionJson *CfnListener_ActionProperty) error {
-	if actionJson == nil {
-		return fmt.Errorf("parameter actionJson is required, but nil was provided")
+func validateNewListenerActionParameters(defaultActionJson *CfnListener_ActionProperty) error {
+	if defaultActionJson == nil {
+		return fmt.Errorf("parameter defaultActionJson is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(actionJson, func() string { return "parameter actionJson" }); err != nil {
+	if err := _jsii_.ValidateStruct(defaultActionJson, func() string { return "parameter defaultActionJson" }); err != nil {
 		return err
 	}
 

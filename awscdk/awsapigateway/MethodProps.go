@@ -54,22 +54,17 @@ package awsapigateway
 //   	},
 //   }
 //
-// Experimental.
 type MethodProps struct {
 	// The HTTP method ("GET", "POST", "PUT", ...) that clients use to call this method.
-	// Experimental.
 	HttpMethod *string `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// The resource this method is associated with.
 	//
 	// For root resource methods,
 	// specify the `RestApi` object.
-	// Experimental.
 	Resource IResource `field:"required" json:"resource" yaml:"resource"`
 	// The backend system that the method calls when it receives a request.
-	// Experimental.
 	Integration Integration `field:"optional" json:"integration" yaml:"integration"`
 	// Method options.
-	// Experimental.
 	Options *MethodOptions `field:"optional" json:"options" yaml:"options"`
 }
 

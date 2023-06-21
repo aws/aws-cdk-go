@@ -1,12 +1,12 @@
 package awslightsail
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslightsail/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Lightsail::Database`.
@@ -69,16 +69,13 @@ type CfnDatabase interface {
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -89,7 +86,6 @@ type CfnDatabase interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The meaning of this parameter differs according to the database engine you use.
 	//
@@ -158,9 +154,8 @@ type CfnDatabase interface {
 	// Constraints: Must contain 8-128 characters.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The daily time range during which automated backups are created for the database (for example, `16:00-16:30` ).
 	PreferredBackupWindow() *string
 	SetPreferredBackupWindow(val *string)
@@ -176,7 +171,6 @@ type CfnDatabase interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The blueprint ID for the database (for example, `mysql_8_0` ).
 	RelationalDatabaseBlueprintId() *string
@@ -198,7 +192,6 @@ type CfnDatabase interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -206,20 +199,28 @@ type CfnDatabase interface {
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
 	Tags() awscdk.TagManager
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -228,7 +229,6 @@ type CfnDatabase interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -251,20 +251,20 @@ type CfnDatabase interface {
 	// would add the overrides
 	// ```json
 	// "Properties": {
-	//    "GlobalSecondaryIndexes": [
-	//      {
-	//        "Projection": {
-	//          "NonKeyAttributes": [ "myattribute" ]
-	//          ...
-	//        }
-	//        ...
-	//      },
-	//      {
-	//        "ProjectionType": "INCLUDE"
-	//        ...
-	//      },
-	//    ]
-	//    ...
+	//   "GlobalSecondaryIndexes": [
+	//     {
+	//       "Projection": {
+	//         "NonKeyAttributes": [ "myattribute" ]
+	//         ...
+	//       }
+	//       ...
+	//     },
+	//     {
+	//       "ProjectionType": "INCLUDE"
+	//       ...
+	//     },
+	//   ]
+	//   ...
 	// }
 	// ```
 	//
@@ -273,15 +273,12 @@ type CfnDatabase interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -291,15 +288,18 @@ type CfnDatabase interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
-	GetAtt(attributeName *string) awscdk.Reference
+	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -307,74 +307,35 @@ type CfnDatabase interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
+	// Retrieves an array of resources this resource depends on.
 	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
+	// Indicates that this resource no longer depends on another resource.
 	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -504,8 +465,8 @@ func (j *jsiiProxy_CfnDatabase) MasterUserPassword() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDatabase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -634,9 +595,19 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDatabase) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lightsail::Database`.
-func NewCfnDatabase(scope awscdk.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
+func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
 	if err := validateNewCfnDatabaseParameters(scope, id, props); err != nil {
@@ -645,7 +616,7 @@ func NewCfnDatabase(scope awscdk.Construct, id *string, props *CfnDatabaseProps)
 	j := jsiiProxy_CfnDatabase{}
 
 	_jsii_.Create(
-		"monocdk.aws_lightsail.CfnDatabase",
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -654,11 +625,11 @@ func NewCfnDatabase(scope awscdk.Construct, id *string, props *CfnDatabaseProps)
 }
 
 // Create a new `AWS::Lightsail::Database`.
-func NewCfnDatabase_Override(c CfnDatabase, scope awscdk.Construct, id *string, props *CfnDatabaseProps) {
+func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lightsail.CfnDatabase",
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -809,7 +780,6 @@ func (j *jsiiProxy_CfnDatabase)SetRotateMasterUserPassword(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDatabase_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -819,7 +789,7 @@ func CfnDatabase_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lightsail.CfnDatabase",
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -829,7 +799,6 @@ func CfnDatabase_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDatabase_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -839,7 +808,7 @@ func CfnDatabase_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lightsail.CfnDatabase",
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -848,8 +817,23 @@ func CfnDatabase_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnDatabase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -859,7 +843,7 @@ func CfnDatabase_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lightsail.CfnDatabase",
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -872,7 +856,7 @@ func CfnDatabase_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lightsail.CfnDatabase",
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -887,6 +871,17 @@ func (c *jsiiProxy_CfnDatabase) AddDeletionOverride(path *string) {
 		c,
 		"addDeletionOverride",
 		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnDatabase) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -956,7 +951,7 @@ func (c *jsiiProxy_CfnDatabase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-func (c *jsiiProxy_CfnDatabase) GetAtt(attributeName *string) awscdk.Reference {
+func (c *jsiiProxy_CfnDatabase) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -965,7 +960,7 @@ func (c *jsiiProxy_CfnDatabase) GetAtt(attributeName *string) awscdk.Reference {
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName},
+		[]interface{}{attributeName, typeHint},
 		&returns,
 	)
 
@@ -999,31 +994,25 @@ func (c *jsiiProxy_CfnDatabase) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDatabase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDatabase) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDatabase) OnValidate() *[]*string {
-	var returns *[]*string
+func (c *jsiiProxy_CfnDatabase) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
 
 	_jsii_.Invoke(
 		c,
-		"onValidate",
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDatabase) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
 		nil, // no parameters
 		&returns,
 	)
@@ -1042,11 +1031,14 @@ func (c *jsiiProxy_CfnDatabase) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-func (c *jsiiProxy_CfnDatabase) Prepare() {
+func (c *jsiiProxy_CfnDatabase) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
-		"prepare",
-		nil, // no parameters
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -1066,6 +1058,17 @@ func (c *jsiiProxy_CfnDatabase) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
+func (c *jsiiProxy_CfnDatabase) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
+}
+
 func (c *jsiiProxy_CfnDatabase) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1079,36 +1082,12 @@ func (c *jsiiProxy_CfnDatabase) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDatabase) Synthesize(session awscdk.ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDatabase) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDatabase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

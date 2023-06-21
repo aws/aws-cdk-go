@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnCampaign) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnCampaign) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnCampaign) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnCampaign) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnCampaign) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnCampaign) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnCampaign) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnCampaign) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnCampaign) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnCampaign) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -180,6 +192,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetCollectionSchemeParameters(val interf
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnCampaign_CollectionSchemeProperty:
 		val := val.(*CfnCampaign_CollectionSchemeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -191,11 +205,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetCollectionSchemeParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnCampaign_CollectionSchemeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_CollectionSchemeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -210,6 +222,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetDataDestinationConfigsParameters(val 
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCampaign_DataDestinationConfigProperty:
 				v := v.(*CfnCampaign_DataDestinationConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -221,11 +235,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetDataDestinationConfigsParameters(val 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCampaign_DataDestinationConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_DataDestinationConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -234,6 +246,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetDataDestinationConfigsParameters(val 
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCampaign_DataDestinationConfigProperty:
 				v := v.(*CfnCampaign_DataDestinationConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -245,11 +259,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetDataDestinationConfigsParameters(val 
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCampaign_DataDestinationConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_DataDestinationConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -286,6 +298,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetSignalsToCollectParameters(val interf
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCampaign_SignalInformationProperty:
 				v := v.(*CfnCampaign_SignalInformationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -297,11 +311,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetSignalsToCollectParameters(val interf
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCampaign_SignalInformationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_SignalInformationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -310,6 +322,8 @@ func (j *jsiiProxy_CfnCampaign) validateSetSignalsToCollectParameters(val interf
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnCampaign_SignalInformationProperty:
 				v := v.(*CfnCampaign_SignalInformationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -321,11 +335,9 @@ func (j *jsiiProxy_CfnCampaign) validateSetSignalsToCollectParameters(val interf
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnCampaign_SignalInformationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCampaign_SignalInformationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -346,7 +358,7 @@ func (j *jsiiProxy_CfnCampaign) validateSetTargetArnParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnCampaignParameters(scope awscdk.Construct, id *string, props *CfnCampaignProps) error {
+func validateNewCfnCampaignParameters(scope constructs.Construct, id *string, props *CfnCampaignProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

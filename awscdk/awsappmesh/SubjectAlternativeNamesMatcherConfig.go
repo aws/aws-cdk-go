@@ -16,10 +16,8 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type SubjectAlternativeNamesMatcherConfig struct {
 	// VirtualNode CFN configuration for subject alternative names secured by the certificate.
-	// Experimental.
 	SubjectAlternativeNamesMatch *CfnVirtualNode_SubjectAlternativeNameMatchersProperty `field:"required" json:"subjectAlternativeNamesMatch" yaml:"subjectAlternativeNamesMatch"`
 }
 

@@ -14,10 +14,8 @@ package awselasticloadbalancingv2
 //   	Action: networkListenerAction,
 //   }
 //
-// Experimental.
 type AddNetworkActionProps struct {
 	// Action to perform.
-	// Experimental.
 	Action NetworkListenerAction `field:"required" json:"action" yaml:"action"`
 }
 

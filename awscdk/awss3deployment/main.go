@@ -8,31 +8,27 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_deployment.BucketDeployment",
+		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
 		reflect.TypeOf((*BucketDeployment)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addSource", GoMethod: "AddSource"},
 			_jsii_.MemberProperty{JsiiProperty: "deployedBucket", GoGetter: "DeployedBucket"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "objectKeys", GoGetter: "ObjectKeys"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BucketDeployment{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_s3_deployment.BucketDeploymentProps",
+		"aws-cdk-lib.aws_s3_deployment.BucketDeploymentProps",
 		reflect.TypeOf((*BucketDeploymentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		reflect.TypeOf((*CacheControl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
@@ -41,22 +37,34 @@ func init() {
 			return &jsiiProxy_CacheControl{}
 		},
 	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_s3_deployment.DeploymentSourceContext",
-		reflect.TypeOf((*DeploymentSourceContext)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_deployment.Expires",
-		reflect.TypeOf((*Expires)(nil)).Elem(),
+		"aws-cdk-lib.aws_s3_deployment.DeployTimeSubstitutedFile",
+		reflect.TypeOf((*DeployTimeSubstitutedFile)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "addSource", GoMethod: "AddSource"},
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "deployedBucket", GoGetter: "DeployedBucket"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "objectKey", GoGetter: "ObjectKey"},
+			_jsii_.MemberProperty{JsiiProperty: "objectKeys", GoGetter: "ObjectKeys"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
-			return &jsiiProxy_Expires{}
+			j := jsiiProxy_DeployTimeSubstitutedFile{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_BucketDeployment)
+			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3_deployment.DeployTimeSubstitutedFileProps",
+		reflect.TypeOf((*DeployTimeSubstitutedFileProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3_deployment.DeploymentSourceContext",
+		reflect.TypeOf((*DeploymentSourceContext)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_s3_deployment.ISource",
+		"aws-cdk-lib.aws_s3_deployment.ISource",
 		reflect.TypeOf((*ISource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -66,7 +74,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_s3_deployment.ServerSideEncryption",
+		"aws-cdk-lib.aws_s3_deployment.ServerSideEncryption",
 		reflect.TypeOf((*ServerSideEncryption)(nil)).Elem(),
 		map[string]interface{}{
 			"AES_256": ServerSideEncryption_AES_256,
@@ -74,7 +82,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		reflect.TypeOf((*Source)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -82,11 +90,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_s3_deployment.SourceConfig",
+		"aws-cdk-lib.aws_s3_deployment.SourceConfig",
 		reflect.TypeOf((*SourceConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_s3_deployment.StorageClass",
+		"aws-cdk-lib.aws_s3_deployment.StorageClass",
 		reflect.TypeOf((*StorageClass)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": StorageClass_STANDARD,
@@ -99,7 +107,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_s3_deployment.UserDefinedObjectMetadata",
+		"aws-cdk-lib.aws_s3_deployment.UserDefinedObjectMetadata",
 		reflect.TypeOf((*UserDefinedObjectMetadata)(nil)).Elem(),
 	)
 }

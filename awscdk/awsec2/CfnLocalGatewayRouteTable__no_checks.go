@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTable) validateSetLocalGatewayIdParameter
 	return nil
 }
 
-func validateNewCfnLocalGatewayRouteTableParameters(scope awscdk.Construct, id *string, props *CfnLocalGatewayRouteTableProps) error {
+func validateNewCfnLocalGatewayRouteTableParameters(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableProps) error {
 	return nil
 }
 

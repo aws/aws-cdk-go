@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service (KMS) key to use.

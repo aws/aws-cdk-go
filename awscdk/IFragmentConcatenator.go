@@ -7,10 +7,8 @@ import (
 // Function used to concatenate symbols in the target document language.
 //
 // Interface so it could potentially be exposed over jsii.
-// Experimental.
 type IFragmentConcatenator interface {
 	// Join the fragment on the left and on the right.
-	// Experimental.
 	Join(left interface{}, right interface{}) interface{}
 }
 

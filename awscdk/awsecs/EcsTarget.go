@@ -27,26 +27,20 @@ package awsecs
 //   	}),
 //   })
 //
-// Experimental.
 type EcsTarget struct {
 	// The name of the container.
-	// Experimental.
 	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 	// Listener and properties for adding target group to the listener.
-	// Experimental.
 	Listener ListenerConfig `field:"required" json:"listener" yaml:"listener"`
 	// ID for a target group to be created.
-	// Experimental.
 	NewTargetGroupId *string `field:"required" json:"newTargetGroupId" yaml:"newTargetGroupId"`
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	// Experimental.
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
-	// Experimental.
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

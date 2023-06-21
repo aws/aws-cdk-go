@@ -20,14 +20,6 @@ func (p *jsiiProxy_Product) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
-func (p *jsiiProxy_Product) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (p *jsiiProxy_Product) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateProduct_FromProductArnParameters(scope constructs.Construct, id *string, productArn *string) error {
 	return nil
 }
@@ -36,7 +28,11 @@ func validateProduct_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateProduct_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateProduct_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateProduct_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

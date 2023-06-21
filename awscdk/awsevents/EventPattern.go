@@ -15,20 +15,20 @@ package awsevents
 // It is important to remember the following about event pattern matching:
 //
 // - For a pattern to match an event, the event must contain all the field names
-//    listed in the pattern. The field names must appear in the event with the
-//    same nesting structure.
+//   listed in the pattern. The field names must appear in the event with the
+//   same nesting structure.
 //
 // - Other fields of the event not mentioned in the pattern are ignored;
-//    effectively, there is a ``"*": "*"`` wildcard for fields not mentioned.
+//   effectively, there is a ``"*": "*"`` wildcard for fields not mentioned.
 //
 // - The matching is exact (character-by-character), without case-folding or any
-//    other string normalization.
+//   other string normalization.
 //
 // - The values being matched follow JSON rules: Strings enclosed in quotes,
-//    numbers, and the unquoted keywords true, false, and null.
+//   numbers, and the unquoted keywords true, false, and null.
 //
 // - Number matching is at the string representation level. For example, 300,
-//    300.0, and 3.0e2 are not considered equal.
+//   300.0, and 3.0e2 are not considered equal.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -53,34 +53,28 @@ package awsevents
 //   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
 //   	DeadLetterQueue: queue,
 //   	 // Optional: add a dead letter queue
-//   	MaxEventAge: cdk.Duration_Hours(jsii.Number(2)),
+//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
 //   	 // Optional: set the maxEventAge retry policy
 //   	RetryAttempts: jsii.Number(2),
 //   }))
 //
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html
 //
-// Experimental.
 type EventPattern struct {
 	// The 12-digit number identifying an AWS account.
-	// Experimental.
 	Account *[]*string `field:"optional" json:"account" yaml:"account"`
 	// A JSON object, whose content is at the discretion of the service originating the event.
-	// Experimental.
 	Detail *map[string]interface{} `field:"optional" json:"detail" yaml:"detail"`
 	// Identifies, in combination with the source field, the fields and values that appear in the detail field.
 	//
 	// Represents the "detail-type" event field.
-	// Experimental.
 	DetailType *[]*string `field:"optional" json:"detailType" yaml:"detailType"`
 	// A unique value is generated for every event.
 	//
 	// This can be helpful in
 	// tracing events as they move through rules to targets, and are processed.
-	// Experimental.
 	Id *[]*string `field:"optional" json:"id" yaml:"id"`
 	// Identifies the AWS region where the event originated.
-	// Experimental.
 	Region *[]*string `field:"optional" json:"region" yaml:"region"`
 	// This JSON array contains ARNs that identify resources that are involved in the event.
 	//
@@ -91,7 +85,6 @@ type EventPattern struct {
 	// instance ARNs, Auto Scaling events include ARNs for both instances and
 	// Auto Scaling groups, but API calls with AWS CloudTrail do not include
 	// resource ARNs.
-	// Experimental.
 	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// Identifies the service that sourced the event.
 	//
@@ -105,17 +98,14 @@ type EventPattern struct {
 	// CloudFront is aws.cloudfront.
 	// See: http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 	//
-	// Experimental.
 	Source *[]*string `field:"optional" json:"source" yaml:"source"`
 	// The event timestamp, which can be specified by the service originating the event.
 	//
 	// If the event spans a time interval, the service might choose
 	// to report the start time, so this value can be noticeably before the time
 	// the event is actually received.
-	// Experimental.
 	Time *[]*string `field:"optional" json:"time" yaml:"time"`
 	// By default, this is set to 0 (zero) in all events.
-	// Experimental.
 	Version *[]*string `field:"optional" json:"version" yaml:"version"`
 }
 

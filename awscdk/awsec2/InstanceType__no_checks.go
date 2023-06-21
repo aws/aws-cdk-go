@@ -4,6 +4,10 @@ package awsec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (i *jsiiProxy_InstanceType) validateSameInstanceClassAsParameters(other InstanceType) error {
+	return nil
+}
+
 func validateInstanceType_OfParameters(instanceClass InstanceClass, instanceSize InstanceSize) error {
 	return nil
 }

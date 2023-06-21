@@ -1,8 +1,8 @@
 package awssesactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 // Construction properties for a Lambda action.
@@ -25,16 +25,12 @@ import (
 //   	Topic: topic,
 //   }
 //
-// Experimental.
 type LambdaProps struct {
 	// The Lambda function to invoke.
-	// Experimental.
 	Function awslambda.IFunction `field:"required" json:"function" yaml:"function"`
 	// The invocation type of the Lambda function.
-	// Experimental.
 	InvocationType LambdaInvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
 	// The SNS topic to notify when the Lambda action is taken.
-	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

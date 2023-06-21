@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -25,11 +25,9 @@ import (
 //   	ServiceRestartHandle: handle,
 //   }))
 //
-// Experimental.
 type InitService interface {
 	InitElement
 	// Returns the init element type for this element.
-	// Experimental.
 	ElementType() *string
 }
 
@@ -50,7 +48,6 @@ func (j *jsiiProxy_InitService) ElementType() *string {
 
 
 // Disable and stop the given service.
-// Experimental.
 func InitService_Disable(serviceName *string) InitService {
 	_init_.Initialize()
 
@@ -60,7 +57,7 @@ func InitService_Disable(serviceName *string) InitService {
 	var returns InitService
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitService",
+		"aws-cdk-lib.aws_ec2.InitService",
 		"disable",
 		[]interface{}{serviceName},
 		&returns,
@@ -70,7 +67,6 @@ func InitService_Disable(serviceName *string) InitService {
 }
 
 // Enable and start the given service, optionally restarting it.
-// Experimental.
 func InitService_Enable(serviceName *string, options *InitServiceOptions) InitService {
 	_init_.Initialize()
 
@@ -80,8 +76,35 @@ func InitService_Enable(serviceName *string, options *InitServiceOptions) InitSe
 	var returns InitService
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitService",
+		"aws-cdk-lib.aws_ec2.InitService",
 		"enable",
+		[]interface{}{serviceName, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Install a systemd-compatible config file for the given service.
+//
+// This is a helper function to create a simple systemd configuration
+// file that will allow running a service on the machine using `InitService.enable()`.
+//
+// Systemd allows many configuration options; this function does not pretend
+// to expose all of them. If you need advanced configuration options, you
+// can use `InitFile` to create exactly the configuration file you need
+// at `/etc/systemd/system/${serviceName}.service`.
+func InitService_SystemdConfigFile(serviceName *string, options *SystemdConfigFileOptions) InitFile {
+	_init_.Initialize()
+
+	if err := validateInitService_SystemdConfigFileParameters(serviceName, options); err != nil {
+		panic(err)
+	}
+	var returns InitFile
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.InitService",
+		"systemdConfigFile",
 		[]interface{}{serviceName, options},
 		&returns,
 	)

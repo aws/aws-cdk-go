@@ -7,10 +7,8 @@ import (
 // Interface to apply operation to tokens in a string.
 //
 // Interface so it can be exported via jsii.
-// Experimental.
 type ITokenMapper interface {
 	// Replace a single token.
-	// Experimental.
 	MapToken(t IResolvable) interface{}
 }
 

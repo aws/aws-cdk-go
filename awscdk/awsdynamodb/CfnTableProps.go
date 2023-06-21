@@ -1,7 +1,7 @@
 package awsdynamodb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTable`.
@@ -124,8 +124,10 @@ import (
 //   		},
 //   	},
 //   	TimeToLiveSpecification: &TimeToLiveSpecificationProperty{
-//   		AttributeName: jsii.String("attributeName"),
 //   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		AttributeName: jsii.String("attributeName"),
 //   	},
 //   }
 //

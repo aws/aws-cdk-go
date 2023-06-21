@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateRenderPropertiesParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -177,6 +189,8 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetCoreNetworkIdParameter
 
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetProposedSegmentChangeParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnSiteToSiteVpnAttachment_ProposedSegmentChangeProperty:
 		val := val.(*CfnSiteToSiteVpnAttachment_ProposedSegmentChangeProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -188,11 +202,9 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetProposedSegmentChangeP
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnSiteToSiteVpnAttachment_ProposedSegmentChangeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSiteToSiteVpnAttachment_ProposedSegmentChangeProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -207,7 +219,7 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetVpnConnectionArnParame
 	return nil
 }
 
-func validateNewCfnSiteToSiteVpnAttachmentParameters(scope awscdk.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) error {
+func validateNewCfnSiteToSiteVpnAttachmentParameters(scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

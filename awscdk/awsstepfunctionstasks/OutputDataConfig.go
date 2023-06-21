@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Configures the S3 bucket where SageMaker will save the result of model training.
@@ -38,13 +38,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type OutputDataConfig struct {
 	// Identifies the S3 path where you want Amazon SageMaker to store the model artifacts.
-	// Experimental.
 	S3OutputLocation S3Location `field:"required" json:"s3OutputLocation" yaml:"s3OutputLocation"`
 	// Optional KMS encryption key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

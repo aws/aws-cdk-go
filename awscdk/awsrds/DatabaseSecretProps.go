@@ -1,8 +1,8 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
 // Construction properties for a DatabaseSecret.
@@ -31,7 +31,7 @@ import (
 //   rdsDS := api.AddRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
 //
 //   // Set up a resolver for an RDS query.
-//   rdsDS.CreateResolver(&BaseResolverProps{
+//   rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
 //   	TypeName: jsii.String("Query"),
 //   	FieldName: jsii.String("getDemosRds"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
@@ -48,7 +48,7 @@ import (
 //   })
 //
 //   // Set up a resolver for an RDS mutation.
-//   rdsDS.CreateResolver(&BaseResolverProps{
+//   rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
 //   	TypeName: jsii.String("Mutation"),
 //   	FieldName: jsii.String("addDemoRds"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
@@ -69,19 +69,16 @@ import (
 //   	  `)),
 //   })
 //
-// Experimental.
 type DatabaseSecretProps struct {
 	// The username.
-	// Experimental.
 	Username *string `field:"required" json:"username" yaml:"username"`
+	// The database name, if not using the default one.
+	Dbname *string `field:"optional" json:"dbname" yaml:"dbname"`
 	// The KMS key to use to encrypt the secret.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Characters to not include in the generated password.
-	// Experimental.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret which will be used to rotate this secret.
-	// Experimental.
 	MasterSecret awssecretsmanager.ISecret `field:"optional" json:"masterSecret" yaml:"masterSecret"`
 	// Whether to replace this secret when the criteria for the password change.
 	//
@@ -89,13 +86,10 @@ type DatabaseSecretProps struct {
 	// with a hash of the options that influence the password generation. This
 	// way a new secret will be created when the password is regenerated and the
 	// cluster or instance consuming this secret will have its credentials updated.
-	// Experimental.
 	ReplaceOnPasswordCriteriaChanges *bool `field:"optional" json:"replaceOnPasswordCriteriaChanges" yaml:"replaceOnPasswordCriteriaChanges"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `field:"optional" json:"replicaRegions" yaml:"replicaRegions"`
 	// A name for the secret.
-	// Experimental.
 	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 

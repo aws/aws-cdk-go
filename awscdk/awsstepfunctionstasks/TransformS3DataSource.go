@@ -29,13 +29,10 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
-// Experimental.
 type TransformS3DataSource struct {
 	// Identifies either a key name prefix or a manifest.
-	// Experimental.
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// S3 Data Type.
-	// Experimental.
 	S3DataType S3DataType `field:"optional" json:"s3DataType" yaml:"s3DataType"`
 }
 

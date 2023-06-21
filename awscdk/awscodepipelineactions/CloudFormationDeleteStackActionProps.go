@@ -1,10 +1,9 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudformation"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for the CloudFormationDeleteStackAction.
@@ -12,8 +11,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -30,11 +28,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Account: jsii.String("account"),
-//   	Capabilities: []cloudFormationCapabilities{
-//   		awscdk.Aws_cloudformation.*cloudFormationCapabilities_NONE,
-//   	},
 //   	CfnCapabilities: []cfnCapabilities{
-//   		monocdk.*cfnCapabilities_NONE,
+//   		cdk.*cfnCapabilities_NONE,
 //   	},
 //   	DeploymentRole: role,
 //   	ExtraInputs: []*artifact{
@@ -52,31 +47,26 @@ import (
 //   	VariablesNamespace: jsii.String("variablesNamespace"),
 //   }
 //
-// Experimental.
 type CloudFormationDeleteStackActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
-	// Experimental.
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Experimental.
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Experimental.
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
 	// (the required permissions for that will be granted automatically)
 	// right before executing this Action.
-	// This Action will be passed into your {@link IAction.bind}
-	// method in the {@link ActionBindOptions.role} property.
-	// Experimental.
+	// This Action will be passed into your `IAction.bind`
+	// method in the `ActionBindOptions.role` property.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
@@ -91,27 +81,14 @@ type CloudFormationDeleteStackActionProps struct {
 	// are deployed in this pipeline. If you want more fine-grained permissions,
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
-	// Experimental.
 	AdminPermissions *bool `field:"required" json:"adminPermissions" yaml:"adminPermissions"`
 	// The name of the stack to apply this action to.
-	// Experimental.
 	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
-	// Experimental.
 	Account *string `field:"optional" json:"account" yaml:"account"`
-	// Acknowledge certain changes made as part of deployment.
-	//
-	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
-	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
-	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
-	// information see the link below.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
-	//
-	// Deprecated: use {@link cfnCapabilities} instead.
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -121,35 +98,31 @@ type CloudFormationDeleteStackActionProps struct {
 	// For more information, see the link below.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
-	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
-	// Experimental.
 	DeploymentRole awsiam.IRole `field:"optional" json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
 	// This is especially useful when used in conjunction with the `parameterOverrides` property.
 	// For example, if you have:
 	//
-	//    parameterOverrides: {
-	//      'Param1': action1.outputArtifact.bucketName,
-	//      'Param2': action2.outputArtifact.objectKey,
-	//    }
+	//   parameterOverrides: {
+	//     'Param1': action1.outputArtifact.bucketName,
+	//     'Param2': action2.outputArtifact.objectKey,
+	//   }
 	//
 	// , if the output Artifacts of `action1` and `action2` were not used to
 	// set either the `templateConfiguration` or the `templatePath` properties,
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
-	// Experimental.
 	ExtraInputs *[]awscodepipeline.Artifact `field:"optional" json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
-	// Experimental.
 	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -158,7 +131,6 @@ type CloudFormationDeleteStackActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
-	// Experimental.
 	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
@@ -173,15 +145,13 @@ type CloudFormationDeleteStackActionProps struct {
 	// All parameter names must be present in the stack template.
 	//
 	// Note: the entire object cannot be more than 1kB.
-	// Experimental.
 	ParameterOverrides *map[string]interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
-	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
+	// You can provide their names with the `PipelineProps#crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
@@ -191,7 +161,6 @@ type CloudFormationDeleteStackActionProps struct {
 	//
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
-	// Experimental.
 	TemplateConfiguration awscodepipeline.ArtifactPath `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 

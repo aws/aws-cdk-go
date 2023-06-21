@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPublisher) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
+func (c *jsiiProxy_CfnPublisher) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPublisher) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPublisher) validateInspectParameters(inspector TreeInspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublisher) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPublisher) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublisher) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPublisher) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPublisher) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublisher) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnPublisher) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnPublisher) validateSetAcceptTermsAndConditionsParameters(v
 	return nil
 }
 
-func validateNewCfnPublisherParameters(scope Construct, id *string, props *CfnPublisherProps) error {
+func validateNewCfnPublisherParameters(scope constructs.Construct, id *string, props *CfnPublisherProps) error {
 	return nil
 }
 

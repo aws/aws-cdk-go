@@ -1,7 +1,7 @@
 package awsroute53
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Construction properties for a CnameRecord.
@@ -19,8 +19,12 @@ import (
 //   certificate := acm.NewCertificate(this, jsii.String("cert"), &CertificateProps{
 //   	DomainName: myDomainName,
 //   })
+//   schema := appsync.NewSchemaFile(&SchemaProps{
+//   	FilePath: jsii.String("mySchemaFile"),
+//   })
 //   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	Name: jsii.String("myApi"),
+//   	Schema: Schema,
 //   	DomainName: &DomainOptions{
 //   		Certificate: *Certificate,
 //   		DomainName: myDomainName,
@@ -38,25 +42,36 @@ import (
 //   route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &CnameRecordProps{
 //   	RecordName: jsii.String("api"),
 //   	Zone: Zone,
-//   	DomainName: myDomainName,
+//   	DomainName: api.appSyncDomainName,
 //   })
 //
-// Experimental.
 type CnameRecordProps struct {
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// The domain name for this record.
-	// Experimental.
+	// Whether to delete the same record set in the hosted zone if it already exists (dangerous!).
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	//
+	// > **N.B.:** this feature is dangerous, use with caution! It can only be used safely when
+	// > `deleteExisting` is set to `true` as soon as the resource is added to the stack. Changing
+	// > an existing Record Set's `deleteExisting` property from `false -> true` after deployment
+	// > will delete the record!
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
+	// The subdomain name for this record. This should be relative to the zone root name.
+	//
+	// For example, if you want to create a record for acme.example.com, specify
+	// "acme".
+	//
+	// You can also specify the fully qualified domain name which terminates with a
+	// ".". For example, "acme.example.com.".
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
-	// The domain name.
-	// Experimental.
+	// The domain name of the target that this record should point to.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 

@@ -7,12 +7,20 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (b *jsiiProxy_BottleRocketImage) validateGetImageParameters(scope awscdk.Construct) error {
+func (b *jsiiProxy_BottleRocketImage) validateGetImageParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateBottleRocketImage_IsBottleRocketImageParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

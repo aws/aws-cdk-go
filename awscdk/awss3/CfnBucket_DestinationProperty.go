@@ -21,8 +21,6 @@ type CfnBucket_DestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
-	//
-	// *Allowed values* : `CSV` | `ORC` | `Parquet`.
 	Format *string `field:"required" json:"format" yaml:"format"`
 	// The account ID that owns the destination S3 bucket.
 	//

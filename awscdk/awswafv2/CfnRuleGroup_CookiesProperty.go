@@ -35,7 +35,7 @@ type CfnRuleGroup_CookiesProperty struct {
 	//
 	// You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
 	//
-	// Example JSON: `"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }`.
+	// Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`.
 	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the cookies to inspect with the rule inspection criteria.
 	//

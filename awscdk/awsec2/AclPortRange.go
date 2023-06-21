@@ -13,17 +13,14 @@ package awsec2
 //   	To: jsii.Number(123),
 //   }
 //
-// Experimental.
 type AclPortRange struct {
 	// The first port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
-	// Experimental.
 	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The last port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
-	// Experimental.
 	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 

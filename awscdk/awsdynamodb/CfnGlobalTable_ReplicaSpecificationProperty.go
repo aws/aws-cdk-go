@@ -1,7 +1,7 @@
 package awsdynamodb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Defines settings specific to a single replica of a global table.

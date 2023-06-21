@@ -37,7 +37,7 @@ type CfnRuleGroup_HeadersProperty struct {
 	//
 	// You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
 	//
-	// Example JSON: `"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }`.
+	// Example JSON: `"MatchPattern": { "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] }`.
 	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the headers to match with the rule inspection criteria.
 	//

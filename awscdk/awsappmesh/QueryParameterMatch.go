@@ -1,10 +1,10 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Used to generate query parameter matching methods.
@@ -36,11 +36,9 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type QueryParameterMatch interface {
 	// Returns the query parameter match configuration.
-	// Experimental.
-	Bind(scope awscdk.Construct) *QueryParameterMatchConfig
+	Bind(scope constructs.Construct) *QueryParameterMatchConfig
 }
 
 // The jsii proxy struct for QueryParameterMatch
@@ -48,19 +46,17 @@ type jsiiProxy_QueryParameterMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewQueryParameterMatch_Override(q QueryParameterMatch) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.QueryParameterMatch",
+		"aws-cdk-lib.aws_appmesh.QueryParameterMatch",
 		nil, // no parameters
 		q,
 	)
 }
 
 // The value of the query parameter with the given name in the request must match the specified value exactly.
-// Experimental.
 func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue *string) QueryParameterMatch {
 	_init_.Initialize()
 
@@ -70,7 +66,7 @@ func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue
 	var returns QueryParameterMatch
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.QueryParameterMatch",
+		"aws-cdk-lib.aws_appmesh.QueryParameterMatch",
 		"valueIs",
 		[]interface{}{queryParameterName, queryParameterValue},
 		&returns,
@@ -79,7 +75,7 @@ func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue
 	return returns
 }
 
-func (q *jsiiProxy_QueryParameterMatch) Bind(scope awscdk.Construct) *QueryParameterMatchConfig {
+func (q *jsiiProxy_QueryParameterMatch) Bind(scope constructs.Construct) *QueryParameterMatchConfig {
 	if err := q.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

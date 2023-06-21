@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCustomResource) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnCustomResource) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCustomResource) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCustomResource) validateInspectParameters(inspector TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCustomResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCustomResource) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCustomResource) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnCustomResource) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnCustomResource) validateSetServiceTokenParameters(val *str
 	return nil
 }
 
-func validateNewCfnCustomResourceParameters(scope Construct, id *string, props *CfnCustomResourceProps) error {
+func validateNewCfnCustomResourceParameters(scope constructs.Construct, id *string, props *CfnCustomResourceProps) error {
 	return nil
 }
 

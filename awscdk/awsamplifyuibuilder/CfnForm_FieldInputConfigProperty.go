@@ -64,9 +64,11 @@ type CfnForm_FieldInputConfigProperty struct {
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The text to display to describe the field.
 	DescriptiveText *string `field:"optional" json:"descriptiveText" yaml:"descriptiveText"`
-	// `CfnForm.FieldInputConfigProperty.FileUploaderConfig`.
+	// The configuration for the file uploader field.
 	FileUploaderConfig interface{} `field:"optional" json:"fileUploaderConfig" yaml:"fileUploaderConfig"`
-	// `CfnForm.FieldInputConfigProperty.IsArray`.
+	// Specifies whether to render the field as an array.
+	//
+	// This property is ignored if the `dataSourceType` for the form is a Data Store.
 	IsArray interface{} `field:"optional" json:"isArray" yaml:"isArray"`
 	// The maximum value to display for the field.
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`

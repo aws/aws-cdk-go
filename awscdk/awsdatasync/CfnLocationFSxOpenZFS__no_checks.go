@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateAddDeletionOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) validateSetSecurityGroupArnsParameters
 	return nil
 }
 
-func validateNewCfnLocationFSxOpenZFSParameters(scope awscdk.Construct, id *string, props *CfnLocationFSxOpenZFSProps) error {
+func validateNewCfnLocationFSxOpenZFSParameters(scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) error {
 	return nil
 }
 

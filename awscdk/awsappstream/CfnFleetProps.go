@@ -1,62 +1,22 @@
 package awsappstream
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFleet`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   cfnFleetProps := &CfnFleetProps{
-//   	InstanceType: jsii.String("instanceType"),
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
+//   fleet := appstream.NewCfnFleet(this, jsii.String("Fleet"), &CfnFleetProps{
+//   	InstanceType: jsii.String("stream.standard.small"),
+//   	Name: jsii.String("Fleet"),
 //   	ComputeCapacity: &ComputeCapacityProperty{
-//   		DesiredInstances: jsii.Number(123),
+//   		DesiredInstances: jsii.Number(1),
 //   	},
-//   	Description: jsii.String("description"),
-//   	DisconnectTimeoutInSeconds: jsii.Number(123),
-//   	DisplayName: jsii.String("displayName"),
-//   	DomainJoinInfo: &DomainJoinInfoProperty{
-//   		DirectoryName: jsii.String("directoryName"),
-//   		OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
-//   	},
-//   	EnableDefaultInternetAccess: jsii.Boolean(false),
-//   	FleetType: jsii.String("fleetType"),
-//   	IamRoleArn: jsii.String("iamRoleArn"),
-//   	IdleDisconnectTimeoutInSeconds: jsii.Number(123),
-//   	ImageArn: jsii.String("imageArn"),
-//   	ImageName: jsii.String("imageName"),
-//   	MaxConcurrentSessions: jsii.Number(123),
-//   	MaxUserDurationInSeconds: jsii.Number(123),
-//   	Platform: jsii.String("platform"),
-//   	SessionScriptS3Location: &S3LocationProperty{
-//   		S3Bucket: jsii.String("s3Bucket"),
-//   		S3Key: jsii.String("s3Key"),
-//   	},
-//   	StreamView: jsii.String("streamView"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	UsbDeviceFilterStrings: []*string{
-//   		jsii.String("usbDeviceFilterStrings"),
-//   	},
-//   	VpcConfig: &VpcConfigProperty{
-//   		SecurityGroupIds: []*string{
-//   			jsii.String("securityGroupIds"),
-//   		},
-//   		SubnetIds: []*string{
-//   			jsii.String("subnetIds"),
-//   		},
-//   	},
+//   	ImageName: jsii.String("AppStream-AmazonLinux2-09-21-2022"),
+//   })
+//   fleet.CfnOptions.CreationPolicy = &CfnCreationPolicy{
+//   	StartFleet: jsii.Boolean(true),
 //   }
 //
 type CfnFleetProps struct {

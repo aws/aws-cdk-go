@@ -29,7 +29,7 @@ type CfnCampaign_LimitsProperty struct {
 	//
 	// The minimum value is 1. The maximum value is 20,000.
 	MessagesPerSecond *float64 `field:"optional" json:"messagesPerSecond" yaml:"messagesPerSecond"`
-	// `CfnCampaign.LimitsProperty.Session`.
+	// The maximum number of messages that the campaign can send per user session.
 	Session *float64 `field:"optional" json:"session" yaml:"session"`
 	// The maximum number of messages that a campaign can send to a single endpoint during the course of the campaign.
 	//

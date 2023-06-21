@@ -4,15 +4,7 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_App) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (a *jsiiProxy_App) validateSynthParameters(options *StageSynthesisOptions) error {
-	return nil
-}
-
-func (a *jsiiProxy_App) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 

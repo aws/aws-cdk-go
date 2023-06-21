@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -22,14 +22,13 @@ import (
 //
 //   	Right: []*iMetric{
 //   		errorCountMetric.With(&MetricOptions{
-//   			Statistic: jsii.String("average"),
+//   			Statistic: cloudwatch.Stats_AVERAGE(),
 //   			Label: jsii.String("Error rate"),
 //   			Color: cloudwatch.Color_GREEN(),
 //   		}),
 //   	},
 //   }))
 //
-// Experimental.
 type Color interface {
 }
 
@@ -42,7 +41,7 @@ func Color_BLUE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"BLUE",
 		&returns,
 	)
@@ -53,7 +52,7 @@ func Color_BROWN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"BROWN",
 		&returns,
 	)
@@ -64,7 +63,7 @@ func Color_GREEN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"GREEN",
 		&returns,
 	)
@@ -75,7 +74,7 @@ func Color_GREY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"GREY",
 		&returns,
 	)
@@ -86,7 +85,7 @@ func Color_ORANGE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"ORANGE",
 		&returns,
 	)
@@ -97,7 +96,7 @@ func Color_PINK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"PINK",
 		&returns,
 	)
@@ -108,7 +107,7 @@ func Color_PURPLE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"PURPLE",
 		&returns,
 	)
@@ -119,7 +118,7 @@ func Color_RED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudwatch.Color",
+		"aws-cdk-lib.aws_cloudwatch.Color",
 		"RED",
 		&returns,
 	)

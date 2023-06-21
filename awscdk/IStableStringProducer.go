@@ -5,10 +5,8 @@ import (
 )
 
 // Interface for (stable) lazy string producers.
-// Experimental.
 type IStableStringProducer interface {
 	// Produce the string value.
-	// Experimental.
 	Produce() *string
 }
 

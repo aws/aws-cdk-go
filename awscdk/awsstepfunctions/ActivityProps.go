@@ -12,10 +12,8 @@ package awsstepfunctions
 //   	ActivityName: jsii.String("activityName"),
 //   }
 //
-// Experimental.
 type ActivityProps struct {
 	// The name for this activity.
-	// Experimental.
 	ActivityName *string `field:"optional" json:"activityName" yaml:"activityName"`
 }
 

@@ -5,7 +5,7 @@ package awscdk
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
 )
 
 func (j *jsiiProxy_ISynthesisSession) validateSetAssemblyParameters(val cxapi.CloudAssemblyBuilder) error {

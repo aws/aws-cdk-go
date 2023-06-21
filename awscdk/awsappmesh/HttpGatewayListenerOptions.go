@@ -14,7 +14,7 @@ package awsappmesh
 //   		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
 //   			Port: jsii.Number(443),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
-//   				Interval: cdk.Duration_Seconds(jsii.Number(10)),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
 //   			}),
 //   		}),
 //   	},
@@ -35,19 +35,14 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("virtualGateway"),
 //   })
 //
-// Experimental.
 type HttpGatewayListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *HttpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

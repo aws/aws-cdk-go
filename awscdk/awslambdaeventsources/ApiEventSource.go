@@ -1,12 +1,12 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdaeventsources/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdaeventsources/internal"
 )
 
 // Example:
@@ -54,11 +54,9 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ApiEventSource interface {
 	awslambda.IEventSource
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
 }
 
@@ -67,7 +65,6 @@ type jsiiProxy_ApiEventSource struct {
 	internal.Type__awslambdaIEventSource
 }
 
-// Experimental.
 func NewApiEventSource(method *string, path *string, options *awsapigateway.MethodOptions) ApiEventSource {
 	_init_.Initialize()
 
@@ -77,7 +74,7 @@ func NewApiEventSource(method *string, path *string, options *awsapigateway.Meth
 	j := jsiiProxy_ApiEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ApiEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ApiEventSource",
 		[]interface{}{method, path, options},
 		&j,
 	)
@@ -85,12 +82,11 @@ func NewApiEventSource(method *string, path *string, options *awsapigateway.Meth
 	return &j
 }
 
-// Experimental.
 func NewApiEventSource_Override(a ApiEventSource, method *string, path *string, options *awsapigateway.MethodOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ApiEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ApiEventSource",
 		[]interface{}{method, path, options},
 		a,
 	)

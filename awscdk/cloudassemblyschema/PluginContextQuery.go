@@ -15,10 +15,8 @@ package cloudassemblyschema
 //   	PluginName: jsii.String("pluginName"),
 //   }
 //
-// Experimental.
 type PluginContextQuery struct {
 	// The name of the plugin.
-	// Experimental.
 	PluginName *string `field:"required" json:"pluginName" yaml:"pluginName"`
 }
 

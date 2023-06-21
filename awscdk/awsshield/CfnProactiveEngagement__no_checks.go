@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnProactiveEngagement) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnProactiveEngagement) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnProactiveEngagement) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnProactiveEngagement) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnProactiveEngagement) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnProactiveEngagement) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnProactiveEngagement) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnProactiveEngagement) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnProactiveEngagement) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnProactiveEngagement) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnProactiveEngagement) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnProactiveEngagement) validateSetProactiveEngagementStatusP
 	return nil
 }
 
-func validateNewCfnProactiveEngagementParameters(scope awscdk.Construct, id *string, props *CfnProactiveEngagementProps) error {
+func validateNewCfnProactiveEngagementParameters(scope constructs.Construct, id *string, props *CfnProactiveEngagementProps) error {
 	return nil
 }
 

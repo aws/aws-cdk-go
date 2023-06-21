@@ -30,7 +30,9 @@ package awsapigateway
 //   			"definitionsKey": jsonSchema_,
 //   		},
 //   		Dependencies: map[string]interface{}{
-//   			"dependenciesKey": jsonSchema_,
+//   			"dependenciesKey": []interface{}{
+//   				jsii.String("dependencies"),
+//   			},
 //   		},
 //   		Description: jsii.String("description"),
 //   		Enum: []interface{}{
@@ -78,30 +80,25 @@ package awsapigateway
 //   	ModelName: jsii.String("modelName"),
 //   }
 //
-// Experimental.
 type ModelProps struct {
 	// The schema to use to transform data to one or more output formats.
 	//
 	// Specify null ({}) if you don't want to specify a schema.
-	// Experimental.
 	Schema *JsonSchema `field:"required" json:"schema" yaml:"schema"`
 	// The content type for the model.
 	//
 	// You can also force a
 	// content type in the request or response model mapping.
-	// Experimental.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// A description that identifies this model.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A name for the model.
 	//
 	// Important
-	//   If you specify a name, you cannot perform updates that
-	//   require replacement of this resource. You can perform
-	//   updates that require no or some interruption. If you
-	//   must replace the resource, specify a new name.
-	// Experimental.
+	//  If you specify a name, you cannot perform updates that
+	//  require replacement of this resource. You can perform
+	//  updates that require no or some interruption. If you
+	//  must replace the resource, specify a new name.
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
 	// The rest API that this model is part of.
 	//
@@ -109,7 +106,6 @@ type ModelProps struct {
 	// is being tracked by the top-level RestApi object for the purpose of calculating it's
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
-	// Experimental.
 	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 

@@ -1,42 +1,48 @@
 package awscloudfrontorigins
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfrontorigins/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfrontorigins/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
 //
 // Example:
-//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewOriginGroup(&OriginGroupProps{
-//   			PrimaryOrigin: origins.NewS3Origin(myBucket),
-//   			FallbackOrigin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-//   			// optional, defaults to: 500, 502, 503 and 504
-//   			FallbackStatusCodes: []*f64{
-//   				jsii.Number(404),
-//   			},
-//   		}),
+//   // Validating signed URLs or signed cookies with Trusted Key Groups
+//
+//   // public key in PEM format
+//   var publicKey string
+//
+//   pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps{
+//   	EncodedKey: publicKey,
+//   })
+//
+//   keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
+//   	Items: []iPublicKey{
+//   		pubKey,
 //   	},
 //   })
 //
-// Experimental.
+//   cloudfront.NewDistribution(this, jsii.String("Dist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+//   		TrustedKeyGroups: []iKeyGroup{
+//   			keyGroup,
+//   		},
+//   	},
+//   })
+//
 type HttpOrigin interface {
 	awscloudfront.OriginBase
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	// Experimental.
-	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
-	// Experimental.
+	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
-	// Experimental.
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
 
@@ -45,7 +51,6 @@ type jsiiProxy_HttpOrigin struct {
 	internal.Type__awscloudfrontOriginBase
 }
 
-// Experimental.
 func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	_init_.Initialize()
 
@@ -55,7 +60,7 @@ func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	j := jsiiProxy_HttpOrigin{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.HttpOrigin",
+		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		&j,
 	)
@@ -63,18 +68,17 @@ func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	return &j
 }
 
-// Experimental.
 func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.HttpOrigin",
+		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		h,
 	)
 }
 
-func (h *jsiiProxy_HttpOrigin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (h *jsiiProxy_HttpOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	if err := h.validateBindParameters(_scope, options); err != nil {
 		panic(err)
 	}

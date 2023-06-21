@@ -5,7 +5,7 @@ package awswafv2
 //
 // You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
 //
-// Example JSON: `"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }`.
+// Example JSON: `"MatchPattern": { "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] }`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

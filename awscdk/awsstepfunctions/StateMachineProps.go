@@ -1,8 +1,8 @@
 package awsstepfunctions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for defining a State Machine.
@@ -29,28 +29,27 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type StateMachineProps struct {
 	// Definition for this state machine.
-	// Experimental.
-	Definition IChainable `field:"required" json:"definition" yaml:"definition"`
+	// Deprecated: use definitionBody: DefinitionBody.fromChainable()
+	Definition IChainable `field:"optional" json:"definition" yaml:"definition"`
+	// Definition for this state machine.
+	DefinitionBody DefinitionBody `field:"optional" json:"definitionBody" yaml:"definitionBody"`
+	// substitutions for the definition body aas a key-value map.
+	DefinitionSubstitutions *map[string]*string `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
 	// Defines what execution history events are logged and where they are logged.
-	// Experimental.
 	Logs *LogOptions `field:"optional" json:"logs" yaml:"logs"`
+	// The removal policy to apply to state machine.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The execution role for the state machine service.
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// A name for the state machine.
-	// Experimental.
 	StateMachineName *string `field:"optional" json:"stateMachineName" yaml:"stateMachineName"`
 	// Type of the state machine.
-	// Experimental.
 	StateMachineType StateMachineType `field:"optional" json:"stateMachineType" yaml:"stateMachineType"`
 	// Maximum run time for this state machine.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this state machine.
-	// Experimental.
 	TracingEnabled *bool `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 }
 

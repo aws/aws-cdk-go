@@ -3,16 +3,14 @@ package awscloudfront
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
 )
 
 // Represents a Key Group.
-// Experimental.
 type IKeyGroup interface {
 	awscdk.IResource
 	// The ID of the key group.
-	// Experimental.
 	KeyGroupId() *string
 }
 

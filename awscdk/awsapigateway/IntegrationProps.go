@@ -23,31 +23,26 @@ package awsapigateway
 //   	},
 //   })
 //
-// Experimental.
 type IntegrationProps struct {
 	// Specifies an API method integration type.
-	// Experimental.
 	Type IntegrationType `field:"required" json:"type" yaml:"type"`
 	// The integration's HTTP method type.
 	//
 	// Required unless you use a MOCK integration.
-	// Experimental.
 	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// Integration options.
-	// Experimental.
 	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	//
 	// - If you specify HTTP for the `type` property, specify the API endpoint URL.
 	// - If you specify MOCK for the `type` property, don't specify this property.
 	// - If you specify AWS for the `type` property, specify an AWS service that
-	//    follows this form: `arn:partition:apigateway:region:subdomain.service|service:path|action/service_api.`
-	//    For example, a Lambda function URI follows this form:
-	//    arn:partition:apigateway:region:lambda:path/path. The path is usually in the
-	//    form /2015-03-31/functions/LambdaFunctionARN/invocations.
+	//   follows this form: `arn:partition:apigateway:region:subdomain.service|service:path|action/service_api.`
+	//   For example, a Lambda function URI follows this form:
+	//   arn:partition:apigateway:region:lambda:path/path. The path is usually in the
+	//   form /2015-03-31/functions/LambdaFunctionARN/invocations.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
-	// Experimental.
 	Uri interface{} `field:"optional" json:"uri" yaml:"uri"`
 }
 

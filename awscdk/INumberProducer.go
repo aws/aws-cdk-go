@@ -5,10 +5,8 @@ import (
 )
 
 // Interface for lazy number producers.
-// Experimental.
 type INumberProducer interface {
 	// Produce the number value.
-	// Experimental.
 	Produce(context IResolveContext) *float64
 }
 

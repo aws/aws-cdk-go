@@ -8,24 +8,24 @@ package awscdk
 //
 // You can use the following rule-specific intrinsic functions to define rule conditions and assertions:
 //
-//   Fn::And
-//   Fn::Contains
-//   Fn::EachMemberEquals
-//   Fn::EachMemberIn
-//   Fn::Equals
-//   Fn::If
-//   Fn::Not
-//   Fn::Or
-//   Fn::RefAll
-//   Fn::ValueOf
-//   Fn::ValueOfAll
+//  Fn::And
+//  Fn::Contains
+//  Fn::EachMemberEquals
+//  Fn::EachMemberIn
+//  Fn::Equals
+//  Fn::If
+//  Fn::Not
+//  Fn::Or
+//  Fn::RefAll
+//  Fn::ValueOf
+//  Fn::ValueOfAll
 //
 // https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cfnConditionExpression iCfnConditionExpression
 //
@@ -39,15 +39,12 @@ package awscdk
 //   	RuleCondition: cfnConditionExpression,
 //   }
 //
-// Experimental.
 type CfnRuleProps struct {
 	// Assertions which define the rule.
-	// Experimental.
 	Assertions *[]*CfnRuleAssertion `field:"optional" json:"assertions" yaml:"assertions"`
 	// If the rule condition evaluates to false, the rule doesn't take effect.
 	//
 	// If the function in the rule condition evaluates to true, expressions in each assert are evaluated and applied.
-	// Experimental.
 	RuleCondition ICfnConditionExpression `field:"optional" json:"ruleCondition" yaml:"ruleCondition"`
 }
 

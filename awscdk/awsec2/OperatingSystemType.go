@@ -46,16 +46,12 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
-// Experimental.
 type OperatingSystemType string
 
 const (
-	// Experimental.
 	OperatingSystemType_LINUX OperatingSystemType = "LINUX"
-	// Experimental.
 	OperatingSystemType_WINDOWS OperatingSystemType = "WINDOWS"
 	// Used when the type of the operating system is not known (for example, for imported Auto-Scaling Groups).
-	// Experimental.
 	OperatingSystemType_UNKNOWN OperatingSystemType = "UNKNOWN"
 )
 

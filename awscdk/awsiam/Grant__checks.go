@@ -8,6 +8,14 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+func (g *jsiiProxy_Grant) validateCombineParameters(rhs Grant) error {
+	if rhs == nil {
+		return fmt.Errorf("parameter rhs is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateGrant_AddToPrincipalParameters(options *GrantOnPrincipalOptions) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")

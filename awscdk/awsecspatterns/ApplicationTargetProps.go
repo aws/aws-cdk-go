@@ -1,7 +1,7 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 )
 
 // Properties to define an application target group.
@@ -23,12 +23,10 @@ import (
 //   	Protocol: awscdk.Aws_ecs.Protocol_TCP,
 //   }
 //
-// Experimental.
 type ApplicationTargetProps struct {
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	// Experimental.
 	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
 	// Rule applies if the requested host matches the indicated host.
 	//
@@ -37,10 +35,8 @@ type ApplicationTargetProps struct {
 	// Requires that priority is set.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
-	// Experimental.
 	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Name of the listener the target group attached to.
-	// Experimental.
 	Listener *string `field:"optional" json:"listener" yaml:"listener"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
@@ -49,7 +45,6 @@ type ApplicationTargetProps struct {
 	// Requires that priority is set.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
-	// Experimental.
 	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Priority of this target group.
 	//
@@ -58,12 +53,10 @@ type ApplicationTargetProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
-	// Experimental.
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
-	// Experimental.
 	Protocol awsecs.Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

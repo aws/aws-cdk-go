@@ -5,28 +5,12 @@ package awscdk
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
-
-func (c *jsiiProxy_CfnElement) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
 
 func (c *jsiiProxy_CfnElement) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnElement) validateSynthesizeParameters(session ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

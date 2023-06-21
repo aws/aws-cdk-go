@@ -9,7 +9,7 @@ package awsservicediscovery
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 //
 //   namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &HttpNamespaceProps{
-//   	Name: jsii.String("covfefe"),
+//   	Name: jsii.String("MyHTTPNamespace"),
 //   })
 //
 //   service1 := namespace.CreateService(jsii.String("NonIpService"), &BaseServiceProps{
@@ -36,13 +36,10 @@ package awsservicediscovery
 //
 //   app.Synth()
 //
-// Experimental.
 type HttpNamespaceProps struct {
 	// A name for the Namespace.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

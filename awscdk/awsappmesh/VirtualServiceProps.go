@@ -19,10 +19,8 @@ package awsappmesh
 //
 //   node.AddBackend(appmesh.Backend_VirtualService(virtualService))
 //
-// Experimental.
 type VirtualServiceProps struct {
 	// The VirtualNode or VirtualRouter which the VirtualService uses as its provider.
-	// Experimental.
 	VirtualServiceProvider VirtualServiceProvider `field:"required" json:"virtualServiceProvider" yaml:"virtualServiceProvider"`
 	// The name of the VirtualService.
 	//
@@ -30,7 +28,6 @@ type VirtualServiceProps struct {
 	// such as "my-service.default.svc.cluster.local".
 	//
 	// Example value: `service.domain.local`
-	// Experimental.
 	VirtualServiceName *string `field:"optional" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 

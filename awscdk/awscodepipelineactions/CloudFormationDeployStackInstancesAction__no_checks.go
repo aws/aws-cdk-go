@@ -4,11 +4,11 @@ package awscodepipelineactions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) validateBindParameters(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) validateBindParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) validateBoundParameters(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) validateBoundParameters(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

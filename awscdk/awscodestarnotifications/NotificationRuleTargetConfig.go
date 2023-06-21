@@ -13,15 +13,12 @@ package awscodestarnotifications
 //   	TargetType: jsii.String("targetType"),
 //   }
 //
-// Experimental.
 type NotificationRuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
-	// Experimental.
 	TargetAddress *string `field:"required" json:"targetAddress" yaml:"targetAddress"`
 	// The target type.
 	//
 	// Can be an Amazon SNS topic or AWS Chatbot client.
-	// Experimental.
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 

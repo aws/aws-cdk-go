@@ -6,11 +6,10 @@ package awsstepfunctionstasks
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var configurationProperty_ configurationProperty
-//   var duration duration
 //   var size size
 //
 //   instanceGroupConfigProperty := &InstanceGroupConfigProperty{
@@ -43,7 +42,7 @@ package awsstepfunctionstasks
 //   					CloudWatchAlarmDefinition: &CloudWatchAlarmDefinitionProperty{
 //   						ComparisonOperator: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   						MetricName: jsii.String("metricName"),
-//   						Period: duration,
+//   						Period: cdk.Duration_Minutes(jsii.Number(30)),
 //
 //   						// the properties below are optional
 //   						Dimensions: []metricDimensionProperty{
@@ -100,36 +99,26 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceGroupConfig.html
 //
-// Experimental.
 type EmrCreateCluster_InstanceGroupConfigProperty struct {
 	// Target number of instances for the instance group.
-	// Experimental.
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// The role of the instance group in the cluster.
-	// Experimental.
 	InstanceRole EmrCreateCluster_InstanceRoleType `field:"required" json:"instanceRole" yaml:"instanceRole"`
 	// The EC2 instance type for all instances in the instance group.
-	// Experimental.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
-	// Experimental.
 	AutoScalingPolicy *EmrCreateCluster_AutoScalingPolicyProperty `field:"optional" json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
-	// Experimental.
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
 	// The list of configurations supplied for an EMR cluster instance group.
-	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `field:"optional" json:"configurations" yaml:"configurations"`
 	// EBS configurations that will be attached to each EC2 instance in the instance group.
-	// Experimental.
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// Market type of the EC2 instances used to create a cluster node.
-	// Experimental.
 	Market EmrCreateCluster_InstanceMarket `field:"optional" json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
-	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

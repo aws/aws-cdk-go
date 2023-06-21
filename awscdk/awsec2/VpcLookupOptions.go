@@ -13,6 +13,7 @@ package awsec2
 //   })
 //   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &Ec2EnvironmentProps{
 //   	Vpc: Vpc,
+//   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 //   })
 //
 //   // or create the cloud9 environment in the default VPC with specific instanceType
@@ -22,14 +23,16 @@ package awsec2
 //   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &Ec2EnvironmentProps{
 //   	Vpc: defaultVpc,
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+//   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 //   })
 //
 //   // or specify in a different subnetSelection
 //   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &Ec2EnvironmentProps{
 //   	Vpc: Vpc,
 //   	SubnetSelection: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_NAT,
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   	},
+//   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 //   })
 //
 //   // print the Cloud9 IDE URL in the output
@@ -38,35 +41,39 @@ package awsec2
 //   	Value: c9env.IdeUrl,
 //   })
 //
-// Experimental.
 type VpcLookupOptions struct {
 	// Whether to match the default VPC.
-	// Experimental.
 	IsDefault *bool `field:"optional" json:"isDefault" yaml:"isDefault"`
+	// The ID of the AWS account that owns the VPC.
+	OwnerAccountId *string `field:"optional" json:"ownerAccountId" yaml:"ownerAccountId"`
 	// Optional to override inferred region.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Whether to look up whether a VPN Gateway is attached to the looked up VPC.
+	//
+	// You can set this to `false` if you know the VPC does not have a VPN Gateway
+	// attached, in order to avoid an API call.
+	//
+	// If you change this property from `false` to `true` or undefined, you may
+	// need to clear the corresponding context entry in `cdk.context.json` in
+	// order to trigger a new lookup.
+	ReturnVpnGateways *bool `field:"optional" json:"returnVpnGateways" yaml:"returnVpnGateways"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.
 	// If the subnet does not have the specified tag,
 	// we'll use its type as the name.
-	// Experimental.
 	SubnetGroupNameTag *string `field:"optional" json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
 	// Tags on the VPC.
 	//
 	// The VPC must have all of these tags.
-	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the VPC.
 	//
 	// If given, will import exactly this VPC.
-	// Experimental.
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 	// The name of the VPC.
 	//
 	// If given, will import the VPC with this name.
-	// Experimental.
 	VpcName *string `field:"optional" json:"vpcName" yaml:"vpcName"`
 }
 

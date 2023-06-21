@@ -64,7 +64,7 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	DeploymentType *string `field:"required" json:"deploymentType" yaml:"deploymentType"`
 	// The number of days to retain automatic backups.
 	//
-	// Setting this property to `0` disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is `0` .
+	// Setting this property to `0` disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is `30` .
 	AutomaticBackupRetentionDays *float64 `field:"optional" json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
 	// A Boolean value indicating whether tags for the file system should be copied to backups.
 	//

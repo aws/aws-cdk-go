@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnMacro) validateAddDeletionOverrideParameters(path *string)
 	return nil
 }
 
+func (c *jsiiProxy_CfnMacro) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMacro) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnMacro) validateInspectParameters(inspector TreeInspector) 
 	return nil
 }
 
-func (c *jsiiProxy_CfnMacro) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMacro) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMacro) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMacro) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnMacro) validateRenderPropertiesParameters(props *map[strin
 	return nil
 }
 
-func (c *jsiiProxy_CfnMacro) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnMacro) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnMacro) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnMacroParameters(scope Construct, id *string, props *CfnMacroProps) error {
+func validateNewCfnMacroParameters(scope constructs.Construct, id *string, props *CfnMacroProps) error {
 	return nil
 }
 

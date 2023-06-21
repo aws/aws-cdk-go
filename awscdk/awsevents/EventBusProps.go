@@ -19,13 +19,10 @@ package awsevents
 //   	Retention: awscdk.Duration_Days(jsii.Number(365)),
 //   })
 //
-// Experimental.
 type EventBusProps struct {
 	// The name of the event bus you are creating Note: If 'eventSourceName' is passed in, you cannot set this.
-	// Experimental.
 	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// The partner event source to associate with this event bus resource Note: If 'eventBusName' is passed in, you cannot set this.
-	// Experimental.
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
 }
 

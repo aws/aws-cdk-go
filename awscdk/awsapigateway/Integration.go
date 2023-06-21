@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -33,10 +33,8 @@ import (
 //   	},
 //   }))
 //
-// Experimental.
 type Integration interface {
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-	// Experimental.
 	Bind(_method Method) *IntegrationConfig
 }
 
@@ -45,7 +43,6 @@ type jsiiProxy_Integration struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewIntegration(props *IntegrationProps) Integration {
 	_init_.Initialize()
 
@@ -55,7 +52,7 @@ func NewIntegration(props *IntegrationProps) Integration {
 	j := jsiiProxy_Integration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.Integration",
+		"aws-cdk-lib.aws_apigateway.Integration",
 		[]interface{}{props},
 		&j,
 	)
@@ -63,12 +60,11 @@ func NewIntegration(props *IntegrationProps) Integration {
 	return &j
 }
 
-// Experimental.
 func NewIntegration_Override(i Integration, props *IntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.Integration",
+		"aws-cdk-lib.aws_apigateway.Integration",
 		[]interface{}{props},
 		i,
 	)

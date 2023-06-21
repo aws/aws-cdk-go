@@ -1,68 +1,51 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Source that is provided by a GitHub repository.
 //
 // Example:
-//   var sourceOutput artifact
-//   var project pipelineProject
-//
-//
+//   // Read the secret from Secrets Manager
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewGitHubSourceAction(&GitHubSourceActionProps{
-//   	ActionName: jsii.String("Github_Source"),
-//   	Output: sourceOutput,
-//   	Owner: jsii.String("my-owner"),
-//   	Repo: jsii.String("my-repo"),
+//   	ActionName: jsii.String("GitHub_Source"),
+//   	Owner: jsii.String("awslabs"),
+//   	Repo: jsii.String("aws-cdk"),
 //   	OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
-//   	VariablesNamespace: jsii.String("MyNamespace"),
+//   	Output: sourceOutput,
+//   	Branch: jsii.String("develop"),
 //   })
-//
-//   // later:
-//
-//   // later:
-//   codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
-//   	ActionName: jsii.String("CodeBuild"),
-//   	Project: Project,
-//   	Input: sourceOutput,
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"COMMIT_URL": &buildEnvironmentVariable{
-//   			"value": sourceAction.variables.commitUrl,
-//   		},
+//   pipeline.AddStage(&StageOptions{
+//   	StageName: jsii.String("Source"),
+//   	Actions: []iAction{
+//   		sourceAction,
 //   	},
 //   })
 //
-// Experimental.
 type GitHubSourceAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
-	// Note that this accessor will be called before the {@link bind} callback.
-	// Experimental.
+	// Note that this accessor will be called before the `bind` callback.
 	ActionProperties() *awscodepipeline.ActionProperties
-	// This is a renamed version of the {@link IAction.actionProperties} property.
-	// Experimental.
+	// This is a renamed version of the `IAction.actionProperties` property.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The variables emitted by this action.
-	// Experimental.
 	Variables() *GitHubSourceVariables
 	// The callback invoked when this Action is added to a Pipeline.
-	// Experimental.
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	// This is a renamed version of the {@link IAction.bind} method.
-	// Experimental.
-	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the `IAction.bind` method.
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -102,7 +85,6 @@ func (j *jsiiProxy_GitHubSourceAction) Variables() *GitHubSourceVariables {
 }
 
 
-// Experimental.
 func NewGitHubSourceAction(props *GitHubSourceActionProps) GitHubSourceAction {
 	_init_.Initialize()
 
@@ -112,7 +94,7 @@ func NewGitHubSourceAction(props *GitHubSourceActionProps) GitHubSourceAction {
 	j := jsiiProxy_GitHubSourceAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.GitHubSourceAction",
+		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -120,18 +102,17 @@ func NewGitHubSourceAction(props *GitHubSourceActionProps) GitHubSourceAction {
 	return &j
 }
 
-// Experimental.
 func NewGitHubSourceAction_Override(g GitHubSourceAction, props *GitHubSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.GitHubSourceAction",
+		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceAction",
 		[]interface{}{props},
 		g,
 	)
 }
 
-func (g *jsiiProxy_GitHubSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (g *jsiiProxy_GitHubSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := g.validateBindParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
@@ -147,7 +128,7 @@ func (g *jsiiProxy_GitHubSourceAction) Bind(scope awscdk.Construct, stage awscod
 	return returns
 }
 
-func (g *jsiiProxy_GitHubSourceAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (g *jsiiProxy_GitHubSourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := g.validateBoundParameters(scope, stage, _options); err != nil {
 		panic(err)
 	}

@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Configuration properties for an option.
@@ -30,33 +30,26 @@ import (
 //   	Vpc: vpc,
 //   }
 //
-// Experimental.
 type OptionConfiguration struct {
 	// The name of the option.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The port number that this option uses.
 	//
 	// If `port` is specified then `vpc`
 	// must also be specified.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Optional list of security groups to use for this option, if `vpc` is specified.
 	//
 	// If no groups are provided, a default one will be created.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The settings for the option.
-	// Experimental.
 	Settings *map[string]*string `field:"optional" json:"settings" yaml:"settings"`
 	// The version for the option.
-	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 	// The VPC where a security group should be created for this option.
 	//
 	// If `vpc`
 	// is specified then `port` must also be specified.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

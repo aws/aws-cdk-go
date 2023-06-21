@@ -7,12 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_S3Origin) validateBindParameters(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) error {
+func (s *jsiiProxy_S3Origin) validateBindParameters(scope constructs.Construct, options *awscloudfront.OriginBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

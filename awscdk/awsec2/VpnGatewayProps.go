@@ -15,13 +15,10 @@ package awsec2
 //   	AmazonSideAsn: jsii.Number(123),
 //   }
 //
-// Experimental.
 type VpnGatewayProps struct {
 	// Default type ipsec.1.
-	// Experimental.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
-	// Experimental.
 	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 }
 

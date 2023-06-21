@@ -1,7 +1,7 @@
 package awsgroundstation
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDataflowEndpointGroup`.
@@ -70,9 +70,13 @@ import (
 type CfnDataflowEndpointGroupProps struct {
 	// List of Endpoint Details, containing address and port for each endpoint.
 	EndpointDetails interface{} `field:"required" json:"endpointDetails" yaml:"endpointDetails"`
-	// `AWS::GroundStation::DataflowEndpointGroup.ContactPostPassDurationSeconds`.
+	// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a `POSTPASS` state.
+	//
+	// A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the `POSTPASS` state.
 	ContactPostPassDurationSeconds *float64 `field:"optional" json:"contactPostPassDurationSeconds" yaml:"contactPostPassDurationSeconds"`
-	// `AWS::GroundStation::DataflowEndpointGroup.ContactPrePassDurationSeconds`.
+	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a `PREPASS` state.
+	//
+	// A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the `PREPASS` state.
 	ContactPrePassDurationSeconds *float64 `field:"optional" json:"contactPrePassDurationSeconds" yaml:"contactPrePassDurationSeconds"`
 	// Tags assigned to a resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -1,7 +1,7 @@
 package awssesactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 // Construction properties for a stop action.
@@ -18,10 +18,8 @@ import (
 //   	Topic: topic,
 //   }
 //
-// Experimental.
 type StopProps struct {
 	// The SNS topic to notify when the stop action is taken.
-	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

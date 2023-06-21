@@ -1,14 +1,14 @@
 package awsiam
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining an IAM user.
 //
 // Example:
 //   user := awscdk.NewUser(this, jsii.String("MyUser"), &UserProps{
-//   	Password: cdk.SecretValue_UnsafePlainText(jsii.String("1234")),
+//   	Password: awscdk.SecretValue_PlainText(jsii.String("1234")),
 //   })
 //   group := awscdk.NewGroup(this, jsii.String("MyGroup"))
 //
@@ -16,37 +16,31 @@ import (
 //   policy.AttachToUser(user)
 //   group.attachInlinePolicy(policy)
 //
-// Experimental.
 type UserProps struct {
 	// Groups to add this user to.
 	//
 	// You can also use `addToGroup` to add this
 	// user to a group.
-	// Experimental.
 	Groups *[]IGroup `field:"optional" json:"groups" yaml:"groups"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
-	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The password for the user. This is required so the user can access the AWS Management Console.
 	//
 	// You can use `SecretValue.unsafePlainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
-	// Experimental.
 	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password the next time the user logs in to the AWS Management Console.
 	//
 	// If this is set to 'true', you must also specify "initialPassword".
-	// Experimental.
 	PasswordResetRequired *bool `field:"optional" json:"passwordResetRequired" yaml:"passwordResetRequired"`
 	// The path for the user name.
 	//
 	// For more information about paths, see IAM
 	// Identifiers in the IAM User Guide.
-	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
@@ -55,7 +49,6 @@ type UserProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
-	// Experimental.
 	PermissionsBoundary IManagedPolicy `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM user.
 	//
@@ -71,7 +64,6 @@ type UserProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
-	// Experimental.
 	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 

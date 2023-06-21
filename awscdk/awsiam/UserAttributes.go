@@ -8,12 +8,10 @@ package awsiam
 //   	UserArn: jsii.String("arn:aws:iam::123456789012:user/johnsmith"),
 //   })
 //
-// Experimental.
 type UserAttributes struct {
 	// The ARN of the user.
 	//
 	// Format: arn:<partition>:iam::<account-id>:user/<user-name-with-path>.
-	// Experimental.
 	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`
 }
 

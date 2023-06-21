@@ -9,20 +9,22 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dockerImageAssetLocation := &DockerImageAssetLocation{
 //   	ImageUri: jsii.String("imageUri"),
 //   	RepositoryName: jsii.String("repositoryName"),
+//
+//   	// the properties below are optional
+//   	ImageTag: jsii.String("imageTag"),
 //   }
 //
-// Experimental.
 type DockerImageAssetLocation struct {
-	// The URI of the image in Amazon ECR.
-	// Experimental.
+	// The URI of the image in Amazon ECR (including a tag).
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// The name of the ECR repository.
-	// Experimental.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
+	// The tag of the image in Amazon ECR.
+	ImageTag *string `field:"optional" json:"imageTag" yaml:"imageTag"`
 }
 

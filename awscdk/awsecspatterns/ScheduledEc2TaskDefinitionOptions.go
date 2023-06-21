@@ -1,7 +1,7 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 )
 
 // The properties for the ScheduledEc2Task using a task definition.
@@ -18,12 +18,10 @@ import (
 //   	TaskDefinition: ec2TaskDefinition,
 //   }
 //
-// Experimental.
 type ScheduledEc2TaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. One of image or taskDefinition must be specified.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
 	TaskDefinition awsecs.Ec2TaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
 }
 

@@ -3,18 +3,15 @@ package awsservicediscovery
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 )
 
-// Experimental.
 type IInstance interface {
 	awscdk.IResource
 	// The id of the instance resource.
-	// Experimental.
 	InstanceId() *string
 	// The Cloudmap service this resource is registered to.
-	// Experimental.
 	Service() IService
 }
 

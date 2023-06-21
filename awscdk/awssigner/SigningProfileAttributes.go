@@ -13,13 +13,10 @@ package awssigner
 //   	SigningProfileVersion: jsii.String("signingProfileVersion"),
 //   }
 //
-// Experimental.
 type SigningProfileAttributes struct {
 	// The name of signing profile.
-	// Experimental.
 	SigningProfileName *string `field:"required" json:"signingProfileName" yaml:"signingProfileName"`
 	// The version of signing profile.
-	// Experimental.
 	SigningProfileVersion *string `field:"required" json:"signingProfileVersion" yaml:"signingProfileVersion"`
 }
 

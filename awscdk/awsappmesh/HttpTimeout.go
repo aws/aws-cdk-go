@@ -1,7 +1,7 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Represents timeouts for HTTP protocols.
@@ -19,13 +19,13 @@ import (
 //   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
-//   				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 //   				Path: jsii.String("/ping"),
-//   				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),
 //   			Timeout: &HttpTimeout{
-//   				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
+//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
 //   			},
 //   		}),
 //   	},
@@ -41,15 +41,12 @@ import (
 //
 //   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
-// Experimental.
 type HttpTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
-	// Experimental.
 	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 	// Represents per request timeout.
-	// Experimental.
 	PerRequest awscdk.Duration `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 

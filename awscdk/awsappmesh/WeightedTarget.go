@@ -17,13 +17,10 @@ package awsappmesh
 //   	Weight: jsii.Number(123),
 //   }
 //
-// Experimental.
 type WeightedTarget struct {
 	// The VirtualNode the route points to.
-	// Experimental.
 	VirtualNode IVirtualNode `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The weight for the target.
-	// Experimental.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

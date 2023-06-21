@@ -13,6 +13,7 @@ package awsomics
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	FallbackLocation: jsii.String("fallbackLocation"),
 //   	SseConfig: &SseConfigProperty{
 //   		Type: jsii.String("type"),
 //
@@ -29,6 +30,8 @@ type CfnSequenceStoreProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description for the store.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// `AWS::Omics::SequenceStore.FallbackLocation`.
+	FallbackLocation *string `field:"optional" json:"fallbackLocation" yaml:"fallbackLocation"`
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig interface{} `field:"optional" json:"sseConfig" yaml:"sseConfig"`
 	// Tags for the store.

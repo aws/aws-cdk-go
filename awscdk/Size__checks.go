@@ -8,6 +8,14 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+func (s *jsiiProxy_Size) validateToBytesParameters(opts *SizeConversionOptions) error {
+	if err := _jsii_.ValidateStruct(opts, func() string { return "parameter opts" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_Size) validateToGibibytesParameters(opts *SizeConversionOptions) error {
 	if err := _jsii_.ValidateStruct(opts, func() string { return "parameter opts" }); err != nil {
 		return err
@@ -48,6 +56,14 @@ func (s *jsiiProxy_Size) validateToTebibytesParameters(opts *SizeConversionOptio
 	return nil
 }
 
+func validateSize_BytesParameters(amount *float64) error {
+	if amount == nil {
+		return fmt.Errorf("parameter amount is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateSize_GibibytesParameters(amount *float64) error {
 	if amount == nil {
 		return fmt.Errorf("parameter amount is required, but nil was provided")
@@ -65,14 +81,6 @@ func validateSize_KibibytesParameters(amount *float64) error {
 }
 
 func validateSize_MebibytesParameters(amount *float64) error {
-	if amount == nil {
-		return fmt.Errorf("parameter amount is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateSize_PebibyteParameters(amount *float64) error {
 	if amount == nil {
 		return fmt.Errorf("parameter amount is required, but nil was provided")
 	}

@@ -1,5 +1,8 @@
 package awsevents
 
+import (
+	"github.com/aws/constructs-go/constructs/v10"
+)
 
 // Standard set of options for `onXxx` event handlers on construct.
 //
@@ -8,7 +11,7 @@ package awsevents
 //   evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
 //   	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   })
 //
 //   // A custom rule that runs on configuration changes of EC2 instances
@@ -29,10 +32,12 @@ package awsevents
 //   	Target: targets.NewSnsTopic(complianceTopic),
 //   })
 //
-// Experimental.
 type OnEventOptions struct {
+	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
+	//
+	// This helps dealing with cycles that often arise in these situations.
+	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
@@ -41,13 +46,10 @@ type OnEventOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	// Experimental.
 	EventPattern *EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	// Experimental.
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	// Experimental.
 	Target IRuleTarget `field:"optional" json:"target" yaml:"target"`
 }
 

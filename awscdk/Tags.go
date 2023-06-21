@@ -1,8 +1,10 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Manages AWS tags for all resources within a construct scope.
@@ -20,13 +22,13 @@ import (
 //   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),
-//   				Interval: cdk.Duration_Seconds(jsii.Number(5)),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
 //   				Path: jsii.String("/ping"),
-//   				Timeout: cdk.Duration_*Seconds(jsii.Number(2)),
+//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
 //   				UnhealthyThreshold: jsii.Number(2),
 //   			}),
 //   			Timeout: &HttpTimeout{
-//   				Idle: cdk.Duration_*Seconds(jsii.Number(5)),
+//   				Idle: awscdk.Duration_*Seconds(jsii.Number(5)),
 //   			},
 //   		}),
 //   	},
@@ -42,13 +44,10 @@ import (
 //
 //   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
-// Experimental.
 type Tags interface {
 	// add tags to the node of a construct and all its the taggable children.
-	// Experimental.
 	Add(key *string, value *string, props *TagProps)
 	// remove tags to the node of a construct and all its the taggable children.
-	// Experimental.
 	Remove(key *string, props *TagProps)
 }
 
@@ -58,8 +57,7 @@ type jsiiProxy_Tags struct {
 }
 
 // Returns the tags API for this scope.
-// Experimental.
-func Tags_Of(scope IConstruct) Tags {
+func Tags_Of(scope constructs.IConstruct) Tags {
 	_init_.Initialize()
 
 	if err := validateTags_OfParameters(scope); err != nil {
@@ -68,7 +66,7 @@ func Tags_Of(scope IConstruct) Tags {
 	var returns Tags
 
 	_jsii_.StaticInvoke(
-		"monocdk.Tags",
+		"aws-cdk-lib.Tags",
 		"of",
 		[]interface{}{scope},
 		&returns,

@@ -8,7 +8,11 @@ func (r *jsiiProxy_RemoveTag) validateApplyTagParameters(resource ITaggable) err
 	return nil
 }
 
-func (r *jsiiProxy_RemoveTag) validateVisitParameters(construct IConstruct) error {
+func (r *jsiiProxy_RemoveTag) validateApplyTagV2Parameters(resource ITaggableV2) error {
+	return nil
+}
+
+func (r *jsiiProxy_RemoveTag) validateVisitParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

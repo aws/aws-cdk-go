@@ -53,19 +53,14 @@ package awsappmesh
 //   	VirtualGatewayName: jsii.String("gateway2"),
 //   })
 //
-// Experimental.
 type Http2GatewayListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *Http2ConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

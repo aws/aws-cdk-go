@@ -18,22 +18,16 @@ package cloudassemblyschema
 //   	Region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type DockerImageDestination struct {
 	// The role that needs to be assumed while publishing this asset.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Tag of the image to publish.
-	// Experimental.
 	ImageTag *string `field:"required" json:"imageTag" yaml:"imageTag"`
 	// Name of the ECR repository to publish to.
-	// Experimental.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 

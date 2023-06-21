@@ -16,10 +16,6 @@ func (s *jsiiProxy_Service) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
-func (s *jsiiProxy_Service) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (s *jsiiProxy_Service) validateRegisterCnameInstanceParameters(id *string, props *CnameInstanceBaseProps) error {
 	return nil
 }
@@ -36,10 +32,6 @@ func (s *jsiiProxy_Service) validateRegisterNonIpInstanceParameters(id *string, 
 	return nil
 }
 
-func (s *jsiiProxy_Service) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateService_FromServiceAttributesParameters(scope constructs.Construct, id *string, attrs *ServiceAttributes) error {
 	return nil
 }
@@ -48,7 +40,11 @@ func validateService_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateService_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateService_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateService_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

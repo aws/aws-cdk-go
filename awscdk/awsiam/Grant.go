@@ -1,11 +1,11 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Result of a grant() operation.
@@ -25,35 +25,33 @@ import (
 //   	instance,
 //   })
 //
-// Experimental.
 type Grant interface {
-	awscdk.IDependable
+	constructs.IDependable
 	// The statement that was added to the principal's policy.
-	//
-	// Can be accessed to (e.g.) add additional conditions to the statement.
-	// Experimental.
+	// Deprecated: Use `principalStatements` instead.
 	PrincipalStatement() PolicyStatement
+	// The statements that were added to the principal's policy.
+	PrincipalStatements() *[]PolicyStatement
 	// The statement that was added to the resource policy.
-	//
-	// Can be accessed to (e.g.) add additional conditions to the statement.
-	// Experimental.
+	// Deprecated: Use `resourceStatements` instead.
 	ResourceStatement() PolicyStatement
+	// The statements that were added to the principal's policy.
+	ResourceStatements() *[]PolicyStatement
 	// Whether the grant operation was successful.
-	// Experimental.
 	Success() *bool
 	// Make sure this grant is applied before the given constructs are deployed.
 	//
 	// The same as construct.node.addDependency(grant), but slightly nicer to read.
-	// Experimental.
-	ApplyBefore(constructs ...awscdk.IConstruct)
+	ApplyBefore(constructs ...constructs.IConstruct)
 	// Throw an error if this grant wasn't successful.
-	// Experimental.
 	AssertSuccess()
+	// Combine two grants into a new one.
+	Combine(rhs Grant) Grant
 }
 
 // The jsii proxy struct for Grant
 type jsiiProxy_Grant struct {
-	internal.Type__awscdkIDependable
+	internal.Type__constructsIDependable
 }
 
 func (j *jsiiProxy_Grant) PrincipalStatement() PolicyStatement {
@@ -66,11 +64,31 @@ func (j *jsiiProxy_Grant) PrincipalStatement() PolicyStatement {
 	return returns
 }
 
+func (j *jsiiProxy_Grant) PrincipalStatements() *[]PolicyStatement {
+	var returns *[]PolicyStatement
+	_jsii_.Get(
+		j,
+		"principalStatements",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Grant) ResourceStatement() PolicyStatement {
 	var returns PolicyStatement
 	_jsii_.Get(
 		j,
 		"resourceStatement",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Grant) ResourceStatements() *[]PolicyStatement {
+	var returns *[]PolicyStatement
+	_jsii_.Get(
+		j,
+		"resourceStatements",
 		&returns,
 	)
 	return returns
@@ -91,7 +109,6 @@ func (j *jsiiProxy_Grant) Success() *bool {
 //
 // Absence of a principal leads to a warning, but failing to add
 // the permissions to a present principal is not an error.
-// Experimental.
 func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 	_init_.Initialize()
 
@@ -101,7 +118,7 @@ func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"addToPrincipal",
 		[]interface{}{options},
 		&returns,
@@ -117,7 +134,6 @@ func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 // never fail.
 //
 // Statement will be the resource statement.
-// Experimental.
 func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions) Grant {
 	_init_.Initialize()
 
@@ -127,7 +143,7 @@ func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"addToPrincipalAndResource",
 		[]interface{}{options},
 		&returns,
@@ -143,12 +159,11 @@ func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions
 // somewhere.
 //
 // - Trying to grant permissions to a principal that does not admit adding to
-//    the principal policy while not providing a resource with a resource policy
-//    is an error.
+//   the principal policy while not providing a resource with a resource policy
+//   is an error.
 // - Trying to grant permissions to an absent principal (possible in the
-//    case of imported resources) leads to a warning being added to the
-//    resource construct.
-// Experimental.
+//   case of imported resources) leads to a warning being added to the
+//   resource construct.
 func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 	_init_.Initialize()
 
@@ -158,7 +173,7 @@ func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"addToPrincipalOrResource",
 		[]interface{}{options},
 		&returns,
@@ -171,7 +186,6 @@ func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 //
 // This can be used for e.g. imported resources where you may not be able to modify
 // the resource's policy or some underlying policy which you don't know about.
-// Experimental.
 func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	_init_.Initialize()
 
@@ -181,7 +195,7 @@ func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"drop",
 		[]interface{}{grantee, _intent},
 		&returns,
@@ -190,7 +204,7 @@ func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	return returns
 }
 
-func (g *jsiiProxy_Grant) ApplyBefore(constructs ...awscdk.IConstruct) {
+func (g *jsiiProxy_Grant) ApplyBefore(constructs ...constructs.IConstruct) {
 	args := []interface{}{}
 	for _, a := range constructs {
 		args = append(args, a)
@@ -209,5 +223,21 @@ func (g *jsiiProxy_Grant) AssertSuccess() {
 		"assertSuccess",
 		nil, // no parameters
 	)
+}
+
+func (g *jsiiProxy_Grant) Combine(rhs Grant) Grant {
+	if err := g.validateCombineParameters(rhs); err != nil {
+		panic(err)
+	}
+	var returns Grant
+
+	_jsii_.Invoke(
+		g,
+		"combine",
+		[]interface{}{rhs},
+		&returns,
+	)
+
+	return returns
 }
 

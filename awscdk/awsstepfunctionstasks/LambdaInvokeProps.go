@@ -1,58 +1,66 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
 // Properties for invoking a Lambda function with LambdaInvoke.
 //
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var fn function
 //
-//   var orderFn function
-//
-//
-//   submitJob := tasks.NewLambdaInvoke(this, jsii.String("InvokeOrderProcessor"), &LambdaInvokeProps{
-//   	LambdaFunction: orderFn,
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &LambdaInvokeProps{
+//   	LambdaFunction: fn,
 //   	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"OrderId": sfn.JsonPath_stringAt(jsii.String("$.OrderId")),
 //   	}),
 //   })
 //
-// Experimental.
+//   // use the output of fn as input
+//   // use the output of fn as input
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with payload field in the state input"), &LambdaInvokeProps{
+//   	LambdaFunction: fn,
+//   	Payload: sfn.TaskInput_FromJsonPathAt(jsii.String("$.Payload")),
+//   })
+//
 type LambdaInvokeProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Credentials for an IAM Role that the State Machine assumes for executing the task.
+	//
+	// This enables cross-account resource invocations.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-access-cross-acct-resources.html
+	//
+	Credentials *awsstepfunctions.Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Timeout for the heartbeat.
-	// Experimental.
+	// Deprecated: use `heartbeatTimeout`.
 	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
+	// Timeout for the heartbeat.
+	//
+	// [disable-awslint:duration-prop-type] is needed because all props interface in
+	// aws-stepfunctions-tasks extend this interface.
+	HeartbeatTimeout awsstepfunctions.Timeout `field:"optional" json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -60,29 +68,28 @@ type LambdaInvokeProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
-	// Timeout for the state machine.
-	// Experimental.
+	// Timeout for the task.
+	//
+	// [disable-awslint:duration-prop-type] is needed because all props interface in
+	// aws-stepfunctions-tasks extend this interface.
+	TaskTimeout awsstepfunctions.Timeout `field:"optional" json:"taskTimeout" yaml:"taskTimeout"`
+	// Timeout for the task.
+	// Deprecated: use `taskTimeout`.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Lambda function to invoke.
-	// Experimental.
 	LambdaFunction awslambda.IFunction `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function.
-	// Experimental.
 	ClientContext *string `field:"optional" json:"clientContext" yaml:"clientContext"`
 	// Invocation type of the Lambda function.
-	// Experimental.
 	InvocationType LambdaInvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
 	// The JSON that will be supplied as input to the Lambda function.
-	// Experimental.
 	Payload awsstepfunctions.TaskInput `field:"optional" json:"payload" yaml:"payload"`
 	// Invoke the Lambda in a way that only returns the payload response without additional metadata.
 	//
 	// The `payloadResponseOnly` property cannot be used if `integrationPattern`, `invocationType`,
 	// `clientContext`, or `qualifier` are specified.
 	// It always uses the REQUEST_RESPONSE behavior.
-	// Experimental.
 	PayloadResponseOnly *bool `field:"optional" json:"payloadResponseOnly" yaml:"payloadResponseOnly"`
 	// Version or alias to invoke a published version of the function.
 	//
@@ -98,7 +105,6 @@ type LambdaInvokeProps struct {
 	// of 2 and 6 maximum attempts.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/bp-lambda-serviceexception.html
 	//
-	// Experimental.
 	RetryOnServiceExceptions *bool `field:"optional" json:"retryOnServiceExceptions" yaml:"retryOnServiceExceptions"`
 }
 

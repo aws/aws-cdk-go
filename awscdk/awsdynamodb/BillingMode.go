@@ -12,17 +12,14 @@ package awsdynamodb
 //   	BillingMode: dynamodb.BillingMode_PAY_PER_REQUEST,
 //   })
 //
-// Experimental.
 type BillingMode string
 
 const (
 	// Pay only for what you use.
 	//
 	// You don't configure Read/Write capacity units.
-	// Experimental.
 	BillingMode_PAY_PER_REQUEST BillingMode = "PAY_PER_REQUEST"
 	// Explicitly specified Read/Write capacity units.
-	// Experimental.
 	BillingMode_PROVISIONED BillingMode = "PROVISIONED"
 )
 

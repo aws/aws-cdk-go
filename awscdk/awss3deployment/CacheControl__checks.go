@@ -5,7 +5,7 @@ package awss3deployment
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func validateCacheControl_FromStringParameters(s *string) error {
@@ -25,6 +25,22 @@ func validateCacheControl_MaxAgeParameters(t awscdk.Duration) error {
 }
 
 func validateCacheControl_SMaxAgeParameters(t awscdk.Duration) error {
+	if t == nil {
+		return fmt.Errorf("parameter t is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCacheControl_StaleIfErrorParameters(t awscdk.Duration) error {
+	if t == nil {
+		return fmt.Errorf("parameter t is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCacheControl_StaleWhileRevalidateParameters(t awscdk.Duration) error {
 	if t == nil {
 		return fmt.Errorf("parameter t is required, but nil was provided")
 	}

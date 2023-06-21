@@ -1,10 +1,10 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 // Pause the pipeline if a deployment would add IAM permissions or Security Group rules.
@@ -23,40 +23,33 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ConfirmPermissionsBroadening interface {
 	Step
 	ICodePipelineActionFactory
+	// StackOutputReferences this step consumes.
+	ConsumedStackOutputs() *[]StackOutputReference
 	// Return the steps this step depends on, based on the FileSets it requires.
-	// Experimental.
 	Dependencies() *[]Step
 	// The list of FileSets consumed by this Step.
-	// Experimental.
 	DependencyFileSets() *[]FileSet
 	// Identifier for this step.
-	// Experimental.
 	Id() *string
 	// Whether or not this is a Source step.
 	//
 	// What it means to be a Source step depends on the engine.
-	// Experimental.
 	IsSource() *bool
 	// The primary FileSet produced by this Step.
 	//
 	// Not all steps produce an output FileSet--if they do
 	// you can substitute the `Step` object for the `FileSet` object.
-	// Experimental.
 	PrimaryOutput() FileSet
 	// Add an additional FileSet to the set of file sets required by this step.
 	//
 	// This will lead to a dependency on the producer of that file set.
-	// Experimental.
 	AddDependencyFileSet(fs FileSet)
 	// Add a dependency on another step.
-	// Experimental.
 	AddStepDependency(step Step)
 	// Configure the given FileSet as the primary output of this step.
-	// Experimental.
 	ConfigurePrimaryOutput(fs FileSet)
 	// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
 	//
@@ -64,13 +57,10 @@ type ConfirmPermissionsBroadening interface {
 	// passes in as construction properties. The format of the structure passed in
 	// here does not have to correspond exactly to what gets rendered into the
 	// engine, it just needs to contain the same data.
-	// Experimental.
 	DiscoverReferencedOutputs(structure interface{})
 	// Create the desired Action and add it to the pipeline.
-	// Experimental.
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
 	// Return a string representation of this Step.
-	// Experimental.
 	ToString() *string
 }
 
@@ -78,6 +68,16 @@ type ConfirmPermissionsBroadening interface {
 type jsiiProxy_ConfirmPermissionsBroadening struct {
 	jsiiProxy_Step
 	jsiiProxy_ICodePipelineActionFactory
+}
+
+func (j *jsiiProxy_ConfirmPermissionsBroadening) ConsumedStackOutputs() *[]StackOutputReference {
+	var returns *[]StackOutputReference
+	_jsii_.Get(
+		j,
+		"consumedStackOutputs",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ConfirmPermissionsBroadening) Dependencies() *[]Step {
@@ -131,7 +131,6 @@ func (j *jsiiProxy_ConfirmPermissionsBroadening) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningCheckProps) ConfirmPermissionsBroadening {
 	_init_.Initialize()
 
@@ -141,7 +140,7 @@ func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningChe
 	j := jsiiProxy_ConfirmPermissionsBroadening{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ConfirmPermissionsBroadening",
+		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -149,12 +148,11 @@ func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningChe
 	return &j
 }
 
-// Experimental.
 func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id *string, props *PermissionsBroadeningCheckProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ConfirmPermissionsBroadening",
+		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
 		[]interface{}{id, props},
 		c,
 	)
@@ -165,7 +163,6 @@ func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id
 // If you need more fine-grained step ordering, use the `addStepDependency()`
 // API. For example, if you want `secondStep` to occur after `firstStep`, call
 // `secondStep.addStepDependency(firstStep)`.
-// Experimental.
 func ConfirmPermissionsBroadening_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
@@ -175,7 +172,7 @@ func ConfirmPermissionsBroadening_Sequence(steps *[]Step) *[]Step {
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.ConfirmPermissionsBroadening",
+		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
 		"sequence",
 		[]interface{}{steps},
 		&returns,

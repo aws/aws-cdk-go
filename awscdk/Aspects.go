@@ -1,8 +1,10 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Aspects can be applied to CDK tree scopes and can operate on the tree before synthesis.
@@ -43,13 +45,10 @@ import (
 //   	return this
 //   }
 //
-// Experimental.
 type Aspects interface {
 	// The list of aspects which were directly applied on this scope.
-	// Experimental.
-	Aspects() *[]IAspect
+	All() *[]IAspect
 	// Adds an aspect to apply this scope before synthesis.
-	// Experimental.
 	Add(aspect IAspect)
 }
 
@@ -58,11 +57,11 @@ type jsiiProxy_Aspects struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_Aspects) Aspects() *[]IAspect {
+func (j *jsiiProxy_Aspects) All() *[]IAspect {
 	var returns *[]IAspect
 	_jsii_.Get(
 		j,
-		"aspects",
+		"all",
 		&returns,
 	)
 	return returns
@@ -70,8 +69,7 @@ func (j *jsiiProxy_Aspects) Aspects() *[]IAspect {
 
 
 // Returns the `Aspects` object associated with a construct scope.
-// Experimental.
-func Aspects_Of(scope IConstruct) Aspects {
+func Aspects_Of(scope constructs.IConstruct) Aspects {
 	_init_.Initialize()
 
 	if err := validateAspects_OfParameters(scope); err != nil {
@@ -80,7 +78,7 @@ func Aspects_Of(scope IConstruct) Aspects {
 	var returns Aspects
 
 	_jsii_.StaticInvoke(
-		"monocdk.Aspects",
+		"aws-cdk-lib.Aspects",
 		"of",
 		[]interface{}{scope},
 		&returns,

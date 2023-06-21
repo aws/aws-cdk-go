@@ -1,11 +1,12 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Aspect that applies IMDS configuration on EC2 Launch Template constructs.
@@ -21,17 +22,13 @@ import (
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html
 //
-// Experimental.
 type LaunchTemplateRequireImdsv2Aspect interface {
 	awscdk.IAspect
-	// Experimental.
 	SuppressWarnings() *bool
 	// All aspects can visit an IConstruct.
-	// Experimental.
-	Visit(node awscdk.IConstruct)
+	Visit(node constructs.IConstruct)
 	// Adds a warning annotation to a node, unless `suppressWarnings` is true.
-	// Experimental.
-	Warn(node awscdk.IConstruct, message *string)
+	Warn(node constructs.IConstruct, message *string)
 }
 
 // The jsii proxy struct for LaunchTemplateRequireImdsv2Aspect
@@ -50,7 +47,6 @@ func (j *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) SuppressWarnings() *bool {
 }
 
 
-// Experimental.
 func NewLaunchTemplateRequireImdsv2Aspect(props *LaunchTemplateRequireImdsv2AspectProps) LaunchTemplateRequireImdsv2Aspect {
 	_init_.Initialize()
 
@@ -60,7 +56,7 @@ func NewLaunchTemplateRequireImdsv2Aspect(props *LaunchTemplateRequireImdsv2Aspe
 	j := jsiiProxy_LaunchTemplateRequireImdsv2Aspect{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.LaunchTemplateRequireImdsv2Aspect",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateRequireImdsv2Aspect",
 		[]interface{}{props},
 		&j,
 	)
@@ -68,18 +64,17 @@ func NewLaunchTemplateRequireImdsv2Aspect(props *LaunchTemplateRequireImdsv2Aspe
 	return &j
 }
 
-// Experimental.
 func NewLaunchTemplateRequireImdsv2Aspect_Override(l LaunchTemplateRequireImdsv2Aspect, props *LaunchTemplateRequireImdsv2AspectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.LaunchTemplateRequireImdsv2Aspect",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateRequireImdsv2Aspect",
 		[]interface{}{props},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Visit(node awscdk.IConstruct) {
+func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Visit(node constructs.IConstruct) {
 	if err := l.validateVisitParameters(node); err != nil {
 		panic(err)
 	}
@@ -90,7 +85,7 @@ func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Visit(node awscdk.IConstru
 	)
 }
 
-func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Warn(node awscdk.IConstruct, message *string) {
+func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Warn(node constructs.IConstruct, message *string) {
 	if err := l.validateWarnParameters(node, message); err != nil {
 		panic(err)
 	}

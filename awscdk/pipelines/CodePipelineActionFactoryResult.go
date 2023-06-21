@@ -1,7 +1,7 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 )
 
 // The result of adding actions to the pipeline.
@@ -21,15 +21,12 @@ import (
 //   	Project: project,
 //   }
 //
-// Experimental.
 type CodePipelineActionFactoryResult struct {
 	// How many RunOrders were consumed.
 	//
 	// If you add 1 action, return the value 1 here.
-	// Experimental.
 	RunOrdersConsumed *float64 `field:"required" json:"runOrdersConsumed" yaml:"runOrdersConsumed"`
 	// If a CodeBuild project got created, the project.
-	// Experimental.
 	Project awscodebuild.IProject `field:"optional" json:"project" yaml:"project"`
 }
 

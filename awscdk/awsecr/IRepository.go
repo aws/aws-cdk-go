@@ -3,77 +3,66 @@ package awsecr
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Represents an ECR repository.
-// Experimental.
 type IRepository interface {
 	awscdk.IResource
 	// Add a policy statement to the repository's resource policy.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant the given principal identity permissions to perform the actions on this repository.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to pull images in this repository.
-	// Experimental.
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to pull and push images to this repository.
-	// Experimental.
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to push images in this repository.
+	GrantPush(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to read images in this repository.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event rule that can trigger a target when an image is pushed to this repository.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailImagePushed(id *string, options *OnCloudTrailImagePushedOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers for repository events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
-	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event rule that can trigger a target when the image scan is completed.
-	// Experimental.
 	OnImageScanCompleted(id *string, options *OnImageScanCompletedOptions) awsevents.Rule
 	// Returns the URI of the repository for a certain digest. Can be used in `docker push/pull`.
 	//
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
-	// Experimental.
 	RepositoryUriForDigest(digest *string) *string
 	// Returns the URI of the repository for a certain tag. Can be used in `docker push/pull`.
 	//
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
-	// Experimental.
 	RepositoryUriForTag(tag *string) *string
 	// Returns the URI of the repository for a certain tag or digest, inferring based on the syntax of the tag.
 	//
 	// Can be used in `docker push/pull`.
 	//
-	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
-	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
-	// Experimental.
+	//    ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
+	//    ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
 	RepositoryUriForTagOrDigest(tagOrDigest *string) *string
 	// The ARN of the repository.
-	// Experimental.
 	RepositoryArn() *string
 	// The name of the repository.
-	// Experimental.
 	RepositoryName() *string
 	// The URI of this repository (represents the latest image):.
 	//
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY
-	// Experimental.
 	RepositoryUri() *string
 }
 
@@ -144,6 +133,38 @@ func (i *jsiiProxy_IRepository) GrantPullPush(grantee awsiam.IGrantable) awsiam.
 	_jsii_.Invoke(
 		i,
 		"grantPullPush",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IRepository) GrantPush(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPushParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantPush",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IRepository) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantRead",
 		[]interface{}{grantee},
 		&returns,
 	)

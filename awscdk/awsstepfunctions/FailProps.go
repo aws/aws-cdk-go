@@ -12,8 +12,8 @@ package awsstepfunctions
 //
 //   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
 //   	LambdaFunction: submitLambda,
-//   	// Lambda's result is in the attribute `Payload`
-//   	OutputPath: jsii.String("$.Payload"),
+//   	// Lambda's result is in the attribute `guid`
+//   	OutputPath: jsii.String("$.guid"),
 //   })
 //
 //   waitX := sfn.NewWait(this, jsii.String("Wait X Seconds"), &WaitProps{
@@ -25,7 +25,7 @@ package awsstepfunctions
 //   	// Pass just the field named "guid" into the Lambda, put the
 //   	// Lambda's result in a field called "status" in the response
 //   	InputPath: jsii.String("$.guid"),
-//   	OutputPath: jsii.String("$.Payload"),
+//   	OutputPath: jsii.String("$.status"),
 //   })
 //
 //   jobFailed := sfn.NewFail(this, jsii.String("Job Failed"), &FailProps{
@@ -47,16 +47,12 @@ package awsstepfunctions
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
-// Experimental.
 type FailProps struct {
 	// A description for the cause of the failure.
-	// Experimental.
 	Cause *string `field:"optional" json:"cause" yaml:"cause"`
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Error code used to represent this failure.
-	// Experimental.
 	Error *string `field:"optional" json:"error" yaml:"error"`
 }
 

@@ -16,14 +16,6 @@ func (u *jsiiProxy_UserPoolResourceServer) validateGetResourceNameAttributeParam
 	return nil
 }
 
-func (u *jsiiProxy_UserPoolResourceServer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (u *jsiiProxy_UserPoolResourceServer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateUserPoolResourceServer_FromUserPoolResourceServerIdParameters(scope constructs.Construct, id *string, userPoolResourceServerId *string) error {
 	return nil
 }
@@ -32,7 +24,11 @@ func validateUserPoolResourceServer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUserPoolResourceServer_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateUserPoolResourceServer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateUserPoolResourceServer_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

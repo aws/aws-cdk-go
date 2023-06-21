@@ -15,13 +15,10 @@ package awselasticloadbalancingv2
 //   	Key: jsii.String("key"),
 //   }
 //
-// Experimental.
 type QueryStringCondition struct {
 	// The query string value for the condition.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// The query string key for the condition.
-	// Experimental.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 

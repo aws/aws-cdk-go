@@ -3,7 +3,7 @@ package awscdk
 import (
 	"time"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,25 +14,18 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
+//   expiration := cdk.Expiration_After(cdk.Duration_Minutes(jsii.Number(30)))
 //
-//   expiration := monocdk.Expiration_After(duration)
-//
-// Experimental.
 type Expiration interface {
 	// Expiration value as a Date object.
-	// Experimental.
 	Date() *time.Time
-	// Check if Exipiration expires after input.
-	// Experimental.
+	// Check if Expiration expires after input.
 	IsAfter(t Duration) *bool
-	// Check if Exipiration expires before input.
-	// Experimental.
+	// Check if Expiration expires before input.
 	IsBefore(t Duration) *bool
-	// Exipration Value in a formatted Unix Epoch Time in seconds.
-	// Experimental.
+	// Expiration Value in a formatted Unix Epoch Time in seconds.
 	ToEpoch() *float64
 }
 
@@ -53,7 +46,6 @@ func (j *jsiiProxy_Expiration) Date() *time.Time {
 
 
 // Expire once the specified duration has passed since deployment time.
-// Experimental.
 func Expiration_After(t Duration) Expiration {
 	_init_.Initialize()
 
@@ -63,7 +55,7 @@ func Expiration_After(t Duration) Expiration {
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
-		"monocdk.Expiration",
+		"aws-cdk-lib.Expiration",
 		"after",
 		[]interface{}{t},
 		&returns,
@@ -73,7 +65,6 @@ func Expiration_After(t Duration) Expiration {
 }
 
 // Expire at the specified date.
-// Experimental.
 func Expiration_AtDate(d *time.Time) Expiration {
 	_init_.Initialize()
 
@@ -83,7 +74,7 @@ func Expiration_AtDate(d *time.Time) Expiration {
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
-		"monocdk.Expiration",
+		"aws-cdk-lib.Expiration",
 		"atDate",
 		[]interface{}{d},
 		&returns,
@@ -93,7 +84,6 @@ func Expiration_AtDate(d *time.Time) Expiration {
 }
 
 // Expire at the specified timestamp.
-// Experimental.
 func Expiration_AtTimestamp(t *float64) Expiration {
 	_init_.Initialize()
 
@@ -103,7 +93,7 @@ func Expiration_AtTimestamp(t *float64) Expiration {
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
-		"monocdk.Expiration",
+		"aws-cdk-lib.Expiration",
 		"atTimestamp",
 		[]interface{}{t},
 		&returns,
@@ -113,7 +103,6 @@ func Expiration_AtTimestamp(t *float64) Expiration {
 }
 
 // Expire at specified date, represented as a string.
-// Experimental.
 func Expiration_FromString(s *string) Expiration {
 	_init_.Initialize()
 
@@ -123,7 +112,7 @@ func Expiration_FromString(s *string) Expiration {
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
-		"monocdk.Expiration",
+		"aws-cdk-lib.Expiration",
 		"fromString",
 		[]interface{}{s},
 		&returns,

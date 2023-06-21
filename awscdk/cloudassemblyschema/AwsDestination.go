@@ -14,16 +14,12 @@ package cloudassemblyschema
 //   	Region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type AwsDestination struct {
 	// The role that needs to be assumed while publishing this asset.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

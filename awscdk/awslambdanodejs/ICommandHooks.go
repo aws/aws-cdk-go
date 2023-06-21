@@ -16,27 +16,23 @@ import (
 //
 // ```text
 // afterBundling(inputDir: string, outputDir: string): string[]{
-//    return [`cp ${inputDir}/my-binary.node ${outputDir}`];
+//   return [`cp ${inputDir}/my-binary.node ${outputDir}`];
 // }
 // ```.
-// Experimental.
 type ICommandHooks interface {
 	// Returns commands to run after bundling.
 	//
 	// Commands are chained with `&&`.
-	// Experimental.
 	AfterBundling(inputDir *string, outputDir *string) *[]*string
 	// Returns commands to run before bundling.
 	//
 	// Commands are chained with `&&`.
-	// Experimental.
 	BeforeBundling(inputDir *string, outputDir *string) *[]*string
 	// Returns commands to run before installing node modules.
 	//
 	// This hook only runs when node modules are installed.
 	//
 	// Commands are chained with `&&`.
-	// Experimental.
 	BeforeInstall(inputDir *string, outputDir *string) *[]*string
 }
 

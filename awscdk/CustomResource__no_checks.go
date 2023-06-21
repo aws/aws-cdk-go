@@ -24,19 +24,15 @@ func (c *jsiiProxy_CustomResource) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (c *jsiiProxy_CustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CustomResource) validateSynthesizeParameters(session ISynthesisSession) error {
-	return nil
-}
-
 func validateCustomResource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCustomResource_IsResourceParameters(construct IConstruct) error {
+func validateCustomResource_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCustomResource_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

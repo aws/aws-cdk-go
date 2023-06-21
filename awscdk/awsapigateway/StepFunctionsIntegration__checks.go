@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
 func validateStepFunctionsIntegration_StartExecutionParameters(stateMachine awsstepfunctions.IStateMachine, options *StepFunctionsExecutionIntegrationOptions) error {

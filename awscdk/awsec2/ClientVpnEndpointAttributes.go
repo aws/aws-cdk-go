@@ -17,13 +17,10 @@ package awsec2
 //   	},
 //   }
 //
-// Experimental.
 type ClientVpnEndpointAttributes struct {
 	// The endpoint ID.
-	// Experimental.
 	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
 	// The security groups associated with the endpoint.
-	// Experimental.
 	SecurityGroups *[]ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
 }
 

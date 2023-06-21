@@ -1,7 +1,7 @@
 package awswafv2
 
 
-// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` .
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
@@ -20,15 +20,15 @@ package awswafv2
 //   }
 //
 type CfnWebACL_ResponseInspectionStatusCodeProperty struct {
-	// Status codes in the response that indicate a failed login or account creation attempt.
+	// Status codes in the response that indicate a failed login attempt.
 	//
-	// To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+	// To be counted as a failed login, the response status code must match one of these. Each code must be unique among the success and failure status codes.
 	//
 	// JSON example: `"FailureCodes": [ 400, 404 ]`.
 	FailureCodes interface{} `field:"required" json:"failureCodes" yaml:"failureCodes"`
-	// Status codes in the response that indicate a successful login or account creation attempt.
+	// Status codes in the response that indicate a successful login attempt.
 	//
-	// To be counted as a success, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+	// To be counted as a successful login, the response status code must match one of these. Each code must be unique among the success and failure status codes.
 	//
 	// JSON example: `"SuccessCodes": [ 200, 201 ]`.
 	SuccessCodes interface{} `field:"required" json:"successCodes" yaml:"successCodes"`

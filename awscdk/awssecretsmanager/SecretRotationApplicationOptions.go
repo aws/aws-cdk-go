@@ -12,10 +12,8 @@ package awssecretsmanager
 //   	IsMultiUser: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type SecretRotationApplicationOptions struct {
 	// Whether the rotation application uses the mutli user scheme.
-	// Experimental.
 	IsMultiUser *bool `field:"optional" json:"isMultiUser" yaml:"isMultiUser"`
 }
 

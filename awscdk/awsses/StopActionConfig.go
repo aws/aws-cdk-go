@@ -15,15 +15,12 @@ package awsses
 //   	TopicArn: jsii.String("topicArn"),
 //   }
 //
-// Experimental.
 type StopActionConfig struct {
 	// The scope of the StopAction.
 	//
 	// The only acceptable value is RuleSet.
-	// Experimental.
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
-	// Experimental.
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

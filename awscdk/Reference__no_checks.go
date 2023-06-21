@@ -16,7 +16,7 @@ func validateReference_IsReferenceParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewReferenceParameters(value interface{}, target IConstruct) error {
+func validateNewReferenceParameters(value interface{}, target constructs.IConstruct) error {
 	return nil
 }
 

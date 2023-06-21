@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnApplicationV2) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnApplicationV2) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnApplicationV2) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationV2) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnApplicationV2) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationV2) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnApplicationV2) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnApplicationV2) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationV2) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnApplicationV2) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnApplicationV2_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationV2_ApplicationConfigurationProperty:
 		val := val.(*CfnApplicationV2_ApplicationConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationConfigurationParamete
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationV2_ApplicationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationV2_ApplicationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -193,6 +205,8 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationConfigurationParamete
 
 func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationMaintenanceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationV2_ApplicationMaintenanceConfigurationProperty:
 		val := val.(*CfnApplicationV2_ApplicationMaintenanceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -204,11 +218,9 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationMaintenanceConfigurat
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationV2_ApplicationMaintenanceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationV2_ApplicationMaintenanceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +229,8 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetApplicationMaintenanceConfigurat
 
 func (j *jsiiProxy_CfnApplicationV2) validateSetRunConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnApplicationV2_RunConfigurationProperty:
 		val := val.(*CfnApplicationV2_RunConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -228,11 +242,9 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetRunConfigurationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnApplicationV2_RunConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationV2_RunConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -255,7 +267,7 @@ func (j *jsiiProxy_CfnApplicationV2) validateSetServiceExecutionRoleParameters(v
 	return nil
 }
 
-func validateNewCfnApplicationV2Parameters(scope awscdk.Construct, id *string, props *CfnApplicationV2Props) error {
+func validateNewCfnApplicationV2Parameters(scope constructs.Construct, id *string, props *CfnApplicationV2Props) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnDataSource) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataSource) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnDataSource) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataSource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDataSource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataSource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnDataSource) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnDataSource) validateRenderPropertiesParameters(props *map[
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataSource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDataSource) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -177,6 +189,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetApiIdParameters(val *string) error 
 
 func (j *jsiiProxy_CfnDataSource) validateSetDynamoDbConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_DynamoDBConfigProperty:
 		val := val.(*CfnDataSource_DynamoDBConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -188,11 +202,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetDynamoDbConfigParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_DynamoDBConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_DynamoDBConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -201,6 +213,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetDynamoDbConfigParameters(val interf
 
 func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_ElasticsearchConfigProperty:
 		val := val.(*CfnDataSource_ElasticsearchConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -212,11 +226,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_ElasticsearchConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_ElasticsearchConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -225,6 +237,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val i
 
 func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_EventBridgeConfigProperty:
 		val := val.(*CfnDataSource_EventBridgeConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -236,11 +250,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_EventBridgeConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_EventBridgeConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -249,6 +261,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val int
 
 func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_HttpConfigProperty:
 		val := val.(*CfnDataSource_HttpConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -260,11 +274,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_HttpConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_HttpConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -273,6 +285,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{
 
 func (j *jsiiProxy_CfnDataSource) validateSetLambdaConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_LambdaConfigProperty:
 		val := val.(*CfnDataSource_LambdaConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -284,11 +298,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetLambdaConfigParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_LambdaConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_LambdaConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -305,6 +317,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetNameParameters(val *string) error {
 
 func (j *jsiiProxy_CfnDataSource) validateSetOpenSearchServiceConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_OpenSearchServiceConfigProperty:
 		val := val.(*CfnDataSource_OpenSearchServiceConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -316,11 +330,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetOpenSearchServiceConfigParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_OpenSearchServiceConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_OpenSearchServiceConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -329,6 +341,8 @@ func (j *jsiiProxy_CfnDataSource) validateSetOpenSearchServiceConfigParameters(v
 
 func (j *jsiiProxy_CfnDataSource) validateSetRelationalDatabaseConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataSource_RelationalDatabaseConfigProperty:
 		val := val.(*CfnDataSource_RelationalDatabaseConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -340,11 +354,9 @@ func (j *jsiiProxy_CfnDataSource) validateSetRelationalDatabaseConfigParameters(
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataSource_RelationalDatabaseConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSource_RelationalDatabaseConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -359,7 +371,7 @@ func (j *jsiiProxy_CfnDataSource) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnDataSourceParameters(scope awscdk.Construct, id *string, props *CfnDataSourceProps) error {
+func validateNewCfnDataSourceParameters(scope constructs.Construct, id *string, props *CfnDataSourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

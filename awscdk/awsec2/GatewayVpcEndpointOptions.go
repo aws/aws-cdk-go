@@ -39,10 +39,8 @@ package awsec2
 //   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
-// Experimental.
 type GatewayVpcEndpointOptions struct {
 	// The service to use for this gateway VPC endpoint.
-	// Experimental.
 	Service IGatewayVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Where to add endpoint routing.
 	//
@@ -63,7 +61,6 @@ type GatewayVpcEndpointOptions struct {
 	//   	},
 	//   })
 	//
-	// Experimental.
 	Subnets *[]*SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

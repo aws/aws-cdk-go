@@ -1,8 +1,8 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Example:
@@ -24,15 +24,22 @@ import (
 //   	LoadBalancerName: jsii.String("application-lb-name"),
 //   })
 //
-// Experimental.
 type ApplicationLoadBalancedTaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, not both.
-	// Experimental.
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
+	// The command that's passed to the container.
+	//
+	// If there are multiple arguments, make sure that each argument is a separated string in the array.
+	//
+	// This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section
+	// of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `COMMAND` parameter to
+	// [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+	//
+	// For more information about the Docker `CMD` parameter, see https://docs.docker.com/engine/reference/builder/#cmd.
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The container name value to be specified in the task definition.
-	// Experimental.
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
@@ -44,33 +51,32 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
-	// Experimental.
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
 	// A key/value map of labels to add to the container.
-	// Experimental.
 	DockerLabels *map[string]*string `field:"optional" json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
-	// Experimental.
 	EnableLogging *bool `field:"optional" json:"enableLogging" yaml:"enableLogging"`
+	// The entry point that's passed to the container.
+	//
+	// This parameter maps to `Entrypoint` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section
+	// of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--entrypoint` option to
+	// [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+	//
+	// For more information about the Docker `ENTRYPOINT` parameter, see https://docs.docker.com/engine/reference/builder/#entrypoint.
+	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
-	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
-	// Experimental.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	// Experimental.
 	Family *string `field:"optional" json:"family" yaml:"family"`
 	// The log driver to use.
-	// Experimental.
 	LogDriver awsecs.LogDriver `field:"optional" json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	// Experimental.
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	// Experimental.
 	TaskRole awsiam.IRole `field:"optional" json:"taskRole" yaml:"taskRole"`
 }
 

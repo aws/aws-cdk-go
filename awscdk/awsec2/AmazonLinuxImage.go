@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Selects the latest version of Amazon Linux.
@@ -17,35 +17,44 @@ import (
 // The AMI ID is selected using the values published to the SSM parameter store.
 //
 // Example:
-//   // Pick a Windows edition to use
-//   windows := ec2.NewWindowsImage(ec2.WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE)
-//
-//   // Pick the right Amazon Linux edition. All arguments shown are optional
-//   // and will default to these values when omitted.
-//   amznLinux := ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-//   	Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX,
-//   	Edition: ec2.AmazonLinuxEdition_STANDARD,
-//   	Virtualization: ec2.AmazonLinuxVirt_HVM,
-//   	Storage: ec2.AmazonLinuxStorage_GENERAL_PURPOSE,
+//   sg := ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
+//   fs := fsx.LustreFileSystem_FromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &FileSystemAttributes{
+//   	DnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
+//   	FileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
+//   	SecurityGroup: sg,
 //   })
 //
-//   // For other custom (Linux) images, instantiate a `GenericLinuxImage` with
-//   // a map giving the AMI to in for each region:
-//
-//   linux := ec2.NewGenericLinuxImage(map[string]*string{
-//   	"us-east-1": jsii.String("ami-97785bed"),
-//   	"eu-west-1": jsii.String("ami-12345678"),
+//   vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("Vpc"), &VpcAttributes{
+//   	AvailabilityZones: []*string{
+//   		jsii.String("us-west-2a"),
+//   		jsii.String("us-west-2b"),
+//   	},
+//   	PublicSubnetIds: []*string{
+//   		jsii.String("{US-WEST-2A-SUBNET-ID}"),
+//   		jsii.String("{US-WEST-2B-SUBNET-ID}"),
+//   	},
+//   	VpcId: jsii.String("{VPC-ID}"),
 //   })
 //
-// Experimental.
+//   inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_LARGE),
+//   	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
+//   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
+//   	}),
+//   	Vpc: Vpc,
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	},
+//   })
+//
+//   fs.Connections.AllowDefaultPortFrom(inst)
+//
 type AmazonLinuxImage interface {
 	GenericSSMParameterImage
 	// Name of the SSM parameter we're looking up.
-	// Experimental.
 	ParameterName() *string
 	// Return the image to use in the given context.
-	// Experimental.
-	GetImage(scope awscdk.Construct) *MachineImageConfig
+	GetImage(scope constructs.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for AmazonLinuxImage
@@ -64,7 +73,6 @@ func (j *jsiiProxy_AmazonLinuxImage) ParameterName() *string {
 }
 
 
-// Experimental.
 func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	_init_.Initialize()
 
@@ -74,7 +82,7 @@ func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	j := jsiiProxy_AmazonLinuxImage{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		[]interface{}{props},
 		&j,
 	)
@@ -82,19 +90,17 @@ func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	return &j
 }
 
-// Experimental.
 func NewAmazonLinuxImage_Override(a AmazonLinuxImage, props *AmazonLinuxImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		[]interface{}{props},
 		a,
 	)
 }
 
 // Return the SSM parameter name that will contain the Amazon Linux image with the given attributes.
-// Experimental.
 func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	_init_.Initialize()
 
@@ -104,7 +110,7 @@ func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		"ssmParameterName",
 		[]interface{}{props},
 		&returns,
@@ -113,7 +119,7 @@ func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	return returns
 }
 
-func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope constructs.Construct) *MachineImageConfig {
 	if err := a.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}

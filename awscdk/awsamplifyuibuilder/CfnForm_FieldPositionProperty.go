@@ -15,11 +15,11 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FieldPositionProperty struct {
-	// `CfnForm.FieldPositionProperty.Below`.
+	// The field position is below the field specified by the string.
 	Below *string `field:"optional" json:"below" yaml:"below"`
-	// `CfnForm.FieldPositionProperty.Fixed`.
+	// The field position is fixed and doesn't change in relation to other fields.
 	Fixed *string `field:"optional" json:"fixed" yaml:"fixed"`
-	// `CfnForm.FieldPositionProperty.RightOf`.
+	// The field position is to the right of the field specified by the string.
 	RightOf *string `field:"optional" json:"rightOf" yaml:"rightOf"`
 }
 

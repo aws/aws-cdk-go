@@ -1,7 +1,7 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -38,49 +38,40 @@ import (
 //   fredCapture.Next() // returns true
 //   fredCapture.AsString()
 //
-// Experimental.
 type Capture interface {
 	Matcher
 	// A name for the matcher.
 	//
 	// This is collected as part of the result and may be presented to the user.
-	// Experimental.
 	Name() *string
 	// Retrieve the captured value as an array.
 	//
 	// An error is generated if no value is captured or if the value is not an array.
-	// Experimental.
 	AsArray() *[]interface{}
 	// Retrieve the captured value as a boolean.
 	//
 	// An error is generated if no value is captured or if the value is not a boolean.
-	// Experimental.
 	AsBoolean() *bool
 	// Retrieve the captured value as a number.
 	//
 	// An error is generated if no value is captured or if the value is not a number.
-	// Experimental.
 	AsNumber() *float64
 	// Retrieve the captured value as a JSON object.
 	//
 	// An error is generated if no value is captured or if the value is not an object.
-	// Experimental.
 	AsObject() *map[string]interface{}
 	// Retrieve the captured value as a string.
 	//
 	// An error is generated if no value is captured or if the value is not a string.
-	// Experimental.
 	AsString() *string
 	// When multiple results are captured, move the iterator to the next result.
 	//
 	// Returns: true if another capture is present, false otherwise.
-	// Experimental.
 	Next() *bool
 	// Test whether a target matches the provided pattern.
 	//
 	// Every Matcher must implement this method.
 	// This method will be invoked by the assertions framework. Do not call this method directly.
-	// Experimental.
 	Test(actual interface{}) MatchResult
 }
 
@@ -101,14 +92,13 @@ func (j *jsiiProxy_Capture) Name() *string {
 
 
 // Initialize a new capture.
-// Experimental.
 func NewCapture(pattern interface{}) Capture {
 	_init_.Initialize()
 
 	j := jsiiProxy_Capture{}
 
 	_jsii_.Create(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		[]interface{}{pattern},
 		&j,
 	)
@@ -117,19 +107,17 @@ func NewCapture(pattern interface{}) Capture {
 }
 
 // Initialize a new capture.
-// Experimental.
 func NewCapture_Override(c Capture, pattern interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		[]interface{}{pattern},
 		c,
 	)
 }
 
 // Check whether the provided object is a subtype of the `IMatcher`.
-// Experimental.
 func Capture_IsMatcher(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -139,7 +127,7 @@ func Capture_IsMatcher(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		"isMatcher",
 		[]interface{}{x},
 		&returns,

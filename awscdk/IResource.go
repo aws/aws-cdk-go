@@ -2,12 +2,14 @@ package awscdk
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for the Resource construct.
-// Experimental.
 type IResource interface {
-	IConstruct
+	constructs.IConstruct
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -17,7 +19,6 @@ type IResource interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy RemovalPolicy)
 	// The environment this resource belongs to.
 	//
@@ -27,16 +28,14 @@ type IResource interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *ResourceEnvironment
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() Stack
 }
 
 // The jsii proxy for IResource
 type jsiiProxy_IResource struct {
-	jsiiProxy_IConstruct
+	internal.Type__constructsIConstruct
 }
 
 func (i *jsiiProxy_IResource) ApplyRemovalPolicy(policy RemovalPolicy) {

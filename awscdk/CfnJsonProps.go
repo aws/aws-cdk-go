@@ -2,23 +2,27 @@ package awscdk
 
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   tagParam := awscdk.NewCfnParameter(this, jsii.String("TagName"))
 //
-//   var value interface{}
+//   stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &CfnJsonProps{
+//   	Value: map[string]*bool{
+//   		fmt.Sprintf("aws:PrincipalTag/%v", tagParam.valueAsString): jsii.Boolean(true),
+//   	},
+//   })
 //
-//   cfnJsonProps := &CfnJsonProps{
-//   	Value: value,
-//   }
+//   principal := iam.NewAccountRootPrincipal().WithConditions(map[string]interface{}{
+//   	"StringEquals": stringEquals,
+//   })
 //
-// Experimental.
+//   iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+//   	AssumedBy: principal,
+//   })
+//
 type CfnJsonProps struct {
 	// The value to resolve.
 	//
 	// Can be any JavaScript object, including tokens and
 	// references in keys or values.
-	// Experimental.
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 

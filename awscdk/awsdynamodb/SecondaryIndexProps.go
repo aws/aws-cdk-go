@@ -18,16 +18,12 @@ package awsdynamodb
 //   	ProjectionType: awscdk.Aws_dynamodb.ProjectionType_KEYS_ONLY,
 //   }
 //
-// Experimental.
 type SecondaryIndexProps struct {
 	// The name of the secondary index.
-	// Experimental.
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	// Experimental.
 	NonKeyAttributes *[]*string `field:"optional" json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	// Experimental.
 	ProjectionType ProjectionType `field:"optional" json:"projectionType" yaml:"projectionType"`
 }
 

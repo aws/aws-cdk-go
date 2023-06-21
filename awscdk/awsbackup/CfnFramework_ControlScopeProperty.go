@@ -1,7 +1,7 @@
 package awsbackup
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // A framework consists of one or more controls.

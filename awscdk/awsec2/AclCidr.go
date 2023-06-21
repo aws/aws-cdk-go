@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,9 +14,7 @@ import (
 //
 //   aclCidr := awscdk.Aws_ec2.AclCidr_AnyIpv4()
 //
-// Experimental.
 type AclCidr interface {
-	// Experimental.
 	ToCidrConfig() *AclCidrConfig
 }
 
@@ -25,26 +23,24 @@ type jsiiProxy_AclCidr struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAclCidr_Override(a AclCidr) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.AclCidr",
+		"aws-cdk-lib.aws_ec2.AclCidr",
 		nil, // no parameters
 		a,
 	)
 }
 
 // The CIDR containing all IPv4 addresses (i.e., 0.0.0.0/0).
-// Experimental.
 func AclCidr_AnyIpv4() AclCidr {
 	_init_.Initialize()
 
 	var returns AclCidr
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclCidr",
+		"aws-cdk-lib.aws_ec2.AclCidr",
 		"anyIpv4",
 		nil, // no parameters
 		&returns,
@@ -54,14 +50,13 @@ func AclCidr_AnyIpv4() AclCidr {
 }
 
 // The CIDR containing all IPv6 addresses (i.e., ::/0).
-// Experimental.
 func AclCidr_AnyIpv6() AclCidr {
 	_init_.Initialize()
 
 	var returns AclCidr
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclCidr",
+		"aws-cdk-lib.aws_ec2.AclCidr",
 		"anyIpv6",
 		nil, // no parameters
 		&returns,
@@ -71,7 +66,6 @@ func AclCidr_AnyIpv6() AclCidr {
 }
 
 // An IP network range in CIDR notation (for example, 172.16.0.0/24).
-// Experimental.
 func AclCidr_Ipv4(ipv4Cidr *string) AclCidr {
 	_init_.Initialize()
 
@@ -81,7 +75,7 @@ func AclCidr_Ipv4(ipv4Cidr *string) AclCidr {
 	var returns AclCidr
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclCidr",
+		"aws-cdk-lib.aws_ec2.AclCidr",
 		"ipv4",
 		[]interface{}{ipv4Cidr},
 		&returns,
@@ -91,7 +85,6 @@ func AclCidr_Ipv4(ipv4Cidr *string) AclCidr {
 }
 
 // An IPv6 network range in CIDR notation (for example, 2001:db8::/48).
-// Experimental.
 func AclCidr_Ipv6(ipv6Cidr *string) AclCidr {
 	_init_.Initialize()
 
@@ -101,7 +94,7 @@ func AclCidr_Ipv6(ipv6Cidr *string) AclCidr {
 	var returns AclCidr
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclCidr",
+		"aws-cdk-lib.aws_ec2.AclCidr",
 		"ipv6",
 		[]interface{}{ipv6Cidr},
 		&returns,

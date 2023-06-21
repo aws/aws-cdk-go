@@ -24,13 +24,10 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_BootstrapActionConfig.html
 //
-// Experimental.
 type EmrCreateCluster_BootstrapActionConfigProperty struct {
 	// The name of the bootstrap action.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The script run by the bootstrap action.
-	// Experimental.
 	ScriptBootstrapAction *EmrCreateCluster_ScriptBootstrapActionConfigProperty `field:"required" json:"scriptBootstrapAction" yaml:"scriptBootstrapAction"`
 }
 

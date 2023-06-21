@@ -1,47 +1,23 @@
 package awscodedeploy
 
-import (
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-)
 
 // The Deployment Configuration of an ECS Deployment Group.
 //
-// The default, pre-defined Configurations are available as constants on the {@link EcsDeploymentConfig} class
-// (for example, `EcsDeploymentConfig.AllAtOnce`).
+// If you're managing the Deployment Configuration alongside the rest of your CDK resources,
+// use the `EcsDeploymentConfig` class.
 //
-// Note: CloudFormation does not currently support creating custom ECS configs outside
-// of using a custom resource. You can import custom deployment config created outside the
-// CDK or via a custom resource with {@link EcsDeploymentConfig#fromEcsDeploymentConfigName}.
-// Experimental.
+// If you want to reference an already existing deployment configuration,
+// or one defined in a different CDK Stack,
+// use the `EcsDeploymentConfig#fromEcsDeploymentConfigName` method.
+//
+// The default, pre-defined Configurations are available as constants on the `EcsDeploymentConfig` class
+// (for example, `EcsDeploymentConfig.AllAtOnce`).
 type IEcsDeploymentConfig interface {
-	// Experimental.
-	DeploymentConfigArn() *string
-	// Experimental.
-	DeploymentConfigName() *string
+	IBaseDeploymentConfig
 }
 
 // The jsii proxy for IEcsDeploymentConfig
 type jsiiProxy_IEcsDeploymentConfig struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_IEcsDeploymentConfig) DeploymentConfigArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"deploymentConfigArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IEcsDeploymentConfig) DeploymentConfigName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"deploymentConfigName",
-		&returns,
-	)
-	return returns
+	jsiiProxy_IBaseDeploymentConfig
 }
 

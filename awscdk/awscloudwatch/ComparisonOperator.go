@@ -18,36 +18,28 @@ package awscloudwatch
 //   	Threshold: jsii.Number(45),
 //   })
 //
-// Experimental.
 type ComparisonOperator string
 
 const (
 	// Specified statistic is greater than or equal to the threshold.
-	// Experimental.
 	ComparisonOperator_GREATER_THAN_OR_EQUAL_TO_THRESHOLD ComparisonOperator = "GREATER_THAN_OR_EQUAL_TO_THRESHOLD"
 	// Specified statistic is strictly greater than the threshold.
-	// Experimental.
 	ComparisonOperator_GREATER_THAN_THRESHOLD ComparisonOperator = "GREATER_THAN_THRESHOLD"
 	// Specified statistic is strictly less than the threshold.
-	// Experimental.
 	ComparisonOperator_LESS_THAN_THRESHOLD ComparisonOperator = "LESS_THAN_THRESHOLD"
 	// Specified statistic is less than or equal to the threshold.
-	// Experimental.
 	ComparisonOperator_LESS_THAN_OR_EQUAL_TO_THRESHOLD ComparisonOperator = "LESS_THAN_OR_EQUAL_TO_THRESHOLD"
 	// Specified statistic is lower than or greater than the anomaly model band.
 	//
 	// Used only for alarms based on anomaly detection models.
-	// Experimental.
 	ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD ComparisonOperator = "LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD"
 	// Specified statistic is greater than the anomaly model band.
 	//
 	// Used only for alarms based on anomaly detection models.
-	// Experimental.
 	ComparisonOperator_GREATER_THAN_UPPER_THRESHOLD ComparisonOperator = "GREATER_THAN_UPPER_THRESHOLD"
 	// Specified statistic is lower than the anomaly model band.
 	//
 	// Used only for alarms based on anomaly detection models.
-	// Experimental.
 	ComparisonOperator_LESS_THAN_LOWER_THRESHOLD ComparisonOperator = "LESS_THAN_LOWER_THRESHOLD"
 )
 

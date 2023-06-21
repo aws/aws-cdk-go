@@ -4,17 +4,17 @@ package awscdk
 // Properties to provide a Lambda-backed custom resource.
 //
 // Example:
-//   // use the provider framework from aws-cdk/custom-resources:
-//   provider := customresources.NewProvider(this, jsii.String("ResourceProvider"), &ProviderProps{
-//   	OnEventHandler: OnEventHandler,
-//   	IsCompleteHandler: IsCompleteHandler,
+//   serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
+//   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
+//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
+//   	Description: jsii.String("Lambda function created by the custom resource provider"),
 //   })
 //
 //   awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
-//   	ServiceToken: provider.ServiceToken,
+//   	ResourceType: jsii.String("Custom::MyCustomResourceType"),
+//   	ServiceToken: serviceToken,
 //   })
 //
-// Experimental.
 type CustomResourceProps struct {
 	// The ARN of the provider which implements this custom resource type.
 	//
@@ -31,42 +31,40 @@ type CustomResourceProps struct {
 	// ```ts
 	// // use the provider framework from aws-cdk/custom-resources:
 	// const provider = new customresources.Provider(this, 'ResourceProvider', {
-	//    onEventHandler,
-	//    isCompleteHandler, // optional
+	//   onEventHandler,
+	//   isCompleteHandler, // optional
 	// });
 	//
 	// new CustomResource(this, 'MyResource', {
-	//    serviceToken: provider.serviceToken,
+	//   serviceToken: provider.serviceToken,
 	// });
 	// ```
 	//
-	// AWS Lambda function:
+	// AWS Lambda function (not recommended to use AWS Lambda Functions directly,
+	// see the module README):
 	//
 	// ```ts
 	// // invoke an AWS Lambda function when a lifecycle event occurs:
 	// new CustomResource(this, 'MyResource', {
-	//    serviceToken: myFunction.functionArn,
+	//   serviceToken: myFunction.functionArn,
 	// });
 	// ```
 	//
-	// SNS topic:
+	// SNS topic (not recommended to use AWS Lambda Functions directly, see the
+	// module README):
 	//
 	// ```ts
 	// // publish lifecycle events to an SNS topic:
 	// new CustomResource(this, 'MyResource', {
-	//    serviceToken: myTopic.topicArn,
+	//   serviceToken: myTopic.topicArn,
 	// });
 	// ```.
-	// Experimental.
 	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
 	// Convert all property keys to pascal case.
-	// Experimental.
 	PascalCaseProperties *bool `field:"optional" json:"pascalCaseProperties" yaml:"pascalCaseProperties"`
 	// Properties to pass to the Lambda.
-	// Experimental.
 	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// The policy to apply when this resource is removed from the application.
-	// Experimental.
 	RemovalPolicy RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
 	//
@@ -84,7 +82,6 @@ type CustomResourceProps struct {
 	// (instead of using AWS::CloudFormation::CustomResource).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
 	//
-	// Experimental.
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 }
 

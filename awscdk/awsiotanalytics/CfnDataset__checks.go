@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnDataset) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataset) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnDataset) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataset) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDataset) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataset) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnDataset) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnDataset) validateRenderPropertiesParameters(props *map[str
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataset) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDataset) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -178,6 +190,8 @@ func (j *jsiiProxy_CfnDataset) validateSetActionsParameters(val interface{}) err
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_ActionProperty:
 				v := v.(*CfnDataset_ActionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -189,11 +203,9 @@ func (j *jsiiProxy_CfnDataset) validateSetActionsParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_ActionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_ActionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -202,6 +214,8 @@ func (j *jsiiProxy_CfnDataset) validateSetActionsParameters(val interface{}) err
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_ActionProperty:
 				v := v.(*CfnDataset_ActionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -213,11 +227,9 @@ func (j *jsiiProxy_CfnDataset) validateSetActionsParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_ActionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_ActionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -238,6 +250,8 @@ func (j *jsiiProxy_CfnDataset) validateSetContentDeliveryRulesParameters(val int
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_DatasetContentDeliveryRuleProperty:
 				v := v.(*CfnDataset_DatasetContentDeliveryRuleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -249,11 +263,9 @@ func (j *jsiiProxy_CfnDataset) validateSetContentDeliveryRulesParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_DatasetContentDeliveryRuleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_DatasetContentDeliveryRuleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -262,6 +274,8 @@ func (j *jsiiProxy_CfnDataset) validateSetContentDeliveryRulesParameters(val int
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_DatasetContentDeliveryRuleProperty:
 				v := v.(*CfnDataset_DatasetContentDeliveryRuleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -273,11 +287,9 @@ func (j *jsiiProxy_CfnDataset) validateSetContentDeliveryRulesParameters(val int
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_DatasetContentDeliveryRuleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_DatasetContentDeliveryRuleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -298,6 +310,8 @@ func (j *jsiiProxy_CfnDataset) validateSetLateDataRulesParameters(val interface{
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_LateDataRuleProperty:
 				v := v.(*CfnDataset_LateDataRuleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -309,11 +323,9 @@ func (j *jsiiProxy_CfnDataset) validateSetLateDataRulesParameters(val interface{
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_LateDataRuleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_LateDataRuleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -322,6 +334,8 @@ func (j *jsiiProxy_CfnDataset) validateSetLateDataRulesParameters(val interface{
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_LateDataRuleProperty:
 				v := v.(*CfnDataset_LateDataRuleProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -333,11 +347,9 @@ func (j *jsiiProxy_CfnDataset) validateSetLateDataRulesParameters(val interface{
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_LateDataRuleProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_LateDataRuleProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -352,6 +364,8 @@ func (j *jsiiProxy_CfnDataset) validateSetLateDataRulesParameters(val interface{
 
 func (j *jsiiProxy_CfnDataset) validateSetRetentionPeriodParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataset_RetentionPeriodProperty:
 		val := val.(*CfnDataset_RetentionPeriodProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -363,11 +377,9 @@ func (j *jsiiProxy_CfnDataset) validateSetRetentionPeriodParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataset_RetentionPeriodProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataset_RetentionPeriodProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -382,6 +394,8 @@ func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) er
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_TriggerProperty:
 				v := v.(*CfnDataset_TriggerProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -393,11 +407,9 @@ func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) er
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_TriggerProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_TriggerProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -406,6 +418,8 @@ func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) er
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDataset_TriggerProperty:
 				v := v.(*CfnDataset_TriggerProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -417,11 +431,9 @@ func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) er
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDataset_TriggerProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDataset_TriggerProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -436,6 +448,8 @@ func (j *jsiiProxy_CfnDataset) validateSetTriggersParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnDataset) validateSetVersioningConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDataset_VersioningConfigurationProperty:
 		val := val.(*CfnDataset_VersioningConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -447,18 +461,16 @@ func (j *jsiiProxy_CfnDataset) validateSetVersioningConfigurationParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDataset_VersioningConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataset_VersioningConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnDatasetParameters(scope awscdk.Construct, id *string, props *CfnDatasetProps) error {
+func validateNewCfnDatasetParameters(scope constructs.Construct, id *string, props *CfnDatasetProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

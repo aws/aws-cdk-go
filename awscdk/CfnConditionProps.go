@@ -2,20 +2,20 @@ package awscdk
 
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
+//   })
+//   // -or-
+//   rawBucketAlt := myBucket.Node.defaultChild.(cfnBucket)
 //
-//   var cfnConditionExpression iCfnConditionExpression
-//
-//   cfnConditionProps := &CfnConditionProps{
-//   	Expression: cfnConditionExpression,
+//   // then
+//   rawBucket.CfnOptions.Condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &CfnConditionProps{
+//   })
+//   rawBucket.CfnOptions.Metadata = map[string]interface{}{
+//   	"metadataKey": jsii.String("MetadataValue"),
 //   }
 //
-// Experimental.
 type CfnConditionProps struct {
 	// The expression that the condition will evaluate.
-	// Experimental.
 	Expression ICfnConditionExpression `field:"optional" json:"expression" yaml:"expression"`
 }
 

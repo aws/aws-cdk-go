@@ -29,19 +29,14 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
-// Experimental.
 type TransformInput struct {
 	// S3 location of the channel data.
-	// Experimental.
 	TransformDataSource *TransformDataSource `field:"required" json:"transformDataSource" yaml:"transformDataSource"`
 	// The compression type of the transform data.
-	// Experimental.
 	CompressionType CompressionType `field:"optional" json:"compressionType" yaml:"compressionType"`
 	// Multipurpose internet mail extension (MIME) type of the data.
-	// Experimental.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// Method to use to split the transform job's data files into smaller batches.
-	// Experimental.
 	SplitType SplitType `field:"optional" json:"splitType" yaml:"splitType"`
 }
 

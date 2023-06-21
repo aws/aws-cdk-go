@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,13 +14,10 @@ import (
 //
 //   keyCondition := awscdk.Aws_appsync.KeyCondition_BeginsWith(jsii.String("keyName"), jsii.String("arg"))
 //
-// Experimental.
 type KeyCondition interface {
 	// Conjunction between two conditions.
-	// Experimental.
 	And(keyCond KeyCondition) KeyCondition
 	// Renders the key condition to a VTL string.
-	// Experimental.
 	RenderTemplate() *string
 }
 
@@ -32,7 +29,6 @@ type jsiiProxy_KeyCondition struct {
 // Condition (k, arg).
 //
 // True if the key attribute k begins with the Query argument.
-// Experimental.
 func KeyCondition_BeginsWith(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
@@ -42,7 +38,7 @@ func KeyCondition_BeginsWith(keyName *string, arg *string) KeyCondition {
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"beginsWith",
 		[]interface{}{keyName, arg},
 		&returns,
@@ -52,7 +48,6 @@ func KeyCondition_BeginsWith(keyName *string, arg *string) KeyCondition {
 }
 
 // Condition k BETWEEN arg1 AND arg2, true if k >= arg1 and k <= arg2.
-// Experimental.
 func KeyCondition_Between(keyName *string, arg1 *string, arg2 *string) KeyCondition {
 	_init_.Initialize()
 
@@ -62,7 +57,7 @@ func KeyCondition_Between(keyName *string, arg1 *string, arg2 *string) KeyCondit
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"between",
 		[]interface{}{keyName, arg1, arg2},
 		&returns,
@@ -72,7 +67,6 @@ func KeyCondition_Between(keyName *string, arg1 *string, arg2 *string) KeyCondit
 }
 
 // Condition k = arg, true if the key attribute k is equal to the Query argument.
-// Experimental.
 func KeyCondition_Eq(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
@@ -82,7 +76,7 @@ func KeyCondition_Eq(keyName *string, arg *string) KeyCondition {
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"eq",
 		[]interface{}{keyName, arg},
 		&returns,
@@ -92,7 +86,6 @@ func KeyCondition_Eq(keyName *string, arg *string) KeyCondition {
 }
 
 // Condition k >= arg, true if the key attribute k is greater or equal to the Query argument.
-// Experimental.
 func KeyCondition_Ge(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
@@ -102,7 +95,7 @@ func KeyCondition_Ge(keyName *string, arg *string) KeyCondition {
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"ge",
 		[]interface{}{keyName, arg},
 		&returns,
@@ -112,7 +105,6 @@ func KeyCondition_Ge(keyName *string, arg *string) KeyCondition {
 }
 
 // Condition k > arg, true if the key attribute k is greater than the the Query argument.
-// Experimental.
 func KeyCondition_Gt(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
@@ -122,7 +114,7 @@ func KeyCondition_Gt(keyName *string, arg *string) KeyCondition {
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"gt",
 		[]interface{}{keyName, arg},
 		&returns,
@@ -132,7 +124,6 @@ func KeyCondition_Gt(keyName *string, arg *string) KeyCondition {
 }
 
 // Condition k <= arg, true if the key attribute k is less than or equal to the Query argument.
-// Experimental.
 func KeyCondition_Le(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
@@ -142,7 +133,7 @@ func KeyCondition_Le(keyName *string, arg *string) KeyCondition {
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"le",
 		[]interface{}{keyName, arg},
 		&returns,
@@ -152,7 +143,6 @@ func KeyCondition_Le(keyName *string, arg *string) KeyCondition {
 }
 
 // Condition k < arg, true if the key attribute k is less than the Query argument.
-// Experimental.
 func KeyCondition_Lt(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
@@ -162,7 +152,7 @@ func KeyCondition_Lt(keyName *string, arg *string) KeyCondition {
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.KeyCondition",
+		"aws-cdk-lib.aws_appsync.KeyCondition",
 		"lt",
 		[]interface{}{keyName, arg},
 		&returns,

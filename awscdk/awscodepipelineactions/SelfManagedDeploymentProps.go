@@ -1,7 +1,7 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for configuring self-managed permissions.
@@ -14,7 +14,6 @@ import (
 //   	AdministrationRole: existingAdminRole,
 //   })
 //
-// Experimental.
 type SelfManagedDeploymentProps struct {
 	// The IAM role in the administrator account used to assume execution roles in the target accounts.
 	//
@@ -28,7 +27,6 @@ type SelfManagedDeploymentProps struct {
 	// `AWSCloudFormationStackSetAdministrationRole`.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
-	// Experimental.
 	AdministrationRole awsiam.IRole `field:"optional" json:"administrationRole" yaml:"administrationRole"`
 	// The name of the IAM role in the target accounts used to perform stack set operations.
 	//
@@ -42,7 +40,6 @@ type SelfManagedDeploymentProps struct {
 	// scope the permissions down frome there you would be safer.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
-	// Experimental.
 	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 }
 

@@ -12,6 +12,10 @@ func (g *jsiiProxy_GraphqlApiBase) validateAddElasticsearchDataSourceParameters(
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApiBase) validateAddEventBridgeDataSourceParameters(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) error {
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApiBase) validateAddHttpDataSourceParameters(id *string, endpoint *string, options *HttpDataSourceOptions) error {
 	return nil
 }
@@ -40,7 +44,7 @@ func (g *jsiiProxy_GraphqlApiBase) validateApplyRemovalPolicyParameters(policy a
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApiBase) validateCreateResolverParameters(props *ExtendedResolverProps) error {
+func (g *jsiiProxy_GraphqlApiBase) validateCreateResolverParameters(id *string, props *ExtendedResolverProps) error {
 	return nil
 }
 
@@ -52,19 +56,15 @@ func (g *jsiiProxy_GraphqlApiBase) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApiBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (g *jsiiProxy_GraphqlApiBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateGraphqlApiBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateGraphqlApiBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateGraphqlApiBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateGraphqlApiBase_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

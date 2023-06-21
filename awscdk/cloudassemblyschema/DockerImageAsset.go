@@ -21,12 +21,36 @@ package cloudassemblyschema
 //   		},
 //   	},
 //   	Source: &DockerImageSource{
+//   		CacheFrom: []dockerCacheOption{
+//   			&dockerCacheOption{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Params: map[string]*string{
+//   					"paramsKey": jsii.String("params"),
+//   				},
+//   			},
+//   		},
+//   		CacheTo: &dockerCacheOption{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Params: map[string]*string{
+//   				"paramsKey": jsii.String("params"),
+//   			},
+//   		},
 //   		Directory: jsii.String("directory"),
 //   		DockerBuildArgs: map[string]*string{
 //   			"dockerBuildArgsKey": jsii.String("dockerBuildArgs"),
 //   		},
+//   		DockerBuildSecrets: map[string]*string{
+//   			"dockerBuildSecretsKey": jsii.String("dockerBuildSecrets"),
+//   		},
 //   		DockerBuildTarget: jsii.String("dockerBuildTarget"),
 //   		DockerFile: jsii.String("dockerFile"),
+//   		DockerOutputs: []*string{
+//   			jsii.String("dockerOutputs"),
+//   		},
 //   		Executable: []*string{
 //   			jsii.String("executable"),
 //   		},
@@ -35,13 +59,10 @@ package cloudassemblyschema
 //   	},
 //   }
 //
-// Experimental.
 type DockerImageAsset struct {
 	// Destinations for this file asset.
-	// Experimental.
 	Destinations *map[string]*DockerImageDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
-	// Experimental.
 	Source *DockerImageSource `field:"required" json:"source" yaml:"source"`
 }
 

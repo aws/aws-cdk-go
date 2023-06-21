@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -25,10 +25,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ProviderAttribute interface {
 	// The attribute value string as recognized by the provider.
-	// Experimental.
 	AttributeName() *string
 }
 
@@ -49,7 +47,6 @@ func (j *jsiiProxy_ProviderAttribute) AttributeName() *string {
 
 
 // Use this to specify an attribute from the identity provider that is not pre-defined in the CDK.
-// Experimental.
 func ProviderAttribute_Other(attributeName *string) ProviderAttribute {
 	_init_.Initialize()
 
@@ -59,7 +56,7 @@ func ProviderAttribute_Other(attributeName *string) ProviderAttribute {
 	var returns ProviderAttribute
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"other",
 		[]interface{}{attributeName},
 		&returns,
@@ -72,7 +69,7 @@ func ProviderAttribute_AMAZON_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_EMAIL",
 		&returns,
 	)
@@ -83,7 +80,7 @@ func ProviderAttribute_AMAZON_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_NAME",
 		&returns,
 	)
@@ -94,7 +91,7 @@ func ProviderAttribute_AMAZON_POSTAL_CODE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_POSTAL_CODE",
 		&returns,
 	)
@@ -105,7 +102,7 @@ func ProviderAttribute_AMAZON_USER_ID() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_USER_ID",
 		&returns,
 	)
@@ -116,7 +113,7 @@ func ProviderAttribute_APPLE_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_EMAIL",
 		&returns,
 	)
@@ -127,7 +124,7 @@ func ProviderAttribute_APPLE_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_FIRST_NAME",
 		&returns,
 	)
@@ -138,7 +135,7 @@ func ProviderAttribute_APPLE_LAST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_LAST_NAME",
 		&returns,
 	)
@@ -149,7 +146,7 @@ func ProviderAttribute_APPLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_NAME",
 		&returns,
 	)
@@ -160,7 +157,7 @@ func ProviderAttribute_FACEBOOK_BIRTHDAY() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_BIRTHDAY",
 		&returns,
 	)
@@ -171,7 +168,7 @@ func ProviderAttribute_FACEBOOK_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_EMAIL",
 		&returns,
 	)
@@ -182,7 +179,7 @@ func ProviderAttribute_FACEBOOK_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_FIRST_NAME",
 		&returns,
 	)
@@ -193,7 +190,7 @@ func ProviderAttribute_FACEBOOK_GENDER() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_GENDER",
 		&returns,
 	)
@@ -204,7 +201,7 @@ func ProviderAttribute_FACEBOOK_ID() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_ID",
 		&returns,
 	)
@@ -215,7 +212,7 @@ func ProviderAttribute_FACEBOOK_LAST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_LAST_NAME",
 		&returns,
 	)
@@ -226,7 +223,7 @@ func ProviderAttribute_FACEBOOK_LOCALE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_LOCALE",
 		&returns,
 	)
@@ -237,7 +234,7 @@ func ProviderAttribute_FACEBOOK_MIDDLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_MIDDLE_NAME",
 		&returns,
 	)
@@ -248,7 +245,7 @@ func ProviderAttribute_FACEBOOK_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_NAME",
 		&returns,
 	)
@@ -259,7 +256,7 @@ func ProviderAttribute_GOOGLE_BIRTHDAYS() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_BIRTHDAYS",
 		&returns,
 	)
@@ -270,7 +267,7 @@ func ProviderAttribute_GOOGLE_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_EMAIL",
 		&returns,
 	)
@@ -281,7 +278,7 @@ func ProviderAttribute_GOOGLE_FAMILY_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_FAMILY_NAME",
 		&returns,
 	)
@@ -292,7 +289,7 @@ func ProviderAttribute_GOOGLE_GENDER() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_GENDER",
 		&returns,
 	)
@@ -303,7 +300,7 @@ func ProviderAttribute_GOOGLE_GIVEN_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_GIVEN_NAME",
 		&returns,
 	)
@@ -314,7 +311,7 @@ func ProviderAttribute_GOOGLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_NAME",
 		&returns,
 	)
@@ -325,7 +322,7 @@ func ProviderAttribute_GOOGLE_NAMES() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_NAMES",
 		&returns,
 	)
@@ -336,7 +333,7 @@ func ProviderAttribute_GOOGLE_PHONE_NUMBERS() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_PHONE_NUMBERS",
 		&returns,
 	)
@@ -347,7 +344,7 @@ func ProviderAttribute_GOOGLE_PICTURE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_PICTURE",
 		&returns,
 	)

@@ -1,7 +1,7 @@
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,9 +13,6 @@ import (
 // value that will resolve to the tags at synthesis time.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdkcore"
-//
-//
 //   type myConstruct struct {
 //   	resource
 //   	tags
@@ -23,9 +20,9 @@ import (
 //
 //   func newMyConstruct(scope construct, id *string) *myConstruct {
 //   	this := &myConstruct{}
-//   	cdk.NewResource_Override(this, scope, id)
+//   	newResource_Override(this, scope, id)
 //
-//   	cdk.NewCfnResource(this, jsii.String("Resource"), &CfnResourceProps{
+//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
 //   		Type: jsii.String("Whatever::The::Type"),
 //   		Properties: map[string]interface{}{
 //   			// ...
@@ -35,31 +32,25 @@ import (
 //   	return this
 //   }
 //
-// Experimental.
 type TagManager interface {
 	// A lazy value that represents the rendered tags at synthesis time.
 	//
 	// If you need to make a custom construct taggable, use the value of this
 	// property to pass to the `tags` property of the underlying construct.
-	// Experimental.
 	RenderedTags() IResolvable
 	// The property name for tag values.
 	//
 	// Normally this is `tags` but some resources choose a different name. Cognito
 	// UserPool uses UserPoolTags.
-	// Experimental.
 	TagPropertyName() *string
 	// Determine if the aspect applies here.
 	//
 	// Looks at the include and exclude resourceTypeName arrays to determine if
 	// the aspect applies here.
-	// Experimental.
 	ApplyTagAspectHere(include *[]*string, exclude *[]*string) *bool
 	// Returns true if there are any tags defined.
-	// Experimental.
 	HasTags() *bool
 	// Removes the specified tag from the array if it exists.
-	// Experimental.
 	RemoveTag(key *string, priority *float64)
 	// Renders tags into the proper format based on TagType.
 	//
@@ -67,13 +58,10 @@ type TagManager interface {
 	// most cases, you should be using `tagManager.renderedTags` instead,
 	// which will return a `Lazy` value that will resolve to the correct
 	// tags at synthesis time.
-	// Experimental.
-	RenderTags() interface{}
+	RenderTags(combineWithTags interface{}) interface{}
 	// Adds the specified tag to the array of tags.
-	// Experimental.
 	SetTag(key *string, value *string, priority *float64, applyToLaunchedInstances *bool)
 	// Render the tags in a readable format.
-	// Experimental.
 	TagValues() *map[string]*string
 }
 
@@ -103,8 +91,7 @@ func (j *jsiiProxy_TagManager) TagPropertyName() *string {
 }
 
 
-// Experimental.
-func NewTagManager(tagType TagType, resourceTypeName *string, tagStructure interface{}, options *TagManagerOptions) TagManager {
+func NewTagManager(tagType TagType, resourceTypeName *string, initialTags interface{}, options *TagManagerOptions) TagManager {
 	_init_.Initialize()
 
 	if err := validateNewTagManagerParameters(tagType, resourceTypeName, options); err != nil {
@@ -113,27 +100,25 @@ func NewTagManager(tagType TagType, resourceTypeName *string, tagStructure inter
 	j := jsiiProxy_TagManager{}
 
 	_jsii_.Create(
-		"monocdk.TagManager",
-		[]interface{}{tagType, resourceTypeName, tagStructure, options},
+		"aws-cdk-lib.TagManager",
+		[]interface{}{tagType, resourceTypeName, initialTags, options},
 		&j,
 	)
 
 	return &j
 }
 
-// Experimental.
-func NewTagManager_Override(t TagManager, tagType TagType, resourceTypeName *string, tagStructure interface{}, options *TagManagerOptions) {
+func NewTagManager_Override(t TagManager, tagType TagType, resourceTypeName *string, initialTags interface{}, options *TagManagerOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.TagManager",
-		[]interface{}{tagType, resourceTypeName, tagStructure, options},
+		"aws-cdk-lib.TagManager",
+		[]interface{}{tagType, resourceTypeName, initialTags, options},
 		t,
 	)
 }
 
 // Check whether the given construct is Taggable.
-// Experimental.
 func TagManager_IsTaggable(construct interface{}) *bool {
 	_init_.Initialize()
 
@@ -143,8 +128,46 @@ func TagManager_IsTaggable(construct interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.TagManager",
+		"aws-cdk-lib.TagManager",
 		"isTaggable",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is ITaggableV2.
+func TagManager_IsTaggableV2(construct interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateTagManager_IsTaggableV2Parameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.TagManager",
+		"isTaggableV2",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return the TagManager associated with the given construct, if any.
+func TagManager_Of(construct interface{}) TagManager {
+	_init_.Initialize()
+
+	if err := validateTagManager_OfParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns TagManager
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.TagManager",
+		"of",
 		[]interface{}{construct},
 		&returns,
 	)
@@ -189,13 +212,13 @@ func (t *jsiiProxy_TagManager) RemoveTag(key *string, priority *float64) {
 	)
 }
 
-func (t *jsiiProxy_TagManager) RenderTags() interface{} {
+func (t *jsiiProxy_TagManager) RenderTags(combineWithTags interface{}) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		t,
 		"renderTags",
-		nil, // no parameters
+		[]interface{}{combineWithTags},
 		&returns,
 	)
 

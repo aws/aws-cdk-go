@@ -1,12 +1,12 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53targets/internal"
 )
 
 // Set an InterfaceVpcEndpoint as a target for an ARecord.
@@ -23,11 +23,9 @@ import (
 //   	Target: route53.RecordTarget_FromAlias(targets.NewInterfaceVpcEndpointTarget(interfaceVpcEndpoint)),
 //   })
 //
-// Experimental.
 type InterfaceVpcEndpointTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	// Experimental.
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
@@ -36,8 +34,7 @@ type jsiiProxy_InterfaceVpcEndpointTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
-func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) InterfaceVpcEndpointTarget {
+func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.InterfaceVpcEndpoint) InterfaceVpcEndpointTarget {
 	_init_.Initialize()
 
 	if err := validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint); err != nil {
@@ -46,7 +43,7 @@ func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) Int
 	j := jsiiProxy_InterfaceVpcEndpointTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.InterfaceVpcEndpointTarget",
+		"aws-cdk-lib.aws_route53_targets.InterfaceVpcEndpointTarget",
 		[]interface{}{vpcEndpoint},
 		&j,
 	)
@@ -54,12 +51,11 @@ func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) Int
 	return &j
 }
 
-// Experimental.
-func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEndpoint awsec2.IInterfaceVpcEndpoint) {
+func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEndpoint awsec2.InterfaceVpcEndpoint) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.InterfaceVpcEndpointTarget",
+		"aws-cdk-lib.aws_route53_targets.InterfaceVpcEndpointTarget",
 		[]interface{}{vpcEndpoint},
 		i,
 	)

@@ -46,27 +46,22 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 //
-// Experimental.
 type MessageAttributeDataType string
 
 const (
 	// Strings are Unicode with UTF-8 binary encoding.
-	// Experimental.
 	MessageAttributeDataType_STRING MessageAttributeDataType = "STRING"
 	// An array, formatted as a string.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	MessageAttributeDataType_STRING_ARRAY MessageAttributeDataType = "STRING_ARRAY"
 	// Numbers are positive or negative integers or floating-point numbers.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	MessageAttributeDataType_NUMBER MessageAttributeDataType = "NUMBER"
 	// Binary type attributes can store any binary data.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	MessageAttributeDataType_BINARY MessageAttributeDataType = "BINARY"
 )
 

@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for MariaDB instance engines.
 //
-// Used in {@link DatabaseInstanceEngine.mariaDb}.
+// Used in `DatabaseInstanceEngine.mariaDb`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,10 +16,8 @@ package awsrds
 //   	Version: mariaDbEngineVersion,
 //   }
 //
-// Experimental.
 type MariaDbInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version MariaDbEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Logging configuration for incoming requests.
@@ -20,16 +20,12 @@ import (
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
-// Experimental.
 type LoggingConfiguration struct {
 	// Bucket to log requests to.
-	// Experimental.
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Whether to include the cookies in the logs.
-	// Experimental.
 	IncludeCookies *bool `field:"optional" json:"includeCookies" yaml:"includeCookies"`
 	// Where in the bucket to store logs.
-	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

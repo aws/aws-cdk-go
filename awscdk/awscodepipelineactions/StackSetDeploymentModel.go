@@ -1,7 +1,7 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -49,7 +49,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type StackSetDeploymentModel interface {
 }
 
@@ -58,12 +57,11 @@ type jsiiProxy_StackSetDeploymentModel struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewStackSetDeploymentModel_Override(s StackSetDeploymentModel) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
 		nil, // no parameters
 		s,
 	)
@@ -77,7 +75,6 @@ func NewStackSetDeploymentModel_Override(s StackSetDeploymentModel) {
 //
 // Using this deployment model, you can specify either AWS Account Ids or
 // Organization Unit Ids in the `stackInstances` parameter.
-// Experimental.
 func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) StackSetDeploymentModel {
 	_init_.Initialize()
 
@@ -87,7 +84,7 @@ func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) 
 	var returns StackSetDeploymentModel
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
 		"organizations",
 		[]interface{}{props},
 		&returns,
@@ -117,8 +114,8 @@ func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) 
 // const existingAdminRole = iam.Role.fromRoleName(this, 'AdminRole', 'AWSCloudFormationStackSetAdministrationRole');
 //
 // const deploymentModel = codepipeline_actions.StackSetDeploymentModel.selfManaged({
-//    // Use an existing Role. Leave this out to create a new Role.
-//    administrationRole: existingAdminRole,
+//   // Use an existing Role. Leave this out to create a new Role.
+//   administrationRole: existingAdminRole,
 // });
 // ```
 //
@@ -126,7 +123,6 @@ func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) 
 // `stackInstances` parameter.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 //
-// Experimental.
 func StackSetDeploymentModel_SelfManaged(props *SelfManagedDeploymentProps) StackSetDeploymentModel {
 	_init_.Initialize()
 
@@ -136,7 +132,7 @@ func StackSetDeploymentModel_SelfManaged(props *SelfManagedDeploymentProps) Stac
 	var returns StackSetDeploymentModel
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
 		"selfManaged",
 		[]interface{}{props},
 		&returns,

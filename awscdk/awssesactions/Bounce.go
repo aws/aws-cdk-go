@@ -1,11 +1,11 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
 )
 
 // Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
@@ -27,11 +27,9 @@ import (
 //   	Topic: topic,
 //   })
 //
-// Experimental.
 type Bounce interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -40,7 +38,6 @@ type jsiiProxy_Bounce struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewBounce(props *BounceProps) Bounce {
 	_init_.Initialize()
 
@@ -50,7 +47,7 @@ func NewBounce(props *BounceProps) Bounce {
 	j := jsiiProxy_Bounce{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Bounce",
+		"aws-cdk-lib.aws_ses_actions.Bounce",
 		[]interface{}{props},
 		&j,
 	)
@@ -58,12 +55,11 @@ func NewBounce(props *BounceProps) Bounce {
 	return &j
 }
 
-// Experimental.
 func NewBounce_Override(b Bounce, props *BounceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Bounce",
+		"aws-cdk-lib.aws_ses_actions.Bounce",
 		[]interface{}{props},
 		b,
 	)

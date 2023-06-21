@@ -14,16 +14,12 @@ package awsroute53
 //   	Value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type CaaRecordValue struct {
 	// The flag.
-	// Experimental.
 	Flag *float64 `field:"required" json:"flag" yaml:"flag"`
 	// The tag.
-	// Experimental.
 	Tag CaaTag `field:"required" json:"tag" yaml:"tag"`
 	// The value associated with the tag.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

@@ -6,6 +6,8 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (t *jsiiProxy_Tags) validateAddParameters(key *string, value *string, props *TagProps) error {
@@ -36,7 +38,7 @@ func (t *jsiiProxy_Tags) validateRemoveParameters(key *string, props *TagProps) 
 	return nil
 }
 
-func validateTags_OfParameters(scope IConstruct) error {
+func validateTags_OfParameters(scope constructs.IConstruct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -16,16 +16,12 @@ package awscloudfront
 //   	Value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type ResponseCustomHeader struct {
 	// The HTTP response header name.
-	// Experimental.
 	Header *string `field:"required" json:"header" yaml:"header"`
 	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
-	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 	// The value for the HTTP response header.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

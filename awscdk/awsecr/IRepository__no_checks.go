@@ -20,6 +20,14 @@ func (i *jsiiProxy_IRepository) validateGrantPullPushParameters(grantee awsiam.I
 	return nil
 }
 
+func (i *jsiiProxy_IRepository) validateGrantPushParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (i *jsiiProxy_IRepository) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (i *jsiiProxy_IRepository) validateOnCloudTrailEventParameters(id *string, options *awsevents.OnEventOptions) error {
 	return nil
 }

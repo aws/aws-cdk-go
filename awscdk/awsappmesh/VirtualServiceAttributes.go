@@ -15,13 +15,10 @@ package awsappmesh
 //   	VirtualServiceName: jsii.String("virtualServiceName"),
 //   }
 //
-// Experimental.
 type VirtualServiceAttributes struct {
 	// The Mesh which the VirtualService belongs to.
-	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualService, it is recommended this follows the fully-qualified domain name format.
-	// Experimental.
 	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 

@@ -1,10 +1,10 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Constructs `IS3Location` objects.
@@ -41,10 +41,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type S3Location interface {
 	// Called when the S3Location is bound to a StepFunctions task.
-	// Experimental.
 	Bind(task ISageMakerTask, opts *S3LocationBindOptions) *S3LocationConfig
 }
 
@@ -53,19 +51,17 @@ type jsiiProxy_S3Location struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewS3Location_Override(s S3Location) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		nil, // no parameters
 		s,
 	)
 }
 
 // An `IS3Location` built with a determined bucket and key prefix.
-// Experimental.
 func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 	_init_.Initialize()
 
@@ -75,7 +71,7 @@ func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		"fromBucket",
 		[]interface{}{bucket, keyPrefix},
 		&returns,
@@ -88,7 +84,6 @@ func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 //
 // Due to the dynamic nature of those locations, the IAM grants that will be set by `grantRead` and `grantWrite`
 // apply to the `*` resource.
-// Experimental.
 func S3Location_FromJsonExpression(expression *string) S3Location {
 	_init_.Initialize()
 
@@ -98,7 +93,7 @@ func S3Location_FromJsonExpression(expression *string) S3Location {
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		"fromJsonExpression",
 		[]interface{}{expression},
 		&returns,

@@ -7,28 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (c *jsiiProxy_CfnJson) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnJson) validateResolveParameters(_arg IResolveContext) error {
-	if _arg == nil {
-		return fmt.Errorf("parameter _arg is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnJson) validateSynthesizeParameters(session ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnJson) validateResolveParameters(_context IResolveContext) error {
+	if _context == nil {
+		return fmt.Errorf("parameter _context is required, but nil was provided")
 	}
 
 	return nil

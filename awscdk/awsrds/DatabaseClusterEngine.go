@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,23 +11,28 @@ import (
 // used for secret rotation.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
-//
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
-//   	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
-//   	Vpc: Vpc,
-//   	Scaling: &ServerlessScalingOptions{
-//   		AutoPause: awscdk.Duration_Minutes(jsii.Number(10)),
-//   		 // default is to pause after 5 minutes of idle time
-//   		MinCapacity: rds.AuroraCapacityUnit_ACU_8,
-//   		 // default is 2 Aurora capacity units (ACUs)
-//   		MaxCapacity: rds.AuroraCapacityUnit_ACU_32,
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"),
+//   Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   	Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   }),
+//   Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+//    // Optional - will default to 'admin' username and generated password
+//   Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   	Readers: []iClusterInstance{
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
+//   			PromotionTier: jsii.Number(1),
+//   		}),
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
 //   	},
-//   })
+//   	VpcSubnets: map[string]subnetType{
+//   		"subnetType": ec2.*subnetType_PRIVATE_WITH_EGRESS,
+//   	},
+//   	Vpc: *Vpc,
+//   }),
 //
-// Experimental.
 type DatabaseClusterEngine interface {
 }
 
@@ -36,14 +41,13 @@ type jsiiProxy_DatabaseClusterEngine struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseClusterEngine{}
 
 	_jsii_.Create(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		nil, // no parameters
 		&j,
 	)
@@ -51,19 +55,17 @@ func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	return &j
 }
 
-// Experimental.
 func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Creates a new plain Aurora database cluster engine.
-// Experimental.
 func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
@@ -73,7 +75,7 @@ func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngin
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		"aurora",
 		[]interface{}{props},
 		&returns,
@@ -83,7 +85,6 @@ func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngin
 }
 
 // Creates a new Aurora MySQL database cluster engine.
-// Experimental.
 func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
@@ -93,7 +94,7 @@ func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) ICl
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		"auroraMysql",
 		[]interface{}{props},
 		&returns,
@@ -103,7 +104,6 @@ func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) ICl
 }
 
 // Creates a new Aurora PostgreSQL database cluster engine.
-// Experimental.
 func DatabaseClusterEngine_AuroraPostgres(props *AuroraPostgresClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
@@ -113,7 +113,7 @@ func DatabaseClusterEngine_AuroraPostgres(props *AuroraPostgresClusterEngineProp
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		"auroraPostgres",
 		[]interface{}{props},
 		&returns,
@@ -126,7 +126,7 @@ func DatabaseClusterEngine_AURORA() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		"AURORA",
 		&returns,
 	)
@@ -137,7 +137,7 @@ func DatabaseClusterEngine_AURORA_MYSQL() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		"AURORA_MYSQL",
 		&returns,
 	)
@@ -148,7 +148,7 @@ func DatabaseClusterEngine_AURORA_POSTGRESQL() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.DatabaseClusterEngine",
+		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
 		"AURORA_POSTGRESQL",
 		&returns,
 	)

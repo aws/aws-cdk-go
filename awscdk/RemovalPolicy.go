@@ -8,7 +8,7 @@ package awscdk
 //
 // - The resource is removed from the template, so CloudFormation stops managing it;
 // - A change to the resource is made that requires it to be replaced, so CloudFormation stops
-//    managing it;
+//   managing it;
 // - The stack is deleted, so CloudFormation stops managing all resources in it.
 //
 // The Removal Policy applies to all above cases.
@@ -35,7 +35,7 @@ package awscdk
 //
 //   user := iam.NewUser(this, jsii.String("User"))
 //   domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: opensearch.EngineVersion_OPENSEARCH_1_2(),
+//   	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
 //   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 //   	FineGrainedAccessControl: &AdvancedSecurityOptions{
 //   		MasterUserArn: user.UserArn,
@@ -48,7 +48,7 @@ package awscdk
 //   })
 //   ds := api.AddOpenSearchDataSource(jsii.String("ds"), domain)
 //
-//   ds.CreateResolver(&BaseResolverProps{
+//   ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
 //   	TypeName: jsii.String("Query"),
 //   	FieldName: jsii.String("getTests"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jSON.stringify(map[string]interface{}{
@@ -74,7 +74,6 @@ package awscdk
 //   	  ]`)),
 //   })
 //
-// Experimental.
 type RemovalPolicy string
 
 const (
@@ -82,18 +81,15 @@ const (
 	//
 	// It means that when the resource is
 	// removed from the app, it will be physically destroyed.
-	// Experimental.
 	RemovalPolicy_DESTROY RemovalPolicy = "DESTROY"
 	// This uses the 'Retain' DeletionPolicy, which will cause the resource to be retained in the account, but orphaned from the stack.
-	// Experimental.
 	RemovalPolicy_RETAIN RemovalPolicy = "RETAIN"
 	// This retention policy deletes the resource, but saves a snapshot of its data before deleting, so that it can be re-created later.
 	//
 	// Only available for some stateful resources,
-	// like databases, EFS volumes, etc.
+	// like databases, EC2 volumes, etc.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
 	//
-	// Experimental.
 	RemovalPolicy_SNAPSHOT RemovalPolicy = "SNAPSHOT"
 )
 

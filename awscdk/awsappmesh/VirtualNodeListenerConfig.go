@@ -133,10 +133,8 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type VirtualNodeListenerConfig struct {
 	// Single listener config for a VirtualNode.
-	// Experimental.
 	Listener *CfnVirtualNode_ListenerProperty `field:"required" json:"listener" yaml:"listener"`
 }
 

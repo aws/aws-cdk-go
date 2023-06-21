@@ -1,6 +1,8 @@
 package awsamplifyuibuilder
 
 
+// Describes the configuration for the file uploader field.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,17 +22,29 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FileUploaderFieldConfigProperty struct {
-	// `CfnForm.FileUploaderFieldConfigProperty.AcceptedFileTypes`.
+	// The file types that are allowed to be uploaded by the file uploader.
+	//
+	// Provide this information in an array of strings specifying the valid file extensions.
 	AcceptedFileTypes *[]*string `field:"required" json:"acceptedFileTypes" yaml:"acceptedFileTypes"`
-	// `CfnForm.FileUploaderFieldConfigProperty.AccessLevel`.
+	// The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored.
+	//
+	// The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
 	AccessLevel *string `field:"required" json:"accessLevel" yaml:"accessLevel"`
-	// `CfnForm.FileUploaderFieldConfigProperty.IsResumable`.
+	// Allows the file upload operation to be paused and resumed. The default value is `false` .
+	//
+	// When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
 	IsResumable interface{} `field:"optional" json:"isResumable" yaml:"isResumable"`
-	// `CfnForm.FileUploaderFieldConfigProperty.MaxFileCount`.
+	// Specifies the maximum number of files that can be selected to upload.
+	//
+	// The default value is an unlimited number of files.
 	MaxFileCount *float64 `field:"optional" json:"maxFileCount" yaml:"maxFileCount"`
-	// `CfnForm.FileUploaderFieldConfigProperty.MaxSize`.
+	// The maximum file size in bytes that the file uploader will accept.
+	//
+	// The default value is an unlimited file size.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
-	// `CfnForm.FileUploaderFieldConfigProperty.ShowThumbnails`.
+	// Specifies whether to display or hide the image preview after selecting a file for upload.
+	//
+	// The default value is `true` to display the image preview.
 	ShowThumbnails interface{} `field:"optional" json:"showThumbnails" yaml:"showThumbnails"`
 }
 

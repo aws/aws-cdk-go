@@ -1,7 +1,7 @@
 package awscodebuild
 
 
-// The type returned from {@link IArtifacts#bind}.
+// The type returned from `IArtifacts#bind`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,10 +24,8 @@ package awscodebuild
 //   	},
 //   }
 //
-// Experimental.
 type ArtifactsConfig struct {
 	// The low-level CloudFormation artifacts property.
-	// Experimental.
 	ArtifactsProperty *CfnProject_ArtifactsProperty `field:"required" json:"artifactsProperty" yaml:"artifactsProperty"`
 }
 

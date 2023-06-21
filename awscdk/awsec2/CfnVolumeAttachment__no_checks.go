@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVolumeAttachment) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnVolumeAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVolumeAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVolumeAttachment) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnVolumeAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVolumeAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVolumeAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVolumeAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVolumeAttachment) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnVolumeAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVolumeAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnVolumeAttachment) validateSetVolumeIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnVolumeAttachmentParameters(scope awscdk.Construct, id *string, props *CfnVolumeAttachmentProps) error {
+func validateNewCfnVolumeAttachmentParameters(scope constructs.Construct, id *string, props *CfnVolumeAttachmentProps) error {
 	return nil
 }
 

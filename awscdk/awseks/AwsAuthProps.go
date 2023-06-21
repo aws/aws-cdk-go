@@ -14,12 +14,10 @@ package awseks
 //   	Cluster: cluster,
 //   }
 //
-// Experimental.
 type AwsAuthProps struct {
 	// The EKS cluster to apply this configuration to.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
 	Cluster Cluster `field:"required" json:"cluster" yaml:"cluster"`
 }
 

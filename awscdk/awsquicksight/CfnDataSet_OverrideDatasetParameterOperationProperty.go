@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,9 +32,9 @@ package awsquicksight
 type CfnDataSet_OverrideDatasetParameterOperationProperty struct {
 	// `CfnDataSet.OverrideDatasetParameterOperationProperty.ParameterName`.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
-	// `CfnDataSet.OverrideDatasetParameterOperationProperty.NewDefaultValues`.
+	// The new default values for the parameter.
 	NewDefaultValues interface{} `field:"optional" json:"newDefaultValues" yaml:"newDefaultValues"`
-	// `CfnDataSet.OverrideDatasetParameterOperationProperty.NewParameterName`.
+	// The new name for the parameter.
 	NewParameterName *string `field:"optional" json:"newParameterName" yaml:"newParameterName"`
 }
 

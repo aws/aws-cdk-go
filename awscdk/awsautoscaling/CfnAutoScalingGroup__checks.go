@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnAutoScalingGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnAutoScalingGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -186,6 +198,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityRebalanceParameters(v
 
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetLaunchTemplateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAutoScalingGroup_LaunchTemplateSpecificationProperty:
 		val := val.(*CfnAutoScalingGroup_LaunchTemplateSpecificationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -197,11 +211,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetLaunchTemplateParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAutoScalingGroup_LaunchTemplateSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_LaunchTemplateSpecificationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -216,6 +228,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetLifecycleHookSpecificationLis
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAutoScalingGroup_LifecycleHookSpecificationProperty:
 				v := v.(*CfnAutoScalingGroup_LifecycleHookSpecificationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -227,11 +241,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetLifecycleHookSpecificationLis
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAutoScalingGroup_LifecycleHookSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_LifecycleHookSpecificationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -240,6 +252,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetLifecycleHookSpecificationLis
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAutoScalingGroup_LifecycleHookSpecificationProperty:
 				v := v.(*CfnAutoScalingGroup_LifecycleHookSpecificationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -251,11 +265,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetLifecycleHookSpecificationLis
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAutoScalingGroup_LifecycleHookSpecificationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_LifecycleHookSpecificationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -284,6 +296,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMetricsCollectionParameters(v
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAutoScalingGroup_MetricsCollectionProperty:
 				v := v.(*CfnAutoScalingGroup_MetricsCollectionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -295,11 +309,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMetricsCollectionParameters(v
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAutoScalingGroup_MetricsCollectionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_MetricsCollectionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -308,6 +320,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMetricsCollectionParameters(v
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAutoScalingGroup_MetricsCollectionProperty:
 				v := v.(*CfnAutoScalingGroup_MetricsCollectionProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -319,11 +333,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMetricsCollectionParameters(v
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAutoScalingGroup_MetricsCollectionProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_MetricsCollectionProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -346,6 +358,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMinSizeParameters(val *string
 
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMixedInstancesPolicyParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnAutoScalingGroup_MixedInstancesPolicyProperty:
 		val := val.(*CfnAutoScalingGroup_MixedInstancesPolicyProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -357,11 +371,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetMixedInstancesPolicyParameter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAutoScalingGroup_MixedInstancesPolicyProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_MixedInstancesPolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -393,6 +405,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAutoScalingGroup_NotificationConfigurationProperty:
 				v := v.(*CfnAutoScalingGroup_NotificationConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -404,11 +418,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAutoScalingGroup_NotificationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_NotificationConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -417,6 +429,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnAutoScalingGroup_NotificationConfigurationProperty:
 				v := v.(*CfnAutoScalingGroup_NotificationConfigurationProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -428,11 +442,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnAutoScalingGroup_NotificationConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_NotificationConfigurationProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -445,7 +457,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 	return nil
 }
 
-func validateNewCfnAutoScalingGroupParameters(scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) error {
+func validateNewCfnAutoScalingGroupParameters(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

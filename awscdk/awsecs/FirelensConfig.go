@@ -19,13 +19,10 @@ package awsecs
 //   	},
 //   }
 //
-// Experimental.
 type FirelensConfig struct {
 	// The log router to use.
-	// Experimental.
 	Type FirelensLogRouterType `field:"required" json:"type" yaml:"type"`
 	// Firelens options.
-	// Experimental.
 	Options *FirelensOptions `field:"optional" json:"options" yaml:"options"`
 }
 

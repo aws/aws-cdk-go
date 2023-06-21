@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnScalingPolicy) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnScalingPolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnScalingPolicy) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnScalingPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnScalingPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnScalingPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnScalingPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnScalingPolicy) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnScalingPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnScalingPolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -177,6 +189,8 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetAutoScalingGroupNameParameters(v
 
 func (j *jsiiProxy_CfnScalingPolicy) validateSetPredictiveScalingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScalingPolicy_PredictiveScalingConfigurationProperty:
 		val := val.(*CfnScalingPolicy_PredictiveScalingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -188,11 +202,9 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetPredictiveScalingConfigurationPa
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScalingPolicy_PredictiveScalingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScalingPolicy_PredictiveScalingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -207,6 +219,8 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepAdjustmentsParameters(val in
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnScalingPolicy_StepAdjustmentProperty:
 				v := v.(*CfnScalingPolicy_StepAdjustmentProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -218,11 +232,9 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepAdjustmentsParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnScalingPolicy_StepAdjustmentProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnScalingPolicy_StepAdjustmentProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -231,6 +243,8 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepAdjustmentsParameters(val in
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnScalingPolicy_StepAdjustmentProperty:
 				v := v.(*CfnScalingPolicy_StepAdjustmentProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -242,11 +256,9 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepAdjustmentsParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnScalingPolicy_StepAdjustmentProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnScalingPolicy_StepAdjustmentProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -261,6 +273,8 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetStepAdjustmentsParameters(val in
 
 func (j *jsiiProxy_CfnScalingPolicy) validateSetTargetTrackingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnScalingPolicy_TargetTrackingConfigurationProperty:
 		val := val.(*CfnScalingPolicy_TargetTrackingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -272,18 +286,16 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetTargetTrackingConfigurationParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnScalingPolicy_TargetTrackingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScalingPolicy_TargetTrackingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnScalingPolicyParameters(scope awscdk.Construct, id *string, props *CfnScalingPolicyProps) error {
+func validateNewCfnScalingPolicyParameters(scope constructs.Construct, id *string, props *CfnScalingPolicyProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

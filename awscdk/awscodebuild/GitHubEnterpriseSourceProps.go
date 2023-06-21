@@ -1,7 +1,7 @@
 package awscodebuild
 
 
-// Construction properties for {@link GitHubEnterpriseSource}.
+// Construction properties for `GitHubEnterpriseSource`.
 //
 // Example:
 //   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
@@ -31,22 +31,18 @@ package awscodebuild
 //   	}),
 //   })
 //
-// Experimental.
 type GitHubEnterpriseSourceProps struct {
 	// The source identifier.
 	//
 	// This property is required on secondary sources.
-	// Experimental.
 	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// The HTTPS URL of the repository in your GitHub Enterprise installation.
-	// Experimental.
 	HttpsCloneUrl *string `field:"required" json:"httpsCloneUrl" yaml:"httpsCloneUrl"`
 	// The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build.
 	//
 	// Example:
 	//   "mybranch"
 	//
-	// Experimental.
 	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// This parameter is used for the `context` parameter in the GitHub commit status.
 	//
@@ -57,7 +53,6 @@ type GitHubEnterpriseSourceProps struct {
 	//
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
-	// Experimental.
 	BuildStatusContext *string `field:"optional" json:"buildStatusContext" yaml:"buildStatusContext"`
 	// The URL that the build will report back to the source provider.
 	//
@@ -68,37 +63,29 @@ type GitHubEnterpriseSourceProps struct {
 	//
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
-	// Experimental.
 	BuildStatusUrl *string `field:"optional" json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
 	// If this value is 0, greater than 25, or not provided,
 	// then the full history is downloaded with each build of the project.
-	// Experimental.
 	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
-	// Experimental.
 	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 	// Whether to ignore SSL errors when connecting to the repository.
-	// Experimental.
 	IgnoreSslErrors *bool `field:"optional" json:"ignoreSslErrors" yaml:"ignoreSslErrors"`
 	// Whether to send notifications on your build's start and end.
-	// Experimental.
 	ReportBuildStatus *bool `field:"optional" json:"reportBuildStatus" yaml:"reportBuildStatus"`
 	// Whether to create a webhook that will trigger a build every time an event happens in the repository.
-	// Experimental.
 	Webhook *bool `field:"optional" json:"webhook" yaml:"webhook"`
 	// A list of webhook filters that can constraint what events in the repository will trigger a build.
 	//
 	// A build is triggered if any of the provided filter groups match.
 	// Only valid if `webhook` was not provided as false.
-	// Experimental.
 	WebhookFilters *[]FilterGroup `field:"optional" json:"webhookFilters" yaml:"webhookFilters"`
 	// Trigger a batch build from a webhook instead of a standard one.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
-	// Experimental.
 	WebhookTriggersBatchBuild *bool `field:"optional" json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
 }
 

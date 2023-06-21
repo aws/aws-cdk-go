@@ -32,13 +32,10 @@ package awseks
 //   	},
 //   })
 //
-// Experimental.
 type LaunchTemplateSpec struct {
 	// The Launch template ID.
-	// Experimental.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The launch template version to be used (optional).
-	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

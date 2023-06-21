@@ -8,11 +8,7 @@ func (n *jsiiProxy_NestedStack) validateAddDependencyParameters(target Stack) er
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateAddFileAssetParameters(asset *FileAssetSource) error {
+func (n *jsiiProxy_NestedStack) validateAddMetadataParameters(key *string, value interface{}) error {
 	return nil
 }
 
@@ -21,6 +17,10 @@ func (n *jsiiProxy_NestedStack) validateAddTransformParameters(transform *string
 }
 
 func (n *jsiiProxy_NestedStack) validateAllocateLogicalIdParameters(cfnElement CfnElement) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateExportStringListValueParameters(exportedValue interface{}, options *ExportValueOptions) error {
 	return nil
 }
 
@@ -36,27 +36,11 @@ func (n *jsiiProxy_NestedStack) validateGetLogicalIdParameters(element CfnElemen
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateParseArnParameters(arn *string) error {
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validatePrepareCrossReferenceParameters(_sourceStack Stack, reference Reference) error {
-	return nil
-}
-
 func (n *jsiiProxy_NestedStack) validateRegionalFactParameters(factName *string) error {
 	return nil
 }
 
 func (n *jsiiProxy_NestedStack) validateRenameLogicalIdParameters(oldId *string, newId *string) error {
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
 	return nil
 }
 
@@ -76,11 +60,11 @@ func (n *jsiiProxy_NestedStack) validateSplitArnParameters(arn *string, arnForma
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateSynthesizeParameters(session ISynthesisSession) error {
+func (n *jsiiProxy_NestedStack) validateToJsonStringParameters(obj interface{}) error {
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateToJsonStringParameters(obj interface{}) error {
+func (n *jsiiProxy_NestedStack) validateToYamlStringParameters(obj interface{}) error {
 	return nil
 }
 

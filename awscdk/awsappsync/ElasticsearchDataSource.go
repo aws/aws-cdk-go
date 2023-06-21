@@ -1,12 +1,11 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An Appsync datasource backed by Elasticsearch.
@@ -48,70 +47,22 @@ type ElasticsearchDataSource interface {
 	// the name of the data source.
 	// Deprecated: - use `OpenSearchDataSource`.
 	Name() *string
-	// The construct tree node associated with this construct.
+	// The tree node.
 	// Deprecated: - use `OpenSearchDataSource`.
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	// Deprecated: - use `OpenSearchDataSource`.
 	ServiceRole() awsiam.IRole
 	// Deprecated: - use `OpenSearchDataSource`.
 	SetServiceRole(val awsiam.IRole)
 	// creates a new appsync function for this datasource and API using the given properties.
 	// Deprecated: - use `OpenSearchDataSource`.
-	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
+	CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction
 	// creates a new resolver for this datasource and API using the given properties.
 	// Deprecated: - use `OpenSearchDataSource`.
-	CreateResolver(props *BaseResolverProps) Resolver
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Deprecated: - use `OpenSearchDataSource`.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Deprecated: - use `OpenSearchDataSource`.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Deprecated: - use `OpenSearchDataSource`.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Deprecated: - use `OpenSearchDataSource`.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Deprecated: - use `OpenSearchDataSource`.
-	Synthesize(session awscdk.ISynthesisSession)
+	CreateResolver(id *string, props *BaseResolverProps) Resolver
 	// Returns a string representation of this construct.
 	// Deprecated: - use `OpenSearchDataSource`.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Deprecated: - use `OpenSearchDataSource`.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ElasticsearchDataSource
@@ -159,8 +110,8 @@ func (j *jsiiProxy_ElasticsearchDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ElasticsearchDataSource) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ElasticsearchDataSource) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -190,7 +141,7 @@ func NewElasticsearchDataSource(scope constructs.Construct, id *string, props *E
 	j := jsiiProxy_ElasticsearchDataSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.ElasticsearchDataSource",
+		"aws-cdk-lib.aws_appsync.ElasticsearchDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -203,7 +154,7 @@ func NewElasticsearchDataSource_Override(e ElasticsearchDataSource, scope constr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.ElasticsearchDataSource",
+		"aws-cdk-lib.aws_appsync.ElasticsearchDataSource",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -228,7 +179,23 @@ func (j *jsiiProxy_ElasticsearchDataSource)SetServiceRole(val awsiam.IRole) {
 	)
 }
 
-// Return whether the given object is a Construct.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 // Deprecated: - use `OpenSearchDataSource`.
 func ElasticsearchDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
@@ -239,7 +206,7 @@ func ElasticsearchDataSource_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appsync.ElasticsearchDataSource",
+		"aws-cdk-lib.aws_appsync.ElasticsearchDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -248,8 +215,8 @@ func ElasticsearchDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
-	if err := e.validateCreateFunctionParameters(props); err != nil {
+func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := e.validateCreateFunctionParameters(id, props); err != nil {
 		panic(err)
 	}
 	var returns AppsyncFunction
@@ -257,15 +224,15 @@ func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(props *BaseAppsyncFun
 	_jsii_.Invoke(
 		e,
 		"createFunction",
-		[]interface{}{props},
+		[]interface{}{id, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (e *jsiiProxy_ElasticsearchDataSource) CreateResolver(props *BaseResolverProps) Resolver {
-	if err := e.validateCreateResolverParameters(props); err != nil {
+func (e *jsiiProxy_ElasticsearchDataSource) CreateResolver(id *string, props *BaseResolverProps) Resolver {
+	if err := e.validateCreateResolverParameters(id, props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -273,62 +240,11 @@ func (e *jsiiProxy_ElasticsearchDataSource) CreateResolver(props *BaseResolverPr
 	_jsii_.Invoke(
 		e,
 		"createResolver",
-		[]interface{}{props},
+		[]interface{}{id, props},
 		&returns,
 	)
 
 	return returns
-}
-
-func (e *jsiiProxy_ElasticsearchDataSource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_ElasticsearchDataSource) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := e.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_ElasticsearchDataSource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_ElasticsearchDataSource) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_ElasticsearchDataSource) Synthesize(session awscdk.ISynthesisSession) {
-	if err := e.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 func (e *jsiiProxy_ElasticsearchDataSource) ToString() *string {
@@ -337,19 +253,6 @@ func (e *jsiiProxy_ElasticsearchDataSource) ToString() *string {
 	_jsii_.Invoke(
 		e,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_ElasticsearchDataSource) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

@@ -11,21 +11,25 @@ package awslogs
 //   			jsii.String("@timestamp"),
 //   			jsii.String("@message"),
 //   		},
+//   		ParseStatements: []*string{
+//   			jsii.String("@message \"[*] *\" as loggingType, loggingMessage"),
+//   			jsii.String("@message \"<*>: *\" as differentLoggingType, differentLoggingMessage"),
+//   		},
+//   		FilterStatements: []*string{
+//   			jsii.String("loggingType = \"ERROR\""),
+//   			jsii.String("loggingMessage = \"A very strange error occurred!\""),
+//   		},
 //   		Sort: jsii.String("@timestamp desc"),
 //   		Limit: jsii.Number(20),
 //   	}),
 //   })
 //
-// Experimental.
 type QueryDefinitionProps struct {
 	// Name of the query definition.
-	// Experimental.
 	QueryDefinitionName *string `field:"required" json:"queryDefinitionName" yaml:"queryDefinitionName"`
 	// The query string to use for this query definition.
-	// Experimental.
 	QueryString QueryString `field:"required" json:"queryString" yaml:"queryString"`
 	// Specify certain log groups for the query definition.
-	// Experimental.
 	LogGroups *[]ILogGroup `field:"optional" json:"logGroups" yaml:"logGroups"`
 }
 

@@ -16,7 +16,6 @@ package awsautoscaling
 //   	UpperBound: jsii.Number(123),
 //   }
 //
-// Experimental.
 type AdjustmentTier struct {
 	// What number to adjust the capacity with.
 	//
@@ -25,19 +24,16 @@ type AdjustmentTier struct {
 	// StepScalingPolicy.
 	//
 	// Can be positive or negative.
-	// Experimental.
 	Adjustment *float64 `field:"required" json:"adjustment" yaml:"adjustment"`
 	// Lower bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is higher than this value.
-	// Experimental.
 	LowerBound *float64 `field:"optional" json:"lowerBound" yaml:"lowerBound"`
 	// Upper bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is lower than this value.
-	// Experimental.
 	UpperBound *float64 `field:"optional" json:"upperBound" yaml:"upperBound"`
 }
 

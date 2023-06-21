@@ -85,7 +85,9 @@ type CfnFlow_SourceProperty struct {
 	SenderIpAddress *string `field:"optional" json:"senderIpAddress" yaml:"senderIpAddress"`
 	// The ARN of the source.
 	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
-	// The port that the flow will be listening on for incoming content.
+	// The port that the flow listens on for incoming content.
+	//
+	// If the protocol of the source is Zixi, the port must be set to 2088.
 	SourceIngestPort *string `field:"optional" json:"sourceIngestPort" yaml:"sourceIngestPort"`
 	// Source IP or domain name for SRT-caller protocol.
 	SourceListenerAddress *string `field:"optional" json:"sourceListenerAddress" yaml:"sourceListenerAddress"`

@@ -12,10 +12,8 @@ package awscodestarnotifications
 //   	SourceArn: jsii.String("sourceArn"),
 //   }
 //
-// Experimental.
 type NotificationRuleSourceConfig struct {
 	// The Amazon Resource Name (ARN) of the notification source.
-	// Experimental.
 	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 }
 

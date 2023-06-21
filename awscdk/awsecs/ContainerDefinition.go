@@ -1,13 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A container definition is used in a task definition to describe the containers that are launched as part of a task.
@@ -41,20 +40,17 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ContainerDefinition interface {
-	awscdk.Construct
+	constructs.Construct
 	// An array dependencies defined for container startup and shutdown.
-	// Experimental.
 	ContainerDependencies() *[]*ContainerDependency
 	// The name of this container.
-	// Experimental.
 	ContainerName() *string
 	// The port the container will listen on.
-	// Experimental.
 	ContainerPort() *float64
+	// The number of cpu units reserved for the container.
+	Cpu() *float64
 	// The environment files for this container.
-	// Experimental.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
 	// Specifies whether the container will be marked essential.
 	//
@@ -64,146 +60,78 @@ type ContainerDefinition interface {
 	// failure does not affect the rest of the containers in a task.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
-	// Experimental.
 	Essential() *bool
 	// The name of the image referenced by this container.
-	// Experimental.
 	ImageName() *string
 	// The inbound rules associated with the security group the task or service will use.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
-	// Experimental.
 	IngressPort() *float64
 	// The Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
-	// Experimental.
 	LinuxParameters() LinuxParameters
 	// The log configuration specification for the container.
-	// Experimental.
 	LogDriverConfig() *LogDriverConfig
 	// Whether there was at least one memory limit specified in this definition.
-	// Experimental.
 	MemoryLimitSpecified() *bool
 	// The mount points for data volumes in your container.
-	// Experimental.
 	MountPoints() *[]*MountPoint
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The list of port mappings for the container.
 	//
 	// Port mappings allow containers to access ports
 	// on the host container instance to send or receive traffic.
-	// Experimental.
 	PortMappings() *[]*PortMapping
+	// Specifies whether a TTY must be allocated for this container.
+	PseudoTerminal() *bool
 	// Whether this container definition references a specific JSON field of a secret stored in Secrets Manager.
-	// Experimental.
 	ReferencesSecretJsonField() *bool
 	// The name of the task definition that includes this container definition.
-	// Experimental.
 	TaskDefinition() TaskDefinition
 	// An array of ulimits to set in the container.
-	// Experimental.
 	Ulimits() *[]*Ulimit
 	// The data volumes to mount from another container in the same task definition.
-	// Experimental.
 	VolumesFrom() *[]*VolumeFrom
 	// This method adds one or more container dependencies to the container.
-	// Experimental.
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
 	// This method adds an environment variable to the container.
-	// Experimental.
 	AddEnvironment(name *string, value *string)
 	// This method adds one or more resources to the container.
-	// Experimental.
 	AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string)
 	// This method adds a link which allows containers to communicate with each other without the need for port mappings.
 	//
 	// This parameter is only supported if the task definition is using the bridge network mode.
 	// Warning: The --link flag is a legacy feature of Docker. It may eventually be removed.
-	// Experimental.
 	AddLink(container ContainerDefinition, alias *string)
 	// This method adds one or more mount points for data volumes to the container.
-	// Experimental.
 	AddMountPoints(mountPoints ...*MountPoint)
 	// This method adds one or more port mappings to the container.
-	// Experimental.
 	AddPortMappings(portMappings ...*PortMapping)
 	// This method mounts temporary disk space to the container.
 	//
 	// This adds the correct container mountPoint and task definition volume.
-	// Experimental.
 	AddScratch(scratch *ScratchSpace)
+	// This method adds a secret as environment variable to the container.
+	AddSecret(name *string, secret Secret)
 	// This method adds the specified statement to the IAM task execution policy in the task definition.
-	// Experimental.
 	AddToExecutionPolicy(statement awsiam.PolicyStatement)
 	// This method adds one or more ulimits to the container.
-	// Experimental.
 	AddUlimits(ulimits ...*Ulimit)
 	// This method adds one or more volumes to the container.
-	// Experimental.
 	AddVolumesFrom(volumesFrom ...*VolumeFrom)
 	// Returns the host port for the requested container port if it exists.
-	// Experimental.
 	FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
+	// Returns the port mapping with the given name, if it exists.
+	FindPortMappingByName(name *string) *PortMapping
 	// Render this container definition to a CloudFormation object.
-	// Experimental.
 	RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ContainerDefinition
 type jsiiProxy_ContainerDefinition struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_ContainerDefinition) ContainerDependencies() *[]*ContainerDependency {
@@ -231,6 +159,16 @@ func (j *jsiiProxy_ContainerDefinition) ContainerPort() *float64 {
 	_jsii_.Get(
 		j,
 		"containerPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ContainerDefinition) Cpu() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"cpu",
 		&returns,
 	)
 	return returns
@@ -316,8 +254,8 @@ func (j *jsiiProxy_ContainerDefinition) MountPoints() *[]*MountPoint {
 	return returns
 }
 
-func (j *jsiiProxy_ContainerDefinition) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ContainerDefinition) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -331,6 +269,16 @@ func (j *jsiiProxy_ContainerDefinition) PortMappings() *[]*PortMapping {
 	_jsii_.Get(
 		j,
 		"portMappings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ContainerDefinition) PseudoTerminal() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"pseudoTerminal",
 		&returns,
 	)
 	return returns
@@ -378,7 +326,6 @@ func (j *jsiiProxy_ContainerDefinition) VolumesFrom() *[]*VolumeFrom {
 
 
 // Constructs a new instance of the ContainerDefinition class.
-// Experimental.
 func NewContainerDefinition(scope constructs.Construct, id *string, props *ContainerDefinitionProps) ContainerDefinition {
 	_init_.Initialize()
 
@@ -388,7 +335,7 @@ func NewContainerDefinition(scope constructs.Construct, id *string, props *Conta
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.ContainerDefinition",
+		"aws-cdk-lib.aws_ecs.ContainerDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -397,19 +344,33 @@ func NewContainerDefinition(scope constructs.Construct, id *string, props *Conta
 }
 
 // Constructs a new instance of the ContainerDefinition class.
-// Experimental.
 func NewContainerDefinition_Override(c ContainerDefinition, scope constructs.Construct, id *string, props *ContainerDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.ContainerDefinition",
+		"aws-cdk-lib.aws_ecs.ContainerDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func ContainerDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -419,7 +380,7 @@ func ContainerDefinition_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ContainerDefinition",
+		"aws-cdk-lib.aws_ecs.ContainerDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -522,6 +483,17 @@ func (c *jsiiProxy_ContainerDefinition) AddScratch(scratch *ScratchSpace) {
 	)
 }
 
+func (c *jsiiProxy_ContainerDefinition) AddSecret(name *string, secret Secret) {
+	if err := c.validateAddSecretParameters(name, secret); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addSecret",
+		[]interface{}{name, secret},
+	)
+}
+
 func (c *jsiiProxy_ContainerDefinition) AddToExecutionPolicy(statement awsiam.PolicyStatement) {
 	if err := c.validateAddToExecutionPolicyParameters(statement); err != nil {
 		panic(err)
@@ -581,44 +553,20 @@ func (c *jsiiProxy_ContainerDefinition) FindPortMapping(containerPort *float64, 
 	return returns
 }
 
-func (c *jsiiProxy_ContainerDefinition) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_ContainerDefinition) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
+func (c *jsiiProxy_ContainerDefinition) FindPortMappingByName(name *string) *PortMapping {
+	if err := c.validateFindPortMappingByNameParameters(name); err != nil {
 		panic(err)
 	}
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_ContainerDefinition) OnValidate() *[]*string {
-	var returns *[]*string
+	var returns *PortMapping
 
 	_jsii_.Invoke(
 		c,
-		"onValidate",
-		nil, // no parameters
+		"findPortMappingByName",
+		[]interface{}{name},
 		&returns,
 	)
 
 	return returns
-}
-
-func (c *jsiiProxy_ContainerDefinition) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
 }
 
 func (c *jsiiProxy_ContainerDefinition) RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty {
@@ -634,36 +582,12 @@ func (c *jsiiProxy_ContainerDefinition) RenderContainerDefinition(_taskDefinitio
 	return returns
 }
 
-func (c *jsiiProxy_ContainerDefinition) Synthesize(session awscdk.ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_ContainerDefinition) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_ContainerDefinition) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

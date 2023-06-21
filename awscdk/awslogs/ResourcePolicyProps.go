@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties to define Cloudwatch log group resource policy.
@@ -21,13 +21,10 @@ import (
 //   	ResourcePolicyName: jsii.String("resourcePolicyName"),
 //   }
 //
-// Experimental.
 type ResourcePolicyProps struct {
 	// Initial statements to add to the resource policy.
-	// Experimental.
 	PolicyStatements *[]awsiam.PolicyStatement `field:"optional" json:"policyStatements" yaml:"policyStatements"`
 	// Name of the log group resource policy.
-	// Experimental.
 	ResourcePolicyName *string `field:"optional" json:"resourcePolicyName" yaml:"resourcePolicyName"`
 }
 

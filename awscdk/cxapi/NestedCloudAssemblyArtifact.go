@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Asset manifest is a description of a set of assets which need to be built and published.
@@ -69,42 +69,30 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type NestedCloudAssemblyArtifact interface {
 	CloudArtifact
-	// Experimental.
 	Assembly() CloudAssembly
 	// Returns all the artifacts that this artifact depends on.
-	// Experimental.
 	Dependencies() *[]CloudArtifact
 	// The relative directory name of the asset manifest.
-	// Experimental.
 	DirectoryName() *string
 	// Display name.
-	// Experimental.
 	DisplayName() *string
 	// Full path to the nested assembly directory.
-	// Experimental.
 	FullPath() *string
 	// An identifier that shows where this artifact is located in the tree of nested assemblies, based on their manifests.
 	//
 	// Defaults to the normal
 	// id. Should only be used in user interfaces.
-	// Experimental.
 	HierarchicalId() *string
-	// Experimental.
 	Id() *string
 	// The artifact's manifest.
-	// Experimental.
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
-	// Experimental.
 	Messages() *[]*SynthesisMessage
 	// The nested Assembly.
-	// Experimental.
 	NestedAssembly() CloudAssembly
 	// Returns: all the metadata entries of a specific type in this artifact.
-	// Experimental.
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult
 }
 
@@ -214,7 +202,6 @@ func (j *jsiiProxy_NestedCloudAssemblyArtifact) NestedAssembly() CloudAssembly {
 }
 
 
-// Experimental.
 func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) NestedCloudAssemblyArtifact {
 	_init_.Initialize()
 
@@ -224,7 +211,7 @@ func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifa
 	j := jsiiProxy_NestedCloudAssemblyArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -232,12 +219,11 @@ func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifa
 	return &j
 }
 
-// Experimental.
 func NewNestedCloudAssemblyArtifact_Override(n NestedCloudAssemblyArtifact, assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		[]interface{}{assembly, name, artifact},
 		n,
 	)
@@ -246,7 +232,6 @@ func NewNestedCloudAssemblyArtifact_Override(n NestedCloudAssemblyArtifact, asse
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
@@ -256,9 +241,42 @@ func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `art` is an instance of this class.
+//
+// Use this method instead of `instanceof` to properly detect `NestedCloudAssemblyArtifact`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `cx-api` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `NestedCloudAssemblyArtifact` in each copy of the `cx-api` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `cx-api`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+func NestedCloudAssemblyArtifact_IsNestedCloudAssemblyArtifact(art interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateNestedCloudAssemblyArtifact_IsNestedCloudAssemblyArtifactParameters(art); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
+		"isNestedCloudAssemblyArtifact",
+		[]interface{}{art},
 		&returns,
 	)
 

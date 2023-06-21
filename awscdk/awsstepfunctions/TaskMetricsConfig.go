@@ -18,16 +18,12 @@ package awsstepfunctions
 //   	MetricPrefixSingular: jsii.String("metricPrefixSingular"),
 //   }
 //
-// Experimental.
 type TaskMetricsConfig struct {
 	// The dimensions to attach to metrics.
-	// Experimental.
 	MetricDimensions *map[string]interface{} `field:"optional" json:"metricDimensions" yaml:"metricDimensions"`
 	// Prefix for plural metric names of activity actions.
-	// Experimental.
 	MetricPrefixPlural *string `field:"optional" json:"metricPrefixPlural" yaml:"metricPrefixPlural"`
 	// Prefix for singular metric names of activity actions.
-	// Experimental.
 	MetricPrefixSingular *string `field:"optional" json:"metricPrefixSingular" yaml:"metricPrefixSingular"`
 }
 

@@ -5,7 +5,7 @@ package awskms
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_IKey) validateAddAliasParameters(alias *string) error {
@@ -49,6 +49,22 @@ func (i *jsiiProxy_IKey) validateGrantEncryptParameters(grantee awsiam.IGrantabl
 }
 
 func (i *jsiiProxy_IKey) validateGrantEncryptDecryptParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IKey) validateGrantGenerateMacParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IKey) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}

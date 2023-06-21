@@ -30,18 +30,14 @@ package awscodebuild
 //   	},
 //   })
 //
-// Experimental.
 type BuildEnvironmentVariableType string
 
 const (
 	// An environment variable in plaintext format.
-	// Experimental.
 	BuildEnvironmentVariableType_PLAINTEXT BuildEnvironmentVariableType = "PLAINTEXT"
 	// An environment variable stored in Systems Manager Parameter Store.
-	// Experimental.
 	BuildEnvironmentVariableType_PARAMETER_STORE BuildEnvironmentVariableType = "PARAMETER_STORE"
 	// An environment variable stored in AWS Secrets Manager.
-	// Experimental.
 	BuildEnvironmentVariableType_SECRETS_MANAGER BuildEnvironmentVariableType = "SECRETS_MANAGER"
 )
 

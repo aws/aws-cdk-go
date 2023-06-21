@@ -89,11 +89,11 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 	AwsManagedRulesBotControlRuleSet interface{} `field:"optional" json:"awsManagedRulesBotControlRuleSet" yaml:"awsManagedRulesBotControlRuleSet"`
 	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
 	LoginPath *string `field:"optional" json:"loginPath" yaml:"loginPath"`
-	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` `RequestInspection` .
 	PasswordField interface{} `field:"optional" json:"passwordField" yaml:"passwordField"`
-	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` `RequestInspection` .
 	PayloadType *string `field:"optional" json:"payloadType" yaml:"payloadType"`
-	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` `RequestInspection` .
 	UsernameField interface{} `field:"optional" json:"usernameField" yaml:"usernameField"`
 }
 

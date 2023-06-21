@@ -32,27 +32,20 @@ package awsapplicationautoscaling
 //   	PredefinedMetric: appscaling.PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
 //   })
 //
-// Experimental.
 type PredefinedMetric string
 
 const (
 	// Average percentage of instances in an AppStream fleet that are being used.
-	// Experimental.
 	PredefinedMetric_APPSTREAM_AVERAGE_CAPACITY_UTILIZATION PredefinedMetric = "APPSTREAM_AVERAGE_CAPACITY_UTILIZATION"
 	// Percentage of provisioned read capacity units utilized by a Keyspaces table.
-	// Experimental.
 	PredefinedMetric_CASSANDRA_READ_CAPACITY_UTILIZATION PredefinedMetric = "CASSANDRA_READ_CAPACITY_UTILIZATION"
 	// Percentage of provisioned write capacity units utilized by a Keyspaces table.
-	// Experimental.
 	PredefinedMetric_CASSANDRA_WRITE_CAPACITY_UTILIZATION PredefinedMetric = "CASSANDRA_WRITE_CAPACITY_UTILIZATION"
 	// Percentage of provisioned inference units utilized by a Comprehend endpoint.
-	// Experimental.
 	PredefinedMetric_COMPREHEND_INFERENCE_UTILIZATION PredefinedMetric = "COMPREHEND_INFERENCE_UTILIZATION"
 	// Average CPU Utilization of read replica instances in a Neptune DB cluster.
-	// Experimental.
 	PredefinedMetric_NEPTURE_READER_AVERAGE_CPU_UTILIZATION PredefinedMetric = "NEPTURE_READER_AVERAGE_CPU_UTILIZATION"
 	// Percentage of provisioned read capacity units consumed by a DynamoDB table.
-	// Experimental.
 	PredefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION PredefinedMetric = "DYNAMODB_READ_CAPACITY_UTILIZATION"
 	// Percentage of provisioned write capacity units consumed by a DynamoDB table.
 	//
@@ -61,7 +54,6 @@ const (
 	// The value will be replaced when this enum is used.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_DYNAMODB_WRITE_CAPACITY_UTILIZATION PredefinedMetric = "DYNAMODB_WRITE_CAPACITY_UTILIZATION"
 	// DYANMODB_WRITE_CAPACITY_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
@@ -71,72 +63,58 @@ const (
 	// ALB_REQUEST_COUNT_PER_TARGET.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET PredefinedMetric = "ALB_REQUEST_COUNT_PER_TARGET"
 	// RDS_READER_AVERAGE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_RDS_READER_AVERAGE_CPU_UTILIZATION PredefinedMetric = "RDS_READER_AVERAGE_CPU_UTILIZATION"
 	// RDS_READER_AVERAGE_DATABASE_CONNECTIONS.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_RDS_READER_AVERAGE_DATABASE_CONNECTIONS PredefinedMetric = "RDS_READER_AVERAGE_DATABASE_CONNECTIONS"
 	// EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION"
 	// EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN"
 	// EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT"
 	// SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE PredefinedMetric = "SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE"
 	// ECS_SERVICE_AVERAGE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_ECS_SERVICE_AVERAGE_CPU_UTILIZATION PredefinedMetric = "ECS_SERVICE_AVERAGE_CPU_UTILIZATION"
 	// ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION PredefinedMetric = "ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION"
 	// LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html#monitoring-metrics-concurrency
 	//
-	// Experimental.
 	PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION PredefinedMetric = "LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION"
 	// KAFKA_BROKER_STORAGE_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_KAFKA_BROKER_STORAGE_UTILIZATION PredefinedMetric = "KAFKA_BROKER_STORAGE_UTILIZATION"
 	// ELASTIC_CACHE_PRIMARY_ENGINE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION"
 	// ELASTIC_CACHE_REPLICA_ENGINE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION"
 	// ELASTIC_CACHE_REPLICA_ENGINE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
-	// Experimental.
 	PredefinedMetric_ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
 )
 

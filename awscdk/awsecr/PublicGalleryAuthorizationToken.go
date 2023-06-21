@@ -1,10 +1,10 @@
 package awsecr
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Authorization token to access the global public ECR Gallery via Docker CLI.
@@ -15,7 +15,6 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonECR/latest/public/public-registries.html#public-registry-auth
 //
-// Experimental.
 type PublicGalleryAuthorizationToken interface {
 }
 
@@ -25,7 +24,6 @@ type jsiiProxy_PublicGalleryAuthorizationToken struct {
 }
 
 // Grant access to retrieve an authorization token.
-// Experimental.
 func PublicGalleryAuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 	_init_.Initialize()
 
@@ -33,7 +31,7 @@ func PublicGalleryAuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 		panic(err)
 	}
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_ecr.PublicGalleryAuthorizationToken",
+		"aws-cdk-lib.aws_ecr.PublicGalleryAuthorizationToken",
 		"grantRead",
 		[]interface{}{grantee},
 	)

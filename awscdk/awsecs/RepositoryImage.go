@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An image hosted in a public or private repository.
@@ -24,12 +24,10 @@ import (
 //
 //   repositoryImage := awscdk.Aws_ecs.RepositoryImage_FromDockerImageAsset(dockerImageAsset)
 //
-// Experimental.
 type RepositoryImage interface {
 	ContainerImage
 	// Called when the image is used by a ContainerDefinition.
-	// Experimental.
-	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for RepositoryImage
@@ -38,7 +36,6 @@ type jsiiProxy_RepositoryImage struct {
 }
 
 // Constructs a new instance of the RepositoryImage class.
-// Experimental.
 func NewRepositoryImage(imageName *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
@@ -48,7 +45,7 @@ func NewRepositoryImage(imageName *string, props *RepositoryImageProps) Reposito
 	j := jsiiProxy_RepositoryImage{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		[]interface{}{imageName, props},
 		&j,
 	)
@@ -57,12 +54,11 @@ func NewRepositoryImage(imageName *string, props *RepositoryImageProps) Reposito
 }
 
 // Constructs a new instance of the RepositoryImage class.
-// Experimental.
 func NewRepositoryImage_Override(r RepositoryImage, imageName *string, props *RepositoryImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		[]interface{}{imageName, props},
 		r,
 	)
@@ -72,7 +68,6 @@ func NewRepositoryImage_Override(r RepositoryImage, imageName *string, props *Re
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
-// Experimental.
 func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
@@ -82,7 +77,7 @@ func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetI
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -92,7 +87,6 @@ func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetI
 }
 
 // Use an existing `DockerImageAsset` for this container image.
-// Experimental.
 func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
@@ -102,7 +96,7 @@ func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) C
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -112,7 +106,6 @@ func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) C
 }
 
 // Reference an image in an ECR repository.
-// Experimental.
 func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
@@ -122,7 +115,7 @@ func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *strin
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -132,7 +125,6 @@ func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *strin
 }
 
 // Reference an image on DockerHub or another online registry.
-// Experimental.
 func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
@@ -142,7 +134,7 @@ func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) Rep
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -155,7 +147,6 @@ func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) Rep
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
-// Experimental.
 func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
@@ -165,7 +156,7 @@ func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.RepositoryImage",
+		"aws-cdk-lib.aws_ecs.RepositoryImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -174,7 +165,7 @@ func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (r *jsiiProxy_RepositoryImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	if err := r.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}

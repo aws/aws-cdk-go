@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDisk) validateAddDeletionOverrideParameters(path *string) 
 	return nil
 }
 
+func (c *jsiiProxy_CfnDisk) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDisk) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDisk) validateInspectParameters(inspector awscdk.TreeInspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnDisk) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDisk) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDisk) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDisk) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDisk) validateRenderPropertiesParameters(props *map[string
 	return nil
 }
 
-func (c *jsiiProxy_CfnDisk) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDisk) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnDisk) validateSetSizeInGbParameters(val *float64) error {
 	return nil
 }
 
-func validateNewCfnDiskParameters(scope awscdk.Construct, id *string, props *CfnDiskProps) error {
+func validateNewCfnDiskParameters(scope constructs.Construct, id *string, props *CfnDiskProps) error {
 	return nil
 }
 

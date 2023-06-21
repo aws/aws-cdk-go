@@ -4,6 +4,10 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (b *jsiiProxy_BootstraplessSynthesizer) validateAddBootstrapVersionRuleParameters(requiredVersion *float64, bootstrapStackVersionSsmParameter *string) error {
+	return nil
+}
+
 func (b *jsiiProxy_BootstraplessSynthesizer) validateAddDockerImageAssetParameters(_asset *DockerImageAssetSource) error {
 	return nil
 }
@@ -16,7 +20,23 @@ func (b *jsiiProxy_BootstraplessSynthesizer) validateBindParameters(stack Stack)
 	return nil
 }
 
+func (b *jsiiProxy_BootstraplessSynthesizer) validateCloudFormationLocationFromDockerImageAssetParameters(dest *cloudassemblyschema.DockerImageDestination) error {
+	return nil
+}
+
+func (b *jsiiProxy_BootstraplessSynthesizer) validateCloudFormationLocationFromFileAssetParameters(location *cloudassemblyschema.FileDestination) error {
+	return nil
+}
+
+func (b *jsiiProxy_BootstraplessSynthesizer) validateEmitArtifactParameters(session ISynthesisSession, options *SynthesizeStackArtifactOptions) error {
+	return nil
+}
+
 func (b *jsiiProxy_BootstraplessSynthesizer) validateEmitStackArtifactParameters(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) error {
+	return nil
+}
+
+func (b *jsiiProxy_BootstraplessSynthesizer) validateReusableBindParameters(stack Stack) error {
 	return nil
 }
 
@@ -25,6 +45,10 @@ func (b *jsiiProxy_BootstraplessSynthesizer) validateSynthesizeParameters(sessio
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) validateSynthesizeStackTemplateParameters(stack Stack, session ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BootstraplessSynthesizer) validateSynthesizeTemplateParameters(session ISynthesisSession) error {
 	return nil
 }
 

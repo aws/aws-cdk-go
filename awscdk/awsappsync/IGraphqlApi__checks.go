@@ -7,13 +7,14 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticsearch"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awsopensearchservice"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
 func (i *jsiiProxy_IGraphqlApi) validateAddDynamoDbDataSourceParameters(id *string, table awsdynamodb.ITable, options *DataSourceOptions) error {
@@ -39,6 +40,22 @@ func (i *jsiiProxy_IGraphqlApi) validateAddElasticsearchDataSourceParameters(id 
 
 	if domain == nil {
 		return fmt.Errorf("parameter domain is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateAddEventBridgeDataSourceParameters(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if eventBus == nil {
+		return fmt.Errorf("parameter eventBus is required, but nil was provided")
 	}
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
@@ -136,7 +153,11 @@ func (i *jsiiProxy_IGraphqlApi) validateAddSchemaDependencyParameters(construct 
 	return nil
 }
 
-func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(props *ExtendedResolverProps) error {
+func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(id *string, props *ExtendedResolverProps) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}

@@ -12,7 +12,7 @@ package awsstepfunctions
 //   createMessage := tasks.NewEvaluateExpression(this, jsii.String("Create message"), &EvaluateExpressionProps{
 //   	// Note: this is a string inside a string.
 //   	Expression: jsii.String("`Now waiting ${$.waitSeconds} seconds...`"),
-//   	Runtime: lambda.Runtime_NODEJS_14_X(),
+//   	Runtime: lambda.Runtime_NODEJS_16_X(),
 //   	ResultPath: jsii.String("$.message"),
 //   })
 //
@@ -30,13 +30,10 @@ package awsstepfunctions
 //   	Definition: convertToSeconds.Next(createMessage).Next(publishMessage).*Next(wait),
 //   })
 //
-// Experimental.
 type WaitProps struct {
 	// Wait duration.
-	// Experimental.
 	Time WaitTime `field:"required" json:"time" yaml:"time"`
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

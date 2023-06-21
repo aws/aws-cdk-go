@@ -1,41 +1,42 @@
 package awscodedeploy
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties of a reference to a CodeDeploy Lambda Deployment Configuration.
 //
 // Example:
-//   var application lambdaApplication
-//   var alias alias
-//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &CustomLambdaDeploymentConfigProps{
-//   	Type: codedeploy.CustomLambdaDeploymentConfigType_CANARY,
-//   	Interval: awscdk.Duration_Minutes(jsii.Number(1)),
-//   	Percentage: jsii.Number(5),
-//   })
-//   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
-//   	Application: Application,
-//   	Alias: Alias,
-//   	DeploymentConfig: config,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-// Experimental.
+//   customLambdaDeploymentConfigProps := &CustomLambdaDeploymentConfigProps{
+//   	Interval: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Percentage: jsii.Number(123),
+//   	Type: awscdk.Aws_codedeploy.CustomLambdaDeploymentConfigType_CANARY,
+//
+//   	// the properties below are optional
+//   	DeploymentConfigName: jsii.String("deploymentConfigName"),
+//   }
+//
+// Deprecated: Use `LambdaDeploymentConfig`.
 type CustomLambdaDeploymentConfigProps struct {
 	// The interval, in number of minutes: - For LINEAR, how frequently additional traffic is shifted - For CANARY, how long to shift traffic before the full deployment.
-	// Experimental.
+	// Deprecated: Use `LambdaDeploymentConfig`.
 	Interval awscdk.Duration `field:"required" json:"interval" yaml:"interval"`
 	// The integer percentage of traffic to shift: - For LINEAR, the percentage to shift every interval - For CANARY, the percentage to shift until the interval passes, before the full deployment.
-	// Experimental.
+	// Deprecated: Use `LambdaDeploymentConfig`.
 	Percentage *float64 `field:"required" json:"percentage" yaml:"percentage"`
 	// The type of deployment config, either CANARY or LINEAR.
-	// Experimental.
+	// Deprecated: Use `LambdaDeploymentConfig`.
 	Type CustomLambdaDeploymentConfigType `field:"required" json:"type" yaml:"type"`
 	// The verbatim name of the deployment config.
 	//
 	// Must be unique per account/region.
 	// Other parameters cannot be updated if this name is provided.
-	// Experimental.
+	// Deprecated: Use `LambdaDeploymentConfig`.
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 

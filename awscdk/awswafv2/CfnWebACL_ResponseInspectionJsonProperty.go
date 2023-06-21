@@ -3,7 +3,7 @@ package awswafv2
 
 // Configures inspection of the response JSON.
 //
-// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+// AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` .
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
@@ -23,9 +23,9 @@ package awswafv2
 //   }
 //
 type CfnWebACL_ResponseInspectionJsonProperty struct {
-	// Values for the specified identifier in the response JSON that indicate a failed login or account creation attempt.
+	// Values for the specified identifier in the response JSON that indicate a failed login attempt.
 	//
-	// To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+	// To be counted as a failed login, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 	//
 	// JSON example: `"FailureValues": [ "False", "Failed" ]`.
 	FailureValues *[]*string `field:"required" json:"failureValues" yaml:"failureValues"`
@@ -33,11 +33,11 @@ type CfnWebACL_ResponseInspectionJsonProperty struct {
 	//
 	// The identifier must be an exact match, including case.
 	//
-	// JSON examples: `"Identifier": [ "/login/success" ]` and `"Identifier": [ "/sign-up/success" ]`.
+	// JSON example: `"Identifier": [ "/login/success" ]`.
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
-	// Values for the specified identifier in the response JSON that indicate a successful login or account creation attempt.
+	// Values for the specified identifier in the response JSON that indicate a successful login attempt.
 	//
-	// To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+	// To be counted as a successful login, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 	//
 	// JSON example: `"SuccessValues": [ "True", "Succeeded" ]`.
 	SuccessValues *[]*string `field:"required" json:"successValues" yaml:"successValues"`

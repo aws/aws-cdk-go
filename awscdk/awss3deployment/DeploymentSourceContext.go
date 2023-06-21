@@ -1,7 +1,7 @@
 package awss3deployment
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Bind context for ISources.
@@ -18,10 +18,8 @@ import (
 //   	HandlerRole: role,
 //   }
 //
-// Experimental.
 type DeploymentSourceContext struct {
 	// The role for the handler.
-	// Experimental.
 	HandlerRole awsiam.IRole `field:"required" json:"handlerRole" yaml:"handlerRole"`
 }
 

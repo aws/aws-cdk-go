@@ -10,16 +10,13 @@ package awssecretsmanager
 //
 //   secretAttachmentTargetProps := &SecretAttachmentTargetProps{
 //   	TargetId: jsii.String("targetId"),
-//   	TargetType: awscdk.Aws_secretsmanager.AttachmentTargetType_INSTANCE,
+//   	TargetType: awscdk.Aws_secretsmanager.AttachmentTargetType_RDS_DB_INSTANCE,
 //   }
 //
-// Experimental.
 type SecretAttachmentTargetProps struct {
 	// The id of the target to attach the secret to.
-	// Experimental.
 	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
 	// The type of the target to attach the secret to.
-	// Experimental.
 	TargetType AttachmentTargetType `field:"required" json:"targetType" yaml:"targetType"`
 }
 

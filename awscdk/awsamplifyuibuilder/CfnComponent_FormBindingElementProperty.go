@@ -1,6 +1,8 @@
 package awsamplifyuibuilder
 
 
+// Describes how to bind a component property to form data.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnComponent_FormBindingElementProperty struct {
-	// `CfnComponent.FormBindingElementProperty.Element`.
+	// The name of the component to retrieve a value from.
 	Element *string `field:"required" json:"element" yaml:"element"`
-	// `CfnComponent.FormBindingElementProperty.Property`.
+	// The property to retrieve a value from.
 	Property *string `field:"required" json:"property" yaml:"property"`
 }
 

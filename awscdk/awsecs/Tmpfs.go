@@ -18,19 +18,15 @@ package awsecs
 //   	},
 //   }
 //
-// Experimental.
 type Tmpfs struct {
 	// The absolute file path where the tmpfs volume is to be mounted.
-	// Experimental.
 	ContainerPath *string `field:"required" json:"containerPath" yaml:"containerPath"`
 	// The size (in MiB) of the tmpfs volume.
-	// Experimental.
 	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// The list of tmpfs volume mount options.
 	//
 	// For more information, see
 	// [TmpfsMountOptions](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Tmpfs.html).
-	// Experimental.
 	MountOptions *[]TmpfsMountOption `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 }
 

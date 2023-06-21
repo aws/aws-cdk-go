@@ -1,10 +1,10 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Use a MSK cluster as a streaming source for AWS Lambda.
@@ -36,24 +36,31 @@ import (
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
 //   }))
 //
-// Experimental.
 type ManagedKafkaEventSource interface {
 	StreamEventSource
+	// The ARN for this EventSourceMapping.
+	EventSourceMappingArn() *string
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
-	// Experimental.
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
-	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
 // The jsii proxy struct for ManagedKafkaEventSource
 type jsiiProxy_ManagedKafkaEventSource struct {
 	jsiiProxy_StreamEventSource
+}
+
+func (j *jsiiProxy_ManagedKafkaEventSource) EventSourceMappingArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"eventSourceMappingArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ManagedKafkaEventSource) EventSourceMappingId() *string {
@@ -77,7 +84,6 @@ func (j *jsiiProxy_ManagedKafkaEventSource) Props() *StreamEventSourceProps {
 }
 
 
-// Experimental.
 func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafkaEventSource {
 	_init_.Initialize()
 
@@ -87,7 +93,7 @@ func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafk
 	j := jsiiProxy_ManagedKafkaEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
 		[]interface{}{props},
 		&j,
 	)
@@ -95,12 +101,11 @@ func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafk
 	return &j
 }
 
-// Experimental.
 func NewManagedKafkaEventSource_Override(m ManagedKafkaEventSource, props *ManagedKafkaEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
 		[]interface{}{props},
 		m,
 	)

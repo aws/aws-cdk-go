@@ -1,127 +1,112 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Properties for a new database cluster.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AURORA(),
-//   	InstanceProps: &InstanceProps{
-//   		Vpc: *Vpc,
-//   	},
-//   })
-//
-//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
-//   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-//   	Secrets: []iSecret{
-//   		cluster.Secret,
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   	}),
+//   	ServerlessV2MinCapacity: jsii.Number(6.5),
+//   	ServerlessV2MaxCapacity: jsii.Number(64),
+//   	Readers: []iClusterInstance{
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
+//   			ScaleWithWriter: jsii.Boolean(true),
+//   		}),
+//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
 //   	},
 //   	Vpc: Vpc,
 //   })
 //
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &RoleProps{
-//   	AssumedBy: iam.NewAccountPrincipal(this.Account),
-//   })
-//   proxy.GrantConnect(role, jsii.String("admin"))
-//
-// Experimental.
 type DatabaseClusterProps struct {
 	// What kind of database to start.
-	// Experimental.
 	Engine IClusterEngine `field:"required" json:"engine" yaml:"engine"`
-	// Settings for the individual instances that are launched.
-	// Experimental.
-	InstanceProps *InstanceProps `field:"required" json:"instanceProps" yaml:"instanceProps"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
 	// This feature is only supported by the Aurora MySQL database engine and
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
-	// Experimental.
 	BacktrackWindow awscdk.Duration `field:"optional" json:"backtrackWindow" yaml:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
-	// Experimental.
 	Backup *BackupProps `field:"optional" json:"backup" yaml:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `field:"optional" json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `field:"optional" json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `field:"optional" json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `field:"optional" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Whether to copy tags to the snapshot when a snapshot is created.
-	// Experimental.
 	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Credentials for the administrative user.
-	// Experimental.
 	Credentials Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
-	// Experimental.
 	DefaultDatabaseName *string `field:"optional" json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `field:"optional" json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
-	// Experimental.
 	InstanceIdentifierBase *string `field:"optional" json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
+	// Settings for the individual instances that are launched.
+	// Deprecated: - use writer and readers instead.
+	InstanceProps *InstanceProps `field:"optional" json:"instanceProps" yaml:"instanceProps"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
-	// Experimental.
+	// Deprecated: - use writer and readers instead.
 	Instances *float64 `field:"optional" json:"instances" yaml:"instances"`
+	// The ordering of updates for instances.
+	InstanceUpdateBehaviour InstanceUpdateBehaviour `field:"optional" json:"instanceUpdateBehaviour" yaml:"instanceUpdateBehaviour"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	// The network type of the DB instance.
+	NetworkType NetworkType `field:"optional" json:"networkType" yaml:"networkType"`
 	// Additional parameters to pass to the database engine.
-	// Experimental.
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The parameters in the DBClusterParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBClusterParameterGroup.
-	// Experimental.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// What port to listen on.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
-	// Experimental.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	// A list of instances to create as cluster reader instances.
+	Readers *[]IClusterInstance `field:"optional" json:"readers" yaml:"readers"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
@@ -130,7 +115,6 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `field:"optional" json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
@@ -141,7 +125,6 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `field:"optional" json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
@@ -150,7 +133,6 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `field:"optional" json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
@@ -161,18 +143,42 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
+	// Security group.
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+	//
+	// You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on.
+	// The largest value that you can use is 128 (256GB).
+	//
+	// The maximum capacity must be higher than 0.5 ACUs.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations
+	//
+	ServerlessV2MaxCapacity *float64 `field:"optional" json:"serverlessV2MaxCapacity" yaml:"serverlessV2MaxCapacity"`
+	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+	//
+	// You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on.
+	// The smallest value that you can use is 0.5.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations
+	//
+	ServerlessV2MinCapacity *float64 `field:"optional" json:"serverlessV2MinCapacity" yaml:"serverlessV2MinCapacity"`
 	// Whether to enable storage encryption.
-	// Experimental.
 	StorageEncrypted *bool `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key for storage encryption.
 	//
-	// If specified, {@link storageEncrypted} will be set to `true`.
-	// Experimental.
+	// If specified, `storageEncrypted` will be set to `true`.
 	StorageEncryptionKey awskms.IKey `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
+	// The storage type to be associated with the DB cluster.
+	StorageType DBClusterStorageType `field:"optional" json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the cluster.
-	// Experimental.
 	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
+	// What subnets to run the RDS instances in.
+	//
+	// Must be at least 2 subnets in two different AZs.
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
+	// Where to place the instances within the VPC.
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
+	// The instance to use for the cluster writer.
+	Writer IClusterInstance `field:"optional" json:"writer" yaml:"writer"`
 }
 

@@ -2,39 +2,37 @@ package awsecs
 
 
 // Type of resource to set a limit on.
-// Experimental.
+//
+// Example:
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+//   	Ulimits: []ulimit{
+//   		&ulimit{
+//   			HardLimit: jsii.Number(128),
+//   			Name: ecs.UlimitName_RSS,
+//   			SoftLimit: jsii.Number(128),
+//   		},
+//   	},
+//   })
+//
 type UlimitName string
 
 const (
-	// Experimental.
 	UlimitName_CORE UlimitName = "CORE"
-	// Experimental.
 	UlimitName_CPU UlimitName = "CPU"
-	// Experimental.
 	UlimitName_DATA UlimitName = "DATA"
-	// Experimental.
 	UlimitName_FSIZE UlimitName = "FSIZE"
-	// Experimental.
 	UlimitName_LOCKS UlimitName = "LOCKS"
-	// Experimental.
 	UlimitName_MEMLOCK UlimitName = "MEMLOCK"
-	// Experimental.
 	UlimitName_MSGQUEUE UlimitName = "MSGQUEUE"
-	// Experimental.
 	UlimitName_NICE UlimitName = "NICE"
-	// Experimental.
 	UlimitName_NOFILE UlimitName = "NOFILE"
-	// Experimental.
 	UlimitName_NPROC UlimitName = "NPROC"
-	// Experimental.
 	UlimitName_RSS UlimitName = "RSS"
-	// Experimental.
 	UlimitName_RTPRIO UlimitName = "RTPRIO"
-	// Experimental.
 	UlimitName_RTTIME UlimitName = "RTTIME"
-	// Experimental.
 	UlimitName_SIGPENDING UlimitName = "SIGPENDING"
-	// Experimental.
 	UlimitName_STACK UlimitName = "STACK"
 )
 

@@ -5,13 +5,10 @@ import (
 )
 
 // Represents an API Gateway authorizer.
-// Experimental.
 type IAuthorizer interface {
 	// The authorization type of this authorizer.
-	// Experimental.
 	AuthorizationType() AuthorizationType
 	// The authorizer ID.
-	// Experimental.
 	AuthorizerId() *string
 }
 

@@ -7,12 +7,20 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnHookTypeConfig) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnHookTypeConfig) validateAddDependencyParameters(target CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -102,17 +110,17 @@ func (c *jsiiProxy_CfnHookTypeConfig) validateInspectParameters(inspector TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookTypeConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnHookTypeConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookTypeConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnHookTypeConfig) validateRemoveDependencyParameters(target CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -126,9 +134,13 @@ func (c *jsiiProxy_CfnHookTypeConfig) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnHookTypeConfig) validateSynthesizeParameters(session ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnHookTypeConfig) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -174,7 +186,7 @@ func (j *jsiiProxy_CfnHookTypeConfig) validateSetConfigurationParameters(val *st
 	return nil
 }
 
-func validateNewCfnHookTypeConfigParameters(scope Construct, id *string, props *CfnHookTypeConfigProps) error {
+func validateNewCfnHookTypeConfigParameters(scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

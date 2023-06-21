@@ -60,27 +60,20 @@ package cloudassemblyschema
 //   	},
 //   }
 //
-// Experimental.
 type ArtifactManifest struct {
 	// The type of artifact.
-	// Experimental.
 	Type ArtifactType `field:"required" json:"type" yaml:"type"`
 	// IDs of artifacts that must be deployed before this artifact.
-	// Experimental.
 	Dependencies *[]*string `field:"optional" json:"dependencies" yaml:"dependencies"`
 	// A string that represents this artifact.
 	//
 	// Should only be used in user interfaces.
-	// Experimental.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// The environment into which this artifact is deployed.
-	// Experimental.
 	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// Associated metadata.
-	// Experimental.
 	Metadata *map[string]*[]*MetadataEntry `field:"optional" json:"metadata" yaml:"metadata"`
 	// The set of properties for this artifact (depends on type).
-	// Experimental.
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 }
 

@@ -7,12 +7,20 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnWaitConditionHandle) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnWaitConditionHandle) validateAddDependencyParameters(target CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -102,17 +110,17 @@ func (c *jsiiProxy_CfnWaitConditionHandle) validateInspectParameters(inspector T
 	return nil
 }
 
-func (c *jsiiProxy_CfnWaitConditionHandle) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnWaitConditionHandle) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnWaitConditionHandle) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnWaitConditionHandle) validateRemoveDependencyParameters(target CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -126,9 +134,13 @@ func (c *jsiiProxy_CfnWaitConditionHandle) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnWaitConditionHandle) validateSynthesizeParameters(session ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnWaitConditionHandle) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -166,7 +178,7 @@ func validateCfnWaitConditionHandle_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnWaitConditionHandleParameters(scope Construct, id *string) error {
+func validateNewCfnWaitConditionHandleParameters(scope constructs.Construct, id *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

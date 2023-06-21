@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,9 +14,7 @@ import (
 //
 //   aclTraffic := awscdk.Aws_ec2.AclTraffic_AllTraffic()
 //
-// Experimental.
 type AclTraffic interface {
-	// Experimental.
 	ToTrafficConfig() *AclTrafficConfig
 }
 
@@ -25,26 +23,24 @@ type jsiiProxy_AclTraffic struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAclTraffic_Override(a AclTraffic) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		nil, // no parameters
 		a,
 	)
 }
 
 // Apply the ACL entry to all traffic.
-// Experimental.
 func AclTraffic_AllTraffic() AclTraffic {
 	_init_.Initialize()
 
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"allTraffic",
 		nil, // no parameters
 		&returns,
@@ -54,7 +50,6 @@ func AclTraffic_AllTraffic() AclTraffic {
 }
 
 // Apply the ACL entry to ICMP traffic of given type and code.
-// Experimental.
 func AclTraffic_Icmp(props *AclIcmp) AclTraffic {
 	_init_.Initialize()
 
@@ -64,7 +59,7 @@ func AclTraffic_Icmp(props *AclIcmp) AclTraffic {
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"icmp",
 		[]interface{}{props},
 		&returns,
@@ -76,7 +71,6 @@ func AclTraffic_Icmp(props *AclIcmp) AclTraffic {
 // Apply the ACL entry to ICMPv6 traffic of given type and code.
 //
 // Requires an IPv6 CIDR block.
-// Experimental.
 func AclTraffic_Icmpv6(props *AclIcmp) AclTraffic {
 	_init_.Initialize()
 
@@ -86,7 +80,7 @@ func AclTraffic_Icmpv6(props *AclIcmp) AclTraffic {
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"icmpv6",
 		[]interface{}{props},
 		&returns,
@@ -96,7 +90,6 @@ func AclTraffic_Icmpv6(props *AclIcmp) AclTraffic {
 }
 
 // Apply the ACL entry to TCP traffic on a given port.
-// Experimental.
 func AclTraffic_TcpPort(port *float64) AclTraffic {
 	_init_.Initialize()
 
@@ -106,7 +99,7 @@ func AclTraffic_TcpPort(port *float64) AclTraffic {
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"tcpPort",
 		[]interface{}{port},
 		&returns,
@@ -116,7 +109,6 @@ func AclTraffic_TcpPort(port *float64) AclTraffic {
 }
 
 // Apply the ACL entry to TCP traffic on a given port range.
-// Experimental.
 func AclTraffic_TcpPortRange(startPort *float64, endPort *float64) AclTraffic {
 	_init_.Initialize()
 
@@ -126,7 +118,7 @@ func AclTraffic_TcpPortRange(startPort *float64, endPort *float64) AclTraffic {
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"tcpPortRange",
 		[]interface{}{startPort, endPort},
 		&returns,
@@ -136,7 +128,6 @@ func AclTraffic_TcpPortRange(startPort *float64, endPort *float64) AclTraffic {
 }
 
 // Apply the ACL entry to UDP traffic on a given port.
-// Experimental.
 func AclTraffic_UdpPort(port *float64) AclTraffic {
 	_init_.Initialize()
 
@@ -146,7 +137,7 @@ func AclTraffic_UdpPort(port *float64) AclTraffic {
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"udpPort",
 		[]interface{}{port},
 		&returns,
@@ -156,7 +147,6 @@ func AclTraffic_UdpPort(port *float64) AclTraffic {
 }
 
 // Apply the ACL entry to UDP traffic on a given port range.
-// Experimental.
 func AclTraffic_UdpPortRange(startPort *float64, endPort *float64) AclTraffic {
 	_init_.Initialize()
 
@@ -166,7 +156,7 @@ func AclTraffic_UdpPortRange(startPort *float64, endPort *float64) AclTraffic {
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		"udpPortRange",
 		[]interface{}{startPort, endPort},
 		&returns,

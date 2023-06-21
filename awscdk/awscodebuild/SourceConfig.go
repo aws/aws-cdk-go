@@ -1,7 +1,7 @@
 package awscodebuild
 
 
-// The type returned from {@link ISource#bind}.
+// The type returned from `ISource#bind`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,16 +53,12 @@ package awscodebuild
 //   	SourceVersion: jsii.String("sourceVersion"),
 //   }
 //
-// Experimental.
 type SourceConfig struct {
-	// Experimental.
 	SourceProperty *CfnProject_SourceProperty `field:"required" json:"sourceProperty" yaml:"sourceProperty"`
-	// Experimental.
 	BuildTriggers *CfnProject_ProjectTriggersProperty `field:"optional" json:"buildTriggers" yaml:"buildTriggers"`
 	// `AWS::CodeBuild::Project.SourceVersion`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
 	//
-	// Experimental.
 	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 }
 

@@ -18,19 +18,16 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingConstraints.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingConstraintsProperty struct {
 	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
 	//
 	// Scale-out
 	// activities will not add instances beyond this boundary.
-	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in
 	// activities will not terminate instances below this boundary.
-	// Experimental.
 	MinCapacity *float64 `field:"required" json:"minCapacity" yaml:"minCapacity"`
 }
 

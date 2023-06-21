@@ -6,20 +6,17 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   lazyAnyValueOptions := &LazyAnyValueOptions{
 //   	DisplayHint: jsii.String("displayHint"),
 //   	OmitEmptyArray: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type LazyAnyValueOptions struct {
 	// Use the given name as a display hint.
-	// Experimental.
 	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 	// If the produced value is an array and it is empty, return 'undefined' instead.
-	// Experimental.
 	OmitEmptyArray *bool `field:"optional" json:"omitEmptyArray" yaml:"omitEmptyArray"`
 }
 

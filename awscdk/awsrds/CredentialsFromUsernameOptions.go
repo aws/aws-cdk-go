@@ -1,58 +1,48 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
 // Options for creating Credentials from a username.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc vpc
 //
-//   var key key
-//   var secretValue secretValue
-//
-//   credentialsFromUsernameOptions := &CredentialsFromUsernameOptions{
-//   	EncryptionKey: key,
-//   	ExcludeCharacters: jsii.String("excludeCharacters"),
-//   	Password: secretValue,
-//   	ReplicaRegions: []replicaRegion{
-//   		&replicaRegion{
-//   			Region: jsii.String("region"),
-//
-//   			// the properties below are optional
-//   			EncryptionKey: key,
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
+//   		Version: rds.AuroraPostgresEngineVersion_VER_15_2(),
+//   	}),
+//   	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
+//   		Password: cdk.secretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
+//   	}),
+//   	InstanceProps: &InstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_X2G, ec2.InstanceSize_XLARGE),
+//   		VpcSubnets: &SubnetSelection{
+//   			SubnetType: ec2.SubnetType_PUBLIC,
 //   		},
+//   		Vpc: *Vpc,
 //   	},
-//   	SecretName: jsii.String("secretName"),
-//   }
+//   	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
+//   })
 //
-// Experimental.
 type CredentialsFromUsernameOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
-	// Has no effect if {@link password} has been provided.
-	// Experimental.
+	// Has no effect if `password` has been provided.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `field:"optional" json:"replicaRegions" yaml:"replicaRegions"`
 	// The name of the secret.
-	// Experimental.
 	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
-	// Experimental.
 	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 }
 

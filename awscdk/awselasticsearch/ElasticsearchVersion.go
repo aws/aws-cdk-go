@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,10 +20,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ElasticsearchVersion interface {
 	// Elasticsearch version number.
-	// Experimental.
 	Version() *string
 }
 
@@ -44,7 +42,6 @@ func (j *jsiiProxy_ElasticsearchVersion) Version() *string {
 
 
 // Custom Elasticsearch version.
-// Experimental.
 func ElasticsearchVersion_Of(version *string) ElasticsearchVersion {
 	_init_.Initialize()
 
@@ -54,7 +51,7 @@ func ElasticsearchVersion_Of(version *string) ElasticsearchVersion {
 	var returns ElasticsearchVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -67,7 +64,7 @@ func ElasticsearchVersion_V1_5() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V1_5",
 		&returns,
 	)
@@ -78,7 +75,7 @@ func ElasticsearchVersion_V2_3() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V2_3",
 		&returns,
 	)
@@ -89,7 +86,7 @@ func ElasticsearchVersion_V5_1() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_1",
 		&returns,
 	)
@@ -100,7 +97,7 @@ func ElasticsearchVersion_V5_3() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_3",
 		&returns,
 	)
@@ -111,7 +108,7 @@ func ElasticsearchVersion_V5_5() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_5",
 		&returns,
 	)
@@ -122,7 +119,7 @@ func ElasticsearchVersion_V5_6() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_6",
 		&returns,
 	)
@@ -133,7 +130,7 @@ func ElasticsearchVersion_V6_0() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_0",
 		&returns,
 	)
@@ -144,7 +141,7 @@ func ElasticsearchVersion_V6_2() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_2",
 		&returns,
 	)
@@ -155,7 +152,7 @@ func ElasticsearchVersion_V6_3() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_3",
 		&returns,
 	)
@@ -166,7 +163,7 @@ func ElasticsearchVersion_V6_4() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_4",
 		&returns,
 	)
@@ -177,7 +174,7 @@ func ElasticsearchVersion_V6_5() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_5",
 		&returns,
 	)
@@ -188,7 +185,7 @@ func ElasticsearchVersion_V6_7() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_7",
 		&returns,
 	)
@@ -199,7 +196,7 @@ func ElasticsearchVersion_V6_8() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_8",
 		&returns,
 	)
@@ -210,7 +207,7 @@ func ElasticsearchVersion_V7_1() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_1",
 		&returns,
 	)
@@ -221,7 +218,7 @@ func ElasticsearchVersion_V7_10() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_10",
 		&returns,
 	)
@@ -232,7 +229,7 @@ func ElasticsearchVersion_V7_4() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_4",
 		&returns,
 	)
@@ -243,7 +240,7 @@ func ElasticsearchVersion_V7_7() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_7",
 		&returns,
 	)
@@ -254,7 +251,7 @@ func ElasticsearchVersion_V7_8() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_8",
 		&returns,
 	)
@@ -265,7 +262,7 @@ func ElasticsearchVersion_V7_9() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_9",
 		&returns,
 	)

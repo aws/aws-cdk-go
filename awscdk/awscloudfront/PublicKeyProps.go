@@ -28,20 +28,16 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type PublicKeyProps struct {
 	// The public key that you can use with signed URLs and signed cookies, or with field-level encryption.
 	//
 	// The `encodedKey` parameter must include `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` lines.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html
 	//
-	// Experimental.
 	EncodedKey *string `field:"required" json:"encodedKey" yaml:"encodedKey"`
 	// A comment to describe the public key.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A name to identify the public key.
-	// Experimental.
 	PublicKeyName *string `field:"optional" json:"publicKeyName" yaml:"publicKeyName"`
 }
 

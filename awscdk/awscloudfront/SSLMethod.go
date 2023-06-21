@@ -4,8 +4,8 @@ package awscloudfront
 // The SSL method CloudFront will use for your distribution.
 //
 // Server Name Indication (SNI) - is an extension to the TLS computer networking protocol by which a client indicates
-//   which hostname it is attempting to connect to at the start of the handshaking process. This allows a server to present
-//   multiple certificates on the same IP address and TCP port number and hence allows multiple secure (HTTPS) websites
+//  which hostname it is attempting to connect to at the start of the handshaking process. This allows a server to present
+//  multiple certificates on the same IP address and TCP port number and hence allows multiple secure (HTTPS) websites
 // (or any other service over TLS) to be served by the same IP address without requiring all those sites to use the same certificate.
 //
 // CloudFront can use SNI to host multiple distributions on the same IP - which a large majority of clients will support.
@@ -41,13 +41,10 @@ package awscloudfront
 //   	}),
 //   })
 //
-// Experimental.
 type SSLMethod string
 
 const (
-	// Experimental.
 	SSLMethod_SNI SSLMethod = "SNI"
-	// Experimental.
 	SSLMethod_VIP SSLMethod = "VIP"
 )
 

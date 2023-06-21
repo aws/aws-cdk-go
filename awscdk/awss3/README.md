@@ -1,6 +1,6 @@
 # Amazon S3 Construct Library
 
-Define an unencrypted S3 bucket.
+Define an S3 bucket.
 
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyFirstBucket"))
@@ -72,6 +72,15 @@ bucket := s3.NewBucket(this, jsii.String("Buck"), &BucketProps{
 assert(bucket.EncryptionKey == nil)
 ```
 
+Enable DSSE encryption:
+
+```
+const bucket = new s3.Bucket(stack, 'MyDSSEBucket', {
+  encryption: s3.BucketEncryption.DSSE_MANAGED,
+  bucketKeyEnabled: true,
+});
+```
+
 ## Permissions
 
 A bucket policy will be automatically created for the bucket upon the first call to
@@ -79,7 +88,8 @@ A bucket policy will be automatically created for the bucket upon the first call
 
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+result := bucket.AddToResourcePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
@@ -99,7 +109,8 @@ not do anything:
 bucket := s3.Bucket_FromBucketName(this, jsii.String("existingBucket"), jsii.String("bucket-name"))
 
 // No policy statement will be added to the resource
-result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+result := bucket.AddToResourcePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
@@ -118,7 +129,8 @@ statements to it. We recommend that you always check the result of the call:
 
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-result := bucket.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+result := bucket.AddToResourcePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("s3:GetObject"),
 	},
@@ -181,9 +193,9 @@ type producer struct {
 	myBucket bucket
 }
 
-func newProducer(scope app, id *string, props stackProps) *producer {
+func newProducer(scope construct, id *string, props stackProps) *producer {
 	this := &producer{}
-	cdk.NewStack_Override(this, scope, id, props)
+	newStack_Override(this, scope, id, props)
 
 	bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 		RemovalPolicy: cdk.RemovalPolicy_DESTROY,
@@ -204,15 +216,16 @@ type consumer struct {
 	stack
 }
 
-func newConsumer(scope app, id *string, props consumerProps) *consumer {
+func newConsumer(scope construct, id *string, props consumerProps) *consumer {
 	this := &consumer{}
-	cdk.NewStack_Override(this, scope, id, props)
+	newStack_Override(this, scope, id, props)
 
 	user := iam.NewUser(this, jsii.String("MyUser"))
 	*props.userBucket.GrantReadWrite(user)
 	return this
 }
 
+app := awscdk.NewApp()
 producer := NewProducer(app, jsii.String("ProducerStack"))
 NewConsumer(app, jsii.String("ConsumerStack"), &consumerProps{
 	userBucket: producer.myBucket,
@@ -288,8 +301,7 @@ have the `.jpg` suffix are removed from the bucket.
 var myQueue queue
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED,
-s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
+bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
 	Prefix: jsii.String("foo/"),
 	Suffix: jsii.String(".jpg"),
 })
@@ -395,6 +407,26 @@ It's also possible to specify a prefix for Amazon S3 to assign to all log object
 
 ```go
 accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"))
+
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	ServerAccessLogsBucket: accessLogsBucket,
+	ServerAccessLogsPrefix: jsii.String("logs"),
+})
+```
+
+### Allowing access log delivery using a Bucket Policy (recommended)
+
+When possible, it is recommended to use a bucket policy to grant access instead of
+using ACLs. When the `@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy` feature flag
+is enabled, this is done by default for server access logs. If S3 Server Access Logs
+are the only logs delivered to your bucket (or if all other services logging to the
+bucket support using bucket policy instead of ACLs), you can set object ownership
+to [bucket owner enforced](#bucket-owner-enforced-recommended), as is recommended.
+
+```go
+accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
+	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
+})
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	ServerAccessLogsBucket: accessLogsBucket,
@@ -538,13 +570,20 @@ s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 
 ### Bucket owner enforced (recommended)
 
-ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket. The bucket uses policies to define access control.
+ACLs are disabled, and the bucket owner automatically owns and has full control
+over every object in the bucket. ACLs no longer affect permissions to data in the
+S3 bucket. The bucket uses policies to define access control.
 
 ```go
 s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 })
 ```
+
+Some services may not not support log delivery to buckets that have object ownership
+set to bucket owner enforced, such as
+[S3 buckets using ACLs](#allowing-access-log-delivery-using-a-bucket-policy-recommended)
+or [CloudFront Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html#AccessLogsBucketAndFileOwnership).
 
 ## Bucket deletion
 
@@ -598,8 +637,8 @@ s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 		&intelligentTieringConfiguration{
 			Name: jsii.String("foo"),
 			Prefix: jsii.String("folder/name"),
-			ArchiveAccessTierTime: cdk.Duration_Days(jsii.Number(90)),
-			DeepArchiveAccessTierTime: cdk.Duration_*Days(jsii.Number(180)),
+			ArchiveAccessTierTime: awscdk.Duration_Days(jsii.Number(90)),
+			DeepArchiveAccessTierTime: awscdk.Duration_*Days(jsii.Number(180)),
 			Tags: []tag{
 				&tag{
 					Key: jsii.String("tagname"),
@@ -619,20 +658,20 @@ s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	LifecycleRules: []lifecycleRule{
 		&lifecycleRule{
-			AbortIncompleteMultipartUploadAfter: cdk.Duration_Minutes(jsii.Number(30)),
+			AbortIncompleteMultipartUploadAfter: awscdk.Duration_Minutes(jsii.Number(30)),
 			Enabled: jsii.Boolean(false),
-			Expiration: cdk.Duration_Days(jsii.Number(30)),
+			Expiration: awscdk.Duration_Days(jsii.Number(30)),
 			ExpirationDate: NewDate(),
 			ExpiredObjectDeleteMarker: jsii.Boolean(false),
 			Id: jsii.String("id"),
-			NoncurrentVersionExpiration: cdk.Duration_*Days(jsii.Number(30)),
+			NoncurrentVersionExpiration: awscdk.Duration_*Days(jsii.Number(30)),
 
 			// the properties below are optional
 			NoncurrentVersionsToRetain: jsii.Number(123),
 			NoncurrentVersionTransitions: []noncurrentVersionTransition{
 				&noncurrentVersionTransition{
 					StorageClass: s3.StorageClass_GLACIER(),
-					TransitionAfter: cdk.Duration_*Days(jsii.Number(30)),
+					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 
 					// the properties below are optional
 					NoncurrentVersionsToRetain: jsii.Number(123),
@@ -646,11 +685,45 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 					StorageClass: s3.StorageClass_GLACIER(),
 
 					// the properties below are optional
-					TransitionAfter: cdk.Duration_*Days(jsii.Number(30)),
+					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 					TransitionDate: NewDate(),
 				},
 			},
 		},
 	},
+})
+```
+
+## Object Lock Configuration
+
+[Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html)
+can be configured to enable a write-once-read-many model for an S3 bucket. Object Lock must be
+configured when a bucket is created; if a bucket is created without Object Lock, it cannot be
+enabled later via the CDK.
+
+Object Lock can be enabled on an S3 bucket by specifying:
+
+```go
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	ObjectLockEnabled: jsii.Boolean(true),
+})
+```
+
+Usually, it is desired to not just enable Object Lock for a bucket but to also configure a
+[retention mode](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-modes)
+and a [retention period](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-periods).
+These can be specified by providing `objectLockDefaultRetention`:
+
+```go
+// Configure for governance mode with a duration of 7 years
+// Configure for governance mode with a duration of 7 years
+s3.NewBucket(this, jsii.String("Bucket1"), &BucketProps{
+	ObjectLockDefaultRetention: s3.ObjectLockRetention_Governance(awscdk.Duration_Days(jsii.Number(7 * 365))),
+})
+
+// Configure for compliance mode with a duration of 1 year
+// Configure for compliance mode with a duration of 1 year
+s3.NewBucket(this, jsii.String("Bucket2"), &BucketProps{
+	ObjectLockDefaultRetention: s3.ObjectLockRetention_Compliance(awscdk.Duration_*Days(jsii.Number(365))),
 })
 ```

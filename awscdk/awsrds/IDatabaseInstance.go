@@ -3,91 +3,77 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A database instance.
-// Experimental.
 type IDatabaseInstance interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this instance.
-	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Grant the given identity connection access to the database.
-	//
-	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
-	// See: https://github.com/aws/aws-cdk/issues/11851
-	//
-	// Experimental.
-	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
+	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Return the given named metric for this DBInstance.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
-	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The instance endpoint address.
-	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
-	// Experimental.
 	DbInstanceEndpointPort() *string
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
-	// Experimental.
 	Engine() IInstanceEngine
 	// The instance arn.
-	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
-	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
-	// Experimental.
 	InstanceIdentifier() *string
+	// The AWS Region-unique, immutable identifier for the DB instance.
+	//
+	// This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values
+	//
+	InstanceResourceId() *string
 }
 
 // The jsii proxy for IDatabaseInstance
@@ -113,7 +99,7 @@ func (i *jsiiProxy_IDatabaseInstance) AddProxy(id *string, options *DatabaseProx
 	return returns
 }
 
-func (i *jsiiProxy_IDatabaseInstance) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
+func (i *jsiiProxy_IDatabaseInstance) GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant {
 	if err := i.validateGrantConnectParameters(grantee); err != nil {
 		panic(err)
 	}
@@ -122,7 +108,7 @@ func (i *jsiiProxy_IDatabaseInstance) GrantConnect(grantee awsiam.IGrantable) aw
 	_jsii_.Invoke(
 		i,
 		"grantConnect",
-		[]interface{}{grantee},
+		[]interface{}{grantee, dbUser},
 		&returns,
 	)
 
@@ -341,6 +327,16 @@ func (j *jsiiProxy_IDatabaseInstance) InstanceIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IDatabaseInstance) InstanceResourceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"instanceResourceId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IDatabaseInstance) Connections() awsec2.Connections {
 	var returns awsec2.Connections
 	_jsii_.Get(
@@ -361,8 +357,8 @@ func (j *jsiiProxy_IDatabaseInstance) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseInstance) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IDatabaseInstance) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

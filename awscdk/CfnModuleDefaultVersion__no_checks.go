@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnModuleDefaultVersion_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateNewCfnModuleDefaultVersionParameters(scope Construct, id *string, props *CfnModuleDefaultVersionProps) error {
+func validateNewCfnModuleDefaultVersionParameters(scope constructs.Construct, id *string, props *CfnModuleDefaultVersionProps) error {
 	return nil
 }
 

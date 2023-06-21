@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnUserPool) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPool) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnUserPool) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnUserPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnUserPool) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnUserPool) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnUserPool) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnUserPool_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnUserPool) validateSetAccountRecoverySettingParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_AccountRecoverySettingProperty:
 		val := val.(*CfnUserPool_AccountRecoverySettingProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetAccountRecoverySettingParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_AccountRecoverySettingProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_AccountRecoverySettingProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -193,6 +205,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetAccountRecoverySettingParameters(val 
 
 func (j *jsiiProxy_CfnUserPool) validateSetAdminCreateUserConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_AdminCreateUserConfigProperty:
 		val := val.(*CfnUserPool_AdminCreateUserConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -204,11 +218,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetAdminCreateUserConfigParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_AdminCreateUserConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_AdminCreateUserConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +229,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetAdminCreateUserConfigParameters(val i
 
 func (j *jsiiProxy_CfnUserPool) validateSetDeviceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_DeviceConfigurationProperty:
 		val := val.(*CfnUserPool_DeviceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -228,11 +242,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetDeviceConfigurationParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_DeviceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_DeviceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -241,6 +253,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetDeviceConfigurationParameters(val int
 
 func (j *jsiiProxy_CfnUserPool) validateSetEmailConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_EmailConfigurationProperty:
 		val := val.(*CfnUserPool_EmailConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -252,11 +266,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetEmailConfigurationParameters(val inte
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_EmailConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_EmailConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -265,6 +277,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetEmailConfigurationParameters(val inte
 
 func (j *jsiiProxy_CfnUserPool) validateSetLambdaConfigParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_LambdaConfigProperty:
 		val := val.(*CfnUserPool_LambdaConfigProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -276,11 +290,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetLambdaConfigParameters(val interface{
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_LambdaConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_LambdaConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -289,6 +301,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetLambdaConfigParameters(val interface{
 
 func (j *jsiiProxy_CfnUserPool) validateSetPoliciesParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_PoliciesProperty:
 		val := val.(*CfnUserPool_PoliciesProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -300,11 +314,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetPoliciesParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_PoliciesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_PoliciesProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -319,6 +331,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetSchemaParameters(val interface{}) err
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnUserPool_SchemaAttributeProperty:
 				v := v.(*CfnUserPool_SchemaAttributeProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -330,11 +344,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetSchemaParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnUserPool_SchemaAttributeProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_SchemaAttributeProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -343,6 +355,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetSchemaParameters(val interface{}) err
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnUserPool_SchemaAttributeProperty:
 				v := v.(*CfnUserPool_SchemaAttributeProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -354,11 +368,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetSchemaParameters(val interface{}) err
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnUserPool_SchemaAttributeProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_SchemaAttributeProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -373,6 +385,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetSchemaParameters(val interface{}) err
 
 func (j *jsiiProxy_CfnUserPool) validateSetSmsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_SmsConfigurationProperty:
 		val := val.(*CfnUserPool_SmsConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -384,11 +398,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetSmsConfigurationParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_SmsConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_SmsConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -397,6 +409,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetSmsConfigurationParameters(val interf
 
 func (j *jsiiProxy_CfnUserPool) validateSetUserAttributeUpdateSettingsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_UserAttributeUpdateSettingsProperty:
 		val := val.(*CfnUserPool_UserAttributeUpdateSettingsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -408,11 +422,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetUserAttributeUpdateSettingsParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_UserAttributeUpdateSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_UserAttributeUpdateSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -421,6 +433,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetUserAttributeUpdateSettingsParameters
 
 func (j *jsiiProxy_CfnUserPool) validateSetUsernameConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_UsernameConfigurationProperty:
 		val := val.(*CfnUserPool_UsernameConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -432,11 +446,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetUsernameConfigurationParameters(val i
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_UsernameConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_UsernameConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -445,6 +457,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetUsernameConfigurationParameters(val i
 
 func (j *jsiiProxy_CfnUserPool) validateSetUserPoolAddOnsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_UserPoolAddOnsProperty:
 		val := val.(*CfnUserPool_UserPoolAddOnsProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -456,11 +470,9 @@ func (j *jsiiProxy_CfnUserPool) validateSetUserPoolAddOnsParameters(val interfac
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_UserPoolAddOnsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_UserPoolAddOnsProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -469,6 +481,8 @@ func (j *jsiiProxy_CfnUserPool) validateSetUserPoolAddOnsParameters(val interfac
 
 func (j *jsiiProxy_CfnUserPool) validateSetVerificationMessageTemplateParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnUserPool_VerificationMessageTemplateProperty:
 		val := val.(*CfnUserPool_VerificationMessageTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -480,18 +494,16 @@ func (j *jsiiProxy_CfnUserPool) validateSetVerificationMessageTemplateParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUserPool_VerificationMessageTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPool_VerificationMessageTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnUserPoolParameters(scope awscdk.Construct, id *string, props *CfnUserPoolProps) error {
+func validateNewCfnUserPoolParameters(scope constructs.Construct, id *string, props *CfnUserPoolProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

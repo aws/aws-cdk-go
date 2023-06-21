@@ -4,9 +4,22 @@ package awselasticloadbalancingv2
 // Load balancing protocol for application load balancers.
 //
 // Example:
-//   var listener applicationListener
-//   var service baseService
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
 //
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   })
+//
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
 //   service.RegisterLoadBalancerTargets(&EcsTarget{
 //   	ContainerName: jsii.String("web"),
 //   	ContainerPort: jsii.Number(80),
@@ -16,15 +29,12 @@ package awselasticloadbalancingv2
 //   	}),
 //   })
 //
-// Experimental.
 type ApplicationProtocol string
 
 const (
 	// HTTP.
-	// Experimental.
 	ApplicationProtocol_HTTP ApplicationProtocol = "HTTP"
 	// HTTPS.
-	// Experimental.
 	ApplicationProtocol_HTTPS ApplicationProtocol = "HTTPS"
 )
 

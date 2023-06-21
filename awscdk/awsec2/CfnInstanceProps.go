@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnInstance`.
@@ -253,6 +253,8 @@ type CfnInstanceProps struct {
 	// Default: `stop`.
 	InstanceInitiatedShutdownBehavior *string `field:"optional" json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
 	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	//
+	// When you change your EBS-backed instance type, instance restart or replacement behavior depends on the instance type compatibility between the old and new types. An instance that's backed by an instance store volume is always replaced. For more information, see [Change the instance type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: `m1.small`
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`

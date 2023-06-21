@@ -46,7 +46,6 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
-// Experimental.
 type SsmParameterImageOptions struct {
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
@@ -63,13 +62,10 @@ type SsmParameterImageOptions struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
-	// Experimental.
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// Operating system.
-	// Experimental.
 	Os OperatingSystemType `field:"optional" json:"os" yaml:"os"`
 	// Custom UserData.
-	// Experimental.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 

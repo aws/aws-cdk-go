@@ -1,12 +1,12 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdaeventsources/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdaeventsources/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // Use an Amazon SQS queue as an event source for AWS Lambda.
@@ -21,23 +21,32 @@ import (
 //   fn.AddEventSource(eventSource)
 //
 //   eventSourceId := eventSource.eventSourceMappingId
+//   eventSourceMappingArn := eventSource.eventSourceMappingArn
 //
-// Experimental.
 type SqsEventSource interface {
 	awslambda.IEventSource
+	// The ARN for this EventSourceMapping.
+	EventSourceMappingArn() *string
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
-	// Experimental.
 	Queue() awssqs.IQueue
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
 }
 
 // The jsii proxy struct for SqsEventSource
 type jsiiProxy_SqsEventSource struct {
 	internal.Type__awslambdaIEventSource
+}
+
+func (j *jsiiProxy_SqsEventSource) EventSourceMappingArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"eventSourceMappingArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SqsEventSource) EventSourceMappingId() *string {
@@ -61,7 +70,6 @@ func (j *jsiiProxy_SqsEventSource) Queue() awssqs.IQueue {
 }
 
 
-// Experimental.
 func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEventSource {
 	_init_.Initialize()
 
@@ -71,7 +79,7 @@ func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEvent
 	j := jsiiProxy_SqsEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsEventSource",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -79,12 +87,11 @@ func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEvent
 	return &j
 }
 
-// Experimental.
 func NewSqsEventSource_Override(s SqsEventSource, queue awssqs.IQueue, props *SqsEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsEventSource",
 		[]interface{}{queue, props},
 		s,
 	)

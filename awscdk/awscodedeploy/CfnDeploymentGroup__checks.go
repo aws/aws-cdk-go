@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnDeploymentGroup) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnDeploymentGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnDeploymentGroup) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDeploymentGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnDeploymentGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnDeploymentGroup) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnDeploymentGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnDeploymentGroup_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetAlarmConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_AlarmConfigurationProperty:
 		val := val.(*CfnDeploymentGroup_AlarmConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetAlarmConfigurationParameters(v
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_AlarmConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_AlarmConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -201,6 +213,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetApplicationNameParameters(val 
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetAutoRollbackConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_AutoRollbackConfigurationProperty:
 		val := val.(*CfnDeploymentGroup_AutoRollbackConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -212,11 +226,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetAutoRollbackConfigurationParam
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_AutoRollbackConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_AutoRollbackConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -225,6 +237,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetAutoRollbackConfigurationParam
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetBlueGreenDeploymentConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty:
 		val := val.(*CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -236,11 +250,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetBlueGreenDeploymentConfigurati
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -249,6 +261,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetBlueGreenDeploymentConfigurati
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_DeploymentProperty:
 		val := val.(*CfnDeploymentGroup_DeploymentProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -260,11 +274,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_DeploymentProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_DeploymentProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -273,6 +285,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentParameters(val inter
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentStyleParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_DeploymentStyleProperty:
 		val := val.(*CfnDeploymentGroup_DeploymentStyleProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -284,11 +298,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentStyleParameters(val 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_DeploymentStyleProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_DeploymentStyleProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -303,6 +315,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val in
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_EC2TagFilterProperty:
 				v := v.(*CfnDeploymentGroup_EC2TagFilterProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -314,11 +328,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_EC2TagFilterProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_EC2TagFilterProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -327,6 +339,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val in
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_EC2TagFilterProperty:
 				v := v.(*CfnDeploymentGroup_EC2TagFilterProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -338,11 +352,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val in
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_EC2TagFilterProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_EC2TagFilterProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -357,6 +369,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val in
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagSetParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_EC2TagSetProperty:
 		val := val.(*CfnDeploymentGroup_EC2TagSetProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -368,11 +382,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagSetParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_EC2TagSetProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_EC2TagSetProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -387,6 +399,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEcsServicesParameters(val inte
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_ECSServiceProperty:
 				v := v.(*CfnDeploymentGroup_ECSServiceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -398,11 +412,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEcsServicesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_ECSServiceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_ECSServiceProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -411,6 +423,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEcsServicesParameters(val inte
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_ECSServiceProperty:
 				v := v.(*CfnDeploymentGroup_ECSServiceProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -422,11 +436,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEcsServicesParameters(val inte
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_ECSServiceProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_ECSServiceProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -441,6 +453,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetEcsServicesParameters(val inte
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetLoadBalancerInfoParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_LoadBalancerInfoProperty:
 		val := val.(*CfnDeploymentGroup_LoadBalancerInfoProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -452,11 +466,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetLoadBalancerInfoParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_LoadBalancerInfoProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_LoadBalancerInfoProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -471,6 +483,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesInstanceTagFiltersPa
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_TagFilterProperty:
 				v := v.(*CfnDeploymentGroup_TagFilterProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -482,11 +496,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesInstanceTagFiltersPa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_TagFilterProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_TagFilterProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -495,6 +507,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesInstanceTagFiltersPa
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_TagFilterProperty:
 				v := v.(*CfnDeploymentGroup_TagFilterProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -506,11 +520,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesInstanceTagFiltersPa
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_TagFilterProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_TagFilterProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -525,6 +537,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesInstanceTagFiltersPa
 
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesTagSetParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnDeploymentGroup_OnPremisesTagSetProperty:
 		val := val.(*CfnDeploymentGroup_OnPremisesTagSetProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -536,11 +550,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetOnPremisesTagSetParameters(val
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDeploymentGroup_OnPremisesTagSetProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_OnPremisesTagSetProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -563,6 +575,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameter
 		val := val.(*[]interface{})
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_TriggerConfigProperty:
 				v := v.(*CfnDeploymentGroup_TriggerConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -574,11 +588,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_TriggerConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_TriggerConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -587,6 +599,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameter
 		val := &val_
 		for idx_97dfc6, v := range *val {
 			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
 			case *CfnDeploymentGroup_TriggerConfigProperty:
 				v := v.(*CfnDeploymentGroup_TriggerConfigProperty)
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -598,11 +612,9 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameter
 				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 					return err
 				}
-			case awscdk.IResolvable:
-				// ok
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDeploymentGroup_TriggerConfigProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_TriggerConfigProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}
@@ -615,7 +627,7 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameter
 	return nil
 }
 
-func validateNewCfnDeploymentGroupParameters(scope awscdk.Construct, id *string, props *CfnDeploymentGroupProps) error {
+func validateNewCfnDeploymentGroupParameters(scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

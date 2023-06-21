@@ -1,7 +1,7 @@
 package awsiot
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTopicRule`.
@@ -167,7 +167,12 @@ import (
 //   					TrackerName: jsii.String("trackerName"),
 //
 //   					// the properties below are optional
-//   					Timestamp: NewDate(),
+//   					Timestamp: &TimestampProperty{
+//   						Value: jsii.String("value"),
+//
+//   						// the properties below are optional
+//   						Unit: jsii.String("unit"),
+//   					},
 //   				},
 //   				OpenSearch: &OpenSearchActionProperty{
 //   					Endpoint: jsii.String("endpoint"),
@@ -402,7 +407,12 @@ import (
 //   				TrackerName: jsii.String("trackerName"),
 //
 //   				// the properties below are optional
-//   				Timestamp: NewDate(),
+//   				Timestamp: &TimestampProperty{
+//   					Value: jsii.String("value"),
+//
+//   					// the properties below are optional
+//   					Unit: jsii.String("unit"),
+//   				},
 //   			},
 //   			OpenSearch: &OpenSearchActionProperty{
 //   				Endpoint: jsii.String("endpoint"),

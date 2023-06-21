@@ -1,12 +1,12 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Jenkins build CodePipeline Action.
@@ -23,27 +23,20 @@ import (
 //
 // See: https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-four-stage-pipeline.html
 //
-// Experimental.
 type JenkinsAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
-	// Note that this accessor will be called before the {@link bind} callback.
-	// Experimental.
+	// Note that this accessor will be called before the `bind` callback.
 	ActionProperties() *awscodepipeline.ActionProperties
-	// This is a renamed version of the {@link IAction.actionProperties} property.
-	// Experimental.
+	// This is a renamed version of the `IAction.actionProperties` property.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	// Experimental.
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	// This is a renamed version of the {@link IAction.bind} method.
-	// Experimental.
-	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the `IAction.bind` method.
+	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -73,7 +66,6 @@ func (j *jsiiProxy_JenkinsAction) ProvidedActionProperties() *awscodepipeline.Ac
 }
 
 
-// Experimental.
 func NewJenkinsAction(props *JenkinsActionProps) JenkinsAction {
 	_init_.Initialize()
 
@@ -83,7 +75,7 @@ func NewJenkinsAction(props *JenkinsActionProps) JenkinsAction {
 	j := jsiiProxy_JenkinsAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.JenkinsAction",
+		"aws-cdk-lib.aws_codepipeline_actions.JenkinsAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -91,18 +83,17 @@ func NewJenkinsAction(props *JenkinsActionProps) JenkinsAction {
 	return &j
 }
 
-// Experimental.
 func NewJenkinsAction_Override(j JenkinsAction, props *JenkinsActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.JenkinsAction",
+		"aws-cdk-lib.aws_codepipeline_actions.JenkinsAction",
 		[]interface{}{props},
 		j,
 	)
 }
 
-func (j *jsiiProxy_JenkinsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (j *jsiiProxy_JenkinsAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := j.validateBindParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
@@ -118,7 +109,7 @@ func (j *jsiiProxy_JenkinsAction) Bind(scope awscdk.Construct, stage awscodepipe
 	return returns
 }
 
-func (j *jsiiProxy_JenkinsAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (j *jsiiProxy_JenkinsAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := j.validateBoundParameters(_scope, _stage, _options); err != nil {
 		panic(err)
 	}

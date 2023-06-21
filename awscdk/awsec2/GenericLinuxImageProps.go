@@ -14,10 +14,8 @@ package awsec2
 //   	UserData: userData,
 //   }
 //
-// Experimental.
 type GenericLinuxImageProps struct {
 	// Initial user data.
-	// Experimental.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 

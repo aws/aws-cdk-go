@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnKnowledgeBase) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnKnowledgeBase) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnKnowledgeBase) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnKnowledgeBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnKnowledgeBase) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnKnowledgeBase) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnKnowledgeBase) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnKnowledgeBase) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnKnowledgeBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnKnowledgeBase) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -185,6 +197,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetNameParameters(val *string) erro
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetRenderingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnKnowledgeBase_RenderingConfigurationProperty:
 		val := val.(*CfnKnowledgeBase_RenderingConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -196,11 +210,9 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetRenderingConfigurationParameters
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnKnowledgeBase_RenderingConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_RenderingConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -209,6 +221,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetRenderingConfigurationParameters
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetServerSideEncryptionConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty:
 		val := val.(*CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -220,11 +234,9 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetServerSideEncryptionConfiguratio
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -233,6 +245,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetServerSideEncryptionConfiguratio
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetSourceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnKnowledgeBase_SourceConfigurationProperty:
 		val := val.(*CfnKnowledgeBase_SourceConfigurationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -244,18 +258,16 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetSourceConfigurationParameters(va
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnKnowledgeBase_SourceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_SourceConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnKnowledgeBaseParameters(scope awscdk.Construct, id *string, props *CfnKnowledgeBaseProps) error {
+func validateNewCfnKnowledgeBaseParameters(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

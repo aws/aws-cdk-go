@@ -22,26 +22,20 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type OriginRequestPolicyProps struct {
 	// A comment to describe the origin request policy.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The cookies from viewer requests to include in origin requests.
-	// Experimental.
 	CookieBehavior OriginRequestCookieBehavior `field:"optional" json:"cookieBehavior" yaml:"cookieBehavior"`
 	// The HTTP headers to include in origin requests.
 	//
 	// These can include headers from viewer requests and additional headers added by CloudFront.
-	// Experimental.
 	HeaderBehavior OriginRequestHeaderBehavior `field:"optional" json:"headerBehavior" yaml:"headerBehavior"`
 	// A unique name to identify the origin request policy.
 	//
 	// The name must only include '-', '_', or alphanumeric characters.
-	// Experimental.
 	OriginRequestPolicyName *string `field:"optional" json:"originRequestPolicyName" yaml:"originRequestPolicyName"`
 	// The URL query strings from viewer requests to include in origin requests.
-	// Experimental.
 	QueryStringBehavior OriginRequestQueryStringBehavior `field:"optional" json:"queryStringBehavior" yaml:"queryStringBehavior"`
 }
 

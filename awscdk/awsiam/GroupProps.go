@@ -18,7 +18,6 @@ package awsiam
 //   	Path: jsii.String("path"),
 //   }
 //
-// Experimental.
 type GroupProps struct {
 	// A name for the IAM group.
 	//
@@ -30,20 +29,17 @@ type GroupProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
-	// Experimental.
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
-	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The path to the group.
 	//
 	// For more information about paths, see [IAM
 	// Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
 	// in the IAM User Guide.
-	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

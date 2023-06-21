@@ -1,10 +1,10 @@
 package awselasticloadbalancingv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // What to do when a client makes a request to a listener.
@@ -21,29 +21,26 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var networkTargetGroup networkTargetGroup
 //
 //   networkListenerAction := awscdk.Aws_elasticloadbalancingv2.NetworkListenerAction_Forward([]iNetworkTargetGroup{
 //   	networkTargetGroup,
 //   }, &NetworkForwardOptions{
-//   	StickinessDuration: duration,
+//   	StickinessDuration: cdk.Duration_Minutes(jsii.Number(30)),
 //   })
 //
-// Experimental.
 type NetworkListenerAction interface {
 	IListenerAction
-	// Experimental.
 	Next() NetworkListenerAction
 	// Called when the action is being used in a listener.
-	// Experimental.
-	Bind(scope awscdk.Construct, listener INetworkListener)
-	// Render the actions in this chain.
-	// Experimental.
+	Bind(scope constructs.Construct, listener INetworkListener)
+	// Render the listener default actions in this chain.
 	RenderActions() *[]*CfnListener_ActionProperty
+	// Render the listener rule actions in this chain.
+	RenderRuleActions() *[]*CfnListenerRule_ActionProperty
 	// Renumber the "order" fields in the actions array.
 	//
 	// We don't number for 0 or 1 elements, but otherwise number them 1...#actions
@@ -51,7 +48,6 @@ type NetworkListenerAction interface {
 	//
 	// Do this in `NetworkListenerAction` instead of in `Listener` so that we give
 	// users the opportunity to override by subclassing and overriding `renderActions`.
-	// Experimental.
 	Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty
 }
 
@@ -76,18 +72,17 @@ func (j *jsiiProxy_NetworkListenerAction) Next() NetworkListenerAction {
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
-// Experimental.
-func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next NetworkListenerAction) NetworkListenerAction {
+func NewNetworkListenerAction(defaultActionJson *CfnListener_ActionProperty, next NetworkListenerAction) NetworkListenerAction {
 	_init_.Initialize()
 
-	if err := validateNewNetworkListenerActionParameters(actionJson); err != nil {
+	if err := validateNewNetworkListenerActionParameters(defaultActionJson); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_NetworkListenerAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
-		[]interface{}{actionJson, next},
+		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		[]interface{}{defaultActionJson, next},
 		&j,
 	)
 
@@ -99,19 +94,17 @@ func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next Netwo
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
-// Experimental.
-func NewNetworkListenerAction_Override(n NetworkListenerAction, actionJson *CfnListener_ActionProperty, next NetworkListenerAction) {
+func NewNetworkListenerAction_Override(n NetworkListenerAction, defaultActionJson *CfnListener_ActionProperty, next NetworkListenerAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
-		[]interface{}{actionJson, next},
+		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		[]interface{}{defaultActionJson, next},
 		n,
 	)
 }
 
 // Forward to one or more Target Groups.
-// Experimental.
 func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
@@ -121,7 +114,7 @@ func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options 
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
 		"forward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -131,7 +124,6 @@ func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options 
 }
 
 // Forward to one or more Target Groups which are weighted differently.
-// Experimental.
 func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
@@ -141,7 +133,7 @@ func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTarge
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
 		"weightedForward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -150,7 +142,7 @@ func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTarge
 	return returns
 }
 
-func (n *jsiiProxy_NetworkListenerAction) Bind(scope awscdk.Construct, listener INetworkListener) {
+func (n *jsiiProxy_NetworkListenerAction) Bind(scope constructs.Construct, listener INetworkListener) {
 	if err := n.validateBindParameters(scope, listener); err != nil {
 		panic(err)
 	}
@@ -167,6 +159,19 @@ func (n *jsiiProxy_NetworkListenerAction) RenderActions() *[]*CfnListener_Action
 	_jsii_.Invoke(
 		n,
 		"renderActions",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkListenerAction) RenderRuleActions() *[]*CfnListenerRule_ActionProperty {
+	var returns *[]*CfnListenerRule_ActionProperty
+
+	_jsii_.Invoke(
+		n,
+		"renderRuleActions",
 		nil, // no parameters
 		&returns,
 	)

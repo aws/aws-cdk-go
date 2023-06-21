@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVirtualMFADevice) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualMFADevice) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualMFADevice) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVirtualMFADevice) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnVirtualMFADevice) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVirtualMFADevice) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVirtualMFADevice) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVirtualMFADevice) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnVirtualMFADevice) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVirtualMFADevice) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnVirtualMFADevice) validateSetUsersParameters(val *[]*strin
 	return nil
 }
 
-func validateNewCfnVirtualMFADeviceParameters(scope awscdk.Construct, id *string, props *CfnVirtualMFADeviceProps) error {
+func validateNewCfnVirtualMFADeviceParameters(scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) error {
 	return nil
 }
 

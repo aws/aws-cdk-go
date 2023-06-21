@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnOriginEndpoint) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnOriginEndpoint) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnOriginEndpoint) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnOriginEndpoint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginEndpoint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnOriginEndpoint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnOriginEndpoint) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnOriginEndpoint) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnOriginEndpoint_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetAuthorizationParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOriginEndpoint_AuthorizationProperty:
 		val := val.(*CfnOriginEndpoint_AuthorizationProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetAuthorizationParameters(val int
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOriginEndpoint_AuthorizationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOriginEndpoint_AuthorizationProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -201,6 +213,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetChannelIdParameters(val *string
 
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetCmafPackageParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOriginEndpoint_CmafPackageProperty:
 		val := val.(*CfnOriginEndpoint_CmafPackageProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -212,11 +226,9 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetCmafPackageParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOriginEndpoint_CmafPackageProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOriginEndpoint_CmafPackageProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -225,6 +237,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetCmafPackageParameters(val inter
 
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetDashPackageParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOriginEndpoint_DashPackageProperty:
 		val := val.(*CfnOriginEndpoint_DashPackageProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -236,11 +250,9 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetDashPackageParameters(val inter
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOriginEndpoint_DashPackageProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOriginEndpoint_DashPackageProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -249,6 +261,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetDashPackageParameters(val inter
 
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetHlsPackageParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOriginEndpoint_HlsPackageProperty:
 		val := val.(*CfnOriginEndpoint_HlsPackageProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -260,11 +274,9 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetHlsPackageParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOriginEndpoint_HlsPackageProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOriginEndpoint_HlsPackageProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -281,6 +293,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetIdParameters(val *string) error
 
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetMssPackageParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnOriginEndpoint_MssPackageProperty:
 		val := val.(*CfnOriginEndpoint_MssPackageProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -292,18 +306,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetMssPackageParameters(val interf
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnOriginEndpoint_MssPackageProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOriginEndpoint_MssPackageProperty; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnOriginEndpointParameters(scope awscdk.Construct, id *string, props *CfnOriginEndpointProps) error {
+func validateNewCfnOriginEndpointParameters(scope constructs.Construct, id *string, props *CfnOriginEndpointProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

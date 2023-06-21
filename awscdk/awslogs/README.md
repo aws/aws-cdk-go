@@ -45,6 +45,8 @@ By default, the log group will be created in the same region as the stack. The `
 log groups in other regions. This is typically useful when controlling retention for log groups auto-created by global services that
 publish their log group to a specific region, such as AWS Chatbot creating a log group in `us-east-1`.
 
+By default, the log group created by LogRetention will be retained after the stack is deleted. If the RemovalPolicy is set to DESTROY, then the log group will be deleted when the stack is deleted.
+
 ## Resource Policy
 
 CloudWatch Resource Policies allow other AWS services or IAM Principals to put log events into the log groups.
@@ -73,9 +75,16 @@ logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
 logGroup.grantWrite(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
 ```
 
+Similarily, read permissions can be granted to the log group as follows.
+
+```go
+logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
+logGroup.grantRead(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
+```
+
 Be aware that any ARNs or tokenized values passed to the resource policy will be converted into AWS Account IDs.
 This is because CloudWatch Logs Resource Policies do not accept ARNs as principals, but they do accept
-Account ID strings. Non-ARN principals, like Service principals or Any princpals, are accepted by CloudWatch.
+Account ID strings. Non-ARN principals, like Service principals or Any principals, are accepted by CloudWatch.
 
 ## Encrypting Log Groups
 
@@ -159,7 +168,7 @@ var logGroup logGroup
 logGroup.extractMetric(jsii.String("$.jsonField"), jsii.String("Namespace"), jsii.String("MetricName"))
 ```
 
-Will extract the value of `jsonField` wherever it occurs in JSON-structed
+Will extract the value of `jsonField` wherever it occurs in JSON-structured
 log records in the LogGroup, and emit them to CloudWatch Metrics under
 the name `Namespace/MetricName`.
 
@@ -177,6 +186,10 @@ mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps
 	MetricName: jsii.String("Latency"),
 	FilterPattern: logs.FilterPattern_Exists(jsii.String("$.latency")),
 	MetricValue: jsii.String("$.latency"),
+	Dimensions: map[string]*string{
+		"ErrorCode": jsii.String("$.errorCode"),
+	},
+	Unit: cloudwatch.Unit_MILLISECONDS,
 })
 
 //expose a metric from the metric filter
@@ -332,9 +345,68 @@ logs.NewQueryDefinition(this, jsii.String("QueryDefinition"), &QueryDefinitionPr
 			jsii.String("@timestamp"),
 			jsii.String("@message"),
 		},
+		ParseStatements: []*string{
+			jsii.String("@message \"[*] *\" as loggingType, loggingMessage"),
+			jsii.String("@message \"<*>: *\" as differentLoggingType, differentLoggingMessage"),
+		},
+		FilterStatements: []*string{
+			jsii.String("loggingType = \"ERROR\""),
+			jsii.String("loggingMessage = \"A very strange error occurred!\""),
+		},
 		Sort: jsii.String("@timestamp desc"),
 		Limit: jsii.Number(20),
 	}),
+})
+```
+
+## Data Protection Policy
+
+Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
+
+For more information, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+
+For a list of types of identifiers that can be audited and masked, see [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html)
+
+If a new identifier is supported but not yet in the `DataIdentifiers` enum, the full ARN of the identifier can be supplied in `identifierArnStrings` instead.
+
+Each policy may consist of a log group, S3 bucket, and/or Firehose delivery stream audit destination.
+
+Example:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdkawss3"
+import "github.com/aws-samples/dummy/awscdklogs"
+import kinesisfirehose "github.com/aws-samples/dummy/awscdkawskinesisfirehose"
+
+
+logGroupDestination := awscdklogs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), map[string]*string{
+	"logGroupName": jsii.String("auditDestinationForCDK"),
+})
+
+s3Destination := awscdkawss3.NewBucket(this, jsii.String("audit-bucket-id"))
+
+deliveryStream := firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), map[string][]interface{}{
+	"destinations": []interface{}{
+		s3Destination,
+	},
+})
+
+dataProtectionPolicy := NewDataProtectionPolicy(map[string]interface{}{
+	"name": jsii.String("data protection policy"),
+	"description": jsii.String("policy description"),
+	"identifiers": []interface{}{
+		DataIdentifier_DRIVERSLICENSE_US,
+		NewDataIdentifier(jsii.String("EmailAddress")),
+	},
+	"logGroupAuditDestination": logGroupDestination,
+	"s3BucketAuditDestination": s3Destination,
+	"deliveryStreamAuditDestination": deliveryStream.deliveryStreamName,
+})
+
+awscdklogs.NewLogGroup(this, jsii.String("LogGroupLambda"), map[string]interface{}{
+	"logGroupName": jsii.String("cdkIntegLogGroup"),
+	"dataProtectionPolicy": dataProtectionPolicy,
 })
 ```
 

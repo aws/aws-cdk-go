@@ -15,19 +15,14 @@ package awscognito
 //   	UserInfo: jsii.String("userInfo"),
 //   }
 //
-// Experimental.
 type OidcEndpoints struct {
 	// Authorization endpoint.
-	// Experimental.
 	Authorization *string `field:"required" json:"authorization" yaml:"authorization"`
 	// Jwks_uri endpoint.
-	// Experimental.
 	JwksUri *string `field:"required" json:"jwksUri" yaml:"jwksUri"`
 	// Token endpoint.
-	// Experimental.
 	Token *string `field:"required" json:"token" yaml:"token"`
 	// UserInfo endpoint.
-	// Experimental.
 	UserInfo *string `field:"required" json:"userInfo" yaml:"userInfo"`
 }
 

@@ -4,32 +4,35 @@ package awselasticloadbalancingv2
 // Basic properties for an ApplicationListener.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
 //
-//   var lb applicationLoadBalancer
-//
-//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
-//   	Port: jsii.Number(80),
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
-//   		ParameterMapping: apigwv2.NewParameterMapping().AppendHeader(jsii.String("header2"), apigwv2.MappingValue_RequestHeader(jsii.String("header1"))).RemoveHeader(jsii.String("header1")),
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   service.RegisterLoadBalancerTargets(&EcsTarget{
+//   	ContainerName: jsii.String("web"),
+//   	ContainerPort: jsii.Number(80),
+//   	NewTargetGroupId: jsii.String("ECS"),
+//   	Listener: ecs.ListenerConfig_ApplicationListener(listener, &AddApplicationTargetsProps{
+//   		Protocol: elbv2.ApplicationProtocol_HTTPS,
 //   	}),
 //   })
 //
-// Experimental.
 type BaseApplicationListenerProps struct {
-	// The certificates to use on this listener.
-	// Deprecated: Use the `certificates` property instead.
-	CertificateArns *[]*string `field:"optional" json:"certificateArns" yaml:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	// Experimental.
 	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
@@ -39,7 +42,6 @@ type BaseApplicationListenerProps struct {
 	// See the `ListenerAction` class for all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
-	// Experimental.
 	DefaultAction ListenerAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
@@ -48,7 +50,6 @@ type BaseApplicationListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
-	// Experimental.
 	DefaultTargetGroups *[]IApplicationTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
@@ -59,16 +60,12 @@ type BaseApplicationListenerProps struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the load balancer on the listener port.
-	// Experimental.
 	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol to use.
-	// Experimental.
 	Protocol ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
-	// Experimental.
 	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 }
 

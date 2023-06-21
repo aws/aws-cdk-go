@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Result of binding a lifecycle hook to a target.
@@ -19,13 +19,10 @@ import (
 //   	NotificationTargetArn: jsii.String("notificationTargetArn"),
 //   }
 //
-// Experimental.
 type LifecycleHookTargetConfig struct {
 	// The IRole that was used to bind the lifecycle hook to the target.
-	// Experimental.
 	CreatedRole awsiam.IRole `field:"required" json:"createdRole" yaml:"createdRole"`
 	// The targetArn that the lifecycle hook was bound to.
-	// Experimental.
 	NotificationTargetArn *string `field:"required" json:"notificationTargetArn" yaml:"notificationTargetArn"`
 }
 

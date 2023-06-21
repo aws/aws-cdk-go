@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 func (n *jsiiProxy_NestedCloudAssemblyArtifact) validateFindMetadataByTypeParameters(type_ *string) error {
@@ -32,6 +32,14 @@ func validateNestedCloudAssemblyArtifact_FromManifestParameters(assembly CloudAs
 	}
 	if err := _jsii_.ValidateStruct(artifact, func() string { return "parameter artifact" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func validateNestedCloudAssemblyArtifact_IsNestedCloudAssemblyArtifactParameters(art interface{}) error {
+	if art == nil {
+		return fmt.Errorf("parameter art is required, but nil was provided")
 	}
 
 	return nil

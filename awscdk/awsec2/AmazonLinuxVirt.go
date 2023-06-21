@@ -24,15 +24,12 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
-// Experimental.
 type AmazonLinuxVirt string
 
 const (
 	// HVM virtualization (recommended).
-	// Experimental.
 	AmazonLinuxVirt_HVM AmazonLinuxVirt = "HVM"
 	// PV virtualization.
-	// Experimental.
 	AmazonLinuxVirt_PV AmazonLinuxVirt = "PV"
 )
 

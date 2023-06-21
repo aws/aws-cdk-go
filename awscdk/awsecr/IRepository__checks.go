@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_IRepository) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
@@ -36,6 +36,22 @@ func (i *jsiiProxy_IRepository) validateGrantPullParameters(grantee awsiam.IGran
 }
 
 func (i *jsiiProxy_IRepository) validateGrantPullPushParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IRepository) validateGrantPushParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IRepository) validateGrantReadParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}

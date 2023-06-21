@@ -3,12 +3,12 @@ package awscdk
 
 // The application actually being deployed.
 //
-// Type of the {@link CfnCodeDeployBlueGreenHookProps.applications} property.
+// Type of the `CfnCodeDeployBlueGreenHookProps.applications` property.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCodeDeployBlueGreenApplication := &CfnCodeDeployBlueGreenApplication{
 //   	EcsAttributes: &CfnCodeDeployBlueGreenEcsAttributes{
@@ -38,13 +38,10 @@ package awscdk
 //   	},
 //   }
 //
-// Experimental.
 type CfnCodeDeployBlueGreenApplication struct {
 	// The detailed attributes of the deployed target.
-	// Experimental.
 	EcsAttributes *CfnCodeDeployBlueGreenEcsAttributes `field:"required" json:"ecsAttributes" yaml:"ecsAttributes"`
 	// The target that is being deployed.
-	// Experimental.
 	Target *CfnCodeDeployBlueGreenApplicationTarget `field:"required" json:"target" yaml:"target"`
 }
 

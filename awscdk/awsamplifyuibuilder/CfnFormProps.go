@@ -178,7 +178,7 @@ type CfnFormProps struct {
 	Cta interface{} `field:"optional" json:"cta" yaml:"cta"`
 	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
-	// `AWS::AmplifyUIBuilder::Form.LabelDecorator`.
+	// Specifies an icon or decoration to display on the form.
 	LabelDecorator *string `field:"optional" json:"labelDecorator" yaml:"labelDecorator"`
 	// One or more key-value pairs to use when tagging the form data.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

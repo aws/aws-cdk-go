@@ -3,13 +3,13 @@ package awsrds
 
 // Properties for PostgreSQL instance engines.
 //
-// Used in {@link DatabaseInstanceEngine.postgres}.
+// Used in `DatabaseInstanceEngine.postgres`.
 //
 // Example:
 //   var vpc vpc
 //
 //   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_12_3(),
+//   	Version: rds.PostgresEngineVersion_VER_15_2(),
 //   })
 //   myKey := kms.NewKey(this, jsii.String("MyKey"))
 //
@@ -31,10 +31,8 @@ package awsrds
 //   	}),
 //   })
 //
-// Experimental.
 type PostgresInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version PostgresEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

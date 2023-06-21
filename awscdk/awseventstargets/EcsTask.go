@@ -1,74 +1,55 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 )
 
 // Start a task on an ECS cluster.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var cluster cluster
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster iCluster
 //   var taskDefinition taskDefinition
-//   var role role
 //
 //
-//   ecsTaskTarget := awscdk.NewEcsTask(&EcsTaskProps{
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+//   })
+//
+//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	Role: Role,
-//   })
-//
-//   awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
-//   	Schedule: awscdk.Schedule_Cron(&CronOptions{
-//   		Minute: jsii.String("0"),
-//   		Hour: jsii.String("4"),
-//   	}),
-//   	Targets: []iRuleTarget{
-//   		ecsTaskTarget,
+//   	TaskCount: jsii.Number(1),
+//   	ContainerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			ContainerName: jsii.String("TheContainer"),
+//   			Command: []*string{
+//   				jsii.String("echo"),
+//   				events.EventField_FromPath(jsii.String("$.detail.event")),
+//   			},
+//   		},
 //   	},
-//   })
+//   	EnableExecuteCommand: jsii.Boolean(true),
+//   }))
 //
-// Experimental.
 type EcsTask interface {
 	awsevents.IRuleTarget
-	// The security group associated with the task.
-	//
-	// Only applicable with awsvpc network mode.
-	// Deprecated: use securityGroups instead.
-	SecurityGroup() awsec2.ISecurityGroup
 	// The security groups associated with the task.
 	//
 	// Only applicable with awsvpc network mode.
-	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// Allows using tasks as target of EventBridge events.
-	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for EcsTask
 type jsiiProxy_EcsTask struct {
 	internal.Type__awseventsIRuleTarget
-}
-
-func (j *jsiiProxy_EcsTask) SecurityGroup() awsec2.ISecurityGroup {
-	var returns awsec2.ISecurityGroup
-	_jsii_.Get(
-		j,
-		"securityGroup",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_EcsTask) SecurityGroups() *[]awsec2.ISecurityGroup {
@@ -82,7 +63,6 @@ func (j *jsiiProxy_EcsTask) SecurityGroups() *[]awsec2.ISecurityGroup {
 }
 
 
-// Experimental.
 func NewEcsTask(props *EcsTaskProps) EcsTask {
 	_init_.Initialize()
 
@@ -92,7 +72,7 @@ func NewEcsTask(props *EcsTaskProps) EcsTask {
 	j := jsiiProxy_EcsTask{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.EcsTask",
+		"aws-cdk-lib.aws_events_targets.EcsTask",
 		[]interface{}{props},
 		&j,
 	)
@@ -100,12 +80,11 @@ func NewEcsTask(props *EcsTaskProps) EcsTask {
 	return &j
 }
 
-// Experimental.
 func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.EcsTask",
+		"aws-cdk-lib.aws_events_targets.EcsTask",
 		[]interface{}{props},
 		e,
 	)

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateAddDeletionOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) validateSetUseDefaultsParameters
 	return nil
 }
 
-func validateNewCfnIdentityPoolPrincipalTagParameters(scope awscdk.Construct, id *string, props *CfnIdentityPoolPrincipalTagProps) error {
+func validateNewCfnIdentityPoolPrincipalTagParameters(scope constructs.Construct, id *string, props *CfnIdentityPoolPrincipalTagProps) error {
 	return nil
 }
 

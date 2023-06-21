@@ -1,7 +1,7 @@
 package awsfsx
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,10 +18,8 @@ import (
 //   	Minute: jsii.Number(123),
 //   })
 //
-// Experimental.
 type LustreMaintenanceTime interface {
 	// Converts a day, hour, and minute into a timestamp as used by FSx for Lustre's weeklyMaintenanceStartTime field.
-	// Experimental.
 	ToTimestamp() *string
 }
 
@@ -30,7 +28,6 @@ type jsiiProxy_LustreMaintenanceTime struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenanceTime {
 	_init_.Initialize()
 
@@ -40,7 +37,7 @@ func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenan
 	j := jsiiProxy_LustreMaintenanceTime{}
 
 	_jsii_.Create(
-		"monocdk.aws_fsx.LustreMaintenanceTime",
+		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
 		[]interface{}{props},
 		&j,
 	)
@@ -48,12 +45,11 @@ func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenan
 	return &j
 }
 
-// Experimental.
 func NewLustreMaintenanceTime_Override(l LustreMaintenanceTime, props *LustreMaintenanceTimeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_fsx.LustreMaintenanceTime",
+		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
 		[]interface{}{props},
 		l,
 	)

@@ -6,16 +6,17 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   resolveChangeContextOptions := &ResolveChangeContextOptions{
 //   	AllowIntrinsicKeys: jsii.Boolean(false),
+//   	RemoveEmpty: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type ResolveChangeContextOptions struct {
 	// Change the 'allowIntrinsicKeys' option.
-	// Experimental.
 	AllowIntrinsicKeys *bool `field:"optional" json:"allowIntrinsicKeys" yaml:"allowIntrinsicKeys"`
+	// Whether to remove undefined elements from arrays and objects when resolving.
+	RemoveEmpty *bool `field:"optional" json:"removeEmpty" yaml:"removeEmpty"`
 }
 

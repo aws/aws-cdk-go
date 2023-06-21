@@ -12,11 +12,11 @@ package awsapplicationautoscaling
 //   	MaxCapacity: jsii.Number(123),
 //   	MinCapacity: jsii.Number(123),
 //   	ResourceId: jsii.String("resourceId"),
-//   	RoleArn: jsii.String("roleArn"),
 //   	ScalableDimension: jsii.String("scalableDimension"),
 //   	ServiceNamespace: jsii.String("serviceNamespace"),
 //
 //   	// the properties below are optional
+//   	RoleArn: jsii.String("roleArn"),
 //   	ScheduledActions: []interface{}{
 //   		&ScheduledActionProperty{
 //   			Schedule: jsii.String("schedule"),
@@ -70,12 +70,6 @@ type CfnScalableTargetProps struct {
 	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
 	// - SageMaker Serverless endpoint - The resource type is `variant` and the unique identifier is the resource ID. Example: `endpoint/my-end-point/variant/KMeansClustering` .
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
-	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
-	//
-	// This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide* .
-	//
-	// To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide* . Look for the ARN in the table at the bottom of the page.
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The scalable dimension associated with the scalable target.
 	//
 	// This string consists of the service namespace, resource type, and scaling property.
@@ -104,6 +98,12 @@ type CfnScalableTargetProps struct {
 	ScalableDimension *string `field:"required" json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
 	ServiceNamespace *string `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`
+	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
+	//
+	// This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide* .
+	//
+	// To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide* . Look for the ARN in the table at the bottom of the page.
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The scheduled actions for the scalable target.
 	//
 	// Duplicates aren't allowed.

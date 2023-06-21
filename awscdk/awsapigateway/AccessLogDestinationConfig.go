@@ -12,10 +12,8 @@ package awsapigateway
 //   	DestinationArn: jsii.String("destinationArn"),
 //   }
 //
-// Experimental.
 type AccessLogDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	// Experimental.
 	DestinationArn *string `field:"required" json:"destinationArn" yaml:"destinationArn"`
 }
 

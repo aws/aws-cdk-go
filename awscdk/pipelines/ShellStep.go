@@ -1,7 +1,7 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,13 +11,15 @@ import (
 // to be deployment engine agnostic.
 //
 // Example:
-//   // Modern API
-//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
-//   	SelfMutation: jsii.Boolean(false),
+//   var codePipeline pipeline
+//
+//
+//   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))
+//
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+//   	CodePipeline: codePipeline,
 //   	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
-//   		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
-//   			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
-//   		}),
+//   		Input: pipelines.CodePipelineFileSet_FromArtifact(sourceArtifact),
 //   		Commands: []*string{
 //   			jsii.String("npm ci"),
 //   			jsii.String("npm run build"),
@@ -26,67 +28,49 @@ import (
 //   	}),
 //   })
 //
-//   // Original API
-//   cloudAssemblyArtifact := codepipeline.NewArtifact()
-//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &CdkPipelineProps{
-//   	SelfMutating: jsii.Boolean(false),
-//   	CloudAssemblyArtifact: CloudAssemblyArtifact,
-//   })
-//
-// Experimental.
 type ShellStep interface {
 	Step
 	// Commands to run.
-	// Experimental.
 	Commands() *[]*string
+	// StackOutputReferences this step consumes.
+	ConsumedStackOutputs() *[]StackOutputReference
 	// Return the steps this step depends on, based on the FileSets it requires.
-	// Experimental.
 	Dependencies() *[]Step
 	// The list of FileSets consumed by this Step.
-	// Experimental.
 	DependencyFileSets() *[]FileSet
 	// Environment variables to set.
-	// Experimental.
 	Env() *map[string]*string
 	// Set environment variables based on Stack Outputs.
-	// Experimental.
 	EnvFromCfnOutputs() *map[string]StackOutputReference
 	// Identifier for this step.
-	// Experimental.
 	Id() *string
 	// Input FileSets.
 	//
 	// A list of `(FileSet, directory)` pairs, which are a copy of the
 	// input properties. This list should not be modified directly.
-	// Experimental.
 	Inputs() *[]*FileSetLocation
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	// Experimental.
 	InstallCommands() *[]*string
 	// Whether or not this is a Source step.
 	//
 	// What it means to be a Source step depends on the engine.
-	// Experimental.
 	IsSource() *bool
 	// Output FileSets.
 	//
 	// A list of `(FileSet, directory)` pairs, which are a copy of the
 	// input properties. This list should not be modified directly.
-	// Experimental.
 	Outputs() *[]*FileSetLocation
 	// The primary FileSet produced by this Step.
 	//
 	// Not all steps produce an output FileSet--if they do
 	// you can substitute the `Step` object for the `FileSet` object.
-	// Experimental.
 	PrimaryOutput() FileSet
 	// Add an additional FileSet to the set of file sets required by this step.
 	//
 	// This will lead to a dependency on the producer of that file set.
-	// Experimental.
 	AddDependencyFileSet(fs FileSet)
 	// Add an additional output FileSet based on a directory.
 	//
@@ -96,13 +80,10 @@ type ShellStep interface {
 	//
 	// Multiple calls with the exact same directory name string (not normalized)
 	// will return the same FileSet.
-	// Experimental.
 	AddOutputDirectory(directory *string) FileSet
 	// Add a dependency on another step.
-	// Experimental.
 	AddStepDependency(step Step)
 	// Configure the given FileSet as the primary output of this step.
-	// Experimental.
 	ConfigurePrimaryOutput(fs FileSet)
 	// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
 	//
@@ -110,7 +91,6 @@ type ShellStep interface {
 	// passes in as construction properties. The format of the structure passed in
 	// here does not have to correspond exactly to what gets rendered into the
 	// engine, it just needs to contain the same data.
-	// Experimental.
 	DiscoverReferencedOutputs(structure interface{})
 	// Configure the given output directory as primary output.
 	//
@@ -118,10 +98,8 @@ type ShellStep interface {
 	// will become the primary output of this ShellStep, otherwise this
 	// method will throw if the given directory is different than the
 	// currently configured primary output directory.
-	// Experimental.
 	PrimaryOutputDirectory(directory *string) FileSet
 	// Return a string representation of this Step.
-	// Experimental.
 	ToString() *string
 }
 
@@ -135,6 +113,16 @@ func (j *jsiiProxy_ShellStep) Commands() *[]*string {
 	_jsii_.Get(
 		j,
 		"commands",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ShellStep) ConsumedStackOutputs() *[]StackOutputReference {
+	var returns *[]StackOutputReference
+	_jsii_.Get(
+		j,
+		"consumedStackOutputs",
 		&returns,
 	)
 	return returns
@@ -241,7 +229,6 @@ func (j *jsiiProxy_ShellStep) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	_init_.Initialize()
 
@@ -251,7 +238,7 @@ func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	j := jsiiProxy_ShellStep{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ShellStep",
+		"aws-cdk-lib.pipelines.ShellStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -259,12 +246,11 @@ func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	return &j
 }
 
-// Experimental.
 func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ShellStep",
+		"aws-cdk-lib.pipelines.ShellStep",
 		[]interface{}{id, props},
 		s,
 	)
@@ -275,7 +261,6 @@ func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 // If you need more fine-grained step ordering, use the `addStepDependency()`
 // API. For example, if you want `secondStep` to occur after `firstStep`, call
 // `secondStep.addStepDependency(firstStep)`.
-// Experimental.
 func ShellStep_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
@@ -285,7 +270,7 @@ func ShellStep_Sequence(steps *[]Step) *[]Step {
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.ShellStep",
+		"aws-cdk-lib.pipelines.ShellStep",
 		"sequence",
 		[]interface{}{steps},
 		&returns,

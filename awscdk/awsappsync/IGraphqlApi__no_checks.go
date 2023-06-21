@@ -12,6 +12,10 @@ func (i *jsiiProxy_IGraphqlApi) validateAddElasticsearchDataSourceParameters(id 
 	return nil
 }
 
+func (i *jsiiProxy_IGraphqlApi) validateAddEventBridgeDataSourceParameters(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IGraphqlApi) validateAddHttpDataSourceParameters(id *string, endpoint *string, options *HttpDataSourceOptions) error {
 	return nil
 }
@@ -36,7 +40,7 @@ func (i *jsiiProxy_IGraphqlApi) validateAddSchemaDependencyParameters(construct 
 	return nil
 }
 
-func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(props *ExtendedResolverProps) error {
+func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(id *string, props *ExtendedResolverProps) error {
 	return nil
 }
 

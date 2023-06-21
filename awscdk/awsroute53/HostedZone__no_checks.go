@@ -20,14 +20,6 @@ func (h *jsiiProxy_HostedZone) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
-func (h *jsiiProxy_HostedZone) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (h *jsiiProxy_HostedZone) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateHostedZone_FromHostedZoneAttributesParameters(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) error {
 	return nil
 }
@@ -44,7 +36,11 @@ func validateHostedZone_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateHostedZone_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateHostedZone_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateHostedZone_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

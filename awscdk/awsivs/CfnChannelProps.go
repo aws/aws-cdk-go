@@ -1,7 +1,7 @@
 package awsivs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnChannel`.
@@ -16,6 +16,7 @@ import (
 //   	InsecureIngest: jsii.Boolean(false),
 //   	LatencyMode: jsii.String("latencyMode"),
 //   	Name: jsii.String("name"),
+//   	Preset: jsii.String("preset"),
 //   	RecordingConfigurationArn: jsii.String("recordingConfigurationArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -46,6 +47,10 @@ type CfnChannelProps struct {
 	LatencyMode *string `field:"optional" json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// An optional transcode preset for the channel.
+	//
+	// This is selectable only for `ADVANCED_HD` and `ADVANCED_SD` channel types. For those channel types, the default preset is `HIGHER_BANDWIDTH_DELIVERY` . For other channel types ( `BASIC` and `STANDARD` ), `preset` is the empty string ("").
+	Preset *string `field:"optional" json:"preset" yaml:"preset"`
 	// The ARN of a RecordingConfiguration resource.
 	//
 	// An empty string indicates that recording is disabled for the channel. A RecordingConfiguration ARN indicates that recording is enabled using the specified recording configuration. See the [RecordingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html) resource for more information and an example.
@@ -62,6 +67,13 @@ type CfnChannelProps struct {
 	//
 	// - `STANDARD` : Video is transcoded: multiple qualities are generated from the original input to automatically give viewers the best experience for their devices and network conditions. Transcoding allows higher playback quality across a range of download speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only for renditions 360p and below; above that, audio is passed through.
 	// - `BASIC` : Video is transmuxed: Amazon IVS delivers the original input to viewers. The viewer’s video-quality choice is limited to the original input. Resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for resolutions between 480p and 1080p.
+	// - `ADVANCED_SD` : Video is transcoded; multiple qualities are generated from the original input, to automatically give viewers the best experience for their devices and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5 Mbps; output is capped at SD quality (480p). You can select an optional transcode preset (see below). Audio for all renditions is transcoded, and an audio-only rendition is available.
+	// - `ADVANCED_HD` : Video is transcoded; multiple qualities are generated from the original input, to automatically give viewers the best experience for their devices and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5 Mbps; output is capped at HD quality (720p). You can select an optional transcode preset (see below). Audio for all renditions is transcoded, and an audio-only rendition is available.
+	//
+	// Optional *transcode presets* (available for the `ADVANCED` types) allow you to trade off available download bandwidth and video quality, to optimize the viewing experience. There are two presets:
+	//
+	// - *Constrained bandwidth delivery* uses a lower bitrate for each quality level. Use it if you have low download bandwidth and/or simple video content (e.g., talking heads)
+	// - *Higher bandwidth delivery* uses a higher bitrate for each quality level. Use it if you have high download bandwidth and/or complex video content (e.g., flashes and quick scene changes).
 	//
 	// *Default* : `STANDARD`.
 	Type *string `field:"optional" json:"type" yaml:"type"`

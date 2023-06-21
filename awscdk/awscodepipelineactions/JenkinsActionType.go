@@ -16,15 +16,12 @@ package awscodepipelineactions
 //   	Type: codepipeline_actions.JenkinsActionType_BUILD,
 //   })
 //
-// Experimental.
 type JenkinsActionType string
 
 const (
 	// The Action will have the Build Category.
-	// Experimental.
 	JenkinsActionType_BUILD JenkinsActionType = "BUILD"
 	// The Action will have the Test Category.
-	// Experimental.
 	JenkinsActionType_TEST JenkinsActionType = "TEST"
 )
 

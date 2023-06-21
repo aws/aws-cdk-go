@@ -5,17 +5,16 @@ import (
 )
 
 // A network target group.
-// Experimental.
 type INetworkTargetGroup interface {
 	ITargetGroup
 	// Add a load balancing target to this target group.
-	// Experimental.
 	AddTarget(targets ...INetworkLoadBalancerTarget)
 	// Register a listener that is load balancing to this target group.
 	//
 	// Don't call this directly. It will be called by listeners.
-	// Experimental.
 	RegisterListener(listener INetworkListener)
+	// All metrics available for this target group.
+	Metrics() INetworkTargetGroupMetrics
 }
 
 // The jsii proxy for INetworkTargetGroup
@@ -45,5 +44,15 @@ func (i *jsiiProxy_INetworkTargetGroup) RegisterListener(listener INetworkListen
 		"registerListener",
 		[]interface{}{listener},
 	)
+}
+
+func (j *jsiiProxy_INetworkTargetGroup) Metrics() INetworkTargetGroupMetrics {
+	var returns INetworkTargetGroupMetrics
+	_jsii_.Get(
+		j,
+		"metrics",
+		&returns,
+	)
+	return returns
 }
 

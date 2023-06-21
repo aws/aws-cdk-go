@@ -9,10 +9,10 @@ package awscloudwatch
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_16_X(),
+//   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-//   	Timeout: cdk.Duration_Minutes(jsii.Number(5)),
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
 //   if fn.Timeout {
@@ -28,21 +28,16 @@ package awscloudwatch
 //   	})
 //   }
 //
-// Experimental.
 type TreatMissingData string
 
 const (
 	// Missing data points are treated as breaching the threshold.
-	// Experimental.
 	TreatMissingData_BREACHING TreatMissingData = "BREACHING"
 	// Missing data points are treated as being within the threshold.
-	// Experimental.
 	TreatMissingData_NOT_BREACHING TreatMissingData = "NOT_BREACHING"
 	// The current alarm state is maintained.
-	// Experimental.
 	TreatMissingData_IGNORE TreatMissingData = "IGNORE"
 	// The alarm does not consider missing data points when evaluating whether to change state.
-	// Experimental.
 	TreatMissingData_MISSING TreatMissingData = "MISSING"
 )
 

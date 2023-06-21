@@ -1,35 +1,30 @@
 package awselasticloadbalancingv2actions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2actions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2actions/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Listener Action to authenticate with Cognito.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/constructs-go/constructs"
-//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cognitoStack struct {
-//   stack
-//   }
+//   var vpc vpc
+//   var certificate certificate
+//
 //
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(true),
 //   })
 //
-//   userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
-//   userPoolClient := cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
+//   userPool := awscdk.Aws_cognito.NewUserPool(this, jsii.String("UserPool"))
+//   userPoolClient := awscdk.Aws_cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
 //   	UserPool: UserPool,
 //
 //   	// Required minimal configuration for use with an ELB
@@ -42,7 +37,7 @@ import (
 //   			AuthorizationCodeGrant: jsii.Boolean(true),
 //   		},
 //   		Scopes: []oAuthScope{
-//   			cognito.*oAuthScope_EMAIL(),
+//   			awscdk.*Aws_cognito.*oAuthScope_EMAIL(),
 //   		},
 //   		CallbackUrls: []*string{
 //   			fmt.Sprintf("https://%v/oauth2/idpresponse", lb.LoadBalancerDnsName),
@@ -55,7 +50,7 @@ import (
 //   	jsii.String("COGNITO"),
 //   })
 //
-//   userPoolDomain := cognito.NewUserPoolDomain(this, jsii.String("Domain"), &UserPoolDomainProps{
+//   userPoolDomain := awscdk.Aws_cognito.NewUserPoolDomain(this, jsii.String("Domain"), &UserPoolDomainProps{
 //   	UserPool: UserPool,
 //   	CognitoDomain: &CognitoDomainOptions{
 //   		DomainPrefix: jsii.String("test-cdk-prefix"),
@@ -82,21 +77,21 @@ import (
 //   	Value: lb.*LoadBalancerDnsName,
 //   })
 //
-//   app := awscdk.NewApp()
-//   NewCognitoStack(app, jsii.String("integ-cognito"))
-//   app.Synth()
-//
-// Experimental.
 type AuthenticateCognitoAction interface {
 	awselasticloadbalancingv2.ListenerAction
-	// Experimental.
 	Next() awselasticloadbalancingv2.ListenerAction
+	// Sets the Action for the `ListenerRule`.
+	//
+	// This method is required to set a dedicated Action to a `ListenerRule`
+	// when the Action for the `CfnListener` and the Action for the `CfnListenerRule`
+	// have different structures. (e.g. `AuthenticateOidcConfig`)
+	AddRuleAction(actionJson *awselasticloadbalancingv2.CfnListenerRule_ActionProperty)
 	// Called when the action is being used in a listener.
-	// Experimental.
-	Bind(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct awscdk.IConstruct)
-	// Render the actions in this chain.
-	// Experimental.
+	Bind(scope constructs.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct constructs.IConstruct)
+	// Render the listener default actions in this chain.
 	RenderActions() *[]*awselasticloadbalancingv2.CfnListener_ActionProperty
+	// Render the listener rule actions in this chain.
+	RenderRuleActions() *[]*awselasticloadbalancingv2.CfnListenerRule_ActionProperty
 	// Renumber the "order" fields in the actions array.
 	//
 	// We don't number for 0 or 1 elements, but otherwise number them 1...#actions
@@ -104,7 +99,6 @@ type AuthenticateCognitoAction interface {
 	//
 	// Do this in `ListenerAction` instead of in `Listener` so that we give
 	// users the opportunity to override by subclassing and overriding `renderActions`.
-	// Experimental.
 	Renumber(actions *[]*awselasticloadbalancingv2.CfnListener_ActionProperty) *[]*awselasticloadbalancingv2.CfnListener_ActionProperty
 }
 
@@ -125,7 +119,6 @@ func (j *jsiiProxy_AuthenticateCognitoAction) Next() awselasticloadbalancingv2.L
 
 
 // Authenticate using an identity provide (IdP) that is compliant with OpenID Connect (OIDC).
-// Experimental.
 func NewAuthenticateCognitoAction(options *AuthenticateCognitoActionProps) AuthenticateCognitoAction {
 	_init_.Initialize()
 
@@ -135,7 +128,7 @@ func NewAuthenticateCognitoAction(options *AuthenticateCognitoActionProps) Authe
 	j := jsiiProxy_AuthenticateCognitoAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		[]interface{}{options},
 		&j,
 	)
@@ -144,12 +137,11 @@ func NewAuthenticateCognitoAction(options *AuthenticateCognitoActionProps) Authe
 }
 
 // Authenticate using an identity provide (IdP) that is compliant with OpenID Connect (OIDC).
-// Experimental.
 func NewAuthenticateCognitoAction_Override(a AuthenticateCognitoAction, options *AuthenticateCognitoActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		[]interface{}{options},
 		a,
 	)
@@ -158,7 +150,6 @@ func NewAuthenticateCognitoAction_Override(a AuthenticateCognitoAction, options 
 // Authenticate using an identity provider (IdP) that is compliant with OpenID Connect (OIDC).
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html#oidc-requirements
 //
-// Experimental.
 func AuthenticateCognitoAction_AuthenticateOidc(options *awselasticloadbalancingv2.AuthenticateOidcOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
@@ -168,7 +159,7 @@ func AuthenticateCognitoAction_AuthenticateOidc(options *awselasticloadbalancing
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"authenticateOidc",
 		[]interface{}{options},
 		&returns,
@@ -180,7 +171,6 @@ func AuthenticateCognitoAction_AuthenticateOidc(options *awselasticloadbalancing
 // Return a fixed response.
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#fixed-response-actions
 //
-// Experimental.
 func AuthenticateCognitoAction_FixedResponse(statusCode *float64, options *awselasticloadbalancingv2.FixedResponseOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
@@ -190,7 +180,7 @@ func AuthenticateCognitoAction_FixedResponse(statusCode *float64, options *awsel
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"fixedResponse",
 		[]interface{}{statusCode, options},
 		&returns,
@@ -202,7 +192,6 @@ func AuthenticateCognitoAction_FixedResponse(statusCode *float64, options *awsel
 // Forward to one or more Target Groups.
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#forward-actions
 //
-// Experimental.
 func AuthenticateCognitoAction_Forward(targetGroups *[]awselasticloadbalancingv2.IApplicationTargetGroup, options *awselasticloadbalancingv2.ForwardOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
@@ -212,7 +201,7 @@ func AuthenticateCognitoAction_Forward(targetGroups *[]awselasticloadbalancingv2
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"forward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -240,7 +229,6 @@ func AuthenticateCognitoAction_Forward(targetGroups *[]awselasticloadbalancingv2
 // "example.#{host}", or the query to "#{query}&value=xyz".
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions
 //
-// Experimental.
 func AuthenticateCognitoAction_Redirect(options *awselasticloadbalancingv2.RedirectOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
@@ -250,7 +238,7 @@ func AuthenticateCognitoAction_Redirect(options *awselasticloadbalancingv2.Redir
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"redirect",
 		[]interface{}{options},
 		&returns,
@@ -262,7 +250,6 @@ func AuthenticateCognitoAction_Redirect(options *awselasticloadbalancingv2.Redir
 // Forward to one or more Target Groups which are weighted differently.
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#forward-actions
 //
-// Experimental.
 func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadbalancingv2.WeightedTargetGroup, options *awselasticloadbalancingv2.ForwardOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
@@ -272,7 +259,7 @@ func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadba
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"weightedForward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -281,7 +268,18 @@ func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadba
 	return returns
 }
 
-func (a *jsiiProxy_AuthenticateCognitoAction) Bind(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct awscdk.IConstruct) {
+func (a *jsiiProxy_AuthenticateCognitoAction) AddRuleAction(actionJson *awselasticloadbalancingv2.CfnListenerRule_ActionProperty) {
+	if err := a.validateAddRuleActionParameters(actionJson); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"addRuleAction",
+		[]interface{}{actionJson},
+	)
+}
+
+func (a *jsiiProxy_AuthenticateCognitoAction) Bind(scope constructs.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct constructs.IConstruct) {
 	if err := a.validateBindParameters(scope, listener); err != nil {
 		panic(err)
 	}
@@ -298,6 +296,19 @@ func (a *jsiiProxy_AuthenticateCognitoAction) RenderActions() *[]*awselasticload
 	_jsii_.Invoke(
 		a,
 		"renderActions",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AuthenticateCognitoAction) RenderRuleActions() *[]*awselasticloadbalancingv2.CfnListenerRule_ActionProperty {
+	var returns *[]*awselasticloadbalancingv2.CfnListenerRule_ActionProperty
+
+	_jsii_.Invoke(
+		a,
+		"renderRuleActions",
 		nil, // no parameters
 		&returns,
 	)

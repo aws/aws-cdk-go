@@ -16,6 +16,14 @@ func validateTagManager_IsTaggableParameters(construct interface{}) error {
 	return nil
 }
 
+func validateTagManager_IsTaggableV2Parameters(construct interface{}) error {
+	return nil
+}
+
+func validateTagManager_OfParameters(construct interface{}) error {
+	return nil
+}
+
 func validateNewTagManagerParameters(tagType TagType, resourceTypeName *string, options *TagManagerOptions) error {
 	return nil
 }

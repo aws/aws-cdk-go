@@ -27,25 +27,18 @@ package awss3
 //   	MaxAge: jsii.Number(123),
 //   }
 //
-// Experimental.
 type CorsRule struct {
 	// An HTTP method that you allow the origin to execute.
-	// Experimental.
 	AllowedMethods *[]HttpMethods `field:"required" json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
-	// Experimental.
 	AllowedOrigins *[]*string `field:"required" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// Headers that are specified in the Access-Control-Request-Headers header.
-	// Experimental.
 	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
-	// Experimental.
 	ExposedHeaders *[]*string `field:"optional" json:"exposedHeaders" yaml:"exposedHeaders"`
 	// A unique identifier for this rule.
-	// Experimental.
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
-	// Experimental.
 	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 

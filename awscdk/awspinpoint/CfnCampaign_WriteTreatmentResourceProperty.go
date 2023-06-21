@@ -222,7 +222,9 @@ package awspinpoint
 //   }
 //
 type CfnCampaign_WriteTreatmentResourceProperty struct {
-	// `CfnCampaign.WriteTreatmentResourceProperty.CustomDeliveryConfiguration`.
+	// The delivery configuration settings for sending the treatment through a custom channel.
+	//
+	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
 	CustomDeliveryConfiguration interface{} `field:"optional" json:"customDeliveryConfiguration" yaml:"customDeliveryConfiguration"`
 	// The message configuration settings for the treatment.
 	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
@@ -230,7 +232,7 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 	// The allocated percentage of users (segment members) to send the treatment to.
 	SizePercent *float64 `field:"optional" json:"sizePercent" yaml:"sizePercent"`
-	// `CfnCampaign.WriteTreatmentResourceProperty.TemplateConfiguration`.
+	// The message template to use for the treatment.
 	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// A custom description of the treatment.
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`

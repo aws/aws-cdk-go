@@ -13,13 +13,10 @@ package awscognito
 //   	MinLen: jsii.Number(123),
 //   }
 //
-// Experimental.
 type StringAttributeConstraints struct {
 	// Maximum length of this attribute.
-	// Experimental.
 	MaxLen *float64 `field:"optional" json:"maxLen" yaml:"maxLen"`
 	// Minimum length of this attribute.
-	// Experimental.
 	MinLen *float64 `field:"optional" json:"minLen" yaml:"minLen"`
 }
 

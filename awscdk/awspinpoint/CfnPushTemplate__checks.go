@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnPushTemplate) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnPushTemplate) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnPushTemplate) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnPushTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnPushTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnPushTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnPushTemplate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnPushTemplate) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnPushTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnPushTemplate) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +181,8 @@ func validateCfnPushTemplate_IsConstructParameters(x interface{}) error {
 
 func (j *jsiiProxy_CfnPushTemplate) validateSetAdmParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPushTemplate_AndroidPushNotificationTemplateProperty:
 		val := val.(*CfnPushTemplate_AndroidPushNotificationTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -180,11 +194,9 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetAdmParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPushTemplate_AndroidPushNotificationTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPushTemplate_AndroidPushNotificationTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -193,6 +205,8 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetAdmParameters(val interface{}) er
 
 func (j *jsiiProxy_CfnPushTemplate) validateSetApnsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPushTemplate_APNSPushNotificationTemplateProperty:
 		val := val.(*CfnPushTemplate_APNSPushNotificationTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -204,11 +218,9 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetApnsParameters(val interface{}) e
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPushTemplate_APNSPushNotificationTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPushTemplate_APNSPushNotificationTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -217,6 +229,8 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetApnsParameters(val interface{}) e
 
 func (j *jsiiProxy_CfnPushTemplate) validateSetBaiduParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPushTemplate_AndroidPushNotificationTemplateProperty:
 		val := val.(*CfnPushTemplate_AndroidPushNotificationTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -228,11 +242,9 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetBaiduParameters(val interface{}) 
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPushTemplate_AndroidPushNotificationTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPushTemplate_AndroidPushNotificationTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -241,6 +253,8 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetBaiduParameters(val interface{}) 
 
 func (j *jsiiProxy_CfnPushTemplate) validateSetDefaultParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPushTemplate_DefaultPushNotificationTemplateProperty:
 		val := val.(*CfnPushTemplate_DefaultPushNotificationTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -252,11 +266,9 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetDefaultParameters(val interface{}
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPushTemplate_DefaultPushNotificationTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPushTemplate_DefaultPushNotificationTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -265,6 +277,8 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetDefaultParameters(val interface{}
 
 func (j *jsiiProxy_CfnPushTemplate) validateSetGcmParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *CfnPushTemplate_AndroidPushNotificationTemplateProperty:
 		val := val.(*CfnPushTemplate_AndroidPushNotificationTemplateProperty)
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
@@ -276,11 +290,9 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetGcmParameters(val interface{}) er
 		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 			return err
 		}
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPushTemplate_AndroidPushNotificationTemplateProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPushTemplate_AndroidPushNotificationTemplateProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -295,7 +307,7 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetTemplateNameParameters(val *strin
 	return nil
 }
 
-func validateNewCfnPushTemplateParameters(scope awscdk.Construct, id *string, props *CfnPushTemplateProps) error {
+func validateNewCfnPushTemplateParameters(scope constructs.Construct, id *string, props *CfnPushTemplateProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Properties for BottleRocketImage.
@@ -18,10 +18,8 @@ import (
 //   	Variant: awscdk.Aws_ecs.BottlerocketEcsVariant_AWS_ECS_1,
 //   }
 //
-// Experimental.
 type BottleRocketImageProps struct {
 	// The CPU architecture.
-	// Experimental.
 	Architecture awsec2.InstanceArchitecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
@@ -38,12 +36,10 @@ type BottleRocketImageProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
-	// Experimental.
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// The Amazon ECS variant to use.
 	//
 	// Only `aws-ecs-1` is currently available.
-	// Experimental.
 	Variant BottlerocketEcsVariant `field:"optional" json:"variant" yaml:"variant"`
 }
 

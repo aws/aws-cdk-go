@@ -13,17 +13,14 @@ package awsstepfunctionstasks
 //   	Value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
 	//
 	// Use `JsonPath` class's static methods to specify name from a JSON path.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Value of the environment variable.
 	//
 	// Use `JsonPath` class's static methods to specify value from a JSON path.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

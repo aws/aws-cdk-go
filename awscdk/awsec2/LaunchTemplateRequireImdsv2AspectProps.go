@@ -12,10 +12,8 @@ package awsec2
 //   	SuppressWarnings: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type LaunchTemplateRequireImdsv2AspectProps struct {
 	// Whether warning annotations from this Aspect should be suppressed or not.
-	// Experimental.
 	SuppressWarnings *bool `field:"optional" json:"suppressWarnings" yaml:"suppressWarnings"`
 }
 

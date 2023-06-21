@@ -47,15 +47,12 @@ package awsappmesh
 //   	},
 //   })
 //
-// Experimental.
 type MutualTlsValidation struct {
 	// Reference to where to retrieve the trust chain.
-	// Experimental.
 	Trust MutualTlsValidationTrust `field:"required" json:"trust" yaml:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
-	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 

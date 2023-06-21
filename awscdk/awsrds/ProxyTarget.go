@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,10 +14,11 @@ import (
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AURORA(),
-//   	InstanceProps: &InstanceProps{
-//   		Vpc: *Vpc,
-//   	},
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+//   	}),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
+//   	Vpc: Vpc,
 //   })
 //
 //   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
@@ -33,10 +34,8 @@ import (
 //   })
 //   proxy.GrantConnect(role, jsii.String("admin"))
 //
-// Experimental.
 type ProxyTarget interface {
 	// Bind this target to the specified database proxy.
-	// Experimental.
 	Bind(proxy DatabaseProxy) *ProxyTargetConfig
 }
 
@@ -46,7 +45,6 @@ type jsiiProxy_ProxyTarget struct {
 }
 
 // From cluster.
-// Experimental.
 func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 	_init_.Initialize()
 
@@ -56,7 +54,7 @@ func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.ProxyTarget",
+		"aws-cdk-lib.aws_rds.ProxyTarget",
 		"fromCluster",
 		[]interface{}{cluster},
 		&returns,
@@ -66,7 +64,6 @@ func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 }
 
 // From instance.
-// Experimental.
 func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 	_init_.Initialize()
 
@@ -76,7 +73,7 @@ func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.ProxyTarget",
+		"aws-cdk-lib.aws_rds.ProxyTarget",
 		"fromInstance",
 		[]interface{}{instance},
 		&returns,

@@ -20,31 +20,7 @@ func validateLazy_AnyParameters(producer IStableAnyProducer, options *LazyAnyVal
 	return nil
 }
 
-func validateLazy_AnyValueParameters(producer IAnyProducer, options *LazyAnyValueOptions) error {
-	if producer == nil {
-		return fmt.Errorf("parameter producer is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func validateLazy_ListParameters(producer IStableListProducer, options *LazyListValueOptions) error {
-	if producer == nil {
-		return fmt.Errorf("parameter producer is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func validateLazy_ListValueParameters(producer IListProducer, options *LazyListValueOptions) error {
 	if producer == nil {
 		return fmt.Errorf("parameter producer is required, but nil was provided")
 	}
@@ -64,27 +40,7 @@ func validateLazy_NumberParameters(producer IStableNumberProducer) error {
 	return nil
 }
 
-func validateLazy_NumberValueParameters(producer INumberProducer) error {
-	if producer == nil {
-		return fmt.Errorf("parameter producer is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateLazy_StringParameters(producer IStableStringProducer, options *LazyStringValueOptions) error {
-	if producer == nil {
-		return fmt.Errorf("parameter producer is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func validateLazy_StringValueParameters(producer IStringProducer, options *LazyStringValueOptions) error {
 	if producer == nil {
 		return fmt.Errorf("parameter producer is required, but nil was provided")
 	}

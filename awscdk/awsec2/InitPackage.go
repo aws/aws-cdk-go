@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -61,13 +61,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type InitPackage interface {
 	InitElement
 	// Returns the init element type for this element.
-	// Experimental.
 	ElementType() *string
-	// Experimental.
 	RenderPackageVersions() interface{}
 }
 
@@ -87,7 +84,6 @@ func (j *jsiiProxy_InitPackage) ElementType() *string {
 }
 
 
-// Experimental.
 func NewInitPackage(type_ *string, versions *[]*string, packageName *string, serviceHandles *[]InitServiceRestartHandle) InitPackage {
 	_init_.Initialize()
 
@@ -97,7 +93,7 @@ func NewInitPackage(type_ *string, versions *[]*string, packageName *string, ser
 	j := jsiiProxy_InitPackage{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		[]interface{}{type_, versions, packageName, serviceHandles},
 		&j,
 	)
@@ -105,19 +101,17 @@ func NewInitPackage(type_ *string, versions *[]*string, packageName *string, ser
 	return &j
 }
 
-// Experimental.
 func NewInitPackage_Override(i InitPackage, type_ *string, versions *[]*string, packageName *string, serviceHandles *[]InitServiceRestartHandle) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		[]interface{}{type_, versions, packageName, serviceHandles},
 		i,
 	)
 }
 
 // Install a package using APT.
-// Experimental.
 func InitPackage_Apt(packageName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
@@ -127,7 +121,7 @@ func InitPackage_Apt(packageName *string, options *NamedPackageOptions) InitPack
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		"apt",
 		[]interface{}{packageName, options},
 		&returns,
@@ -137,7 +131,6 @@ func InitPackage_Apt(packageName *string, options *NamedPackageOptions) InitPack
 }
 
 // Install an MSI package from an HTTP URL or a location on disk.
-// Experimental.
 func InitPackage_Msi(location *string, options *LocationPackageOptions) InitPackage {
 	_init_.Initialize()
 
@@ -147,7 +140,7 @@ func InitPackage_Msi(location *string, options *LocationPackageOptions) InitPack
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		"msi",
 		[]interface{}{location, options},
 		&returns,
@@ -157,7 +150,6 @@ func InitPackage_Msi(location *string, options *LocationPackageOptions) InitPack
 }
 
 // Install a package from PyPI.
-// Experimental.
 func InitPackage_Python(packageName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
@@ -167,7 +159,7 @@ func InitPackage_Python(packageName *string, options *NamedPackageOptions) InitP
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		"python",
 		[]interface{}{packageName, options},
 		&returns,
@@ -177,7 +169,6 @@ func InitPackage_Python(packageName *string, options *NamedPackageOptions) InitP
 }
 
 // Install an RPM from an HTTP URL or a location on disk.
-// Experimental.
 func InitPackage_Rpm(location *string, options *LocationPackageOptions) InitPackage {
 	_init_.Initialize()
 
@@ -187,7 +178,7 @@ func InitPackage_Rpm(location *string, options *LocationPackageOptions) InitPack
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		"rpm",
 		[]interface{}{location, options},
 		&returns,
@@ -197,7 +188,6 @@ func InitPackage_Rpm(location *string, options *LocationPackageOptions) InitPack
 }
 
 // Install a package from RubyGems.
-// Experimental.
 func InitPackage_RubyGem(gemName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
@@ -207,7 +197,7 @@ func InitPackage_RubyGem(gemName *string, options *NamedPackageOptions) InitPack
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		"rubyGem",
 		[]interface{}{gemName, options},
 		&returns,
@@ -217,7 +207,6 @@ func InitPackage_RubyGem(gemName *string, options *NamedPackageOptions) InitPack
 }
 
 // Install a package using Yum.
-// Experimental.
 func InitPackage_Yum(packageName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
@@ -227,7 +216,7 @@ func InitPackage_Yum(packageName *string, options *NamedPackageOptions) InitPack
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		"yum",
 		[]interface{}{packageName, options},
 		&returns,

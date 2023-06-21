@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnPullThroughCacheRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPullThroughCacheRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnPullThroughCacheRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPullThroughCacheRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPullThroughCacheRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPullThroughCacheRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnPullThroughCacheRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPullThroughCacheRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnPullThroughCacheRule_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateNewCfnPullThroughCacheRuleParameters(scope awscdk.Construct, id *string, props *CfnPullThroughCacheRuleProps) error {
+func validateNewCfnPullThroughCacheRuleParameters(scope constructs.Construct, id *string, props *CfnPullThroughCacheRuleProps) error {
 	return nil
 }
 

@@ -16,22 +16,18 @@ package awscodepipeline
 //   	VariablesNamespace: jsii.String("variablesNamespace"),
 //   }
 //
-// Experimental.
 type CommonActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
-	// Experimental.
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Experimental.
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Experimental.
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 }
 

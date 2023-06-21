@@ -46,24 +46,18 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
-// Experimental.
 type LookupMachineImageProps struct {
 	// Name of the image (may contain wildcards).
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Additional filters on the AMI.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 	//
-	// Experimental.
 	Filters *map[string]*[]*string `field:"optional" json:"filters" yaml:"filters"`
 	// Owner account IDs or aliases.
-	// Experimental.
 	Owners *[]*string `field:"optional" json:"owners" yaml:"owners"`
 	// Custom userdata for this image.
-	// Experimental.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Look for Windows images.
-	// Experimental.
 	Windows *bool `field:"optional" json:"windows" yaml:"windows"`
 }
 

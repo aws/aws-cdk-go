@@ -1,10 +1,10 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Integrates an AWS Lambda function to an API Gateway method.
@@ -15,11 +15,9 @@ import (
 //
 //   resource.AddMethod(jsii.String("GET"), apigateway.NewLambdaIntegration(handler))
 //
-// Experimental.
 type LambdaIntegration interface {
 	AwsIntegration
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-	// Experimental.
 	Bind(method Method) *IntegrationConfig
 }
 
@@ -28,7 +26,6 @@ type jsiiProxy_LambdaIntegration struct {
 	jsiiProxy_AwsIntegration
 }
 
-// Experimental.
 func NewLambdaIntegration(handler awslambda.IFunction, options *LambdaIntegrationOptions) LambdaIntegration {
 	_init_.Initialize()
 
@@ -38,7 +35,7 @@ func NewLambdaIntegration(handler awslambda.IFunction, options *LambdaIntegratio
 	j := jsiiProxy_LambdaIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.LambdaIntegration",
+		"aws-cdk-lib.aws_apigateway.LambdaIntegration",
 		[]interface{}{handler, options},
 		&j,
 	)
@@ -46,12 +43,11 @@ func NewLambdaIntegration(handler awslambda.IFunction, options *LambdaIntegratio
 	return &j
 }
 
-// Experimental.
 func NewLambdaIntegration_Override(l LambdaIntegration, handler awslambda.IFunction, options *LambdaIntegrationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.LambdaIntegration",
+		"aws-cdk-lib.aws_apigateway.LambdaIntegration",
 		[]interface{}{handler, options},
 		l,
 	)

@@ -80,6 +80,10 @@ package awscloudfront
 //   			Override: jsii.Boolean(true),
 //   		},
 //   	},
+//   	RemoveHeaders: []*string{
+//   		jsii.String("Server"),
+//   	},
+//   	ServerTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
@@ -88,10 +92,8 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersContentTypeOptions struct {
 	// A Boolean that determines whether CloudFront overrides the X-Content-Type-Options HTTP response header received from the origin with the one specified in this response headers policy.
-	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 }
 

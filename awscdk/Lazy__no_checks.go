@@ -8,15 +8,7 @@ func validateLazy_AnyParameters(producer IStableAnyProducer, options *LazyAnyVal
 	return nil
 }
 
-func validateLazy_AnyValueParameters(producer IAnyProducer, options *LazyAnyValueOptions) error {
-	return nil
-}
-
 func validateLazy_ListParameters(producer IStableListProducer, options *LazyListValueOptions) error {
-	return nil
-}
-
-func validateLazy_ListValueParameters(producer IListProducer, options *LazyListValueOptions) error {
 	return nil
 }
 
@@ -24,15 +16,7 @@ func validateLazy_NumberParameters(producer IStableNumberProducer) error {
 	return nil
 }
 
-func validateLazy_NumberValueParameters(producer INumberProducer) error {
-	return nil
-}
-
 func validateLazy_StringParameters(producer IStableStringProducer, options *LazyStringValueOptions) error {
-	return nil
-}
-
-func validateLazy_StringValueParameters(producer IStringProducer, options *LazyStringValueOptions) error {
 	return nil
 }
 

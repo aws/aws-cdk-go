@@ -8,11 +8,7 @@ func (s *jsiiProxy_Stack) validateAddDependencyParameters(target Stack) error {
 	return nil
 }
 
-func (s *jsiiProxy_Stack) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateAddFileAssetParameters(asset *FileAssetSource) error {
+func (s *jsiiProxy_Stack) validateAddMetadataParameters(key *string, value interface{}) error {
 	return nil
 }
 
@@ -21,6 +17,10 @@ func (s *jsiiProxy_Stack) validateAddTransformParameters(transform *string) erro
 }
 
 func (s *jsiiProxy_Stack) validateAllocateLogicalIdParameters(cfnElement CfnElement) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stack) validateExportStringListValueParameters(exportedValue interface{}, options *ExportValueOptions) error {
 	return nil
 }
 
@@ -36,27 +36,11 @@ func (s *jsiiProxy_Stack) validateGetLogicalIdParameters(element CfnElement) err
 	return nil
 }
 
-func (s *jsiiProxy_Stack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateParseArnParameters(arn *string) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validatePrepareCrossReferenceParameters(_sourceStack Stack, reference Reference) error {
-	return nil
-}
-
 func (s *jsiiProxy_Stack) validateRegionalFactParameters(factName *string) error {
 	return nil
 }
 
 func (s *jsiiProxy_Stack) validateRenameLogicalIdParameters(oldId *string, newId *string) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
 	return nil
 }
 
@@ -72,11 +56,11 @@ func (s *jsiiProxy_Stack) validateSplitArnParameters(arn *string, arnFormat ArnF
 	return nil
 }
 
-func (s *jsiiProxy_Stack) validateSynthesizeParameters(session ISynthesisSession) error {
+func (s *jsiiProxy_Stack) validateToJsonStringParameters(obj interface{}) error {
 	return nil
 }
 
-func (s *jsiiProxy_Stack) validateToJsonStringParameters(obj interface{}) error {
+func (s *jsiiProxy_Stack) validateToYamlStringParameters(obj interface{}) error {
 	return nil
 }
 

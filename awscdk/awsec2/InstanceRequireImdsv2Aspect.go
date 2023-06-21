@@ -1,11 +1,12 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Aspect that applies IMDS configuration on EC2 Instance constructs.
@@ -21,17 +22,13 @@ import (
 //   aspect := ec2.NewInstanceRequireImdsv2Aspect()
 //   awscdk.Aspects_Of(this).Add(aspect)
 //
-// Experimental.
 type InstanceRequireImdsv2Aspect interface {
 	awscdk.IAspect
-	// Experimental.
 	SuppressWarnings() *bool
 	// All aspects can visit an IConstruct.
-	// Experimental.
-	Visit(node awscdk.IConstruct)
+	Visit(node constructs.IConstruct)
 	// Adds a warning annotation to a node, unless `suppressWarnings` is true.
-	// Experimental.
-	Warn(node awscdk.IConstruct, message *string)
+	Warn(node constructs.IConstruct, message *string)
 }
 
 // The jsii proxy struct for InstanceRequireImdsv2Aspect
@@ -50,7 +47,6 @@ func (j *jsiiProxy_InstanceRequireImdsv2Aspect) SuppressWarnings() *bool {
 }
 
 
-// Experimental.
 func NewInstanceRequireImdsv2Aspect(props *InstanceRequireImdsv2AspectProps) InstanceRequireImdsv2Aspect {
 	_init_.Initialize()
 
@@ -60,7 +56,7 @@ func NewInstanceRequireImdsv2Aspect(props *InstanceRequireImdsv2AspectProps) Ins
 	j := jsiiProxy_InstanceRequireImdsv2Aspect{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InstanceRequireImdsv2Aspect",
+		"aws-cdk-lib.aws_ec2.InstanceRequireImdsv2Aspect",
 		[]interface{}{props},
 		&j,
 	)
@@ -68,18 +64,17 @@ func NewInstanceRequireImdsv2Aspect(props *InstanceRequireImdsv2AspectProps) Ins
 	return &j
 }
 
-// Experimental.
 func NewInstanceRequireImdsv2Aspect_Override(i InstanceRequireImdsv2Aspect, props *InstanceRequireImdsv2AspectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InstanceRequireImdsv2Aspect",
+		"aws-cdk-lib.aws_ec2.InstanceRequireImdsv2Aspect",
 		[]interface{}{props},
 		i,
 	)
 }
 
-func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Visit(node awscdk.IConstruct) {
+func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Visit(node constructs.IConstruct) {
 	if err := i.validateVisitParameters(node); err != nil {
 		panic(err)
 	}
@@ -90,7 +85,7 @@ func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Visit(node awscdk.IConstruct) {
 	)
 }
 
-func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Warn(node awscdk.IConstruct, message *string) {
+func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Warn(node constructs.IConstruct, message *string) {
 	if err := i.validateWarnParameters(node, message); err != nil {
 		panic(err)
 	}

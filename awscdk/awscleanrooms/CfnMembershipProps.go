@@ -1,0 +1,37 @@
+package awscleanrooms
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for defining a `CfnMembership`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMembershipProps := &CfnMembershipProps{
+//   	CollaborationIdentifier: jsii.String("collaborationIdentifier"),
+//   	QueryLogStatus: jsii.String("queryLogStatus"),
+//
+//   	// the properties below are optional
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+type CfnMembershipProps struct {
+	// The unique ID for the associated collaboration.
+	CollaborationIdentifier *string `field:"required" json:"collaborationIdentifier" yaml:"collaborationIdentifier"`
+	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	QueryLogStatus *string `field:"required" json:"queryLogStatus" yaml:"queryLogStatus"`
+	// An optional label that you can assign to a resource when you create it.
+	//
+	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

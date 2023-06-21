@@ -1,7 +1,7 @@
 package awss3
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,20 +11,20 @@ import (
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	LifecycleRules: []lifecycleRule{
 //   		&lifecycleRule{
-//   			AbortIncompleteMultipartUploadAfter: cdk.Duration_Minutes(jsii.Number(30)),
+//   			AbortIncompleteMultipartUploadAfter: awscdk.Duration_Minutes(jsii.Number(30)),
 //   			Enabled: jsii.Boolean(false),
-//   			Expiration: cdk.Duration_Days(jsii.Number(30)),
+//   			Expiration: awscdk.Duration_Days(jsii.Number(30)),
 //   			ExpirationDate: NewDate(),
 //   			ExpiredObjectDeleteMarker: jsii.Boolean(false),
 //   			Id: jsii.String("id"),
-//   			NoncurrentVersionExpiration: cdk.Duration_*Days(jsii.Number(30)),
+//   			NoncurrentVersionExpiration: awscdk.Duration_*Days(jsii.Number(30)),
 //
 //   			// the properties below are optional
 //   			NoncurrentVersionsToRetain: jsii.Number(123),
 //   			NoncurrentVersionTransitions: []noncurrentVersionTransition{
 //   				&noncurrentVersionTransition{
 //   					StorageClass: s3.StorageClass_GLACIER(),
-//   					TransitionAfter: cdk.Duration_*Days(jsii.Number(30)),
+//   					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 //
 //   					// the properties below are optional
 //   					NoncurrentVersionsToRetain: jsii.Number(123),
@@ -38,7 +38,7 @@ import (
 //   					StorageClass: s3.StorageClass_GLACIER(),
 //
 //   					// the properties below are optional
-//   					TransitionAfter: cdk.Duration_*Days(jsii.Number(30)),
+//   					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 //   					TransitionDate: NewDate(),
 //   				},
 //   			},
@@ -46,11 +46,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type StorageClass interface {
-	// Experimental.
 	Value() *string
-	// Experimental.
 	ToString() *string
 }
 
@@ -70,7 +67,6 @@ func (j *jsiiProxy_StorageClass) Value() *string {
 }
 
 
-// Experimental.
 func NewStorageClass(value *string) StorageClass {
 	_init_.Initialize()
 
@@ -80,7 +76,7 @@ func NewStorageClass(value *string) StorageClass {
 	j := jsiiProxy_StorageClass{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		[]interface{}{value},
 		&j,
 	)
@@ -88,12 +84,11 @@ func NewStorageClass(value *string) StorageClass {
 	return &j
 }
 
-// Experimental.
 func NewStorageClass_Override(s StorageClass, value *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		[]interface{}{value},
 		s,
 	)
@@ -103,7 +98,7 @@ func StorageClass_DEEP_ARCHIVE() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"DEEP_ARCHIVE",
 		&returns,
 	)
@@ -114,7 +109,7 @@ func StorageClass_GLACIER() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"GLACIER",
 		&returns,
 	)
@@ -125,7 +120,7 @@ func StorageClass_GLACIER_INSTANT_RETRIEVAL() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"GLACIER_INSTANT_RETRIEVAL",
 		&returns,
 	)
@@ -136,7 +131,7 @@ func StorageClass_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"INFREQUENT_ACCESS",
 		&returns,
 	)
@@ -147,7 +142,7 @@ func StorageClass_INTELLIGENT_TIERING() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"INTELLIGENT_TIERING",
 		&returns,
 	)
@@ -158,7 +153,7 @@ func StorageClass_ONE_ZONE_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"ONE_ZONE_INFREQUENT_ACCESS",
 		&returns,
 	)
