@@ -124,7 +124,9 @@ type CfnTableProps struct {
 	//
 	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
-	// A list of key-value pair tags to be attached to the resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

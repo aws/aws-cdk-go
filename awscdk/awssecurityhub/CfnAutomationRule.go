@@ -334,7 +334,7 @@ type CfnAutomationRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A set of [AWS Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a finding matches the conditions specified in this parameter, Security Hub applies the rule action to the finding.
+	// A set of [AWS Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub applies the rule action to the finding.
 	Criteria() interface{}
 	SetCriteria(val interface{})
 	// A description of the rule.
@@ -342,7 +342,7 @@ type CfnAutomationRule interface {
 	SetDescription(val *string)
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria.
 	//
-	// This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this field is set to `true` for a rule, Security Hub applies the rule action to a finding that matches the rule criteria and won't evaluate other rules for the finding. The default value of this field is `false` .
+	// This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this field is set to `true` for a rule, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. The default value of this field is `false` .
 	IsTerminal() interface{}
 	SetIsTerminal(val interface{})
 	// The logical ID for this CloudFormation stack element.

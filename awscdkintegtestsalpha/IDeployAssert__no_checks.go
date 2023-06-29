@@ -12,6 +12,10 @@ func (i *jsiiProxy_IDeployAssert) validateExpectParameters(id *string, expected 
 	return nil
 }
 
+func (i *jsiiProxy_IDeployAssert) validateHttpApiCallParameters(url *string, options *FetchOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IDeployAssert) validateInvokeFunctionParameters(props *LambdaInvokeFunctionProps) error {
 	return nil
 }

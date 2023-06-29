@@ -19,13 +19,17 @@ package awsglue
 //   }
 //
 type CfnCrawler_CatalogTargetProperty struct {
-	// `CfnCrawler.CatalogTargetProperty.ConnectionName`.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The name of the database to be synchronized.
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
-	// `CfnCrawler.CatalogTargetProperty.DlqEventQueueArn`.
+	// A valid Amazon dead-letter SQS ARN.
+	//
+	// For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	DlqEventQueueArn *string `field:"optional" json:"dlqEventQueueArn" yaml:"dlqEventQueueArn"`
-	// `CfnCrawler.CatalogTargetProperty.EventQueueArn`.
+	// A valid Amazon SQS ARN.
+	//
+	// For example, `arn:aws:sqs:region:account:sqs` .
 	EventQueueArn *string `field:"optional" json:"eventQueueArn" yaml:"eventQueueArn"`
 	// A list of the tables to be synchronized.
 	Tables *[]*string `field:"optional" json:"tables" yaml:"tables"`

@@ -35,10 +35,6 @@ import (
 type CfnGatewayResponse interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ID for the gateway response.
-	//
-	// For example: `abc123` .
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -228,16 +224,6 @@ type CfnGatewayResponse interface {
 type jsiiProxy_CfnGatewayResponse struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnGatewayResponse) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnGatewayResponse) CfnOptions() awscdk.ICfnResourceOptions {

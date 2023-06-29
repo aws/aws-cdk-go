@@ -34,6 +34,8 @@ type CfnPromptProps struct {
 	// The description of the prompt.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The URI for the S3 bucket where the prompt is stored.
+	//
+	// This property is required when you create a prompt.
 	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 	// The tags used to organize, track, or control access for this resource.
 	//

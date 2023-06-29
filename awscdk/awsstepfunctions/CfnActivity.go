@@ -35,6 +35,7 @@ import (
 type CfnActivity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the ARN of the resource.
 	AttrArn() *string
 	// Returns the name of the activity. For example:.
 	//

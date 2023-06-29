@@ -74,6 +74,8 @@ type CfnPrompt interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The URI for the S3 bucket where the prompt is stored.
+	//
+	// This property is required when you create a prompt.
 	S3Uri() *string
 	SetS3Uri(val *string)
 	// The stack in which this element is defined.

@@ -105,7 +105,7 @@ type CfnClusterProps struct {
 	// - Must contain only lowercase letters.
 	// - Cannot be a word that is reserved by the service. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 	DbName *string `field:"required" json:"dbName" yaml:"dbName"`
-	// The user name associated with the admin user for the cluster that is being created.
+	// The user name associated with the admin user account for the cluster that is being created.
 	//
 	// Constraints:
 	//
@@ -115,7 +115,7 @@ type CfnClusterProps struct {
 	// - Must not contain a colon (:) or a slash (/).
 	// - Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 	MasterUsername *string `field:"required" json:"masterUsername" yaml:"masterUsername"`
-	// The password associated with the admin user for the cluster that is being created.
+	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// Constraints:
 	//

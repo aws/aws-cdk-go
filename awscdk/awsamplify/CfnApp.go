@@ -153,6 +153,8 @@ type CfnApp interface {
 	EnableBranchAutoDeletion() interface{}
 	SetEnableBranchAutoDeletion(val interface{})
 	// The environment variables map for an Amplify app.
+	//
+	// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
 	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.

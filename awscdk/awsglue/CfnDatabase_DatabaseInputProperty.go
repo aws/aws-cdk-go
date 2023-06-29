@@ -42,7 +42,7 @@ type CfnDatabase_DatabaseInputProperty struct {
 	CreateTableDefaultPermissions interface{} `field:"optional" json:"createTableDefaultPermissions" yaml:"createTableDefaultPermissions"`
 	// A description of the database.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnDatabase.DatabaseInputProperty.FederatedDatabase`.
+	// A `FederatedDatabase` structure that references an entity outside the AWS Glue Data Catalog .
 	FederatedDatabase interface{} `field:"optional" json:"federatedDatabase" yaml:"federatedDatabase"`
 	// The location of the database (for example, an HDFS path).
 	LocationUri *string `field:"optional" json:"locationUri" yaml:"locationUri"`

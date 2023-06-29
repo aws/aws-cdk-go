@@ -80,6 +80,10 @@ func validateCfnKeyspace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnKeyspace) validateSetReplicationSpecificationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnKeyspaceParameters(scope constructs.Construct, id *string, props *CfnKeyspaceProps) error {
 	return nil
 }

@@ -67,7 +67,7 @@ package awsglue
 type CfnCrawler_TargetsProperty struct {
 	// Specifies AWS Glue Data Catalog targets.
 	CatalogTargets interface{} `field:"optional" json:"catalogTargets" yaml:"catalogTargets"`
-	// `CfnCrawler.TargetsProperty.DeltaTargets`.
+	// Specifies an array of Delta data store targets.
 	DeltaTargets interface{} `field:"optional" json:"deltaTargets" yaml:"deltaTargets"`
 	// Specifies Amazon DynamoDB targets.
 	DynamoDbTargets interface{} `field:"optional" json:"dynamoDbTargets" yaml:"dynamoDbTargets"`

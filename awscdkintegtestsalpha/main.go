@@ -156,6 +156,54 @@ func init() {
 			return &jsiiProxy_ExpectedResult{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.FetchOptions",
+		reflect.TypeOf((*FetchOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/integ-tests-alpha.HttpApiCall",
+		reflect.TypeOf((*HttpApiCall)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiCallResource", GoGetter: "ApiCallResource"},
+			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
+			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberProperty{JsiiProperty: "expectedResult", GoGetter: "ExpectedResult"},
+			_jsii_.MemberProperty{JsiiProperty: "flattenResponse", GoGetter: "FlattenResponse"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "waitForAssertions", GoMethod: "WaitForAssertions"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HttpApiCall{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ApiCallBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.HttpCallProps",
+		reflect.TypeOf((*HttpCallProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.HttpRequest",
+		reflect.TypeOf((*HttpRequest)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.HttpRequestParameters",
+		reflect.TypeOf((*HttpRequestParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.HttpResponse",
+		reflect.TypeOf((*HttpResponse)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.HttpResponseWrapper",
+		reflect.TypeOf((*HttpResponseWrapper)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/integ-tests-alpha.IApiCall",
 		reflect.TypeOf((*IApiCall)(nil)).Elem(),
@@ -181,6 +229,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "awsApiCall", GoMethod: "AwsApiCall"},
 			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberMethod{JsiiMethod: "httpApiCall", GoMethod: "HttpApiCall"},
 			_jsii_.MemberMethod{JsiiMethod: "invokeFunction", GoMethod: "InvokeFunction"},
 		},
 		func() interface{} {

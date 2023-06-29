@@ -26,6 +26,14 @@ package awsmediaconnect
 //   		},
 //   		Description: jsii.String("description"),
 //   		EntitlementArn: jsii.String("entitlementArn"),
+//   		GatewayBridgeSource: &GatewayBridgeSourceProperty{
+//   			BridgeArn: jsii.String("bridgeArn"),
+//
+//   			// the properties below are optional
+//   			VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
+//   				VpcInterfaceName: jsii.String("vpcInterfaceName"),
+//   			},
+//   		},
 //   		IngestIp: jsii.String("ingestIp"),
 //   		IngestPort: jsii.Number(123),
 //   		MaxBitrate: jsii.Number(123),

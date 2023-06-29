@@ -58,6 +58,9 @@ import (
 //   		jsii.String("protocols"),
 //   	},
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
+//   	StructuredLogDestinations: []*string{
+//   		jsii.String("structuredLogDestinations"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -215,6 +218,19 @@ type CfnServer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Specifies the log groups to which your server logs are sent.
+	//
+	// To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:
+	//
+	// `arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*`
+	//
+	// For example, `arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*`
+	//
+	// If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty value for this parameter in an `update-server` call. For example:
+	//
+	// `update-server --server-id s-1234567890abcdef0 --structured-log-destinations`.
+	StructuredLogDestinations() *[]*string
+	SetStructuredLogDestinations(val *[]*string)
 	// Key-value pairs that can be used to group and search for servers.
 	Tags() awscdk.TagManager
 	// Deprecated.
@@ -588,6 +604,16 @@ func (j *jsiiProxy_CfnServer) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServer) StructuredLogDestinations() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"structuredLogDestinations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServer) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -759,6 +785,14 @@ func (j *jsiiProxy_CfnServer)SetSecurityPolicyName(val *string) {
 	_jsii_.Set(
 		j,
 		"securityPolicyName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServer)SetStructuredLogDestinations(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"structuredLogDestinations",
 		val,
 	)
 }

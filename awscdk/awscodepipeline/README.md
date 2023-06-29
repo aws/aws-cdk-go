@@ -115,7 +115,7 @@ this stage automatically. The transition can then be "manually" enabled later on
 
 ## Actions
 
-Actions live in a separate package, `@aws-cdk/aws-codepipeline-actions`.
+Actions live in a separate package, `aws-cdk-lib/aws-codepipeline-actions`.
 
 To add an Action to a Stage, you can provide it when creating the Stage,
 in the `actions` property,
@@ -131,7 +131,7 @@ sourceStage.AddAction(someAction)
 
 ## Custom Action Registration
 
-To make your own custom CodePipeline Action requires registering the action provider. Look to the `JenkinsProvider` in `@aws-cdk/aws-codepipeline-actions` for an implementation example.
+To make your own custom CodePipeline Action requires registering the action provider. Look to the `JenkinsProvider` in `aws-cdk-lib/aws-codepipeline-actions` for an implementation example.
 
 ```go
 // Make a custom CodePipeline Action
@@ -420,7 +420,7 @@ NewOtherAction(&otherActionProps{
 })
 ```
 
-Check the documentation of the `@aws-cdk/aws-codepipeline-actions`
+Check the documentation of the `aws-cdk-lib/aws-codepipeline-actions`
 for details on how to use the variables for each action class.
 
 See the [CodePipeline documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-variables.html)

@@ -30,6 +30,14 @@ package awsmediaconnect
 //   	},
 //   	Description: jsii.String("description"),
 //   	EntitlementArn: jsii.String("entitlementArn"),
+//   	GatewayBridgeSource: &GatewayBridgeSourceProperty{
+//   		BridgeArn: jsii.String("bridgeArn"),
+//
+//   		// the properties below are optional
+//   		VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
+//   			VpcInterfaceName: jsii.String("vpcInterfaceName"),
+//   		},
+//   	},
 //   	IngestIp: jsii.String("ingestIp"),
 //   	IngestPort: jsii.Number(123),
 //   	MaxBitrate: jsii.Number(123),
@@ -59,6 +67,8 @@ type CfnFlow_SourceProperty struct {
 	//
 	// The entitlement is set by the content originator and the ARN is generated as part of the originator’s flow.
 	EntitlementArn *string `field:"optional" json:"entitlementArn" yaml:"entitlementArn"`
+	// `CfnFlow.SourceProperty.GatewayBridgeSource`.
+	GatewayBridgeSource interface{} `field:"optional" json:"gatewayBridgeSource" yaml:"gatewayBridgeSource"`
 	// The IP address that the flow listens on for incoming content.
 	IngestIp *string `field:"optional" json:"ingestIp" yaml:"ingestIp"`
 	// The port that the flow listens on for incoming content.

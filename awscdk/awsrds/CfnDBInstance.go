@@ -264,15 +264,16 @@ type CfnDBInstance interface {
 	//
 	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
 	//
-	// *Amazon Aurora*
-	//
-	// Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
+	// For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//
 	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
-	// Example: `us-east-1d`
+	// Constraints:
 	//
-	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	// - The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment.
+	// - The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	//
+	// Example: `us-east-1d`.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// The number of days for which automated backups are retained.
@@ -303,7 +304,7 @@ type CfnDBInstance interface {
 	// The details of the DB instance's server certificate.
 	CertificateDetails() interface{}
 	SetCertificateDetails(val interface{})
-	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
 	//
 	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
 	//
@@ -314,7 +315,7 @@ type CfnDBInstance interface {
 	// - For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.*
 	// - For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	CertificateRotationRestart() interface{}
 	SetCertificateRotationRestart(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -329,13 +330,11 @@ type CfnDBInstance interface {
 	// Not applicable. The character set is managed by the DB cluster. For more information, see [AWS::RDS::DBCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html) .
 	CharacterSetName() *string
 	SetCharacterSetName(val *string)
-	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance.
+	// Spcifies whether to copy tags from the DB instance to snapshots of the DB instance.
 	//
 	// By default, tags are not copied.
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
+	// This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot() interface{}
 	SetCopyTagsToSnapshot(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -344,15 +343,15 @@ type CfnDBInstance interface {
 	CreationStack() *[]*string
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	//
-	// The instance profile must meet the following requirements:
+	// This setting is required for RDS Custom.
+	//
+	// Constraints:
 	//
 	// - The profile must exist in your account.
 	// - The profile must have an IAM role that Amazon EC2 has permissions to assume.
 	// - The instance profile name and the associated IAM role name must start with the prefix `AWSRDSCustom` .
 	//
 	// For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide* .
-	//
-	// This setting is required for RDS Custom.
 	CustomIamInstanceProfile() *string
 	SetCustomIamInstanceProfile(val *string)
 	// The identifier of the DB cluster that the instance will belong to.
@@ -551,13 +550,12 @@ type CfnDBInstance interface {
 	// For more information, see [Kerberos Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) in the *Amazon RDS User Guide* .
 	Domain() *string
 	SetDomain(val *string)
-	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+	// The name of the IAM role to use when making API calls to the Directory Service.
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to the following DB instances:
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. The domain is managed by the DB cluster.
+	// - Amazon Aurora (The domain is managed by the DB cluster.)
+	// - RDS Custom.
 	DomainIamRoleName() *string
 	SetDomainIamRoleName(val *string)
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
@@ -600,16 +598,16 @@ type CfnDBInstance interface {
 	// Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
 	EnableIamDatabaseAuthentication() interface{}
 	SetEnableIamDatabaseAuthentication(val interface{})
-	// A value that indicates whether to enable Performance Insights for the DB instance.
+	// Specifies whether to enable Performance Insights for the DB instance.
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
-	// Specifies the connection endpoint.
+	// The connection endpoint for the DB instance.
 	//
-	// > The endpoint might not be shown for instances whose status is `creating` .
+	// > The endpoint might not be shown for instances with the status of `creating` .
 	Endpoint() interface{}
 	SetEndpoint(val interface{})
 	// The name of the database engine that you want to use for this DB instance.
@@ -720,7 +718,7 @@ type CfnDBInstance interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	//
@@ -809,7 +807,7 @@ type CfnDBInstance interface {
 	// Constraints: Must contain from 8 to 128 characters.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
-	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	// The secret managed by RDS in AWS Secrets Manager for the master user password.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	MasterUserSecret() interface{}
@@ -818,11 +816,10 @@ type CfnDBInstance interface {
 	//
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to the following DB instances:
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Storage is managed by the DB cluster.
+	// - Amazon Aurora (Storage is managed by the DB cluster.)
+	// - RDS Custom.
 	MaxAllocatedStorage() *float64
 	SetMaxAllocatedStorage(val *float64)
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
@@ -840,9 +837,9 @@ type CfnDBInstance interface {
 	//
 	// For example, `arn:aws:iam:123456789012:role/emaccess` . For information on creating a monitoring role, see [Setting Up and Enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide* .
 	//
-	// If `MonitoringInterval` is set to a value other than 0, then you must supply a `MonitoringRoleArn` value.
+	// If `MonitoringInterval` is set to a value other than `0` , then you must supply a `MonitoringRoleArn` value.
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	MonitoringRoleArn() *string
 	SetMonitoringRoleArn(val *string)
 	// Specifies whether the database instance is a Multi-AZ DB instance deployment.
@@ -858,7 +855,7 @@ type CfnDBInstance interface {
 	SetMultiAz(val interface{})
 	// The name of the NCHAR character set for the Oracle DB instance.
 	//
-	// This parameter doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	NcharCharacterSetName() *string
 	SetNcharCharacterSetName(val *string)
 	// The network type of the DB instance.
@@ -889,22 +886,19 @@ type CfnDBInstance interface {
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
 	PerformanceInsightsKmsKeyId() *string
 	SetPerformanceInsightsKmsKeyId(val *string)
-	// The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:.
+	// The number of days to retain Performance Insights data.
 	//
-	// - 7
-	// - *month* * 31, where *month* is a number of months from 1-23
-	// - 731
+	// This setting doesn't apply to RDS Custom DB instances.
 	//
-	// For example, the following values are valid:
+	// Valid Values:
 	//
-	// - 93 (3 months * 31)
-	// - 341 (11 months * 31)
-	// - 589 (19 months * 31)
-	// - 731
+	// - `7`
+	// - *month* * 31, where *month* is a number of months from 1-23. Examples: `93` (3 months * 31), `341` (11 months * 31), `589` (19 months * 31)
+	// - `731`
 	//
-	// If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.
+	// Default: `7` days
 	//
-	// This setting doesn't apply to RDS Custom.
+	// If you specify a retention period that isn't valid, such as `94` , Amazon RDS returns an error.
 	PerformanceInsightsRetentionPeriod() *float64
 	SetPerformanceInsightsRetentionPeriod(val *float64)
 	// The port number on which the database accepts connections.
@@ -943,22 +937,18 @@ type CfnDBInstance interface {
 	SetPreferredMaintenanceWindow(val *string)
 	// The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 	//
-	// This setting doesn't apply to RDS Custom.
-	//
-	// *Amazon Aurora*
-	//
-	// Not applicable.
+	// This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.
 	ProcessorFeatures() interface{}
 	SetProcessorFeatures(val interface{})
-	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+	// The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	//
-	// For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide* .
+	// For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	//
-	// Default: 1
+	// Default: `1`
 	//
-	// Valid Values: 0 - 15.
+	// Valid Values: `0 - 15`.
 	PromotionTier() *float64
 	SetPromotionTier(val *float64)
 	// Indicates whether the DB instance is an internet-facing instance.
@@ -1096,9 +1086,9 @@ type CfnDBInstance interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	UseDefaultProcessorFeatures() interface{}
 	SetUseDefaultProcessorFeatures(val interface{})
 	// A value that indicates whether the DB instance is restored from the latest backup time.

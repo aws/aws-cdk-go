@@ -38,6 +38,14 @@ import (
 //   	},
 //   	EntitlementArn: jsii.String("entitlementArn"),
 //   	FlowArn: jsii.String("flowArn"),
+//   	GatewayBridgeSource: &GatewayBridgeSourceProperty{
+//   		BridgeArn: jsii.String("bridgeArn"),
+//
+//   		// the properties below are optional
+//   		VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
+//   			VpcInterfaceName: jsii.String("vpcInterfaceName"),
+//   		},
+//   	},
 //   	IngestPort: jsii.Number(123),
 //   	MaxBitrate: jsii.Number(123),
 //   	MaxLatency: jsii.Number(123),
@@ -90,6 +98,9 @@ type CfnFlowSource interface {
 	// The flow must have Failover enabled to add an additional source.
 	FlowArn() *string
 	SetFlowArn(val *string)
+	// `AWS::MediaConnect::FlowSource.GatewayBridgeSource`.
+	GatewayBridgeSource() interface{}
+	SetGatewayBridgeSource(val interface{})
 	// The port that the flow listens on for incoming content.
 	//
 	// If the protocol of the source is Zixi, the port must be set to 2088.
@@ -420,6 +431,16 @@ func (j *jsiiProxy_CfnFlowSource) FlowArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowSource) GatewayBridgeSource() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"gatewayBridgeSource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowSource) IngestPort() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -674,6 +695,17 @@ func (j *jsiiProxy_CfnFlowSource)SetFlowArn(val *string) {
 	_jsii_.Set(
 		j,
 		"flowArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetGatewayBridgeSource(val interface{}) {
+	if err := j.validateSetGatewayBridgeSourceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"gatewayBridgeSource",
 		val,
 	)
 }

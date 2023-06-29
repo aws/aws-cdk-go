@@ -32,12 +32,14 @@ import (
 type CfnThing interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
 	AttrArn() *string
 	// A string that contains up to three key value pairs.
 	//
 	// Maximum length of 800. Duplicates not allowed.
 	AttributePayload() interface{}
 	SetAttributePayload(val interface{})
+	// The Id of this thing.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

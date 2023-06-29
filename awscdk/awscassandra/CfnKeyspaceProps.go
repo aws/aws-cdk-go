@@ -13,6 +13,12 @@ import (
 //
 //   cfnKeyspaceProps := &CfnKeyspaceProps{
 //   	KeyspaceName: jsii.String("keyspaceName"),
+//   	ReplicationSpecification: &ReplicationSpecificationProperty{
+//   		RegionList: []*string{
+//   			jsii.String("regionList"),
+//   		},
+//   		ReplicationStrategy: jsii.String("replicationStrategy"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -30,7 +36,16 @@ type CfnKeyspaceProps struct {
 	//
 	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`.
 	KeyspaceName *string `field:"optional" json:"keyspaceName" yaml:"keyspaceName"`
-	// A list of key-value pair tags to be attached to the resource.
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:.
+	//
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
+	//
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+	ReplicationSpecification interface{} `field:"optional" json:"replicationSpecification" yaml:"replicationSpecification"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,7 +1,7 @@
 package awssecurityhub
 
 
-// Identifies the finding fields that the automation rule action will update when a finding matches the defined criteria.
+// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -42,9 +42,9 @@ package awssecurityhub
 //   }
 //
 type CfnAutomationRule_AutomationRulesFindingFieldsUpdateProperty struct {
-	// The rule action will update the `Confidence` field of a finding.
+	// The rule action updates the `Confidence` field of a finding.
 	Confidence *float64 `field:"optional" json:"confidence" yaml:"confidence"`
-	// The rule action will update the `Criticality` field of a finding.
+	// The rule action updates the `Criticality` field of a finding.
 	Criticality *float64 `field:"optional" json:"criticality" yaml:"criticality"`
 	// The rule action will update the `Note` field of a finding.
 	Note interface{} `field:"optional" json:"note" yaml:"note"`
@@ -52,11 +52,11 @@ type CfnAutomationRule_AutomationRulesFindingFieldsUpdateProperty struct {
 	RelatedFindings interface{} `field:"optional" json:"relatedFindings" yaml:"relatedFindings"`
 	// The rule action will update the `Severity` field of a finding.
 	Severity interface{} `field:"optional" json:"severity" yaml:"severity"`
-	// The rule action will update the `Types` field of a finding.
+	// The rule action updates the `Types` field of a finding.
 	Types *[]*string `field:"optional" json:"types" yaml:"types"`
-	// The rule action will update the `UserDefinedFields` field of a finding.
+	// The rule action updates the `UserDefinedFields` field of a finding.
 	UserDefinedFields interface{} `field:"optional" json:"userDefinedFields" yaml:"userDefinedFields"`
-	// The rule action will update the `VerificationState` field of a finding.
+	// The rule action updates the `VerificationState` field of a finding.
 	VerificationState *string `field:"optional" json:"verificationState" yaml:"verificationState"`
 	// The rule action will update the `Workflow` field of a finding.
 	Workflow interface{} `field:"optional" json:"workflow" yaml:"workflow"`

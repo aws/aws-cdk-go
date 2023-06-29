@@ -101,9 +101,9 @@ import (
 type CfnDBClusterProps struct {
 	// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
 	//
-	// This setting is required to create a Multi-AZ DB cluster.
+	// Valid for Cluster Type: Multi-AZ DB clusters only
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// This setting is required to create a Multi-AZ DB cluster.
 	AllocatedStorage *float64 `field:"optional" json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	//
@@ -111,11 +111,11 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
-	// A value that indicates whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
+	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Multi-AZ DB clusters only.
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created.
 	//
@@ -169,13 +169,13 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
-	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are available in all AWS Regions , or for all database engines.
+	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6gd.xlarge` . Not all DB instance classes are available in all AWS Regions , or for all database engines.
 	//
 	// For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* .
 	//
 	// This setting is required to create a Multi-AZ DB cluster.
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Multi-AZ DB clusters only.
 	DbClusterInstanceClass *string `field:"optional" json:"dbClusterInstanceClass" yaml:"dbClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	//
@@ -337,9 +337,11 @@ type CfnDBClusterProps struct {
 	//
 	// This setting is required to create a Multi-AZ DB cluster.
 	//
-	// Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+	// Valid for Cluster Type: Multi-AZ DB clusters only
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Constraints:
+	//
+	// - Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	//
@@ -349,15 +351,15 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+	//
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//
 	// Constraints:
 	//
 	// - Can't manage the master user password with AWS Secrets Manager if `MasterUserPassword` is specified.
-	//
-	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The name of the master user for the DB cluster.
 	//
@@ -371,27 +373,29 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
-	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	// The secret managed by RDS in AWS Secrets Manager for the master user password.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster.
 	//
-	// To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
+	// To turn off collecting Enhanced Monitoring metrics, specify `0` .
 	//
-	// If `MonitoringRoleArn` is specified, also set `MonitoringInterval` to a value other than 0.
+	// If `MonitoringRoleArn` is specified, also set `MonitoringInterval` to a value other than `0` .
 	//
-	// Valid Values: `0, 1, 5, 10, 15, 30, 60`
+	// Valid for Cluster Type: Multi-AZ DB clusters only
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid Values: `0 | 1 | 5 | 10 | 15 | 30 | 60`
+	//
+	// Default: `0`.
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	//
 	// An example is `arn:aws:iam:123456789012:role/emaccess` . For information on creating a monitoring role, see [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide* .
 	//
-	// If `MonitoringInterval` is set to a value other than 0, supply a `MonitoringRoleArn` value.
+	// If `MonitoringInterval` is set to a value other than `0` , supply a `MonitoringRoleArn` value.
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Multi-AZ DB clusters only.
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
 	// The network type of the DB cluster.
 	//
@@ -406,11 +410,11 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters only.
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
-	// A value that indicates whether to turn on Performance Insights for the DB cluster.
+	// Specifies whether to turn on Performance Insights for the DB cluster.
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide* .
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Multi-AZ DB clusters only.
 	PerformanceInsightsEnabled interface{} `field:"optional" json:"performanceInsightsEnabled" yaml:"performanceInsightsEnabled"`
 	// The AWS KMS key identifier for encryption of Performance Insights data.
 	//
@@ -418,24 +422,21 @@ type CfnDBClusterProps struct {
 	//
 	// If you don't specify a value for `PerformanceInsightsKMSKeyId` , then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account . Your AWS account has a different default KMS key for each AWS Region .
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Multi-AZ DB clusters only.
 	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
-	// The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:.
+	// The number of days to retain Performance Insights data.
 	//
-	// - 7
-	// - *month* * 31, where *month* is a number of months from 1-23
-	// - 731
+	// Valid for Cluster Type: Multi-AZ DB clusters only
 	//
-	// For example, the following values are valid:
+	// Valid Values:
 	//
-	// - 93 (3 months * 31)
-	// - 341 (11 months * 31)
-	// - 589 (19 months * 31)
-	// - 731
+	// - `7`
+	// - *month* * 31, where *month* is a number of months from 1-23. Examples: `93` (3 months * 31), `341` (11 months * 31), `589` (19 months * 31)
+	// - `731`
 	//
-	// If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.
+	// Default: `7` days
 	//
-	// Valid for: Multi-AZ DB clusters only.
+	// If you specify a retention period that isn't valid, such as `94` , Amazon RDS issues an error.
 	PerformanceInsightsRetentionPeriod *float64 `field:"optional" json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//
@@ -476,11 +477,13 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
-	// A value that indicates whether the DB cluster is publicly accessible.
+	// Specifies whether the DB cluster is publicly accessible.
 	//
 	// When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it.
 	//
 	// When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address.
+	//
+	// Valid for Cluster Type: Multi-AZ DB clusters only
 	//
 	// Default: The default behavior varies depending on whether `DBSubnetGroupName` is specified.
 	//
@@ -493,8 +496,6 @@ type CfnDBClusterProps struct {
 	//
 	// - If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
 	// - If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
-	//
-	// Valid for: Multi-AZ DB clusters only.
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//
@@ -584,19 +585,25 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
-	// Specifies the storage type to be associated with the DB cluster.
+	// The storage type to associate with the DB cluster.
+	//
+	// For information on storage types for Aurora DB clusters, see [Storage configurations for Amazon Aurora DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type) . For information on storage types for Multi-AZ DB clusters, see [Settings for creating Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings) .
 	//
 	// This setting is required to create a Multi-AZ DB cluster.
 	//
 	// When specified for a Multi-AZ DB cluster, a value for the `Iops` parameter is required.
 	//
-	// Valid values: `aurora` , `aurora-iopt1` (Aurora DB clusters); `io1` (Multi-AZ DB clusters)
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//
-	// Default: `aurora` (Aurora DB clusters); `io1` (Multi-AZ DB clusters)
+	// Valid Values:
 	//
-	// Valid for: Aurora DB clusters and Multi-AZ DB clusters
+	// - Aurora DB clusters - `aurora | aurora-iopt1`
+	// - Multi-AZ DB clusters - `io1`
 	//
-	// For more information on storage types for Aurora DB clusters, see [Storage configurations for Amazon Aurora DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type) . For more information on storage types for Multi-AZ DB clusters, see [Settings for creating Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings) .
+	// Default:
+	//
+	// - Aurora DB clusters - `aurora`
+	// - Multi-AZ DB clusters - `io1`.
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// An optional array of key-value pairs to apply to this DB cluster.
 	//

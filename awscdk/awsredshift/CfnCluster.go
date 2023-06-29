@@ -311,7 +311,7 @@ type CfnCluster interface {
 	// The value must be either -1 or an integer between 1 and 3,653.
 	ManualSnapshotRetentionPeriod() *float64
 	SetManualSnapshotRetentionPeriod(val *float64)
-	// The user name associated with the admin user for the cluster that is being created.
+	// The user name associated with the admin user account for the cluster that is being created.
 	//
 	// Constraints:
 	//
@@ -322,7 +322,7 @@ type CfnCluster interface {
 	// - Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
-	// The password associated with the admin user for the cluster that is being created.
+	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// Constraints:
 	//

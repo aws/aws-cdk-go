@@ -49,7 +49,7 @@ type CfnAutomationRule_AutomationRulesActionProperty struct {
 	FindingFieldsUpdate interface{} `field:"required" json:"findingFieldsUpdate" yaml:"findingFieldsUpdate"`
 	// Specifies that the rule action should update the `Types` finding field.
 	//
-	// The `Types` finding field provides one or more finding types in the format of namespace/category/classifier that classify a finding. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+	// The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

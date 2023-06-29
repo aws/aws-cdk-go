@@ -277,12 +277,20 @@ func init() {
 		reflect.TypeOf((*CfnFlow_FailoverConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.GatewayBridgeSourceProperty",
+		reflect.TypeOf((*CfnFlow_GatewayBridgeSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SourcePriorityProperty",
 		reflect.TypeOf((*CfnFlow_SourcePriorityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SourceProperty",
 		reflect.TypeOf((*CfnFlow_SourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.VpcInterfaceAttachmentProperty",
+		reflect.TypeOf((*CfnFlow_VpcInterfaceAttachmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
@@ -438,6 +446,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "entitlementArn", GoGetter: "EntitlementArn"},
 			_jsii_.MemberProperty{JsiiProperty: "flowArn", GoGetter: "FlowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayBridgeSource", GoGetter: "GatewayBridgeSource"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "ingestPort", GoGetter: "IngestPort"},
@@ -480,6 +489,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.EncryptionProperty",
 		reflect.TypeOf((*CfnFlowSource_EncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.GatewayBridgeSourceProperty",
+		reflect.TypeOf((*CfnFlowSource_GatewayBridgeSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.VpcInterfaceAttachmentProperty",
+		reflect.TypeOf((*CfnFlowSource_VpcInterfaceAttachmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowSourceProps",

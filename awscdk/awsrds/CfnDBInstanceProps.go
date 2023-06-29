@@ -191,15 +191,16 @@ type CfnDBInstanceProps struct {
 	//
 	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
 	//
-	// *Amazon Aurora*
-	//
-	// Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
+	// For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//
 	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
-	// Example: `us-east-1d`
+	// Constraints:
 	//
-	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	// - The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment.
+	// - The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	//
+	// Example: `us-east-1d`.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
@@ -226,7 +227,7 @@ type CfnDBInstanceProps struct {
 	CaCertificateIdentifier *string `field:"optional" json:"caCertificateIdentifier" yaml:"caCertificateIdentifier"`
 	// The details of the DB instance's server certificate.
 	CertificateDetails interface{} `field:"optional" json:"certificateDetails" yaml:"certificateDetails"`
-	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
 	//
 	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
 	//
@@ -237,7 +238,7 @@ type CfnDBInstanceProps struct {
 	// - For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.*
 	// - For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	CertificateRotationRestart interface{} `field:"optional" json:"certificateRotationRestart" yaml:"certificateRotationRestart"`
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	//
@@ -245,25 +246,23 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. The character set is managed by the DB cluster. For more information, see [AWS::RDS::DBCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html) .
 	CharacterSetName *string `field:"optional" json:"characterSetName" yaml:"characterSetName"`
-	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance.
+	// Spcifies whether to copy tags from the DB instance to snapshots of the DB instance.
 	//
 	// By default, tags are not copied.
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
+	// This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	//
-	// The instance profile must meet the following requirements:
+	// This setting is required for RDS Custom.
+	//
+	// Constraints:
 	//
 	// - The profile must exist in your account.
 	// - The profile must have an IAM role that Amazon EC2 has permissions to assume.
 	// - The instance profile name and the associated IAM role name must start with the prefix `AWSRDSCustom` .
 	//
 	// For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide* .
-	//
-	// This setting is required for RDS Custom.
 	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
@@ -449,13 +448,12 @@ type CfnDBInstanceProps struct {
 	//
 	// For more information, see [Kerberos Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) in the *Amazon RDS User Guide* .
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
-	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+	// The name of the IAM role to use when making API calls to the Directory Service.
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to the following DB instances:
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. The domain is managed by the DB cluster.
+	// - Amazon Aurora (The domain is managed by the DB cluster.)
+	// - RDS Custom.
 	DomainIamRoleName *string `field:"optional" json:"domainIamRoleName" yaml:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
@@ -495,15 +493,15 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
 	EnableIamDatabaseAuthentication interface{} `field:"optional" json:"enableIamDatabaseAuthentication" yaml:"enableIamDatabaseAuthentication"`
-	// A value that indicates whether to enable Performance Insights for the DB instance.
+	// Specifies whether to enable Performance Insights for the DB instance.
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
-	// Specifies the connection endpoint.
+	// The connection endpoint for the DB instance.
 	//
-	// > The endpoint might not be shown for instances whose status is `creating` .
+	// > The endpoint might not be shown for instances with the status of `creating` .
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The name of the database engine that you want to use for this DB instance.
 	//
@@ -598,7 +596,7 @@ type CfnDBInstanceProps struct {
 	//
 	// > If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
 	LicenseModel *string `field:"optional" json:"licenseModel" yaml:"licenseModel"`
-	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	//
@@ -684,7 +682,7 @@ type CfnDBInstanceProps struct {
 	//
 	// Constraints: Must contain from 8 to 128 characters.
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
-	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	// The secret managed by RDS in AWS Secrets Manager for the master user password.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
@@ -692,11 +690,10 @@ type CfnDBInstanceProps struct {
 	//
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to the following DB instances:
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Storage is managed by the DB cluster.
+	// - Amazon Aurora (Storage is managed by the DB cluster.)
+	// - RDS Custom.
 	MaxAllocatedStorage *float64 `field:"optional" json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	//
@@ -712,9 +709,9 @@ type CfnDBInstanceProps struct {
 	//
 	// For example, `arn:aws:iam:123456789012:role/emaccess` . For information on creating a monitoring role, see [Setting Up and Enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide* .
 	//
-	// If `MonitoringInterval` is set to a value other than 0, then you must supply a `MonitoringRoleArn` value.
+	// If `MonitoringInterval` is set to a value other than `0` , then you must supply a `MonitoringRoleArn` value.
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
 	// Specifies whether the database instance is a Multi-AZ DB instance deployment.
 	//
@@ -728,7 +725,7 @@ type CfnDBInstanceProps struct {
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
 	// The name of the NCHAR character set for the Oracle DB instance.
 	//
-	// This parameter doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	NcharCharacterSetName *string `field:"optional" json:"ncharCharacterSetName" yaml:"ncharCharacterSetName"`
 	// The network type of the DB instance.
 	//
@@ -753,22 +750,19 @@ type CfnDBInstanceProps struct {
 	//
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
 	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
-	// The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:.
+	// The number of days to retain Performance Insights data.
 	//
-	// - 7
-	// - *month* * 31, where *month* is a number of months from 1-23
-	// - 731
+	// This setting doesn't apply to RDS Custom DB instances.
 	//
-	// For example, the following values are valid:
+	// Valid Values:
 	//
-	// - 93 (3 months * 31)
-	// - 341 (11 months * 31)
-	// - 589 (19 months * 31)
-	// - 731
+	// - `7`
+	// - *month* * 31, where *month* is a number of months from 1-23. Examples: `93` (3 months * 31), `341` (11 months * 31), `589` (19 months * 31)
+	// - `731`
 	//
-	// If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.
+	// Default: `7` days
 	//
-	// This setting doesn't apply to RDS Custom.
+	// If you specify a retention period that isn't valid, such as `94` , Amazon RDS returns an error.
 	PerformanceInsightsRetentionPeriod *float64 `field:"optional" json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the database accepts connections.
 	//
@@ -803,21 +797,17 @@ type CfnDBInstanceProps struct {
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 	//
-	// This setting doesn't apply to RDS Custom.
-	//
-	// *Amazon Aurora*
-	//
-	// Not applicable.
+	// This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.
 	ProcessorFeatures interface{} `field:"optional" json:"processorFeatures" yaml:"processorFeatures"`
-	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+	// The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	//
-	// For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide* .
+	// For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide* .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	//
-	// Default: 1
+	// Default: `1`
 	//
-	// Valid Values: 0 - 15.
+	// Valid Values: `0 - 15`.
 	PromotionTier *float64 `field:"optional" json:"promotionTier" yaml:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
@@ -920,9 +910,9 @@ type CfnDBInstanceProps struct {
 	//
 	// The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
-	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
 	// A value that indicates whether the DB instance is restored from the latest backup time.
 	//

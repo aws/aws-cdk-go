@@ -1,6 +1,8 @@
 package awsglue
 
 
+// Specifies a Delta data store to crawl one or more Delta tables.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +18,13 @@ package awsglue
 //   }
 //
 type CfnCrawler_DeltaTargetProperty struct {
-	// `CfnCrawler.DeltaTargetProperty.ConnectionName`.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
-	// `CfnCrawler.DeltaTargetProperty.CreateNativeDeltaTable`.
+	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
 	CreateNativeDeltaTable interface{} `field:"optional" json:"createNativeDeltaTable" yaml:"createNativeDeltaTable"`
-	// `CfnCrawler.DeltaTargetProperty.DeltaTables`.
+	// A list of the Amazon S3 paths to the Delta tables.
 	DeltaTables *[]*string `field:"optional" json:"deltaTables" yaml:"deltaTables"`
-	// `CfnCrawler.DeltaTargetProperty.WriteManifest`.
+	// Specifies whether to write the manifest files to the Delta table path.
 	WriteManifest interface{} `field:"optional" json:"writeManifest" yaml:"writeManifest"`
 }
 

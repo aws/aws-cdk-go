@@ -15,7 +15,7 @@ package awsec2
 //   }
 //
 type CfnInstance_HibernationOptionsProperty struct {
-	// If you set this parameter to `true` , your instance is enabled for hibernation.
+	// Set to `true` to enable your instance for hibernation.
 	//
 	// Default: `false`.
 	Configured interface{} `field:"optional" json:"configured" yaml:"configured"`

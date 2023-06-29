@@ -38,9 +38,9 @@ import (
 //   }
 //
 type CfnProtectionProps struct {
-	// The name of the protection.
+	// The name of the protection. For example, `My CloudFront distributions` .
 	//
-	// For example, `My CloudFront distributions` .
+	// > If you change the name of an existing protection, Shield Advanced deletes the protection and replaces it with a new one. While this is happening, the protection isn't available on the AWS resource.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ARN (Amazon Resource Name) of the AWS resource that is protected.
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
@@ -59,8 +59,6 @@ type CfnProtectionProps struct {
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	//
-	// > To modify tags on existing resources, use the AWS Shield Advanced APIs or command line interface. With AWS CloudFormation , you can only add tags to resources during resource creation.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

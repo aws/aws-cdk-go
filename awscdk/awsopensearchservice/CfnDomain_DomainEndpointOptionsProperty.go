@@ -33,7 +33,7 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	//
 	// Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	EnforceHttps interface{} `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
-	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:.
+	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:.
 	//
 	// - `Policy-Min-TLS-1-0-2019-07`
 	// - `Policy-Min-TLS-1-2-2019-07`.

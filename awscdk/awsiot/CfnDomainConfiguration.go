@@ -117,7 +117,7 @@ type CfnDomainConfiguration interface {
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags() awscdk.TagManager
-	// `AWS::IoT::DomainConfiguration.TlsConfig`.
+	// An object that specifies the TLS configuration for a domain.
 	TlsConfig() interface{}
 	SetTlsConfig(val interface{})
 	// Deprecated.

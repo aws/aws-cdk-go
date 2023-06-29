@@ -22,7 +22,8 @@ type CfnWebACLAssociationProps struct {
 	// - For an Amazon API Gateway REST API: `arn:aws:apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
 	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
 	// - For an Amazon Cognito user pool: `arn:aws:cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
-	// - For an AWS App Runner service: `arn:aws:apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`.
+	// - For an AWS App Runner service: `arn:aws:apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+	// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`.
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
 	WebAclArn *string `field:"required" json:"webAclArn" yaml:"webAclArn"`

@@ -66,9 +66,7 @@ type HealthCheck struct {
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
 	//
-	// For Application Load Balancers, the range is 2-60 seconds and the
-	// default is 5 seconds. For Network Load Balancers, this is 10 seconds for
-	// TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+	// Must be 2 to 120 seconds.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//

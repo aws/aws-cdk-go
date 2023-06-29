@@ -36,6 +36,18 @@ func (i *jsiiProxy_IDeployAssert) validateExpectParameters(id *string, expected 
 	return nil
 }
 
+func (i *jsiiProxy_IDeployAssert) validateHttpApiCallParameters(url *string, options *FetchOptions) error {
+	if url == nil {
+		return fmt.Errorf("parameter url is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IDeployAssert) validateInvokeFunctionParameters(props *LambdaInvokeFunctionProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")

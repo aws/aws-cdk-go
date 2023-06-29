@@ -169,6 +169,8 @@ type CfnEventSourceMappingProps struct {
 	// - *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition *string `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
+	//
+	// `StartingPositionTimestamp` cannot be in the future.
 	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// The name of the Kafka topic.
 	Topics *[]*string `field:"optional" json:"topics" yaml:"topics"`

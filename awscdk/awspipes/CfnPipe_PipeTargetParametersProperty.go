@@ -224,7 +224,7 @@ type CfnPipe_PipeTargetParametersProperty struct {
 	//
 	// To remove an input template, specify an empty string.
 	InputTemplate *string `field:"optional" json:"inputTemplate" yaml:"inputTemplate"`
-	// The parameters for using a Kinesis stream as a source.
+	// The parameters for using a Kinesis stream as a target.
 	KinesisStreamParameters interface{} `field:"optional" json:"kinesisStreamParameters" yaml:"kinesisStreamParameters"`
 	// The parameters for using a Lambda function as a target.
 	LambdaFunctionParameters interface{} `field:"optional" json:"lambdaFunctionParameters" yaml:"lambdaFunctionParameters"`
@@ -232,7 +232,7 @@ type CfnPipe_PipeTargetParametersProperty struct {
 	RedshiftDataParameters interface{} `field:"optional" json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
 	// The parameters for using a SageMaker pipeline as a target.
 	SageMakerPipelineParameters interface{} `field:"optional" json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
-	// The parameters for using a Amazon SQS stream as a source.
+	// The parameters for using a Amazon SQS stream as a target.
 	SqsQueueParameters interface{} `field:"optional" json:"sqsQueueParameters" yaml:"sqsQueueParameters"`
 	// The parameters for using a Step Functions state machine as a target.
 	StepFunctionStateMachineParameters interface{} `field:"optional" json:"stepFunctionStateMachineParameters" yaml:"stepFunctionStateMachineParameters"`

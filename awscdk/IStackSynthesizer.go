@@ -22,6 +22,8 @@ type IStackSynthesizer interface {
 	Synthesize(session ISynthesisSession)
 	// The qualifier used to bootstrap this stack.
 	BootstrapQualifier() *string
+	// The role used to lookup for this stack.
+	LookupRole() *string
 }
 
 // The jsii proxy for IStackSynthesizer
@@ -88,6 +90,16 @@ func (j *jsiiProxy_IStackSynthesizer) BootstrapQualifier() *string {
 	_jsii_.Get(
 		j,
 		"bootstrapQualifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStackSynthesizer) LookupRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"lookupRole",
 		&returns,
 	)
 	return returns

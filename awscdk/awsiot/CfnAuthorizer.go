@@ -58,7 +58,9 @@ type CfnAuthorizer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoT::Authorizer.EnableCachingForHttp`.
+	// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections.
+	//
+	// The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
 	EnableCachingForHttp() interface{}
 	SetEnableCachingForHttp(val interface{})
 	// The logical ID for this CloudFormation stack element.

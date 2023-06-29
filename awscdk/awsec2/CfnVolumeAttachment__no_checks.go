@@ -80,10 +80,6 @@ func validateCfnVolumeAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnVolumeAttachment) validateSetDeviceParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnVolumeAttachment) validateSetInstanceIdParameters(val *string) error {
 	return nil
 }

@@ -20,6 +20,12 @@ import (
 //
 //   cfnKeyspace := awscdk.Aws_cassandra.NewCfnKeyspace(this, jsii.String("MyCfnKeyspace"), &CfnKeyspaceProps{
 //   	KeyspaceName: jsii.String("keyspaceName"),
+//   	ReplicationSpecification: &ReplicationSpecificationProperty{
+//   		RegionList: []*string{
+//   			jsii.String("regionList"),
+//   		},
+//   		ReplicationStrategy: jsii.String("replicationStrategy"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -66,11 +72,21 @@ type CfnKeyspace interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:.
+	//
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
+	//
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+	ReplicationSpecification() interface{}
+	SetReplicationSpecification(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of key-value pair tags to be attached to the resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -298,6 +314,16 @@ func (j *jsiiProxy_CfnKeyspace) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKeyspace) ReplicationSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replicationSpecification",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKeyspace) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -372,6 +398,17 @@ func (j *jsiiProxy_CfnKeyspace)SetKeyspaceName(val *string) {
 	_jsii_.Set(
 		j,
 		"keyspaceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKeyspace)SetReplicationSpecification(val interface{}) {
+	if err := j.validateSetReplicationSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"replicationSpecification",
 		val,
 	)
 }

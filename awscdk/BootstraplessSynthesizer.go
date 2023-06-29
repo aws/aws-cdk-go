@@ -46,6 +46,8 @@ type BootstraplessSynthesizer interface {
 	CloudFormationExecutionRoleArn() *string
 	// Returns the ARN of the deploy Role.
 	DeployRoleArn() *string
+	// The role used to lookup for this stack.
+	LookupRole() *string
 	// Return the currently bound stack.
 	// Deprecated: Use `boundStack` instead.
 	Stack() Stack
@@ -163,6 +165,16 @@ func (j *jsiiProxy_BootstraplessSynthesizer) DeployRoleArn() *string {
 	_jsii_.Get(
 		j,
 		"deployRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BootstraplessSynthesizer) LookupRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"lookupRole",
 		&returns,
 	)
 	return returns

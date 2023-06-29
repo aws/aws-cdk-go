@@ -1,7 +1,7 @@
 package awspipes
 
 
-// The parameters for using a Amazon SQS stream as a source.
+// The parameters for using a Amazon SQS stream as a target.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -43,8 +43,6 @@ import (
 type CfnNetworkAclEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ID of the network ACL entry.
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -262,16 +260,6 @@ type CfnNetworkAclEntry interface {
 type jsiiProxy_CfnNetworkAclEntry struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnNetworkAclEntry) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnNetworkAclEntry) CfnOptions() awscdk.ICfnResourceOptions {

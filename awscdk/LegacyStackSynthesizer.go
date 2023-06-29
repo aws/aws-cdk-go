@@ -44,6 +44,8 @@ type LegacyStackSynthesizer interface {
 	//
 	// Fails if the stack hasn't been bound yet.
 	BoundStack() Stack
+	// The role used to lookup for this stack.
+	LookupRole() *string
 	// Add a CfnRule to the bound stack that checks whether an SSM parameter exceeds a given version.
 	//
 	// This will modify the template, so must be called before the stack is synthesized.
@@ -141,6 +143,16 @@ func (j *jsiiProxy_LegacyStackSynthesizer) BoundStack() Stack {
 	_jsii_.Get(
 		j,
 		"boundStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LegacyStackSynthesizer) LookupRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"lookupRole",
 		&returns,
 	)
 	return returns

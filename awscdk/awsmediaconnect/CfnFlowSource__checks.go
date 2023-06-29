@@ -211,6 +211,30 @@ func (j *jsiiProxy_CfnFlowSource) validateSetDescriptionParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowSource) validateSetGatewayBridgeSourceParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFlowSource_GatewayBridgeSourceProperty:
+		val := val.(*CfnFlowSource_GatewayBridgeSourceProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFlowSource_GatewayBridgeSourceProperty:
+		val_ := val.(CfnFlowSource_GatewayBridgeSourceProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowSource_GatewayBridgeSourceProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowSource) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

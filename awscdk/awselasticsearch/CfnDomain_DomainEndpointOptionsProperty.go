@@ -33,7 +33,7 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	CustomEndpointEnabled interface{} `field:"optional" json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS.
 	EnforceHttps interface{} `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
-	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:.
+	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:.
 	//
 	// - `Policy-Min-TLS-1-0-2019-07`
 	// - `Policy-Min-TLS-1-2-2019-07`.

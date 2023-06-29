@@ -28,6 +28,14 @@ package awsmediaconnect
 //   	},
 //   	EntitlementArn: jsii.String("entitlementArn"),
 //   	FlowArn: jsii.String("flowArn"),
+//   	GatewayBridgeSource: &GatewayBridgeSourceProperty{
+//   		BridgeArn: jsii.String("bridgeArn"),
+//
+//   		// the properties below are optional
+//   		VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
+//   			VpcInterfaceName: jsii.String("vpcInterfaceName"),
+//   		},
+//   	},
 //   	IngestPort: jsii.Number(123),
 //   	MaxBitrate: jsii.Number(123),
 //   	MaxLatency: jsii.Number(123),
@@ -59,6 +67,8 @@ type CfnFlowSourceProps struct {
 	//
 	// The flow must have Failover enabled to add an additional source.
 	FlowArn *string `field:"optional" json:"flowArn" yaml:"flowArn"`
+	// `AWS::MediaConnect::FlowSource.GatewayBridgeSource`.
+	GatewayBridgeSource interface{} `field:"optional" json:"gatewayBridgeSource" yaml:"gatewayBridgeSource"`
 	// The port that the flow listens on for incoming content.
 	//
 	// If the protocol of the source is Zixi, the port must be set to 2088.

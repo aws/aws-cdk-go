@@ -243,6 +243,8 @@ type CfnEventSourceMapping interface {
 	StartingPosition() *string
 	SetStartingPosition(val *string)
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
+	//
+	// `StartingPositionTimestamp` cannot be in the future.
 	StartingPositionTimestamp() *float64
 	SetStartingPositionTimestamp(val *float64)
 	// The name of the Kafka topic.

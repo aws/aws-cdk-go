@@ -65,12 +65,14 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::Glue::Table`
 	// - `AWS::GuardDuty::Detector`
 	// - `AWS::KendraRanking::ExecutionPlan`
+	// - `AWS::ManagedBlockchain::Network`
 	// - `AWS::ManagedBlockchain::Node`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
+	// - `AWS::SSMMessages::ControlChannel`
 	// - `AWS::VerifiedPermissions::PolicyStore`
 	//
 	// You can have only one `resources.type` ﬁeld per selector. To log data events on more than one resource type, add another selector.
@@ -129,6 +131,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID>`
 	//
+	// When `resources.type` equals `AWS::ManagedBlockchain::Network` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:managedblockchain:<region>::networks/<network_ID>`
+	//
 	// When `resources.type` equals `AWS::ManagedBlockchain::Node` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:managedblockchain:<region>:<account_ID>:nodes/<node_ID>`
@@ -153,6 +159,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::S3Outposts::Object` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path>`
+	//
+	// When `resources.type` equals `AWS::SSMMessages::ControlChannel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID>`
 	//
 	// When resources.type equals `AWS::VerifiedPermissions::PolicyStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

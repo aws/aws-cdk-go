@@ -9,14 +9,14 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVolumeAttachmentProps := &CfnVolumeAttachmentProps{
-//   	Device: jsii.String("device"),
 //   	InstanceId: jsii.String("instanceId"),
 //   	VolumeId: jsii.String("volumeId"),
+//
+//   	// the properties below are optional
+//   	Device: jsii.String("device"),
 //   }
 //
 type CfnVolumeAttachmentProps struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
-	Device *string `field:"required" json:"device" yaml:"device"`
 	// The ID of the instance to which the volume attaches.
 	//
 	// This value can be a reference to an [`AWS::EC2::Instance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
@@ -25,5 +25,7 @@ type CfnVolumeAttachmentProps struct {
 	//
 	// The volume and instance must be within the same Availability Zone. This value can be a reference to an [`AWS::EC2::Volume`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
 	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
+	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	Device *string `field:"optional" json:"device" yaml:"device"`
 }
 

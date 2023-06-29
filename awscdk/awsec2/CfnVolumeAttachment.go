@@ -25,9 +25,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVolumeAttachment := awscdk.Aws_ec2.NewCfnVolumeAttachment(this, jsii.String("MyCfnVolumeAttachment"), &CfnVolumeAttachmentProps{
-//   	Device: jsii.String("device"),
 //   	InstanceId: jsii.String("instanceId"),
 //   	VolumeId: jsii.String("volumeId"),
+//
+//   	// the properties below are optional
+//   	Device: jsii.String("device"),
 //   })
 //
 type CfnVolumeAttachment interface {
@@ -383,9 +385,6 @@ func NewCfnVolumeAttachment_Override(c CfnVolumeAttachment, scope constructs.Con
 }
 
 func (j *jsiiProxy_CfnVolumeAttachment)SetDevice(val *string) {
-	if err := j.validateSetDeviceParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"device",

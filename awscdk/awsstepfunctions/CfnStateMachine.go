@@ -63,6 +63,7 @@ import (
 type CfnStateMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the ARN of the resource.
 	AttrArn() *string
 	// Returns the name of the state machine. For example:.
 	//
@@ -78,6 +79,7 @@ type CfnStateMachine interface {
 	//
 	// For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
 	AttrName() *string
+	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
 	AttrStateMachineRevisionId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -90,7 +92,7 @@ type CfnStateMachine interface {
 	CreationStack() *[]*string
 	// The Amazon States Language definition of the state machine.
 	//
-	// The state machine definition must be in JSON or YAML, and the format of the object must match the format of your AWS Step Functions template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+	// The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The name of the S3 bucket where the state machine definition is stored.
@@ -106,6 +108,8 @@ type CfnStateMachine interface {
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition.
 	//
 	// This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
+	//
+	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions() interface{}
 	SetDefinitionSubstitutions(val interface{})
 	// Defines what execution history events are logged and where they are logged.

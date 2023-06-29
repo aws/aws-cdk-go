@@ -80,6 +80,14 @@ func validateCfnHub_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnHub) validateSetAutoEnableControlsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnHub) validateSetEnableDefaultStandardsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnHubParameters(scope constructs.Construct, id *string, props *CfnHubProps) error {
 	return nil
 }

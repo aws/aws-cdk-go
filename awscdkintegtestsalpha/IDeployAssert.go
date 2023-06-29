@@ -49,6 +49,19 @@ type IDeployAssert interface {
 	//
 	// Experimental.
 	Expect(id *string, expected ExpectedResult, actual ActualResult)
+	// Make an HTTP call to the provided endpoint.
+	//
+	// Example:
+	//   var app app
+	//   var integ integTest
+	//
+	//   call := integ.Assertions.HttpApiCall(jsii.String("https://example.com/test"))
+	//   call.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+	//   	"Message": jsii.String("Hello World!"),
+	//   }))
+	//
+	// Experimental.
+	HttpApiCall(url *string, options *FetchOptions) IApiCall
 	// Invoke a lambda function and return the response which can be asserted.
 	//
 	// Example:
@@ -96,6 +109,22 @@ func (i *jsiiProxy_IDeployAssert) Expect(id *string, expected ExpectedResult, ac
 		"expect",
 		[]interface{}{id, expected, actual},
 	)
+}
+
+func (i *jsiiProxy_IDeployAssert) HttpApiCall(url *string, options *FetchOptions) IApiCall {
+	if err := i.validateHttpApiCallParameters(url, options); err != nil {
+		panic(err)
+	}
+	var returns IApiCall
+
+	_jsii_.Invoke(
+		i,
+		"httpApiCall",
+		[]interface{}{url, options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IDeployAssert) InvokeFunction(props *LambdaInvokeFunctionProps) IApiCall {
