@@ -164,6 +164,26 @@ topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 })
 ```
 
+## Start Step Functions State Machine
+
+The code snippet below creates an AWS IoT Rule that starts a Step Functions State Machine
+when it is triggered.
+
+```go
+stateMachine := stepfunctions.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
+	DefinitionBody: stepfunctions.DefinitionBody_FromChainable(stepfunctions.NewWait(this, jsii.String("Hello"), &WaitProps{
+		Time: stepfunctions.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
+	})),
+})
+
+iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+	Actions: []iAction{
+		actions.NewStepFunctionsStateMachineAction(stateMachine),
+	},
+})
+```
+
 ## Change the state of an Amazon CloudWatch alarm
 
 The code snippet below creates an AWS IoT Rule that changes the state of an Amazon CloudWatch alarm when it is triggered:

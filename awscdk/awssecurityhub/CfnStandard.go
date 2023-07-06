@@ -50,7 +50,7 @@ type CfnStandard interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies whether a control is enabled or disabled in a specified standard.
+	// Specifies which controls are to be disabled in a standard.
 	DisabledStandardsControls() interface{}
 	SetDisabledStandardsControls(val interface{})
 	// The logical ID for this CloudFormation stack element.

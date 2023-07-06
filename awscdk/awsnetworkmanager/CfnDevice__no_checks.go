@@ -80,6 +80,10 @@ func validateCfnDevice_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDevice) validateSetAwsLocationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDevice) validateSetGlobalNetworkIdParameters(val *string) error {
 	return nil
 }

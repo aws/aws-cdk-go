@@ -31,6 +31,10 @@ package awsquicksight
 //   		IncludeNullValue: jsii.Boolean(false),
 //   	},
 //   	SelectAllValueOptions: jsii.String("selectAllValueOptions"),
+//   	SourceColumn: &ColumnIdentifierProperty{
+//   		ColumnName: jsii.String("columnName"),
+//   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   	},
 //   	SourceField: jsii.String("sourceField"),
 //   	SourceParameterName: jsii.String("sourceParameterName"),
 //   }
@@ -40,6 +44,8 @@ type CfnAnalysis_DestinationParameterValueConfigurationProperty struct {
 	CustomValuesConfiguration interface{} `field:"optional" json:"customValuesConfiguration" yaml:"customValuesConfiguration"`
 	// The configuration that selects all options.
 	SelectAllValueOptions *string `field:"optional" json:"selectAllValueOptions" yaml:"selectAllValueOptions"`
+	// `CfnAnalysis.DestinationParameterValueConfigurationProperty.SourceColumn`.
+	SourceColumn interface{} `field:"optional" json:"sourceColumn" yaml:"sourceColumn"`
 	// The source field ID of the destination parameter.
 	SourceField *string `field:"optional" json:"sourceField" yaml:"sourceField"`
 	// The source parameter name of the destination parameter.

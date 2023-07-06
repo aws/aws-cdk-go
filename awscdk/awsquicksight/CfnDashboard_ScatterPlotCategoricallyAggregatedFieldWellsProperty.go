@@ -9,6 +9,8 @@ package awsquicksight
 type CfnDashboard_ScatterPlotCategoricallyAggregatedFieldWellsProperty struct {
 	// The category field well of a scatter plot.
 	Category interface{} `field:"optional" json:"category" yaml:"category"`
+	// The label field well of a scatter plot.
+	Label interface{} `field:"optional" json:"label" yaml:"label"`
 	// The size field well of a scatter plot.
 	Size interface{} `field:"optional" json:"size" yaml:"size"`
 	// The x-axis field well of a scatter plot.

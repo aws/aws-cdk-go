@@ -19,6 +19,8 @@ package awsquicksight
 //   		ColumnName: jsii.String("columnName"),
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   	},
+//
+//   	// the properties below are optional
 //   	MeasureAggregationFunction: &AggregationFunctionProperty{
 //   		CategoricalAggregationFunction: jsii.String("categoricalAggregationFunction"),
 //   		DateAggregationFunction: jsii.String("dateAggregationFunction"),
@@ -37,6 +39,6 @@ type CfnTemplate_ReferenceLineDynamicDataConfigurationProperty struct {
 	// The column that the dynamic data targets.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
 	// The aggregation function that is used in the dynamic data.
-	MeasureAggregationFunction interface{} `field:"required" json:"measureAggregationFunction" yaml:"measureAggregationFunction"`
+	MeasureAggregationFunction interface{} `field:"optional" json:"measureAggregationFunction" yaml:"measureAggregationFunction"`
 }
 

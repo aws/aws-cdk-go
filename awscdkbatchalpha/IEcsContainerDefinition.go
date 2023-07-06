@@ -63,13 +63,14 @@ type IEcsContainerDefinition interface {
 	// Gives the container readonly access to its root filesystem.
 	// Experimental.
 	ReadonlyRootFilesystem() *bool
-	// The secrets for the container.
+	// A map from environment variable names to the secrets for the container.
 	//
-	// Can be referenced in your job definition.
+	// Allows your job definitions
+	// to reference the secret by the environment variable name defined in this property.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html
 	//
 	// Experimental.
-	Secrets() *[]awssecretsmanager.ISecret
+	Secrets() *map[string]awssecretsmanager.ISecret
 	// The user name to use inside the container.
 	// Experimental.
 	User() *string
@@ -196,8 +197,8 @@ func (j *jsiiProxy_IEcsContainerDefinition) ReadonlyRootFilesystem() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_IEcsContainerDefinition) Secrets() *[]awssecretsmanager.ISecret {
-	var returns *[]awssecretsmanager.ISecret
+func (j *jsiiProxy_IEcsContainerDefinition) Secrets() *map[string]awssecretsmanager.ISecret {
+	var returns *map[string]awssecretsmanager.ISecret
 	_jsii_.Get(
 		j,
 		"secrets",

@@ -47,11 +47,7 @@ type CfnTransitGatewayVpcAttachmentProps struct {
 	//
 	// You can specify at most one subnet per Availability Zone.
 	AddSubnetIds *[]*string `field:"optional" json:"addSubnetIds" yaml:"addSubnetIds"`
-	// The VPC attachment options, in JSON or YAML.
-	//
-	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
-	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
-	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
+	// The VPC attachment options.
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The IDs of one or more subnets to remove.
 	RemoveSubnetIds *[]*string `field:"optional" json:"removeSubnetIds" yaml:"removeSubnetIds"`

@@ -36,6 +36,10 @@ func (b *jsiiProxy_BaseService) validateEnableCloudMapParameters(options *CloudM
 	return nil
 }
 
+func (b *jsiiProxy_BaseService) validateEnableDeploymentAlarmsParameters(alarmNames *[]*string, options *DeploymentAlarmOptions) error {
+	return nil
+}
+
 func (b *jsiiProxy_BaseService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
 	return nil
 }
@@ -81,6 +85,10 @@ func validateBaseService_IsOwnedResourceParameters(construct constructs.IConstru
 }
 
 func validateBaseService_IsResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (j *jsiiProxy_BaseService) validateSetDeploymentAlarmsParameters(val *CfnService_DeploymentAlarmsProperty) error {
 	return nil
 }
 

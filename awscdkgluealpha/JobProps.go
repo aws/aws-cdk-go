@@ -8,13 +8,19 @@ import (
 // Construction properties for `Job`.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("PythonSparkStreamingJob"), &JobProps{
-//   	Executable: glue.JobExecutable_PythonStreaming(&PythonSparkJobExecutableProps{
+//   var bucket bucket
+//
+//   glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &JobProps{
+//   	Executable: glue.JobExecutable_ScalaEtl(&ScalaJobExecutableProps{
 //   		GlueVersion: glue.GlueVersion_V4_0(),
-//   		PythonVersion: glue.PythonVersion_THREE,
-//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+//   		Script: glue.Code_FromBucket(bucket, jsii.String("src/com/example/HelloWorld.scala")),
+//   		ClassName: jsii.String("com.example.HelloWorld"),
+//   		ExtraJars: []code{
+//   			glue.*code_*FromBucket(bucket, jsii.String("jars/HelloWorld.jar")),
+//   		},
 //   	}),
-//   	Description: jsii.String("an example Python Streaming job"),
+//   	WorkerType: glue.WorkerType_G_8X(),
+//   	Description: jsii.String("an example Scala ETL job"),
 //   })
 //
 // Experimental.
@@ -45,6 +51,11 @@ type JobProps struct {
 	//
 	// Experimental.
 	EnableProfilingMetrics *bool `field:"optional" json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
+	// The ExecutionClass whether the job is run with a standard or flexible execution class.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/add-job.html
+	//
+	// Experimental.
+	ExecutionClass ExecutionClass `field:"optional" json:"executionClass" yaml:"executionClass"`
 	// The name of the job.
 	// Experimental.
 	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`

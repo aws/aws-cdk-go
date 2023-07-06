@@ -187,10 +187,31 @@ func (j *jsiiProxy_CfnAppBlock) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnAppBlock) validateSetSetupScriptDetailsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnAppBlock) validateSetPostSetupScriptDetailsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAppBlock_ScriptDetailsProperty:
+		val := val.(*CfnAppBlock_ScriptDetailsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAppBlock_ScriptDetailsProperty:
+		val_ := val.(CfnAppBlock_ScriptDetailsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppBlock_ScriptDetailsProperty; received %#v (a %T)", val, val)
+		}
 	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnAppBlock) validateSetSetupScriptDetailsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

@@ -24,7 +24,6 @@ package awssagemaker
 //   	ModelDataUrl: jsii.String("modelDataUrl"),
 //   	ModelInput: modelInput,
 //   	NearestModelName: jsii.String("nearestModelName"),
-//   	ProductId: jsii.String("productId"),
 //   }
 //
 type CfnModelPackage_ModelPackageContainerDefinitionProperty struct {
@@ -56,7 +55,5 @@ type CfnModelPackage_ModelPackageContainerDefinitionProperty struct {
 	//
 	// You can find a list of benchmarked models by calling `ListModelMetadata` .
 	NearestModelName *string `field:"optional" json:"nearestModelName" yaml:"nearestModelName"`
-	// The AWS Marketplace product ID of the model package.
-	ProductId *string `field:"optional" json:"productId" yaml:"productId"`
 }
 

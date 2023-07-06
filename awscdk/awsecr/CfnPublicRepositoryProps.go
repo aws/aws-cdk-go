@@ -27,9 +27,7 @@ import (
 //   }
 //
 type CfnPublicRepositoryProps struct {
-	// The details about the repository that are publicly visible in the Amazon ECR Public Gallery.
-	//
-	// For more information, see [Amazon ECR Public repository catalog data](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-catalog-data.html) in the *Amazon ECR Public User Guide* .
+	// `AWS::ECR::PublicRepository.RepositoryCatalogData`.
 	RepositoryCatalogData interface{} `field:"optional" json:"repositoryCatalogData" yaml:"repositoryCatalogData"`
 	// The name to use for the public repository.
 	//

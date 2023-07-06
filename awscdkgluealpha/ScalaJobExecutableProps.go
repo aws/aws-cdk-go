@@ -51,5 +51,10 @@ type ScalaJobExecutableProps struct {
 	//
 	// Experimental.
 	ExtraJarsFirst *bool `field:"optional" json:"extraJarsFirst" yaml:"extraJarsFirst"`
+	// Runtime.
+	//
+	// It is required for Ray jobs.
+	// Experimental.
+	Runtime Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }
 

@@ -20,9 +20,6 @@ import (
 //
 //   cfnConnectPeer := awscdk.Aws_networkmanager.NewCfnConnectPeer(this, jsii.String("MyCfnConnectPeer"), &CfnConnectPeerProps{
 //   	ConnectAttachmentId: jsii.String("connectAttachmentId"),
-//   	InsideCidrBlocks: []*string{
-//   		jsii.String("insideCidrBlocks"),
-//   	},
 //   	PeerAddress: jsii.String("peerAddress"),
 //
 //   	// the properties below are optional
@@ -30,6 +27,9 @@ import (
 //   		PeerAsn: jsii.Number(123),
 //   	},
 //   	CoreNetworkAddress: jsii.String("coreNetworkAddress"),
+//   	InsideCidrBlocks: []*string{
+//   		jsii.String("insideCidrBlocks"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -572,9 +572,6 @@ func (j *jsiiProxy_CfnConnectPeer)SetCoreNetworkAddress(val *string) {
 }
 
 func (j *jsiiProxy_CfnConnectPeer)SetInsideCidrBlocks(val *[]*string) {
-	if err := j.validateSetInsideCidrBlocksParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"insideCidrBlocks",

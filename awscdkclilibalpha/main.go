@@ -12,6 +12,7 @@ func init() {
 		"@aws-cdk/cli-lib-alpha.AwsCdkCli",
 		reflect.TypeOf((*AwsCdkCli)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bootstrap", GoMethod: "Bootstrap"},
 			_jsii_.MemberMethod{JsiiMethod: "deploy", GoMethod: "Deploy"},
 			_jsii_.MemberMethod{JsiiMethod: "destroy", GoMethod: "Destroy"},
 			_jsii_.MemberMethod{JsiiMethod: "list", GoMethod: "List"},
@@ -22,6 +23,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAwsCdkCli)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cli-lib-alpha.BootstrapOptions",
+		reflect.TypeOf((*BootstrapOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cli-lib-alpha.CdkAppDirectoryProps",
@@ -39,6 +44,7 @@ func init() {
 		"@aws-cdk/cli-lib-alpha.IAwsCdkCli",
 		reflect.TypeOf((*IAwsCdkCli)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bootstrap", GoMethod: "Bootstrap"},
 			_jsii_.MemberMethod{JsiiMethod: "deploy", GoMethod: "Deploy"},
 			_jsii_.MemberMethod{JsiiMethod: "destroy", GoMethod: "Destroy"},
 			_jsii_.MemberMethod{JsiiMethod: "list", GoMethod: "List"},

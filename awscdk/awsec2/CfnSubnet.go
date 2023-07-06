@@ -54,11 +54,17 @@ type CfnSubnet interface {
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
 	AssignIpv6AddressOnCreation() interface{}
 	SetAssignIpv6AddressOnCreation(val interface{})
-	// The Availability Zone of this subnet. For example:.
+	// The Availability Zone of this subnet.
 	//
-	// `{ "Fn::GetAtt" : [ "mySubnet", "AvailabilityZone" ] }`.
+	// For example, `us-east-1a` .
 	AttrAvailabilityZone() *string
-	// The IPv6 CIDR blocks that are associated with the subnet, such as `[ 2001:db8:1234:1a00::/64 ]` .
+	// The Availability Zone ID of this subnet.
+	//
+	// For example, `use1-az1` .
+	AttrAvailabilityZoneId() *string
+	// The IPv4 CIDR blocks that are associated with the subnet.
+	AttrCidrBlock() *string
+	// The IPv6 CIDR blocks that are associated with the subnet.
 	AttrIpv6CidrBlocks() *[]*string
 	// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
 	AttrNetworkAclAssociationId() *string
@@ -313,6 +319,26 @@ func (j *jsiiProxy_CfnSubnet) AttrAvailabilityZone() *string {
 	_jsii_.Get(
 		j,
 		"attrAvailabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) AttrAvailabilityZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAvailabilityZoneId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) AttrCidrBlock() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCidrBlock",
 		&returns,
 	)
 	return returns

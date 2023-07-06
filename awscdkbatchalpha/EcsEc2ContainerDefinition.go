@@ -98,11 +98,12 @@ type EcsEc2ContainerDefinition interface {
 	// Gives the container readonly access to its root filesystem.
 	// Experimental.
 	ReadonlyRootFilesystem() *bool
-	// The secrets for the container.
+	// A map from environment variable names to the secrets for the container.
 	//
-	// Can be referenced in your job definition.
+	// Allows your job definitions
+	// to reference the secret by the environment variable name defined in this property.
 	// Experimental.
-	Secrets() *[]awssecretsmanager.ISecret
+	Secrets() *map[string]awssecretsmanager.ISecret
 	// Limits to set for the user this docker container will run as.
 	// Experimental.
 	Ulimits() *[]*Ulimit
@@ -262,8 +263,8 @@ func (j *jsiiProxy_EcsEc2ContainerDefinition) ReadonlyRootFilesystem() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_EcsEc2ContainerDefinition) Secrets() *[]awssecretsmanager.ISecret {
-	var returns *[]awssecretsmanager.ISecret
+func (j *jsiiProxy_EcsEc2ContainerDefinition) Secrets() *map[string]awssecretsmanager.ISecret {
+	var returns *map[string]awssecretsmanager.ISecret
 	_jsii_.Get(
 		j,
 		"secrets",

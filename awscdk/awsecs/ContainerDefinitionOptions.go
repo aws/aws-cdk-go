@@ -140,7 +140,11 @@ type ContainerDefinitionOptions struct {
 	SystemControls *[]*SystemControl `field:"optional" json:"systemControls" yaml:"systemControls"`
 	// An array of ulimits to set in the container.
 	Ulimits *[]*Ulimit `field:"optional" json:"ulimits" yaml:"ulimits"`
-	// The user name to use inside the container.
+	// The user to use inside the container.
+	//
+	// This parameter maps to User in the Create a container section of the Docker Remote API and the --user option to docker run.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#ContainerDefinition-user
+	//
 	User *string `field:"optional" json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`

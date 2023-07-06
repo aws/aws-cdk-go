@@ -65,9 +65,8 @@ type BucketProps struct {
 	Encryption BucketEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for bucket encryption.
 	//
-	// The 'encryption' property must be either not specified or set to "Kms".
-	// An error will be emitted if encryption is set to "Unencrypted" or
-	// "Managed".
+	// The `encryption` property must be either not specified or set to `KMS` or `DSSE`.
+	// An error will be emitted if `encryption` is set to `UNENCRYPTED` or `S3_MANAGED`.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Enforces SSL for requests.
 	//

@@ -15,6 +15,10 @@ import (
 //   	GlobalNetworkId: jsii.String("globalNetworkId"),
 //
 //   	// the properties below are optional
+//   	AwsLocation: &AWSLocationProperty{
+//   		SubnetArn: jsii.String("subnetArn"),
+//   		Zone: jsii.String("zone"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	Location: &LocationProperty{
 //   		Address: jsii.String("address"),
@@ -37,6 +41,8 @@ import (
 type CfnDeviceProps struct {
 	// The ID of the global network.
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
+	// `AWS::NetworkManager::Device.AWSLocation`.
+	AwsLocation interface{} `field:"optional" json:"awsLocation" yaml:"awsLocation"`
 	// A description of the device.
 	//
 	// Constraints: Maximum length of 256 characters.

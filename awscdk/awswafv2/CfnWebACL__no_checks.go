@@ -80,6 +80,10 @@ func validateCfnWebACL_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebACL) validateSetAssociationConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebACL) validateSetCaptchaConfigParameters(val interface{}) error {
 	return nil
 }

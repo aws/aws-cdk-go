@@ -16,6 +16,14 @@ func init() {
 		reflect.TypeOf((*AddCapacityOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.AlarmBehavior",
+		reflect.TypeOf((*AlarmBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"ROLLBACK_ON_ALARM": AlarmBehavior_ROLLBACK_ON_ALARM,
+			"FAIL_ON_ALARM": AlarmBehavior_FAIL_ON_ALARM,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecs.AmiHardwareType",
 		reflect.TypeOf((*AmiHardwareType)(nil)).Elem(),
 		map[string]interface{}{
@@ -157,7 +165,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentAlarms", GoGetter: "DeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDeploymentAlarms", GoMethod: "EnableDeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1085,6 +1095,14 @@ func init() {
 		reflect.TypeOf((*CpuUtilizationScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.DeploymentAlarmConfig",
+		reflect.TypeOf((*DeploymentAlarmConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.DeploymentAlarmOptions",
+		reflect.TypeOf((*DeploymentAlarmOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.DeploymentCircuitBreaker",
 		reflect.TypeOf((*DeploymentCircuitBreaker)(nil)).Elem(),
 	)
@@ -1135,7 +1153,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentAlarms", GoGetter: "DeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDeploymentAlarms", GoMethod: "EnableDeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1317,7 +1337,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentAlarms", GoGetter: "DeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDeploymentAlarms", GoMethod: "EnableDeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1436,7 +1458,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentAlarms", GoGetter: "DeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDeploymentAlarms", GoMethod: "EnableDeploymentAlarms"},
 			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},

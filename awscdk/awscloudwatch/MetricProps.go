@@ -7,34 +7,31 @@ import (
 // Properties for a metric.
 //
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   workerUtilizationMetric := cloudwatch.NewMetric(&MetricProps{
-//   	Namespace: jsii.String("MyService"),
-//   	MetricName: jsii.String("WorkerUtilization"),
+//   metric := cloudwatch.NewMetric(&MetricProps{
+//   	Namespace: jsii.String("MyNamespace"),
+//   	MetricName: jsii.String("MyMetric"),
+//   	Dimensions: map[string]interface{}{
+//   		"MyDimension": jsii.String("MyDimensionValue"),
+//   	},
+//   })
+//   alarm := cloudwatch.NewAlarm(this, jsii.String("MyAlarm"), &AlarmProps{
+//   	Metric: metric,
+//   	Threshold: jsii.Number(100),
+//   	EvaluationPeriods: jsii.Number(3),
+//   	DatapointsToAlarm: jsii.Number(2),
 //   })
 //
-//   autoScalingGroup.scaleOnMetric(jsii.String("ScaleToCPU"), &BasicStepScalingPolicyProps{
-//   	Metric: workerUtilizationMetric,
-//   	ScalingSteps: []scalingInterval{
-//   		&scalingInterval{
-//   			Upper: jsii.Number(10),
-//   			Change: -jsii.Number(1),
-//   		},
-//   		&scalingInterval{
-//   			Lower: jsii.Number(50),
-//   			Change: +jsii.Number(1),
-//   		},
-//   		&scalingInterval{
-//   			Lower: jsii.Number(70),
-//   			Change: +jsii.Number(3),
-//   		},
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
+//   	Actions: []iAction{
+//   		actions.NewCloudWatchSetAlarmStateAction(alarm, &CloudWatchSetAlarmStateActionProps{
+//   			Reason: jsii.String("AWS Iot Rule action is triggered"),
+//   			AlarmStateToSet: cloudwatch.AlarmState_ALARM,
+//   		}),
 //   	},
-//
-//   	// Change this to AdjustmentType.PERCENT_CHANGE_IN_CAPACITY to interpret the
-//   	// 'change' numbers before as percentages instead of capacity counts.
-//   	AdjustmentType: autoscaling.AdjustmentType_CHANGE_IN_CAPACITY,
 //   })
 //
 type MetricProps struct {

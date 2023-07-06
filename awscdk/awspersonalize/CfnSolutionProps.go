@@ -53,6 +53,8 @@ type CfnSolutionProps struct {
 	// The default is `false` .
 	PerformHpo interface{} `field:"optional" json:"performHpo" yaml:"performHpo"`
 	// The ARN of the recipe used to create the solution.
+	//
+	// This is required when `performAutoML` is false.
 	RecipeArn *string `field:"optional" json:"recipeArn" yaml:"recipeArn"`
 	// Describes the configuration properties for the solution.
 	SolutionConfig interface{} `field:"optional" json:"solutionConfig" yaml:"solutionConfig"`

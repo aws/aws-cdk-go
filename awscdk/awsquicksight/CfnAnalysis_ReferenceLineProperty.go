@@ -22,6 +22,8 @@ package awsquicksight
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   			},
+//
+//   			// the properties below are optional
 //   			MeasureAggregationFunction: &AggregationFunctionProperty{
 //   				CategoricalAggregationFunction: jsii.String("categoricalAggregationFunction"),
 //   				DateAggregationFunction: jsii.String("dateAggregationFunction"),

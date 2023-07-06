@@ -15,17 +15,6 @@ package awsquicksight
 //   	},
 //
 //   	// the properties below are optional
-//   	ColorsConfiguration: &ColorsConfigurationProperty{
-//   		CustomColors: []interface{}{
-//   			&CustomColorProperty{
-//   				Color: jsii.String("color"),
-//
-//   				// the properties below are optional
-//   				FieldValue: jsii.String("fieldValue"),
-//   				SpecialValue: jsii.String("specialValue"),
-//   			},
-//   		},
-//   	},
 //   	FormatConfiguration: &FormatConfigurationProperty{
 //   		DateTimeFormatConfiguration: &DateTimeFormatConfigurationProperty{
 //   			DateTimeFormat: jsii.String("dateTimeFormat"),
@@ -242,8 +231,6 @@ package awsquicksight
 type CfnDashboard_ColumnConfigurationProperty struct {
 	// The column.
 	Column interface{} `field:"required" json:"column" yaml:"column"`
-	// `CfnDashboard.ColumnConfigurationProperty.ColorsConfiguration`.
-	ColorsConfiguration interface{} `field:"optional" json:"colorsConfiguration" yaml:"colorsConfiguration"`
 	// The format configuration of a column.
 	FormatConfiguration interface{} `field:"optional" json:"formatConfiguration" yaml:"formatConfiguration"`
 	// The role of the column.

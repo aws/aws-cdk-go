@@ -22,9 +22,6 @@ import (
 //
 //   cfnTheme := awscdk.Aws_quicksight.NewCfnTheme(this, jsii.String("MyCfnTheme"), &CfnThemeProps{
 //   	AwsAccountId: jsii.String("awsAccountId"),
-//   	ThemeId: jsii.String("themeId"),
-//
-//   	// the properties below are optional
 //   	BaseThemeId: jsii.String("baseThemeId"),
 //   	Configuration: &ThemeConfigurationProperty{
 //   		DataColorPalette: &DataColorPaletteProperty{
@@ -78,12 +75,18 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	ThemeId: jsii.String("themeId"),
+//
+//   	// the properties below are optional
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
 //   				jsii.String("actions"),
 //   			},
 //   			Principal: jsii.String("principal"),
+//
+//   			// the properties below are optional
+//   			Resource: jsii.String("resource"),
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -650,6 +653,9 @@ func (j *jsiiProxy_CfnTheme)SetAwsAccountId(val *string) {
 }
 
 func (j *jsiiProxy_CfnTheme)SetBaseThemeId(val *string) {
+	if err := j.validateSetBaseThemeIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"baseThemeId",
@@ -669,6 +675,9 @@ func (j *jsiiProxy_CfnTheme)SetConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTheme)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",

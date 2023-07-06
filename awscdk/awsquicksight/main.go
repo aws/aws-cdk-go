@@ -270,10 +270,6 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ColorScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ColorsConfigurationProperty",
-		reflect.TypeOf((*CfnAnalysis_ColorsConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_ColumnConfigurationProperty)(nil)).Elem(),
 	)
@@ -380,10 +376,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CustomActionURLOperationProperty",
 		reflect.TypeOf((*CfnAnalysis_CustomActionURLOperationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CustomColorProperty",
-		reflect.TypeOf((*CfnAnalysis_CustomColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CustomContentConfigurationProperty",
@@ -816,6 +808,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GeospatialCoordinateBoundsProperty",
 		reflect.TypeOf((*CfnAnalysis_GeospatialCoordinateBoundsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GeospatialHeatmapColorScaleProperty",
+		reflect.TypeOf((*CfnAnalysis_GeospatialHeatmapColorScaleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GeospatialHeatmapConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_GeospatialHeatmapConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GeospatialHeatmapDataColorProperty",
+		reflect.TypeOf((*CfnAnalysis_GeospatialHeatmapDataColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GeospatialMapAggregatedFieldWellsProperty",
@@ -1272,6 +1276,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.PivotTableDataPathOptionProperty",
 		reflect.TypeOf((*CfnAnalysis_PivotTableDataPathOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.PivotTableFieldCollapseStateOptionProperty",
+		reflect.TypeOf((*CfnAnalysis_PivotTableFieldCollapseStateOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.PivotTableFieldCollapseStateTargetProperty",
+		reflect.TypeOf((*CfnAnalysis_PivotTableFieldCollapseStateTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.PivotTableFieldOptionProperty",
@@ -2129,10 +2141,6 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_ColorScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.ColorsConfigurationProperty",
-		reflect.TypeOf((*CfnDashboard_ColorsConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_ColumnConfigurationProperty)(nil)).Elem(),
 	)
@@ -2239,10 +2247,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.CustomActionURLOperationProperty",
 		reflect.TypeOf((*CfnDashboard_CustomActionURLOperationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.CustomColorProperty",
-		reflect.TypeOf((*CfnDashboard_CustomColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.CustomContentConfigurationProperty",
@@ -2729,6 +2733,18 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_GeospatialCoordinateBoundsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.GeospatialHeatmapColorScaleProperty",
+		reflect.TypeOf((*CfnDashboard_GeospatialHeatmapColorScaleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.GeospatialHeatmapConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_GeospatialHeatmapConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.GeospatialHeatmapDataColorProperty",
+		reflect.TypeOf((*CfnDashboard_GeospatialHeatmapDataColorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.GeospatialMapAggregatedFieldWellsProperty",
 		reflect.TypeOf((*CfnDashboard_GeospatialMapAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
@@ -3183,6 +3199,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.PivotTableDataPathOptionProperty",
 		reflect.TypeOf((*CfnDashboard_PivotTableDataPathOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.PivotTableFieldCollapseStateOptionProperty",
+		reflect.TypeOf((*CfnDashboard_PivotTableFieldCollapseStateOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.PivotTableFieldCollapseStateTargetProperty",
+		reflect.TypeOf((*CfnDashboard_PivotTableFieldCollapseStateTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.PivotTableFieldOptionProperty",
@@ -4527,10 +4551,6 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ColorScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.ColorsConfigurationProperty",
-		reflect.TypeOf((*CfnTemplate_ColorsConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_ColumnConfigurationProperty)(nil)).Elem(),
 	)
@@ -4649,10 +4669,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.CustomActionURLOperationProperty",
 		reflect.TypeOf((*CfnTemplate_CustomActionURLOperationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.CustomColorProperty",
-		reflect.TypeOf((*CfnTemplate_CustomColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.CustomContentConfigurationProperty",
@@ -5081,6 +5097,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialCoordinateBoundsProperty",
 		reflect.TypeOf((*CfnTemplate_GeospatialCoordinateBoundsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialHeatmapColorScaleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialHeatmapColorScaleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialHeatmapConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialHeatmapConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialHeatmapDataColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialHeatmapDataColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialMapAggregatedFieldWellsProperty",
@@ -5529,6 +5557,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.PivotTableDataPathOptionProperty",
 		reflect.TypeOf((*CfnTemplate_PivotTableDataPathOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.PivotTableFieldCollapseStateOptionProperty",
+		reflect.TypeOf((*CfnTemplate_PivotTableFieldCollapseStateOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.PivotTableFieldCollapseStateTargetProperty",
+		reflect.TypeOf((*CfnTemplate_PivotTableFieldCollapseStateTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.PivotTableFieldOptionProperty",

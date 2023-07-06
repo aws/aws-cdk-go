@@ -22,6 +22,12 @@ type CfnWebACLProps struct {
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
+	// Specifies custom configurations for the associations between the web ACL and protected resources.
+	//
+	// Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to AWS WAF for inspection. The default is 16 KB (16,384 kilobytes).
+	//
+	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+	AssociationConfig interface{} `field:"optional" json:"associationConfig" yaml:"associationConfig"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings.
 	//
 	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .

@@ -15,6 +15,7 @@ import (
 //   	KeyName: jsii.String("keyName"),
 //
 //   	// the properties below are optional
+//   	KeyFormat: jsii.String("keyFormat"),
 //   	KeyType: jsii.String("keyType"),
 //   	PublicKeyMaterial: jsii.String("publicKeyMaterial"),
 //   	Tags: []cfnTag{
@@ -30,6 +31,10 @@ type CfnKeyPairProps struct {
 	//
 	// Constraints: Up to 255 ASCII characters.
 	KeyName *string `field:"required" json:"keyName" yaml:"keyName"`
+	// The format of the key pair.
+	//
+	// Default: `pem`.
+	KeyFormat *string `field:"optional" json:"keyFormat" yaml:"keyFormat"`
 	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
 	//
 	// If the `PublicKeyMaterial` property is specified, the `KeyType` property is ignored, and the key type is inferred from the `PublicKeyMaterial` value.

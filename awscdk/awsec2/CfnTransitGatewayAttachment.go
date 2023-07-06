@@ -69,11 +69,7 @@ type CfnTransitGatewayAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The VPC attachment options, in JSON or YAML.
-	//
-	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
-	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
-	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
+	// The VPC attachment options.
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

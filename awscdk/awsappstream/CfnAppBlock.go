@@ -20,10 +20,23 @@ import (
 //
 //   cfnAppBlock := awscdk.Aws_appstream.NewCfnAppBlock(this, jsii.String("MyCfnAppBlock"), &CfnAppBlockProps{
 //   	Name: jsii.String("name"),
-//   	SetupScriptDetails: &ScriptDetailsProperty{
+//   	SourceS3Location: &S3LocationProperty{
+//   		S3Bucket: jsii.String("s3Bucket"),
+//
+//   		// the properties below are optional
+//   		S3Key: jsii.String("s3Key"),
+//   	},
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	DisplayName: jsii.String("displayName"),
+//   	PackagingType: jsii.String("packagingType"),
+//   	PostSetupScriptDetails: &ScriptDetailsProperty{
 //   		ExecutablePath: jsii.String("executablePath"),
 //   		ScriptS3Location: &S3LocationProperty{
 //   			S3Bucket: jsii.String("s3Bucket"),
+//
+//   			// the properties below are optional
 //   			S3Key: jsii.String("s3Key"),
 //   		},
 //   		TimeoutInSeconds: jsii.Number(123),
@@ -31,14 +44,19 @@ import (
 //   		// the properties below are optional
 //   		ExecutableParameters: jsii.String("executableParameters"),
 //   	},
-//   	SourceS3Location: &S3LocationProperty{
-//   		S3Bucket: jsii.String("s3Bucket"),
-//   		S3Key: jsii.String("s3Key"),
-//   	},
+//   	SetupScriptDetails: &ScriptDetailsProperty{
+//   		ExecutablePath: jsii.String("executablePath"),
+//   		ScriptS3Location: &S3LocationProperty{
+//   			S3Bucket: jsii.String("s3Bucket"),
 //
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
-//   	DisplayName: jsii.String("displayName"),
+//   			// the properties below are optional
+//   			S3Key: jsii.String("s3Key"),
+//   		},
+//   		TimeoutInSeconds: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		ExecutableParameters: jsii.String("executableParameters"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -86,6 +104,12 @@ type CfnAppBlock interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The packaging type of the app block.
+	PackagingType() *string
+	SetPackagingType(val *string)
+	// The post setup script details of the app block.
+	PostSetupScriptDetails() interface{}
+	SetPostSetupScriptDetails(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -359,6 +383,26 @@ func (j *jsiiProxy_CfnAppBlock) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppBlock) PackagingType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"packagingType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAppBlock) PostSetupScriptDetails() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"postSetupScriptDetails",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppBlock) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -482,6 +526,25 @@ func (j *jsiiProxy_CfnAppBlock)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppBlock)SetPackagingType(val *string) {
+	_jsii_.Set(
+		j,
+		"packagingType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppBlock)SetPostSetupScriptDetails(val interface{}) {
+	if err := j.validateSetPostSetupScriptDetailsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"postSetupScriptDetails",
 		val,
 	)
 }

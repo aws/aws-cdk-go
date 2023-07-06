@@ -151,7 +151,9 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
 	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
-	// `CfnJobDefinition.ContainerPropertiesProperty.EphemeralStorage`.
+	// The amount of ephemeral storage to allocate for the task.
+	//
+	// This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
 	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume.
 	//

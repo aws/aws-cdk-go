@@ -93,6 +93,18 @@ func (f *jsiiProxy_FargateService) validateEnableCloudMapParameters(options *Clo
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateEnableDeploymentAlarmsParameters(alarmNames *[]*string, options *DeploymentAlarmOptions) error {
+	if alarmNames == nil {
+		return fmt.Errorf("parameter alarmNames is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
 	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
 		return err
@@ -243,6 +255,14 @@ func validateFargateService_IsOwnedResourceParameters(construct constructs.ICons
 func validateFargateService_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_FargateService) validateSetDeploymentAlarmsParameters(val *CfnService_DeploymentAlarmsProperty) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

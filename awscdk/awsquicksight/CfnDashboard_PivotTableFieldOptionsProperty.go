@@ -9,6 +9,22 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   pivotTableFieldOptionsProperty := &PivotTableFieldOptionsProperty{
+//   	CollapseStateOptions: []interface{}{
+//   		&PivotTableFieldCollapseStateOptionProperty{
+//   			Target: &PivotTableFieldCollapseStateTargetProperty{
+//   				FieldDataPathValues: []interface{}{
+//   					&DataPathValueProperty{
+//   						FieldId: jsii.String("fieldId"),
+//   						FieldValue: jsii.String("fieldValue"),
+//   					},
+//   				},
+//   				FieldId: jsii.String("fieldId"),
+//   			},
+//
+//   			// the properties below are optional
+//   			State: jsii.String("state"),
+//   		},
+//   	},
 //   	DataPathOptions: []interface{}{
 //   		&PivotTableDataPathOptionProperty{
 //   			DataPathList: []interface{}{
@@ -34,6 +50,8 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_PivotTableFieldOptionsProperty struct {
+	// The collapse state options for the pivot table field options.
+	CollapseStateOptions interface{} `field:"optional" json:"collapseStateOptions" yaml:"collapseStateOptions"`
 	// The data path options for the pivot table field options.
 	DataPathOptions interface{} `field:"optional" json:"dataPathOptions" yaml:"dataPathOptions"`
 	// The selected field options for the pivot table field options.

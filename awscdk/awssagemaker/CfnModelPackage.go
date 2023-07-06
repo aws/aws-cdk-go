@@ -21,42 +21,6 @@ import (
 //   var modelInput interface{}
 //
 //   cfnModelPackage := awscdk.Aws_sagemaker.NewCfnModelPackage(this, jsii.String("MyCfnModelPackage"), &CfnModelPackageProps{
-//   	AdditionalInferenceSpecificationDefinition: &AdditionalInferenceSpecificationDefinitionProperty{
-//   		Containers: []interface{}{
-//   			&ModelPackageContainerDefinitionProperty{
-//   				Image: jsii.String("image"),
-//
-//   				// the properties below are optional
-//   				ContainerHostname: jsii.String("containerHostname"),
-//   				Environment: map[string]*string{
-//   					"environmentKey": jsii.String("environment"),
-//   				},
-//   				Framework: jsii.String("framework"),
-//   				FrameworkVersion: jsii.String("frameworkVersion"),
-//   				ImageDigest: jsii.String("imageDigest"),
-//   				ModelDataUrl: jsii.String("modelDataUrl"),
-//   				ModelInput: modelInput,
-//   				NearestModelName: jsii.String("nearestModelName"),
-//   				ProductId: jsii.String("productId"),
-//   			},
-//   		},
-//   		Name: jsii.String("name"),
-//
-//   		// the properties below are optional
-//   		Description: jsii.String("description"),
-//   		SupportedContentTypes: []*string{
-//   			jsii.String("supportedContentTypes"),
-//   		},
-//   		SupportedRealtimeInferenceInstanceTypes: []*string{
-//   			jsii.String("supportedRealtimeInferenceInstanceTypes"),
-//   		},
-//   		SupportedResponseMimeTypes: []*string{
-//   			jsii.String("supportedResponseMimeTypes"),
-//   		},
-//   		SupportedTransformInstanceTypes: []*string{
-//   			jsii.String("supportedTransformInstanceTypes"),
-//   		},
-//   	},
 //   	AdditionalInferenceSpecifications: []interface{}{
 //   		&AdditionalInferenceSpecificationDefinitionProperty{
 //   			Containers: []interface{}{
@@ -74,7 +38,6 @@ import (
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
-//   					ProductId: jsii.String("productId"),
 //   				},
 //   			},
 //   			Name: jsii.String("name"),
@@ -112,7 +75,6 @@ import (
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
-//   					ProductId: jsii.String("productId"),
 //   				},
 //   			},
 //   			Name: jsii.String("name"),
@@ -136,11 +98,6 @@ import (
 //   	ApprovalDescription: jsii.String("approvalDescription"),
 //   	CertifyForMarketplace: jsii.Boolean(false),
 //   	ClientToken: jsii.String("clientToken"),
-//   	CreatedBy: &UserContextProperty{
-//   		DomainId: jsii.String("domainId"),
-//   		UserProfileArn: jsii.String("userProfileArn"),
-//   		UserProfileName: jsii.String("userProfileName"),
-//   	},
 //   	CustomerMetadataProperties: map[string]*string{
 //   		"customerMetadataPropertiesKey": jsii.String("customerMetadataProperties"),
 //   	},
@@ -218,9 +175,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Environment: map[string]*string{
-//   		"environmentKey": jsii.String("environment"),
-//   	},
 //   	InferenceSpecification: &InferenceSpecificationProperty{
 //   		Containers: []interface{}{
 //   			&ModelPackageContainerDefinitionProperty{
@@ -237,7 +191,6 @@ import (
 //   				ModelDataUrl: jsii.String("modelDataUrl"),
 //   				ModelInput: modelInput,
 //   				NearestModelName: jsii.String("nearestModelName"),
-//   				ProductId: jsii.String("productId"),
 //   			},
 //   		},
 //   		SupportedContentTypes: []*string{
@@ -254,11 +207,6 @@ import (
 //   		SupportedTransformInstanceTypes: []*string{
 //   			jsii.String("supportedTransformInstanceTypes"),
 //   		},
-//   	},
-//   	LastModifiedBy: &UserContextProperty{
-//   		DomainId: jsii.String("domainId"),
-//   		UserProfileArn: jsii.String("userProfileArn"),
-//   		UserProfileName: jsii.String("userProfileName"),
 //   	},
 //   	LastModifiedTime: jsii.String("lastModifiedTime"),
 //   	MetadataProperties: &MetadataPropertiesProperty{
@@ -347,24 +295,6 @@ import (
 //   				FailureReason: jsii.String("failureReason"),
 //   			},
 //   		},
-//
-//   		// the properties below are optional
-//   		ImageScanStatuses: []interface{}{
-//   			&ModelPackageStatusItemProperty{
-//   				Name: jsii.String("name"),
-//   				Status: jsii.String("status"),
-//
-//   				// the properties below are optional
-//   				FailureReason: jsii.String("failureReason"),
-//   			},
-//   		},
-//   	},
-//   	ModelPackageStatusItem: &ModelPackageStatusItemProperty{
-//   		Name: jsii.String("name"),
-//   		Status: jsii.String("status"),
-//
-//   		// the properties below are optional
-//   		FailureReason: jsii.String("failureReason"),
 //   	},
 //   	ModelPackageVersion: jsii.Number(123),
 //   	SamplePayloadUrl: jsii.String("samplePayloadUrl"),
@@ -436,11 +366,6 @@ import (
 type CfnModelPackage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A structure of additional Inference Specification.
-	//
-	// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.
-	AdditionalInferenceSpecificationDefinition() interface{}
-	SetAdditionalInferenceSpecificationDefinition(val interface{})
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications() interface{}
 	SetAdditionalInferenceSpecifications(val interface{})
@@ -477,9 +402,6 @@ type CfnModelPackage interface {
 	// A unique token that guarantees that the call to this API is idempotent.
 	ClientToken() *string
 	SetClientToken(val *string)
-	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
-	CreatedBy() interface{}
-	SetCreatedBy(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -495,17 +417,9 @@ type CfnModelPackage interface {
 	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
 	DriftCheckBaselines() interface{}
 	SetDriftCheckBaselines(val interface{})
-	// The environment variables to set in the Docker container.
-	//
-	// Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-	Environment() interface{}
-	SetEnvironment(val interface{})
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification() interface{}
 	SetInferenceSpecification(val interface{})
-	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
-	LastModifiedBy() interface{}
-	SetLastModifiedBy(val interface{})
 	// The last time the model package was modified.
 	LastModifiedTime() *string
 	SetLastModifiedTime(val *string)
@@ -544,9 +458,6 @@ type CfnModelPackage interface {
 	// Specifies the validation and image scan statuses of the model package.
 	ModelPackageStatusDetails() interface{}
 	SetModelPackageStatusDetails(val interface{})
-	// Represents the overall status of a model package.
-	ModelPackageStatusItem() interface{}
-	SetModelPackageStatusItem(val interface{})
 	// The version number of a versioned model.
 	ModelPackageVersion() *float64
 	SetModelPackageVersion(val *float64)
@@ -727,16 +638,6 @@ type jsiiProxy_CfnModelPackage struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnModelPackage) AdditionalInferenceSpecificationDefinition() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"additionalInferenceSpecificationDefinition",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnModelPackage) AdditionalInferenceSpecifications() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -847,16 +748,6 @@ func (j *jsiiProxy_CfnModelPackage) ClientToken() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelPackage) CreatedBy() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"createdBy",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnModelPackage) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -897,31 +788,11 @@ func (j *jsiiProxy_CfnModelPackage) DriftCheckBaselines() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelPackage) Environment() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"environment",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnModelPackage) InferenceSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"inferenceSpecification",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnModelPackage) LastModifiedBy() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"lastModifiedBy",
 		&returns,
 	)
 	return returns
@@ -1012,16 +883,6 @@ func (j *jsiiProxy_CfnModelPackage) ModelPackageStatusDetails() interface{} {
 	_jsii_.Get(
 		j,
 		"modelPackageStatusDetails",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnModelPackage) ModelPackageStatusItem() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"modelPackageStatusItem",
 		&returns,
 	)
 	return returns
@@ -1167,17 +1028,6 @@ func NewCfnModelPackage_Override(c CfnModelPackage, scope constructs.Construct, 
 	)
 }
 
-func (j *jsiiProxy_CfnModelPackage)SetAdditionalInferenceSpecificationDefinition(val interface{}) {
-	if err := j.validateSetAdditionalInferenceSpecificationDefinitionParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"additionalInferenceSpecificationDefinition",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnModelPackage)SetAdditionalInferenceSpecifications(val interface{}) {
 	if err := j.validateSetAdditionalInferenceSpecificationsParameters(val); err != nil {
 		panic(err)
@@ -1227,17 +1077,6 @@ func (j *jsiiProxy_CfnModelPackage)SetClientToken(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnModelPackage)SetCreatedBy(val interface{}) {
-	if err := j.validateSetCreatedByParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"createdBy",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnModelPackage)SetCustomerMetadataProperties(val interface{}) {
 	if err := j.validateSetCustomerMetadataPropertiesParameters(val); err != nil {
 		panic(err)
@@ -1268,17 +1107,6 @@ func (j *jsiiProxy_CfnModelPackage)SetDriftCheckBaselines(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnModelPackage)SetEnvironment(val interface{}) {
-	if err := j.validateSetEnvironmentParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"environment",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnModelPackage)SetInferenceSpecification(val interface{}) {
 	if err := j.validateSetInferenceSpecificationParameters(val); err != nil {
 		panic(err)
@@ -1286,17 +1114,6 @@ func (j *jsiiProxy_CfnModelPackage)SetInferenceSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"inferenceSpecification",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnModelPackage)SetLastModifiedBy(val interface{}) {
-	if err := j.validateSetLastModifiedByParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"lastModifiedBy",
 		val,
 	)
 }
@@ -1370,17 +1187,6 @@ func (j *jsiiProxy_CfnModelPackage)SetModelPackageStatusDetails(val interface{})
 	_jsii_.Set(
 		j,
 		"modelPackageStatusDetails",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnModelPackage)SetModelPackageStatusItem(val interface{}) {
-	if err := j.validateSetModelPackageStatusItemParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"modelPackageStatusItem",
 		val,
 	)
 }

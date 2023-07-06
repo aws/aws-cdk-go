@@ -11,6 +11,7 @@ package awscdkgluealpha
 //   var code code
 //   var glueVersion glueVersion
 //   var jobType jobType
+//   var runtime runtime
 //
 //   jobExecutableConfig := &JobExecutableConfig{
 //   	GlueVersion: glueVersion,
@@ -31,6 +32,7 @@ package awscdkgluealpha
 //   		code,
 //   	},
 //   	PythonVersion: glue_alpha.PythonVersion_TWO,
+//   	Runtime: runtime,
 //   }
 //
 // Experimental.
@@ -81,5 +83,8 @@ type JobExecutableConfig struct {
 	// The Python version to use.
 	// Experimental.
 	PythonVersion PythonVersion `field:"optional" json:"pythonVersion" yaml:"pythonVersion"`
+	// The Runtime to use.
+	// Experimental.
+	Runtime Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }
 

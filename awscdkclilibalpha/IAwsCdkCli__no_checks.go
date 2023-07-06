@@ -4,6 +4,10 @@ package awscdkclilibalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (i *jsiiProxy_IAwsCdkCli) validateBootstrapParameters(options *BootstrapOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IAwsCdkCli) validateDeployParameters(options *DeployOptions) error {
 	return nil
 }

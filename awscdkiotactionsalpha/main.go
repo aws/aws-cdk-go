@@ -202,4 +202,18 @@ func init() {
 		"@aws-cdk/aws-iot-actions-alpha.SqsQueueActionProps",
 		reflect.TypeOf((*SqsQueueActionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-actions-alpha.StepFunctionsStateMachineAction",
+		reflect.TypeOf((*StepFunctionsStateMachineAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_StepFunctionsStateMachineAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.StepFunctionsStateMachineActionProps",
+		reflect.TypeOf((*StepFunctionsStateMachineActionProps)(nil)).Elem(),
+	)
 }

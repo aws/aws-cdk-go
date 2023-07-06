@@ -26,7 +26,6 @@ package awssagemaker
 //   			ModelDataUrl: jsii.String("modelDataUrl"),
 //   			ModelInput: modelInput,
 //   			NearestModelName: jsii.String("nearestModelName"),
-//   			ProductId: jsii.String("productId"),
 //   		},
 //   	},
 //   	SupportedContentTypes: []*string{

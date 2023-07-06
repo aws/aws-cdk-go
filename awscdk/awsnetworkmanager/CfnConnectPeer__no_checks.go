@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnConnectPeer) validateSetConnectAttachmentIdParameters(val 
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnectPeer) validateSetInsideCidrBlocksParameters(val *[]*string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnConnectPeer) validateSetPeerAddressParameters(val *string) error {
 	return nil
 }

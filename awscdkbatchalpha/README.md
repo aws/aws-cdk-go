@@ -520,6 +520,30 @@ jobDefn.Container.AddVolume(batch.EcsVolume_Efs(&EfsVolumeOptions{
 }))
 ```
 
+### Secrets
+
+You can expose SecretsManager Secret ARNs to your container as environment variables.
+The following example defines the `MY_SECRET_ENV_VAR` environment variable that contains the
+ARN of the Secret defined by `mySecret`:
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+var mySecret iSecret
+
+
+jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+		Cpu: jsii.Number(256),
+		Secrets: map[string]*iSecret{
+			"MY_SECRET_ENV_VAR": mySecret,
+		},
+	}),
+})
+```
+
 ### Running Kubernetes Workflows
 
 Batch also supports running workflows on EKS. The following example creates a `JobDefinition` that runs on EKS:

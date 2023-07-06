@@ -31,6 +31,7 @@ import (
 //   	KeyName: jsii.String("keyName"),
 //
 //   	// the properties below are optional
+//   	KeyFormat: jsii.String("keyFormat"),
 //   	KeyType: jsii.String("keyType"),
 //   	PublicKeyMaterial: jsii.String("publicKeyMaterial"),
 //   	Tags: []cfnTag{
@@ -65,6 +66,11 @@ type CfnKeyPair interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The format of the key pair.
+	//
+	// Default: `pem`.
+	KeyFormat() *string
+	SetKeyFormat(val *string)
 	// A unique name for the key pair.
 	//
 	// Constraints: Up to 255 ASCII characters.
@@ -311,6 +317,16 @@ func (j *jsiiProxy_CfnKeyPair) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKeyPair) KeyFormat() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"keyFormat",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKeyPair) KeyName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -438,6 +454,14 @@ func NewCfnKeyPair_Override(c CfnKeyPair, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_ec2.CfnKeyPair",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnKeyPair)SetKeyFormat(val *string) {
+	_jsii_.Set(
+		j,
+		"keyFormat",
+		val,
 	)
 }
 

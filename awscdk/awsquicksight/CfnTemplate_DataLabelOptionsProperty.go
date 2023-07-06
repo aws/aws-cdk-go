@@ -48,6 +48,7 @@ package awsquicksight
 //   	MeasureLabelVisibility: jsii.String("measureLabelVisibility"),
 //   	Overlap: jsii.String("overlap"),
 //   	Position: jsii.String("position"),
+//   	TotalsVisibility: jsii.String("totalsVisibility"),
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
@@ -68,6 +69,8 @@ type CfnTemplate_DataLabelOptionsProperty struct {
 	Overlap *string `field:"optional" json:"overlap" yaml:"overlap"`
 	// Determines the position of the data labels.
 	Position *string `field:"optional" json:"position" yaml:"position"`
+	// Determines the visibility of the total.
+	TotalsVisibility *string `field:"optional" json:"totalsVisibility" yaml:"totalsVisibility"`
 	// Determines the visibility of the data labels.
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }

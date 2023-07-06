@@ -36,6 +36,10 @@ func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(_options *C
 	return nil
 }
 
+func (e *jsiiProxy_ExternalService) validateEnableDeploymentAlarmsParameters(alarmNames *[]*string, options *DeploymentAlarmOptions) error {
+	return nil
+}
+
 func (e *jsiiProxy_ExternalService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
 	return nil
 }
@@ -89,6 +93,10 @@ func validateExternalService_IsOwnedResourceParameters(construct constructs.ICon
 }
 
 func validateExternalService_IsResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (j *jsiiProxy_ExternalService) validateSetDeploymentAlarmsParameters(val *CfnService_DeploymentAlarmsProperty) error {
 	return nil
 }
 

@@ -51,8 +51,8 @@ import (
 //   	LinuxParameters: linuxParameters,
 //   	Logging: logDriver,
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: []iSecret{
-//   		secret,
+//   	Secrets: map[string]iSecret{
+//   		"secretsKey": secret,
 //   	},
 //   	User: jsii.String("user"),
 //   	Volumes: []*ecsVolume{
@@ -119,11 +119,12 @@ type EcsFargateContainerDefinition interface {
 	// Gives the container readonly access to its root filesystem.
 	// Experimental.
 	ReadonlyRootFilesystem() *bool
-	// The secrets for the container.
+	// A map from environment variable names to the secrets for the container.
 	//
-	// Can be referenced in your job definition.
+	// Allows your job definitions
+	// to reference the secret by the environment variable name defined in this property.
 	// Experimental.
-	Secrets() *[]awssecretsmanager.ISecret
+	Secrets() *map[string]awssecretsmanager.ISecret
 	// The user name to use inside the container.
 	// Experimental.
 	User() *string
@@ -287,8 +288,8 @@ func (j *jsiiProxy_EcsFargateContainerDefinition) ReadonlyRootFilesystem() *bool
 	return returns
 }
 
-func (j *jsiiProxy_EcsFargateContainerDefinition) Secrets() *[]awssecretsmanager.ISecret {
-	var returns *[]awssecretsmanager.ISecret
+func (j *jsiiProxy_EcsFargateContainerDefinition) Secrets() *map[string]awssecretsmanager.ISecret {
+	var returns *map[string]awssecretsmanager.ISecret
 	_jsii_.Get(
 		j,
 		"secrets",

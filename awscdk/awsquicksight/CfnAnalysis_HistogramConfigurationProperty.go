@@ -62,6 +62,7 @@ package awsquicksight
 //   		MeasureLabelVisibility: jsii.String("measureLabelVisibility"),
 //   		Overlap: jsii.String("overlap"),
 //   		Position: jsii.String("position"),
+//   		TotalsVisibility: jsii.String("totalsVisibility"),
 //   		Visibility: jsii.String("visibility"),
 //   	},
 //   	FieldWells: &HistogramFieldWellsProperty{

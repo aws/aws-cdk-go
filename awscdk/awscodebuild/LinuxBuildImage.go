@@ -275,6 +275,17 @@ func LinuxBuildImage_AMAZON_LINUX_2_4() IBuildImage {
 	return returns
 }
 
+func LinuxBuildImage_AMAZON_LINUX_2_5() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"AMAZON_LINUX_2_5",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxBuildImage_AMAZON_LINUX_2_ARM() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage

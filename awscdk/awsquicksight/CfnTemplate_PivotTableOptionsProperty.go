@@ -67,6 +67,7 @@ package awsquicksight
 //   		VerticalTextAlignment: jsii.String("verticalTextAlignment"),
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	CollapsedRowDimensionsVisibility: jsii.String("collapsedRowDimensionsVisibility"),
 //   	ColumnHeaderStyle: &TableCellStyleProperty{
 //   		BackgroundColor: jsii.String("backgroundColor"),
 //   		Border: &GlobalTableBorderOptionsProperty{
@@ -256,6 +257,10 @@ package awsquicksight
 type CfnTemplate_PivotTableOptionsProperty struct {
 	// The table cell style of cells.
 	CellStyle interface{} `field:"optional" json:"cellStyle" yaml:"cellStyle"`
+	// The visibility setting of a pivot table's collapsed row dimension fields.
+	//
+	// If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
+	CollapsedRowDimensionsVisibility *string `field:"optional" json:"collapsedRowDimensionsVisibility" yaml:"collapsedRowDimensionsVisibility"`
 	// The table cell style of the column header.
 	ColumnHeaderStyle interface{} `field:"optional" json:"columnHeaderStyle" yaml:"columnHeaderStyle"`
 	// The visibility of the column names.

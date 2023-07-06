@@ -15,11 +15,17 @@ package awsec2
 //   }
 //
 type CfnTransitGatewayAttachment_OptionsProperty struct {
-	// Indicates whether appliance mode support is enabled.
+	// Enable or disable appliance mode support.
+	//
+	// The default is `disable` .
 	ApplianceModeSupport *string `field:"optional" json:"applianceModeSupport" yaml:"applianceModeSupport"`
-	// Indicates whether DNS support is enabled.
+	// Enable or disable DNS support.
+	//
+	// The default is `disable` .
 	DnsSupport *string `field:"optional" json:"dnsSupport" yaml:"dnsSupport"`
-	// Indicates whether IPv6 support is disabled.
+	// Enable or disable IPv6 support.
+	//
+	// The default is `disable` .
 	Ipv6Support *string `field:"optional" json:"ipv6Support" yaml:"ipv6Support"`
 }
 

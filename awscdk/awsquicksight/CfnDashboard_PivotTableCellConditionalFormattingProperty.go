@@ -15,6 +15,11 @@ package awsquicksight
 //   	Scope: &PivotTableConditionalFormattingScopeProperty{
 //   		Role: jsii.String("role"),
 //   	},
+//   	Scopes: []interface{}{
+//   		&PivotTableConditionalFormattingScopeProperty{
+//   			Role: jsii.String("role"),
+//   		},
+//   	},
 //   	TextFormat: &TextConditionalFormatProperty{
 //   		BackgroundColor: &ConditionalFormattingColorProperty{
 //   			Gradient: &ConditionalFormattingGradientColorProperty{
@@ -89,6 +94,8 @@ type CfnDashboard_PivotTableCellConditionalFormattingProperty struct {
 	FieldId *string `field:"required" json:"fieldId" yaml:"fieldId"`
 	// The scope of the cell for conditional formatting.
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
+	// A list of cell scopes for conditional formatting.
+	Scopes interface{} `field:"optional" json:"scopes" yaml:"scopes"`
 	// The text format of the cell for conditional formatting.
 	TextFormat interface{} `field:"optional" json:"textFormat" yaml:"textFormat"`
 }

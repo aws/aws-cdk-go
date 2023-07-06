@@ -25,7 +25,7 @@ type EksVolumeOptions struct {
 	//
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The path on the container where the container is mounted.
+	// The path on the container where the volume is mounted.
 	// Experimental.
 	MountPath *string `field:"optional" json:"mountPath" yaml:"mountPath"`
 	// If specified, the container has readonly access to the volume.

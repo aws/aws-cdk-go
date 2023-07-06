@@ -13,6 +13,9 @@ import (
 // Experimental.
 type AwsCdkCli interface {
 	IAwsCdkCli
+	// cdk bootstrap.
+	// Experimental.
+	Bootstrap(options *BootstrapOptions)
 	// cdk deploy.
 	// Experimental.
 	Deploy(options *DeployOptions)
@@ -72,6 +75,17 @@ func AwsCdkCli_FromCloudAssemblyDirectoryProducer(producer ICloudAssemblyDirecto
 	)
 
 	return returns
+}
+
+func (a *jsiiProxy_AwsCdkCli) Bootstrap(options *BootstrapOptions) {
+	if err := a.validateBootstrapParameters(options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"bootstrap",
+		[]interface{}{options},
+	)
 }
 
 func (a *jsiiProxy_AwsCdkCli) Deploy(options *DeployOptions) {

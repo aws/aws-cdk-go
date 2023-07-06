@@ -20,13 +20,11 @@ import (
 //   	// the properties below are optional
 //   	ApplicationInstanceIdToReplace: jsii.String("applicationInstanceIdToReplace"),
 //   	Description: jsii.String("description"),
-//   	DeviceId: jsii.String("deviceId"),
 //   	ManifestOverridesPayload: &ManifestOverridesPayloadProperty{
 //   		PayloadData: jsii.String("payloadData"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	RuntimeRoleArn: jsii.String("runtimeRoleArn"),
-//   	StatusFilter: jsii.String("statusFilter"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -44,16 +42,12 @@ type CfnApplicationInstanceProps struct {
 	ApplicationInstanceIdToReplace *string `field:"optional" json:"applicationInstanceIdToReplace" yaml:"applicationInstanceIdToReplace"`
 	// A description for the application instance.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A device's ID.
-	DeviceId *string `field:"optional" json:"deviceId" yaml:"deviceId"`
 	// Setting overrides for the application manifest.
 	ManifestOverridesPayload interface{} `field:"optional" json:"manifestOverridesPayload" yaml:"manifestOverridesPayload"`
 	// A name for the application instance.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The ARN of a runtime role for the application instance.
 	RuntimeRoleArn *string `field:"optional" json:"runtimeRoleArn" yaml:"runtimeRoleArn"`
-	// Only include instances with a specific status.
-	StatusFilter *string `field:"optional" json:"statusFilter" yaml:"statusFilter"`
 	// Tags for the application instance.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

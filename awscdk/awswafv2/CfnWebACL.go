@@ -21,6 +21,13 @@ import (
 type CfnWebACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Specifies custom configurations for the associations between the web ACL and protected resources.
+	//
+	// Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to AWS WAF for inspection. The default is 16 KB (16,384 kilobytes).
+	//
+	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+	AssociationConfig() interface{}
+	SetAssociationConfig(val interface{})
 	// The Amazon Resource Name (ARN) of the web ACL.
 	AttrArn() *string
 	// The web ACL capacity units (WCUs) currently being used by this web ACL.
@@ -269,6 +276,16 @@ type CfnWebACL interface {
 type jsiiProxy_CfnWebACL struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnWebACL) AssociationConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"associationConfig",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWebACL) AttrArn() *string {
@@ -548,6 +565,17 @@ func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, 
 		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL)SetAssociationConfig(val interface{}) {
+	if err := j.validateSetAssociationConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"associationConfig",
+		val,
 	)
 }
 

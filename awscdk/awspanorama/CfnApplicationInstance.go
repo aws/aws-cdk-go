@@ -27,13 +27,11 @@ import (
 //   	// the properties below are optional
 //   	ApplicationInstanceIdToReplace: jsii.String("applicationInstanceIdToReplace"),
 //   	Description: jsii.String("description"),
-//   	DeviceId: jsii.String("deviceId"),
 //   	ManifestOverridesPayload: &ManifestOverridesPayloadProperty{
 //   		PayloadData: jsii.String("payloadData"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	RuntimeRoleArn: jsii.String("runtimeRoleArn"),
-//   	StatusFilter: jsii.String("statusFilter"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -79,9 +77,6 @@ type CfnApplicationInstance interface {
 	// A description for the application instance.
 	Description() *string
 	SetDescription(val *string)
-	// A device's ID.
-	DeviceId() *string
-	SetDeviceId(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -115,9 +110,6 @@ type CfnApplicationInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Only include instances with a specific status.
-	StatusFilter() *string
-	SetStatusFilter(val *string)
 	// Tags for the application instance.
 	Tags() awscdk.TagManager
 	// Deprecated.
@@ -416,16 +408,6 @@ func (j *jsiiProxy_CfnApplicationInstance) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationInstance) DeviceId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"deviceId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnApplicationInstance) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -501,16 +483,6 @@ func (j *jsiiProxy_CfnApplicationInstance) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnApplicationInstance) StatusFilter() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"statusFilter",
 		&returns,
 	)
 	return returns
@@ -603,14 +575,6 @@ func (j *jsiiProxy_CfnApplicationInstance)SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnApplicationInstance)SetDeviceId(val *string) {
-	_jsii_.Set(
-		j,
-		"deviceId",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnApplicationInstance)SetManifestOverridesPayload(val interface{}) {
 	if err := j.validateSetManifestOverridesPayloadParameters(val); err != nil {
 		panic(err)
@@ -645,14 +609,6 @@ func (j *jsiiProxy_CfnApplicationInstance)SetRuntimeRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"runtimeRoleArn",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnApplicationInstance)SetStatusFilter(val *string) {
-	_jsii_.Set(
-		j,
-		"statusFilter",
 		val,
 	)
 }

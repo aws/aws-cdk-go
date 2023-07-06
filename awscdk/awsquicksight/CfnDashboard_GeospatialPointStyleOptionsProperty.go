@@ -16,12 +16,23 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	HeatmapConfiguration: &GeospatialHeatmapConfigurationProperty{
+//   		HeatmapColor: &GeospatialHeatmapColorScaleProperty{
+//   			Colors: []interface{}{
+//   				&GeospatialHeatmapDataColorProperty{
+//   					Color: jsii.String("color"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	SelectedPointStyle: jsii.String("selectedPointStyle"),
 //   }
 //
 type CfnDashboard_GeospatialPointStyleOptionsProperty struct {
 	// The cluster marker configuration of the geospatial point style.
 	ClusterMarkerConfiguration interface{} `field:"optional" json:"clusterMarkerConfiguration" yaml:"clusterMarkerConfiguration"`
+	// The heatmap configuration of the geospatial point style.
+	HeatmapConfiguration interface{} `field:"optional" json:"heatmapConfiguration" yaml:"heatmapConfiguration"`
 	// The selected point styles (point, cluster) of the geospatial map.
 	SelectedPointStyle *string `field:"optional" json:"selectedPointStyle" yaml:"selectedPointStyle"`
 }

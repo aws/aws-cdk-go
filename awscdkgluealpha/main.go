@@ -153,6 +153,14 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.DatabaseProps",
 		reflect.TypeOf((*DatabaseProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.ExecutionClass",
+		reflect.TypeOf((*ExecutionClass)(nil)).Elem(),
+		map[string]interface{}{
+			"FLEX": ExecutionClass_FLEX,
+			"STANDARD": ExecutionClass_STANDARD,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.GlueVersion",
 		reflect.TypeOf((*GlueVersion)(nil)).Elem(),
@@ -410,6 +418,16 @@ func init() {
 			"TWO": PythonVersion_TWO,
 			"THREE": PythonVersion_THREE,
 			"THREE_NINE": PythonVersion_THREE_NINE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.Runtime",
+		reflect.TypeOf((*Runtime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Runtime{}
 		},
 	)
 	_jsii_.RegisterClass(

@@ -21,6 +21,8 @@ type CfnStandard_StandardsControlProperty struct {
 	// The Amazon Resource Name (ARN) of the control.
 	StandardsControlArn *string `field:"required" json:"standardsControlArn" yaml:"standardsControlArn"`
 	// A user-defined reason for changing a control's enablement status in a specified standard.
+	//
+	// If you are disabling a control, then this property is required.
 	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 }
 

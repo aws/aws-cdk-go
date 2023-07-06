@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAppBlock) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppBlock) validateSetPostSetupScriptDetailsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppBlock) validateSetSetupScriptDetailsParameters(val interface{}) error {
 	return nil
 }

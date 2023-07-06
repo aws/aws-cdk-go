@@ -25,10 +25,12 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   			LogGroup: jsii.String("logGroup"),
 //   		},
+//   		IncludeTrustContext: jsii.Boolean(false),
 //   		KinesisDataFirehose: &KinesisDataFirehoseProperty{
 //   			DeliveryStream: jsii.String("deliveryStream"),
 //   			Enabled: jsii.Boolean(false),
 //   		},
+//   		LogVersion: jsii.String("logVersion"),
 //   		S3: &S3Property{
 //   			BucketName: jsii.String("bucketName"),
 //   			BucketOwner: jsii.String("bucketOwner"),

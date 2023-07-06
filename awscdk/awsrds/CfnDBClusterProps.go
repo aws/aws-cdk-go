@@ -270,7 +270,7 @@ type CfnDBClusterProps struct {
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The DB engine mode of the DB cluster, either `provisioned` or `serverless` .
 	//
-	// The `serverless` engine mode only supports Aurora Serverless v1. Currently, AWS CloudFormation doesn't support Aurora Serverless v2.
+	// The `serverless` engine mode only supports Aurora Serverless v1.
 	//
 	// Limitations and requirements apply to some DB engine modes. For more information, see the following sections in the *Amazon Aurora User Guide* :
 	//

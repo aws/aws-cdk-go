@@ -16,6 +16,11 @@ package awsquicksight
 //   		Scope: &PivotTableConditionalFormattingScopeProperty{
 //   			Role: jsii.String("role"),
 //   		},
+//   		Scopes: []interface{}{
+//   			&PivotTableConditionalFormattingScopeProperty{
+//   				Role: jsii.String("role"),
+//   			},
+//   		},
 //   		TextFormat: &TextConditionalFormatProperty{
 //   			BackgroundColor: &ConditionalFormattingColorProperty{
 //   				Gradient: &ConditionalFormattingGradientColorProperty{

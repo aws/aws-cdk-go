@@ -188,6 +188,10 @@ type CfnServer interface {
 	// - To ignore the error that is generated when the client attempts to use the `SETSTAT` command on a file that you are uploading to an Amazon S3 bucket, use the `SetStatOption` parameter. To have the AWS Transfer Family server ignore the `SETSTAT` command and upload files without needing to make any changes to your SFTP client, set the value to `ENABLE_NO_OP` . If you set the `SetStatOption` parameter to `ENABLE_NO_OP` , Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a `SETSTAT` call.
 	// - To determine whether your AWS Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the `TlsSessionResumptionMode` parameter.
 	// - `As2Transports` indicates the transport method for the AS2 messages. Currently, only HTTP is supported.
+	//
+	// The `Protocols` parameter is an array of strings.
+	//
+	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`.
 	ProtocolDetails() interface{}
 	SetProtocolDetails(val interface{})
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
@@ -204,6 +208,10 @@ type CfnServer interface {
 	// > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
 	// > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
 	// > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
+	//
+	// The `Protocols` parameter is an array of strings.
+	//
+	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`.
 	Protocols() *[]*string
 	SetProtocols(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

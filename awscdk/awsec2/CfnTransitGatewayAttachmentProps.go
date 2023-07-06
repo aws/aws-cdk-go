@@ -39,11 +39,7 @@ type CfnTransitGatewayAttachmentProps struct {
 	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// The VPC attachment options, in JSON or YAML.
-	//
-	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
-	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
-	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
+	// The VPC attachment options.
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The tags for the attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

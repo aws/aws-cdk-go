@@ -93,6 +93,8 @@ type CfnSolution interface {
 	PerformHpo() interface{}
 	SetPerformHpo(val interface{})
 	// The ARN of the recipe used to create the solution.
+	//
+	// This is required when `performAutoML` is false.
 	RecipeArn() *string
 	SetRecipeArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

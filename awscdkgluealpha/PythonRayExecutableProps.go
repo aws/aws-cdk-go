@@ -8,6 +8,7 @@ package awscdkgluealpha
 //   	Executable: glue.JobExecutable_PythonRay(&PythonRayExecutableProps{
 //   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE_NINE,
+//   		Runtime: glue.Runtime_RAY_TWO_FOUR(),
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
 //   	}),
 //   	WorkerType: glue.WorkerType_Z_2X(),
@@ -42,5 +43,10 @@ type PythonRayExecutableProps struct {
 	//
 	// Experimental.
 	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
+	// Runtime.
+	//
+	// It is required for Ray jobs.
+	// Experimental.
+	Runtime Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }
 

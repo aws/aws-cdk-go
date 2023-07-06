@@ -13,6 +13,8 @@ type CfnDashboard_RadarChartConfigurationProperty struct {
 	AlternateBandEvenColor *string `field:"optional" json:"alternateBandEvenColor" yaml:"alternateBandEvenColor"`
 	// The color of the odd-numbered alternate bands of a radar chart.
 	AlternateBandOddColor *string `field:"optional" json:"alternateBandOddColor" yaml:"alternateBandOddColor"`
+	// The axis behavior options of a radar chart.
+	AxesRangeScale *string `field:"optional" json:"axesRangeScale" yaml:"axesRangeScale"`
 	// The base sreies settings of a radar chart.
 	BaseSeriesSettings interface{} `field:"optional" json:"baseSeriesSettings" yaml:"baseSeriesSettings"`
 	// The category axis of a radar chart.

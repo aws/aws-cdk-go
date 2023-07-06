@@ -80,10 +80,6 @@ func validateCfnModelPackage_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecificationDefinitionParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnModelPackage) validateSetAdditionalInferenceSpecificationsParameters(val interface{}) error {
 	return nil
 }
@@ -96,10 +92,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetCertifyForMarketplaceParameters(v
 	return nil
 }
 
-func (j *jsiiProxy_CfnModelPackage) validateSetCreatedByParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnModelPackage) validateSetCustomerMetadataPropertiesParameters(val interface{}) error {
 	return nil
 }
@@ -108,15 +100,7 @@ func (j *jsiiProxy_CfnModelPackage) validateSetDriftCheckBaselinesParameters(val
 	return nil
 }
 
-func (j *jsiiProxy_CfnModelPackage) validateSetEnvironmentParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnModelPackage) validateSetInferenceSpecificationParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnModelPackage) validateSetLastModifiedByParameters(val interface{}) error {
 	return nil
 }
 
@@ -129,10 +113,6 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelMetricsParameters(val interf
 }
 
 func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusDetailsParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusItemParameters(val interface{}) error {
 	return nil
 }
 

@@ -33,21 +33,21 @@ import (
 //   }
 //
 type CfnLocationNFSProps struct {
-	// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to an NFS server.
+	// Specifies the Amazon Resource Names (ARNs) of agents that DataSync uses to connect to your NFS file server.
 	//
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	OnPremConfig interface{} `field:"required" json:"onPremConfig" yaml:"onPremConfig"`
-	// The NFS mount options that DataSync can use to mount your NFS share.
+	// Specifies the mount options that DataSync can use to mount your NFS share.
 	MountOptions interface{} `field:"optional" json:"mountOptions" yaml:"mountOptions"`
-	// The name of the NFS server.
+	// Specifies the IP address or domain name of your NFS file server.
 	//
-	// This value is the IP address or Domain Name Service (DNS) name of the NFS server. An agent that is installed on-premises uses this hostname to mount the NFS server in a network.
+	// An agent that is installed on-premises uses this hostname to mount the NFS server in a network.
 	//
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	//
-	// > This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.
+	// > You must specify be an IP version 4 address or Domain Name System (DNS)-compliant name.
 	ServerHostname *string `field:"optional" json:"serverHostname" yaml:"serverHostname"`
-	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
+	// Specifies the subdirectory in the NFS file server that DataSync transfers to or from.
 	//
 	// The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network.
 	//
@@ -56,12 +56,10 @@ type CfnLocationNFSProps struct {
 	// To transfer all the data in the folder you specified, DataSync needs to have permissions to read all the data. To ensure this, either configure the NFS export with `no_root_squash,` or ensure that the permissions for all of the files that you want DataSync allow read access for all users. Doing either enables the agent to read the files. For the agent to access directories, you must additionally enable all execute access.
 	//
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
-	//
-	// For information about NFS export configuration, see [18.7. The /etc/exports Configuration File](https://docs.aws.amazon.com/http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html) in the Red Hat Enterprise Linux documentation.
 	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
-	// The key-value pair that represents the tag that you want to add to the location.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// We recommend creating at least a name tag for your location.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

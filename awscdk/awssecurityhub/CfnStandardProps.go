@@ -27,7 +27,7 @@ type CfnStandardProps struct {
 	//
 	// To view a list of available Security Hub standards and their ARNs, use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
 	StandardsArn *string `field:"required" json:"standardsArn" yaml:"standardsArn"`
-	// Specifies whether a control is enabled or disabled in a specified standard.
+	// Specifies which controls are to be disabled in a standard.
 	DisabledStandardsControls interface{} `field:"optional" json:"disabledStandardsControls" yaml:"disabledStandardsControls"`
 }
 

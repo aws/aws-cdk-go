@@ -14,42 +14,6 @@ import (
 //   var modelInput interface{}
 //
 //   cfnModelPackageProps := &CfnModelPackageProps{
-//   	AdditionalInferenceSpecificationDefinition: &AdditionalInferenceSpecificationDefinitionProperty{
-//   		Containers: []interface{}{
-//   			&ModelPackageContainerDefinitionProperty{
-//   				Image: jsii.String("image"),
-//
-//   				// the properties below are optional
-//   				ContainerHostname: jsii.String("containerHostname"),
-//   				Environment: map[string]*string{
-//   					"environmentKey": jsii.String("environment"),
-//   				},
-//   				Framework: jsii.String("framework"),
-//   				FrameworkVersion: jsii.String("frameworkVersion"),
-//   				ImageDigest: jsii.String("imageDigest"),
-//   				ModelDataUrl: jsii.String("modelDataUrl"),
-//   				ModelInput: modelInput,
-//   				NearestModelName: jsii.String("nearestModelName"),
-//   				ProductId: jsii.String("productId"),
-//   			},
-//   		},
-//   		Name: jsii.String("name"),
-//
-//   		// the properties below are optional
-//   		Description: jsii.String("description"),
-//   		SupportedContentTypes: []*string{
-//   			jsii.String("supportedContentTypes"),
-//   		},
-//   		SupportedRealtimeInferenceInstanceTypes: []*string{
-//   			jsii.String("supportedRealtimeInferenceInstanceTypes"),
-//   		},
-//   		SupportedResponseMimeTypes: []*string{
-//   			jsii.String("supportedResponseMimeTypes"),
-//   		},
-//   		SupportedTransformInstanceTypes: []*string{
-//   			jsii.String("supportedTransformInstanceTypes"),
-//   		},
-//   	},
 //   	AdditionalInferenceSpecifications: []interface{}{
 //   		&AdditionalInferenceSpecificationDefinitionProperty{
 //   			Containers: []interface{}{
@@ -67,7 +31,6 @@ import (
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
-//   					ProductId: jsii.String("productId"),
 //   				},
 //   			},
 //   			Name: jsii.String("name"),
@@ -105,7 +68,6 @@ import (
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
-//   					ProductId: jsii.String("productId"),
 //   				},
 //   			},
 //   			Name: jsii.String("name"),
@@ -129,11 +91,6 @@ import (
 //   	ApprovalDescription: jsii.String("approvalDescription"),
 //   	CertifyForMarketplace: jsii.Boolean(false),
 //   	ClientToken: jsii.String("clientToken"),
-//   	CreatedBy: &UserContextProperty{
-//   		DomainId: jsii.String("domainId"),
-//   		UserProfileArn: jsii.String("userProfileArn"),
-//   		UserProfileName: jsii.String("userProfileName"),
-//   	},
 //   	CustomerMetadataProperties: map[string]*string{
 //   		"customerMetadataPropertiesKey": jsii.String("customerMetadataProperties"),
 //   	},
@@ -211,9 +168,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Environment: map[string]*string{
-//   		"environmentKey": jsii.String("environment"),
-//   	},
 //   	InferenceSpecification: &InferenceSpecificationProperty{
 //   		Containers: []interface{}{
 //   			&ModelPackageContainerDefinitionProperty{
@@ -230,7 +184,6 @@ import (
 //   				ModelDataUrl: jsii.String("modelDataUrl"),
 //   				ModelInput: modelInput,
 //   				NearestModelName: jsii.String("nearestModelName"),
-//   				ProductId: jsii.String("productId"),
 //   			},
 //   		},
 //   		SupportedContentTypes: []*string{
@@ -247,11 +200,6 @@ import (
 //   		SupportedTransformInstanceTypes: []*string{
 //   			jsii.String("supportedTransformInstanceTypes"),
 //   		},
-//   	},
-//   	LastModifiedBy: &UserContextProperty{
-//   		DomainId: jsii.String("domainId"),
-//   		UserProfileArn: jsii.String("userProfileArn"),
-//   		UserProfileName: jsii.String("userProfileName"),
 //   	},
 //   	LastModifiedTime: jsii.String("lastModifiedTime"),
 //   	MetadataProperties: &MetadataPropertiesProperty{
@@ -340,24 +288,6 @@ import (
 //   				FailureReason: jsii.String("failureReason"),
 //   			},
 //   		},
-//
-//   		// the properties below are optional
-//   		ImageScanStatuses: []interface{}{
-//   			&ModelPackageStatusItemProperty{
-//   				Name: jsii.String("name"),
-//   				Status: jsii.String("status"),
-//
-//   				// the properties below are optional
-//   				FailureReason: jsii.String("failureReason"),
-//   			},
-//   		},
-//   	},
-//   	ModelPackageStatusItem: &ModelPackageStatusItemProperty{
-//   		Name: jsii.String("name"),
-//   		Status: jsii.String("status"),
-//
-//   		// the properties below are optional
-//   		FailureReason: jsii.String("failureReason"),
 //   	},
 //   	ModelPackageVersion: jsii.Number(123),
 //   	SamplePayloadUrl: jsii.String("samplePayloadUrl"),
@@ -427,10 +357,6 @@ import (
 //   }
 //
 type CfnModelPackageProps struct {
-	// A structure of additional Inference Specification.
-	//
-	// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.
-	AdditionalInferenceSpecificationDefinition interface{} `field:"optional" json:"additionalInferenceSpecificationDefinition" yaml:"additionalInferenceSpecificationDefinition"`
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications interface{} `field:"optional" json:"additionalInferenceSpecifications" yaml:"additionalInferenceSpecifications"`
 	// An array of additional Inference Specification objects to be added to the existing array.
@@ -445,8 +371,6 @@ type CfnModelPackageProps struct {
 	CertifyForMarketplace interface{} `field:"optional" json:"certifyForMarketplace" yaml:"certifyForMarketplace"`
 	// A unique token that guarantees that the call to this API is idempotent.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
-	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
-	CreatedBy interface{} `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// The metadata properties for the model package.
 	CustomerMetadataProperties interface{} `field:"optional" json:"customerMetadataProperties" yaml:"customerMetadataProperties"`
 	// The machine learning domain of your model package and its components.
@@ -455,14 +379,8 @@ type CfnModelPackageProps struct {
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
 	DriftCheckBaselines interface{} `field:"optional" json:"driftCheckBaselines" yaml:"driftCheckBaselines"`
-	// The environment variables to set in the Docker container.
-	//
-	// Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification interface{} `field:"optional" json:"inferenceSpecification" yaml:"inferenceSpecification"`
-	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
-	LastModifiedBy interface{} `field:"optional" json:"lastModifiedBy" yaml:"lastModifiedBy"`
 	// The last time the model package was modified.
 	LastModifiedTime *string `field:"optional" json:"lastModifiedTime" yaml:"lastModifiedTime"`
 	// Metadata properties of the tracking entity, trial, or trial component.
@@ -483,8 +401,6 @@ type CfnModelPackageProps struct {
 	ModelPackageName *string `field:"optional" json:"modelPackageName" yaml:"modelPackageName"`
 	// Specifies the validation and image scan statuses of the model package.
 	ModelPackageStatusDetails interface{} `field:"optional" json:"modelPackageStatusDetails" yaml:"modelPackageStatusDetails"`
-	// Represents the overall status of a model package.
-	ModelPackageStatusItem interface{} `field:"optional" json:"modelPackageStatusItem" yaml:"modelPackageStatusItem"`
 	// The version number of a versioned model.
 	ModelPackageVersion *float64 `field:"optional" json:"modelPackageVersion" yaml:"modelPackageVersion"`
 	// The Amazon Simple Storage Service path where the sample payload are stored.

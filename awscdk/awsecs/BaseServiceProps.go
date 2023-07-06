@@ -44,6 +44,14 @@ import (
 //   		FailureThreshold: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   	},
+//   	DeploymentAlarms: &DeploymentAlarmConfig{
+//   		AlarmNames: []*string{
+//   			jsii.String("alarmNames"),
+//   		},
+//
+//   		// the properties below are optional
+//   		Behavior: awscdk.*Aws_ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
+//   	},
 //   	DeploymentController: &DeploymentController{
 //   		Type: awscdk.*Aws_ecs.DeploymentControllerType_ECS,
 //   	},
@@ -84,6 +92,8 @@ type BaseServiceProps struct {
 	CircuitBreaker *DeploymentCircuitBreaker `field:"optional" json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
 	CloudMapOptions *CloudMapOptions `field:"optional" json:"cloudMapOptions" yaml:"cloudMapOptions"`
+	// The alarm(s) to monitor during deployment, and behavior to apply if at least one enters a state of alarm during the deployment or bake time.
+	DeploymentAlarms *DeploymentAlarmConfig `field:"optional" json:"deploymentAlarms" yaml:"deploymentAlarms"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see

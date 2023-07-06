@@ -10,6 +10,12 @@ package awsquicksight
 //
 //   customActionFilterOperationProperty := &CustomActionFilterOperationProperty{
 //   	SelectedFieldsConfiguration: &FilterOperationSelectedFieldsConfigurationProperty{
+//   		SelectedColumns: []interface{}{
+//   			&ColumnIdentifierProperty{
+//   				ColumnName: jsii.String("columnName"),
+//   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			},
+//   		},
 //   		SelectedFieldOptions: jsii.String("selectedFieldOptions"),
 //   		SelectedFields: []*string{
 //   			jsii.String("selectedFields"),

@@ -84,7 +84,15 @@ func (j *jsiiProxy_CfnTheme) validateSetAwsAccountIdParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnTheme) validateSetBaseThemeIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTheme) validateSetConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTheme) validateSetNameParameters(val *string) error {
 	return nil
 }
 

@@ -312,7 +312,7 @@ type CfnAutomationRuleProps struct {
 	RuleOrder *float64 `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
 	// Whether the rule is active after it is created.
 	//
-	// If this parameter is equal to `ENABLED` , Security Hub will apply the rule to findings and finding updates after the rule is created.
+	// If this parameter is equal to `ENABLED` , Security Hub applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *string `field:"optional" json:"ruleStatus" yaml:"ruleStatus"`
 	// User-defined tags that help you label the purpose of a rule.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

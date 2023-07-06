@@ -7,6 +7,9 @@ import (
 // AWS CDK CLI operations.
 // Experimental.
 type IAwsCdkCli interface {
+	// cdk bootstrap.
+	// Experimental.
+	Bootstrap(options *BootstrapOptions)
 	// cdk deploy.
 	// Experimental.
 	Deploy(options *DeployOptions)
@@ -24,6 +27,17 @@ type IAwsCdkCli interface {
 // The jsii proxy for IAwsCdkCli
 type jsiiProxy_IAwsCdkCli struct {
 	_ byte // padding
+}
+
+func (i *jsiiProxy_IAwsCdkCli) Bootstrap(options *BootstrapOptions) {
+	if err := i.validateBootstrapParameters(options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"bootstrap",
+		[]interface{}{options},
+	)
 }
 
 func (i *jsiiProxy_IAwsCdkCli) Deploy(options *DeployOptions) {

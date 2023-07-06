@@ -80,10 +80,6 @@ func validateCfnServiceLinkedRole_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnServiceLinkedRole) validateSetAwsServiceNameParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnServiceLinkedRoleParameters(scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) error {
 	return nil
 }

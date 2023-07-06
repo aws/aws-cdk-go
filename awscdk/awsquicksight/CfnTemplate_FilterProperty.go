@@ -184,6 +184,13 @@ package awsquicksight
 //   	TopBottomFilter: &TopBottomFilterProperty{
 //   		AggregationSortConfigurations: []interface{}{
 //   			&AggregationSortConfigurationProperty{
+//   				Column: &ColumnIdentifierProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				},
+//   				SortDirection: jsii.String("sortDirection"),
+//
+//   				// the properties below are optional
 //   				AggregationFunction: &AggregationFunctionProperty{
 //   					CategoricalAggregationFunction: jsii.String("categoricalAggregationFunction"),
 //   					DateAggregationFunction: jsii.String("dateAggregationFunction"),
@@ -194,11 +201,6 @@ package awsquicksight
 //   						SimpleNumericalAggregation: jsii.String("simpleNumericalAggregation"),
 //   					},
 //   				},
-//   				Column: &ColumnIdentifierProperty{
-//   					ColumnName: jsii.String("columnName"),
-//   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
-//   				},
-//   				SortDirection: jsii.String("sortDirection"),
 //   			},
 //   		},
 //   		Column: &ColumnIdentifierProperty{

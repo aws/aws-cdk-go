@@ -46,8 +46,8 @@ import (
 //   	LinuxParameters: linuxParameters,
 //   	Logging: logDriver,
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: []iSecret{
-//   		secret,
+//   	Secrets: map[string]iSecret{
+//   		"secretsKey": secret,
 //   	},
 //   	User: jsii.String("user"),
 //   	Volumes: []*ecsVolume{
@@ -102,13 +102,14 @@ type EcsFargateContainerDefinitionProps struct {
 	// Gives the container readonly access to its root filesystem.
 	// Experimental.
 	ReadonlyRootFilesystem *bool `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
-	// The secrets for the container.
+	// A map from environment variable names to the secrets for the container.
 	//
-	// Can be referenced in your job definition.
+	// Allows your job definitions
+	// to reference the secret by the environment variable name defined in this property.
 	// See: https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html
 	//
 	// Experimental.
-	Secrets *[]awssecretsmanager.ISecret `field:"optional" json:"secrets" yaml:"secrets"`
+	Secrets *map[string]awssecretsmanager.ISecret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The user name to use inside the container.
 	// Experimental.
 	User *string `field:"optional" json:"user" yaml:"user"`

@@ -18,23 +18,10 @@ package awssagemaker
 //   			FailureReason: jsii.String("failureReason"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	ImageScanStatuses: []interface{}{
-//   		&ModelPackageStatusItemProperty{
-//   			Name: jsii.String("name"),
-//   			Status: jsii.String("status"),
-//
-//   			// the properties below are optional
-//   			FailureReason: jsii.String("failureReason"),
-//   		},
-//   	},
 //   }
 //
 type CfnModelPackage_ModelPackageStatusDetailsProperty struct {
 	// The validation status of the model package.
-	ValidationStatuses interface{} `field:"required" json:"validationStatuses" yaml:"validationStatuses"`
-	// The status of the scan of the Docker image container for the model package.
-	ImageScanStatuses interface{} `field:"optional" json:"imageScanStatuses" yaml:"imageScanStatuses"`
+	ValidationStatuses interface{} `field:"optional" json:"validationStatuses" yaml:"validationStatuses"`
 }
 

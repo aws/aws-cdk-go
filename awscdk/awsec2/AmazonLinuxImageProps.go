@@ -8,6 +8,7 @@ package awsec2
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
 //   })
 //
 //   // instance to add as the target for load balancer.

@@ -36,6 +36,10 @@ func (f *jsiiProxy_FargateService) validateEnableCloudMapParameters(options *Clo
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateEnableDeploymentAlarmsParameters(alarmNames *[]*string, options *DeploymentAlarmOptions) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
 	return nil
 }
@@ -89,6 +93,10 @@ func validateFargateService_IsOwnedResourceParameters(construct constructs.ICons
 }
 
 func validateFargateService_IsResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (j *jsiiProxy_FargateService) validateSetDeploymentAlarmsParameters(val *CfnService_DeploymentAlarmsProperty) error {
 	return nil
 }
 

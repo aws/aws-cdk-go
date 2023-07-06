@@ -23,6 +23,10 @@ import (
 type CfnServiceLinkedRole interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the friendly name that identifies the role.
+	//
+	// For example, `AWSServiceRoleForAutoScaling` or `AWSServiceRoleForAutoScaling_TestSuffix` if a `CustomSuffix` is specified.
+	AttrRoleName() *string
 	// The service principal for the AWS service to which this role is attached.
 	//
 	// You use a string similar to a URL but without the http:// in front. For example: `elasticbeanstalk.amazonaws.com` .
@@ -216,6 +220,16 @@ type jsiiProxy_CfnServiceLinkedRole struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnServiceLinkedRole) AttrRoleName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRoleName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceLinkedRole) AwsServiceName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -377,9 +391,6 @@ func NewCfnServiceLinkedRole_Override(c CfnServiceLinkedRole, scope constructs.C
 }
 
 func (j *jsiiProxy_CfnServiceLinkedRole)SetAwsServiceName(val *string) {
-	if err := j.validateSetAwsServiceNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"awsServiceName",

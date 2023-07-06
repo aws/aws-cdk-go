@@ -42,5 +42,10 @@ type PythonShellExecutableProps struct {
 	//
 	// Experimental.
 	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
+	// Runtime.
+	//
+	// It is required for Ray jobs.
+	// Experimental.
+	Runtime Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }
 

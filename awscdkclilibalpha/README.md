@@ -33,6 +33,7 @@ Currently the package includes implementations for:
 
 * `cdk deploy`
 * `cdk synth`
+* `cdk bootstrap`
 * `cdk destroy`
 * `cdk list`
 
@@ -97,6 +98,13 @@ cli.Synth(&SynthOptions{
 		jsii.String("MyTestStack"),
 	},
 })
+```
+
+### bootstrap
+
+```go
+// await this asynchronous method call using a language feature
+cli.Bootstrap()
 ```
 
 ### deploy

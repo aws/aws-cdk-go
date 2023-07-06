@@ -14,6 +14,6 @@ package awslakeformation
 //
 type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `field:"required" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 

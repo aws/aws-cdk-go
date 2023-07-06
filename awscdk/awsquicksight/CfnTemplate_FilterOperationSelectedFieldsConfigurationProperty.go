@@ -11,6 +11,12 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   filterOperationSelectedFieldsConfigurationProperty := &FilterOperationSelectedFieldsConfigurationProperty{
+//   	SelectedColumns: []interface{}{
+//   		&ColumnIdentifierProperty{
+//   			ColumnName: jsii.String("columnName"),
+//   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		},
+//   	},
 //   	SelectedFieldOptions: jsii.String("selectedFieldOptions"),
 //   	SelectedFields: []*string{
 //   		jsii.String("selectedFields"),
@@ -18,6 +24,8 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_FilterOperationSelectedFieldsConfigurationProperty struct {
+	// The selected columns of a dataset.
+	SelectedColumns interface{} `field:"optional" json:"selectedColumns" yaml:"selectedColumns"`
 	// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
 	//
 	// Valid values are defined as follows:

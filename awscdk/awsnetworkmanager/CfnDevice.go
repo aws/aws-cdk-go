@@ -22,6 +22,10 @@ import (
 //   	GlobalNetworkId: jsii.String("globalNetworkId"),
 //
 //   	// the properties below are optional
+//   	AwsLocation: &AWSLocationProperty{
+//   		SubnetArn: jsii.String("subnetArn"),
+//   		Zone: jsii.String("zone"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	Location: &LocationProperty{
 //   		Address: jsii.String("address"),
@@ -44,6 +48,7 @@ import (
 type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrCreatedAt() *string
 	// The ARN of the device.
 	//
 	// For example, `arn:aws:networkmanager::123456789012:device/global-network-01231231231231231/device-07f6fd08867abc123` .
@@ -52,6 +57,9 @@ type CfnDevice interface {
 	//
 	// For example, `device-07f6fd08867abc123` .
 	AttrDeviceId() *string
+	// `AWS::NetworkManager::Device.AWSLocation`.
+	AwsLocation() interface{}
+	SetAwsLocation(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -262,6 +270,16 @@ type jsiiProxy_CfnDevice struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnDevice) AttrCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDevice) AttrDeviceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -277,6 +295,16 @@ func (j *jsiiProxy_CfnDevice) AttrDeviceId() *string {
 	_jsii_.Get(
 		j,
 		"attrDeviceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDevice) AwsLocation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"awsLocation",
 		&returns,
 	)
 	return returns
@@ -499,6 +527,17 @@ func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, 
 		"aws-cdk-lib.aws_networkmanager.CfnDevice",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDevice)SetAwsLocation(val interface{}) {
+	if err := j.validateSetAwsLocationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"awsLocation",
+		val,
 	)
 }
 

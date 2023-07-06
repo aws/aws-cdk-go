@@ -54,6 +54,9 @@ type FargateService interface {
 	Cluster() ICluster
 	// The security groups which manage the allowed network traffic for the service.
 	Connections() awsec2.Connections
+	// The deployment alarms property - this will be rendered directly and lazily as the CfnService.alarms property.
+	DeploymentAlarms() *CfnService_DeploymentAlarmsProperty
+	SetDeploymentAlarms(val *CfnService_DeploymentAlarmsProperty)
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -126,7 +129,22 @@ type FargateService interface {
 	//
 	// Returns: The created CloudMap service.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
-	// * Enable Service Connect.
+	// Enable Deployment Alarms which take advantage of arbitrary alarms and configure them after service initialization.
+	//
+	// If you have already enabled deployment alarms, this function can be used to tell ECS about additional alarms that
+	// should interrupt a deployment.
+	//
+	// New alarms specified in subsequent calls of this function will be appended to the existing list of alarms.
+	//
+	// The same Alarm Behavior must be used on all deployment alarms. If you specify different AlarmBehavior values in
+	// multiple calls to this function, or the Alarm Behavior used here doesn't match the one used in the service
+	// constructor, an error will be thrown.
+	//
+	// If the alarm's metric references the service, you cannot pass `Alarm.alarmName` here. That will cause a circular
+	// dependency between the service and its deployment alarm. See this package's README for options to alarm on service
+	// metrics, and avoid this circular dependency.
+	EnableDeploymentAlarms(alarmNames *[]*string, options *DeploymentAlarmOptions)
+	// Enable Service Connect on this service.
 	EnableServiceConnect(config *ServiceConnectProps)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -233,6 +251,16 @@ func (j *jsiiProxy_FargateService) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateService) DeploymentAlarms() *CfnService_DeploymentAlarmsProperty {
+	var returns *CfnService_DeploymentAlarmsProperty
+	_jsii_.Get(
+		j,
+		"deploymentAlarms",
 		&returns,
 	)
 	return returns
@@ -372,6 +400,17 @@ func (j *jsiiProxy_FargateService)SetCloudmapService(val awsservicediscovery.Ser
 	_jsii_.Set(
 		j,
 		"cloudmapService",
+		val,
+	)
+}
+
+func (j *jsiiProxy_FargateService)SetDeploymentAlarms(val *CfnService_DeploymentAlarmsProperty) {
+	if err := j.validateSetDeploymentAlarmsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deploymentAlarms",
 		val,
 	)
 }
@@ -649,6 +688,17 @@ func (f *jsiiProxy_FargateService) EnableCloudMap(options *CloudMapOptions) awss
 	)
 
 	return returns
+}
+
+func (f *jsiiProxy_FargateService) EnableDeploymentAlarms(alarmNames *[]*string, options *DeploymentAlarmOptions) {
+	if err := f.validateEnableDeploymentAlarmsParameters(alarmNames, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"enableDeploymentAlarms",
+		[]interface{}{alarmNames, options},
+	)
 }
 
 func (f *jsiiProxy_FargateService) EnableServiceConnect(config *ServiceConnectProps) {

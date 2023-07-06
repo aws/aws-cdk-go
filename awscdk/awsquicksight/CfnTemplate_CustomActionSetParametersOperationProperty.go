@@ -33,6 +33,10 @@ package awsquicksight
 //   					IncludeNullValue: jsii.Boolean(false),
 //   				},
 //   				SelectAllValueOptions: jsii.String("selectAllValueOptions"),
+//   				SourceColumn: &ColumnIdentifierProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				},
 //   				SourceField: jsii.String("sourceField"),
 //   				SourceParameterName: jsii.String("sourceParameterName"),
 //   			},

@@ -40,7 +40,7 @@ type CfnUsagePlanKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Id of the UsagePlanKey resource to be deleted.
+	// The Id of the UsagePlanKey resource.
 	KeyId() *string
 	SetKeyId(val *string)
 	// The type of a UsagePlanKey resource for a plan customer.
@@ -80,7 +80,7 @@ type CfnUsagePlanKey interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The Id of the UsagePlan resource representing the usage plan containing the to-be-deleted UsagePlanKey resource representing a plan customer.
+	// The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
 	UsagePlanId() *string
 	SetUsagePlanId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

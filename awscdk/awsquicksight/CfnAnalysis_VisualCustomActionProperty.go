@@ -13,6 +13,12 @@ package awsquicksight
 //   		&VisualCustomActionOperationProperty{
 //   			FilterOperation: &CustomActionFilterOperationProperty{
 //   				SelectedFieldsConfiguration: &FilterOperationSelectedFieldsConfigurationProperty{
+//   					SelectedColumns: []interface{}{
+//   						&ColumnIdentifierProperty{
+//   							ColumnName: jsii.String("columnName"),
+//   							DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						},
+//   					},
 //   					SelectedFieldOptions: jsii.String("selectedFieldOptions"),
 //   					SelectedFields: []*string{
 //   						jsii.String("selectedFields"),
@@ -57,6 +63,10 @@ package awsquicksight
 //   								IncludeNullValue: jsii.Boolean(false),
 //   							},
 //   							SelectAllValueOptions: jsii.String("selectAllValueOptions"),
+//   							SourceColumn: &ColumnIdentifierProperty{
+//   								ColumnName: jsii.String("columnName"),
+//   								DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   							},
 //   							SourceField: jsii.String("sourceField"),
 //   							SourceParameterName: jsii.String("sourceParameterName"),
 //   						},

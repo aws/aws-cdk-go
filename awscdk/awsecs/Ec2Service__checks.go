@@ -93,6 +93,18 @@ func (e *jsiiProxy_Ec2Service) validateEnableCloudMapParameters(options *CloudMa
 	return nil
 }
 
+func (e *jsiiProxy_Ec2Service) validateEnableDeploymentAlarmsParameters(alarmNames *[]*string, options *DeploymentAlarmOptions) error {
+	if alarmNames == nil {
+		return fmt.Errorf("parameter alarmNames is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Ec2Service) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
 	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
 		return err
@@ -243,6 +255,14 @@ func validateEc2Service_IsOwnedResourceParameters(construct constructs.IConstruc
 func validateEc2Service_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_Ec2Service) validateSetDeploymentAlarmsParameters(val *CfnService_DeploymentAlarmsProperty) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

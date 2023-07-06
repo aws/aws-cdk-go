@@ -12,6 +12,8 @@ package awsappstream
 //   	ExecutablePath: jsii.String("executablePath"),
 //   	ScriptS3Location: &S3LocationProperty{
 //   		S3Bucket: jsii.String("s3Bucket"),
+//
+//   		// the properties below are optional
 //   		S3Key: jsii.String("s3Key"),
 //   	},
 //   	TimeoutInSeconds: jsii.Number(123),

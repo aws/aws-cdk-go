@@ -84,9 +84,7 @@ type CfnJobDefinition_EksContainerProperty struct {
 	//
 	// The supported resources include `memory` , `cpu` , and `nvidia.com/gpu` . For more information, see [Resource management for pods and containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) in the *Kubernetes documentation* .
 	Resources interface{} `field:"optional" json:"resources" yaml:"resources"`
-	// The security context for a job.
-	//
-	// For more information, see [Configure a security context for a pod or container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation* .
+	// `CfnJobDefinition.EksContainerProperty.SecurityContext`.
 	SecurityContext interface{} `field:"optional" json:"securityContext" yaml:"securityContext"`
 	// The volume mounts for the container.
 	//
